@@ -56,6 +56,7 @@ public class DiligenceMemoryPower extends AbstractMemoryPower implements Cloneab
     @Override
     public void updateDescription() {
         description =
+                (isClarified ? DESCRIPTIONS[5] : "") +
                 DESCRIPTIONS[0] +
                 CARDS_DRAWN_ON_ENTER +
                 (CARDS_DRAWN_ON_ENTER == 1 ? DESCRIPTIONS[1] : DESCRIPTIONS[2]) +
