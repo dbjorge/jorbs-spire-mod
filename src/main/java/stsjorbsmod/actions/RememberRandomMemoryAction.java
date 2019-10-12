@@ -8,7 +8,6 @@ import stsjorbsmod.powers.DiligenceMemoryPower;
 
 import java.util.ArrayList;
 
-
 // "Remember a random memory you do not have clarity of"
 public class RememberRandomMemoryAction extends AbstractGameAction  {
     public RememberRandomMemoryAction(AbstractCreature target, AbstractCreature source) {
@@ -24,7 +23,7 @@ public class RememberRandomMemoryAction extends AbstractGameAction  {
         if (!candidates.isEmpty()) {
             int randomIndex = AbstractDungeon.cardRng.random.nextInt(candidates.size());
             AbstractMemoryPower chosenMemory = candidates.get(randomIndex);
-            AbstractDungeon.actionManager.addToBottom((new RememberSpecificMemoryAction(target, source, chosenMemory)));
+            AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(target, source, chosenMemory));
         }
 
         isDone = true;
