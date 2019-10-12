@@ -5,4 +5,4 @@ Firebolt	1: Deal 8 damage + 2 damage for each clarity <br />
 Magic Missiles	1: Deal 3 damage. Deal 3 damage again once for each clarity<br /> 
 Acid Splash	1: Apply 5 poison to an enemy <br /> 
 True Strike	2: Deal 16 damage. This damage cannot be prevented or reduced. <br /> 
-Ray of Frost	2: Deal 10 damage and apply 3 weak <br /> 
+Ray of Frost	2: Deal 10 damage and apply 3 weak<br /> 
