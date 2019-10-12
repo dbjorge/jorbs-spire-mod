@@ -3,6 +3,7 @@ package stsjorbsmod;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
+import basemod.abstracts.CustomCard;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -342,52 +343,41 @@ public class JorbsMod implements
     
     
     // ================ ADD CARDS ===================
-    
+
+    private void addUnlockedCard(CustomCard cardInstance, String cardID) {
+        BaseMod.addCard(cardInstance);
+        // This is so that the card is "seen" in the library, for people who like to look at the card list
+        // before playing your mod.
+        UnlockTracker.unlockCard(cardID);
+    }
+
     @Override
     public void receiveEditCards() {
         logger.info("Adding variables");
         //Ignore this
         pathCheck();
         // Add the Custom Dynamic Variables
-        logger.info("Add variabls");
-        // Add the Custom Dynamic variabls
+        logger.info("Add variables");
+        // Add the Custom Dynamic variables
         BaseMod.addDynamicVariable(new DefaultCustomVariable());
         BaseMod.addDynamicVariable(new DefaultSecondMagicNumber());
         
         logger.info("Adding cards");
         // Add the cards
+        addUnlockedCard(new Defend_Wanderer(), Defend_Wanderer.ID);
+        addUnlockedCard(new Strike_Wanderer(), Strike_Wanderer.ID);
+
         // Don't comment out/delete these cards (yet). You need 1 of each type and rarity (technically) for your game not to crash
         // when generating card rewards/shop screen items.
-        
-        BaseMod.addCard(new OrbSkill());
-        BaseMod.addCard(new DefaultSecondMagicNumberSkill());
-        BaseMod.addCard(new DefaultCommonAttack());
-        BaseMod.addCard(new DefaultAttackWithVariable());
-        BaseMod.addCard(new DefaultCommonSkill());
-        BaseMod.addCard(new DefaultCommonPower());
-        BaseMod.addCard(new DefaultUncommonSkill());
-        BaseMod.addCard(new DefaultUncommonAttack());
-        BaseMod.addCard(new DefaultUncommonPower());
-        BaseMod.addCard(new DefaultRareAttack());
-        BaseMod.addCard(new DefaultRareSkill());
-        BaseMod.addCard(new DefaultRarePower());
-        
-        logger.info("Making sure the cards are unlocked.");
-        // Unlock the cards
-        // This is so that they are all "seen" in the library, for people who like to look at the card list
-        // before playing your mod.
-        UnlockTracker.unlockCard(OrbSkill.ID);
-        UnlockTracker.unlockCard(DefaultSecondMagicNumberSkill.ID);
-        UnlockTracker.unlockCard(DefaultCommonAttack.ID);
-        UnlockTracker.unlockCard(DefaultAttackWithVariable.ID);
-        UnlockTracker.unlockCard(DefaultCommonSkill.ID);
-        UnlockTracker.unlockCard(DefaultCommonPower.ID);
-        UnlockTracker.unlockCard(DefaultUncommonSkill.ID);
-        UnlockTracker.unlockCard(DefaultUncommonAttack.ID);
-        UnlockTracker.unlockCard(DefaultUncommonPower.ID);
-        UnlockTracker.unlockCard(DefaultRareAttack.ID);
-        UnlockTracker.unlockCard(DefaultRareSkill.ID);
-        UnlockTracker.unlockCard(DefaultRarePower.ID);
+        addUnlockedCard(new DefaultCommonAttack(), DefaultCommonAttack.ID);
+        addUnlockedCard(new DefaultCommonSkill(), DefaultCommonSkill.ID);
+        addUnlockedCard(new DefaultCommonPower(), DefaultCommonPower.ID);
+        addUnlockedCard(new DefaultUncommonSkill(), DefaultUncommonSkill.ID);
+        addUnlockedCard(new DefaultUncommonAttack(), DefaultUncommonAttack.ID);
+        addUnlockedCard(new DefaultUncommonPower(), DefaultUncommonPower.ID);
+        addUnlockedCard(new DefaultRareAttack(), DefaultRareAttack.ID);
+        addUnlockedCard(new DefaultRareSkill(), DefaultRareSkill.ID);
+        addUnlockedCard(new DefaultRarePower(), DefaultRarePower.ID);
         
         logger.info("Done adding cards!");
     }
