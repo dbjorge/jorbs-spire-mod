@@ -19,6 +19,13 @@ public class RememberSpecificMemoryAction extends AbstractGameAction  {
     }
 
     public void update() {
+        // Regardless of whether the old memory is clarified or not, re-remembering it is a no-op
+        if (target.hasPower(memoryToRemember.ID)) {
+            target.getPower(memoryToRemember.ID).flashWithoutSound();
+            isDone = true;
+            return;
+        }
+
         for (AbstractPower oldPower : this.source.powers) {
             if (oldPower instanceof AbstractMemoryPower) {
                 AbstractMemoryPower oldMemory = (AbstractMemoryPower) oldPower;

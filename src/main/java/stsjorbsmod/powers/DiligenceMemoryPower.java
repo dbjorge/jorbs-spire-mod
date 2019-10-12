@@ -29,8 +29,7 @@ public class DiligenceMemoryPower extends AbstractMemoryPower implements Cloneab
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("diligence_memory_power32.png"));
 
     public DiligenceMemoryPower(final AbstractCreature owner, final AbstractCreature source) {
-        super(owner, source);
-        name = NAME;
+        super(NAME, owner, source);
         ID = POWER_ID;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
@@ -54,15 +53,8 @@ public class DiligenceMemoryPower extends AbstractMemoryPower implements Cloneab
     }
 
     @Override
-    public void updateDescription() {
-        description =
-                (isClarified ? DESCRIPTIONS[5] : "") +
-                DESCRIPTIONS[0] +
-                CARDS_DRAWN_ON_ENTER +
-                (CARDS_DRAWN_ON_ENTER == 1 ? DESCRIPTIONS[1] : DESCRIPTIONS[2]) +
-                DESCRIPTIONS[3] +
-                CARDS_RETAINED +
-                DESCRIPTIONS[4];
+    public void updateMemoryDescription() {
+        description = DESCRIPTIONS[0] + CARDS_RETAINED + DESCRIPTIONS[1];
     }
 
     @Override
