@@ -1,43 +1,22 @@
 package net.dbjorge.stsjorbsmod;
 
-import basemod.BaseMod;
-import basemod.interfaces.PostBattleSubscriber;
-import basemod.interfaces.PostDungeonInitializeSubscriber;
-import basemod.interfaces.PostExhaustSubscriber;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import net.dbjorge.stsjorbsmod.characters.WandererCharacter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @SpireInitializer
-public class JorbsMod implements PostExhaustSubscriber, PostBattleSubscriber, PostDungeonInitializeSubscriber {
-
-    private int count, totalCount;
-
-    private void resetCounts() {
-        totalCount = count = 0;
-    }
+public class JorbsMod {
+    public static final Logger logger = LogManager.getLogger(JorbsMod.class);
 
     public JorbsMod() {
-        BaseMod.subscribe(this);
-        resetCounts();
+        //BaseMod.subscribe(this);
+        WandererCharacter.registerColor();
     }
+
 
     public static void initialize() {
+        logger.info("Initializing JorbsMod");
         new JorbsMod();
-    }
-
-    public void receivePostExhaust(AbstractCard c) {
-        count++;
-        totalCount++;
-    }
-
-    public void receivePostBattle(AbstractRoom r) {
-        System.out.println(count + " cards were exhausted this battle, " +
-                totalCount + " cards have been exhausted so far this act.");
-        count = 0;
-    }
-
-    public void receivePostDungeonInitialize() {
-        resetCounts();
     }
 }
