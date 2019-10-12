@@ -19,15 +19,15 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbPassiveEffect;
 import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
-import stsjorbsmod.DefaultMod;
+import stsjorbsmod.JorbsMod;
 import stsjorbsmod.util.TextureLoader;
 
-import static stsjorbsmod.DefaultMod.makeOrbPath;
+import static stsjorbsmod.JorbsMod.makeOrbPath;
 
 public class DefaultOrb extends AbstractOrb {
 
     // Standard ID/Description
-    public static final String ORB_ID = DefaultMod.makeID("DefaultOrb");
+    public static final String ORB_ID = JorbsMod.makeID("DefaultOrb");
     private static final OrbStrings orbString = CardCrawlGame.languagePack.getOrbString(ORB_ID);
     public static final String[] DESC = orbString.DESCRIPTION;
 

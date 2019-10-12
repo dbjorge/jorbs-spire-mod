@@ -6,10 +6,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
-import stsjorbsmod.DefaultMod;
+import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.TheDefault;
 
-import static stsjorbsmod.DefaultMod.makeCardPath;
+import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class DefaultSecondMagicNumberSkill extends AbstractDynamicCard {
 
@@ -29,7 +29,7 @@ public class DefaultSecondMagicNumberSkill extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(DefaultSecondMagicNumberSkill.class.getSimpleName());
+    public static final String ID = JorbsMod.makeID(DefaultSecondMagicNumberSkill.class.getSimpleName());
     public static final String IMG = makeCardPath("Skill.png");
 
     // /TEXT DECLARATION/

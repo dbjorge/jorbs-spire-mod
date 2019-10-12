@@ -5,10 +5,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
-import stsjorbsmod.DefaultMod;
+import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.TheDefault;
 
-import static stsjorbsmod.DefaultMod.makeCardPath;
+import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class DefaultUncommonSkill extends AbstractDynamicCard {
 
@@ -20,7 +20,7 @@ public class DefaultUncommonSkill extends AbstractDynamicCard {
 
     // TEXT DECLARATION 
 
-    public static final String ID = DefaultMod.makeID(DefaultUncommonSkill.class.getSimpleName());
+    public static final String ID = JorbsMod.makeID(DefaultUncommonSkill.class.getSimpleName());
     public static final String IMG = makeCardPath("Skill.png");
 
     // /TEXT DECLARATION/

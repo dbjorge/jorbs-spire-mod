@@ -6,11 +6,11 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import stsjorbsmod.DefaultMod;
+import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.TheDefault;
 import stsjorbsmod.powers.CommonPower;
 
-import static stsjorbsmod.DefaultMod.makeCardPath;
+import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class DefaultCommonPower extends AbstractDynamicCard {
 
@@ -23,7 +23,7 @@ public class DefaultCommonPower extends AbstractDynamicCard {
 
     // TEXT DECLARATION 
 
-    public static final String ID = DefaultMod.makeID(DefaultCommonPower.class.getSimpleName());
+    public static final String ID = JorbsMod.makeID(DefaultCommonPower.class.getSimpleName());
     public static final String IMG = makeCardPath("Power.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

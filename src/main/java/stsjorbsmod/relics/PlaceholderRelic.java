@@ -3,11 +3,11 @@ package stsjorbsmod.relics;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import stsjorbsmod.DefaultMod;
+import stsjorbsmod.JorbsMod;
 import stsjorbsmod.util.TextureLoader;
 
-import static stsjorbsmod.DefaultMod.makeRelicOutlinePath;
-import static stsjorbsmod.DefaultMod.makeRelicPath;
+import static stsjorbsmod.JorbsMod.makeRelicOutlinePath;
+import static stsjorbsmod.JorbsMod.makeRelicPath;
 
 public class PlaceholderRelic extends CustomRelic {
 
@@ -18,7 +18,7 @@ public class PlaceholderRelic extends CustomRelic {
      */
 
     // ID, images, text.
-    public static final String ID = DefaultMod.makeID("PlaceholderRelic");
+    public static final String ID = JorbsMod.makeID("PlaceholderRelic");
 
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("placeholder_relic.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("placeholder_relic.png"));

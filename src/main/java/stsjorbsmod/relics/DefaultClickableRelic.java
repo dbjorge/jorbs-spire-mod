@@ -11,11 +11,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.CollectorCurseEffect;
-import stsjorbsmod.DefaultMod;
+import stsjorbsmod.JorbsMod;
 import stsjorbsmod.util.TextureLoader;
 
-import static stsjorbsmod.DefaultMod.makeRelicOutlinePath;
-import static stsjorbsmod.DefaultMod.makeRelicPath;
+import static stsjorbsmod.JorbsMod.makeRelicOutlinePath;
+import static stsjorbsmod.JorbsMod.makeRelicPath;
 
 public class DefaultClickableRelic extends CustomRelic implements ClickableRelic { // You must implement things you want to use from StSlib
     /*
@@ -26,7 +26,7 @@ public class DefaultClickableRelic extends CustomRelic implements ClickableRelic
      */
 
     // ID, images, text.
-    public static final String ID = DefaultMod.makeID("DefaultClickableRelic");
+    public static final String ID = JorbsMod.makeID("DefaultClickableRelic");
 
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("default_clickable_relic.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("default_clickable_relic.png"));

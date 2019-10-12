@@ -7,10 +7,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
-import stsjorbsmod.DefaultMod;
+import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.TheDefault;
 
-import static stsjorbsmod.DefaultMod.makeCardPath;
+import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class DefaultRareSkill extends AbstractDynamicCard {
 
@@ -22,7 +22,7 @@ public class DefaultRareSkill extends AbstractDynamicCard {
 
     // TEXT DECLARATION 
 
-    public static final String ID = DefaultMod.makeID(DefaultRareSkill.class.getSimpleName());
+    public static final String ID = JorbsMod.makeID(DefaultRareSkill.class.getSimpleName());
     public static final String IMG = makeCardPath("Skill.png");
 
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
