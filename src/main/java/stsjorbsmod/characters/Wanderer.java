@@ -30,13 +30,13 @@ import stsjorbsmod.relics.PlaceholderRelic2;
 import java.util.ArrayList;
 
 import static stsjorbsmod.JorbsMod.*;
-import static stsjorbsmod.characters.TheDefault.Enums.COLOR_GRAY;
+import static stsjorbsmod.characters.Wanderer.Enums.COLOR_GRAY;
 
 //Wiki-page https://github.com/daviscook477/BaseMod/wiki/Custom-Characters
 //and https://github.com/daviscook477/BaseMod/wiki/Migrating-to-5.0
-//All text (starting description and loadout, anything labeled TEXT[]) can be found in DefaultMod-character-Strings.json in the resources
+//All text (starting description and loadout, anything labeled TEXT[]) can be found in JorbsMod-Character-Strings.json in the resources
 
-public class TheDefault extends CustomPlayer {
+public class Wanderer extends CustomPlayer {
     public static final Logger logger = LogManager.getLogger(JorbsMod.class.getName());
 
     // =============== CHARACTER ENUMERATORS =================
@@ -48,7 +48,7 @@ public class TheDefault extends CustomPlayer {
 
     public static class Enums {
         @SpireEnum
-        public static AbstractPlayer.PlayerClass THE_DEFAULT;
+        public static AbstractPlayer.PlayerClass WANDERER;
         @SpireEnum(name = "DEFAULT_GRAY_COLOR") // These two HAVE to have the same absolutely identical name.
         public static AbstractCard.CardColor COLOR_GRAY;
         @SpireEnum(name = "DEFAULT_GRAY_COLOR") @SuppressWarnings("unused")
@@ -64,15 +64,15 @@ public class TheDefault extends CustomPlayer {
     public static final int STARTING_HP = 75;
     public static final int MAX_HP = 75;
     public static final int STARTING_GOLD = 99;
-    public static final int CARD_DRAW = 9;
-    public static final int ORB_SLOTS = 3;
+    public static final int CARD_DRAW = 5;
+    public static final int ORB_SLOTS = 0;
 
     // =============== /BASE STATS/ =================
 
 
     // =============== STRINGS =================
 
-    private static final String ID = makeID("DefaultCharacter");
+    private static final String ID = makeID("WandererCharacter");
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     private static final String[] NAMES = characterStrings.NAMES;
     private static final String[] TEXT = characterStrings.TEXT;
@@ -83,27 +83,27 @@ public class TheDefault extends CustomPlayer {
     // =============== TEXTURES OF BIG ENERGY ORB ===============
 
     public static final String[] orbTextures = {
-            "stsjorbsmodResources/images/char/defaultCharacter/orb/layer1.png",
-            "stsjorbsmodResources/images/char/defaultCharacter/orb/layer2.png",
-            "stsjorbsmodResources/images/char/defaultCharacter/orb/layer3.png",
-            "stsjorbsmodResources/images/char/defaultCharacter/orb/layer4.png",
-            "stsjorbsmodResources/images/char/defaultCharacter/orb/layer5.png",
-            "stsjorbsmodResources/images/char/defaultCharacter/orb/layer6.png",
-            "stsjorbsmodResources/images/char/defaultCharacter/orb/layer1d.png",
-            "stsjorbsmodResources/images/char/defaultCharacter/orb/layer2d.png",
-            "stsjorbsmodResources/images/char/defaultCharacter/orb/layer3d.png",
-            "stsjorbsmodResources/images/char/defaultCharacter/orb/layer4d.png",
-            "stsjorbsmodResources/images/char/defaultCharacter/orb/layer5d.png",};
+            "stsjorbsmodResources/images/char/wanderer/orb/layer1.png",
+            "stsjorbsmodResources/images/char/wanderer/orb/layer2.png",
+            "stsjorbsmodResources/images/char/wanderer/orb/layer3.png",
+            "stsjorbsmodResources/images/char/wanderer/orb/layer4.png",
+            "stsjorbsmodResources/images/char/wanderer/orb/layer5.png",
+            "stsjorbsmodResources/images/char/wanderer/orb/layer6.png",
+            "stsjorbsmodResources/images/char/wanderer/orb/layer1d.png",
+            "stsjorbsmodResources/images/char/wanderer/orb/layer2d.png",
+            "stsjorbsmodResources/images/char/wanderer/orb/layer3d.png",
+            "stsjorbsmodResources/images/char/wanderer/orb/layer4d.png",
+            "stsjorbsmodResources/images/char/wanderer/orb/layer5d.png",};
 
     // =============== /TEXTURES OF BIG ENERGY ORB/ ===============
 
     // =============== CHARACTER CLASS START =================
 
-    public TheDefault(String name, PlayerClass setClass) {
+    public Wanderer(String name, PlayerClass setClass) {
         super(name, setClass, orbTextures,
-                "stsjorbsmodResources/images/char/defaultCharacter/orb/vfx.png", null,
+                "stsjorbsmodResources/images/char/wanderer/orb/vfx.png", null,
                 new SpriterAnimation(
-                        "stsjorbsmodResources/images/char/defaultCharacter/Spriter/theDefaultAnimation.scml"));
+                        "stsjorbsmodResources/images/char/wanderer/Spriter/theDefaultAnimation.scml"));
 
 
         // =============== TEXTURES, ENERGY, LOADOUT =================  
@@ -250,7 +250,7 @@ public class TheDefault extends CustomPlayer {
     // Should return a new instance of your character, sending name as its name parameter.
     @Override
     public AbstractPlayer newInstance() {
-        return new TheDefault(name, chosenClass);
+        return new Wanderer(name, chosenClass);
     }
 
     // Should return a Color object to be used to color the miniature card images in run history.
