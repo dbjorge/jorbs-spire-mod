@@ -1,0 +1,72 @@
+package stsjorbsmod.powers;
+
+import basemod.interfaces.CloneablePowerInterface;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.unique.RetainCardsAction;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import stsjorbsmod.JorbsMod;
+import stsjorbsmod.util.TextureLoader;
+
+import static stsjorbsmod.JorbsMod.makePowerPath;
+
+// Draw 2 cards on entering, retain 1 card per turn passively
+public class DiligenceMemoryPower extends AbstractMemoryPower implements CloneablePowerInterface {
+    private static final int CARDS_DRAWN_ON_ENTER = 2;
+    private static final int CARDS_RETAINED = 1;
+
+    public static final String POWER_ID = JorbsMod.makeID(DiligenceMemoryPower.class.getSimpleName());
+    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    public static final String NAME = powerStrings.NAME;
+    public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("diligence_memory_power84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("diligence_memory_power32.png"));
+
+    public DiligenceMemoryPower(final AbstractCreature owner, final AbstractCreature source) {
+        super(owner, source);
+        name = NAME;
+        ID = POWER_ID;
+
+        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+
+        updateDescription();
+    }
+
+    @Override
+    public void onInitialApplication() {
+        AbstractDungeon.actionManager.addToBottom(
+                new DrawCardAction(this.source, CARDS_DRAWN_ON_ENTER));
+    }
+
+    @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        if (isPlayer) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new RetainCardsAction(this.source, CARDS_RETAINED));
+        }
+    }
+
+    @Override
+    public void updateDescription() {
+        description =
+                (isClarified ? DESCRIPTIONS[5] : "") +
+                DESCRIPTIONS[0] +
+                CARDS_DRAWN_ON_ENTER +
+                (CARDS_DRAWN_ON_ENTER == 1 ? DESCRIPTIONS[1] : DESCRIPTIONS[2]) +
+                DESCRIPTIONS[3] +
+                CARDS_RETAINED +
+                DESCRIPTIONS[4];
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new DiligenceMemoryPower(owner, source);
+    }
+}

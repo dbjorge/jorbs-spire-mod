@@ -6,5 +6,9 @@
 "stsjorbsmod:RarePower": {
         "NAME": "Placeholder Power",
         "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
+},
+"stsjorbsmod:DiligenceMemoryPower": {
+        "NAME": "Memory of Diligence",
+        "DESCRIPTIONS": ["When you remember this memory, draw #b", " card", " cards", ". At the end of your turn, retain #b", ".", "#bClarified: "]
 }
 }

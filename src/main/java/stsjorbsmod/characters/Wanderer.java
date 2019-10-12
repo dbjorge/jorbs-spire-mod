@@ -153,21 +153,21 @@ public class Wanderer extends CustomPlayer {
     // Starting Deck
     @Override
     public ArrayList<String> getStartingDeck() {
+        logger.info("Constructing Wanderer starting deck");
+
         ArrayList<String> retVal = new ArrayList<>();
 
-        logger.info("Begin loading starter Deck Strings");
+        retVal.add(Strike_Wanderer.ID);
+        retVal.add(Strike_Wanderer.ID);
+        retVal.add(Strike_Wanderer.ID);
+        retVal.add(Strike_Wanderer.ID);
+        retVal.add(Defend_Wanderer.ID);
+        retVal.add(Defend_Wanderer.ID);
+        retVal.add(Defend_Wanderer.ID);
+        retVal.add(Defend_Wanderer.ID);
+        retVal.add(FreshAdventure.ID);
+        retVal.add(EyeOfTheStorm.ID);
 
-
-        retVal.add(Strike_Wanderer.ID);
-        retVal.add(Strike_Wanderer.ID);
-        retVal.add(Strike_Wanderer.ID);
-        retVal.add(Strike_Wanderer.ID);
-
-        retVal.add(Defend_Wanderer.ID);
-        retVal.add(Defend_Wanderer.ID);
-        retVal.add(Defend_Wanderer.ID);
-        retVal.add(Defend_Wanderer.ID);
-        
         return retVal;
     }
 

@@ -229,9 +229,9 @@ public class JorbsMod implements
     
     @SuppressWarnings("unused")
     public static void initialize() {
-        logger.info("========================= Initializing Default Mod. Hi. =========================");
+        logger.info("========================= Initializing JorbsMod. !dig =========================");
         JorbsMod defaultmod = new JorbsMod();
-        logger.info("========================= /Default Mod Initialized. Hello World./ =========================");
+        logger.info("========================= /JorbsMod Initialized./ =========================");
     }
     
     // ============== /SUBSCRIBE, CREATE THE COLOR_GRAY, INITIALIZE/ =================
@@ -366,6 +366,8 @@ public class JorbsMod implements
         // Add the cards
         addUnlockedCard(new Defend_Wanderer(), Defend_Wanderer.ID);
         addUnlockedCard(new Strike_Wanderer(), Strike_Wanderer.ID);
+        addUnlockedCard(new FreshAdventure(), FreshAdventure.ID);
+        addUnlockedCard(new EyeOfTheStorm(), EyeOfTheStorm.ID);
 
         // Don't comment out/delete these cards (yet). You need 1 of each type and rarity (technically) for your game not to crash
         // when generating card rewards/shop screen items.
