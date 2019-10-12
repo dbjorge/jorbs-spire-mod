@@ -167,7 +167,9 @@ public class Wanderer extends CustomPlayer {
         retVal.add(Defend_Wanderer.ID);
         retVal.add(Defend_Wanderer.ID);
         retVal.add(Defend_Wanderer.ID);
-        
+
+        retVal.add(FreshAdventure.ID);
+
         return retVal;
     }
 

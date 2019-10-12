@@ -49,5 +49,17 @@
   "stsjorbsmod:OrbSkill": {
     "NAME": "Get Orb",
     "DESCRIPTION": "Channel 1 Default Orb."
+  },
+  "stsjorbsmod:Strike_Wanderer": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! Damage."
+  },
+  "stsjorbsmod:Defend_Wanderer": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "stsjorbsmod:FreshAdventure": {
+    "NAME": "Fresh Adventure",
+    "DESCRIPTION": "Deal !D! Damage. NL Remember Diligence."
   }
 }
