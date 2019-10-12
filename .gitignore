@@ -23,7 +23,7 @@
 hs_err_pid*
 
 # This must be populated by the developer from other game/mod installs
-lib/
+lib/*.jar
 
 # Output
 target/
