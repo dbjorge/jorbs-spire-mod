@@ -1,10 +1,12 @@
 {
-  "modid": "sts-jorbs-mod",
-  "name": "Jorbs Mod",
-  "author_list": ["jorbs","dbjorge"],
-  "description": "An example mod to be an example.",
-  "version": "0.1",
-  "sts_version": "07-17-2019",
-  "mts_version": "3.6.3",
-  "dependencies": ["basemod"]
+  "modid": "${project.artifactId}",
+  "name": "${project.name}",
+  "author_list": ["Gremious"],
+  "description": "${project.description}",
+  "version": "${project.version}",
+  "sts_version": "${SlayTheSpire.version}",
+  "mts_version": "${ModTheSpire.version}",
+  "dependencies": ["basemod", "stslib"],
+  "update_json": ""
 }
+
