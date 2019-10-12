@@ -1,9 +1,8 @@
 # How to make card images
 
-In order to make art for each card, read this guide. The list of card images needed can be found in the [Mod Character Package spreadsheet](https://docs.google.com/spreadsheets/d/1GY0eJsooEp361hWFL2lD-uPVa5-l-7g4f4FtyKs-k7Q/edit#gid=0)
+In order to make art for each card, read this guide. The list of card images needed can be found in the [Mod Character Package spreadsheet](https://docs.google.com/spreadsheets/d/1GY0eJsooEp361hWFL2lD-uPVa5-l-7g4f4FtyKs-k7Q/edit#gid=0) and in the readme for each card catagory.
 
-For the below section, I am going to use as an example the card "Fresh Adventure". 
-Every card needs two images:
+Every card needs two images. I am going to use as an example the card "Fresh Adventure". 
 1. A 250px x 190px .png image that serves as the normal card background named "freshadventure.png"
 2. A 500px x 380px .png image that is used when the card is highlighted/zoomed in, named "freshadventure_p.png". The _p stands for portriat. 
 
