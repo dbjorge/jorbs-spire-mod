@@ -5,23 +5,21 @@ Heavily inspired by [gygrazok/witchmod](https://github.com/gygrazok/witchmod).
 
 ## How to install
 
-(taken almost-verbatim from similar guides at https://github.com/gygrazok/witchmod https://github.com/gskleres/FruityMod-StS)
-
-### Requirements
-
-* Java 8 (JRE). Currently only Java 8 should be used, issues with Java 9 are being looked into.
-* BaseMod v5.5.0+ (https://github.com/daviscook477/BaseMod/releases)
-* ModTheSpire v3.6.3+ (https://github.com/kiooeht/ModTheSpire/releases)
-
-### Installation
-
-1. If you have ModTheSpire already installed you can skip to step 5. Otherwise continue with step 2:
-1. Download ModTheSpire.jar from the latest release (https://github.com/kiooeht/ModTheSpire/releases)
-1. Move ModTheSpire.jar into your Slay The Spire directory. This directory is likely to be found under `C:\Program Files (x86)\Steam\steamapps\common\SlayTheSpire`. Place ModTheSpire.jar in that directory so it looks like `C:\Program Files (x86)\Steam\steamapps\common\SlayTheSpire\ModTheSpire.jar`
-1. Create a mods folder in your Slay The Spire directory so it looks like C:\Program Files (x86)\Steam\steamapps\common\SlayTheSpire\mods
-1. Download BaseMod.jar from the latest release (https://github.com/daviscook477/BaseMod/releases)
-1. Move BaseMod.jar into the mods folder you created in step 4
+1. Install Slay the Spire via Steam
+1. From the Steam Workshop, install "BaseMod" and "Mod the Spire"
 1. Download JorbsMod.jar from the latest release (https://github.com/dbjorge/sts-jorbs-mod/releases)
-1. Move JorbsMod.jar into the mods folder you created in step 4
-1. Your modded version of Slay The Spire can now be launched by double-clicking on ModTheSpire.jar
-1. This will open a mod select menu where you need to make sure that both BaseMod and JorbsMod are checked before clicking play
+1. Launch Mod the Spire by right clicking on the game in Steam and selecting "Play with Mods"
+1. In the Mod the Spire launcher, select the "open mods folder
+1. Move JorbsMod.jar into this mods folder
+1. Relaunch Mod the Spire
+1. Enjoy!
+
+## How to build from source
+
+1. Install the Oracle Java 8 JDK (not a higher major version)
+1. Follow the directions in [/lib/README.md](./lib/README.md) to install the prerequisites
+1. Set an environment variable named `STS_MOD_DIR` that points to `D:\Games\Steam\steamapps\common\SlayTheSpire\mods` (or wherever you have Slay the Spire installed)
+1. Open the project in IntelliJ IDEA
+1. Build -> Build Module 'sts-jorbs-mod'
+
+Building will update `JorbsMod.jar` in your Slay the Spire mods folder. To play, choose "Play with mods" from the Steam right click menu for the game.
