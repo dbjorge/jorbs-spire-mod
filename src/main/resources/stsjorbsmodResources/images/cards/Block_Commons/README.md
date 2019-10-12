@@ -1,4 +1,6 @@
-Needs 6 cards </br>
+Needs 8 cards </br>
+Defend</br>
+Eye of the Storm 1: Gain clarity of current memory, then remember a random memory you do not have clarity of. Gain 8 block</br>
 Counterspell	0: Gain 4 block. Gain an artifact charge if enemy intends to apply a negative effect. </br>
 Minor Illusion	0: Gain 5 block</br>
 Disguise Self	1: Gain 4 block. Gain 4 block next turn.</br>
