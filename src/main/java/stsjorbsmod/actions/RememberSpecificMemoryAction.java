@@ -29,5 +29,6 @@ public class RememberSpecificMemoryAction extends AbstractGameAction  {
         }
 
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, source, memoryToRemember));
+        isDone = true;
     }
 }
