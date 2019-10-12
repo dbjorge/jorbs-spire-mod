@@ -16,7 +16,7 @@ import static stsjorbsmod.JorbsMod.makeCardPath;
 // Deal 12(15) damage and remember Diligence
 public class FreshAdventure extends AbstractDynamicCard {
     public static final String ID = JorbsMod.makeID(FreshAdventure.class.getSimpleName());
-    public static final String IMG = makeCardPath("fresh_adventure.png");
+    public static final String IMG = makeCardPath("Damage_Commons/fresh_adventure.png");
 
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.ENEMY;

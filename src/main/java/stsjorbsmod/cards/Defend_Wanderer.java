@@ -16,7 +16,7 @@ import static stsjorbsmod.JorbsMod.makeCardPath;
 // Gain 5 (8) block
 public class Defend_Wanderer extends AbstractDynamicCard {
     public static final String ID = JorbsMod.makeID(Defend_Wanderer.class.getSimpleName());
-    public static final String IMG = makeCardPath("defend_wanderer.png");
+    public static final String IMG = makeCardPath("Block_Commons/defend_wanderer.png");
 
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;

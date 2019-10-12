@@ -15,7 +15,7 @@ import static stsjorbsmod.JorbsMod.makeCardPath;
 // Deals 6(9) damage
 public class Strike_Wanderer extends AbstractDynamicCard {
     public static final String ID = JorbsMod.makeID(Strike_Wanderer.class.getSimpleName());
-    public static final String IMG = makeCardPath("strike_wanderer.png");
+    public static final String IMG = makeCardPath("Damage_Commons/strike_wanderer.png");
 
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.ENEMY;

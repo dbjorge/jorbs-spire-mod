@@ -15,7 +15,7 @@ import static stsjorbsmod.JorbsMod.makeCardPath;
 // Gain clarity of current memory, then remember a random memory you do not have clarity of. Gain 8(11) Block.
 public class EyeOfTheStorm extends AbstractDynamicCard {
     public static final String ID = JorbsMod.makeID(EyeOfTheStorm.class.getSimpleName());
-    public static final String IMG = makeCardPath("eyeofthestorm.png");
+    public static final String IMG = makeCardPath("Block_Commons/eyeofthestorm.png");
 
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;
