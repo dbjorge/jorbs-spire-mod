@@ -21,6 +21,11 @@ public class SnapAction extends AbstractGameAction {
     }
 
     public void update() {
+        if (target.hasPower(SnappedPower.POWER_ID)) {
+            isDone = true;
+            return;
+        }
+
         int numClarities = MemoryPowerUtils.countClarities(target);
         int enemyDamage = ENEMY_DAMAGE_PER_CLARITY * numClarities;
         int targetDamage = PLAYER_DAMAGE_PER_CLARITY * numClarities;

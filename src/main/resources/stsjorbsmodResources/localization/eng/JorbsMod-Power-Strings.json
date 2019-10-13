@@ -65,6 +65,12 @@
       "."
     ]
   },
+  "stsjorbsmod:HumilityMemoryPower": {
+    "NAME": "Humility",
+    "DESCRIPTIONS": [
+      "Gain #b", " Thorns."
+    ]
+  },
   "stsjorbsmod:LustMemoryPower": {
     "NAME": "Lust",
     "DESCRIPTIONS": [
