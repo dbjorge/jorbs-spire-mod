@@ -112,6 +112,6 @@
   },
   "stsjorbsmod:Prestidigitation": {
     "NAME": "Prestidigitation",
-    "DESCRIPTION": "At the end of each turn, apply !M! Weak or !M! Vulnerable to a random enemy."
+    "DESCRIPTION": "At the start of each turn, apply !M! Weak or !M! Vulnerable to a random enemy."
   }
 }

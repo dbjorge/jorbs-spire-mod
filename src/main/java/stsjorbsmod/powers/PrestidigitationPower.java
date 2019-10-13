@@ -44,8 +44,8 @@ public class PrestidigitationPower extends AbstractPower implements CloneablePow
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer) {
-        if (isPlayer == owner.isPlayer) {
+    public void atStartOfTurn() {
+        for (int i=0; i<this.amount; ++i) {
             AbstractCreature target = AbstractDungeon.getRandomMonster();
             if (target != null) {
                 this.flash();
