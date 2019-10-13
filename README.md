@@ -30,7 +30,7 @@ Discussion in the #jorbs-spire-mod-char channel in the [Jorbs Discord](https://d
     1. Choose the repository folder
     1. Select "Maven"
     1. Press next a few times, all other settings can be left at defaults 
-1. Create a file named settings.xml in the folder .m2 in your home directory and paste the following (replace the paths accordingly, example is for Windows - if settings.xml is already there, extend it):
+1. Create a file named `settings.xml` in a folder named `.m2` in your home directory. On Windows, you can open your home directory by typing `%USERPROFILE%` in File Explorer. Paste the following content (or, if `settings.xml` already exists, extend it). **Replace the Steam installation path if you've installed Steam somewhere else!**:
     ```xml
     <settings>
       <profiles>
