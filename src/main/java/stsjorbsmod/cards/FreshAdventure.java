@@ -38,7 +38,7 @@ public class FreshAdventure extends AbstractDynamicCard {
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         AbstractDungeon.actionManager.addToBottom(
-                new RememberSpecificMemoryAction(p, p, new DiligenceMemoryPower(p, p)));
+                new RememberSpecificMemoryAction(p, p, new DiligenceMemoryPower(p, p, false)));
     }
 
     @Override

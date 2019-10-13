@@ -36,7 +36,7 @@ public class DoubleCheck extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
         AbstractDungeon.actionManager.addToBottom(new GainMemoryClarityAction(p, p, DiligenceMemoryPower.POWER_ID));
-        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(p, p, new DiligenceMemoryPower(p, p)));
+        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(p, p, new DiligenceMemoryPower(p, p, false)));
     }
 
     @Override

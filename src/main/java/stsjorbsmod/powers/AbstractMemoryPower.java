@@ -27,15 +27,15 @@ public abstract class AbstractMemoryPower extends AbstractPower {
     public boolean isClarified;
     public String baseName; // baseName "Foo" -> name "Memory of Foo"
 
-    public AbstractMemoryPower(final String baseName, final AbstractCreature owner, final AbstractCreature source) {
+    public AbstractMemoryPower(final String baseName, final AbstractCreature owner, final AbstractCreature source, final boolean isClarified) {
         this.baseName = baseName;
 
         this.owner = owner;
         this.source = source;
+        this.isClarified = isClarified;
 
         type = PowerType.BUFF;
         isTurnBased = false;
-        isClarified = false;
     }
 
     @Override

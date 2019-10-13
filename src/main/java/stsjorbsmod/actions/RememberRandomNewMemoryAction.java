@@ -10,15 +10,18 @@ import stsjorbsmod.powers.PatienceMemoryPower;
 import java.util.ArrayList;
 
 // "Remember a random memory you do not have clarity of"
-public class RememberRandomMemoryAction extends AbstractGameAction  {
-    public RememberRandomMemoryAction(AbstractCreature target, AbstractCreature source) {
+public class RememberRandomNewMemoryAction extends AbstractGameAction  {
+    private boolean isClarified;
+
+    public RememberRandomNewMemoryAction(AbstractCreature target, AbstractCreature source, boolean isClarified) {
         this.setValues(target, source);
+        this.isClarified = isClarified;
     }
 
     public void update() {
         ArrayList<AbstractMemoryPower> candidates = new ArrayList<>();
-        candidates.add(new DiligenceMemoryPower(target, source));
-        candidates.add(new PatienceMemoryPower(target, source));
+        candidates.add(new DiligenceMemoryPower(target, source, isClarified));
+        candidates.add(new PatienceMemoryPower(target, source, isClarified));
 
         candidates.removeIf(memory -> target.hasPower(memory.ID));
 

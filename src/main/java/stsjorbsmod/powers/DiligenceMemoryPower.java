@@ -28,8 +28,8 @@ public class DiligenceMemoryPower extends AbstractMemoryPower implements Cloneab
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("diligence_memory_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("diligence_memory_power32.png"));
 
-    public DiligenceMemoryPower(final AbstractCreature owner, final AbstractCreature source) {
-        super(NAME, owner, source);
+    public DiligenceMemoryPower(final AbstractCreature owner, final AbstractCreature source, boolean isClarified) {
+        super(NAME, owner, source, isClarified);
         ID = POWER_ID;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
@@ -59,6 +59,6 @@ public class DiligenceMemoryPower extends AbstractMemoryPower implements Cloneab
 
     @Override
     public AbstractPower makeCopy() {
-        return new DiligenceMemoryPower(owner, source);
+        return new DiligenceMemoryPower(owner, source, isClarified);
     }
 }

@@ -33,8 +33,8 @@ public class PatienceMemoryPower extends AbstractMemoryPower implements Cloneabl
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("diligence_memory_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("diligence_memory_power32.png"));
 
-    public PatienceMemoryPower(final AbstractCreature owner, final AbstractCreature source) {
-        super(NAME, owner, source);
+    public PatienceMemoryPower(final AbstractCreature owner, final AbstractCreature source, boolean isClarified) {
+        super(NAME, owner, source, isClarified);
         ID = POWER_ID;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
@@ -73,6 +73,6 @@ public class PatienceMemoryPower extends AbstractMemoryPower implements Cloneabl
 
     @Override
     public AbstractPower makeCopy() {
-        return new PatienceMemoryPower(owner, source);
+        return new PatienceMemoryPower(owner, source, isClarified);
     }
 }

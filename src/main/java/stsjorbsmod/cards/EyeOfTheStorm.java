@@ -1,13 +1,12 @@
 package stsjorbsmod.cards;
 
-import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.GainMemoryClarityAction;
-import stsjorbsmod.actions.RememberRandomMemoryAction;
+import stsjorbsmod.actions.RememberRandomNewMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
@@ -34,7 +33,7 @@ public class EyeOfTheStorm extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainMemoryClarityAction(p, p));
-        AbstractDungeon.actionManager.addToBottom(new RememberRandomMemoryAction(p, p));
+        AbstractDungeon.actionManager.addToBottom(new RememberRandomNewMemoryAction(p, p, false));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
     }
 
