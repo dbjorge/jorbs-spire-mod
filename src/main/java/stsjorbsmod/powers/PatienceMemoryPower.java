@@ -23,7 +23,7 @@ import static stsjorbsmod.JorbsMod.makePowerPath;
 // Gain 1 Coil each time you play a card. When forgetting, deal 2 damage to all enemies for each Coil and lose all Coil.
 public class PatienceMemoryPower extends AbstractMemoryPower implements CloneablePowerInterface {
     private static final int COIL_PER_CARD = 1;
-    private static final int DAMAGE_PER_COIL_ON_LEAVE = 2;
+    public static final int DAMAGE_PER_COIL_ON_LEAVE = 2;
 
     public static final String POWER_ID = JorbsMod.makeID(PatienceMemoryPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);

@@ -49,7 +49,7 @@ public class CoilPower extends AbstractPower implements CloneablePowerInterface 
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        description = DESCRIPTIONS[0] + (amount * PatienceMemoryPower.DAMAGE_PER_COIL_ON_LEAVE) + DESCRIPTIONS[1];
     }
 
     @Override
