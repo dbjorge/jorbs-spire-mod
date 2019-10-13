@@ -9,7 +9,6 @@ import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.blue.Strike_Blue;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -19,14 +18,10 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.*;
-import stsjorbsmod.relics.DefaultClickableRelic;
-import stsjorbsmod.relics.PlaceholderRelic;
-import stsjorbsmod.relics.PlaceholderRelic2;
 import stsjorbsmod.relics.WandererStarterRelic;
 
 import java.util.ArrayList;
@@ -230,7 +225,7 @@ public class Wanderer extends CustomPlayer {
     //Which card should be obtainable from the Match and Keep event?
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new DefaultCommonAttack();
+        return new FreshAdventure();
     }
 
     // The class name as it appears next to your player name in-game
@@ -264,9 +259,9 @@ public class Wanderer extends CustomPlayer {
     @Override
     public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
         return new AbstractGameAction.AttackEffect[]{
-                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
-                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
-                AbstractGameAction.AttackEffect.BLUNT_HEAVY};
+                AbstractGameAction.AttackEffect.FIRE,
+                AbstractGameAction.AttackEffect.POISON,
+                AbstractGameAction.AttackEffect.FIRE};
     }
 
     // Should return a string containing what text is shown when your character is

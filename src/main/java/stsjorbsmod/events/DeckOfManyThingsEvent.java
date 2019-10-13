@@ -17,16 +17,16 @@ import stsjorbsmod.JorbsMod;
 
 import static stsjorbsmod.JorbsMod.makeEventPath;
 
-public class IdentityCrisisEvent extends AbstractImageEvent {
+public class DeckOfManyThingsEvent extends AbstractImageEvent {
 
 
-    public static final String ID = JorbsMod.makeID("IdentityCrisisEvent");
+    public static final String ID = JorbsMod.makeID(DeckOfManyThingsEvent.class.getSimpleName());
     private static final EventStrings eventStrings = CardCrawlGame.languagePack.getEventString(ID);
 
     private static final String NAME = eventStrings.NAME;
     private static final String[] DESCRIPTIONS = eventStrings.DESCRIPTIONS;
     private static final String[] OPTIONS = eventStrings.OPTIONS;
-    public static final String IMG = makeEventPath("IdentityCrisisEvent.png");
+    public static final String IMG = makeEventPath("deck_of_many_things.png");
 
     private int screenNum = 0; // The initial screen we will see when encountering the event - screen 0;
 
@@ -35,7 +35,7 @@ public class IdentityCrisisEvent extends AbstractImageEvent {
 
     private int healthdamage; //The actual number of how much Max HP we're going to lose.
 
-    public IdentityCrisisEvent() {
+    public DeckOfManyThingsEvent() {
         super(NAME, DESCRIPTIONS[0], IMG);
 
         if (AbstractDungeon.ascensionLevel >= 15) { // If the player is ascension 15 or above, lose 5% max hp. Else, lose just 3%.
