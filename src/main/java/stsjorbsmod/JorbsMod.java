@@ -311,16 +311,18 @@ public class JorbsMod implements
     
     
     // ================ ADD RELICS ===================
-    
+
     @Override
     public void receiveEditRelics() {
         logger.info("Adding relics");
         
-        // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
+        // Character-specific relics for custom characters use BaseMod.addRelicToCustomPool
         BaseMod.addRelicToCustomPool(new WandererStarterRelic(), Wanderer.Enums.COLOR_GRAY);
         UnlockTracker.markRelicAsSeen(WandererStarterRelic.ID);
+        BaseMod.addRelicToCustomPool(new FragileMindRelic(), Wanderer.Enums.COLOR_GRAY);
+        UnlockTracker.markRelicAsSeen(FragileMindRelic.ID);
 
-        // This would add a relic to the Shared pool. Every character can find this relic.
+        // Shared (non-character-specific) relics would instead use this:
         // BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
 
         logger.info("Done adding relics!");

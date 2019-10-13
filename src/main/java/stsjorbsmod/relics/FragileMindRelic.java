@@ -15,38 +15,43 @@ import stsjorbsmod.util.TextureLoader;
 import static stsjorbsmod.JorbsMod.makeRelicOutlinePath;
 import static stsjorbsmod.JorbsMod.makeRelicPath;
 
-// Start each fight remembering Patience. At the end of each fight, gain 1hp per Clarity.
-public class WandererStarterRelic extends CustomRelic {
-    private static final int HEAL_PER_CLARITY = 1;
+// At the end of turn 7, Snap. Also act as a turn counter for QoL.
+public class FragileMindRelic extends CustomRelic {
+    public static final String ID = JorbsMod.makeID(FragileMindRelic.class.getSimpleName());
 
-    public static final String ID = JorbsMod.makeID(WandererStarterRelic.class.getSimpleName());
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("fragile_mind.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("fragile_mind.png"));
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("wanderer_starter_relic.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("wanderer_starter_relic.png"));
-
-    public WandererStarterRelic() {
+    public FragileMindRelic() {
         super(ID, IMG, OUTLINE, RelicTier.STARTER, LandingSound.MAGICAL);
     }
 
     @Override
     public void atBattleStart() {
-        AbstractPlayer p = AbstractDungeon.player;
-        this.flash();
-        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(p, p, new PatienceMemoryPower(p, p, false)));
+        this.counter = 0;
+    }
+
+    @Override
+    public void atTurnStart() {
+        ++this.counter;
+        if (this.counter == 7) {
+            this.beginLongPulse();
+        }
+    }
+
+    @Override
+    public void onPlayerEndTurn() {
+        if (this.counter == 7) {
+            this.flash();
+            AbstractDungeon.actionManager.addToBottom(new SnapAction(AbstractDungeon.player));
+            this.stopPulse();
+        }
     }
 
     @Override
     public void onVictory() {
         this.counter = -1;
         this.stopPulse();
-
-        this.flash();
-        AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-        AbstractPlayer p = AbstractDungeon.player;
-
-        if (p.currentHealth > 0) {
-            p.heal(MemoryPowerUtils.countClarities(p) * HEAL_PER_CLARITY);
-        }
     }
 
     @Override

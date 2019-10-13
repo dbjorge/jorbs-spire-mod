@@ -22,6 +22,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.*;
+import stsjorbsmod.relics.FragileMindRelic;
 import stsjorbsmod.relics.WandererStarterRelic;
 
 import java.util.ArrayList;
@@ -173,7 +174,9 @@ public class Wanderer extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
 
+        // Note: only the first relic gets replaced when selecting the "replace starter relic" Neow boon
         retVal.add(WandererStarterRelic.ID);
+        retVal.add(FragileMindRelic.ID);
 
         return retVal;
     }
