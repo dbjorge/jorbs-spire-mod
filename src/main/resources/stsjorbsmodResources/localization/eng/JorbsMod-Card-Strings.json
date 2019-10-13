@@ -113,5 +113,9 @@
   "stsjorbsmod:Prestidigitation": {
     "NAME": "Prestidigitation",
     "DESCRIPTION": "At the start of each turn, apply !M! Weak or !M! Vulnerable to a random enemy."
+  },
+  "stsjorbsmod:WizardRobe": {
+    "NAME": "Wizard Robe",
+    "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Gain stsjorbsmod:Clarity."
   }
 }

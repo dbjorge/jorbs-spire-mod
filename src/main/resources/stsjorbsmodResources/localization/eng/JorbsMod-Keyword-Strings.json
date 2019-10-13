@@ -33,6 +33,11 @@
     "DESCRIPTION": "When you remember Diligence, draw #b2 cards. At the end of your turn, retain #b1."
   },
   {
+    "PROPER_NAME": "Lust",
+    "NAMES": ["lust", "Lust"],
+    "DESCRIPTION": "Your attacks deal 50% bonus damage. When you forget Lust, gain 2 Weak."
+  },
+  {
     "PROPER_NAME": "Patience",
     "NAMES": ["patience", "Patience"],
     "DESCRIPTION": "Gain 1 Coil each time you play a card. When you forget Patience, deal 2 damage to ALL enemies for each Coil and lose all Coil."

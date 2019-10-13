@@ -65,6 +65,12 @@
       "."
     ]
   },
+  "stsjorbsmod:LustMemoryPower": {
+    "NAME": "Lust",
+    "DESCRIPTIONS": [
+      "Your attacks deal #b", "% bonus damage. When you forget Lust, gain #b", " Weak."
+    ]
+  },
   "stsjorbsmod:PatienceMemoryPower": {
     "NAME": "Patience",
     "DESCRIPTIONS": [
