@@ -33,16 +33,17 @@ public class RememberSpecificMemoryAction extends AbstractGameAction  {
             return;
         }
 
+        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, source, memoryToRemember));
+
         for (AbstractPower oldPower : this.source.powers) {
             if (oldPower instanceof AbstractMemoryPower) {
                 AbstractMemoryPower oldMemory = (AbstractMemoryPower) oldPower;
                 if (!oldMemory.isClarified) {
-                    AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(target, source, oldMemory));
+                    AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(target, source, oldMemory));
                 }
             }
         }
 
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, source, memoryToRemember));
         isDone = true;
     }
 }

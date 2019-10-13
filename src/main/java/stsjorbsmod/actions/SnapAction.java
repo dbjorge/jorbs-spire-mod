@@ -25,12 +25,12 @@ public class SnapAction extends AbstractGameAction {
         int enemyDamage = ENEMY_DAMAGE_PER_CLARITY * numClarities;
         int targetDamage = PLAYER_DAMAGE_PER_CLARITY * numClarities;
 
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAllEnemiesAction((AbstractCreature)null, DamageInfo.createDamageMatrix(enemyDamage, true), DamageInfo.DamageType.THORNS, AttackEffect.BLUNT_LIGHT));
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(target, new DamageInfo(target, targetDamage, DamageInfo.DamageType.THORNS), AttackEffect.BLUNT_LIGHT));
-        AbstractDungeon.actionManager.addToBottom(
+        AbstractDungeon.actionManager.addToTop(
                 new ApplyPowerAction(target, (AbstractCreature)null, new SnappedPower(target)));
+        AbstractDungeon.actionManager.addToTop(
+                new DamageAction(target, new DamageInfo(target, targetDamage, DamageInfo.DamageType.THORNS), AttackEffect.BLUNT_LIGHT));
+        AbstractDungeon.actionManager.addToTop(
+                new DamageAllEnemiesAction((AbstractCreature)null, DamageInfo.createDamageMatrix(enemyDamage, true), DamageInfo.DamageType.THORNS, AttackEffect.BLUNT_LIGHT));
 
         isDone = true;
     }

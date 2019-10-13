@@ -30,6 +30,7 @@ public class GainMemoryClarityAction extends AbstractGameAction {
                     oldMemory.isClarified = true;
                     oldMemory.updateDescription(); // for memories, also updates name to "Clarity of X"
                     AbstractDungeon.effectList.add(new TextAboveCreatureEffect(target.hb.cX, target.hb.cY, oldMemory.name, Color.WHITE));
+                    AbstractDungeon.onModifyPower();
                 }
             }
         }
