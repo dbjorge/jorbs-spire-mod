@@ -23,7 +23,7 @@ public class RememberRandomNewMemoryAction extends AbstractGameAction  {
         candidates.add(new ChastityMemoryPower(target, source, isClarified));
         candidates.add(new DiligenceMemoryPower(target, source, isClarified));
         candidates.add(new EnvyMemoryPower(target, source, isClarified));
-        // candidates.add(new GreedMemoryPower(target, source, isClarified));
+        candidates.add(new GreedMemoryPower(target, source, isClarified));
         // candidates.add(new GluttonyMemoryPower(target, source, isClarified));
         candidates.add(new HumilityMemoryPower(target, source, isClarified));
         candidates.add(new KindnessMemoryPower(target, source, isClarified));
