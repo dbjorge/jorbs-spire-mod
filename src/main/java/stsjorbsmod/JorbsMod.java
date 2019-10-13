@@ -27,10 +27,7 @@ import stsjorbsmod.cards.*;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.events.IdentityCrisisEvent;
 import stsjorbsmod.potions.PlaceholderPotion;
-import stsjorbsmod.relics.BottledPlaceholderRelic;
-import stsjorbsmod.relics.DefaultClickableRelic;
-import stsjorbsmod.relics.PlaceholderRelic;
-import stsjorbsmod.relics.PlaceholderRelic2;
+import stsjorbsmod.relics.*;
 import stsjorbsmod.util.IDCheckDontTouchPls;
 import stsjorbsmod.util.TextureLoader;
 import stsjorbsmod.variables.DefaultCustomVariable;
@@ -328,15 +325,12 @@ public class JorbsMod implements
         logger.info("Adding relics");
         
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
-        BaseMod.addRelicToCustomPool(new PlaceholderRelic(), Wanderer.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), Wanderer.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), Wanderer.Enums.COLOR_GRAY);
-        
-        // This adds a relic to the Shared pool. Every character can find this relic.
-        BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
-        
-        // Mark relics as seen (the others are all starters so they're marked as seen in the character file
-        UnlockTracker.markRelicAsSeen(BottledPlaceholderRelic.ID);
+        BaseMod.addRelicToCustomPool(new WandererStarterRelic(), Wanderer.Enums.COLOR_GRAY);
+        UnlockTracker.markRelicAsSeen(WandererStarterRelic.ID);
+
+        // This would add a relic to the Shared pool. Every character can find this relic.
+        // BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
+
         logger.info("Done adding relics!");
     }
     

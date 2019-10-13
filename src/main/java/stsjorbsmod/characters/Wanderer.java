@@ -27,6 +27,7 @@ import stsjorbsmod.cards.*;
 import stsjorbsmod.relics.DefaultClickableRelic;
 import stsjorbsmod.relics.PlaceholderRelic;
 import stsjorbsmod.relics.PlaceholderRelic2;
+import stsjorbsmod.relics.WandererStarterRelic;
 
 import java.util.ArrayList;
 
@@ -175,13 +176,7 @@ public class Wanderer extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
 
-        retVal.add(PlaceholderRelic.ID);
-        retVal.add(PlaceholderRelic2.ID);
-        retVal.add(DefaultClickableRelic.ID);
-
-        UnlockTracker.markRelicAsSeen(PlaceholderRelic.ID);
-        UnlockTracker.markRelicAsSeen(PlaceholderRelic2.ID);
-        UnlockTracker.markRelicAsSeen(DefaultClickableRelic.ID);
+        retVal.add(WandererStarterRelic.ID);
 
         return retVal;
     }
@@ -204,7 +199,7 @@ public class Wanderer extends CustomPlayer {
     // Ascension 14 or higher. (ironclad loses 5, defect and silent lose 4 hp respectively)
     @Override
     public int getAscensionMaxHPLoss() {
-        return 0;
+        return 4;
     }
 
     // Should return the card color enum to be associated with your character.
