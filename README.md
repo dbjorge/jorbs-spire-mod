@@ -31,21 +31,21 @@ Discussion in the #jorbs-spire-mod-char channel in the [Jorbs Discord](https://d
     1. Select "Maven"
     1. Press next a few times, all other settings can be left at defaults 
 1. Create a file named settings.xml in the folder .m2 in your home directory and paste the following (replace the paths accordingly, example is for Windows - if settings.xml is already there, extend it):
-```xml
-<settings>
-  <profiles>
-    <profile>
-      <id>inject-local-paths</id>
-      <properties>
-        <Steam.path>C:/Program Files/Steam/steamapps</Steam.path>
-        <STS.jar.path>${Steam.path}/common/SlayTheSpire/desktop-1.0.jar</STS.jar.path>
-      </properties>
-    </profile>
-  </profiles>
- 
-  <activeProfiles>
-    <activeProfile>inject-local-paths</activeProfile>
-  </activeProfiles>
-</settings>
-```
+    ```xml
+    <settings>
+      <profiles>
+        <profile>
+          <id>inject-local-paths</id>
+          <properties>
+            <Steam.path>C:/Program Files/Steam/steamapps</Steam.path>
+            <STS.jar.path>${Steam.path}/common/SlayTheSpire/desktop-1.0.jar</STS.jar.path>
+          </properties>
+        </profile>
+      </profiles>
+     
+      <activeProfiles>
+        <activeProfile>inject-local-paths</activeProfile>
+      </activeProfiles>
+    </settings>
+    ```
 1. Follow the [these instructions from the StS-DefaultModBase wiki](https://github.com/Gremious/StS-DefaultModBase/wiki/Step-3:-Packaging-and-Playing-the-Default;-Writing-Your-First-Mod!) to build the mod package and debug it
