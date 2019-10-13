@@ -8,4 +8,6 @@ Every card needs two images. I am going to use as an example the card "Fresh Adv
 
 These images need to have a specific shape depending on if they are a skill, power or attack. Luckily, there is a tool that cuts the images for you from a 380 x 500 px template and can be found [here](https://docs.google.com/spreadsheets/d/1GY0eJsooEp361hWFL2lD-uPVa5-l-7g4f4FtyKs-k7Q/edit?usp=sharing)
 
-Please feel free to create shitty paint/powerpoint/whatever images for the cards, so long as they are in the correct format.
+Please feel free to create shitty paint/powerpoint/whatever images for the cards and request a pull for them, so long as they are in the correct format. 
+
+Alternatively, if you want to make art but don't want to process it or merge it in, send it to me (neablis on discord or neablis@gmail.com) and I will format it and merge it in eventually. 
