@@ -58,6 +58,18 @@
       "You cannot remember any memories or clarities."
     ]
   },
+  "stsjorbsmod:CharityMemoryPower": {
+    "NAME": "Charity",
+    "DESCRIPTIONS": [
+      "Gain #b", " #yStrength per #b", " gold you have."
+    ]
+  },
+  "stsjorbsmod:ChastityMemoryPower": {
+    "NAME": "Chastity",
+    "DESCRIPTIONS": [
+      "At the end of each turn, lose #b", " #yDexterity and gain #b", " #yBlock."
+    ]
+  },
   "stsjorbsmod:DiligenceMemoryPower": {
     "NAME": "Diligence",
     "DESCRIPTIONS": [
@@ -65,10 +77,34 @@
       "."
     ]
   },
+  "stsjorbsmod:EnvyMemoryPower": {
+    "NAME": "Envy",
+    "DESCRIPTIONS": [
+      "Whenever you target an enemy with a card, apply #b", " #yVulnerable to that enemy."
+    ]
+  },
+  "stsjorbsmod:GreedMemoryPower": {
+    "NAME": "Greed",
+    "DESCRIPTIONS": [
+      "Whenever you kill a non-minion enemy, gain #b", " gold."
+    ]
+  },
+  "stsjorbsmod:GluttonyMemoryPower": {
+    "NAME": "Gluttony",
+    "DESCRIPTIONS": [
+      "Whenever you kill a non-minion enemy, raise your Max HP by #b", "."
+    ]
+  },
   "stsjorbsmod:HumilityMemoryPower": {
     "NAME": "Humility",
     "DESCRIPTIONS": [
-      "Gain #b", " Thorns."
+      "Gain #b", " #yThorns."
+    ]
+  },
+  "stsjorbsmod:KindnessMemoryPower": {
+    "NAME": "Kindness",
+    "DESCRIPTIONS": [
+      "Whenever an attack deals unblocked damage, apply #b", " #yPoison."
     ]
   },
   "stsjorbsmod:LustMemoryPower": {
@@ -81,6 +117,30 @@
     "NAME": "Patience",
     "DESCRIPTIONS": [
       "Gain 1 #yCoil each time you play a card."
+    ]
+  },
+  "stsjorbsmod:PrideMemoryPower": {
+    "NAME": "Pride",
+    "DESCRIPTIONS": [
+      "At the end of combat, permanently #yUpgrade a card in your deck."
+    ]
+  },
+  "stsjorbsmod:SlothMemoryPower": {
+    "NAME": "Sloth",
+    "DESCRIPTIONS": [
+      "Draw #b", " fewer cards each turn."
+    ]
+  },
+  "stsjorbsmod:TemperanceMemoryPower": {
+    "NAME": "Temperance",
+    "DESCRIPTIONS": [
+      "Reduce #yStrength of ALL enemies by #b", "."
+    ]
+  },
+  "stsjorbsmod:WrathMemoryPower": {
+    "NAME": "Wrath",
+    "DESCRIPTIONS": [
+      "Whenever you kill a non-minion enemy with an attack card, permanently increase that card's damage by #b", "."
     ]
   }
 }
