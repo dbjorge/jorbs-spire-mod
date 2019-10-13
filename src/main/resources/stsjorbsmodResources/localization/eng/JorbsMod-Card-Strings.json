@@ -1,7 +1,7 @@
 {
   "stsjorbsmod:DefaultUncommonAttack": {
     "NAME": "Big slap",
-    "DESCRIPTION": "Deal !D! Damage."
+    "DESCRIPTION": "Deal !D! damage."
   },
   "stsjorbsmod:DefaultUncommonSkill": {
     "NAME": "A Better Defend",
@@ -14,7 +14,7 @@
   },
   "stsjorbsmod:DefaultRareAttack": {
     "NAME": "TOUCH",
-    "DESCRIPTION": "Deal !D! Damage."
+    "DESCRIPTION": "Deal !D! damage."
   },
   "stsjorbsmod:DefaultRareSkill": {
     "NAME": "For Each Loop x2",
@@ -27,7 +27,7 @@
   },
   "stsjorbsmod:Strike_Wanderer": {
     "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! Damage."
+    "DESCRIPTION": "Deal !D! damage."
   },
   "stsjorbsmod:Defend_Wanderer": {
     "NAME": "Defend",
@@ -35,7 +35,7 @@
   },
   "stsjorbsmod:FreshAdventure": {
     "NAME": "Fresh Adventure",
-    "DESCRIPTION": "Deal !D! Damage. NL Remember stsjorbsmod:Diligence."
+    "DESCRIPTION": "Deal !D! damage. NL Remember stsjorbsmod:Diligence."
   },
   "stsjorbsmod:EyeOfTheStorm": {
     "NAME": "Eye of the Storm",
@@ -43,20 +43,20 @@
   },
   "stsjorbsmod:BlackTentacles": {
     "NAME": "Black Tentacles",
-    "DESCRIPTION": "Deal !D! Damage. NL Attacks with random targets target this enemy for !M! turn.",
-    "UPGRADE_DESCRIPTION": "Deal !D! Damage. NL Attacks with random targets target this enemy for !M! turns."
+    "DESCRIPTION": "Deal !D! damage. NL Attacks with random targets target this enemy for !M! turn.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Attacks with random targets target this enemy for !M! turns."
   },
   "stsjorbsmod:ArcaneWeapon": {
     "NAME": "Arcane Weapon",
-    "DESCRIPTION": "At the end of each turn, attack a random enemy for !D! Damage."
+    "DESCRIPTION": "At the end of each turn, attack a random enemy for !D! damage."
   },
   "stsjorbsmod:Firebolt": {
     "NAME": "Firebolt",
-    "DESCRIPTION": "Deal !D! Damage + !M! damage for each stsjorbsmod:Clarity."
+    "DESCRIPTION": "Deal !D! damage + !M! damage for each stsjorbsmod:Clarity."
   },
   "stsjorbsmod:MagicMissles": {
     "NAME": "Magic Missles",
-    "DESCRIPTION": "Deal !D! Damage. NL Deal !D! Damage again once for each stsjorbsmod:Clarity."
+    "DESCRIPTION": "Deal !D! damage. NL Deal !D! damage again once for each stsjorbsmod:Clarity."
   },
   "stsjorbsmod:AcidSplash": {
     "NAME": "Acid Splash",
@@ -64,11 +64,11 @@
   },
   "stsjorbsmod:TrueStrike": {
     "NAME": "True Strike",
-    "DESCRIPTION": "Deal !D! Damage. NL This damage cannot be prevented or reduced."
+    "DESCRIPTION": "Deal !D! damage. NL This damage cannot be prevented or reduced."
   },
   "stsjorbsmod:RayOfFrost": {
     "NAME": "Ray of Frost",
-    "DESCRIPTION": "Deal !D! Damage. NL Apply !M! Weak."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak."
   },
   "stsjorbsmod:Counterspell": {
     "NAME": "Counterspell",
@@ -100,7 +100,7 @@
   },
   "stsjorbsmod:ChainLightning": {
     "NAME": "Chain Lightning",
-    "DESCRIPTION": "Deal !D! Damage. NL Chain to ALL enemies, gaining !M! Damage per chain."
+    "DESCRIPTION": "Deal !D! damage. NL Chain to ALL enemies, gaining !M! damage per chain."
   },
   "stsjorbsmod:WanderingMind": {
     "NAME": "Wandering Mind",
@@ -108,6 +108,6 @@
   },
   "stsjorbsmod:WeightOfMemory": {
     "NAME": "Weight of Memory",
-    "DESCRIPTION": "Deal !D! Damage. Deals !M! additional Damage for all cards which remember."
+    "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for ALL cards which \"remember\"."
   }
 }
