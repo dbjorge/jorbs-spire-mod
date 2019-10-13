@@ -92,6 +92,6 @@
   },
   "stsjorbsmod:Channel": {
     "NAME": "Channel",
-    "DESCRIPTION": "Gain !B! Block. Gain !M! [E] next turn."
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! [E] next turn."
   }
 }

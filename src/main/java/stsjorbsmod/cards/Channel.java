@@ -5,9 +5,9 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.EnergizedBluePower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.powers.EnergizedCustomPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -34,7 +34,7 @@ public class Channel extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EnergizedBluePower(p, magicNumber), magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EnergizedCustomPower(p, magicNumber), magicNumber));
     }
 
     @Override
