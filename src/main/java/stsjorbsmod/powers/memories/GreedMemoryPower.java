@@ -38,11 +38,6 @@ public class GreedMemoryPower extends AbstractMemoryPower implements CloneablePo
 
     @Override
     public void onAttack(DamageInfo damageInfo, int damage, AbstractCreature target) {
-        this.onInflictDamage(damageInfo, damage, target);
-    }
-
-    @Override
-    public void onInflictDamage(DamageInfo damageInfo, int damage, AbstractCreature target) {
         if (target.isPlayer || target.isDead || target.isDying || target.halfDead || target.hasPower(MinionPower.POWER_ID)) {
             return;
         }
