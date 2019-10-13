@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.powers.AbstractMemoryPower;
+import stsjorbsmod.powers.SnappedPower;
 
 
 // This is like ApplyPowerAction, but with the additional effect of removing other non-clarified memories
@@ -19,6 +20,12 @@ public class RememberSpecificMemoryAction extends AbstractGameAction  {
     }
 
     public void update() {
+        if (target.hasPower(SnappedPower.POWER_ID)) {
+            target.getPower(SnappedPower.POWER_ID).flash();
+            isDone = true;
+            return;
+        }
+
         // Regardless of whether the old memory is clarified or not, re-remembering it is a no-op
         if (target.hasPower(memoryToRemember.ID)) {
             target.getPower(memoryToRemember.ID).flashWithoutSound();

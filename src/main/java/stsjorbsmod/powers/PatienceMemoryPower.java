@@ -3,22 +3,27 @@ package stsjorbsmod.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.unique.RetainCardsAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.util.MemoryPowerUtils;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
-// Draw 2 cards on entering, retain 1 card per turn passively
+// Gain 1 Coil each time you play a card. When forgetting, deal 2 damage to all enemies for each Coil and lose all Coil.
 public class PatienceMemoryPower extends AbstractMemoryPower implements CloneablePowerInterface {
-    private static final int CARDS_DRAWN_ON_ENTER = 2;
-    private static final int CARDS_RETAINED = 1;
+    private static final int COIL_PER_CARD = 1;
+    private static final int DAMAGE_PER_COIL_ON_LEAVE = 2;
 
     public static final String POWER_ID = JorbsMod.makeID(PatienceMemoryPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -38,23 +43,32 @@ public class PatienceMemoryPower extends AbstractMemoryPower implements Cloneabl
         updateDescription();
     }
 
-    @Override
-    public void onInitialApplication() {
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        this.flash();
         AbstractDungeon.actionManager.addToBottom(
-                new DrawCardAction(this.source, CARDS_DRAWN_ON_ENTER));
+                new ApplyPowerAction(owner, source, new CoilPower(owner, source, COIL_PER_CARD)));
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer) {
-        if (isPlayer) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new RetainCardsAction(this.source, CARDS_RETAINED));
+    public void onRemove() {
+        if (isClarified || !owner.hasPower(CoilPower.POWER_ID)) {
+            return;
         }
+
+        this.flash();
+
+        int numCoil = owner.getPower(CoilPower.POWER_ID).amount;
+        int enemyDamage = DAMAGE_PER_COIL_ON_LEAVE * numCoil;
+
+        AbstractDungeon.actionManager.addToBottom(
+                new DamageAllEnemiesAction(source, DamageInfo.createDamageMatrix(enemyDamage, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
+        AbstractDungeon.actionManager.addToBottom(
+                new RemoveSpecificPowerAction(owner, source, CoilPower.POWER_ID));
     }
 
     @Override
     public void updateMemoryDescription() {
-        description = DESCRIPTIONS[0] + CARDS_RETAINED + DESCRIPTIONS[1];
+        description = DESCRIPTIONS[0];
     }
 
     @Override
