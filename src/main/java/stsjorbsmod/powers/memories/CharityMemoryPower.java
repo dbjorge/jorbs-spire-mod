@@ -50,13 +50,15 @@ public class CharityMemoryPower extends AbstractMemoryPower implements Cloneable
     @Override
     public void onInitialApplication() {
         this.strengthAdded = calculateStrengthToAdd();
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(owner, source, new StrengthPower(owner, this.strengthAdded), this.strengthAdded));
+        if (this.strengthAdded > 0) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new ApplyPowerAction(owner, source, new StrengthPower(owner, this.strengthAdded), this.strengthAdded));
+        }
     }
 
     @Override
     public void onRemove() {
-        if (!isClarified) {
+        if (isClarified || this.strengthAdded <= 0) {
             return;
         }
 

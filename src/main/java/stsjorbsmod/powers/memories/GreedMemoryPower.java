@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.PermanentlyUpgradeRandomCardAction;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
@@ -38,12 +37,17 @@ public class GreedMemoryPower extends AbstractMemoryPower implements CloneablePo
     }
 
     @Override
+    public void onAttack(DamageInfo damageInfo, int damage, AbstractCreature target) {
+        this.onInflictDamage(damageInfo, damage, target);
+    }
+
+    @Override
     public void onInflictDamage(DamageInfo damageInfo, int damage, AbstractCreature target) {
         if (target.isPlayer || target.isDead || target.isDying || target.halfDead || target.hasPower(MinionPower.POWER_ID)) {
             return;
         }
 
-        if (damage > target.currentHealth) {
+        if (damage >= target.currentHealth) {
             JorbsMod.logger.info("Greed: gaining gold");
             AbstractDungeon.player.gainGold(GOLD_PER_KILL);
         }

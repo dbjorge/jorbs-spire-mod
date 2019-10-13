@@ -41,11 +41,12 @@ public class WrathMemoryPower extends AbstractMemoryPower implements CloneablePo
 
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster target) {
-        if (target.hasPower(MinionPower.POWER_ID)) {
+        if (card.type != AbstractCard.CardType.ATTACK || target.hasPower(MinionPower.POWER_ID)) {
             return;
         }
 
-        if (target.isDead || target.isDying || target.halfDead) {
+        card.calculateCardDamage(target);
+        if (card.damage >= target.currentHealth) {
             JorbsMod.logger.info("Wrath: increasing damage");
             AbstractDungeon.actionManager.addToTop(
                     new PermanentlyIncreaseCardDamageAction(card.uuid, DAMAGE_INCREASE_PER_KILL));

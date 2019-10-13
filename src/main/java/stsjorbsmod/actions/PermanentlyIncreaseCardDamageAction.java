@@ -43,7 +43,6 @@ public class PermanentlyIncreaseCardDamageAction extends AbstractGameAction {
 
                     masterCard.baseDamage += damageIncrease;
                     masterCard.superFlash();
-                    masterCard.applyPowers();
 
                     for (AbstractCard instance : GetAllInBattleInstances.get(cardUuid)) {
                         instance.baseDamage += damageIncrease;

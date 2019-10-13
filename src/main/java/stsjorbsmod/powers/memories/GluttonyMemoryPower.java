@@ -37,12 +37,17 @@ public class GluttonyMemoryPower extends AbstractMemoryPower implements Cloneabl
     }
 
     @Override
+    public void onAttack(DamageInfo damageInfo, int damage, AbstractCreature target) {
+        this.onInflictDamage(damageInfo, damage, target);
+    }
+
+    @Override
     public void onInflictDamage(DamageInfo damageInfo, int damage, AbstractCreature target) {
         if (target.isPlayer || target.isDead || target.isDying || target.halfDead || target.hasPower(MinionPower.POWER_ID)) {
             return;
         }
 
-        if (damage > target.currentHealth) {
+        if (damage >= target.currentHealth) {
             JorbsMod.logger.info("Gluttony: gaining max hp");
             AbstractDungeon.player.increaseMaxHp(MAX_HP_PER_KILL, true);
         }
