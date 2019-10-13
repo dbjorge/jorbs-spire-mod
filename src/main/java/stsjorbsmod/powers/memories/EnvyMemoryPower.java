@@ -33,7 +33,7 @@ public class EnvyMemoryPower extends AbstractMemoryPower implements CloneablePow
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("envy_memory_power32.png"));
 
     public EnvyMemoryPower(final AbstractCreature owner, final AbstractCreature source, boolean isClarified) {
-        super(NAME, MemoryType.VIRTUE, owner, source, isClarified);
+        super(NAME, MemoryType.SIN, owner, source, isClarified);
         ID = POWER_ID;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
