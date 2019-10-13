@@ -18,7 +18,23 @@
     "DESCRIPTION": "Make sure the first element in the NAMES is the same as your PROPER_NAME. The rest is to match keywords like the single word keyword."
   },
   {
-    "NAMES": ["clarity"],
+    "PROPER_NAME": "Snap",
+    "NAMES": ["snap"],
+    "DESCRIPTION": "Deal 5 damage to ALL enemies and 2 damage to yourself for every clarity bonus you have. You cannot be affected by memories or clarities for the remainder of the fight."
+  },
+  {
+    "PROPER_NAME": "Clarity",
+    "NAMES": ["clarity", "Clarity"],
     "DESCRIPTION": "Memories you have Clarity of won't be forgotten when remembering a new memory."
+  },
+  {
+    "PROPER_NAME": "Diligence",
+    "NAMES": ["diligence", "Diligence"],
+    "DESCRIPTION": "When you remember Diligence, draw #b2 cards. At the end of your turn, retain #b1."
+  },
+  {
+    "PROPER_NAME": "Patience",
+    "NAMES": ["patience", "Patience"],
+    "DESCRIPTION": "Gain 1 Coil each time you play a card. When you forget Patience, deal 2 damage to ALL enemies for each Coil and lose all Coil."
   }
 ]

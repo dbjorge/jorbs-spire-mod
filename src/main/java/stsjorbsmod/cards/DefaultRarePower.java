@@ -22,7 +22,7 @@ public class DefaultRarePower extends AbstractDynamicCard {
     // TEXT DECLARATION 
 
     public static final String ID = JorbsMod.makeID(DefaultRarePower.class.getSimpleName());
-    public static final String IMG = makeCardPath("Power.png");
+    public static final String IMG = makeCardPath("placeholder.png");
 
     // /TEXT DECLARATION/
 

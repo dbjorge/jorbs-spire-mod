@@ -4,7 +4,6 @@ import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.abstracts.CustomCard;
-import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -22,18 +21,13 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.pattern.AbstractStyleNameConverter;
 import stsjorbsmod.cards.*;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.events.IdentityCrisisEvent;
-import stsjorbsmod.potions.PlaceholderPotion;
-import stsjorbsmod.relics.BottledPlaceholderRelic;
-import stsjorbsmod.relics.DefaultClickableRelic;
-import stsjorbsmod.relics.PlaceholderRelic;
-import stsjorbsmod.relics.PlaceholderRelic2;
+import stsjorbsmod.events.DeckOfManyThingsEvent;
+import stsjorbsmod.relics.*;
 import stsjorbsmod.util.IDCheckDontTouchPls;
 import stsjorbsmod.util.TextureLoader;
-import stsjorbsmod.variables.DefaultCustomVariable;
-import stsjorbsmod.variables.DefaultSecondMagicNumber;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -72,20 +66,15 @@ public class JorbsMod implements
     public static boolean enablePlaceholder = true; // The boolean we'll be setting on/off (true/false)
 
     //This is for the in-game mod settings panel.
-    private static final String MODNAME = "Default Mod";
-    private static final String AUTHOR = "Gremious"; // And pretty soon - You!
-    private static final String DESCRIPTION = "A base for Slay the Spire to start your own mod from, feat. the Default.";
+    private static final String MODNAME = "Jorbs Mod";
+    private static final String AUTHOR = "Twitch chat"; // And pretty soon - You!
+    private static final String DESCRIPTION = "New characters, brought to you by Jorbs and Twitch chat!";
     
     // =============== INPUT TEXTURE LOCATION =================
     
     // Colors (RGB)
     // Character Color
     public static final Color DEFAULT_GRAY = CardHelper.getColor(64.0f, 70.0f, 70.0f);
-    
-    // Potion Colors in RGB
-    public static final Color PLACEHOLDER_POTION_LIQUID = CardHelper.getColor(209.0f, 53.0f, 18.0f); // Orange-ish Red
-    public static final Color PLACEHOLDER_POTION_HYBRID = CardHelper.getColor(255.0f, 230.0f, 230.0f); // Near White
-    public static final Color PLACEHOLDER_POTION_SPOTS = CardHelper.getColor(100.0f, 25.0f, 10.0f); // Super Dark Red/Brown
 
     // Card backgrounds - The actual rectangular card.
     private static final String ATTACK_DEFAULT_GRAY = "stsjorbsmodResources/images/512/bg_attack_default_gray.png";
@@ -243,7 +232,7 @@ public class JorbsMod implements
     public void receiveEditCharacters() {
         logger.info("Beginning to edit characters. " + "Add " + Wanderer.Enums.WANDERER.toString());
         
-        BaseMod.addCharacter(new Wanderer("the Default", Wanderer.Enums.WANDERER),
+        BaseMod.addCharacter(new Wanderer("The Wanderer", Wanderer.Enums.WANDERER),
                 THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, Wanderer.Enums.WANDERER);
         
         receiveEditPotions();
@@ -295,7 +284,7 @@ public class JorbsMod implements
         // part of the game, simply don't include the dungeon ID
         // If you want to have a character-specific event, look at slimebound (CityRemoveEventPatch).
         // Essentially, you need to patch the game and say "if a player is not playing my character class, remove the event from the pool"
-        BaseMod.addEvent(IdentityCrisisEvent.ID, IdentityCrisisEvent.class, TheCity.ID);
+        BaseMod.addEvent(DeckOfManyThingsEvent.ID, DeckOfManyThingsEvent.class, TheCity.ID);
         
         // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");
@@ -312,7 +301,8 @@ public class JorbsMod implements
         // Class Specific Potion. If you want your potion to not be class-specific,
         // just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEFAULT".
         // Remember, you can press ctrl+P inside parentheses like addPotions)
-        BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, Wanderer.Enums.WANDERER);
+        //
+        // BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, Wanderer.Enums.WANDERER);
         
         logger.info("Done editing potions");
     }
@@ -327,15 +317,12 @@ public class JorbsMod implements
         logger.info("Adding relics");
         
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
-        BaseMod.addRelicToCustomPool(new PlaceholderRelic(), Wanderer.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), Wanderer.Enums.COLOR_GRAY);
-        BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), Wanderer.Enums.COLOR_GRAY);
-        
-        // This adds a relic to the Shared pool. Every character can find this relic.
-        BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
-        
-        // Mark relics as seen (the others are all starters so they're marked as seen in the character file
-        UnlockTracker.markRelicAsSeen(BottledPlaceholderRelic.ID);
+        BaseMod.addRelicToCustomPool(new WandererStarterRelic(), Wanderer.Enums.COLOR_GRAY);
+        UnlockTracker.markRelicAsSeen(WandererStarterRelic.ID);
+
+        // This would add a relic to the Shared pool. Every character can find this relic.
+        // BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
+
         logger.info("Done adding relics!");
     }
     
@@ -346,8 +333,6 @@ public class JorbsMod implements
 
     private void addUnlockedCard(CustomCard cardInstance, String cardID) {
         BaseMod.addCard(cardInstance);
-        // This is so that the card is "seen" in the library, for people who like to look at the card list
-        // before playing your mod.
         UnlockTracker.unlockCard(cardID);
     }
 
@@ -356,24 +341,36 @@ public class JorbsMod implements
         logger.info("Adding variables");
         //Ignore this
         pathCheck();
-        // Add the Custom Dynamic Variables
-        logger.info("Add variables");
-        // Add the Custom Dynamic variables
-        BaseMod.addDynamicVariable(new DefaultCustomVariable());
-        BaseMod.addDynamicVariable(new DefaultSecondMagicNumber());
         
         logger.info("Adding cards");
         // Add the cards
+
+        // Watcher starter deck
         addUnlockedCard(new Defend_Wanderer(), Defend_Wanderer.ID);
         addUnlockedCard(new Strike_Wanderer(), Strike_Wanderer.ID);
         addUnlockedCard(new FreshAdventure(), FreshAdventure.ID);
         addUnlockedCard(new EyeOfTheStorm(), EyeOfTheStorm.ID);
+        // Watcher damage commons
+        addUnlockedCard(new BlackTentacles(), BlackTentacles.ID);
+        addUnlockedCard(new ArcaneWeapon(), ArcaneWeapon.ID);
+        addUnlockedCard(new Firebolt(), Firebolt.ID);
+        addUnlockedCard(new MagicMissles(), MagicMissles.ID);
+        addUnlockedCard(new AcidSplash(), AcidSplash.ID);
+        addUnlockedCard(new TrueStrike(), TrueStrike.ID);
+        addUnlockedCard(new RayOfFrost(), RayOfFrost.ID);
+        // Watcher block commons
+        addUnlockedCard(new Counterspell(), Counterspell.ID);
+        addUnlockedCard(new MinorIllusion(), MinorIllusion.ID);
+        addUnlockedCard(new DisguiseSelf(), DisguiseSelf.ID);
+        addUnlockedCard(new Loss(), Loss.ID);
+        addUnlockedCard(new DoubleCheck(), DoubleCheck.ID);
+        addUnlockedCard(new Channel(), Channel.ID);
+        // Watcher AOE commons
+        addUnlockedCard(new PoisonSpray(), PoisonSpray.ID);
+        addUnlockedCard(new ChainLightning(), ChainLightning.ID);
 
         // Don't comment out/delete these cards (yet). You need 1 of each type and rarity (technically) for your game not to crash
         // when generating card rewards/shop screen items.
-        addUnlockedCard(new DefaultCommonAttack(), DefaultCommonAttack.ID);
-        addUnlockedCard(new DefaultCommonSkill(), DefaultCommonSkill.ID);
-        addUnlockedCard(new DefaultCommonPower(), DefaultCommonPower.ID);
         addUnlockedCard(new DefaultUncommonSkill(), DefaultUncommonSkill.ID);
         addUnlockedCard(new DefaultUncommonAttack(), DefaultUncommonAttack.ID);
         addUnlockedCard(new DefaultUncommonPower(), DefaultUncommonPower.ID);
@@ -395,9 +392,12 @@ public class JorbsMod implements
     
     @Override
     public void receiveEditStrings() {
-        logger.info("You seeing this?");
         logger.info("Beginning to edit strings for mod with ID: " + getModID());
-        
+
+        // UIStrings
+        BaseMod.loadCustomStringsFile(UIStrings.class,
+                getModID() + "Resources/localization/eng/JorbsMod-UI-Strings.json");
+
         // CardStrings
         BaseMod.loadCustomStringsFile(CardStrings.class,
                 getModID() + "Resources/localization/eng/JorbsMod-Card-Strings.json");
@@ -413,20 +413,13 @@ public class JorbsMod implements
         // Event Strings
         BaseMod.loadCustomStringsFile(EventStrings.class,
                 getModID() + "Resources/localization/eng/JorbsMod-Event-Strings.json");
-        
-        // PotionStrings
-        BaseMod.loadCustomStringsFile(PotionStrings.class,
-                getModID() + "Resources/localization/eng/JorbsMod-Potion-Strings.json");
-        
+
         // CharacterStrings
         BaseMod.loadCustomStringsFile(CharacterStrings.class,
                 getModID() + "Resources/localization/eng/JorbsMod-Character-Strings.json");
+
         
-        // OrbStrings
-        BaseMod.loadCustomStringsFile(OrbStrings.class,
-                getModID() + "Resources/localization/eng/JorbsMod-Orb-Strings.json");
-        
-        logger.info("Done edittting strings");
+        logger.info("Done editing strings");
     }
     
     // ================ /LOAD THE TEXT/ ===================

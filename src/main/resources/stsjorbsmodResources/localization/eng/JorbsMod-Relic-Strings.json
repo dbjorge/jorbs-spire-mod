@@ -30,5 +30,12 @@
       ".",
       "Select a card to bottle for "
     ]
+  },
+  "stsjorbsmod:WandererStarterRelic": {
+    "NAME": "Wanderer Starter Relic",
+    "FLAVOR": "Ogbomosho to you as well.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, remember stsjorbsmod:Patience. NL At the end of each combat, heal #b1 HP per stsjorbsmod:Clarity. NL At the end of turn #b7, you stsjorbsmod:Snap."
+    ]
   }
 }

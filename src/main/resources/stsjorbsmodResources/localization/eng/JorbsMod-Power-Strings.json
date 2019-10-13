@@ -1,14 +1,66 @@
 {
-"stsjorbsmod:CommonPower": {
-        "NAME": "Placeholder Power",
-        "DESCRIPTIONS": ["You applied #b", " keyword.", " keywords."]
-},
-"stsjorbsmod:RarePower": {
-        "NAME": "Placeholder Power",
-        "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
-},
-"stsjorbsmod:DiligenceMemoryPower": {
-        "NAME": "Memory of Diligence",
-        "DESCRIPTIONS": ["When you remember this memory, draw #b", " card", " cards", ". At the end of your turn, retain #b", ".", "#bClarified: "]
-}
+  "stsjorbsmod:CommonPower": {
+    "NAME": "Placeholder Power",
+    "DESCRIPTIONS": [
+      "You applied #b",
+      " keyword.",
+      " keywords."
+    ]
+  },
+  "stsjorbsmod:RarePower": {
+    "NAME": "Placeholder Power",
+    "DESCRIPTIONS": [
+      "At the start of your turn, TOUCH #b",
+      " enemy.",
+      " enemies."
+    ]
+  },
+  "stsjorbsmod:ArcaneWeaponPower": {
+    "NAME": "Arcane Weapon",
+    "DESCRIPTIONS": [
+      "At the end of each turn, attack a random enemy for #b",
+      " Damage."
+    ]
+  },
+  "stsjorbsmod:BlackTentaclesPower": {
+    "NAME": "Black Tentacles",
+    "DESCRIPTIONS": [
+      "Attacks with random targets target this enemy for #b",
+      " turn.",
+      " turns."
+    ]
+  },
+  "stsjorbsmod:CoilPower": {
+    "NAME": "Coil",
+    "DESCRIPTIONS": [
+      "When you forget #yPatience, deal #b",
+      " Damage to all enemies and lose all Coil."
+    ]
+  },
+  "stsjorbsmod:EnergizedCustomPower": {
+    "NAME": "Energized",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " additional [E] next turn."
+    ]
+  },
+  "stsjorbsmod:SnappedPower": {
+    "NAME": "Snapped",
+    "DESCRIPTIONS": [
+      "You cannot remember any memories or clarities."
+    ]
+  },
+  "stsjorbsmod:DiligenceMemoryPower": {
+    "NAME": "Diligence",
+    "DESCRIPTIONS": [
+      "At the end of your turn, retain #b",
+      "."
+    ]
+  },
+  "stsjorbsmod:PatienceMemoryPower": {
+    "NAME": "Patience",
+    "DESCRIPTIONS": [
+      "Gain 1 #yCoil each time you play a card."
+    ]
+  }
 }
