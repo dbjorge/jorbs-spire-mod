@@ -365,6 +365,9 @@ public class JorbsMod implements
         addUnlockedCard(new Loss(), Loss.ID);
         addUnlockedCard(new DoubleCheck(), DoubleCheck.ID);
         addUnlockedCard(new Channel(), Channel.ID);
+        // Watcher AOE commons
+        addUnlockedCard(new PoisonSpray(), PoisonSpray.ID);
+        addUnlockedCard(new ChainLightning(), ChainLightning.ID);
 
         // Don't comment out/delete these cards (yet). You need 1 of each type and rarity (technically) for your game not to crash
         // when generating card rewards/shop screen items.

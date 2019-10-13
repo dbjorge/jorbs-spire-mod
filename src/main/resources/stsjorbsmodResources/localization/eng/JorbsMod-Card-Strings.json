@@ -93,5 +93,13 @@
   "stsjorbsmod:Channel": {
     "NAME": "Channel",
     "DESCRIPTION": "Gain !B! Block. NL Gain !M! [E] next turn."
+  },
+  "stsjorbsmod:PoisonSpray": {
+    "NAME": "PoisonSpray",
+    "DESCRIPTION": "Apply !M! Poison to ALL enemies."
+  },
+  "stsjorbsmod:ChainLightning": {
+    "NAME": "Chain Lightning",
+    "DESCRIPTION": "Deal !D! Damage. NL Chain to ALL enemies, gaining !M! Damage per chain."
   }
 }
