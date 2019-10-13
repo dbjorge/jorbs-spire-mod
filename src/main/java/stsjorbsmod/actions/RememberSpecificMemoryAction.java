@@ -24,7 +24,7 @@ public class RememberSpecificMemoryAction extends AbstractGameAction  {
             if (oldPower instanceof AbstractMemoryPower) {
                 AbstractMemoryPower oldMemory = (AbstractMemoryPower) oldPower;
                 if (!oldMemory.isClarified) {
-                    AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(target, source, oldMemory));
+                    AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(target, source, oldMemory));
                 }
             }
         }
@@ -44,11 +44,11 @@ public class RememberSpecificMemoryAction extends AbstractGameAction  {
             return;
         }
 
-        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, source, memoryToRemember));
-
         if (!memoryToRemember.isClarified) {
             removeOtherMemories();
         }
+
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, source, memoryToRemember));
 
         isDone = true;
     }
