@@ -1,4 +1,4 @@
-package stsjorbsmod.powers;
+package stsjorbsmod.powers.memories;
 
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
@@ -30,7 +30,7 @@ public class SlothMemoryPower extends AbstractMemoryPower implements CloneablePo
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("sloth_memory_power32.png"));
 
     public SlothMemoryPower(final AbstractCreature owner, final AbstractCreature source, boolean isClarified) {
-        super(NAME, owner, source, isClarified);
+        super(NAME, MemoryType.SIN, owner, source, isClarified);
         ID = POWER_ID;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);

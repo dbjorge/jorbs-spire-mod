@@ -2,7 +2,7 @@ package stsjorbsmod.util;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import stsjorbsmod.powers.AbstractMemoryPower;
+import stsjorbsmod.powers.memories.AbstractMemoryPower;
 
 public class MemoryPowerUtils {
     public static int countClarities(AbstractCreature creature) {

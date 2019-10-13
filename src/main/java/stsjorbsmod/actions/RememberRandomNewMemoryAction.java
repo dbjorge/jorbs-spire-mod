@@ -3,9 +3,8 @@ package stsjorbsmod.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import stsjorbsmod.powers.*;
+import stsjorbsmod.powers.memories.*;
 
-import javax.tools.Diagnostic;
 import java.util.ArrayList;
 
 // "Remember a random memory you do not have clarity of"

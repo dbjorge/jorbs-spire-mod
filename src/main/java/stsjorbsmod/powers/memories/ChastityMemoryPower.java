@@ -1,10 +1,9 @@
-package stsjorbsmod.powers;
+package stsjorbsmod.powers.memories;
 
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -13,7 +12,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.DrawReductionPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.util.TextureLoader;
 
@@ -33,7 +31,7 @@ public class ChastityMemoryPower extends AbstractMemoryPower implements Cloneabl
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("chastity_memory_power32.png"));
 
     public ChastityMemoryPower(final AbstractCreature owner, final AbstractCreature source, boolean isClarified) {
-        super(NAME, owner, source, isClarified);
+        super(NAME, MemoryType.VIRTUE, owner, source, isClarified);
         ID = POWER_ID;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);

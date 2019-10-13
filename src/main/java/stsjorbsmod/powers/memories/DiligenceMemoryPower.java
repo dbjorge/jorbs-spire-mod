@@ -1,4 +1,4 @@
-package stsjorbsmod.powers;
+package stsjorbsmod.powers.memories;
 
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
@@ -29,7 +29,7 @@ public class DiligenceMemoryPower extends AbstractMemoryPower implements Cloneab
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("diligence_memory_power32.png"));
 
     public DiligenceMemoryPower(final AbstractCreature owner, final AbstractCreature source, boolean isClarified) {
-        super(NAME, owner, source, isClarified);
+        super(NAME, MemoryType.VIRTUE, owner, source, isClarified);
         ID = POWER_ID;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);

@@ -5,6 +5,16 @@
     "DESCRIPTION": "Deal 5 damage to ALL enemies and 2 damage to yourself for every clarity bonus you have. You cannot be affected by memories or clarities for the remainder of the fight."
   },
   {
+    "PROPER_NAME": "Sin",
+    "NAMES": ["sin", "Sin"],
+    "DESCRIPTION": "A memory of #yEnvy, #yGreed, #yGluttony, #yLust, #yPride, #ySloth, or #yWrath."
+  },
+  {
+    "PROPER_NAME": "Virtue",
+    "NAMES": ["virtue", "Virtue"],
+    "DESCRIPTION": "A memory of #yCharity, #yChastity, #yDiligence, #Humility, #yKindness, #yPatience, or #yTemperance."
+  },
+  {
     "PROPER_NAME": "Clarity",
     "NAMES": ["clarity", "Clarity"],
     "DESCRIPTION": "Memories you have Clarity of won't be forgotten when remembering a new memory."

@@ -1,6 +1,5 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -8,8 +7,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.GainMemoryClarityAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.LustMemoryPower;
-import stsjorbsmod.powers.PrestidigitationPower;
+import stsjorbsmod.powers.memories.LustMemoryPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 

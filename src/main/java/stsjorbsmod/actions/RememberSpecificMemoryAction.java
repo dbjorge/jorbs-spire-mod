@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import stsjorbsmod.powers.AbstractMemoryPower;
+import stsjorbsmod.powers.memories.AbstractMemoryPower;
 import stsjorbsmod.powers.SnappedPower;
 
 
