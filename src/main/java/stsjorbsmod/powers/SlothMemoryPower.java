@@ -59,7 +59,7 @@ public class SlothMemoryPower extends AbstractMemoryPower implements CloneablePo
 
     @Override
     public void updateMemoryDescription() {
-        description = DESCRIPTIONS[0];
+        description = DESCRIPTIONS[0] + DRAW_REDUCTION + DESCRIPTIONS[1];
     }
 
     @Override

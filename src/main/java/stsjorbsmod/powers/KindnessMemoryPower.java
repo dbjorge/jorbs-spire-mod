@@ -69,7 +69,7 @@ public class KindnessMemoryPower extends AbstractMemoryPower implements Cloneabl
 
     @Override
     public void updateMemoryDescription() {
-        description = DESCRIPTIONS[0];
+        description = DESCRIPTIONS[0] + ENVENOM_MAGNITUDE + DESCRIPTIONS[1];
     }
 
     @Override
