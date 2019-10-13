@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import stsjorbsmod.powers.AbstractMemoryPower;
 import stsjorbsmod.powers.DiligenceMemoryPower;
+import stsjorbsmod.powers.PatienceMemoryPower;
 
 import java.util.ArrayList;
 
@@ -17,6 +18,7 @@ public class RememberRandomMemoryAction extends AbstractGameAction  {
     public void update() {
         ArrayList<AbstractMemoryPower> candidates = new ArrayList<>();
         candidates.add(new DiligenceMemoryPower(target, source));
+        candidates.add(new PatienceMemoryPower(target, source));
 
         candidates.removeIf(memory -> target.hasPower(memory.ID));
 
