@@ -73,5 +73,9 @@
   "stsjorbsmod:Firebolt": {
     "NAME": "Firebolt",
     "DESCRIPTION": "Deal !D! Damage + !M! damage for each stsjorbsmod:Clarity."
+  },
+  "stsjorbsmod:MagicMissles": {
+    "NAME": "Magic Missles",
+    "DESCRIPTION": "Deal !D! Damage. NL Deal !D! Damage again once for each stsjorbsmod:Clarity."
   }
 }
