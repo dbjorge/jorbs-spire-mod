@@ -21,7 +21,7 @@ public class DefaultUncommonSkill extends AbstractDynamicCard {
     // TEXT DECLARATION 
 
     public static final String ID = JorbsMod.makeID(DefaultUncommonSkill.class.getSimpleName());
-    public static final String IMG = makeCardPath("Skill.png");
+    public static final String IMG = makeCardPath("placeholder.png");
 
     // /TEXT DECLARATION/
 

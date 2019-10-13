@@ -25,7 +25,7 @@ public class DefaultRareAttack extends AbstractDynamicCard {
     // TEXT DECLARATION 
 
     public static final String ID = JorbsMod.makeID(DefaultRareAttack.class.getSimpleName());
-    public static final String IMG = makeCardPath("Attack.png");
+    public static final String IMG = makeCardPath("placeholder.png");
 
     // /TEXT DECLARATION/
 
