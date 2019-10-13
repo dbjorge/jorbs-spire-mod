@@ -69,5 +69,9 @@
   "stsjorbsmod:ArcaneWeapon": {
     "NAME": "Arcane Weapon",
     "DESCRIPTION": "At the end of each turn, attack a random enemy for !D! Damage."
+  },
+  "stsjorbsmod:Firebolt": {
+    "NAME": "Firebolt",
+    "DESCRIPTION": "Deal !D! Damage + !M! damage for each stsjorbsmod:Clarity."
   }
 }

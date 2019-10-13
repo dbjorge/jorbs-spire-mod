@@ -364,6 +364,7 @@ public class JorbsMod implements
         addUnlockedCard(new FreshAdventure(), FreshAdventure.ID);
         addUnlockedCard(new EyeOfTheStorm(), EyeOfTheStorm.ID);
         addUnlockedCard(new ArcaneWeapon(), ArcaneWeapon.ID);
+        addUnlockedCard(new Firebolt(), Firebolt.ID);
 
         // Don't comment out/delete these cards (yet). You need 1 of each type and rarity (technically) for your game not to crash
         // when generating card rewards/shop screen items.
