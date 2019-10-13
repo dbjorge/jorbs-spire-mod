@@ -50,6 +50,8 @@ public class Wanderer extends CustomPlayer {
         public static AbstractCard.CardColor COLOR_GRAY;
         @SpireEnum(name = "DEFAULT_GRAY_COLOR") @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
+        @SpireEnum(name = "REMEMBER_MEMORY")
+        public static AbstractCard.CardTags REMEMBER_MEMORY;
     }
 
     // =============== CHARACTER ENUMERATORS  =================

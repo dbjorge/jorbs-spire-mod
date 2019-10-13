@@ -370,6 +370,7 @@ public class JorbsMod implements
         addUnlockedCard(new ChainLightning(), ChainLightning.ID);
         // Watcher scaling commons
         addUnlockedCard(new WanderingMind(), WanderingMind.ID);
+        addUnlockedCard(new WeightOfMemory(), WeightOfMemory.ID);
 
         // Don't comment out/delete these cards (yet). You need 1 of each type and rarity (technically) for your game not to crash
         // when generating card rewards/shop screen items.
@@ -420,7 +421,6 @@ public class JorbsMod implements
         BaseMod.loadCustomStringsFile(CharacterStrings.class,
                 getModID() + "Resources/localization/eng/JorbsMod-Character-Strings.json");
 
-        
         logger.info("Done editing strings");
     }
     

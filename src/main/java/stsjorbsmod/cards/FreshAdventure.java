@@ -12,6 +12,7 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.DiligenceMemoryPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 // Deal 12(15) damage and remember Diligence
 public class FreshAdventure extends AbstractDynamicCard {
@@ -29,8 +30,9 @@ public class FreshAdventure extends AbstractDynamicCard {
 
     public FreshAdventure() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-
         baseDamage = DAMAGE;
+
+        this.tags.add(REMEMBER_MEMORY);
     }
 
     @Override

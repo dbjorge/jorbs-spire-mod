@@ -10,6 +10,7 @@ import stsjorbsmod.actions.RememberRandomNewMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 // Gain clarity of current memory, then remember a random memory you do not have clarity of. Gain 8(11) Block.
 public class EyeOfTheStorm extends AbstractDynamicCard {
@@ -28,6 +29,8 @@ public class EyeOfTheStorm extends AbstractDynamicCard {
     public EyeOfTheStorm() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
+
+        this.tags.add(REMEMBER_MEMORY);
     }
 
     @Override

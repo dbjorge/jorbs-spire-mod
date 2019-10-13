@@ -101,5 +101,13 @@
   "stsjorbsmod:ChainLightning": {
     "NAME": "Chain Lightning",
     "DESCRIPTION": "Deal !D! Damage. NL Chain to ALL enemies, gaining !M! Damage per chain."
+  },
+  "stsjorbsmod:WanderingMind": {
+    "NAME": "Wandering Mind",
+    "DESCRIPTION": "Gain a random stsjorbsmod:Clarity you do not have yet."
+  },
+  "stsjorbsmod:WeightOfMemory": {
+    "NAME": "Weight of Memory",
+    "DESCRIPTION": "Deal !D! Damage. Deals !M! additional Damage for all cards which remember."
   }
 }

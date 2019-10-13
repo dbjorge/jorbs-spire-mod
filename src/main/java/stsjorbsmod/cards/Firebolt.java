@@ -35,11 +35,32 @@ public class Firebolt extends AbstractDynamicCard {
         baseMagicNumber = DAMAGE_PER_CLARITY;
     }
 
+    private int calculateBonusDamage() {
+        return this.magicNumber * MemoryPowerUtils.countClarities(AbstractDungeon.player);
+    }
+
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int calculatedDamage = this.damage + (this.magicNumber * MemoryPowerUtils.countClarities(p));
         AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, calculatedDamage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+    }
+
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        int realBaseDamage = this.baseDamage;
+        this.baseDamage += calculateBonusDamage();
+        super.calculateCardDamage(mo);
+        this.baseDamage = realBaseDamage;
+        this.isDamageModified = this.damage != this.baseDamage;
+    }
+
+    @Override
+    public void applyPowers() {
+        int realBaseDamage = this.baseDamage;
+        this.baseDamage += calculateBonusDamage();
+        super.applyPowers();
+        this.baseDamage = realBaseDamage;
+        this.isDamageModified = this.damage != this.baseDamage;
     }
 
     @Override
