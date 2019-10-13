@@ -41,6 +41,11 @@
     "NAME": "Eye of the Storm",
     "DESCRIPTION": "Gain stsjorbsmod:Clarity of current memory, then remember a random memory you do not have stsjorbsmod:Clarity of. NL Gain !B! Block."
   },
+  "stsjorbsmod:BlackTentacles": {
+    "NAME": "Black Tentacles",
+    "DESCRIPTION": "Deal !D! Damage. NL Attacks with random targets target this enemy for !M! turn.",
+    "UPGRADE_DESCRIPTION": "Deal !D! Damage. NL Attacks with random targets target this enemy for !M! turns."
+  },
   "stsjorbsmod:ArcaneWeapon": {
     "NAME": "Arcane Weapon",
     "DESCRIPTION": "At the end of each turn, attack a random enemy for !D! Damage."

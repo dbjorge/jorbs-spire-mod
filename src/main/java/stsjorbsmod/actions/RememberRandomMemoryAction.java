@@ -23,7 +23,7 @@ public class RememberRandomMemoryAction extends AbstractGameAction  {
         candidates.removeIf(memory -> target.hasPower(memory.ID));
 
         if (!candidates.isEmpty()) {
-            int randomIndex = AbstractDungeon.cardRng.random.nextInt(candidates.size());
+            int randomIndex = AbstractDungeon.cardRandomRng.random(0, candidates.size() - 1);
             AbstractMemoryPower chosenMemory = candidates.get(randomIndex);
             AbstractDungeon.actionManager.addToTop(new RememberSpecificMemoryAction(target, source, chosenMemory));
         }

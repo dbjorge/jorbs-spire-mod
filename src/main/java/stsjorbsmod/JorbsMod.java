@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.pattern.AbstractStyleNameConverter;
 import stsjorbsmod.cards.*;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.events.DeckOfManyThingsEvent;
@@ -347,6 +348,7 @@ public class JorbsMod implements
         addUnlockedCard(new Strike_Wanderer(), Strike_Wanderer.ID);
         addUnlockedCard(new FreshAdventure(), FreshAdventure.ID);
         addUnlockedCard(new EyeOfTheStorm(), EyeOfTheStorm.ID);
+        addUnlockedCard(new BlackTentacles(), BlackTentacles.ID);
         addUnlockedCard(new ArcaneWeapon(), ArcaneWeapon.ID);
         addUnlockedCard(new Firebolt(), Firebolt.ID);
         addUnlockedCard(new MagicMissles(), MagicMissles.ID);

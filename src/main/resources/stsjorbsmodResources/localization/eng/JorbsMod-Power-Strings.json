@@ -22,6 +22,14 @@
       " Damage."
     ]
   },
+  "stsjorbsmod:BlackTentaclesPower": {
+    "NAME": "Black Tentacles",
+    "DESCRIPTIONS": [
+      "Attacks with random targets target this enemy for #b",
+      " turn.",
+      " turns."
+    ]
+  },
   "stsjorbsmod:CoilPower": {
     "NAME": "Coil",
     "DESCRIPTIONS": [
