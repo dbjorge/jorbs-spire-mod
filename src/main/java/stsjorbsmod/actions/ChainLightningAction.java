@@ -29,21 +29,25 @@ public class ChainLightningAction extends AbstractGameAction {
     }
 
     public void update() {
-        ArrayList<AbstractMonster> remainingTargets = (ArrayList<AbstractMonster>) allTargets.clone();
+        ArrayList<AbstractMonster> remainingTargets = new ArrayList<>(allTargets);
         int nextTargetIndex = remainingTargets.indexOf(initialTarget);
         int currentDamage = this.damage;
 
-        do {
+        while(true) {
             AbstractMonster nextTarget = remainingTargets.remove(nextTargetIndex);
 
             if (!nextTarget.halfDead && !nextTarget.isDying && !nextTarget.isEscaping) {
-                AbstractDungeon.actionManager.addToTop(
+                AbstractDungeon.actionManager.addToBottom(
                         new DamageAction(nextTarget, new DamageInfo(owner, currentDamage, DamageInfo.DamageType.NORMAL), this.attackEffect));
                 currentDamage += this.extraDamagePerHop;
             }
 
+            if (remainingTargets.isEmpty()) {
+                break;
+            }
+
             nextTargetIndex = AbstractDungeon.cardRandomRng.random(0, remainingTargets.size() - 1);
-        } while (!remainingTargets.isEmpty());
+        }
 
         this.isDone = true;
     }

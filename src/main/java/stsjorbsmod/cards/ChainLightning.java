@@ -1,5 +1,6 @@
 package stsjorbsmod.cards;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -33,7 +34,8 @@ public class ChainLightning extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ChainLightningAction(p, m, AbstractDungeon.getMonsters().monsters, damage, magicNumber));
+        AbstractDungeon.actionManager.addToBottom(
+                new ChainLightningAction(p, m, AbstractDungeon.getMonsters().monsters, damage, magicNumber, AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }
 
     @Override
