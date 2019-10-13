@@ -371,6 +371,7 @@ public class JorbsMod implements
         // Watcher scaling commons
         addUnlockedCard(new WanderingMind(), WanderingMind.ID);
         addUnlockedCard(new WeightOfMemory(), WeightOfMemory.ID);
+        addUnlockedCard(new Prestidigitation(), Prestidigitation.ID);
 
         // Don't comment out/delete these cards (yet). You need 1 of each type and rarity (technically) for your game not to crash
         // when generating card rewards/shop screen items.

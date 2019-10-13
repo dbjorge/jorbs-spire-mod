@@ -109,5 +109,9 @@
   "stsjorbsmod:WeightOfMemory": {
     "NAME": "Weight of Memory",
     "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for ALL cards which \"remember\"."
+  },
+  "stsjorbsmod:Prestidigitation": {
+    "NAME": "Prestidigitation",
+    "DESCRIPTION": "At the end of each turn, apply !M! Weak or !M! Vulnerable to a random enemy."
   }
 }
