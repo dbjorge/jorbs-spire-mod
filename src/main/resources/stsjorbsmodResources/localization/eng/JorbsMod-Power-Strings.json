@@ -9,7 +9,7 @@
 },
 "stsjorbsmod:CoilPower": {
         "NAME": "Coil",
-        "DESCRIPTIONS": ["When you forget Patience, deal ", " Damage to all enemies and lose all Coil."]
+        "DESCRIPTIONS": ["When you forget #yPatience, deal #b", " Damage to all enemies and lose all Coil."]
 },
 "stsjorbsmod:SnappedPower": {
         "NAME": "Snapped",
@@ -18,5 +18,9 @@
 "stsjorbsmod:DiligenceMemoryPower": {
         "NAME": "Diligence",
         "DESCRIPTIONS": ["At the end of your turn, retain #b", "."]
+},
+"stsjorbsmod:PatienceMemoryPower": {
+        "NAME": "Patience",
+        "DESCRIPTIONS": ["Gain 1 #yCoil each time you play a card."]
 }
 }
