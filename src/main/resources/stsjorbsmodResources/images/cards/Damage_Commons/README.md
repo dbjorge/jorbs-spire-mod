@@ -1,4 +1,6 @@
-Needs 7 cards <br /> 
+Needs 9 cards <br /> 
+Strike<br /> 
+Fresh Adventure	2: Deal 12 damage and remember Diligence <br /> 
 Black Tentacles	0: Deal 4 damage, attacks with random targets target this enemy until end of turn.<br /> 
 Arcane Weapon	[power] 1: Attack 4 damage a random enemy at the end of each turn. (affected by str, vuln, etc.) <br /> 
 Firebolt	1: Deal 8 damage + 2 damage for each clarity <br /> 
