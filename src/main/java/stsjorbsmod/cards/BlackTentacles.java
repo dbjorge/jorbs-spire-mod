@@ -14,7 +14,6 @@ import stsjorbsmod.powers.BlackTentaclesPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-// Deal 10(12) damage and apply 3(5) weak
 public class BlackTentacles extends AbstractDynamicCard {
     public static final String ID = JorbsMod.makeID(BlackTentacles.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Commons/black_tentacles.png");

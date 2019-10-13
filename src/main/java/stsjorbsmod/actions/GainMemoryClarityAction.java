@@ -17,15 +17,21 @@ import stsjorbsmod.powers.AbstractMemoryPower;
 
 // "Gain clarity of your current memory"
 public class GainMemoryClarityAction extends AbstractGameAction {
+    private String specificMemoryID;
+
     public GainMemoryClarityAction(AbstractCreature target, AbstractCreature source) {
         this.setValues(target, source);
+    }
+    public GainMemoryClarityAction(AbstractCreature target, AbstractCreature source, String specificMemoryID) {
+        this.setValues(target, source);
+        this.specificMemoryID = specificMemoryID;
     }
 
     public void update() {
         for (AbstractPower oldPower : this.source.powers) {
             if (oldPower instanceof AbstractMemoryPower) {
                 AbstractMemoryPower oldMemory = (AbstractMemoryPower) oldPower;
-                if (!oldMemory.isClarified) {
+                if (!oldMemory.isClarified && (specificMemoryID == null || specificMemoryID == oldMemory.ID)) {
                     oldMemory.flash();
                     oldMemory.isClarified = true;
                     oldMemory.updateDescription(); // for memories, also updates name to "Clarity of X"

@@ -69,5 +69,29 @@
   "stsjorbsmod:RayOfFrost": {
     "NAME": "Ray of Frost",
     "DESCRIPTION": "Deal !D! Damage. NL Apply !M! Weak."
+  },
+  "stsjorbsmod:Counterspell": {
+    "NAME": "Counterspell",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Artifact if enemy intends to apply a negative effect."
+  },
+  "stsjorbsmod:MinorIllusion": {
+    "NAME": "Minor Illusion",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "stsjorbsmod:DisguiseSelf": {
+    "NAME": "Disguise Self",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !B! Block next turn."
+  },
+  "stsjorbsmod:Loss": {
+    "NAME": "Loss",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Weak"
+  },
+  "stsjorbsmod:DoubleCheck": {
+    "NAME": "Double-check",
+    "DESCRIPTION": "Gain !B! Block. NL If you remember stsjorbsmod:Diligence, gain stsjorbsmod:Clarity. NL Remember stsjorbsmod:Diligence."
+  },
+  "stsjorbsmod:Channel": {
+    "NAME": "Channel",
+    "DESCRIPTION": "Gain !B! Block. Gain !M! [E] next turn."
   }
 }

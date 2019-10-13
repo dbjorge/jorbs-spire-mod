@@ -344,10 +344,13 @@ public class JorbsMod implements
         
         logger.info("Adding cards");
         // Add the cards
+
+        // Watcher starter deck
         addUnlockedCard(new Defend_Wanderer(), Defend_Wanderer.ID);
         addUnlockedCard(new Strike_Wanderer(), Strike_Wanderer.ID);
         addUnlockedCard(new FreshAdventure(), FreshAdventure.ID);
         addUnlockedCard(new EyeOfTheStorm(), EyeOfTheStorm.ID);
+        // Watcher damage commons
         addUnlockedCard(new BlackTentacles(), BlackTentacles.ID);
         addUnlockedCard(new ArcaneWeapon(), ArcaneWeapon.ID);
         addUnlockedCard(new Firebolt(), Firebolt.ID);
@@ -355,6 +358,13 @@ public class JorbsMod implements
         addUnlockedCard(new AcidSplash(), AcidSplash.ID);
         addUnlockedCard(new TrueStrike(), TrueStrike.ID);
         addUnlockedCard(new RayOfFrost(), RayOfFrost.ID);
+        // Watcher block commons
+        addUnlockedCard(new Counterspell(), Counterspell.ID);
+        addUnlockedCard(new MinorIllusion(), MinorIllusion.ID);
+        addUnlockedCard(new DisguiseSelf(), DisguiseSelf.ID);
+        addUnlockedCard(new Loss(), Loss.ID);
+        addUnlockedCard(new DoubleCheck(), DoubleCheck.ID);
+        addUnlockedCard(new Channel(), Channel.ID);
 
         // Don't comment out/delete these cards (yet). You need 1 of each type and rarity (technically) for your game not to crash
         // when generating card rewards/shop screen items.
