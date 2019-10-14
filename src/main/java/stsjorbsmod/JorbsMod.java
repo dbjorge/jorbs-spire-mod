@@ -9,6 +9,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -262,12 +263,13 @@ public class JorbsMod implements
     public void receiveEditCards() {
         logger.info("Adding cards");
 
-        // Watcher starter deck
+        // === WATCHER ===
+        // == Starter Deck
         addUnlockedCard(new Defend_Wanderer());
         addUnlockedCard(new Strike_Wanderer());
         addUnlockedCard(new FreshAdventure());
         addUnlockedCard(new EyeOfTheStorm());
-        // Watcher damage commons
+        // == Damage Commons
         addUnlockedCard(new BlackTentacles());
         addUnlockedCard(new ArcaneWeapon());
         addUnlockedCard(new Firebolt());
@@ -275,45 +277,93 @@ public class JorbsMod implements
         addUnlockedCard(new AcidSplash());
         addUnlockedCard(new TrueStrike());
         addUnlockedCard(new RayOfFrost());
-        // Watcher block commons
+        // == Block Commons
         addUnlockedCard(new Counterspell());
         addUnlockedCard(new MinorIllusion());
         addUnlockedCard(new DisguiseSelf());
         addUnlockedCard(new Loss());
         addUnlockedCard(new DoubleCheck());
         addUnlockedCard(new Channel());
-        // Watcher AOE commons
+        // == AoE Commons
         addUnlockedCard(new PoisonSpray());
         addUnlockedCard(new ChainLightning());
-        // Watcher scaling commons
+        // == Scaling Commons
         addUnlockedCard(new WanderingMind());
         addUnlockedCard(new WeightOfMemory());
         addUnlockedCard(new PrestidigitationA());
-        // *** Deferring due to implementation cost: addUnlockedCard(new WizardHat());
+        // addUnlockedCard(new WizardHat());
         addUnlockedCard(new WizardRobe());
-        // Watcher manipulation commons
+        // == Manipulation Commons
         addUnlockedCard(new Message());
         addUnlockedCard(new PrestidigitationB());
         addUnlockedCard(new FocusedMind());
         addUnlockedCard(new UnseenServant());
-        // Watcher bad uncommons
+        // == Bad Uncommons
         addUnlockedCard(new Aid());
         addUnlockedCard(new Mania());
-        // Watcher damage uncommons
+        // == Damage Uncommons
         addUnlockedCard(new Mindworm());
         addUnlockedCard(new Hurt());
         addUnlockedCard(new SmithingStrike());
         addUnlockedCard(new OldPocket());
         addUnlockedCard(new TollTheDead());
-        // *** Deferring due to implementation cost: addUnlockedCard(new CorpseExplosion_Wanderer());
-
-        // A few cards done out-of-order to make sure we have at least 1 of each type and rarity, to avoid soft locking
-        // during card selection prompts
+        // addUnlockedCard(new CorpseExplosion_Wanderer());
+        // == Block Uncommons
+        // addUnlockedCard(new Hibernate());
+        // addUnlockedCard(new Mending());
+        // addUnlockedCard(new Rest());
+        // addUnlockedCard(new HedgeWizard());
+        // addUnlockedCard(new MistyStep());
+        // addUnlockedCard(new MageArmor());
+        // addUnlockedCard(new Enervation());
+        // == AoE Uncommons
+        // addUnlockedCard(new Stalwart());
+        // addUnlockedCard(new AnimateObjects());
+        // addUnlockedCard(new ColorSpray());
+        // addUnlockedCard(new Erode());
+        // == Scaling Uncommons
+        // addUnlockedCard(new TinyHut());
+        // addUnlockedCard(new FaerieFire());
+        // addUnlockedCard(new Introspection());
+        // addUnlockedCard(new BookOfTongues());
+        // addUnlockedCard(new MagicMirror());
+        // addUnlockedCard(new Thorns());
+        // ==Manipulation Uncommons
+        // addUnlockedCard(new RefuseToForget());
+        // addUnlockedCard(new LocateObject());
+        // addUnlockedCard(new SchoolsOfMagic());
         addUnlockedCard(new FindFamiliar());
+        // == Damage Rares
+        // addUnlockedCard(new Trauma());
+        // addUnlockedCard(new GatherPower());
+        // addUnlockedCard(new Haste());
         addUnlockedCard(new Fireball());
+        // ==Block Rares
+        // addUnlockedCard(new Lose());
+        // addUnlockedCard(new HoldMonster());
         addUnlockedCard(new Withdraw());
+        // addUnlockedCard(new MirrorImage());
+        // addUnlockedCard(new CorrodingBarrier());
+        // ==AoE Rares
+        // addUnlockedCard(new OldFriends());
+        // addUnlockedCard(new Entangle());
+        // ==Bad Rares
+        // addUnlockedCard(new Amnesia());
+        // addUnlockedCard(new Fear());
+        // ==Scaling Rares
+        // addUnlockedCard(new Wish_Wanderer());
+        // addUnlockedCard(new Determination());
+        // addUnlockedCard(new ArcaneForm());
+        // addUnlockedCard(new FocusOnThePain());
         addUnlockedCard(new Study());
-        
+        // addUnlockedCard(new Banish());
+        // ==Manipulation Rares
+        // addUnlockedCard(new TimeWalk());
+        // addUnlockedCard(new Feast());
+        // addUnlockedCard(new SharpenedMind());
+        // addUnlockedCard(new Ivory());
+        // addUnlockedCard(new DimensionDoor());
+
         logger.info("Done adding cards!");
     }
     
