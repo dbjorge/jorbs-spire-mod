@@ -4,6 +4,7 @@ import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.abstracts.CustomCard;
+import basemod.devcommands.ConsoleCommand;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -24,6 +25,7 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.pattern.AbstractStyleNameConverter;
 import stsjorbsmod.cards.*;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.console.MemoryCommand;
 import stsjorbsmod.events.DeckOfManyThingsEvent;
 import stsjorbsmod.relics.*;
 import stsjorbsmod.util.IDCheckDontTouchPls;
@@ -247,7 +249,9 @@ public class JorbsMod implements
     @Override
     public void receivePostInitialize() {
         logger.info("Loading badge image and mod options");
-        
+
+        MemoryCommand.register();
+
         // Load the Mod Badge
         Texture badgeTexture = TextureLoader.getTexture(BADGE_IMAGE);
         

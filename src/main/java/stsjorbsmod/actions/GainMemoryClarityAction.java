@@ -23,7 +23,7 @@ public class GainMemoryClarityAction extends AbstractGameAction {
 
     public void update() {
         AbstractMemoryPower oldMemory = MemoryPowerUtils.getCurrentMemory(this.target);
-        if (!oldMemory.isClarified && (specificMemoryID == null || specificMemoryID == oldMemory.ID)) {
+        if (oldMemory != null && !oldMemory.isClarified && (specificMemoryID == null || specificMemoryID == oldMemory.ID)) {
             oldMemory.flash();
             oldMemory.isClarified = true;
             oldMemory.updateDescription(); // for memories, also updates name to "Clarity of X"
