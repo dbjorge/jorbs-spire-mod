@@ -388,7 +388,7 @@ public class JorbsMod implements
         // Watcher damage uncommons
         addUnlockedCard(new Mindworm());
         addUnlockedCard(new Hurt());
-        // addUnlockedCard(new SmithingStrike());
+        addUnlockedCard(new SmithingStrike());
         // addUnlockedCard(new OldPocket());
         // addUnlockedCard(new TollOfTheDead());
         // addUnlockedCard(new CorpseExplosion_Wanderer());
