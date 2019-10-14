@@ -16,7 +16,7 @@ import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Aid extends AbstractDynamicCard {
     public static final String ID = JorbsMod.makeID(Aid.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Commons/aid.png");
+    public static final String IMG = makeCardPath("Bad_Uncommons/aid.png");
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
