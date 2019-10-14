@@ -4,7 +4,6 @@ import basemod.DevConsole;
 import basemod.devcommands.ConsoleCommand;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import stsjorbsmod.actions.GainMemoryClarityAction;
 import stsjorbsmod.actions.RememberRandomNewMemoryAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.powers.memories.AbstractMemoryPower;
@@ -12,8 +11,8 @@ import stsjorbsmod.util.MemoryPowerUtils;
 
 import java.util.ArrayList;
 
-public class MemoryAddCommand extends ConsoleCommand {
-    public MemoryAddCommand() {
+public class MemoryForgetCommand extends ConsoleCommand {
+    public MemoryForgetCommand() {
         maxExtraTokens = 1;
         minExtraTokens = 0;
         requiresPlayer = true;
@@ -22,24 +21,20 @@ public class MemoryAddCommand extends ConsoleCommand {
 
     @Override
     public void execute(String[] tokens, int depth) {
-        if (tokens.length > depth + 1) {
-            errorMsg();
-            return;
-        }
         String optionalId = tokens.length > depth ? tokens[depth] : null;
 
-        if (optionalId == null) {
-            DevConsole.log("Remembering an random new memory (like Eye of the Storm)");
-            AbstractDungeon.actionManager.addToBottom(new RememberRandomNewMemoryAction(AbstractDungeon.player, AbstractDungeon.player, false));
+        AbstractMemoryPower currentMemory = MemoryPowerUtils.getCurrentMemory(AbstractDungeon.player);
+        if (optionalId == null && currentMemory == null) {
+            DevConsole.log("Ignoring command: no active memory to remove");
         } else {
-            AbstractMemoryPower newMemory = MemoryPowerUtils.newMemoryByID(tokens[2], AbstractDungeon.player, AbstractDungeon.player, false);
-            AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(AbstractDungeon.player, AbstractDungeon.player, newMemory));
+            String idToRemove = (optionalId != null) ? optionalId : currentMemory.ID;
+            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, idToRemove));
         }
     }
 
     @Override
     public ArrayList<String> extraOptions(String[] tokens, int depth) {
-        return MemoryPowerUtils.allPossibleMemoryIDs();
+        return MemoryPowerUtils.allActiveMemoryIDs(AbstractDungeon.player);
     }
 
     @Override

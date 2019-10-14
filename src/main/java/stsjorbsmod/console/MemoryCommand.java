@@ -14,9 +14,10 @@ public class MemoryCommand extends ConsoleCommand {
         requiresPlayer = true;
         simpleCheck = true;
 
-        followup.put("add", MemoryAddCommand.class);
         followup.put("clarify", MemoryClarifyCommand.class);
-        followup.put("remove", MemoryRemoveCommand.class);
+        followup.put("forget", MemoryForgetCommand.class);
+        followup.put("remember", MemoryRememberCommand.class);
+        followup.put("snap", MemorySnapCommand.class);
     }
 
     @Override
