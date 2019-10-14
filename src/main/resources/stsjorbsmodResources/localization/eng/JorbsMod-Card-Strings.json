@@ -167,5 +167,23 @@
   "stsjorbsmod:CorpseExplosion_Wanderer": {
     "NAME": "Corpse Explosion",
     "DESCRIPTION": "Starts each combat Exhausted; when an enemy dies, move from Exhaust pile to your hand. NL Remember Wrath. NL Deal !D! damage. NL Exhaust."
+  },
+  "stsjorbsmod:FindFamiliar": {
+    "NAME": "FindFamiliar",
+    "DESCRIPTION": "At the end of each turn, gain stsjorbsmod:Clarity.",
+    "UPGRADE_DESCRIPTION": "At the end of each turn, gain stsjorbsmod:Clarity. NL Innate."
+  },
+  "stsjorbsmod:Fireball": {
+    "NAME": "Fireball",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Remember stsjorbsmod:Lust."
+  },
+  "stsjorbsmod:Withdraw": {
+    "NAME": "Withdraw",
+    "DESCRIPTION": "Gain !M! Artifact. NL Gain !B! Block. NL Exhaust."
+  },
+  "stsjorbsmod:Study": {
+    "NAME": "Study",
+    "DESCRIPTION": "Remember stsjorbsmod:Patience. NL At the start of each turn, draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Patience. NL At the start of each turn, draw !M! cards."
   }
 }

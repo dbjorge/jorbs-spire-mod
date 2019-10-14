@@ -392,7 +392,14 @@ public class JorbsMod implements
         addUnlockedCard(new SmithingStrike());
         addUnlockedCard(new OldPocket());
         addUnlockedCard(new TollTheDead());
-        // addUnlockedCard(new CorpseExplosion_Wanderer());
+        // *** Deferring due to implementation cost: addUnlockedCard(new CorpseExplosion_Wanderer());
+
+        // A few cards done out-of-order to make sure we have at least 1 of each type and rarity, to avoid soft locking
+        // during card selection prompts
+        addUnlockedCard(new FindFamiliar());
+        addUnlockedCard(new Fireball());
+        addUnlockedCard(new Withdraw());
+        addUnlockedCard(new Study());
 
         // Don't comment out/delete these cards (yet). You need 1 of each type and rarity (technically) for your game not to crash
         // when generating card rewards/shop screen items.

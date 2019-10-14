@@ -30,6 +30,12 @@
       " turns."
     ]
   },
+  "stsjorbsmod:FindFamiliarPower": {
+    "NAME": "Find Familiar",
+    "DESCRIPTIONS": [
+      "At the end of each turn, gain stsjorbsmod:Clarity"
+    ]
+  },
   "stsjorbsmod:CoilPower": {
     "NAME": "Coil",
     "DESCRIPTIONS": [
