@@ -12,6 +12,7 @@ import stsjorbsmod.powers.memories.PatienceMemoryPower;
 import stsjorbsmod.powers.memories.SlothMemoryPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 public class Study extends AbstractDynamicCard {
     public static final String ID = JorbsMod.makeID(Study.class.getSimpleName());
@@ -29,6 +30,8 @@ public class Study extends AbstractDynamicCard {
     public Study() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = DRAW_PER_TURN;
+
+        this.tags.add(REMEMBER_MEMORY);
     }
 
     @Override

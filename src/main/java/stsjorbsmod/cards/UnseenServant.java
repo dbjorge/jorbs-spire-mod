@@ -10,6 +10,7 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.memories.SlothMemoryPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 public class UnseenServant extends AbstractDynamicCard {
     public static final String ID = JorbsMod.makeID(UnseenServant.class.getSimpleName());
@@ -27,6 +28,8 @@ public class UnseenServant extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = CARD_MOVE_COUNT;
         this.exhaust = true;
+
+        this.tags.add(REMEMBER_MEMORY);
     }
 
     @Override

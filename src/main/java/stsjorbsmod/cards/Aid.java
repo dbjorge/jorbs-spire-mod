@@ -13,6 +13,7 @@ import stsjorbsmod.powers.memories.KindnessMemoryPower;
 import stsjorbsmod.powers.memories.SlothMemoryPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 public class Aid extends AbstractDynamicCard {
     public static final String ID = JorbsMod.makeID(Aid.class.getSimpleName());
@@ -30,6 +31,8 @@ public class Aid extends AbstractDynamicCard {
     public Aid() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = ENEMY_HEAL;
+
+        this.tags.add(REMEMBER_MEMORY);
     }
 
     @Override

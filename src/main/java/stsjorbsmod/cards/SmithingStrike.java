@@ -14,6 +14,7 @@ import stsjorbsmod.powers.memories.WrathMemoryPower;
 import stsjorbsmod.util.MemoryPowerUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 public class SmithingStrike extends AbstractDynamicCard {
     public static final String ID = JorbsMod.makeID(SmithingStrike.class.getSimpleName());
@@ -31,6 +32,8 @@ public class SmithingStrike extends AbstractDynamicCard {
     public SmithingStrike() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
+
+        this.tags.add(REMEMBER_MEMORY);
     }
 
     @Override

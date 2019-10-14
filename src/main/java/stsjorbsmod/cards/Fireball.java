@@ -16,6 +16,7 @@ import stsjorbsmod.powers.memories.SlothMemoryPower;
 import stsjorbsmod.util.MemoryPowerUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 public class Fireball extends AbstractDynamicCard {
     public static final String ID = JorbsMod.makeID(Fireball.class.getSimpleName());
@@ -33,6 +34,8 @@ public class Fireball extends AbstractDynamicCard {
     public Fireball() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
+
+        this.tags.add(REMEMBER_MEMORY);
     }
 
     @Override

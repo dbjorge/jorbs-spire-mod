@@ -13,6 +13,7 @@ import stsjorbsmod.powers.memories.CharityMemoryPower;
 import stsjorbsmod.powers.memories.SlothMemoryPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 public class OldPocket extends AbstractDynamicCard {
     public static final String ID = JorbsMod.makeID(OldPocket.class.getSimpleName());
@@ -31,6 +32,8 @@ public class OldPocket extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = GOLD_GAIN;
         exhaust = true;
+
+        this.tags.add(REMEMBER_MEMORY);
     }
 
     @Override
