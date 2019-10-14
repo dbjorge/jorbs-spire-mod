@@ -142,11 +142,11 @@
   },
   "stsjorbsmod:Mania": {
     "NAME": "Mania",
-    "DESCRIPTION": "Deal !D! damage 2 times. NL If you remember or have stsjorbsmod:Clarity of #stsjorbsmod:Sloth, deal !D! damage 2 times again."
+    "DESCRIPTION": "Deal !D! damage 2 times. NL If you have stsjorbsmod:Sloth, deal !D! damage 2 times again."
   },
   "stsjorbsmod:Mindworm": {
     "NAME": "Mindworm",
-    "DESCRIPTION": "Deal !D! damage 2 times. NL If snapped, deal !M! damage. NL Add a copy of this card to your discard pile."
+    "DESCRIPTION": "Deal !D! damage. NL If snapped, deal !M! damage. NL Add a copy of this card to your discard pile."
   },
   "stsjorbsmod:Hurt": {
     "NAME": "Hurt",
