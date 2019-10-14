@@ -9,12 +9,14 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.powers.memories.AbstractMemoryPower;
+
+import java.util.ArrayList;
 
 // Based on DiscardPileToTopOfDeckAction
 public class CardsToTopOfDeckAction extends AbstractGameAction {
-    private static final String UI_ID = JorbsMod.makeID(AbstractMemoryPower.class.getSimpleName());
+    private static final String UI_ID = JorbsMod.makeID(CardsToTopOfDeckAction.class.getSimpleName());
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(UI_ID);
     public static final String[] TEXT = uiStrings.TEXT;
 
@@ -39,6 +41,8 @@ public class CardsToTopOfDeckAction extends AbstractGameAction {
             this.isDone = true;
         } else {
             CardGroup chosenCards = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+            boolean isSourcePileHand = this.sourcePile == AbstractDungeon.player.hand;
+
             if (this.duration == Settings.ACTION_DUR_FASTER) {
                 if (sourcePile.isEmpty()) {
                     this.isDone = true;
@@ -47,27 +51,32 @@ public class CardsToTopOfDeckAction extends AbstractGameAction {
 
                 if (sourcePile.size() <= this.amount) {
                     for (AbstractCard c : sourcePile.group) {
-                        chosenCards.addToBottom(c);
-                        sourcePile.removeCard(c);
+                        chosenCards.addToTop(c);
                     }
-                    AbstractDungeon.player.hand.refreshHandLayout();
                 }
 
-                if (sourcePile.group.size() > this.amount) {
-                    AbstractDungeon.gridSelectScreen.open(sourcePile, this.amount, TEXT[0], false, false, false, false);
+                if (sourcePile.size() > this.amount) {
+                    String chooseNCardsToText = TEXT[0] + this.amount + (this.amount == 1 ? TEXT[1] : TEXT[2]);
+                    String actionToTakeText = TEXT[3];
+                    if (isSourcePileHand) {
+                        AbstractDungeon.handCardSelectScreen.open(actionToTakeText, this.amount, false);
+                        sourcePile.applyPowers();
+                    } else {
+                        AbstractDungeon.gridSelectScreen.open(sourcePile, this.amount, chooseNCardsToText + actionToTakeText, false, false, false, false);
+                    }
                     this.tickDuration();
                     return;
                 }
             }
 
-            if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
-                for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
-                    chosenCards.addToBottom(c);
-                    sourcePile.removeCard(c);
-                }
+            ArrayList<AbstractCard> selectedCards = isSourcePileHand ?
+                    AbstractDungeon.handCardSelectScreen.selectedCards.group :
+                    AbstractDungeon.gridSelectScreen.selectedCards;
 
-                AbstractDungeon.gridSelectScreen.selectedCards.clear();
-                AbstractDungeon.player.hand.refreshHandLayout();
+            if (!selectedCards.isEmpty() && (!isSourcePileHand || !AbstractDungeon.handCardSelectScreen.wereCardsRetrieved)) {
+                for (AbstractCard c : selectedCards) {
+                    chosenCards.addToTop(c);
+                }
             }
 
             if (!chosenCards.isEmpty()) {
@@ -78,8 +87,15 @@ public class CardsToTopOfDeckAction extends AbstractGameAction {
                 for (AbstractCard c : chosenCards.group) {
                     sourcePile.moveToDeck(c, false);
                 }
-
                 chosenCards.clear();
+
+                if (!isSourcePileHand) {
+                    AbstractDungeon.gridSelectScreen.selectedCards.clear();
+                }
+                AbstractDungeon.player.hand.refreshHandLayout();
+                if (isSourcePileHand) {
+                    AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
+                }
             }
 
             this.tickDuration();

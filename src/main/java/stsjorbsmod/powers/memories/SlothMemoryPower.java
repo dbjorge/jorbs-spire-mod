@@ -41,8 +41,10 @@ public class SlothMemoryPower extends AbstractMemoryPower implements CloneablePo
 
     @Override
     public void onInitialApplication() {
-        AbstractDungeon.actionManager.addToBottom(
+        // addToTop for correct interaction with Unseen Servant
+        AbstractDungeon.actionManager.addToTop(
                 new DiscardAction(owner, source, DISCARD_ON_REMEMBER, true));
+
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(owner, source, new DrawReductionPower(owner, DRAW_REDUCTION), DRAW_REDUCTION));
     }

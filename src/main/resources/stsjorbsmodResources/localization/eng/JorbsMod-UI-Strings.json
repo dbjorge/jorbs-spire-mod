@@ -2,7 +2,7 @@
   "stsjorbsmod:AbstractMemoryPower": {
     "TEXT": ["Memory of ", "Clarity of "]
   },
-  "stsjorbsmod:HandToTopOfDeckAction": {
-    "TEXT": ["Select cards to move to the top of your draw pile."]
+  "stsjorbsmod:CardsToTopOfDeckAction": {
+    "TEXT": ["Choose ", "Card to ", "Cards to ", "move to the top of your draw pile."]
   }
 }
