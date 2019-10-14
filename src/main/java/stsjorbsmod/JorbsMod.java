@@ -376,6 +376,7 @@ public class JorbsMod implements
         addUnlockedCard(new WanderingMind());
         addUnlockedCard(new WeightOfMemory());
         addUnlockedCard(new PrestidigitationA());
+        // *** Deferring due to implementation cost: addUnlockedCard(new WizardHat());
         addUnlockedCard(new WizardRobe());
         // Watcher manipulation commons
         addUnlockedCard(new Message());
@@ -390,7 +391,7 @@ public class JorbsMod implements
         addUnlockedCard(new Hurt());
         addUnlockedCard(new SmithingStrike());
         addUnlockedCard(new OldPocket());
-        // addUnlockedCard(new TollOfTheDead());
+        addUnlockedCard(new TollTheDead());
         // addUnlockedCard(new CorpseExplosion_Wanderer());
 
         // Don't comment out/delete these cards (yet). You need 1 of each type and rarity (technically) for your game not to crash
