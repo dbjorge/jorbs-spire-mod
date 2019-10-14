@@ -1,5 +1,7 @@
 package stsjorbsmod.cards;
 
+import com.megacrit.cardcrawl.localization.CardStrings;
+
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 public abstract class AbstractDynamicCard extends AbstractDefaultCard {
@@ -20,8 +22,15 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
                                final CardColor color,
                                final CardRarity rarity,
                                final CardTarget target) {
-
         super(id, languagePack.getCardStrings(id).NAME, img, cost, languagePack.getCardStrings(id).DESCRIPTION, type, color, rarity, target);
 
+    }
+
+    public void upgradeDescription() {
+        String upgradeDescription = languagePack.getCardStrings(this.cardID).UPGRADE_DESCRIPTION;
+        if (upgradeDescription != null) {
+            this.rawDescription = upgradeDescription;
+        }
+        initializeDescription();
     }
 }

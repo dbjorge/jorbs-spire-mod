@@ -1,20 +1,18 @@
 package stsjorbsmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.ArcaneWeaponPower;
 import stsjorbsmod.powers.PrestidigitationPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class Prestidigitation extends AbstractDynamicCard {
-    public static final String ID = JorbsMod.makeID(Prestidigitation.class.getSimpleName());
-    public static final String IMG = makeCardPath("Scaling_Commons/prestidigitation.png");
+public class PrestidigitationA extends AbstractDynamicCard {
+    public static final String ID = JorbsMod.makeID(PrestidigitationA.class.getSimpleName());
+    public static final String IMG = makeCardPath("Scaling_Commons/prestidigitation_a.png");
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -25,7 +23,7 @@ public class Prestidigitation extends AbstractDynamicCard {
     private static final int EFFECT_MAGNITUDE = 1;
     private static final int UPGRADE_PLUS_EFFECT_MAGNITUDE = 1;
 
-    public Prestidigitation() {
+    public PrestidigitationA() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = EFFECT_MAGNITUDE;
     }

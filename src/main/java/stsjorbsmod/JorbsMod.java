@@ -4,7 +4,6 @@ import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.abstracts.CustomCard;
-import basemod.devcommands.ConsoleCommand;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -22,7 +21,6 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.pattern.AbstractStyleNameConverter;
 import stsjorbsmod.cards.*;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.console.MemoryCommand;
@@ -337,9 +335,9 @@ public class JorbsMod implements
     
     // ================ ADD CARDS ===================
 
-    private void addUnlockedCard(CustomCard cardInstance, String cardID) {
+    private void addUnlockedCard(CustomCard cardInstance) {
         BaseMod.addCard(cardInstance);
-        UnlockTracker.unlockCard(cardID);
+        UnlockTracker.unlockCard(cardInstance.cardID);
     }
 
     @Override
@@ -352,42 +350,47 @@ public class JorbsMod implements
         // Add the cards
 
         // Watcher starter deck
-        addUnlockedCard(new Defend_Wanderer(), Defend_Wanderer.ID);
-        addUnlockedCard(new Strike_Wanderer(), Strike_Wanderer.ID);
-        addUnlockedCard(new FreshAdventure(), FreshAdventure.ID);
-        addUnlockedCard(new EyeOfTheStorm(), EyeOfTheStorm.ID);
+        addUnlockedCard(new Defend_Wanderer());
+        addUnlockedCard(new Strike_Wanderer());
+        addUnlockedCard(new FreshAdventure());
+        addUnlockedCard(new EyeOfTheStorm());
         // Watcher damage commons
-        addUnlockedCard(new BlackTentacles(), BlackTentacles.ID);
-        addUnlockedCard(new ArcaneWeapon(), ArcaneWeapon.ID);
-        addUnlockedCard(new Firebolt(), Firebolt.ID);
-        addUnlockedCard(new MagicMissles(), MagicMissles.ID);
-        addUnlockedCard(new AcidSplash(), AcidSplash.ID);
-        addUnlockedCard(new TrueStrike(), TrueStrike.ID);
-        addUnlockedCard(new RayOfFrost(), RayOfFrost.ID);
+        addUnlockedCard(new BlackTentacles());
+        addUnlockedCard(new ArcaneWeapon());
+        addUnlockedCard(new Firebolt());
+        addUnlockedCard(new MagicMissles());
+        addUnlockedCard(new AcidSplash());
+        addUnlockedCard(new TrueStrike());
+        addUnlockedCard(new RayOfFrost());
         // Watcher block commons
-        addUnlockedCard(new Counterspell(), Counterspell.ID);
-        addUnlockedCard(new MinorIllusion(), MinorIllusion.ID);
-        addUnlockedCard(new DisguiseSelf(), DisguiseSelf.ID);
-        addUnlockedCard(new Loss(), Loss.ID);
-        addUnlockedCard(new DoubleCheck(), DoubleCheck.ID);
-        addUnlockedCard(new Channel(), Channel.ID);
+        addUnlockedCard(new Counterspell());
+        addUnlockedCard(new MinorIllusion());
+        addUnlockedCard(new DisguiseSelf());
+        addUnlockedCard(new Loss());
+        addUnlockedCard(new DoubleCheck());
+        addUnlockedCard(new Channel());
         // Watcher AOE commons
-        addUnlockedCard(new PoisonSpray(), PoisonSpray.ID);
-        addUnlockedCard(new ChainLightning(), ChainLightning.ID);
+        addUnlockedCard(new PoisonSpray());
+        addUnlockedCard(new ChainLightning());
         // Watcher scaling commons
-        addUnlockedCard(new WanderingMind(), WanderingMind.ID);
-        addUnlockedCard(new WeightOfMemory(), WeightOfMemory.ID);
-        addUnlockedCard(new Prestidigitation(), Prestidigitation.ID);
-        addUnlockedCard(new WizardRobe(), WizardRobe.ID);
+        addUnlockedCard(new WanderingMind());
+        addUnlockedCard(new WeightOfMemory());
+        addUnlockedCard(new PrestidigitationA());
+        addUnlockedCard(new WizardRobe());
+        // Watcher manipulation commons
+        addUnlockedCard(new Message());
+        addUnlockedCard(new PrestidigitationB());
+        addUnlockedCard(new FocusedMind());
+        addUnlockedCard(new UnseenServant());
 
         // Don't comment out/delete these cards (yet). You need 1 of each type and rarity (technically) for your game not to crash
         // when generating card rewards/shop screen items.
-        addUnlockedCard(new DefaultUncommonSkill(), DefaultUncommonSkill.ID);
-        addUnlockedCard(new DefaultUncommonAttack(), DefaultUncommonAttack.ID);
-        addUnlockedCard(new DefaultUncommonPower(), DefaultUncommonPower.ID);
-        addUnlockedCard(new DefaultRareAttack(), DefaultRareAttack.ID);
-        addUnlockedCard(new DefaultRareSkill(), DefaultRareSkill.ID);
-        addUnlockedCard(new DefaultRarePower(), DefaultRarePower.ID);
+        addUnlockedCard(new DefaultUncommonSkill());
+        addUnlockedCard(new DefaultUncommonAttack());
+        addUnlockedCard(new DefaultUncommonPower());
+        addUnlockedCard(new DefaultRareAttack());
+        addUnlockedCard(new DefaultRareSkill());
+        addUnlockedCard(new DefaultRarePower());
         
         logger.info("Done adding cards!");
     }

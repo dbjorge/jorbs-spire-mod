@@ -47,7 +47,7 @@ public class BlackTentacles extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_EFFECT_TURN_DURATION);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

@@ -110,12 +110,30 @@
     "NAME": "Weight of Memory",
     "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for ALL cards which \"remember\"."
   },
-  "stsjorbsmod:Prestidigitation": {
-    "NAME": "Prestidigitation",
+  "stsjorbsmod:PrestidigitationA": {
+    "NAME": "Prestidigitation A",
     "DESCRIPTION": "At the start of each turn, apply !M! Weak or !M! Vulnerable to a random enemy."
   },
   "stsjorbsmod:WizardRobe": {
     "NAME": "Wizard Robe",
     "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Gain stsjorbsmod:Clarity."
+  },
+  "stsjorbsmod:Message": {
+    "NAME": "Message",
+    "DESCRIPTION": "Put !M! card from your discard pile into your hand.",
+    "UPGRADE_DESCRIPTION": "Put !M! cards from your discard pile into your hand."
+  },
+  "stsjorbsmod:PrestidigitationB": {
+    "NAME": "Prestidigitation B",
+    "DESCRIPTION": "Draw !M! cards, then put !M! cards from your hand on top of your draw pile in random order."
+  },
+  "stsjorbsmod:FocusedMind": {
+    "NAME": "Focused Mind",
+    "DESCRIPTION": "When remembering stsjorbsmod:Sin, deal !D! damage. NL When remembering stsjorbsmod:Virtue, gain !B! Block."
+  },
+  "stsjorbsmod:UnseenServant": {
+    "NAME": "Unseen Servant",
+    "DESCRIPTION": "Remember stsjorbsmod:Sloth. NL Put !M! cards from your discard pile on top of your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Sloth. NL Put !M! cards from your discard pile on top of your draw pile."
   }
 }

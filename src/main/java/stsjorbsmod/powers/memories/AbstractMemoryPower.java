@@ -23,6 +23,7 @@ public abstract class AbstractMemoryPower extends AbstractPower {
 
         this.owner = owner;
         this.source = source;
+        this.memoryType = memoryType;
         this.isClarified = isClarified;
 
         type = PowerType.BUFF;
