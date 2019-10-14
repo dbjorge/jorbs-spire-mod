@@ -158,7 +158,7 @@
   },
   "stsjorbsmod:OldPocket": {
     "NAME": "Old Pocket",
-    "DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Clarity. NL Exhaust."
+    "DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Exhaust."
   },
   "stsjorbsmod:TollTheDead": {
     "NAME": "Toll the Dead",
@@ -166,7 +166,7 @@
   },
   "stsjorbsmod:CorpseExplosion_Wanderer": {
     "NAME": "Corpse Explosion",
-    "DESCRIPTION": "Starts each combat Exhausted; when an enemy dies, move from Exhaust pile to your hand. NL Remember Wrath. NL Deal !D! damage. NL Exhaust."
+    "DESCRIPTION": "Starts each combat Exhausted; when an enemy dies, move from Exhaust pile to your hand. NL Remember stsjorbsmod:Wrath. NL Deal !D! damage. NL Exhaust."
   },
   "stsjorbsmod:FindFamiliar": {
     "NAME": "FindFamiliar",
