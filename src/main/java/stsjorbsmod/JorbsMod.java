@@ -387,7 +387,7 @@ public class JorbsMod implements
         addUnlockedCard(new Mania());
         // Watcher damage uncommons
         addUnlockedCard(new Mindworm());
-        // addUnlockedCard(new Hurt());
+        addUnlockedCard(new Hurt());
         // addUnlockedCard(new SmithingStrike());
         // addUnlockedCard(new OldPocket());
         // addUnlockedCard(new TollOfTheDead());
