@@ -309,11 +309,11 @@ public class JorbsMod implements
         addUnlockedCard(new TollTheDead());
         // addUnlockedCard(new CorpseExplosion_Wanderer());
         // == Block Uncommons
-        // addUnlockedCard(new Hibernate());
-        // addUnlockedCard(new Mending());
-        // addUnlockedCard(new Rest());
-        // addUnlockedCard(new HedgeWizard());
-        // addUnlockedCard(new MistyStep());
+        addUnlockedCard(new Hibernate());
+        addUnlockedCard(new Mending());
+        addUnlockedCard(new Rest());
+        addUnlockedCard(new HedgeWizard());
+        addUnlockedCard(new MistyStep());
         // addUnlockedCard(new MageArmor());
         // addUnlockedCard(new Enervation());
         // == AoE Uncommons

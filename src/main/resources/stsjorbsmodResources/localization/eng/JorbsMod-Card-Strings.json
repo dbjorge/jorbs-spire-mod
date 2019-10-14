@@ -142,6 +142,28 @@
     "NAME": "Corpse Explosion",
     "DESCRIPTION": "Starts each combat Exhausted; when an enemy dies, move from Exhaust pile to your hand. NL Remember stsjorbsmod:Wrath. NL Deal !D! damage. NL Exhaust."
   },
+  "stsjorbsmod:Hibernate": {
+    "NAME": "Hibernate",
+    "DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Sloth."
+  },
+  "stsjorbsmod:Mending": {
+    "NAME": "Mending",
+    "DESCRIPTION": "Gain !M! HP for each stsjorbsmod:Clarity. NL End your turn.",
+    "UPGRADE_DESCRIPTION": "Gain !M! HP for each stsjorbsmod:Clarity. NL End your turn. NL Retain."
+  },
+  "stsjorbsmod:Rest": {
+    "NAME": "Rest",
+    "DESCRIPTION": "Remember stsjorbsmod:Chastity. NL Gain !B! Block. NL End your turn."
+  },
+  "stsjorbsmod:HedgeWizard": {
+    "NAME": "Hedge Wizard",
+    "DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Humility."
+  },
+  "stsjorbsmod:MistyStep": {
+    "NAME": "Misty Step",
+    "DESCRIPTION": "Gain !B! Block for each stsjorbsmod:Clarity. NL Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block for each stsjorbsmod:Clarity. NL Draw !M! cards."
+  },
   "stsjorbsmod:FindFamiliar": {
     "NAME": "FindFamiliar",
     "DESCRIPTION": "At the end of each turn, gain stsjorbsmod:Clarity.",
