@@ -26,6 +26,7 @@ public class UnseenServant extends AbstractDynamicCard {
     public UnseenServant() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = CARD_MOVE_COUNT;
+        this.exhaust = true;
     }
 
     @Override
