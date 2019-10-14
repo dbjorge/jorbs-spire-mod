@@ -1,30 +1,4 @@
 {
-  "stsjorbsmod:DefaultUncommonAttack": {
-    "NAME": "Big slap",
-    "DESCRIPTION": "Deal !D! damage."
-  },
-  "stsjorbsmod:DefaultUncommonSkill": {
-    "NAME": "A Better Defend",
-    "DESCRIPTION": "Gain !B! Plated Armor. Affected by Dexterity."
-  },
-  "stsjorbsmod:DefaultUncommonPower": {
-    "NAME": "Weirdness",
-    "DESCRIPTION": "Gain X stsjorbsmod:Keywords.",
-    "UPGRADE_DESCRIPTION": "Gain X +1 stsjorbsmod:Keywords."
-  },
-  "stsjorbsmod:DefaultRareAttack": {
-    "NAME": "TOUCH",
-    "DESCRIPTION": "Deal !D! damage."
-  },
-  "stsjorbsmod:DefaultRareSkill": {
-    "NAME": "For Each Loop x2",
-    "DESCRIPTION": "Apply !M! vulnerable to all enemies, 2 times.",
-    "UPGRADE_DESCRIPTION": "Apply !M! vulnerable to all enemies, 3 times."
-  },
-  "stsjorbsmod:DefaultRarePower": {
-    "NAME": "In-Progress Form",
-    "DESCRIPTION": "At the start of your turn, play a TOUCH."
-  },
   "stsjorbsmod:Strike_Wanderer": {
     "NAME": "Strike",
     "DESCRIPTION": "Deal !D! damage."

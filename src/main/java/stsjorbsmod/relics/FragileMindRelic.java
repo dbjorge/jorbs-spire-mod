@@ -2,14 +2,9 @@ package stsjorbsmod.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.actions.SnapAction;
-import stsjorbsmod.powers.memories.PatienceMemoryPower;
-import stsjorbsmod.util.MemoryPowerUtils;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makeRelicOutlinePath;
@@ -63,6 +58,6 @@ public class FragileMindRelic extends CustomRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0].replaceAll(JorbsMod.getModID() + ":", "#y");
+        return DESCRIPTIONS[0].replaceAll(JorbsMod.MOD_ID + ":", "#y");
     }
 }

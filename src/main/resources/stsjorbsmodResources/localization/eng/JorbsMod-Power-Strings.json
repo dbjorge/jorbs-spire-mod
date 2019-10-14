@@ -1,20 +1,4 @@
 {
-  "stsjorbsmod:CommonPower": {
-    "NAME": "Placeholder Power",
-    "DESCRIPTIONS": [
-      "You applied #b",
-      " keyword.",
-      " keywords."
-    ]
-  },
-  "stsjorbsmod:RarePower": {
-    "NAME": "Placeholder Power",
-    "DESCRIPTIONS": [
-      "At the start of your turn, TOUCH #b",
-      " enemy.",
-      " enemies."
-    ]
-  },
   "stsjorbsmod:ArcaneWeaponPower": {
     "NAME": "Arcane Weapon",
     "DESCRIPTIONS": [
