@@ -385,6 +385,13 @@ public class JorbsMod implements
         // Watcher bad uncommons
         addUnlockedCard(new Aid());
         addUnlockedCard(new Mania());
+        // Watcher damage uncommons
+        addUnlockedCard(new Mindworm());
+        // addUnlockedCard(new Hurt());
+        // addUnlockedCard(new SmithingStrike());
+        // addUnlockedCard(new OldPocket());
+        // addUnlockedCard(new TollOfTheDead());
+        // addUnlockedCard(new CorpseExplosion_Wanderer());
 
         // Don't comment out/delete these cards (yet). You need 1 of each type and rarity (technically) for your game not to crash
         // when generating card rewards/shop screen items.

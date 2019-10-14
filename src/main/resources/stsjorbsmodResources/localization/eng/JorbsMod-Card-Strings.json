@@ -143,5 +143,29 @@
   "stsjorbsmod:Mania": {
     "NAME": "Mania",
     "DESCRIPTION": "Deal !D! damage 2 times. NL If you remember or have stsjorbsmod:Clarity of #stsjorbsmod:Sloth, deal !D! damage 2 times again."
+  },
+  "stsjorbsmod:Mindworm": {
+    "NAME": "Mindworm",
+    "DESCRIPTION": "Deal !D! damage 2 times. NL If snapped, deal !M! damage. NL Add a copy of this card to your discard pile."
+  },
+  "stsjorbsmod:Hurt": {
+    "NAME": "Hurt",
+    "DESCRIPTION": "Deal !D! damage 2 times. NL Lose 1 HP per stsjorbsmod:Clarity you have."
+  },
+  "stsjorbsmod:SmithingStrike": {
+    "NAME": "Smithing Strike",
+    "DESCRIPTION": "Remember stsjorbsmod:Wrath. NL Deal !D! damage."
+  },
+  "stsjorbsmod:OldPocket": {
+    "NAME": "Old Pocket",
+    "DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Clarity. NL Exhaust."
+  },
+  "stsjorbsmod:TollTheDead": {
+    "NAME": "Toll the Dead",
+    "DESCRIPTION": "Deal !D! damage. NL If the target had already been damaged this turn, deal !D! damage again."
+  },
+  "stsjorbsmod:CorpseExplosion_Wanderer": {
+    "NAME": "Corpse Explosion",
+    "DESCRIPTION": "Starts each combat Exhausted; when an enemy dies, move from Exhaust pile to your hand. NL Remember Wrath. NL Deal !D! damage. NL Exhaust."
   }
 }
