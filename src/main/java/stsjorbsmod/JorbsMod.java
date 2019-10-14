@@ -389,7 +389,7 @@ public class JorbsMod implements
         addUnlockedCard(new Mindworm());
         addUnlockedCard(new Hurt());
         addUnlockedCard(new SmithingStrike());
-        // addUnlockedCard(new OldPocket());
+        addUnlockedCard(new OldPocket());
         // addUnlockedCard(new TollOfTheDead());
         // addUnlockedCard(new CorpseExplosion_Wanderer());
 
