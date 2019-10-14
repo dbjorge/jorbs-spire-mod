@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.EndTurnNowAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.util.MemoryPowerUtils;
 
@@ -35,7 +36,7 @@ public class Mending extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         int healAmount = MemoryPowerUtils.countClarities(p) * magicNumber;
         AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, healAmount));
-        AbstractDungeon.actionManager.addToBottom(new EndTurnAction());
+        AbstractDungeon.actionManager.addToBottom(new EndTurnNowAction());
     }
 
     @Override
