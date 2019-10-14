@@ -5,7 +5,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.PrismaticShard;
 
-public class RemovePrismaticShardPatch {
+public class RemoveUnwantedBaseRelicsPatch {
     @SpirePatch(
             clz = AbstractDungeon.class,
             method = "initializeRelicList"
