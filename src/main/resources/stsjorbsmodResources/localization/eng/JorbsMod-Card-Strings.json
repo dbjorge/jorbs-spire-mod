@@ -135,5 +135,13 @@
     "NAME": "Unseen Servant",
     "DESCRIPTION": "Remember stsjorbsmod:Sloth. NL Put !M! cards from your discard pile on top of your draw pile. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Sloth. NL Put !M! cards from your discard pile on top of your draw pile."
+  },
+  "stsjorbsmod:Aid": {
+    "NAME": "Aid",
+    "DESCRIPTION": "Heal an enemy for !M! HP. NL Remember stsjorbsmod:Kindness."
+  },
+  "stsjorbsmod:Mania": {
+    "NAME": "Mania",
+    "DESCRIPTION": "Deal !D! damage 2 times. NL If you remember or have stsjorbsmod:Clarity of #stsjorbsmod:Sloth, deal !D! damage 2 times again."
   }
 }
