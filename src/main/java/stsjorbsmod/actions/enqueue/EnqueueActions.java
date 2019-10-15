@@ -12,14 +12,24 @@ public class EnqueueActions {
 	private AbstractCreature source;
 	private AbstractCreature target;
 	
-	private DamageType sourceDamageType;
-	private DamageType targetDamageType;
+	private int defaultBaseSourceDamage;
+	private int defaultBaseTargetDamage;
+
+	private DamageType defaultSourceDamageType;
+	private DamageType defaultTargetDamageType;
 	
-	private AttackEffect sourceAttackEffect;
-	private AttackEffect targetAttackEffect;
+	private AttackEffect defaultSourceAttackEffect;
+	private AttackEffect defaultTargetAttackEffect;
 	
-	private int baseSourceDamage;
-	private int baseTargetDamage;
+	
+	public EnqueueActions(AbstractCreature target) {
+		this(AbstractDungeon.player, target);
+	}
+	
+	public EnqueueActions(AbstractCreature source, AbstractCreature target) {
+		this.source = source;
+		this.target = target;
+	}
 	
 	public AbstractCreature getSource() {
 		return source;
@@ -29,44 +39,78 @@ public class EnqueueActions {
 		return target;
 	}
 	
+	public EnqueueActions setDefaultSourceDamage(int base, DamageType type, AttackEffect effect) {
+		this.defaultBaseSourceDamage = base;
+		this.defaultSourceDamageType = type;
+		this.defaultSourceAttackEffect = effect;
+		return this;
+	}
+	
+	public EnqueueActions setDefaultTargetDamage(int base, DamageType type, AttackEffect effect) {
+		this.defaultBaseTargetDamage = base;
+		this.defaultTargetDamageType = type;
+		this.defaultTargetAttackEffect = effect;
+		return this;
+	}
+	
+	public EnqueueActions resetDefaultAttack() {
+		resetDefaultSourceDamage();
+		resetDefaultTargetDamage();
+		return this;
+	}
+	
+	public EnqueueActions resetDefaultSourceDamage() {
+		this.defaultBaseSourceDamage = 0;
+		this.defaultSourceDamageType = null;
+		this.defaultSourceAttackEffect = null;
+		return this;
+	}
+	
+	public EnqueueActions resetDefaultTargetDamage() {
+		this.defaultBaseTargetDamage = 0;
+		this.defaultTargetDamageType = null;
+		this.defaultTargetAttackEffect = null;
+		return this;
+	}
+	
 	public EnqueueActions calculateAndDealDamageToSource() {
-		return calculateAndDealDamageToTarget(baseSourceDamage, sourceDamageType, sourceAttackEffect);
+		return calculateAndDealDamageToTarget(defaultBaseSourceDamage, defaultSourceDamageType, defaultSourceAttackEffect);
 	}
 	
 	public EnqueueActions calculateAndDealDamageToSource(DamageType type, AttackEffect effect) {
-		return calculateAndDealDamageToTarget(baseSourceDamage, type, effect);
+		return calculateAndDealDamageToTarget(defaultBaseSourceDamage, type, effect);
 	}
 	
 	public EnqueueActions calculateAndDealDamageToSource(int baseDamage, DamageType type, AttackEffect effect) {
-		return dealDamageToTarget(applySourceModifiers(baseDamage), type, effect);
+		return dealBaseDamageToSource(applySourceModifiers(baseDamage), type, effect);
 	}
 	
-	public EnqueueActions dealDamageToSource(int damage) {
-		return dealDamageToTarget(damage, sourceDamageType, sourceAttackEffect);
+	public EnqueueActions dealBaseDamageToSource(int damage) {
+		return dealBaseDamageToSource(damage, defaultSourceDamageType, defaultSourceAttackEffect);
 	}
 	
-	public EnqueueActions dealDamageToSource(int damage, DamageType type, AttackEffect effect) {
+	public EnqueueActions dealBaseDamageToSource(int damage, DamageType type, AttackEffect effect) {
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(source, new DamageInfo(source, damage, type), effect));
 		return this;
 	}
 	
 	public EnqueueActions calculateAndDealDamageToTarget() {
-		return calculateAndDealDamageToTarget(baseTargetDamage, targetDamageType, targetAttackEffect);
+		return calculateAndDealDamageToTarget(defaultBaseTargetDamage, defaultTargetDamageType, defaultTargetAttackEffect);
 	}
 	
 	public EnqueueActions calculateAndDealDamageToTarget(DamageType type, AttackEffect effect) {
-		return calculateAndDealDamageToTarget(baseTargetDamage, type, effect);
+		return calculateAndDealDamageToTarget(defaultBaseTargetDamage, type, effect);
 	}
 	
 	public EnqueueActions calculateAndDealDamageToTarget(int baseDamage, DamageType type, AttackEffect effect) {
-		return dealDamageToTarget(applyTargetModifiers(baseDamage), type, effect);
+		return dealBaseDamageToTarget(applyTargetModifiers(baseDamage), type, effect);
 	}
 	
-	public EnqueueActions dealDamageToTarget(int damage) {
-		return dealDamageToTarget(damage, targetDamageType, targetAttackEffect);
+	public EnqueueActions dealBaseDamageToTarget(int damage) {
+		return dealBaseDamageToTarget(damage, defaultTargetDamageType, defaultTargetAttackEffect);
 	}
 	
-	public EnqueueActions dealDamageToTarget(int damage, DamageType type, AttackEffect effect) {
+	public EnqueueActions dealBaseDamageToTarget(int damage, DamageType type, AttackEffect effect) {
 		AbstractDungeon.actionManager.addToBottom(new DamageAction(target, new DamageInfo(source, damage, type), effect));
 		return this;
 	}
