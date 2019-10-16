@@ -22,6 +22,7 @@ public class GluttonyMemory extends AbstractMemory {
 
     public GluttonyMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.SIN, owner, isClarified);
+        this.descriptionPlaceholders.put("!M!", MAX_HP_PER_KILL+"");
     }
 
     @Override
@@ -34,10 +35,5 @@ public class GluttonyMemory extends AbstractMemory {
             JorbsMod.logger.info("Gluttony: gaining max hp");
             AbstractDungeon.player.increaseMaxHp(MAX_HP_PER_KILL, true);
         }
-    }
-
-    @Override
-    protected void updateMemoryDescription() {
-        description = DESCRIPTIONS[0] + MAX_HP_PER_KILL + DESCRIPTIONS[1];
     }
 }

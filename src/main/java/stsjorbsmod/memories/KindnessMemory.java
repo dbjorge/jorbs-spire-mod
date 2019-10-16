@@ -28,6 +28,7 @@ public class KindnessMemory extends AbstractMemory {
 
     public KindnessMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.VIRTUE, owner, isClarified);
+        this.descriptionPlaceholders.put("!M!", ENVENOM_MAGNITUDE+"");
     }
 
     @Override
@@ -49,10 +50,5 @@ public class KindnessMemory extends AbstractMemory {
     public void onForget() {
         AbstractDungeon.actionManager.addToBottom(
                 new ReducePowerAction(owner, source, EnvenomPower.POWER_ID, ENVENOM_MAGNITUDE));
-    }
-
-    @Override
-    protected void updateMemoryDescription() {
-        description = DESCRIPTIONS[0] + ENVENOM_MAGNITUDE + DESCRIPTIONS[1];
     }
 }

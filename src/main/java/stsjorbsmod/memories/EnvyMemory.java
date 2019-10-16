@@ -25,6 +25,7 @@ public class EnvyMemory extends AbstractMemory {
 
     public EnvyMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.SIN, owner, isClarified);
+        this.descriptionPlaceholders.put("!M!", VULNERABLE_ON_TARGET_ENEMY+"");
     }
 
     @Override
@@ -38,10 +39,5 @@ public class EnvyMemory extends AbstractMemory {
         this.flash();
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(monster, owner, new VulnerablePower(monster, VULNERABLE_ON_TARGET_ENEMY, false), VULNERABLE_ON_TARGET_ENEMY));
-    }
-
-    @Override
-    protected void updateMemoryDescription() {
-        description = DESCRIPTIONS[0] + VULNERABLE_ON_TARGET_ENEMY + DESCRIPTIONS[1];
     }
 }

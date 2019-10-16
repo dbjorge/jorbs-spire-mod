@@ -24,6 +24,7 @@ public class DiligenceMemory extends AbstractMemory {
 
     public DiligenceMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.VIRTUE, owner, isClarified);
+        this.descriptionPlaceholders.put("!M!", CARDS_RETAINED+"");
     }
 
     @Override
@@ -37,10 +38,5 @@ public class DiligenceMemory extends AbstractMemory {
             AbstractDungeon.actionManager.addToBottom(
                     new RetainCardsAction(this.source, CARDS_RETAINED));
         }
-    }
-
-    @Override
-    protected void updateMemoryDescription() {
-        description = DESCRIPTIONS[0] + CARDS_RETAINED + DESCRIPTIONS[1];
     }
 }

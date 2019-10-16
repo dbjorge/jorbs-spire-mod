@@ -23,6 +23,7 @@ public class HumilityMemory extends AbstractMemory {
 
     public HumilityMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.VIRTUE, owner, isClarified);
+        this.descriptionPlaceholders.put("!M!", THORNS_DAMAGE+"");
     }
 
     @Override
@@ -36,10 +37,5 @@ public class HumilityMemory extends AbstractMemory {
         this.flash();
         AbstractDungeon.actionManager.addToBottom(
                 new ReducePowerAction(owner, source, ThornsPower.POWER_ID, THORNS_DAMAGE));
-    }
-
-    @Override
-    protected void updateMemoryDescription() {
-        description = DESCRIPTIONS[0] + THORNS_DAMAGE + DESCRIPTIONS[1];
     }
 }

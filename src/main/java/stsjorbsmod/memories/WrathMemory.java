@@ -24,6 +24,7 @@ public class WrathMemory extends AbstractMemory {
 
     public WrathMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.SIN, owner, isClarified);
+        this.descriptionPlaceholders.put("!M!", DAMAGE_INCREASE_PER_KILL+"");
     }
 
     @Override
@@ -38,10 +39,5 @@ public class WrathMemory extends AbstractMemory {
             AbstractDungeon.actionManager.addToTop(
                     new PermanentlyIncreaseCardDamageAction(card.uuid, DAMAGE_INCREASE_PER_KILL));
         }
-    }
-
-    @Override
-    protected void updateMemoryDescription() {
-        description = DESCRIPTIONS[0] + DAMAGE_INCREASE_PER_KILL + DESCRIPTIONS[1];
     }
 }

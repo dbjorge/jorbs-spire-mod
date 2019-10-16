@@ -22,6 +22,7 @@ public class GreedMemory extends AbstractMemory {
 
     public GreedMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.SIN, owner, isClarified);
+        this.descriptionPlaceholders.put("!M!", GOLD_PER_KILL+"");
     }
 
     @Override
@@ -34,10 +35,5 @@ public class GreedMemory extends AbstractMemory {
             JorbsMod.logger.info("Greed: gaining gold");
             AbstractDungeon.player.gainGold(GOLD_PER_KILL);
         }
-    }
-
-    @Override
-    protected void updateMemoryDescription() {
-        description = DESCRIPTIONS[0] + GOLD_PER_KILL + DESCRIPTIONS[1];
     }
 }

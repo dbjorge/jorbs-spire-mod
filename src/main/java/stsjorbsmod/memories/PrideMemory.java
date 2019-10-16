@@ -37,9 +37,4 @@ public class PrideMemory extends AbstractMemory {
             masterDeckCard.superFlash();
         }
     }
-
-    @Override
-    protected void updateMemoryDescription() {
-        description = DESCRIPTIONS[0];
-    }
 }

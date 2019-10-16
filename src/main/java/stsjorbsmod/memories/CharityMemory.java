@@ -25,6 +25,8 @@ public class CharityMemory extends AbstractMemory {
 
     public CharityMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.VIRTUE, owner, isClarified);
+        this.descriptionPlaceholders.put("!S!", STRENGTH_PER_GOLD_THRESHOLD+"");
+        this.descriptionPlaceholders.put("!G!", GOLD_THRESHOLD+"");
     }
 
     private int strengthAdded;
@@ -48,10 +50,5 @@ public class CharityMemory extends AbstractMemory {
             AbstractDungeon.actionManager.addToBottom(
                     new ReducePowerAction(owner, source, StrengthPower.POWER_ID, this.strengthAdded));
         }
-    }
-
-    @Override
-    protected void updateMemoryDescription() {
-        description = DESCRIPTIONS[0] + STRENGTH_PER_GOLD_THRESHOLD + DESCRIPTIONS[1] + GOLD_THRESHOLD + DESCRIPTIONS[2];
     }
 }

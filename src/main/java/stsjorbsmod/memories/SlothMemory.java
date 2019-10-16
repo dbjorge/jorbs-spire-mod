@@ -25,6 +25,7 @@ public class SlothMemory extends AbstractMemory {
 
     public SlothMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.SIN, owner, isClarified);
+        this.descriptionPlaceholders.put("!M!", DRAW_REDUCTION+"");
     }
 
     @Override
@@ -41,10 +42,5 @@ public class SlothMemory extends AbstractMemory {
     public void onForget() {
         AbstractDungeon.actionManager.addToBottom(
                 new ReducePowerAction(owner, source, DrawReductionPower.POWER_ID, DRAW_REDUCTION));
-    }
-
-    @Override
-    protected void updateMemoryDescription() {
-        description = DESCRIPTIONS[0] + DRAW_REDUCTION + DESCRIPTIONS[1];
     }
 }

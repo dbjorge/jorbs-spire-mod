@@ -54,9 +54,4 @@ public class PatienceMemory extends AbstractMemory {
         AbstractDungeon.actionManager.addToBottom(
                 new RemoveSpecificPowerAction(owner, source, CoilPower.POWER_ID));
     }
-
-    @Override
-    protected void updateMemoryDescription() {
-        description = DESCRIPTIONS[0];
-    }
 }

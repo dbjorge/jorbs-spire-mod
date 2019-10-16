@@ -29,6 +29,7 @@ public class TemperanceMemory extends AbstractMemory {
 
     public TemperanceMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.VIRTUE, owner, isClarified);
+        this.descriptionPlaceholders.put("!M!", ENEMY_STRENGTH_REDUCTION+"");
     }
 
     @Override
@@ -52,10 +53,5 @@ public class TemperanceMemory extends AbstractMemory {
             AbstractDungeon.actionManager.addToBottom(restoreAction);
         }
         restoreStrengthActions.clear();
-    }
-
-    @Override
-    protected void updateMemoryDescription() {
-        description = DESCRIPTIONS[0] + ENEMY_STRENGTH_REDUCTION + DESCRIPTIONS[1];
     }
 }

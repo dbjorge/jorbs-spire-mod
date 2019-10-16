@@ -25,6 +25,8 @@ public class LustMemory extends AbstractMemory {
 
     public LustMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.SIN, owner, isClarified);
+        this.descriptionPlaceholders.put("!P!", ATTACK_BONUS_PERCENTAGE_DESCRIPTION+"");
+        this.descriptionPlaceholders.put("!W!", WEAK_ON_FORGET+"");
     }
 
     @Override
@@ -41,10 +43,5 @@ public class LustMemory extends AbstractMemory {
         this.flash();
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(owner, source, new WeakPower(owner, WEAK_ON_FORGET, false)));
-    }
-
-    @Override
-    protected void updateMemoryDescription() {
-        description = DESCRIPTIONS[0] + ATTACK_BONUS_PERCENTAGE_DESCRIPTION + DESCRIPTIONS[1] + WEAK_ON_FORGET + DESCRIPTIONS[2];
     }
 }
