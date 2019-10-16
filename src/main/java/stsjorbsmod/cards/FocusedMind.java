@@ -5,12 +5,11 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.memories.AbstractMemoryPower;
-import stsjorbsmod.powers.memories.MemoryType;
+import stsjorbsmod.memories.AbstractMemoryPower;
+import stsjorbsmod.memories.MemoryType;
 import stsjorbsmod.util.MemoryPowerUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;

@@ -2,7 +2,7 @@ package stsjorbsmod.util;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import stsjorbsmod.powers.memories.*;
+import stsjorbsmod.memories.*;
 
 import java.util.ArrayList;
 

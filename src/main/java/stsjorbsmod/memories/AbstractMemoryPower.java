@@ -1,4 +1,4 @@
-package stsjorbsmod.powers.memories;
+package stsjorbsmod.memories;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;

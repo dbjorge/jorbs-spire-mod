@@ -7,7 +7,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.EndTurnNowAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.memories.ChastityMemoryPower;
+import stsjorbsmod.memories.ChastityMemoryPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;

@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.powers.memories.AbstractMemoryPower;
+import stsjorbsmod.memories.AbstractMemoryPower;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;

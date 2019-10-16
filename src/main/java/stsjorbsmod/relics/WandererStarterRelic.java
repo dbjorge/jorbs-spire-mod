@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
-import stsjorbsmod.powers.memories.PatienceMemoryPower;
+import stsjorbsmod.memories.PatienceMemoryPower;
 import stsjorbsmod.util.MemoryPowerUtils;
 import stsjorbsmod.util.TextureLoader;
 

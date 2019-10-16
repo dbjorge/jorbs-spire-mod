@@ -6,7 +6,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.CardsToTopOfDeckAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.memories.SlothMemoryPower;
+import stsjorbsmod.memories.SlothMemoryPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;

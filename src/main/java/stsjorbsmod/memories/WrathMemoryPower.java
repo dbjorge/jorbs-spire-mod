@@ -1,4 +1,4 @@
-package stsjorbsmod.powers.memories;
+package stsjorbsmod.memories;
 
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;

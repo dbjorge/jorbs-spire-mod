@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.memories.SlothMemoryPower;
+import stsjorbsmod.memories.SlothMemoryPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 

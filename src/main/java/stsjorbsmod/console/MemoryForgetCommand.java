@@ -4,9 +4,7 @@ import basemod.DevConsole;
 import basemod.devcommands.ConsoleCommand;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import stsjorbsmod.actions.RememberRandomNewMemoryAction;
-import stsjorbsmod.actions.RememberSpecificMemoryAction;
-import stsjorbsmod.powers.memories.AbstractMemoryPower;
+import stsjorbsmod.memories.AbstractMemoryPower;
 import stsjorbsmod.util.MemoryPowerUtils;
 
 import java.util.ArrayList;

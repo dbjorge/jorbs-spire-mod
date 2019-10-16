@@ -1,4 +1,4 @@
-package stsjorbsmod.powers.memories;
+package stsjorbsmod.memories;
 
 public enum MemoryType {
     SIN,

@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.powers.memories.PatienceMemoryPower;
+import stsjorbsmod.memories.PatienceMemoryPower;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;

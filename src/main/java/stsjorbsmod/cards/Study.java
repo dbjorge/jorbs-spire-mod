@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.powers.DrawPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.memories.PatienceMemoryPower;
+import stsjorbsmod.memories.PatienceMemoryPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;

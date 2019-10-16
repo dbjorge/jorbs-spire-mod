@@ -3,7 +3,7 @@ package stsjorbsmod.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import stsjorbsmod.powers.memories.*;
+import stsjorbsmod.memories.*;
 import stsjorbsmod.util.MemoryPowerUtils;
 
 import java.util.ArrayList;

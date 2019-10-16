@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
-import stsjorbsmod.powers.memories.AbstractMemoryPower;
+import stsjorbsmod.memories.AbstractMemoryPower;
 import stsjorbsmod.util.MemoryPowerUtils;
 
 
