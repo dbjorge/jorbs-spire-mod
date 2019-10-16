@@ -1,6 +1,6 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -35,7 +35,7 @@ public class ChainLightning extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         ArrayList<AbstractMonster> targets = AbstractDungeon.getMonsters().monsters;
-        enqueueAction(new ChainLightningAction(p, m, targets, damage, magicNumber, AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        enqueueAction(new ChainLightningAction(p, m, targets, damage, magicNumber, AttackEffect.SLASH_VERTICAL));
     }
 
     @Override

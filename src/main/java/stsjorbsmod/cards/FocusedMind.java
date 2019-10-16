@@ -1,6 +1,6 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -40,7 +40,7 @@ public class FocusedMind extends CustomJorbsModCard {
         AbstractMemory currentMemory = MemoryPowerUtils.getCurrentMemory(p);
 
         if (currentMemory != null && currentMemory.memoryType == MemoryType.SIN) {
-            enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+            enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.BLUNT_LIGHT));
         }
 
         if (currentMemory != null && currentMemory.memoryType == MemoryType.VIRTUE) {

@@ -3,11 +3,12 @@ package stsjorbsmod.memories;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -60,7 +61,7 @@ public class PatienceMemory extends AbstractMemory implements CloneablePowerInte
         int enemyDamage = DAMAGE_PER_COIL_ON_LEAVE * numCoil;
 
         AbstractDungeon.actionManager.addToBottom(
-                new DamageAllEnemiesAction(source, DamageInfo.createDamageMatrix(enemyDamage, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
+                new DamageAllEnemiesAction(source, DamageInfo.createDamageMatrix(enemyDamage, true), DamageType.THORNS, AttackEffect.FIRE));
         AbstractDungeon.actionManager.addToBottom(
                 new RemoveSpecificPowerAction(owner, source, CoilPower.POWER_ID));
     }

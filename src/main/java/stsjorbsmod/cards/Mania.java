@@ -1,6 +1,6 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -40,7 +40,7 @@ public class Mania extends CustomJorbsModCard {
         }
 
         for (int i=0; i<numSwings; ++i) {
-            enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+            enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SLASH_VERTICAL));
         }
     }
 
