@@ -2,12 +2,11 @@ package stsjorbsmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.EndTurnNowAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.util.MemoryPowerUtils;
+import stsjorbsmod.memories.MemoryUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -30,7 +29,7 @@ public class Mending extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int healAmount = MemoryPowerUtils.countClarities(p) * magicNumber;
+        int healAmount = MemoryUtils.countClarities(p) * magicNumber;
         enqueueAction(new HealAction(p, p, healAmount));
         enqueueAction(new EndTurnNowAction());
     }

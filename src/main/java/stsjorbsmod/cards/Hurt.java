@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.util.MemoryPowerUtils;
+import stsjorbsmod.memories.MemoryUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -36,7 +36,7 @@ public class Hurt extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SLASH_HEAVY));
 
-        int hpLoss = MemoryPowerUtils.countClarities(p) * magicNumber;
+        int hpLoss = MemoryUtils.countClarities(p) * magicNumber;
         if (hpLoss > 0) {
             enqueueAction(
                     new DamageAction(p, new DamageInfo(p, hpLoss, DamageInfo.DamageType.HP_LOSS), AttackEffect.SHIELD));

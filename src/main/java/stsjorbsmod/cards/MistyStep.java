@@ -3,11 +3,10 @@ package stsjorbsmod.cards;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.util.MemoryPowerUtils;
+import stsjorbsmod.memories.MemoryUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -33,7 +32,7 @@ public class MistyStep extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int calculatedBlock = MemoryPowerUtils.countClarities(p) * block;
+        int calculatedBlock = MemoryUtils.countClarities(p) * block;
         enqueueAction(new GainBlockAction(p, p, calculatedBlock));
         enqueueAction(new DrawCardAction(p, magicNumber));
     }

@@ -1,4 +1,4 @@
-package stsjorbsmod.util;
+package stsjorbsmod.memories;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -6,7 +6,7 @@ import stsjorbsmod.memories.*;
 
 import java.util.ArrayList;
 
-public class MemoryPowerUtils {
+public class MemoryUtils {
     public static int countClarities(AbstractCreature creature) {
         int count = 0;
 

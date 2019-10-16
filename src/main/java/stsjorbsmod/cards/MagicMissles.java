@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.util.MemoryPowerUtils;
+import stsjorbsmod.memories.MemoryUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -32,7 +32,7 @@ public class MagicMissles extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int numMissles = 1 + MemoryPowerUtils.countClarities(p);
+        int numMissles = 1 + MemoryUtils.countClarities(p);
 
         for (int i=0; i<numMissles; ++i) {
             enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SMASH));

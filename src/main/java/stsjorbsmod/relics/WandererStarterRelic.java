@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.memories.PatienceMemory;
-import stsjorbsmod.util.MemoryPowerUtils;
+import stsjorbsmod.memories.MemoryUtils;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makeRelicOutlinePath;
@@ -44,7 +44,7 @@ public class WandererStarterRelic extends CustomRelic {
         AbstractPlayer p = AbstractDungeon.player;
 
         if (p.currentHealth > 0) {
-            p.heal(MemoryPowerUtils.countClarities(p) * HEAL_PER_CLARITY);
+            p.heal(MemoryUtils.countClarities(p) * HEAL_PER_CLARITY);
         }
     }
 

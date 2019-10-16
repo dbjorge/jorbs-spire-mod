@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.util.MemoryPowerUtils;
+import stsjorbsmod.memories.MemoryUtils;
 
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
@@ -36,7 +36,7 @@ public class Firebolt extends CustomJorbsModCard {
 
     @Override
     protected int calculateBonusBaseDamage() {
-        return this.magicNumber * MemoryPowerUtils.countClarities(AbstractDungeon.player);
+        return this.magicNumber * MemoryUtils.countClarities(AbstractDungeon.player);
     }
 
     @Override
