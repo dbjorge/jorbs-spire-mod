@@ -1,19 +1,18 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.util.MemoryPowerUtils;
+import stsjorbsmod.memories.MemoryUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 // Deal 3(4) Damage. Deal 3(4) Damage again once for each Clarity.
-public class MagicMissles extends AbstractDynamicCard {
+public class MagicMissles extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(MagicMissles.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Commons/magic_missles.png");
 
@@ -33,11 +32,10 @@ public class MagicMissles extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int numMissles = 1 + MemoryPowerUtils.countClarities(p);
+        int numMissles = 1 + MemoryUtils.countClarities(p);
 
         for (int i=0; i<numMissles; ++i) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
+            enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SMASH));
         }
     }
 

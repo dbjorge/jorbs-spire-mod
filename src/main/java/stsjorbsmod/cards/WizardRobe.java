@@ -1,18 +1,17 @@
 package stsjorbsmod.cards;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.GainMemoryClarityAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.memories.LustMemoryPower;
+import stsjorbsmod.memories.LustMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-public class WizardRobe extends AbstractDynamicCard {
+public class WizardRobe extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(WizardRobe.class.getSimpleName());
     public static final String IMG = makeCardPath("Scaling_Commons/wizard_robe.png");
 
@@ -32,10 +31,8 @@ public class WizardRobe extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new RememberSpecificMemoryAction(p, p, new LustMemoryPower(p, p, false)));
-        AbstractDungeon.actionManager.addToBottom(
-                new GainMemoryClarityAction(p, p));
+        enqueueAction(new RememberSpecificMemoryAction(new LustMemory(p, false)));
+        enqueueAction(new GainMemoryClarityAction(p));
     }
 
     @Override

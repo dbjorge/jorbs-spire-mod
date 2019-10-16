@@ -3,8 +3,8 @@ package stsjorbsmod.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import stsjorbsmod.powers.memories.*;
-import stsjorbsmod.util.MemoryPowerUtils;
+import stsjorbsmod.memories.*;
+import stsjorbsmod.memories.MemoryUtils;
 
 import java.util.ArrayList;
 
@@ -18,14 +18,14 @@ public class RememberRandomNewMemoryAction extends AbstractGameAction  {
     }
 
     public void update() {
-        ArrayList<AbstractMemoryPower> candidates = MemoryPowerUtils.allPossibleMemoryPowers(target, source, isClarified);
+        ArrayList<AbstractMemory> candidates = MemoryUtils.allPossibleMemoryPowers(target, isClarified);
 
         candidates.removeIf(memory -> target.hasPower(memory.ID));
 
         if (!candidates.isEmpty()) {
             int randomIndex = AbstractDungeon.cardRandomRng.random(0, candidates.size() - 1);
-            AbstractMemoryPower chosenMemory = candidates.get(randomIndex);
-            AbstractDungeon.actionManager.addToTop(new RememberSpecificMemoryAction(target, source, chosenMemory));
+            AbstractMemory chosenMemory = candidates.get(randomIndex);
+            AbstractDungeon.actionManager.addToTop(new RememberSpecificMemoryAction(chosenMemory));
         }
 
         isDone = true;

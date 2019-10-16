@@ -1,21 +1,17 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.PoisonPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.memories.KindnessMemoryPower;
-import stsjorbsmod.powers.memories.SlothMemoryPower;
+import stsjorbsmod.memories.KindnessMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-public class Aid extends AbstractDynamicCard {
+public class Aid extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Aid.class.getSimpleName());
     public static final String IMG = makeCardPath("Bad_Uncommons/aid.png");
 
@@ -37,8 +33,8 @@ public class Aid extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new HealAction(m, p, this.magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(p, p, new KindnessMemoryPower(p, p, false)));
+        enqueueAction(new HealAction(m, p, this.magicNumber));
+        enqueueAction(new RememberSpecificMemoryAction(new KindnessMemory(p, false)));
     }
 
     @Override

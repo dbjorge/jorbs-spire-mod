@@ -1,22 +1,20 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.BetterDiscardPileToHandAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.memories.AbstractMemoryPower;
-import stsjorbsmod.powers.memories.MemoryType;
-import stsjorbsmod.util.MemoryPowerUtils;
+import stsjorbsmod.memories.AbstractMemory;
+import stsjorbsmod.memories.MemoryType;
+import stsjorbsmod.memories.MemoryUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class FocusedMind extends AbstractDynamicCard {
+public class FocusedMind extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(FocusedMind.class.getSimpleName());
     public static final String IMG = makeCardPath("Manipulation_Commons/focused_mind.png");
 
@@ -39,15 +37,14 @@ public class FocusedMind extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractMemoryPower currentMemory = MemoryPowerUtils.getCurrentMemory(p);
+        AbstractMemory currentMemory = MemoryUtils.getCurrentMemory(p);
 
         if (currentMemory != null && currentMemory.memoryType == MemoryType.SIN) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+            enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.BLUNT_LIGHT));
         }
 
         if (currentMemory != null && currentMemory.memoryType == MemoryType.VIRTUE) {
-            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+            enqueueAction(new GainBlockAction(p, p, block));
         }
     }
 

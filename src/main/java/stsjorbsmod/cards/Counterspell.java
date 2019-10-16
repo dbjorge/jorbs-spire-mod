@@ -1,18 +1,16 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.PoisonPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.CounterspellAction;
 import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class Counterspell extends AbstractDynamicCard {
+public class Counterspell extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Counterspell.class.getSimpleName());
     public static final String IMG = makeCardPath("Block_Commons/counterspell.png");
 
@@ -35,8 +33,8 @@ public class Counterspell extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-        AbstractDungeon.actionManager.addToBottom(new CounterspellAction(p, m, magicNumber));
+        enqueueAction(new GainBlockAction(p, p, block));
+        enqueueAction(new CounterspellAction(p, m, magicNumber));
     }
 
     @Override

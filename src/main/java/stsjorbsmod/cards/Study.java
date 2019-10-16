@@ -2,19 +2,17 @@ package stsjorbsmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DrawPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.memories.PatienceMemoryPower;
-import stsjorbsmod.powers.memories.SlothMemoryPower;
+import stsjorbsmod.memories.PatienceMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-public class Study extends AbstractDynamicCard {
+public class Study extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Study.class.getSimpleName());
     public static final String IMG = makeCardPath("Scaling_Rares/study.png");
 
@@ -36,8 +34,8 @@ public class Study extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(p, p, new PatienceMemoryPower(p, p, false)));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DrawPower(p, this.magicNumber), this.magicNumber));
+        enqueueAction(new RememberSpecificMemoryAction(new PatienceMemory(p, false)));
+        enqueueAction(new ApplyPowerAction(p, p, new DrawPower(p, this.magicNumber)));
     }
 
     @Override

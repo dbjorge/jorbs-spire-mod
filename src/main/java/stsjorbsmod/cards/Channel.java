@@ -11,7 +11,7 @@ import stsjorbsmod.powers.EnergizedCustomPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class Channel extends AbstractDynamicCard {
+public class Channel extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Channel.class.getSimpleName());
     public static final String IMG = makeCardPath("Block_Commons/channel.png");
 
@@ -33,8 +33,8 @@ public class Channel extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EnergizedCustomPower(p, magicNumber), magicNumber));
+        enqueueAction(new GainBlockAction(p, p, block));
+        enqueueAction(new ApplyPowerAction(p, p, new EnergizedCustomPower(p, magicNumber)));
     }
 
     @Override

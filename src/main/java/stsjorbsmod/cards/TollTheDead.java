@@ -1,19 +1,17 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.util.MemoryPowerUtils;
 import stsjorbsmod.util.MonsterDamageTracker;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class TollTheDead extends AbstractDynamicCard {
+public class TollTheDead extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(TollTheDead.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Uncommons/toll_the_dead.png");
 
@@ -33,12 +31,10 @@ public class TollTheDead extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
+        enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SMASH));
 
         if (MonsterDamageTracker.hasMonsterBeenDamagedThisTurn(m)) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
+            enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SMASH));
         }
     }
 

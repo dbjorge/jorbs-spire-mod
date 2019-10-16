@@ -1,22 +1,19 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.memories.SlothMemoryPower;
-import stsjorbsmod.powers.memories.WrathMemoryPower;
-import stsjorbsmod.util.MemoryPowerUtils;
+import stsjorbsmod.memories.WrathMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-public class SmithingStrike extends AbstractDynamicCard {
+public class SmithingStrike extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(SmithingStrike.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Uncommons/smithing_strike.png");
 
@@ -38,10 +35,8 @@ public class SmithingStrike extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(p, p, new WrathMemoryPower(p, p, false)));
-
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        enqueueAction(new RememberSpecificMemoryAction(new WrathMemory(p, false)));
+        enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.BLUNT_LIGHT));
     }
 
     @Override

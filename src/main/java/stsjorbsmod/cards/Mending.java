@@ -1,21 +1,16 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.EndTurnAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.EndTurnNowAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.util.MemoryPowerUtils;
+import stsjorbsmod.memories.MemoryUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class Mending extends AbstractDynamicCard {
+public class Mending extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Mending.class.getSimpleName());
     public static final String IMG = makeCardPath("Block_Uncommons/mending.png");
 
@@ -34,9 +29,9 @@ public class Mending extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int healAmount = MemoryPowerUtils.countClarities(p) * magicNumber;
-        AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, healAmount));
-        AbstractDungeon.actionManager.addToBottom(new EndTurnNowAction());
+        int healAmount = MemoryUtils.countClarities(p) * magicNumber;
+        enqueueAction(new HealAction(p, p, healAmount));
+        enqueueAction(new EndTurnNowAction());
     }
 
     @Override

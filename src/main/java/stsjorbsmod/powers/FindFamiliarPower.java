@@ -3,8 +3,6 @@ package stsjorbsmod.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -13,8 +11,6 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.GainMemoryClarityAction;
-import stsjorbsmod.actions.RememberSpecificMemoryAction;
-import stsjorbsmod.powers.memories.SlothMemoryPower;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
@@ -45,7 +41,7 @@ public class FindFamiliarPower extends AbstractPower implements CloneablePowerIn
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         if (isPlayer) {
-            AbstractDungeon.actionManager.addToBottom(new GainMemoryClarityAction(owner, owner));
+            AbstractDungeon.actionManager.addToBottom(new GainMemoryClarityAction(owner));
         }
     }
 

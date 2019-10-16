@@ -1,18 +1,18 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.PoisonPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.ChainLightningAction;
 import stsjorbsmod.characters.Wanderer;
 
+import java.util.ArrayList;
+
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class ChainLightning extends AbstractDynamicCard {
+public class ChainLightning extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(ChainLightning.class.getSimpleName());
     public static final String IMG = makeCardPath("AOE_Commons/chain_lightning.png");
 
@@ -34,8 +34,8 @@ public class ChainLightning extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new ChainLightningAction(p, m, AbstractDungeon.getMonsters().monsters, damage, magicNumber, AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        ArrayList<AbstractMonster> targets = AbstractDungeon.getMonsters().monsters;
+        enqueueAction(new ChainLightningAction(p, m, targets, damage, magicNumber, AttackEffect.SLASH_VERTICAL));
     }
 
     @Override

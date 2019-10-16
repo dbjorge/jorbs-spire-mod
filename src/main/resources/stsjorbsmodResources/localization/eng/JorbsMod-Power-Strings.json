@@ -51,56 +51,55 @@
   "stsjorbsmod:CharityMemoryPower": {
     "NAME": "Charity",
     "DESCRIPTIONS": [
-      "Gain #b", " #yStrength per #b", " gold you have."
+      "Gain #b!S! #yStrength per #b!G! gold you have."
     ]
   },
   "stsjorbsmod:ChastityMemoryPower": {
     "NAME": "Chastity",
     "DESCRIPTIONS": [
-      "At the end of each turn, lose #b", " #yDexterity and gain #b", " #yBlock."
+      "At the end of each turn, lose #b!D! #yDexterity and gain #b!B! #yBlock."
     ]
   },
   "stsjorbsmod:DiligenceMemoryPower": {
     "NAME": "Diligence",
     "DESCRIPTIONS": [
-      "At the end of your turn, retain #b",
-      "."
+      "At the end of your turn, retain #b!M!."
     ]
   },
   "stsjorbsmod:EnvyMemoryPower": {
     "NAME": "Envy",
     "DESCRIPTIONS": [
-      "Whenever you target an enemy with a card, apply #b", " #yVulnerable to that enemy."
+      "Whenever you target an enemy with a card, apply #b!M! #yVulnerable to that enemy."
     ]
   },
   "stsjorbsmod:GreedMemoryPower": {
     "NAME": "Greed",
     "DESCRIPTIONS": [
-      "Whenever you kill a non-minion enemy, gain #b", " gold."
+      "Whenever you kill a non-minion enemy, gain #b!M! gold."
     ]
   },
   "stsjorbsmod:GluttonyMemoryPower": {
     "NAME": "Gluttony",
     "DESCRIPTIONS": [
-      "Whenever you kill a non-minion enemy, raise your Max HP by #b", "."
+      "Whenever you kill a non-minion enemy, raise your Max HP by #b!M!."
     ]
   },
   "stsjorbsmod:HumilityMemoryPower": {
     "NAME": "Humility",
     "DESCRIPTIONS": [
-      "Gain #b", " #yThorns."
+      "Gain #b!M! #yThorns."
     ]
   },
   "stsjorbsmod:KindnessMemoryPower": {
     "NAME": "Kindness",
     "DESCRIPTIONS": [
-      "Whenever an attack deals unblocked damage, apply #b", " #yPoison."
+      "Whenever an attack deals unblocked damage, apply #b!M! #yPoison."
     ]
   },
   "stsjorbsmod:LustMemoryPower": {
     "NAME": "Lust",
     "DESCRIPTIONS": [
-      "Your attacks deal #b", "% bonus damage. When you forget Lust, gain #b", " Weak."
+      "Your attacks deal #b!P!% bonus damage. When you forget Lust, gain #b!W! Weak."
     ]
   },
   "stsjorbsmod:PatienceMemoryPower": {
@@ -124,13 +123,13 @@
   "stsjorbsmod:TemperanceMemoryPower": {
     "NAME": "Temperance",
     "DESCRIPTIONS": [
-      "Reduce #yStrength of ALL enemies by #b", "."
+      "Reduce #yStrength of ALL enemies by #b!M!."
     ]
   },
   "stsjorbsmod:WrathMemoryPower": {
     "NAME": "Wrath",
     "DESCRIPTIONS": [
-      "Whenever you kill a non-minion enemy with an attack card, permanently increase that card's damage by #b", "."
+      "Whenever you kill a non-minion enemy with an attack card, permanently increase that card's damage by #b!M!."
     ]
   }
 }

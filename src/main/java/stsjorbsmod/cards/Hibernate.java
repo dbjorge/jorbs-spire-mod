@@ -2,18 +2,16 @@ package stsjorbsmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.memories.CharityMemoryPower;
-import stsjorbsmod.powers.memories.SlothMemoryPower;
+import stsjorbsmod.memories.SlothMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-public class Hibernate extends AbstractDynamicCard {
+public class Hibernate extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Hibernate.class.getSimpleName());
     public static final String IMG = makeCardPath("Block_Uncommons/hibernate.png");
 
@@ -35,8 +33,8 @@ public class Hibernate extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(p, p, new SlothMemoryPower(p, p, false)));
+        enqueueAction(new GainBlockAction(p, p, block));
+        enqueueAction(new RememberSpecificMemoryAction(new SlothMemory(p, false)));
     }
 
     @Override

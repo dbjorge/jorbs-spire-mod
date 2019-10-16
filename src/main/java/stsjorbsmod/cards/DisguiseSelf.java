@@ -11,7 +11,7 @@ import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class DisguiseSelf extends AbstractDynamicCard {
+public class DisguiseSelf extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(DisguiseSelf.class.getSimpleName());
     public static final String IMG = makeCardPath("Block_Commons/disguise_self.png");
 
@@ -31,8 +31,8 @@ public class DisguiseSelf extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, this.block), this.block));
+        enqueueAction(new GainBlockAction(p, p, block));
+        enqueueAction(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, this.block), this.block));
     }
 
     @Override

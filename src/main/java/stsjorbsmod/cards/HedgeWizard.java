@@ -1,20 +1,17 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.common.EndTurnAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.memories.ChastityMemoryPower;
-import stsjorbsmod.powers.memories.HumilityMemoryPower;
+import stsjorbsmod.memories.HumilityMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-public class HedgeWizard extends AbstractDynamicCard {
+public class HedgeWizard extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(HedgeWizard.class.getSimpleName());
     public static final String IMG = makeCardPath("Block_Uncommons/hedge_wizard.png");
 
@@ -36,8 +33,8 @@ public class HedgeWizard extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(p, p, new HumilityMemoryPower(p, p, false)));
+        enqueueAction(new GainBlockAction(p, p, block));
+        enqueueAction(new RememberSpecificMemoryAction(new HumilityMemory(p, false)));
     }
 
     @Override

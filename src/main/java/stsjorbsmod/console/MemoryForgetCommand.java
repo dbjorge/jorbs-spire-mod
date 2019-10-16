@@ -4,10 +4,8 @@ import basemod.DevConsole;
 import basemod.devcommands.ConsoleCommand;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import stsjorbsmod.actions.RememberRandomNewMemoryAction;
-import stsjorbsmod.actions.RememberSpecificMemoryAction;
-import stsjorbsmod.powers.memories.AbstractMemoryPower;
-import stsjorbsmod.util.MemoryPowerUtils;
+import stsjorbsmod.memories.AbstractMemory;
+import stsjorbsmod.memories.MemoryUtils;
 
 import java.util.ArrayList;
 
@@ -23,7 +21,7 @@ public class MemoryForgetCommand extends ConsoleCommand {
     public void execute(String[] tokens, int depth) {
         String optionalId = tokens.length > depth ? tokens[depth] : null;
 
-        AbstractMemoryPower currentMemory = MemoryPowerUtils.getCurrentMemory(AbstractDungeon.player);
+        AbstractMemory currentMemory = MemoryUtils.getCurrentMemory(AbstractDungeon.player);
         if (optionalId == null && currentMemory == null) {
             DevConsole.log("Ignoring command: no active memory to remove");
         } else {
@@ -34,7 +32,7 @@ public class MemoryForgetCommand extends ConsoleCommand {
 
     @Override
     public ArrayList<String> extraOptions(String[] tokens, int depth) {
-        return MemoryPowerUtils.allActiveMemoryIDs(AbstractDungeon.player);
+        return MemoryUtils.allActiveMemoryIDs(AbstractDungeon.player);
     }
 
     @Override

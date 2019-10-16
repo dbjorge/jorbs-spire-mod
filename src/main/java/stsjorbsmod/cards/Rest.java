@@ -1,21 +1,18 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.common.EndTurnAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.EndTurnNowAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.memories.ChastityMemoryPower;
-import stsjorbsmod.powers.memories.SlothMemoryPower;
+import stsjorbsmod.memories.ChastityMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-public class Rest extends AbstractDynamicCard {
+public class Rest extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Rest.class.getSimpleName());
     public static final String IMG = makeCardPath("Block_Uncommons/rest.png");
 
@@ -37,9 +34,9 @@ public class Rest extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(p, p, new ChastityMemoryPower(p, p, false)));
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-        AbstractDungeon.actionManager.addToBottom(new EndTurnNowAction());
+        enqueueAction(new RememberSpecificMemoryAction(new ChastityMemory(p, false)));
+        enqueueAction(new GainBlockAction(p, p, block));
+        enqueueAction(new EndTurnNowAction());
     }
 
     @Override

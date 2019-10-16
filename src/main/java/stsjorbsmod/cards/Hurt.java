@@ -1,18 +1,17 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.util.MemoryPowerUtils;
+import stsjorbsmod.memories.MemoryUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class Hurt extends AbstractDynamicCard {
+public class Hurt extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Hurt.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Uncommons/hurt.png");
 
@@ -35,13 +34,12 @@ public class Hurt extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+        enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SLASH_HEAVY));
 
-        int hpLoss = MemoryPowerUtils.countClarities(p) * magicNumber;
+        int hpLoss = MemoryUtils.countClarities(p) * magicNumber;
         if (hpLoss > 0) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DamageAction(p, new DamageInfo(p, hpLoss, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.SHIELD));
+            enqueueAction(
+                    new DamageAction(p, new DamageInfo(p, hpLoss, DamageInfo.DamageType.HP_LOSS), AttackEffect.SHIELD));
         }
     }
 

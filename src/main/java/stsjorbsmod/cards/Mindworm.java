@@ -1,9 +1,8 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,11 +10,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.SnappedPower;
-import stsjorbsmod.util.MemoryPowerUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class Mindworm extends AbstractDynamicCard {
+public class Mindworm extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Mindworm.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Uncommons/mindworm.png");
 
@@ -35,33 +33,15 @@ public class Mindworm extends AbstractDynamicCard {
         magicNumber = baseMagicNumber = BONUS_SNAPPED_DAMAGE;
     }
 
-    private int calculateBonusDamage() {
+    @Override
+    protected int calculateBonusBaseDamage() {
         return AbstractDungeon.player.hasPower(SnappedPower.POWER_ID) ? this.magicNumber : 0;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(this.makeStatEquivalentCopy(), 1));
-    }
-
-    @Override
-    public void calculateCardDamage(AbstractMonster mo) {
-        int realBaseDamage = this.baseDamage;
-        this.baseDamage += calculateBonusDamage();
-        super.calculateCardDamage(mo);
-        this.baseDamage = realBaseDamage;
-        this.isDamageModified = this.damage != this.baseDamage;
-    }
-
-    @Override
-    public void applyPowers() {
-        int realBaseDamage = this.baseDamage;
-        this.baseDamage += calculateBonusDamage();
-        super.applyPowers();
-        this.baseDamage = realBaseDamage;
-        this.isDamageModified = this.damage != this.baseDamage;
+        enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.FIRE));
+        enqueueAction(new MakeTempCardInDiscardAction(this.makeStatEquivalentCopy(), 1));
     }
 
     @Override

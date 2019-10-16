@@ -1,6 +1,6 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -8,12 +8,13 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.util.MemoryPowerUtils;
+import stsjorbsmod.memories.MemoryUtils;
+
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 // Deal 8 damage + 2(3) damager for each clarity
-public class Firebolt extends AbstractDynamicCard {
+public class Firebolt extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Firebolt.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Commons/firebolt.png");
 
@@ -33,32 +34,14 @@ public class Firebolt extends AbstractDynamicCard {
         baseMagicNumber = DAMAGE_PER_CLARITY;
     }
 
-    private int calculateBonusDamage() {
-        return this.magicNumber * MemoryPowerUtils.countClarities(AbstractDungeon.player);
+    @Override
+    protected int calculateBonusBaseDamage() {
+        return this.magicNumber * MemoryUtils.countClarities(AbstractDungeon.player);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-    }
-
-    @Override
-    public void calculateCardDamage(AbstractMonster mo) {
-        int realBaseDamage = this.baseDamage;
-        this.baseDamage += calculateBonusDamage();
-        super.calculateCardDamage(mo);
-        this.baseDamage = realBaseDamage;
-        this.isDamageModified = this.damage != this.baseDamage;
-    }
-
-    @Override
-    public void applyPowers() {
-        int realBaseDamage = this.baseDamage;
-        this.baseDamage += calculateBonusDamage();
-        super.applyPowers();
-        this.baseDamage = realBaseDamage;
-        this.isDamageModified = this.damage != this.baseDamage;
+        enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.FIRE));
     }
 
     @Override

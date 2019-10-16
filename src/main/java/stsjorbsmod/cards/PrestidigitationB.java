@@ -10,7 +10,7 @@ import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class PrestidigitationB extends AbstractDynamicCard {
+public class PrestidigitationB extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(PrestidigitationB.class.getSimpleName());
     public static final String IMG = makeCardPath("Manipulation_Commons/prestidigitation_b.png");
 
@@ -30,8 +30,8 @@ public class PrestidigitationB extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new CardsToTopOfDeckAction(p, p.hand, this.magicNumber, true));
+        enqueueAction(new DrawCardAction(p, this.magicNumber));
+        enqueueAction(new CardsToTopOfDeckAction(p, p.hand, this.magicNumber, true));
     }
 
     @Override

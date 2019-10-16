@@ -1,6 +1,6 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -8,12 +8,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.memories.SlothMemoryPower;
-import stsjorbsmod.util.MemoryPowerUtils;
+import stsjorbsmod.memories.SlothMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class Mania extends AbstractDynamicCard {
+public class Mania extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Mania.class.getSimpleName());
     public static final String IMG = makeCardPath("Bad_Uncommons/mania.png");
 
@@ -36,13 +35,12 @@ public class Mania extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int numSwings = BASE_SWINGS;
-        if (AbstractDungeon.player.hasPower(SlothMemoryPower.POWER_ID)) {
+        if (AbstractDungeon.player.hasPower(SlothMemory.STATIC.ID)) {
             numSwings += ADDITIONAL_SLOTH_SWINGS;
         }
 
         for (int i=0; i<numSwings; ++i) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+            enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SLASH_VERTICAL));
         }
     }
 

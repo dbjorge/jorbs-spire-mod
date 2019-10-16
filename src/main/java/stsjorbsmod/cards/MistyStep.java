@@ -1,21 +1,16 @@
 package stsjorbsmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.EndTurnAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.memories.ChastityMemoryPower;
-import stsjorbsmod.util.MemoryPowerUtils;
+import stsjorbsmod.memories.MemoryUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
-import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-public class MistyStep extends AbstractDynamicCard {
+public class MistyStep extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(MistyStep.class.getSimpleName());
     public static final String IMG = makeCardPath("Block_Uncommons/misty_step.png");
 
@@ -37,9 +32,9 @@ public class MistyStep extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int calculatedBlock = MemoryPowerUtils.countClarities(p) * block;
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, calculatedBlock));
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber));
+        int calculatedBlock = MemoryUtils.countClarities(p) * block;
+        enqueueAction(new GainBlockAction(p, p, calculatedBlock));
+        enqueueAction(new DrawCardAction(p, magicNumber));
     }
 
     @Override

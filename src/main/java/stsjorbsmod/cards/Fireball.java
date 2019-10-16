@@ -1,24 +1,19 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.memories.LustMemoryPower;
-import stsjorbsmod.powers.memories.SlothMemoryPower;
-import stsjorbsmod.util.MemoryPowerUtils;
+import stsjorbsmod.memories.LustMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-public class Fireball extends AbstractDynamicCard {
+public class Fireball extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Fireball.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Rares/fireball.png");
 
@@ -40,9 +35,8 @@ public class Fireball extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToTop(
-                new DamageAllEnemiesAction(p, DamageInfo.createDamageMatrix(damage), damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
-        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(p, p, new LustMemoryPower(p, p, false)));
+        enqueueActionToTop(new DamageAllEnemiesAction(p, DamageInfo.createDamageMatrix(damage), damageTypeForTurn, AttackEffect.FIRE));
+        enqueueAction(new RememberSpecificMemoryAction(new LustMemory(p, false)));
     }
 
     @Override
