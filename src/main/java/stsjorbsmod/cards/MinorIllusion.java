@@ -5,12 +5,11 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.CounterspellAction;
 import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class MinorIllusion extends AbstractDynamicCard {
+public class MinorIllusion extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(MinorIllusion.class.getSimpleName());
     public static final String IMG = makeCardPath("Block_Commons/minor_illusion.png");
 

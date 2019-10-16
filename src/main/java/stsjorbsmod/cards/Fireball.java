@@ -1,24 +1,20 @@
 package stsjorbsmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.memories.LustMemoryPower;
-import stsjorbsmod.powers.memories.SlothMemoryPower;
-import stsjorbsmod.util.MemoryPowerUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-public class Fireball extends AbstractDynamicCard {
+public class Fireball extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Fireball.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Rares/fireball.png");
 

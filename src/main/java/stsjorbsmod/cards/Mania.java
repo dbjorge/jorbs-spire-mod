@@ -9,11 +9,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.memories.SlothMemoryPower;
-import stsjorbsmod.util.MemoryPowerUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class Mania extends AbstractDynamicCard {
+public class Mania extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Mania.class.getSimpleName());
     public static final String IMG = makeCardPath("Bad_Uncommons/mania.png");
 

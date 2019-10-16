@@ -12,7 +12,7 @@ import stsjorbsmod.powers.memories.SlothMemoryPower;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-public class UnseenServant extends AbstractDynamicCard {
+public class UnseenServant extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(UnseenServant.class.getSimpleName());
     public static final String IMG = makeCardPath("Manipulation_Commons/unseen_servant.png");
 

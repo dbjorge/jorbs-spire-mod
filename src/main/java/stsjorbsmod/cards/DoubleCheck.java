@@ -13,7 +13,7 @@ import stsjorbsmod.powers.memories.DiligenceMemoryPower;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-public class DoubleCheck extends AbstractDynamicCard {
+public class DoubleCheck extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(DoubleCheck.class.getSimpleName());
     public static final String IMG = makeCardPath("Block_Commons/double_check.png");
 

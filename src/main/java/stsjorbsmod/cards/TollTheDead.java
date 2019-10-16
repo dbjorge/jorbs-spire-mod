@@ -8,12 +8,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.util.MemoryPowerUtils;
 import stsjorbsmod.util.MonsterDamageTracker;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class TollTheDead extends AbstractDynamicCard {
+public class TollTheDead extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(TollTheDead.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Uncommons/toll_the_dead.png");
 

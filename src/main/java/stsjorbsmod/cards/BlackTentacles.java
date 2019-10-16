@@ -7,14 +7,13 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.BlackTentaclesPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class BlackTentacles extends AbstractDynamicCard {
+public class BlackTentacles extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(BlackTentacles.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Commons/black_tentacles.png");
 

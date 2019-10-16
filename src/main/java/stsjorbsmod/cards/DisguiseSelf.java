@@ -11,7 +11,7 @@ import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class DisguiseSelf extends AbstractDynamicCard {
+public class DisguiseSelf extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(DisguiseSelf.class.getSimpleName());
     public static final String IMG = makeCardPath("Block_Commons/disguise_self.png");
 

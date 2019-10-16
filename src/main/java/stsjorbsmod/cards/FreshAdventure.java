@@ -15,7 +15,7 @@ import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 // Deal 12(15) damage and remember Diligence
-public class FreshAdventure extends AbstractDynamicCard {
+public class FreshAdventure extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(FreshAdventure.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Commons/fresh_adventure.png");
 

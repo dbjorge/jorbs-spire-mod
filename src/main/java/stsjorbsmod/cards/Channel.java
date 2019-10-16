@@ -11,7 +11,7 @@ import stsjorbsmod.powers.EnergizedCustomPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class Channel extends AbstractDynamicCard {
+public class Channel extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Channel.class.getSimpleName());
     public static final String IMG = makeCardPath("Block_Commons/channel.png");
 

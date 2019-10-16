@@ -7,15 +7,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.GainMemoryClarityAction;
-import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.memories.DiligenceMemoryPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
-import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-public class Withdraw extends AbstractDynamicCard {
+public class Withdraw extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Withdraw.class.getSimpleName());
     public static final String IMG = makeCardPath("Block_Rares/withdraw.png");
 

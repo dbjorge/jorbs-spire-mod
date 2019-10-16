@@ -8,12 +8,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.util.MemoryPowerUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 // Deal 16(22) true damage
-public class TrueStrike extends AbstractDynamicCard {
+public class TrueStrike extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(TrueStrike.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Commons/true_strike.png");
 

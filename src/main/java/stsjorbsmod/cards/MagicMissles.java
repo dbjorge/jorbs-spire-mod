@@ -13,7 +13,7 @@ import stsjorbsmod.util.MemoryPowerUtils;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 // Deal 3(4) Damage. Deal 3(4) Damage again once for each Clarity.
-public class MagicMissles extends AbstractDynamicCard {
+public class MagicMissles extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(MagicMissles.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Commons/magic_missles.png");
 

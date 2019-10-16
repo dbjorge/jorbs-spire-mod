@@ -1,20 +1,16 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.BlackTentaclesPower;
 import stsjorbsmod.powers.FindFamiliarPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class FindFamiliar extends AbstractDynamicCard {
+public class FindFamiliar extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(FindFamiliar.class.getSimpleName());
     public static final String IMG = makeCardPath("Manipulation_Uncommons/find_familiar.png");
 

@@ -12,7 +12,7 @@ import stsjorbsmod.powers.memories.LustMemoryPower;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-public class WizardRobe extends AbstractDynamicCard {
+public class WizardRobe extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(WizardRobe.class.getSimpleName());
     public static final String IMG = makeCardPath("Scaling_Commons/wizard_robe.png");
 

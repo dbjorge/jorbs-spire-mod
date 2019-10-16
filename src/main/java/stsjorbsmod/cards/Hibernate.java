@@ -7,13 +7,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.memories.CharityMemoryPower;
 import stsjorbsmod.powers.memories.SlothMemoryPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-public class Hibernate extends AbstractDynamicCard {
+public class Hibernate extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Hibernate.class.getSimpleName());
     public static final String IMG = makeCardPath("Block_Uncommons/hibernate.png");
 

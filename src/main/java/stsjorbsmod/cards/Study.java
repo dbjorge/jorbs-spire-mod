@@ -9,12 +9,11 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.memories.PatienceMemoryPower;
-import stsjorbsmod.powers.memories.SlothMemoryPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-public class Study extends AbstractDynamicCard {
+public class Study extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Study.class.getSimpleName());
     public static final String IMG = makeCardPath("Scaling_Rares/study.png");
 

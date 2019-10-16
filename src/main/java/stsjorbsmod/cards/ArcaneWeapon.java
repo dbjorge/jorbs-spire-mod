@@ -12,7 +12,7 @@ import stsjorbsmod.powers.ArcaneWeaponPower;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 // [power] Attack a random enemy for 4(6) damage at the end of each turn. (affected by str, vuln, etc)
-public class ArcaneWeapon extends AbstractDynamicCard {
+public class ArcaneWeapon extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(ArcaneWeapon.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Commons/arcane_weapon.png");
 

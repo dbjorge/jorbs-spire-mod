@@ -1,18 +1,16 @@
 package stsjorbsmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.PoisonPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.ChainLightningAction;
 import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class ChainLightning extends AbstractDynamicCard {
+public class ChainLightning extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(ChainLightning.class.getSimpleName());
     public static final String IMG = makeCardPath("AOE_Commons/chain_lightning.png");
 

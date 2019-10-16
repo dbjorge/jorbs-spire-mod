@@ -9,14 +9,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.memories.SlothMemoryPower;
 import stsjorbsmod.powers.memories.WrathMemoryPower;
-import stsjorbsmod.util.MemoryPowerUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-public class SmithingStrike extends AbstractDynamicCard {
+public class SmithingStrike extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(SmithingStrike.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Uncommons/smithing_strike.png");
 

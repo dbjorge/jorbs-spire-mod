@@ -1,6 +1,5 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.common.EndTurnAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -8,13 +7,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.memories.ChastityMemoryPower;
 import stsjorbsmod.powers.memories.HumilityMemoryPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-public class HedgeWizard extends AbstractDynamicCard {
+public class HedgeWizard extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(HedgeWizard.class.getSimpleName());
     public static final String IMG = makeCardPath("Block_Uncommons/hedge_wizard.png");
 

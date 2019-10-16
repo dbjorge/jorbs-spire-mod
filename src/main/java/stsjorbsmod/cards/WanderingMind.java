@@ -1,17 +1,15 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.CounterspellAction;
 import stsjorbsmod.actions.RememberRandomNewMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class WanderingMind extends AbstractDynamicCard {
+public class WanderingMind extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(WanderingMind.class.getSimpleName());
     public static final String IMG = makeCardPath("Scaling_Commons/wandering_mind.png");
 

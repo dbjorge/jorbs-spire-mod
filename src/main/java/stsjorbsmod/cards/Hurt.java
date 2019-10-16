@@ -12,7 +12,7 @@ import stsjorbsmod.util.MemoryPowerUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class Hurt extends AbstractDynamicCard {
+public class Hurt extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Hurt.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Uncommons/hurt.png");
 

@@ -10,12 +10,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.util.MemoryPowerUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 // Deal 10(12) damage and apply 3(5) weak
-public class RayOfFrost extends AbstractDynamicCard {
+public class RayOfFrost extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(RayOfFrost.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Commons/ray_of_frost.png");
 

@@ -1,21 +1,18 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.PoisonPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.memories.KindnessMemoryPower;
-import stsjorbsmod.powers.memories.SlothMemoryPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-public class Aid extends AbstractDynamicCard {
+public class Aid extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Aid.class.getSimpleName());
     public static final String IMG = makeCardPath("Bad_Uncommons/aid.png");
 

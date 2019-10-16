@@ -1,24 +1,19 @@
 package stsjorbsmod.cards;
 
-import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.red.PerfectedStrike;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.util.MemoryPowerUtils;
-
-import java.util.Iterator;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-public class WeightOfMemory extends AbstractDynamicCard {
+public class WeightOfMemory extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(WeightOfMemory.class.getSimpleName());
     public static final String IMG = makeCardPath("Scaling_Commons/weight_of_memory.png");
 
@@ -38,7 +33,7 @@ public class WeightOfMemory extends AbstractDynamicCard {
         magicNumber = baseMagicNumber = DAMAGE_PER_REMEMBER_CARD;
     }
 
-    public static int countCards() {
+    public static int countRememberMemoryCards() {
         int count = 0;
         for (AbstractCard c : AbstractDungeon.player.hand.group) {
             if (isRememberMemoryCard(c)) { ++count; }
@@ -56,25 +51,15 @@ public class WeightOfMemory extends AbstractDynamicCard {
         return c.hasTag(REMEMBER_MEMORY);
     }
 
+    @Override
+    protected int calculateBonusBaseDamage() {
+        return this.magicNumber * countRememberMemoryCards();
+    }
+
+    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-    }
-
-    public void calculateCardDamage(AbstractMonster mo) {
-        int realBaseDamage = this.baseDamage;
-        this.baseDamage += this.magicNumber * countCards();
-        super.calculateCardDamage(mo);
-        this.baseDamage = realBaseDamage;
-        this.isDamageModified = this.damage != this.baseDamage;
-    }
-
-    public void applyPowers() {
-        int realBaseDamage = this.baseDamage;
-        this.baseDamage += this.magicNumber * countCards();
-        super.applyPowers();
-        this.baseDamage = realBaseDamage;
-        this.isDamageModified = this.damage != this.baseDamage;
     }
 
     @Override

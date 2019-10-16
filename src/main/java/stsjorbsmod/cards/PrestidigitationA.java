@@ -10,7 +10,7 @@ import stsjorbsmod.powers.PrestidigitationPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class PrestidigitationA extends AbstractDynamicCard {
+public class PrestidigitationA extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(PrestidigitationA.class.getSimpleName());
     public static final String IMG = makeCardPath("Scaling_Commons/prestidigitation_a.png");
 

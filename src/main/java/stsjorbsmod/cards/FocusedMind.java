@@ -1,7 +1,6 @@
 package stsjorbsmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.BetterDiscardPileToHandAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -16,7 +15,7 @@ import stsjorbsmod.util.MemoryPowerUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class FocusedMind extends AbstractDynamicCard {
+public class FocusedMind extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(FocusedMind.class.getSimpleName());
     public static final String IMG = makeCardPath("Manipulation_Commons/focused_mind.png");
 

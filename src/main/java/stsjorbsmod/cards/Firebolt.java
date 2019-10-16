@@ -13,7 +13,7 @@ import stsjorbsmod.util.MemoryPowerUtils;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 // Deal 8 damage + 2(3) damager for each clarity
-public class Firebolt extends AbstractDynamicCard {
+public class Firebolt extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Firebolt.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Commons/firebolt.png");
 
@@ -33,7 +33,8 @@ public class Firebolt extends AbstractDynamicCard {
         baseMagicNumber = DAMAGE_PER_CLARITY;
     }
 
-    private int calculateBonusDamage() {
+    @Override
+    protected int calculateBonusBaseDamage() {
         return this.magicNumber * MemoryPowerUtils.countClarities(AbstractDungeon.player);
     }
 
@@ -41,24 +42,6 @@ public class Firebolt extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-    }
-
-    @Override
-    public void calculateCardDamage(AbstractMonster mo) {
-        int realBaseDamage = this.baseDamage;
-        this.baseDamage += calculateBonusDamage();
-        super.calculateCardDamage(mo);
-        this.baseDamage = realBaseDamage;
-        this.isDamageModified = this.damage != this.baseDamage;
-    }
-
-    @Override
-    public void applyPowers() {
-        int realBaseDamage = this.baseDamage;
-        this.baseDamage += calculateBonusDamage();
-        super.applyPowers();
-        this.baseDamage = realBaseDamage;
-        this.isDamageModified = this.damage != this.baseDamage;
     }
 
     @Override
