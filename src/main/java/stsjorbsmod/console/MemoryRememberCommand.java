@@ -5,7 +5,7 @@ import basemod.devcommands.ConsoleCommand;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import stsjorbsmod.actions.RememberRandomNewMemoryAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
-import stsjorbsmod.memories.AbstractMemoryPower;
+import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.util.MemoryPowerUtils;
 
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ public class MemoryRememberCommand extends ConsoleCommand {
             DevConsole.log("Remembering an random new memory (like Eye of the Storm)");
             AbstractDungeon.actionManager.addToBottom(new RememberRandomNewMemoryAction(AbstractDungeon.player, AbstractDungeon.player, false));
         } else {
-            AbstractMemoryPower newMemory = MemoryPowerUtils.newMemoryByID(tokens[2], AbstractDungeon.player, false);
+            AbstractMemory newMemory = MemoryPowerUtils.newMemoryByID(tokens[2], AbstractDungeon.player, false);
             AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(newMemory));
         }
     }

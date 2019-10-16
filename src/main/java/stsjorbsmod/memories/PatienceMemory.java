@@ -20,11 +20,11 @@ import stsjorbsmod.util.TextureLoader;
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
 // Gain 1 Coil each time you play a card. When forgetting, deal 2 damage to all enemies for each Coil and lose all Coil.
-public class PatienceMemoryPower extends AbstractMemoryPower implements CloneablePowerInterface {
+public class PatienceMemory extends AbstractMemory implements CloneablePowerInterface {
     private static final int COIL_PER_CARD = 1;
     public static final int DAMAGE_PER_COIL_ON_LEAVE = 2;
 
-    public static final String POWER_ID = JorbsMod.makeID(PatienceMemoryPower.class.getSimpleName());
+    public static final String POWER_ID = JorbsMod.makeID(PatienceMemory.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -32,7 +32,7 @@ public class PatienceMemoryPower extends AbstractMemoryPower implements Cloneabl
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("diligence_memory_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("diligence_memory_power32.png"));
 
-    public PatienceMemoryPower(final AbstractCreature owner, boolean isClarified) {
+    public PatienceMemory(final AbstractCreature owner, boolean isClarified) {
         super(NAME, MemoryType.VIRTUE, owner, isClarified);
         ID = POWER_ID;
 
@@ -72,6 +72,6 @@ public class PatienceMemoryPower extends AbstractMemoryPower implements Cloneabl
 
     @Override
     public AbstractPower makeCopy() {
-        return new PatienceMemoryPower(owner, isClarified);
+        return new PatienceMemory(owner, isClarified);
     }
 }

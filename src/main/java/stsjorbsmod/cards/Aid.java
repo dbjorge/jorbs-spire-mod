@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.memories.KindnessMemoryPower;
+import stsjorbsmod.memories.KindnessMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
@@ -34,7 +34,7 @@ public class Aid extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         enqueueAction(new HealAction(m, p, this.magicNumber));
-        enqueueAction(new RememberSpecificMemoryAction(new KindnessMemoryPower(p, false)));
+        enqueueAction(new RememberSpecificMemoryAction(new KindnessMemory(p, false)));
     }
 
     @Override

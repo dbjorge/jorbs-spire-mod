@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.memories.AbstractMemoryPower;
+import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryType;
 import stsjorbsmod.util.MemoryPowerUtils;
 
@@ -37,7 +37,7 @@ public class FocusedMind extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractMemoryPower currentMemory = MemoryPowerUtils.getCurrentMemory(p);
+        AbstractMemory currentMemory = MemoryPowerUtils.getCurrentMemory(p);
 
         if (currentMemory != null && currentMemory.memoryType == MemoryType.SIN) {
             enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.BLUNT_LIGHT));

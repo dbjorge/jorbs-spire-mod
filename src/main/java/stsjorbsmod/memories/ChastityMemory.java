@@ -17,12 +17,12 @@ import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
-public class ChastityMemoryPower extends AbstractMemoryPower implements CloneablePowerInterface {
+public class ChastityMemory extends AbstractMemory implements CloneablePowerInterface {
     private static final int DEXTERITY_ON_REMEMBER = 2;
     private static final int DEXTERITY_LOSS_PER_TURN = 1;
     private static final int BLOCK_PER_TURN = 6;
 
-    public static final String POWER_ID = JorbsMod.makeID(ChastityMemoryPower.class.getSimpleName());
+    public static final String POWER_ID = JorbsMod.makeID(ChastityMemory.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -30,7 +30,7 @@ public class ChastityMemoryPower extends AbstractMemoryPower implements Cloneabl
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("chastity_memory_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("chastity_memory_power32.png"));
 
-    public ChastityMemoryPower(final AbstractCreature owner, boolean isClarified) {
+    public ChastityMemory(final AbstractCreature owner, boolean isClarified) {
         super(NAME, MemoryType.VIRTUE, owner, isClarified);
         ID = POWER_ID;
 
@@ -65,6 +65,6 @@ public class ChastityMemoryPower extends AbstractMemoryPower implements Cloneabl
 
     @Override
     public AbstractPower makeCopy() {
-        return new ChastityMemoryPower(owner, isClarified);
+        return new ChastityMemory(owner, isClarified);
     }
 }

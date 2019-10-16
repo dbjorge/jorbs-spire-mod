@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.memories.LustMemoryPower;
+import stsjorbsmod.memories.LustMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
@@ -37,7 +37,7 @@ public class Fireball extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         enqueueActionToTop(
                 new DamageAllEnemiesAction(p, DamageInfo.createDamageMatrix(damage), damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
-        enqueueAction(new RememberSpecificMemoryAction(new LustMemoryPower(p, false)));
+        enqueueAction(new RememberSpecificMemoryAction(new LustMemory(p, false)));
     }
 
     @Override

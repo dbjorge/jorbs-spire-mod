@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.memories.SlothMemoryPower;
+import stsjorbsmod.memories.SlothMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -35,7 +35,7 @@ public class Mania extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int numSwings = BASE_SWINGS;
-        if (AbstractDungeon.player.hasPower(SlothMemoryPower.POWER_ID)) {
+        if (AbstractDungeon.player.hasPower(SlothMemory.POWER_ID)) {
             numSwings += ADDITIONAL_SLOTH_SWINGS;
         }
 

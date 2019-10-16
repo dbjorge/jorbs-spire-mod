@@ -18,13 +18,13 @@ public class RememberRandomNewMemoryAction extends AbstractGameAction  {
     }
 
     public void update() {
-        ArrayList<AbstractMemoryPower> candidates = MemoryPowerUtils.allPossibleMemoryPowers(target, isClarified);
+        ArrayList<AbstractMemory> candidates = MemoryPowerUtils.allPossibleMemoryPowers(target, isClarified);
 
         candidates.removeIf(memory -> target.hasPower(memory.ID));
 
         if (!candidates.isEmpty()) {
             int randomIndex = AbstractDungeon.cardRandomRng.random(0, candidates.size() - 1);
-            AbstractMemoryPower chosenMemory = candidates.get(randomIndex);
+            AbstractMemory chosenMemory = candidates.get(randomIndex);
             AbstractDungeon.actionManager.addToTop(new RememberSpecificMemoryAction(chosenMemory));
         }
 

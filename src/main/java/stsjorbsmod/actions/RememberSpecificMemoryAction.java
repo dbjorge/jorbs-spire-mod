@@ -5,23 +5,23 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import stsjorbsmod.memories.AbstractMemoryPower;
+import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.powers.SnappedPower;
 
 
 // This is like ApplyPowerAction, but with the additional effect of removing other non-clarified memories
 public class RememberSpecificMemoryAction extends AbstractGameAction  {
-    private AbstractMemoryPower memoryToRemember;
+    private AbstractMemory memoryToRemember;
 
-    public RememberSpecificMemoryAction(AbstractMemoryPower memoryToRemember) {
+    public RememberSpecificMemoryAction(AbstractMemory memoryToRemember) {
         this.setValues(memoryToRemember.owner, memoryToRemember.owner);
         this.memoryToRemember = memoryToRemember;
     }
 
     private void removeOtherMemories() {
         for (AbstractPower oldPower : this.source.powers) {
-            if (oldPower instanceof AbstractMemoryPower) {
-                AbstractMemoryPower oldMemory = (AbstractMemoryPower) oldPower;
+            if (oldPower instanceof AbstractMemory) {
+                AbstractMemory oldMemory = (AbstractMemory) oldPower;
                 if (!oldMemory.isClarified) {
                     AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(target, source, oldMemory));
                 }

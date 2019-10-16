@@ -15,10 +15,10 @@ import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
-public class GluttonyMemoryPower extends AbstractMemoryPower implements CloneablePowerInterface {
+public class GluttonyMemory extends AbstractMemory implements CloneablePowerInterface {
     private static final int MAX_HP_PER_KILL = 3;
 
-    public static final String POWER_ID = JorbsMod.makeID(GluttonyMemoryPower.class.getSimpleName());
+    public static final String POWER_ID = JorbsMod.makeID(GluttonyMemory.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -26,7 +26,7 @@ public class GluttonyMemoryPower extends AbstractMemoryPower implements Cloneabl
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("gluttony_memory_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("gluttony_memory_power32.png"));
 
-    public GluttonyMemoryPower(final AbstractCreature owner, boolean isClarified) {
+    public GluttonyMemory(final AbstractCreature owner, boolean isClarified) {
         super(NAME, MemoryType.SIN, owner, isClarified);
         ID = POWER_ID;
 
@@ -55,6 +55,6 @@ public class GluttonyMemoryPower extends AbstractMemoryPower implements Cloneabl
 
     @Override
     public AbstractPower makeCopy() {
-        return new GluttonyMemoryPower(owner, isClarified);
+        return new GluttonyMemory(owner, isClarified);
     }
 }

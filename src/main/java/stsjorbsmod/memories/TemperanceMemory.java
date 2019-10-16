@@ -20,10 +20,10 @@ import java.util.ArrayList;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
-public class TemperanceMemoryPower extends AbstractMemoryPower implements CloneablePowerInterface {
+public class TemperanceMemory extends AbstractMemory implements CloneablePowerInterface {
     private static final int ENEMY_STRENGTH_REDUCTION = 3;
 
-    public static final String POWER_ID = JorbsMod.makeID(TemperanceMemoryPower.class.getSimpleName());
+    public static final String POWER_ID = JorbsMod.makeID(TemperanceMemory.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -33,7 +33,7 @@ public class TemperanceMemoryPower extends AbstractMemoryPower implements Clonea
 
     private ArrayList<AbstractGameAction> restoreStrengthActions;
 
-    public TemperanceMemoryPower(final AbstractCreature owner, boolean isClarified) {
+    public TemperanceMemory(final AbstractCreature owner, boolean isClarified) {
         super(NAME, MemoryType.VIRTUE, owner, isClarified);
         ID = POWER_ID;
 
@@ -77,6 +77,6 @@ public class TemperanceMemoryPower extends AbstractMemoryPower implements Clonea
 
     @Override
     public AbstractPower makeCopy() {
-        return new TemperanceMemoryPower(owner, isClarified);
+        return new TemperanceMemory(owner, isClarified);
     }
 }

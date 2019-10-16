@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.memories.DiligenceMemoryPower;
+import stsjorbsmod.memories.DiligenceMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
@@ -37,7 +37,7 @@ public class FreshAdventure extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-        enqueueAction(new RememberSpecificMemoryAction(new DiligenceMemoryPower(p, false)));
+        enqueueAction(new RememberSpecificMemoryAction(new DiligenceMemory(p, false)));
     }
 
     @Override

@@ -3,28 +3,30 @@ package stsjorbsmod.memories;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.MinionPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
-public class PrideMemoryPower extends AbstractMemoryPower implements CloneablePowerInterface {
-    public static final String POWER_ID = JorbsMod.makeID(PrideMemoryPower.class.getSimpleName());
+public class GreedMemory extends AbstractMemory implements CloneablePowerInterface {
+    private static final int GOLD_PER_KILL = 10;
+
+    public static final String POWER_ID = JorbsMod.makeID(GreedMemory.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("pride_memory_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("pride_memory_power32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("greed_memory_power84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("greed_memory_power32.png"));
 
-    public PrideMemoryPower(final AbstractCreature owner, boolean isClarified) {
+    public GreedMemory(final AbstractCreature owner, boolean isClarified) {
         super(NAME, MemoryType.SIN, owner, isClarified);
         ID = POWER_ID;
 
@@ -35,28 +37,24 @@ public class PrideMemoryPower extends AbstractMemoryPower implements CloneablePo
     }
 
     @Override
-    public void onVictory() {
-        CardGroup masterDeckCandidates = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-            if (c.canUpgrade()) {
-                masterDeckCandidates.addToBottom(c);
-            }
+    public void onAttack(DamageInfo damageInfo, int damage, AbstractCreature target) {
+        if (target.isPlayer || target.isDead || target.isDying || target.halfDead || target.hasPower(MinionPower.POWER_ID)) {
+            return;
         }
 
-        if (!masterDeckCandidates.isEmpty()) {
-            AbstractCard masterDeckCard = masterDeckCandidates.getRandomCard(AbstractDungeon.cardRandomRng);
-            masterDeckCard.upgrade();
-            masterDeckCard.superFlash();
+        if (damage >= target.currentHealth) {
+            JorbsMod.logger.info("Greed: gaining gold");
+            AbstractDungeon.player.gainGold(GOLD_PER_KILL);
         }
     }
 
     @Override
     public void updateMemoryDescription() {
-        description = DESCRIPTIONS[0];
+        description = DESCRIPTIONS[0] + GOLD_PER_KILL + DESCRIPTIONS[1];
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new PrideMemoryPower(owner, isClarified);
+        return new GreedMemory(owner, isClarified);
     }
 }

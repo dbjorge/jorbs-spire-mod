@@ -7,7 +7,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.EndTurnNowAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.memories.ChastityMemoryPower;
+import stsjorbsmod.memories.ChastityMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
@@ -34,7 +34,7 @@ public class Rest extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new RememberSpecificMemoryAction(new ChastityMemoryPower(p, false)));
+        enqueueAction(new RememberSpecificMemoryAction(new ChastityMemory(p, false)));
         enqueueAction(new GainBlockAction(p, p, block));
         enqueueAction(new EndTurnNowAction());
     }

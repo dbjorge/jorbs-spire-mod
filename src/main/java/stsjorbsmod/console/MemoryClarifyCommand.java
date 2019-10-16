@@ -5,7 +5,7 @@ import basemod.devcommands.ConsoleCommand;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import stsjorbsmod.actions.GainMemoryClarityAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
-import stsjorbsmod.memories.AbstractMemoryPower;
+import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.util.MemoryPowerUtils;
 
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ public class MemoryClarifyCommand extends ConsoleCommand {
             DevConsole.log("Clarifying currently-remembered memory (like Eye of the Storm)");
             AbstractDungeon.actionManager.addToBottom(new GainMemoryClarityAction(AbstractDungeon.player));
         } else {
-            AbstractMemoryPower newMemory = MemoryPowerUtils.newMemoryByID(tokens[2], AbstractDungeon.player, true);
+            AbstractMemory newMemory = MemoryPowerUtils.newMemoryByID(tokens[2], AbstractDungeon.player, true);
             AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(newMemory));
         }
     }

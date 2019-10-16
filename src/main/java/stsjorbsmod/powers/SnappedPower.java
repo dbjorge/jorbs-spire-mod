@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.memories.AbstractMemoryPower;
+import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
@@ -43,7 +43,7 @@ public class SnappedPower extends AbstractPower implements CloneablePowerInterfa
     @Override
     public void onInitialApplication() {
         for (AbstractPower power : owner.powers) {
-            if (power instanceof AbstractMemoryPower) {
+            if (power instanceof AbstractMemory) {
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(owner, (AbstractCreature)null, power));
             }
         }

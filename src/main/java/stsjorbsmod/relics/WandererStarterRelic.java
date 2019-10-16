@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
-import stsjorbsmod.memories.PatienceMemoryPower;
+import stsjorbsmod.memories.PatienceMemory;
 import stsjorbsmod.util.MemoryPowerUtils;
 import stsjorbsmod.util.TextureLoader;
 
@@ -31,7 +31,7 @@ public class WandererStarterRelic extends CustomRelic {
     public void atBattleStart() {
         AbstractPlayer p = AbstractDungeon.player;
         this.flash();
-        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(new PatienceMemoryPower(p, false)));
+        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(new PatienceMemory(p, false)));
     }
 
     @Override

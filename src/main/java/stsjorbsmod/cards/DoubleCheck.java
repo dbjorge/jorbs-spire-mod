@@ -7,7 +7,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.GainMemoryClarityAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.memories.DiligenceMemoryPower;
+import stsjorbsmod.memories.DiligenceMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
@@ -35,8 +35,8 @@ public class DoubleCheck extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         enqueueAction(new GainBlockAction(p, p, block));
-        enqueueAction(new GainMemoryClarityAction(p, DiligenceMemoryPower.POWER_ID));
-        enqueueAction(new RememberSpecificMemoryAction(new DiligenceMemoryPower(p, false)));
+        enqueueAction(new GainMemoryClarityAction(p, DiligenceMemory.POWER_ID));
+        enqueueAction(new RememberSpecificMemoryAction(new DiligenceMemory(p, false)));
     }
 
     @Override

@@ -7,8 +7,8 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 
 // This primarily acts as a marker class, eg so RememberMemoryAction can identify other Memories to remove
-public abstract class AbstractMemoryPower extends AbstractPower {
-    private static final String UI_ID = JorbsMod.makeID(AbstractMemoryPower.class.getSimpleName());
+public abstract class AbstractMemory extends AbstractPower {
+    private static final String UI_ID = JorbsMod.makeID(AbstractMemory.class.getSimpleName());
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(UI_ID);
     public static final String[] TEXT = uiStrings.TEXT;
 
@@ -17,7 +17,7 @@ public abstract class AbstractMemoryPower extends AbstractPower {
     public MemoryType memoryType;
     public String baseName; // baseName "Foo" -> name "Memory of Foo"
 
-    public AbstractMemoryPower(final String baseName, final MemoryType memoryType, final AbstractCreature owner, final boolean isClarified) {
+    public AbstractMemory(final String baseName, final MemoryType memoryType, final AbstractCreature owner, final boolean isClarified) {
         this.baseName = baseName;
 
         this.owner = owner;

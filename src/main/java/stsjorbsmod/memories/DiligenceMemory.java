@@ -16,11 +16,11 @@ import stsjorbsmod.util.TextureLoader;
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
 // Draw 2 cards on entering, retain 1 card per turn passively
-public class DiligenceMemoryPower extends AbstractMemoryPower implements CloneablePowerInterface {
+public class DiligenceMemory extends AbstractMemory implements CloneablePowerInterface {
     private static final int CARDS_DRAWN_ON_ENTER = 2;
     private static final int CARDS_RETAINED = 1;
 
-    public static final String POWER_ID = JorbsMod.makeID(DiligenceMemoryPower.class.getSimpleName());
+    public static final String POWER_ID = JorbsMod.makeID(DiligenceMemory.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -28,7 +28,7 @@ public class DiligenceMemoryPower extends AbstractMemoryPower implements Cloneab
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("diligence_memory_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("diligence_memory_power32.png"));
 
-    public DiligenceMemoryPower(final AbstractCreature owner, boolean isClarified) {
+    public DiligenceMemory(final AbstractCreature owner, boolean isClarified) {
         super(NAME, MemoryType.VIRTUE, owner, isClarified);
         ID = POWER_ID;
 
@@ -59,6 +59,6 @@ public class DiligenceMemoryPower extends AbstractMemoryPower implements Cloneab
 
     @Override
     public AbstractPower makeCopy() {
-        return new DiligenceMemoryPower(owner, isClarified);
+        return new DiligenceMemory(owner, isClarified);
     }
 }

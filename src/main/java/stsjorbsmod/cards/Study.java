@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.powers.DrawPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.memories.PatienceMemoryPower;
+import stsjorbsmod.memories.PatienceMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
@@ -34,7 +34,7 @@ public class Study extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new RememberSpecificMemoryAction(new PatienceMemoryPower(p, false)));
+        enqueueAction(new RememberSpecificMemoryAction(new PatienceMemory(p, false)));
         enqueueAction(new ApplyPowerAction(p, p, new DrawPower(p, this.magicNumber)));
     }
 

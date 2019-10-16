@@ -16,12 +16,12 @@ import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
-public class LustMemoryPower extends AbstractMemoryPower implements CloneablePowerInterface {
+public class LustMemory extends AbstractMemory implements CloneablePowerInterface {
     private static final float ATTACK_BONUS_MODIFIER = 1.5f;
     private static final int ATTACK_BONUS_PERCENTAGE_DESCRIPTION = 50;
     private static final int WEAK_ON_FORGET = 2;
 
-    public static final String POWER_ID = JorbsMod.makeID(LustMemoryPower.class.getSimpleName());
+    public static final String POWER_ID = JorbsMod.makeID(LustMemory.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -29,7 +29,7 @@ public class LustMemoryPower extends AbstractMemoryPower implements CloneablePow
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("lust_memory_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("lust_memory_power32.png"));
 
-    public LustMemoryPower(final AbstractCreature owner, boolean isClarified) {
+    public LustMemory(final AbstractCreature owner, boolean isClarified) {
         super(NAME, MemoryType.SIN, owner, isClarified);
         ID = POWER_ID;
 
@@ -66,6 +66,6 @@ public class LustMemoryPower extends AbstractMemoryPower implements CloneablePow
 
     @Override
     public AbstractPower makeCopy() {
-        return new LustMemoryPower(owner, isClarified);
+        return new LustMemory(owner, isClarified);
     }
 }

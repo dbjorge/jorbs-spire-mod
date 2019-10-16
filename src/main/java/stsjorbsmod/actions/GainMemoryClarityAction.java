@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
-import stsjorbsmod.memories.AbstractMemoryPower;
+import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.util.MemoryPowerUtils;
 
 
@@ -23,7 +23,7 @@ public class GainMemoryClarityAction extends AbstractGameAction {
     }
 
     public void update() {
-        AbstractMemoryPower oldMemory = MemoryPowerUtils.getCurrentMemory(this.target);
+        AbstractMemory oldMemory = MemoryPowerUtils.getCurrentMemory(this.target);
         if (oldMemory != null && !oldMemory.isClarified && (specificMemoryID == null || specificMemoryID == oldMemory.ID)) {
             oldMemory.flash();
             oldMemory.isClarified = true;

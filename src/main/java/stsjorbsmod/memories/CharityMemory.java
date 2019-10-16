@@ -17,11 +17,11 @@ import stsjorbsmod.util.TextureLoader;
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
 // TODO: It would be nice for this to update if player gold changes mid-combat
-public class CharityMemoryPower extends AbstractMemoryPower implements CloneablePowerInterface {
+public class CharityMemory extends AbstractMemory implements CloneablePowerInterface {
     private static final int STRENGTH_PER_GOLD_THRESHOLD = 1;
     private static final int GOLD_THRESHOLD = 100;
 
-    public static final String POWER_ID = JorbsMod.makeID(CharityMemoryPower.class.getSimpleName());
+    public static final String POWER_ID = JorbsMod.makeID(CharityMemory.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -29,7 +29,7 @@ public class CharityMemoryPower extends AbstractMemoryPower implements Cloneable
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("charity_memory_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("charity_memory_power32.png"));
 
-    public CharityMemoryPower(final AbstractCreature owner, boolean isClarified) {
+    public CharityMemory(final AbstractCreature owner, boolean isClarified) {
         super(NAME, MemoryType.VIRTUE, owner, isClarified);
         ID = POWER_ID;
 
@@ -71,6 +71,6 @@ public class CharityMemoryPower extends AbstractMemoryPower implements Cloneable
 
     @Override
     public AbstractPower makeCopy() {
-        return new CharityMemoryPower(owner, isClarified);
+        return new CharityMemory(owner, isClarified);
     }
 }

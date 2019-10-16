@@ -6,7 +6,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.GainMemoryClarityAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.memories.LustMemoryPower;
+import stsjorbsmod.memories.LustMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
@@ -31,7 +31,7 @@ public class WizardRobe extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new RememberSpecificMemoryAction(new LustMemoryPower(p, false)));
+        enqueueAction(new RememberSpecificMemoryAction(new LustMemory(p, false)));
         enqueueAction(new GainMemoryClarityAction(p));
     }
 

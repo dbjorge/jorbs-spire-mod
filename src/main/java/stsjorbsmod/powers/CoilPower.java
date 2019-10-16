@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.memories.PatienceMemoryPower;
+import stsjorbsmod.memories.PatienceMemory;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
@@ -44,7 +44,7 @@ public class CoilPower extends AbstractPower implements CloneablePowerInterface 
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + (amount * PatienceMemoryPower.DAMAGE_PER_COIL_ON_LEAVE) + DESCRIPTIONS[1];
+        description = DESCRIPTIONS[0] + (amount * PatienceMemory.DAMAGE_PER_COIL_ON_LEAVE) + DESCRIPTIONS[1];
     }
 
     @Override
