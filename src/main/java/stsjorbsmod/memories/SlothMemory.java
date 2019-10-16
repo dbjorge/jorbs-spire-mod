@@ -40,7 +40,7 @@ public class SlothMemory extends AbstractMemory implements CloneablePowerInterfa
     }
 
     @Override
-    public void onInitialApplication() {
+    public void onRemember() {
         // addToTop for correct interaction with Unseen Servant
         AbstractDungeon.actionManager.addToTop(
                 new DiscardAction(owner, source, DISCARD_ON_REMEMBER, true));
@@ -50,11 +50,7 @@ public class SlothMemory extends AbstractMemory implements CloneablePowerInterfa
     }
 
     @Override
-    public void onRemove() {
-        if (this.isClarified) {
-            return;
-        }
-
+    public void onForget() {
         AbstractDungeon.actionManager.addToBottom(
                 new ReducePowerAction(owner, source, DrawReductionPower.POWER_ID, DRAW_REDUCTION));
     }

@@ -45,7 +45,7 @@ public class TemperanceMemory extends AbstractMemory implements CloneablePowerIn
     }
 
     @Override
-    public void onInitialApplication() {
+    public void onRemember() {
         this.restoreStrengthActions = new ArrayList<>();
 
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
@@ -60,11 +60,7 @@ public class TemperanceMemory extends AbstractMemory implements CloneablePowerIn
     }
 
     @Override
-    public void onRemove() {
-        if (this.isClarified) {
-            return;
-        }
-
+    public void onForget() {
         for (AbstractGameAction restoreAction : this.restoreStrengthActions) {
             AbstractDungeon.actionManager.addToBottom(restoreAction);
         }

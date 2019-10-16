@@ -50,8 +50,8 @@ public class PatienceMemory extends AbstractMemory implements CloneablePowerInte
     }
 
     @Override
-    public void onRemove() {
-        if (isClarified || !owner.hasPower(CoilPower.POWER_ID)) {
+    public void onForget() {
+        if (!owner.hasPower(CoilPower.POWER_ID)) {
             return;
         }
 

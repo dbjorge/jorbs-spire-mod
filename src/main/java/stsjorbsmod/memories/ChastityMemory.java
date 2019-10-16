@@ -41,7 +41,7 @@ public class ChastityMemory extends AbstractMemory implements CloneablePowerInte
     }
 
     @Override
-    public void onInitialApplication() {
+    public void onRemember() {
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(owner, source, new DexterityPower(owner, DEXTERITY_ON_REMEMBER), DEXTERITY_ON_REMEMBER));
     }

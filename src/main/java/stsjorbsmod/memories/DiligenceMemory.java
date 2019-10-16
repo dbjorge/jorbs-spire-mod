@@ -39,7 +39,7 @@ public class DiligenceMemory extends AbstractMemory implements CloneablePowerInt
     }
 
     @Override
-    public void onInitialApplication() {
+    public void onRemember() {
         AbstractDungeon.actionManager.addToBottom(
                 new DrawCardAction(this.source, CARDS_DRAWN_ON_ENTER));
     }

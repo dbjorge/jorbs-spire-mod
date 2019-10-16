@@ -46,7 +46,7 @@ public class CharityMemory extends AbstractMemory implements CloneablePowerInter
     }
 
     @Override
-    public void onInitialApplication() {
+    public void onRemember() {
         this.strengthAdded = calculateStrengthToAdd();
         if (this.strengthAdded > 0) {
             AbstractDungeon.actionManager.addToBottom(
@@ -55,13 +55,11 @@ public class CharityMemory extends AbstractMemory implements CloneablePowerInter
     }
 
     @Override
-    public void onRemove() {
-        if (isClarified || this.strengthAdded <= 0) {
-            return;
+    public void onForget() {
+        if (this.strengthAdded > 0) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new ReducePowerAction(owner, source, StrengthPower.POWER_ID, this.strengthAdded));
         }
-
-        AbstractDungeon.actionManager.addToBottom(
-                new ReducePowerAction(owner, source, StrengthPower.POWER_ID, this.strengthAdded));
     }
 
     @Override

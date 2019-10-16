@@ -38,17 +38,13 @@ public class HumilityMemory extends AbstractMemory implements CloneablePowerInte
     }
 
     @Override
-    public void onInitialApplication() {
+    public void onRemember() {
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(owner, source, new ThornsPower(owner, THORNS_DAMAGE)));
     }
 
     @Override
-    public void onRemove() {
-        if (isClarified) {
-            return;
-        }
-
+    public void onForget() {
         this.flash();
         AbstractDungeon.actionManager.addToBottom(
                 new ReducePowerAction(owner, source, ThornsPower.POWER_ID, THORNS_DAMAGE));

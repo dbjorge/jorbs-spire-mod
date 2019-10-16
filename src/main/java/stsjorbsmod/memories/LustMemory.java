@@ -49,11 +49,7 @@ public class LustMemory extends AbstractMemory implements CloneablePowerInterfac
     }
 
     @Override
-    public void onRemove() {
-        if (isClarified) {
-            return;
-        }
-
+    public void onForget() {
         this.flash();
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(owner, source, new WeakPower(owner, WEAK_ON_FORGET, false)));

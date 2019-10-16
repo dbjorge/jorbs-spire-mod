@@ -41,7 +41,7 @@ public class KindnessMemory extends AbstractMemory implements CloneablePowerInte
     }
 
     @Override
-    public void onInitialApplication() {
+    public void onRemember() {
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             for(AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
                 if (!monster.isDead && !monster.isDying) {
@@ -56,11 +56,7 @@ public class KindnessMemory extends AbstractMemory implements CloneablePowerInte
     }
 
     @Override
-    public void onRemove() {
-        if (this.isClarified) {
-            return;
-        }
-
+    public void onForget() {
         AbstractDungeon.actionManager.addToBottom(
                 new ReducePowerAction(owner, source, EnvenomPower.POWER_ID, ENVENOM_MAGNITUDE));
     }

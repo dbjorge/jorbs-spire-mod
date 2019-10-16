@@ -40,7 +40,7 @@ public class EnvyMemory extends AbstractMemory implements CloneablePowerInterfac
     }
 
     @Override
-    public void onInitialApplication() {
+    public void onRemember() {
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(owner, source, new VulnerablePower(owner, VULNERABLE_ON_REMEMBER, false), VULNERABLE_ON_REMEMBER));
     }

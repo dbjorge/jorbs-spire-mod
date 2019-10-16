@@ -29,6 +29,21 @@ public abstract class AbstractMemory extends AbstractPower {
         isTurnBased = false;
     }
 
+    protected void onRemember() {}
+    protected void onForget() {}
+
+    @Override
+    public final void onInitialApplication() {
+        onRemember();
+    }
+
+    @Override
+    public final void onRemove() {
+        if (!isClarified) {
+            onForget();
+        }
+    }
+
     @Override
     public final void updateDescription() {
         this.updateMemoryDescription();
