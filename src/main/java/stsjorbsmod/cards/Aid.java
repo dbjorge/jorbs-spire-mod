@@ -34,8 +34,8 @@ public class Aid extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new HealAction(m, p, this.magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(p, p, new KindnessMemoryPower(p, p, false)));
+        enqueueAction(new HealAction(m, p, this.magicNumber));
+        enqueueAction(new RememberSpecificMemoryAction(p, p, new KindnessMemoryPower(p, p, false)));
     }
 
     @Override

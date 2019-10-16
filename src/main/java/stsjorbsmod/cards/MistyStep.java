@@ -34,8 +34,8 @@ public class MistyStep extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int calculatedBlock = MemoryPowerUtils.countClarities(p) * block;
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, calculatedBlock));
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, magicNumber));
+        enqueueAction(new GainBlockAction(p, p, calculatedBlock));
+        enqueueAction(new DrawCardAction(p, magicNumber));
     }
 
     @Override

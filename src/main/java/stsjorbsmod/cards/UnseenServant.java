@@ -34,8 +34,8 @@ public class UnseenServant extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(p, p, new SlothMemoryPower(p, p, false)));
-        AbstractDungeon.actionManager.addToBottom(new CardsToTopOfDeckAction(p, p.discardPile, this.magicNumber, false));
+        enqueueAction(new RememberSpecificMemoryAction(p, p, new SlothMemoryPower(p, p, false)));
+        enqueueAction(new CardsToTopOfDeckAction(p, p.discardPile, this.magicNumber, false));
     }
 
     @Override

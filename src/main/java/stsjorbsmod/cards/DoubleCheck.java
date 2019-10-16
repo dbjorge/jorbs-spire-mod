@@ -35,9 +35,9 @@ public class DoubleCheck extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-        AbstractDungeon.actionManager.addToBottom(new GainMemoryClarityAction(p, p, DiligenceMemoryPower.POWER_ID));
-        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(p, p, new DiligenceMemoryPower(p, p, false)));
+        enqueueAction(new GainBlockAction(p, p, block));
+        enqueueAction(new GainMemoryClarityAction(p, p, DiligenceMemoryPower.POWER_ID));
+        enqueueAction(new RememberSpecificMemoryAction(p, p, new DiligenceMemoryPower(p, p, false)));
     }
 
     @Override

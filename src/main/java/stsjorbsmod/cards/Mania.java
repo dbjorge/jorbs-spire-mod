@@ -40,8 +40,7 @@ public class Mania extends CustomJorbsModCard {
         }
 
         for (int i=0; i<numSwings; ++i) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+            enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
         }
     }
 

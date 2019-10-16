@@ -34,8 +34,8 @@ public class Hibernate extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(p, p, new SlothMemoryPower(p, p, false)));
+        enqueueAction(new GainBlockAction(p, p, block));
+        enqueueAction(new RememberSpecificMemoryAction(p, p, new SlothMemoryPower(p, p, false)));
     }
 
     @Override

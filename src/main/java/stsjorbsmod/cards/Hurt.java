@@ -35,12 +35,11 @@ public class Hurt extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+        enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.SLASH_HEAVY));
 
         int hpLoss = MemoryPowerUtils.countClarities(p) * magicNumber;
         if (hpLoss > 0) {
-            AbstractDungeon.actionManager.addToBottom(
+            enqueueAction(
                     new DamageAction(p, new DamageInfo(p, hpLoss, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.SHIELD));
         }
     }

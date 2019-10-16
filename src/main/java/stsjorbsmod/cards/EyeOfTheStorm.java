@@ -12,7 +12,6 @@ import stsjorbsmod.characters.Wanderer;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-// Gain clarity of current memory, then remember a random memory you do not have clarity of. Gain 8(11) Block.
 public class EyeOfTheStorm extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(EyeOfTheStorm.class.getSimpleName());
     public static final String IMG = makeCardPath("Block_Commons/eyeofthestorm.png");
@@ -35,9 +34,9 @@ public class EyeOfTheStorm extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainMemoryClarityAction(p, p));
-        AbstractDungeon.actionManager.addToBottom(new RememberRandomNewMemoryAction(p, p, false));
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+        enqueueAction(new GainMemoryClarityAction(p, p));
+        enqueueAction(new RememberRandomNewMemoryAction(p, p, false));
+        enqueueAction(new GainBlockAction(p, p, block));
     }
 
     @Override

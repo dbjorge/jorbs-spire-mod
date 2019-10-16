@@ -28,7 +28,6 @@ public class Strike_Wanderer extends CustomJorbsModCard {
 
     public Strike_Wanderer() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-
         baseDamage = DAMAGE;
 
         this.tags.add(BaseModCardTags.BASIC_STRIKE);
@@ -37,8 +36,7 @@ public class Strike_Wanderer extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
 
     @Override

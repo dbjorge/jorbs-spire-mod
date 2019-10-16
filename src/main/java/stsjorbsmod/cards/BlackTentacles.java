@@ -35,10 +35,8 @@ public class BlackTentacles extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(m, p, new BlackTentaclesPower(m, p, this.magicNumber), this.magicNumber));
+        enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        enqueueAction(new ApplyPowerAction(m, p, new BlackTentaclesPower(m, p, this.magicNumber)));
     }
 
     @Override

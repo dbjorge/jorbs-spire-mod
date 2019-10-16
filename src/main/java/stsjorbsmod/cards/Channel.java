@@ -33,8 +33,8 @@ public class Channel extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EnergizedCustomPower(p, magicNumber), magicNumber));
+        enqueueAction(new GainBlockAction(p, p, block));
+        enqueueAction(new ApplyPowerAction(p, p, new EnergizedCustomPower(p, magicNumber)));
     }
 
     @Override

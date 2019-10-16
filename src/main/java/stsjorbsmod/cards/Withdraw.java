@@ -34,8 +34,8 @@ public class Withdraw extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ArtifactPower(p, magicNumber)));
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+        enqueueAction(new ApplyPowerAction(p, p, new ArtifactPower(p, magicNumber)));
+        enqueueAction(new GainBlockAction(p, p, block));
     }
 
     @Override

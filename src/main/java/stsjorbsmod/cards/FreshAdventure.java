@@ -37,10 +37,8 @@ public class FreshAdventure extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-        AbstractDungeon.actionManager.addToBottom(
-                new RememberSpecificMemoryAction(p, p, new DiligenceMemoryPower(p, p, false)));
+        enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+        enqueueAction(new RememberSpecificMemoryAction(p, p, new DiligenceMemoryPower(p, p, false)));
     }
 
     @Override

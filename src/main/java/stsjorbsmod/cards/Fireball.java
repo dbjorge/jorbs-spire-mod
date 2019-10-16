@@ -36,9 +36,9 @@ public class Fireball extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToTop(
+        enqueueActionToTop(
                 new DamageAllEnemiesAction(p, DamageInfo.createDamageMatrix(damage), damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
-        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(p, p, new LustMemoryPower(p, p, false)));
+        enqueueAction(new RememberSpecificMemoryAction(p, p, new LustMemoryPower(p, p, false)));
     }
 
     @Override

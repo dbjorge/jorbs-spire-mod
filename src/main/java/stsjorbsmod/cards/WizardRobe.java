@@ -32,10 +32,8 @@ public class WizardRobe extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new RememberSpecificMemoryAction(p, p, new LustMemoryPower(p, p, false)));
-        AbstractDungeon.actionManager.addToBottom(
-                new GainMemoryClarityAction(p, p));
+        enqueueAction(new RememberSpecificMemoryAction(p, p, new LustMemoryPower(p, p, false)));
+        enqueueAction(new GainMemoryClarityAction(p, p));
     }
 
     @Override

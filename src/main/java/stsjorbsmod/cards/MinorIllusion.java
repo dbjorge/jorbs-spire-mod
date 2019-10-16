@@ -29,7 +29,7 @@ public class MinorIllusion extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+        enqueueAction(new GainBlockAction(p, p, block));
     }
 
     @Override

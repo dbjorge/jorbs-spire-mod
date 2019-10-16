@@ -10,7 +10,6 @@ import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-// Gain 5 (8) block
 public class Defend_Wanderer extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Defend_Wanderer.class.getSimpleName());
     public static final String IMG = makeCardPath("Block_Commons/defend_wanderer.png");
@@ -26,15 +25,14 @@ public class Defend_Wanderer extends CustomJorbsModCard {
 
     public Defend_Wanderer() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-
-        baseBlock = BLOCK;
+        block = baseBlock = BLOCK;
 
         this.tags.add(BaseModCardTags.BASIC_DEFEND);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+        enqueueAction(new GainBlockAction(p, p, block));
     }
 
     @Override

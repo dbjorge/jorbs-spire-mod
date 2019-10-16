@@ -36,8 +36,7 @@ public class MagicMissles extends CustomJorbsModCard {
         int numMissles = 1 + MemoryPowerUtils.countClarities(p);
 
         for (int i=0; i<numMissles; ++i) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SMASH));
+            enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.SMASH));
         }
     }
 

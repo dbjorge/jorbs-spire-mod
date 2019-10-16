@@ -33,7 +33,7 @@ public class WeightOfMemory extends CustomJorbsModCard {
         magicNumber = baseMagicNumber = DAMAGE_PER_REMEMBER_CARD;
     }
 
-    public static int countRememberMemoryCards() {
+    private static int countRememberMemoryCards() {
         int count = 0;
         for (AbstractCard c : AbstractDungeon.player.hand.group) {
             if (isRememberMemoryCard(c)) { ++count; }
@@ -47,7 +47,7 @@ public class WeightOfMemory extends CustomJorbsModCard {
         return count;
     }
 
-    public static boolean isRememberMemoryCard(AbstractCard c) {
+    private static boolean isRememberMemoryCard(AbstractCard c) {
         return c.hasTag(REMEMBER_MEMORY);
     }
 
@@ -58,8 +58,7 @@ public class WeightOfMemory extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
     }
 
     @Override

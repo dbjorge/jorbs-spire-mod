@@ -8,6 +8,8 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.ChainLightningAction;
 import stsjorbsmod.characters.Wanderer;
 
+import java.util.ArrayList;
+
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class ChainLightning extends CustomJorbsModCard {
@@ -32,8 +34,8 @@ public class ChainLightning extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new ChainLightningAction(p, m, AbstractDungeon.getMonsters().monsters, damage, magicNumber, AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        ArrayList<AbstractMonster> targets = AbstractDungeon.getMonsters().monsters;
+        enqueueAction(new ChainLightningAction(p, m, targets, damage, magicNumber, AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }
 
     @Override

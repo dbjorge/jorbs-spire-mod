@@ -30,8 +30,7 @@ public class PrestidigitationA extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new PrestidigitationPower(p, magicNumber)));
+        enqueueAction(new ApplyPowerAction(p, p, new PrestidigitationPower(p, magicNumber)));
     }
 
     @Override

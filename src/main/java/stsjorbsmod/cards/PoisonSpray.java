@@ -36,7 +36,7 @@ public class PoisonSpray extends CustomJorbsModCard {
 
         for(AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
             if (!monster.isDead && !monster.isDying) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monster, p, new PoisonPower(monster, p, this.magicNumber), this.magicNumber));
+                enqueueAction(new ApplyPowerAction(monster, p, new PoisonPower(monster, p, this.magicNumber)));
             }
         }
     }

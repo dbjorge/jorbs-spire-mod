@@ -27,7 +27,7 @@ public class FindFamiliar extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FindFamiliarPower(p)));
+        enqueueAction(new ApplyPowerAction(p, p, new FindFamiliarPower(p)));
     }
 
     @Override

@@ -41,12 +41,11 @@ public class FocusedMind extends CustomJorbsModCard {
         AbstractMemoryPower currentMemory = MemoryPowerUtils.getCurrentMemory(p);
 
         if (currentMemory != null && currentMemory.memoryType == MemoryType.SIN) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+            enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
 
         if (currentMemory != null && currentMemory.memoryType == MemoryType.VIRTUE) {
-            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+            enqueueAction(new GainBlockAction(p, p, block));
         }
     }
 

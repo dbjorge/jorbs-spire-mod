@@ -30,8 +30,8 @@ public class PrestidigitationB extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new CardsToTopOfDeckAction(p, p.hand, this.magicNumber, true));
+        enqueueAction(new DrawCardAction(p, this.magicNumber));
+        enqueueAction(new CardsToTopOfDeckAction(p, p.hand, this.magicNumber, true));
     }
 
     @Override
