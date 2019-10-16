@@ -62,7 +62,7 @@ public class KindnessMemory extends AbstractMemory implements CloneablePowerInte
     }
 
     @Override
-    public void updateMemoryDescription() {
+    protected void updateMemoryDescription() {
         description = DESCRIPTIONS[0] + ENVENOM_MAGNITUDE + DESCRIPTIONS[1];
     }
 

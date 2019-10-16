@@ -51,7 +51,7 @@ public class HumilityMemory extends AbstractMemory implements CloneablePowerInte
     }
 
     @Override
-    public void updateMemoryDescription() {
+    protected void updateMemoryDescription() {
         description = DESCRIPTIONS[0] + THORNS_DAMAGE + DESCRIPTIONS[1];
     }
 

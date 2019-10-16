@@ -53,7 +53,7 @@ public class WrathMemory extends AbstractMemory implements CloneablePowerInterfa
     }
 
     @Override
-    public void updateMemoryDescription() {
+    protected void updateMemoryDescription() {
         description = DESCRIPTIONS[0] + DAMAGE_INCREASE_PER_KILL + DESCRIPTIONS[1];
     }
 

@@ -63,7 +63,7 @@ public class CharityMemory extends AbstractMemory implements CloneablePowerInter
     }
 
     @Override
-    public void updateMemoryDescription() {
+    protected void updateMemoryDescription() {
         description = DESCRIPTIONS[0] + STRENGTH_PER_GOLD_THRESHOLD + DESCRIPTIONS[1] + GOLD_THRESHOLD + DESCRIPTIONS[2];
     }
 

@@ -49,7 +49,7 @@ public class GreedMemory extends AbstractMemory implements CloneablePowerInterfa
     }
 
     @Override
-    public void updateMemoryDescription() {
+    protected void updateMemoryDescription() {
         description = DESCRIPTIONS[0] + GOLD_PER_KILL + DESCRIPTIONS[1];
     }
 

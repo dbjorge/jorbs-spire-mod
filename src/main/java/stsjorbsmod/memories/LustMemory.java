@@ -56,7 +56,7 @@ public class LustMemory extends AbstractMemory implements CloneablePowerInterfac
     }
 
     @Override
-    public void updateMemoryDescription() {
+    protected void updateMemoryDescription() {
         description = DESCRIPTIONS[0] + ATTACK_BONUS_PERCENTAGE_DESCRIPTION + DESCRIPTIONS[1] + WEAK_ON_FORGET + DESCRIPTIONS[2];
     }
 

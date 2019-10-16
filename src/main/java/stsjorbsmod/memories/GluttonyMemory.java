@@ -49,7 +49,7 @@ public class GluttonyMemory extends AbstractMemory implements CloneablePowerInte
     }
 
     @Override
-    public void updateMemoryDescription() {
+    protected void updateMemoryDescription() {
         description = DESCRIPTIONS[0] + MAX_HP_PER_KILL + DESCRIPTIONS[1];
     }
 

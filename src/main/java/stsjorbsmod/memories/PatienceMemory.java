@@ -67,7 +67,7 @@ public class PatienceMemory extends AbstractMemory implements CloneablePowerInte
     }
 
     @Override
-    public void updateMemoryDescription() {
+    protected void updateMemoryDescription() {
         description = DESCRIPTIONS[0];
     }
 

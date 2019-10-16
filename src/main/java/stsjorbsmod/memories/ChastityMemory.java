@@ -59,7 +59,7 @@ public class ChastityMemory extends AbstractMemory implements CloneablePowerInte
     }
 
     @Override
-    public void updateMemoryDescription() {
+    protected void updateMemoryDescription() {
         description = DESCRIPTIONS[0] + DEXTERITY_LOSS_PER_TURN + DESCRIPTIONS[1] + BLOCK_PER_TURN + DESCRIPTIONS[2];
     }
 

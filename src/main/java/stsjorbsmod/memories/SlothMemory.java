@@ -56,7 +56,7 @@ public class SlothMemory extends AbstractMemory implements CloneablePowerInterfa
     }
 
     @Override
-    public void updateMemoryDescription() {
+    protected void updateMemoryDescription() {
         description = DESCRIPTIONS[0] + DRAW_REDUCTION + DESCRIPTIONS[1];
     }
 

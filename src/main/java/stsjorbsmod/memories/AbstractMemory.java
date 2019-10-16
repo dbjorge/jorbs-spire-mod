@@ -31,6 +31,7 @@ public abstract class AbstractMemory extends AbstractPower {
 
     protected void onRemember() {}
     protected void onForget() {}
+    protected void updateMemoryDescription() { }
 
     @Override
     public final void onInitialApplication() {
@@ -49,6 +50,4 @@ public abstract class AbstractMemory extends AbstractPower {
         this.updateMemoryDescription();
         this.name = (isClarified ? TEXT[1] : TEXT[0]) + this.baseName;
     }
-
-    public void updateMemoryDescription() { }
 }

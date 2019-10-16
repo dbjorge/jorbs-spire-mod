@@ -68,7 +68,7 @@ public class TemperanceMemory extends AbstractMemory implements CloneablePowerIn
     }
 
     @Override
-    public void updateMemoryDescription() {
+    protected void updateMemoryDescription() {
         description = DESCRIPTIONS[0] + ENEMY_STRENGTH_REDUCTION + DESCRIPTIONS[1];
     }
 

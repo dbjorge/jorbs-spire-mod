@@ -53,7 +53,7 @@ public class EnvyMemory extends AbstractMemory implements CloneablePowerInterfac
     }
 
     @Override
-    public void updateMemoryDescription() {
+    protected void updateMemoryDescription() {
         description = DESCRIPTIONS[0] + VULNERABLE_ON_TARGET_ENEMY + DESCRIPTIONS[1];
     }
 

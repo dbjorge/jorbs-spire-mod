@@ -51,7 +51,7 @@ public class PrideMemory extends AbstractMemory implements CloneablePowerInterfa
     }
 
     @Override
-    public void updateMemoryDescription() {
+    protected void updateMemoryDescription() {
         description = DESCRIPTIONS[0];
     }
 

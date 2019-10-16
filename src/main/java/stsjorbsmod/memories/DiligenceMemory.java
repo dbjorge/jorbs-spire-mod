@@ -53,7 +53,7 @@ public class DiligenceMemory extends AbstractMemory implements CloneablePowerInt
     }
 
     @Override
-    public void updateMemoryDescription() {
+    protected void updateMemoryDescription() {
         description = DESCRIPTIONS[0] + CARDS_RETAINED + DESCRIPTIONS[1];
     }
 
