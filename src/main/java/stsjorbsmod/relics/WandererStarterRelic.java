@@ -31,7 +31,7 @@ public class WandererStarterRelic extends CustomRelic {
     public void atBattleStart() {
         AbstractPlayer p = AbstractDungeon.player;
         this.flash();
-        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(p, p, new PatienceMemoryPower(p, p, false)));
+        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(new PatienceMemoryPower(p, false)));
     }
 
     @Override

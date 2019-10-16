@@ -2,7 +2,6 @@ package stsjorbsmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.GainMemoryClarityAction;
@@ -36,8 +35,8 @@ public class DoubleCheck extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         enqueueAction(new GainBlockAction(p, p, block));
-        enqueueAction(new GainMemoryClarityAction(p, p, DiligenceMemoryPower.POWER_ID));
-        enqueueAction(new RememberSpecificMemoryAction(p, p, new DiligenceMemoryPower(p, p, false)));
+        enqueueAction(new GainMemoryClarityAction(p, DiligenceMemoryPower.POWER_ID));
+        enqueueAction(new RememberSpecificMemoryAction(new DiligenceMemoryPower(p, false)));
     }
 
     @Override

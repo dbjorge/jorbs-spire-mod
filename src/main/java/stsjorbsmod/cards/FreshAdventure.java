@@ -4,7 +4,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
@@ -38,7 +37,7 @@ public class FreshAdventure extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-        enqueueAction(new RememberSpecificMemoryAction(p, p, new DiligenceMemoryPower(p, p, false)));
+        enqueueAction(new RememberSpecificMemoryAction(new DiligenceMemoryPower(p, false)));
     }
 
     @Override

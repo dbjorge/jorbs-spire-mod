@@ -1,7 +1,6 @@
 package stsjorbsmod.cards;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.GainMemoryClarityAction;
@@ -32,8 +31,8 @@ public class WizardRobe extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new RememberSpecificMemoryAction(p, p, new LustMemoryPower(p, p, false)));
-        enqueueAction(new GainMemoryClarityAction(p, p));
+        enqueueAction(new RememberSpecificMemoryAction(new LustMemoryPower(p, false)));
+        enqueueAction(new GainMemoryClarityAction(p));
     }
 
     @Override

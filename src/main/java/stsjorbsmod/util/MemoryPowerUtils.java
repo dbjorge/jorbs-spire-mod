@@ -42,35 +42,35 @@ public class MemoryPowerUtils {
 
     public static ArrayList<String> allPossibleMemoryIDs() {
         ArrayList<String> ids = new ArrayList<>();
-        for (AbstractMemoryPower p : allPossibleMemoryPowers(null, null, false)) {
+        for (AbstractMemoryPower p : allPossibleMemoryPowers(null, false)) {
             ids.add(p.ID);
         }
         return ids;
     }
 
-    public static ArrayList<AbstractMemoryPower> allPossibleMemoryPowers(AbstractCreature target, AbstractCreature source, boolean isClarified) {
+    public static ArrayList<AbstractMemoryPower> allPossibleMemoryPowers(AbstractCreature target, boolean isClarified) {
         ArrayList<AbstractMemoryPower> powers = new ArrayList<>();
 
-        powers.add(new CharityMemoryPower(target, source, isClarified));
-        powers.add(new ChastityMemoryPower(target, source, isClarified));
-        powers.add(new DiligenceMemoryPower(target, source, isClarified));
-        powers.add(new EnvyMemoryPower(target, source, isClarified));
-        powers.add(new GreedMemoryPower(target, source, isClarified));
-        powers.add(new GluttonyMemoryPower(target, source, isClarified));
-        powers.add(new HumilityMemoryPower(target, source, isClarified));
-        powers.add(new KindnessMemoryPower(target, source, isClarified));
-        powers.add(new LustMemoryPower(target, source, isClarified));
-        powers.add(new PatienceMemoryPower(target, source, isClarified));
-        powers.add(new PrideMemoryPower(target, source, isClarified));
-        powers.add(new SlothMemoryPower(target, source, isClarified));
-        powers.add(new TemperanceMemoryPower(target, source, isClarified));
-        powers.add(new WrathMemoryPower(target, source, isClarified));
+        powers.add(new CharityMemoryPower(target, isClarified));
+        powers.add(new ChastityMemoryPower(target, isClarified));
+        powers.add(new DiligenceMemoryPower(target, isClarified));
+        powers.add(new EnvyMemoryPower(target, isClarified));
+        powers.add(new GreedMemoryPower(target, isClarified));
+        powers.add(new GluttonyMemoryPower(target, isClarified));
+        powers.add(new HumilityMemoryPower(target, isClarified));
+        powers.add(new KindnessMemoryPower(target, isClarified));
+        powers.add(new LustMemoryPower(target, isClarified));
+        powers.add(new PatienceMemoryPower(target, isClarified));
+        powers.add(new PrideMemoryPower(target, isClarified));
+        powers.add(new SlothMemoryPower(target, isClarified));
+        powers.add(new TemperanceMemoryPower(target, isClarified));
+        powers.add(new WrathMemoryPower(target, isClarified));
 
         return powers;
     }
 
-    public static AbstractMemoryPower newMemoryByID(String id, AbstractCreature target, AbstractCreature source, boolean isClarified) {
-        for (AbstractMemoryPower memory : allPossibleMemoryPowers(target, source, isClarified)) {
+    public static AbstractMemoryPower newMemoryByID(String id, AbstractCreature target, boolean isClarified) {
+        for (AbstractMemoryPower memory : allPossibleMemoryPowers(target, isClarified)) {
             if (memory.ID.equals(id)) {
                 return memory;
             }

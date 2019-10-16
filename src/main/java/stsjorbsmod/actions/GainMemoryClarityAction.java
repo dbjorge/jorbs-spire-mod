@@ -13,11 +13,12 @@ import stsjorbsmod.util.MemoryPowerUtils;
 public class GainMemoryClarityAction extends AbstractGameAction {
     private String specificMemoryID;
 
-    public GainMemoryClarityAction(AbstractCreature target, AbstractCreature source) {
-        this.setValues(target, source);
+    public GainMemoryClarityAction(AbstractCreature owner) {
+        this.setValues(owner, owner);
     }
-    public GainMemoryClarityAction(AbstractCreature target, AbstractCreature source, String specificMemoryID) {
-        this.setValues(target, source);
+
+    public GainMemoryClarityAction(AbstractCreature owner, String specificMemoryID) {
+        this.setValues(owner, owner);
         this.specificMemoryID = specificMemoryID;
     }
 

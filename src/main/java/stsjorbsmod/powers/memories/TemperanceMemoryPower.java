@@ -33,8 +33,8 @@ public class TemperanceMemoryPower extends AbstractMemoryPower implements Clonea
 
     private ArrayList<AbstractGameAction> restoreStrengthActions;
 
-    public TemperanceMemoryPower(final AbstractCreature owner, final AbstractCreature source, boolean isClarified) {
-        super(NAME, MemoryType.VIRTUE, owner, source, isClarified);
+    public TemperanceMemoryPower(final AbstractCreature owner, boolean isClarified) {
+        super(NAME, MemoryType.VIRTUE, owner, isClarified);
         ID = POWER_ID;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
@@ -77,6 +77,6 @@ public class TemperanceMemoryPower extends AbstractMemoryPower implements Clonea
 
     @Override
     public AbstractPower makeCopy() {
-        return new TemperanceMemoryPower(owner, source, isClarified);
+        return new TemperanceMemoryPower(owner, isClarified);
     }
 }

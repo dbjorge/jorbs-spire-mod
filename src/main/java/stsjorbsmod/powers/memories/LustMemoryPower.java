@@ -29,8 +29,8 @@ public class LustMemoryPower extends AbstractMemoryPower implements CloneablePow
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("lust_memory_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("lust_memory_power32.png"));
 
-    public LustMemoryPower(final AbstractCreature owner, final AbstractCreature source, boolean isClarified) {
-        super(NAME, MemoryType.SIN, owner, source, isClarified);
+    public LustMemoryPower(final AbstractCreature owner, boolean isClarified) {
+        super(NAME, MemoryType.SIN, owner, isClarified);
         ID = POWER_ID;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
@@ -66,6 +66,6 @@ public class LustMemoryPower extends AbstractMemoryPower implements CloneablePow
 
     @Override
     public AbstractPower makeCopy() {
-        return new LustMemoryPower(owner, source, isClarified);
+        return new LustMemoryPower(owner, isClarified);
     }
 }

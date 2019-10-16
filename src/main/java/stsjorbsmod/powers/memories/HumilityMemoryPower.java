@@ -27,8 +27,8 @@ public class HumilityMemoryPower extends AbstractMemoryPower implements Cloneabl
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("humility_memory_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("humility_memory_power32.png"));
 
-    public HumilityMemoryPower(final AbstractCreature owner, final AbstractCreature source, boolean isClarified) {
-        super(NAME, MemoryType.VIRTUE, owner, source, isClarified);
+    public HumilityMemoryPower(final AbstractCreature owner, boolean isClarified) {
+        super(NAME, MemoryType.VIRTUE, owner, isClarified);
         ID = POWER_ID;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
@@ -61,6 +61,6 @@ public class HumilityMemoryPower extends AbstractMemoryPower implements Cloneabl
 
     @Override
     public AbstractPower makeCopy() {
-        return new HumilityMemoryPower(owner, source, isClarified);
+        return new HumilityMemoryPower(owner, isClarified);
     }
 }

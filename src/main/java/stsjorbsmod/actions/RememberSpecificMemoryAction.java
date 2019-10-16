@@ -3,7 +3,6 @@ package stsjorbsmod.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.powers.memories.AbstractMemoryPower;
@@ -14,8 +13,8 @@ import stsjorbsmod.powers.SnappedPower;
 public class RememberSpecificMemoryAction extends AbstractGameAction  {
     private AbstractMemoryPower memoryToRemember;
 
-    public RememberSpecificMemoryAction(AbstractCreature target, AbstractCreature source, AbstractMemoryPower memoryToRemember) {
-        this.setValues(target, source);
+    public RememberSpecificMemoryAction(AbstractMemoryPower memoryToRemember) {
+        this.setValues(memoryToRemember.owner, memoryToRemember.owner);
         this.memoryToRemember = memoryToRemember;
     }
 

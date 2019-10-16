@@ -35,7 +35,7 @@ public class OldPocket extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.player.gainGold(magicNumber);
-        enqueueAction(new RememberSpecificMemoryAction(p, p, new CharityMemoryPower(p, p, false)));
+        enqueueAction(new RememberSpecificMemoryAction(new CharityMemoryPower(p, false)));
     }
 
     @Override

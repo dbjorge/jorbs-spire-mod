@@ -30,8 +30,8 @@ public class ChastityMemoryPower extends AbstractMemoryPower implements Cloneabl
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("chastity_memory_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("chastity_memory_power32.png"));
 
-    public ChastityMemoryPower(final AbstractCreature owner, final AbstractCreature source, boolean isClarified) {
-        super(NAME, MemoryType.VIRTUE, owner, source, isClarified);
+    public ChastityMemoryPower(final AbstractCreature owner, boolean isClarified) {
+        super(NAME, MemoryType.VIRTUE, owner, isClarified);
         ID = POWER_ID;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
@@ -65,6 +65,6 @@ public class ChastityMemoryPower extends AbstractMemoryPower implements Cloneabl
 
     @Override
     public AbstractPower makeCopy() {
-        return new ChastityMemoryPower(owner, source, isClarified);
+        return new ChastityMemoryPower(owner, isClarified);
     }
 }

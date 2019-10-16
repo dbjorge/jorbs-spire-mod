@@ -2,7 +2,6 @@ package stsjorbsmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.GainMemoryClarityAction;
@@ -34,7 +33,7 @@ public class EyeOfTheStorm extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new GainMemoryClarityAction(p, p));
+        enqueueAction(new GainMemoryClarityAction(p));
         enqueueAction(new RememberRandomNewMemoryAction(p, p, false));
         enqueueAction(new GainBlockAction(p, p, block));
     }

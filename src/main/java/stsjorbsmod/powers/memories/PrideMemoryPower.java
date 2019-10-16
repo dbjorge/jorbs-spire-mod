@@ -24,8 +24,8 @@ public class PrideMemoryPower extends AbstractMemoryPower implements CloneablePo
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("pride_memory_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("pride_memory_power32.png"));
 
-    public PrideMemoryPower(final AbstractCreature owner, final AbstractCreature source, boolean isClarified) {
-        super(NAME, MemoryType.SIN, owner, source, isClarified);
+    public PrideMemoryPower(final AbstractCreature owner, boolean isClarified) {
+        super(NAME, MemoryType.SIN, owner, isClarified);
         ID = POWER_ID;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
@@ -57,6 +57,6 @@ public class PrideMemoryPower extends AbstractMemoryPower implements CloneablePo
 
     @Override
     public AbstractPower makeCopy() {
-        return new PrideMemoryPower(owner, source, isClarified);
+        return new PrideMemoryPower(owner, isClarified);
     }
 }

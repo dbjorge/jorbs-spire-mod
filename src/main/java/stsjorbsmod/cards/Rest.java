@@ -2,7 +2,6 @@ package stsjorbsmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.EndTurnNowAction;
@@ -35,7 +34,7 @@ public class Rest extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new RememberSpecificMemoryAction(p, p, new ChastityMemoryPower(p, p, false)));
+        enqueueAction(new RememberSpecificMemoryAction(new ChastityMemoryPower(p, false)));
         enqueueAction(new GainBlockAction(p, p, block));
         enqueueAction(new EndTurnNowAction());
     }

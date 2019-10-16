@@ -1,7 +1,6 @@
 package stsjorbsmod.cards;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.CardsToTopOfDeckAction;
@@ -34,7 +33,7 @@ public class UnseenServant extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new RememberSpecificMemoryAction(p, p, new SlothMemoryPower(p, p, false)));
+        enqueueAction(new RememberSpecificMemoryAction(new SlothMemoryPower(p, false)));
         enqueueAction(new CardsToTopOfDeckAction(p, p.discardPile, this.magicNumber, false));
     }
 

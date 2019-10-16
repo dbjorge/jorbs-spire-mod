@@ -2,7 +2,6 @@ package stsjorbsmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
@@ -35,7 +34,7 @@ public class HedgeWizard extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         enqueueAction(new GainBlockAction(p, p, block));
-        enqueueAction(new RememberSpecificMemoryAction(p, p, new HumilityMemoryPower(p, p, false)));
+        enqueueAction(new RememberSpecificMemoryAction(new HumilityMemoryPower(p, false)));
     }
 
     @Override

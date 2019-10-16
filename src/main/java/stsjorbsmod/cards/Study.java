@@ -2,7 +2,6 @@ package stsjorbsmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DrawPower;
 import stsjorbsmod.JorbsMod;
@@ -35,7 +34,7 @@ public class Study extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new RememberSpecificMemoryAction(p, p, new PatienceMemoryPower(p, p, false)));
+        enqueueAction(new RememberSpecificMemoryAction(new PatienceMemoryPower(p, false)));
         enqueueAction(new ApplyPowerAction(p, p, new DrawPower(p, this.magicNumber)));
     }
 
