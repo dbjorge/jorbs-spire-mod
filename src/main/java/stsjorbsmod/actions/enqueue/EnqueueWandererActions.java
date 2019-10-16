@@ -2,16 +2,16 @@ package stsjorbsmod.actions.enqueue;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
 
-import stsjorbsmod.util.MemoryPowerUtils;
+import stsjorbsmod.memories.MemoryUtils;
 
 public class EnqueueWandererActions extends EnqueueActions {
 	
-	private int sourceClarityMultiplier;
-	private int sourceClarityAddend;
-	private boolean sourceClarityAddendApplied;
-	private int targetClarityMultiplier;
-	private int targetClarityAddend;
-	private boolean targetClarityAddendApplied;
+	private int clarityMultiplierSource;
+	private int clarityAddendSource;
+	private boolean clarityAddendSourceApplied;
+	private int clarityMultiplierTarget;
+	private int clarityAddendTarget;
+	private boolean clarityAddendTargetApplied;
 	
 	public EnqueueWandererActions(AbstractCreature target) {
 		super(target);
@@ -21,72 +21,96 @@ public class EnqueueWandererActions extends EnqueueActions {
 		super(source, target);
 	}
 	
-	public EnqueueWandererActions applyClarityMultiplier(int clarityMultiplier) {
-		this.sourceClarityMultiplier = clarityMultiplier;
-		this.targetClarityMultiplier = clarityMultiplier;
+	public EnqueueWandererActions applyClarityMultiplicatively() {
+		return applyClarityMultiplicatively(1);
+	}
+	
+	public EnqueueWandererActions applyClarityMultiplicatively(int clarityMultiplier) {
+		this.clarityMultiplierSource = clarityMultiplier;
+		this.clarityMultiplierTarget = clarityMultiplier;
 		return this;
 	}
 	
-	public EnqueueWandererActions applyClarityAddend(int clarityAddend) {
-		this.sourceClarityAddend = clarityAddend;
-		this.targetClarityAddend = clarityAddend;
-		this.sourceClarityAddendApplied = true;
-		this.targetClarityAddendApplied = true;
+	public EnqueueWandererActions applyClarityAdditively() {
+		return applyClarityAdditively(0);
+	}
+	
+	public EnqueueWandererActions applyClarityAdditively(int clarityAddend) {
+		this.clarityAddendSource = clarityAddend;
+		this.clarityAddendTarget = clarityAddend;
+		this.clarityAddendSourceApplied = true;
+		this.clarityAddendTargetApplied = true;
 		return this;
 	}
 	
-	public EnqueueWandererActions applySourceClarityMultiplier(int sourceClarityMultiplier) {
-		this.sourceClarityMultiplier = sourceClarityMultiplier;
+	public EnqueueWandererActions applyClarityToSourceMultiplicatively() {
+		return applyClarityToSourceMultiplicatively(1);
+	}
+	
+	public EnqueueWandererActions applyClarityToSourceMultiplicatively(int clarityMultiplierSource) {
+		this.clarityMultiplierSource = clarityMultiplierSource;
 		return this;
 	}
 	
-	public EnqueueWandererActions applySourceClarityAddend(int sourceClarityAddend) {
-		this.sourceClarityAddend = sourceClarityAddend;
-		this.sourceClarityAddendApplied = true;
+	public EnqueueWandererActions applyClarityToSourceAdditively() {
+		return applyClarityToSourceAdditively(0);
+	}
+	
+	public EnqueueWandererActions applyClarityToSourceAdditively(int clarityAddendSource) {
+		this.clarityAddendSource = clarityAddendSource;
+		this.clarityAddendSourceApplied = true;
 		return this;
 	}
 	
-	public EnqueueWandererActions applyTargetClarityMultiplier(int targetClarityMultiplier) {
-		this.targetClarityMultiplier = targetClarityMultiplier;
+	public EnqueueWandererActions applyClarityToTargetMultiplicatively() {
+		return applyClarityMultiplicatively(1);
+	}
+	
+	public EnqueueWandererActions applyClarityToTargetMultiplicatively(int clarityMultiplierTarget) {
+		this.clarityMultiplierTarget = clarityMultiplierTarget;
 		return this;
 	}
 	
-	public EnqueueWandererActions applyTargetClarityAddend(int targetClarityAddend) {
-		this.targetClarityAddend = targetClarityAddend;
-		this.targetClarityAddendApplied = true;
+	public EnqueueWandererActions applyClarityToTargetAdditively() {
+		return applyClarityAdditively(0);
+	}
+	
+	public EnqueueWandererActions applyClarityToTargetAdditively(int clarityAddendTarget) {
+		this.clarityAddendTarget = clarityAddendTarget;
+		this.clarityAddendTargetApplied = true;
 		return this;
 	}
 	
 	public EnqueueWandererActions removeClarityModifiers() {
-		removeSourceClarityModifiers();
-		removeTargetClarityModifiers();
+		removeClarityModifiersSource();
+		removeClarityModifiersTarget();
 		return this;
 	}
 	
-	public EnqueueWandererActions removeSourceClarityModifiers() {
-		this.sourceClarityMultiplier = 0;
-		this.sourceClarityAddend = 0;
-		this.sourceClarityAddendApplied = false;
+	public EnqueueWandererActions removeClarityModifiersSource() {
+		this.clarityMultiplierSource = 0;
+		this.clarityAddendSource = 0;
+		this.clarityAddendSourceApplied = false;
 		return this;
 	}
 	
-	public EnqueueWandererActions removeTargetClarityModifiers() {
-		this.targetClarityMultiplier = 0;
-		this.targetClarityAddend = 0;
-		this.targetClarityAddendApplied = false;
+	public EnqueueWandererActions removeClarityModifiersTarget() {
+		this.clarityMultiplierTarget = 0;
+		this.clarityAddendTarget = 0;
+		this.clarityAddendTargetApplied = false;
 		return this;
 	}
 	
 	@Override
 	protected int applySourceModifiers(int base) {
 		int modified;
-		if (sourceClarityAddendApplied || sourceClarityMultiplier > 0) {
-			int numClarities = MemoryPowerUtils.countClarities(getSource());
-			if (sourceClarityMultiplier == 0) {
-				modified = base + numClarities + sourceClarityAddend;
+		if (clarityAddendSourceApplied || clarityMultiplierSource > 0) {
+			int numClarities = MemoryUtils.countClarities(getSource());
+			if (clarityMultiplierSource == 0) {
+				modified = base + numClarities + clarityAddendSource;
 			}
 			else {
-				modified = base * sourceClarityMultiplier * numClarities + sourceClarityAddend;
+				modified = base * clarityMultiplierSource * numClarities + clarityAddendSource;
 			}
 		}
 		else {
@@ -98,13 +122,13 @@ public class EnqueueWandererActions extends EnqueueActions {
 	@Override
 	protected int applyTargetModifiers(int base) {
 		int modified;
-		if (targetClarityAddendApplied || targetClarityMultiplier > 0) {
-			int numClarities = MemoryPowerUtils.countClarities(getSource());
-			if (targetClarityMultiplier == 0) {
-				modified = base + numClarities + targetClarityAddend;
+		if (clarityAddendTargetApplied || clarityMultiplierTarget > 0) {
+			int numClarities = MemoryUtils.countClarities(getSource());
+			if (clarityMultiplierTarget == 0) {
+				modified = base + numClarities + clarityAddendTarget;
 			}
 			else {
-				modified = base * targetClarityMultiplier * numClarities + targetClarityAddend;
+				modified = base * clarityMultiplierTarget * numClarities + clarityAddendTarget;
 			}
 		}
 		else {

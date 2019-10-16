@@ -1,5 +1,9 @@
 package stsjorbsmod.actions.enqueue;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -21,6 +25,11 @@ public class EnqueueActions {
 	private AttackEffect defaultSourceAttackEffect;
 	private AttackEffect defaultTargetAttackEffect;
 	
+	private int lastCalculatedValue;
+	private int savedCalculatedValue;
+	
+	private List<AbstractGameAction> bottomActions;
+	private List<AbstractGameAction> topActions;
 	
 	public EnqueueActions(AbstractCreature target) {
 		this(AbstractDungeon.player, target);
@@ -37,6 +46,19 @@ public class EnqueueActions {
 	
 	public AbstractCreature getTarget() {
 		return target;
+	}
+	
+	public int getLastCalculatedValue() {
+		return lastCalculatedValue;
+	}
+	
+	public EnqueueActions saveLastCalculatedValue() {
+		this.savedCalculatedValue = lastCalculatedValue;
+		return this;
+	}
+	
+	public int getSavedCalculatedValue() {
+		return savedCalculatedValue;
 	}
 	
 	public EnqueueActions setDefaultSourceDamage(int base, DamageType type, AttackEffect effect) {
@@ -90,8 +112,7 @@ public class EnqueueActions {
 	}
 	
 	public EnqueueActions dealBaseDamageToSource(int damage, DamageType type, AttackEffect effect) {
-		AbstractDungeon.actionManager.addToBottom(new DamageAction(source, new DamageInfo(source, damage, type), effect));
-		return this;
+		return enqueueAction(new DamageAction(source, new DamageInfo(source, damage, type), effect));
 	}
 	
 	public EnqueueActions calculateAndDealDamageToTarget() {
@@ -111,7 +132,36 @@ public class EnqueueActions {
 	}
 	
 	public EnqueueActions dealBaseDamageToTarget(int damage, DamageType type, AttackEffect effect) {
-		AbstractDungeon.actionManager.addToBottom(new DamageAction(target, new DamageInfo(source, damage, type), effect));
+		return enqueueAction(new DamageAction(target, new DamageInfo(source, damage, type), effect));
+	}
+	
+	public EnqueueActions enqueueAction(AbstractGameAction action) {
+		if (bottomActions == null) {
+			bottomActions = new ArrayList<>();
+		}
+		bottomActions.add(action);
+		return this;
+	}
+	
+	public EnqueueActions enqueueActionToTop(AbstractGameAction action) {
+		if (topActions == null) {
+			topActions = new ArrayList<>();
+		}
+		topActions.add(action);
+		return this;
+	}
+	
+	public EnqueueActions enqueueActions() {
+		if (bottomActions != null) {
+			for (AbstractGameAction action : bottomActions) {
+				AbstractDungeon.actionManager.addToBottom(action);
+			}
+		}
+		if (topActions != null) {
+			for (AbstractGameAction action : topActions) {
+				AbstractDungeon.actionManager.addToTop(action);
+			}
+		}
 		return this;
 	}
 	
