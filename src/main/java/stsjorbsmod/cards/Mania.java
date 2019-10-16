@@ -35,7 +35,7 @@ public class Mania extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int numSwings = BASE_SWINGS;
-        if (AbstractDungeon.player.hasPower(SlothMemory.POWER_ID)) {
+        if (AbstractDungeon.player.hasPower(SlothMemory.STATIC.ID)) {
             numSwings += ADDITIONAL_SLOTH_SWINGS;
         }
 

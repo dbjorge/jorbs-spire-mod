@@ -15,23 +15,11 @@ import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
-public class PrideMemory extends AbstractMemory implements CloneablePowerInterface {
-    public static final String POWER_ID = JorbsMod.makeID(PrideMemory.class.getSimpleName());
-    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
-    public static final String NAME = powerStrings.NAME;
-    public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("pride_memory_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("pride_memory_power32.png"));
+public class PrideMemory extends AbstractMemory {
+    public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(PrideMemory.class);
 
     public PrideMemory(final AbstractCreature owner, boolean isClarified) {
-        super(NAME, MemoryType.SIN, owner, isClarified);
-        ID = POWER_ID;
-
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
-
-        updateDescription();
+        super(STATIC, MemoryType.SIN, owner, isClarified);
     }
 
     @Override
@@ -53,10 +41,5 @@ public class PrideMemory extends AbstractMemory implements CloneablePowerInterfa
     @Override
     protected void updateMemoryDescription() {
         description = DESCRIPTIONS[0];
-    }
-
-    @Override
-    public AbstractPower makeCopy() {
-        return new PrideMemory(owner, isClarified);
     }
 }
