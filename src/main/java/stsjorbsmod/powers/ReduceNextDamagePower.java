@@ -3,6 +3,7 @@ package stsjorbsmod.powers;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -40,13 +41,14 @@ public class ReduceNextDamagePower extends AbstractPower {
     }
 
     @Override
-    public float atDamageReceive(float damage, DamageType type) {
-        if (type == DamageType.NORMAL) {
+    public int onAttackedToChangeDamage(DamageInfo info, int originalAmount) {
+        // Note: this applies after block, weaken, vulnerable, etc are all calculated
+        if (info.type == DamageType.NORMAL) {
             this.flash();
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
-            return damage - this.amount;
+            return this.amount > originalAmount ? 0 : originalAmount - this.amount;
         } else {
-            return damage;
+            return originalAmount;
         }
     }
 }
