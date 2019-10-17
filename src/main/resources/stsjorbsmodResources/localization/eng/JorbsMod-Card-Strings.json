@@ -185,6 +185,10 @@
     "NAME": "Color Spray",
     "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each one. NL Remember stsjorbsmod:Envy."
   },
+  "stsjorbsmod:Erode": {
+    "NAME": "Erode",
+    "DESCRIPTION": "Remove !B! Block from target enemy. If you remove any Block, apply !M! Poison. NL Remember stsjorbsmod:Temperance."
+  },
   "stsjorbsmod:FindFamiliar": {
     "NAME": "FindFamiliar",
     "DESCRIPTION": "At the end of each turn, gain stsjorbsmod:Clarity.",
