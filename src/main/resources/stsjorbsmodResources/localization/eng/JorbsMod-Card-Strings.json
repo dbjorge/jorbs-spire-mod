@@ -166,7 +166,11 @@
   },
   "stsjorbsmod:MageArmor": {
     "NAME": "Mage Armor",
-    "DESCRIPTION": "Reduce the next damage taken by !M!.",
+    "DESCRIPTION": "Reduce the next damage taken by !M!."
+  },
+  "stsjorbsmod:Enervation": {
+    "NAME": "Enervation",
+    "DESCRIPTION": "Apply !M! Poison. NL Gain Block equal to the target's Poison. NL Exhaust."
   },
   "stsjorbsmod:FindFamiliar": {
     "NAME": "FindFamiliar",
