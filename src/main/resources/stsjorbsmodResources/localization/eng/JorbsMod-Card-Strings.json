@@ -177,6 +177,14 @@
     "DESCRIPTION": "Remember stsjorbsmod:Temperance.",
     "UPGRADE_DESCRIPTION": "Gain stsjorbsmod:Clarity of stsjorbsmod:Temperance."
   },
+  "stsjorbsmod:AnimateObjects": {
+    "NAME": "Animate Objects",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies for each card in your draw and discard pile that didn't start the combat in your deck."
+  },
+  "stsjorbsmod:ColorSpray": {
+    "NAME": "Color Spray",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each one. NL Remember stsjorbsmod:Envy."
+  },
   "stsjorbsmod:FindFamiliar": {
     "NAME": "FindFamiliar",
     "DESCRIPTION": "At the end of each turn, gain stsjorbsmod:Clarity.",

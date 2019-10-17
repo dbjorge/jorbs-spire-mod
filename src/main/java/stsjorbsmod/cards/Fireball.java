@@ -29,13 +29,14 @@ public class Fireball extends CustomJorbsModCard {
     public Fireball() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
+        isMultiDamage = true;
 
         this.tags.add(REMEMBER_MEMORY);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueActionToTop(new DamageAllEnemiesAction(p, DamageInfo.createDamageMatrix(damage), damageTypeForTurn, AttackEffect.FIRE));
+        enqueueActionToTop(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.FIRE));
         enqueueAction(new RememberSpecificMemoryAction(new LustMemory(p, false)));
     }
 
