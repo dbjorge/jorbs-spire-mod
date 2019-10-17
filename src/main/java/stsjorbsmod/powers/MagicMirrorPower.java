@@ -66,9 +66,8 @@ public class MagicMirrorPower extends AbstractPower implements CloneablePowerInt
         return null;
     }
 
-    @Override
-    public void onApplyPower(AbstractPower originalPower, AbstractCreature target, AbstractCreature source) {
-        if (target == owner && originalPower.type == PowerType.DEBUFF) {
+    public void onPowerReceived(AbstractPower originalPower) {
+        if (originalPower.type == PowerType.DEBUFF) {
             for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 if (!m.isDeadOrEscaped()) {
                     AbstractPower reflectedPower = tryCreateReflectedPower(m, owner, originalPower);
