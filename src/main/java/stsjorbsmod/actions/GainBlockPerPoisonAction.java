@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 
 public class GainBlockPerPoisonAction extends AbstractGameAction  {
@@ -17,7 +18,10 @@ public class GainBlockPerPoisonAction extends AbstractGameAction  {
     }
 
     public void update() {
-        int block = poisonee.getPower(PoisonPower.POWER_ID).amount;
+        final AbstractPower poisonPower = poisonee.getPower(PoisonPower.POWER_ID);
+        final int block = poisonPower != null
+                ? poisonPower.amount
+                : 0;
         AbstractDungeon.actionManager.addToTop(new GainBlockAction(owner, owner, block));
         this.isDone = true;
     }
