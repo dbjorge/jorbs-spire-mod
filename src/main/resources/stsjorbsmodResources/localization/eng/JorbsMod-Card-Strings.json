@@ -189,6 +189,31 @@
     "NAME": "Erode",
     "DESCRIPTION": "Remove !B! Block from target enemy. If you remove any Block, apply !M! Poison. NL Remember stsjorbsmod:Temperance."
   },
+  "stsjorbsmod:TinyHut": {
+    "NAME": "Tiny Hut",
+    "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Gain stsjorbsmod:Clarity."
+  },
+  "stsjorbsmod:FaerieFire": {
+    "NAME": "Faerie Fire",
+    "DESCRIPTION": "When remembering stsjorbsmod:Sin, apply !M! Vulnerable to ALL enemies. NL When remembering stsjorbsmod:Virtue, apply !M! Weak to ALL enemies."
+  },
+  "stsjorbsmod:Introspection": {
+    "NAME": "Introspection",
+    "DESCRIPTION": "At the end of each turn, lose 1 HP and deal !D! damage plus !M! damage per stsjorbsmod:Clarity to ALL enemies."
+  },
+  "stsjorbsmod:BookOfTongues": {
+    "NAME": "Book of Tongues",
+    "DESCRIPTION": "At the start of each turn, draw !M! extra card.",
+    "UPGRADE_DESCRIPTION": "At the start of each turn, draw !M! extra card. NL Innate."
+  },
+  "stsjorbsmod:MagicMirror": {
+    "NAME": "Magic Mirror",
+    "DESCRIPTION": "Whenever you receive a debuff, apply that debuff to ALL enemies."
+  },
+  "stsjorbsmod:Thorns": {
+    "NAME": "Thorns",
+    "DESCRIPTION": "Remember stsjorbsmod:Humility. NL If an enemy intends to attack, gain stsjorbsmod:Clarity."
+  },
   "stsjorbsmod:FindFamiliar": {
     "NAME": "FindFamiliar",
     "DESCRIPTION": "At the end of each turn, gain stsjorbsmod:Clarity.",
@@ -204,7 +229,7 @@
   },
   "stsjorbsmod:Study": {
     "NAME": "Study",
-    "DESCRIPTION": "Remember stsjorbsmod:Patience. NL At the start of each turn, draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Patience. NL At the start of each turn, draw !M! cards."
+    "DESCRIPTION": "Remember stsjorbsmod:Patience. NL At the start of each turn, draw !M! extra card.",
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Patience. NL At the start of each turn, draw !M! extra cards."
   }
 }
