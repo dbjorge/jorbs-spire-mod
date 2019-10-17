@@ -4,5 +4,11 @@
   },
   "stsjorbsmod:CardsToTopOfDeckAction": {
     "TEXT": ["Choose ", "Card to ", "Cards to ", "move to the top of your draw pile."]
+  },
+  "stsjorbsmod:CounterspellAction": {
+    "TEXT": ["Enemy does not intend to debuff"]
+  },
+  "stsjorbsmod:IfEnemyIntendsToAttackAction": {
+    "TEXT": ["Enemy does not intend to attack"]
   }
 }
