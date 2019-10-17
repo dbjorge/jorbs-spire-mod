@@ -179,7 +179,7 @@
   },
   "stsjorbsmod:AnimateObjects": {
     "NAME": "Animate Objects",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies for each card in your draw and discard pile that didn't start the combat in your deck."
+    "DESCRIPTION": "Deal !M! damage to ALL enemies for each card in your draw and discard piles that didn't start the combat in your deck."
   },
   "stsjorbsmod:ColorSpray": {
     "NAME": "Color Spray",
