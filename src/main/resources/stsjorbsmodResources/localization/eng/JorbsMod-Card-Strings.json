@@ -90,7 +90,7 @@
   },
   "stsjorbsmod:WizardRobe": {
     "NAME": "Wizard Robe",
-    "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Gain stsjorbsmod:Clarity."
+    "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Gain stsjorbsmod:Clarity of current memory."
   },
   "stsjorbsmod:Message": {
     "NAME": "Message",
@@ -191,7 +191,7 @@
   },
   "stsjorbsmod:TinyHut": {
     "NAME": "Tiny Hut",
-    "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Gain stsjorbsmod:Clarity."
+    "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Gain stsjorbsmod:Clarity of current memory."
   },
   "stsjorbsmod:FaerieFire": {
     "NAME": "Faerie Fire",
@@ -212,12 +212,12 @@
   },
   "stsjorbsmod:Thorns": {
     "NAME": "Thorns",
-    "DESCRIPTION": "Remember stsjorbsmod:Humility. NL If an enemy intends to attack, gain stsjorbsmod:Clarity."
+    "DESCRIPTION": "Remember stsjorbsmod:Humility. NL If an enemy intends to attack, gain stsjorbsmod:Clarity of current memory."
   },
   "stsjorbsmod:FindFamiliar": {
     "NAME": "FindFamiliar",
-    "DESCRIPTION": "At the end of each turn, gain stsjorbsmod:Clarity.",
-    "UPGRADE_DESCRIPTION": "At the end of each turn, gain stsjorbsmod:Clarity. NL Innate."
+    "DESCRIPTION": "At the end of each turn, gain stsjorbsmod:Clarity of current memory.",
+    "UPGRADE_DESCRIPTION": "At the end of each turn, gain stsjorbsmod:Clarity of current memory. NL Innate."
   },
   "stsjorbsmod:Fireball": {
     "NAME": "Fireball",

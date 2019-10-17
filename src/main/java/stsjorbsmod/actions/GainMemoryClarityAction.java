@@ -8,8 +8,6 @@ import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryUtils;
 
-
-// "Gain clarity of your current memory"
 public class GainMemoryClarityAction extends AbstractGameAction {
     private String specificMemoryID;
 
