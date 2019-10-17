@@ -37,7 +37,7 @@
   "stsjorbsmod:IntrospectionPower": {
     "NAME": "Introspection",
     "DESCRIPTIONS": [
-      "At the end of each turn, lose #b", "HP and deal #b", " damage plus #b", " damage per stsjorbsmod:Clarity to ALL enemies."
+      "At the end of each turn, lose #b", " HP and deal #b", " damage plus #b", " damage per stsjorbsmod:Clarity to ALL enemies."
     ]
   },
   "stsjorbsmod:MagicMirrorPower": {
