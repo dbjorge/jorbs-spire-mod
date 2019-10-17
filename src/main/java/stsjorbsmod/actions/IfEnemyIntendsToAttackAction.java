@@ -8,8 +8,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import stsjorbsmod.JorbsMod;
 
-public class IfEnemyIntendsToAttackAction  extends AbstractGameAction {
-    private static final String UI_ID = JorbsMod.makeID(CardsToTopOfDeckAction.class.getSimpleName());
+public class IfEnemyIntendsToAttackAction extends AbstractGameAction {
+    private static final String UI_ID = JorbsMod.makeID(IfEnemyIntendsToAttackAction.class.getSimpleName());
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(UI_ID);
     public static final String[] TEXT = uiStrings.TEXT;
 

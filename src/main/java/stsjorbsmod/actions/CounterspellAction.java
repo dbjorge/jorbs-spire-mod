@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import stsjorbsmod.JorbsMod;
 
 public class CounterspellAction extends AbstractGameAction {
-    private static final String UI_ID = JorbsMod.makeID(CardsToTopOfDeckAction.class.getSimpleName());
+    private static final String UI_ID = JorbsMod.makeID(CounterspellAction.class.getSimpleName());
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(UI_ID);
     public static final String[] TEXT = uiStrings.TEXT;
 
