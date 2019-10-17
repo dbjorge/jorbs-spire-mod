@@ -40,6 +40,12 @@
       "At the end of each turn, lose #b", "HP and deal #b", " damage plus #b", " damage per stsjorbsmod:Clarity to ALL enemies."
     ]
   },
+  "stsjorbsmod:MagicMirrorPower": {
+    "NAME": "Magic Mirror",
+    "DESCRIPTIONS": [
+      "Whenever you receive a debuff, apply that debuff to ALL enemies."
+    ]
+  },
   "stsjorbsmod:PrestidigitationPower": {
     "NAME": "Prestidigitation",
     "DESCRIPTIONS": [
