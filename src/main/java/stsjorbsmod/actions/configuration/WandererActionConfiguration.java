@@ -1,10 +1,10 @@
-package stsjorbsmod.actions.enqueue;
+package stsjorbsmod.actions.configuration;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
 
 import stsjorbsmod.memories.MemoryUtils;
 
-public class EnqueueWandererActions extends EnqueueActions {
+public class WandererActionConfiguration extends ActionConfiguration {
 	
 	private int clarityMultiplierSource;
 	private int clarityAddendSource;
@@ -13,29 +13,33 @@ public class EnqueueWandererActions extends EnqueueActions {
 	private int clarityAddendTarget;
 	private boolean clarityAddendTargetApplied;
 	
-	public EnqueueWandererActions(AbstractCreature target) {
+	public WandererActionConfiguration() {
+		super();
+	}
+	
+	public WandererActionConfiguration(AbstractCreature target) {
 		super(target);
 	}
 	
-	public EnqueueWandererActions(AbstractCreature source, AbstractCreature target) {
+	public WandererActionConfiguration(AbstractCreature source, AbstractCreature target) {
 		super(source, target);
 	}
 	
-	public EnqueueWandererActions applyClarityMultiplicatively() {
+	public WandererActionConfiguration applyClarityMultiplicatively() {
 		return applyClarityMultiplicatively(1);
 	}
 	
-	public EnqueueWandererActions applyClarityMultiplicatively(int clarityMultiplier) {
+	public WandererActionConfiguration applyClarityMultiplicatively(int clarityMultiplier) {
 		this.clarityMultiplierSource = clarityMultiplier;
 		this.clarityMultiplierTarget = clarityMultiplier;
 		return this;
 	}
 	
-	public EnqueueWandererActions applyClarityAdditively() {
+	public WandererActionConfiguration applyClarityAdditively() {
 		return applyClarityAdditively(0);
 	}
 	
-	public EnqueueWandererActions applyClarityAdditively(int clarityAddend) {
+	public WandererActionConfiguration applyClarityAdditively(int clarityAddend) {
 		this.clarityAddendSource = clarityAddend;
 		this.clarityAddendTarget = clarityAddend;
 		this.clarityAddendSourceApplied = true;
@@ -43,58 +47,58 @@ public class EnqueueWandererActions extends EnqueueActions {
 		return this;
 	}
 	
-	public EnqueueWandererActions applyClarityToSourceMultiplicatively() {
+	public WandererActionConfiguration applyClarityToSourceMultiplicatively() {
 		return applyClarityToSourceMultiplicatively(1);
 	}
 	
-	public EnqueueWandererActions applyClarityToSourceMultiplicatively(int clarityMultiplierSource) {
+	public WandererActionConfiguration applyClarityToSourceMultiplicatively(int clarityMultiplierSource) {
 		this.clarityMultiplierSource = clarityMultiplierSource;
 		return this;
 	}
 	
-	public EnqueueWandererActions applyClarityToSourceAdditively() {
+	public WandererActionConfiguration applyClarityToSourceAdditively() {
 		return applyClarityToSourceAdditively(0);
 	}
 	
-	public EnqueueWandererActions applyClarityToSourceAdditively(int clarityAddendSource) {
+	public WandererActionConfiguration applyClarityToSourceAdditively(int clarityAddendSource) {
 		this.clarityAddendSource = clarityAddendSource;
 		this.clarityAddendSourceApplied = true;
 		return this;
 	}
 	
-	public EnqueueWandererActions applyClarityToTargetMultiplicatively() {
+	public WandererActionConfiguration applyClarityToTargetMultiplicatively() {
 		return applyClarityMultiplicatively(1);
 	}
 	
-	public EnqueueWandererActions applyClarityToTargetMultiplicatively(int clarityMultiplierTarget) {
+	public WandererActionConfiguration applyClarityToTargetMultiplicatively(int clarityMultiplierTarget) {
 		this.clarityMultiplierTarget = clarityMultiplierTarget;
 		return this;
 	}
 	
-	public EnqueueWandererActions applyClarityToTargetAdditively() {
+	public WandererActionConfiguration applyClarityToTargetAdditively() {
 		return applyClarityAdditively(0);
 	}
 	
-	public EnqueueWandererActions applyClarityToTargetAdditively(int clarityAddendTarget) {
+	public WandererActionConfiguration applyClarityToTargetAdditively(int clarityAddendTarget) {
 		this.clarityAddendTarget = clarityAddendTarget;
 		this.clarityAddendTargetApplied = true;
 		return this;
 	}
 	
-	public EnqueueWandererActions removeClarityModifiers() {
+	public WandererActionConfiguration removeClarityModifiers() {
 		removeClarityModifiersSource();
 		removeClarityModifiersTarget();
 		return this;
 	}
 	
-	public EnqueueWandererActions removeClarityModifiersSource() {
+	public WandererActionConfiguration removeClarityModifiersSource() {
 		this.clarityMultiplierSource = 0;
 		this.clarityAddendSource = 0;
 		this.clarityAddendSourceApplied = false;
 		return this;
 	}
 	
-	public EnqueueWandererActions removeClarityModifiersTarget() {
+	public WandererActionConfiguration removeClarityModifiersTarget() {
 		this.clarityMultiplierTarget = 0;
 		this.clarityAddendTarget = 0;
 		this.clarityAddendTargetApplied = false;
