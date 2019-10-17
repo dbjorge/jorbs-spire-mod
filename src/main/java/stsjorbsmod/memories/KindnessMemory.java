@@ -28,7 +28,7 @@ public class KindnessMemory extends AbstractMemory {
 
     public KindnessMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.VIRTUE, owner, isClarified);
-        this.descriptionPlaceholders.put("!M!", ENVENOM_MAGNITUDE+"");
+        setDescriptionPlaceholder("!M!", ENVENOM_MAGNITUDE);
     }
 
     @Override

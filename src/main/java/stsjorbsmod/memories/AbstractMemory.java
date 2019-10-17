@@ -24,9 +24,9 @@ public abstract class AbstractMemory extends AbstractPower implements CloneableP
     public boolean isClarified;
     public MemoryType memoryType;
     public String baseName; // baseName "Foo" -> name "Memory of Foo"
-    public String baseDescription; // from staticInfo.DESCRIPTIONS[0]
 
-    protected Map<String, String> descriptionPlaceholders = new HashMap<>();
+    private String baseDescription;
+    private Map<String, String> descriptionPlaceholders = new HashMap<>();
     private Class<? extends AbstractMemory> leafClass;
 
     public AbstractMemory(final StaticMemoryInfo staticInfo, final MemoryType memoryType, final AbstractCreature owner, final boolean isClarified) {
@@ -62,6 +62,11 @@ public abstract class AbstractMemory extends AbstractPower implements CloneableP
         if (!isClarified) {
             onForget();
         }
+    }
+
+    protected final void setDescriptionPlaceholder(String placeholder /* eg, !M! */, Object value) {
+        descriptionPlaceholders.put(placeholder, value.toString());
+        updateDescription();
     }
 
     @Override

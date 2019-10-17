@@ -25,7 +25,7 @@ public class EnvyMemory extends AbstractMemory {
 
     public EnvyMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.SIN, owner, isClarified);
-        this.descriptionPlaceholders.put("!M!", VULNERABLE_ON_TARGET_ENEMY+"");
+        setDescriptionPlaceholder("!M!", VULNERABLE_ON_TARGET_ENEMY);
     }
 
     @Override

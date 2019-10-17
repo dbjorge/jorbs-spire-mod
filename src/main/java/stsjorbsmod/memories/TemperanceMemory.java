@@ -29,7 +29,7 @@ public class TemperanceMemory extends AbstractMemory {
 
     public TemperanceMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.VIRTUE, owner, isClarified);
-        this.descriptionPlaceholders.put("!M!", ENEMY_STRENGTH_REDUCTION+"");
+        setDescriptionPlaceholder("!M!", ENEMY_STRENGTH_REDUCTION);
     }
 
     @Override

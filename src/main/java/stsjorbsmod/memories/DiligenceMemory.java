@@ -24,7 +24,7 @@ public class DiligenceMemory extends AbstractMemory {
 
     public DiligenceMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.VIRTUE, owner, isClarified);
-        this.descriptionPlaceholders.put("!M!", CARDS_RETAINED+"");
+        setDescriptionPlaceholder("!M!", CARDS_RETAINED);
     }
 
     @Override

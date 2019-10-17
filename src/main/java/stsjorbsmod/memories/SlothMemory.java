@@ -25,7 +25,7 @@ public class SlothMemory extends AbstractMemory {
 
     public SlothMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.SIN, owner, isClarified);
-        this.descriptionPlaceholders.put("!M!", DRAW_REDUCTION+"");
+        setDescriptionPlaceholder("!M!", DRAW_REDUCTION);
     }
 
     @Override

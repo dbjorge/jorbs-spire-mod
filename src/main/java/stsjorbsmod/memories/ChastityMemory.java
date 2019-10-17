@@ -26,8 +26,8 @@ public class ChastityMemory extends AbstractMemory {
 
     public ChastityMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.VIRTUE, owner, isClarified);
-        this.descriptionPlaceholders.put("!D!", DEXTERITY_LOSS_PER_TURN+"");
-        this.descriptionPlaceholders.put("!B!", BLOCK_PER_TURN+"");
+        setDescriptionPlaceholder("!D!", DEXTERITY_LOSS_PER_TURN);
+        setDescriptionPlaceholder("!B!", BLOCK_PER_TURN);
     }
 
     @Override

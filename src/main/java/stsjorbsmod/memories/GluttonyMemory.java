@@ -22,7 +22,7 @@ public class GluttonyMemory extends AbstractMemory {
 
     public GluttonyMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.SIN, owner, isClarified);
-        this.descriptionPlaceholders.put("!M!", MAX_HP_PER_KILL+"");
+        setDescriptionPlaceholder("!M!", MAX_HP_PER_KILL);
     }
 
     @Override

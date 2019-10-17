@@ -9,6 +9,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -18,8 +19,12 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import javassist.CtClass;
+import javassist.Modifier;
+import javassist.NotFoundException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.clapper.util.classutil.*;
 import stsjorbsmod.cards.*;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.console.MemoryCommand;
@@ -27,7 +32,11 @@ import stsjorbsmod.events.DeckOfManyThingsEvent;
 import stsjorbsmod.relics.*;
 import stsjorbsmod.util.TextureLoader;
 
+import java.io.File;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Properties;
 
 @SpireInitializer
@@ -253,115 +262,50 @@ public class JorbsMod implements
     
     // ================ ADD CARDS ===================
 
-    private void addUnlockedCard(CustomCard cardInstance) {
-        BaseMod.addCard(cardInstance);
-        UnlockTracker.unlockCard(cardInstance.cardID);
+    @SuppressWarnings("unchecked")
+    private static <T> ArrayList<Class<T>> findAllConcreteSubclasses(Class<T> baseClass)
+    {
+        try {
+            ClassFinder finder = new ClassFinder();
+            URL url = JorbsMod.class.getProtectionDomain().getCodeSource().getLocation();
+            finder.add(new File(url.toURI()));
+
+            ClassFilter filter =
+                    new AndClassFilter(
+                            new NotClassFilter(new InterfaceOnlyClassFilter()),
+                            new NotClassFilter(new AbstractClassFilter()),
+                            new ClassModifiersClassFilter(Modifier.PUBLIC),
+                            new SubclassClassFilter(baseClass)
+                    );
+            ArrayList<ClassInfo> foundClassInfos = new ArrayList<>();
+            finder.findClasses(foundClassInfos, filter);
+
+            ArrayList<Class<T>> foundClasses = new ArrayList<>();
+            for (ClassInfo classInfo : foundClassInfos) {
+                Class<T> cls = (Class<T>) Loader.getClassPool().getClassLoader().loadClass(classInfo.getClassName());
+                foundClasses.add(cls);
+            }
+            return foundClasses;
+        } catch(Exception e) {
+            throw new RuntimeException("Exception while finding concrete subclasses of " + baseClass.getName(), e);
+        }
     }
 
     @Override
     public void receiveEditCards() {
         logger.info("Adding cards");
 
-        // === WATCHER ===
-        // == Starter Deck
-        addUnlockedCard(new Defend_Wanderer());
-        addUnlockedCard(new Strike_Wanderer());
-        addUnlockedCard(new FreshAdventure());
-        addUnlockedCard(new EyeOfTheStorm());
-        // == Damage Commons
-        addUnlockedCard(new BlackTentacles());
-        addUnlockedCard(new ArcaneWeapon());
-        addUnlockedCard(new Firebolt());
-        addUnlockedCard(new MagicMissiles());
-        addUnlockedCard(new AcidSplash());
-        addUnlockedCard(new TrueStrike());
-        addUnlockedCard(new RayOfFrost());
-        // == Block Commons
-        addUnlockedCard(new Counterspell());
-        addUnlockedCard(new MinorIllusion());
-        addUnlockedCard(new DisguiseSelf());
-        addUnlockedCard(new Loss());
-        addUnlockedCard(new DoubleCheck());
-        addUnlockedCard(new Channel());
-        // == AoE Commons
-        addUnlockedCard(new PoisonSpray());
-        addUnlockedCard(new ChainLightning());
-        // == Scaling Commons
-        addUnlockedCard(new WanderingMind());
-        addUnlockedCard(new WeightOfMemory());
-        addUnlockedCard(new PrestidigitationA());
-        // addUnlockedCard(new WizardHat());
-        addUnlockedCard(new WizardRobe());
-        // == Manipulation Commons
-        addUnlockedCard(new Message());
-        addUnlockedCard(new PrestidigitationB());
-        addUnlockedCard(new FocusedMind());
-        addUnlockedCard(new UnseenServant());
-        // == Bad Uncommons
-        addUnlockedCard(new Aid());
-        addUnlockedCard(new Mania());
-        // == Damage Uncommons
-        addUnlockedCard(new Mindworm());
-        addUnlockedCard(new Hurt());
-        addUnlockedCard(new SmithingStrike());
-        addUnlockedCard(new OldPocket());
-        addUnlockedCard(new TollTheDead());
-        // addUnlockedCard(new CorpseExplosion_Wanderer());
-        // == Block Uncommons
-        addUnlockedCard(new Hibernate());
-        addUnlockedCard(new Mending());
-        addUnlockedCard(new Rest());
-        addUnlockedCard(new HedgeWizard());
-        addUnlockedCard(new MistyStep());
-        // addUnlockedCard(new MageArmor());
-        // addUnlockedCard(new Enervation());
-        // == AoE Uncommons
-        // addUnlockedCard(new Stalwart());
-        // addUnlockedCard(new AnimateObjects());
-        // addUnlockedCard(new ColorSpray());
-        // addUnlockedCard(new Erode());
-        // == Scaling Uncommons
-        // addUnlockedCard(new TinyHut());
-        // addUnlockedCard(new FaerieFire());
-        // addUnlockedCard(new Introspection());
-        // addUnlockedCard(new BookOfTongues());
-        // addUnlockedCard(new MagicMirror());
-        // addUnlockedCard(new Thorns());
-        // ==Manipulation Uncommons
-        // addUnlockedCard(new RefuseToForget());
-        // addUnlockedCard(new LocateObject());
-        // addUnlockedCard(new SchoolsOfMagic());
-        addUnlockedCard(new FindFamiliar());
-        // == Damage Rares
-        // addUnlockedCard(new Trauma());
-        // addUnlockedCard(new GatherPower());
-        // addUnlockedCard(new Haste());
-        addUnlockedCard(new Fireball());
-        // ==Block Rares
-        // addUnlockedCard(new Lose());
-        // addUnlockedCard(new HoldMonster());
-        addUnlockedCard(new Withdraw());
-        // addUnlockedCard(new MirrorImage());
-        // addUnlockedCard(new CorrodingBarrier());
-        // ==AoE Rares
-        // addUnlockedCard(new OldFriends());
-        // addUnlockedCard(new Entangle());
-        // ==Bad Rares
-        // addUnlockedCard(new Amnesia());
-        // addUnlockedCard(new Fear());
-        // ==Scaling Rares
-        // addUnlockedCard(new Wish_Wanderer());
-        // addUnlockedCard(new Determination());
-        // addUnlockedCard(new ArcaneForm());
-        // addUnlockedCard(new FocusOnThePain());
-        addUnlockedCard(new Study());
-        // addUnlockedCard(new Banish());
-        // ==Manipulation Rares
-        // addUnlockedCard(new TimeWalk());
-        // addUnlockedCard(new Feast());
-        // addUnlockedCard(new SharpenedMind());
-        // addUnlockedCard(new Ivory());
-        // addUnlockedCard(new DimensionDoor());
+        ArrayList<Class<CustomJorbsModCard>> cardClasses = findAllConcreteSubclasses(CustomJorbsModCard.class);
+        for (Class<CustomJorbsModCard> cardClass : cardClasses) {
+            try {
+                CustomJorbsModCard cardInstance = cardClass.newInstance();
+                logger.info("Adding card: " + cardInstance.cardID);
+                BaseMod.addCard(cardInstance);
+                UnlockTracker.unlockCard(cardInstance.cardID);
+            } catch(Exception e) {
+                throw new RuntimeException("Exception while instantiating CustomJorbsModCard " + cardClass.getName(), e);
+            }
+        }
 
         logger.info("Done adding cards!");
     }

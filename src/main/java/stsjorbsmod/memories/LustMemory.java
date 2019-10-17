@@ -25,8 +25,8 @@ public class LustMemory extends AbstractMemory {
 
     public LustMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.SIN, owner, isClarified);
-        this.descriptionPlaceholders.put("!P!", ATTACK_BONUS_PERCENTAGE_DESCRIPTION+"");
-        this.descriptionPlaceholders.put("!W!", WEAK_ON_FORGET+"");
+        setDescriptionPlaceholder("!P!", ATTACK_BONUS_PERCENTAGE_DESCRIPTION);
+        setDescriptionPlaceholder("!W!", WEAK_ON_FORGET);
     }
 
     @Override

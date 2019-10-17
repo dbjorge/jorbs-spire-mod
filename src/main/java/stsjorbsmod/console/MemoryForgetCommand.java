@@ -40,6 +40,6 @@ public class MemoryForgetCommand extends ConsoleCommand {
         DevConsole.couldNotParse();
         DevConsole.log("options are:");
         DevConsole.log("* memory add");
-        DevConsole.log("* memory add [memoryPowerId]");
+        DevConsole.log("* memory add [MemoryId]");
     }
 }

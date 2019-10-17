@@ -42,13 +42,13 @@ public class MemoryUtils {
 
     public static ArrayList<String> allPossibleMemoryIDs() {
         ArrayList<String> ids = new ArrayList<>();
-        for (AbstractMemory p : allPossibleMemoryPowers(null, false)) {
+        for (AbstractMemory p : allPossibleMemorys(null, false)) {
             ids.add(p.ID);
         }
         return ids;
     }
 
-    public static ArrayList<AbstractMemory> allPossibleMemoryPowers(AbstractCreature target, boolean isClarified) {
+    public static ArrayList<AbstractMemory> allPossibleMemorys(AbstractCreature target, boolean isClarified) {
         ArrayList<AbstractMemory> powers = new ArrayList<>();
 
         powers.add(new CharityMemory(target, isClarified));
@@ -70,11 +70,11 @@ public class MemoryUtils {
     }
 
     public static AbstractMemory newMemoryByID(String id, AbstractCreature target, boolean isClarified) {
-        for (AbstractMemory memory : allPossibleMemoryPowers(target, isClarified)) {
+        for (AbstractMemory memory : allPossibleMemorys(target, isClarified)) {
             if (memory.ID.equals(id)) {
                 return memory;
             }
         }
-        throw new RuntimeException("MemoryPowerUtils.newMemoryByID was passed an unrecognized ID");
+        throw new RuntimeException("MemoryUtils.newMemoryByID was passed an unrecognized ID");
     }
 }

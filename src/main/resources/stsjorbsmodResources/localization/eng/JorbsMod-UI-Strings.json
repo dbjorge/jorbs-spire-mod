@@ -1,5 +1,5 @@
 {
-  "stsjorbsmod:AbstractMemoryPower": {
+  "stsjorbsmod:AbstractMemory": {
     "TEXT": ["Memory of ", "Clarity of "]
   },
   "stsjorbsmod:CardsToTopOfDeckAction": {

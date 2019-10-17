@@ -24,7 +24,7 @@ public class WrathMemory extends AbstractMemory {
 
     public WrathMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.SIN, owner, isClarified);
-        this.descriptionPlaceholders.put("!M!", DAMAGE_INCREASE_PER_KILL+"");
+        setDescriptionPlaceholder("!M!", DAMAGE_INCREASE_PER_KILL);
     }
 
     @Override

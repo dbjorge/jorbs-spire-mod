@@ -22,7 +22,7 @@ public class GreedMemory extends AbstractMemory {
 
     public GreedMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.SIN, owner, isClarified);
-        this.descriptionPlaceholders.put("!M!", GOLD_PER_KILL+"");
+        setDescriptionPlaceholder("!M!", GOLD_PER_KILL);
     }
 
     @Override
