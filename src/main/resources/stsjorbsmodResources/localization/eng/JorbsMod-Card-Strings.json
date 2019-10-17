@@ -28,8 +28,8 @@
     "NAME": "Firebolt",
     "DESCRIPTION": "Deal !D! damage + !M! damage for each stsjorbsmod:Clarity."
   },
-  "stsjorbsmod:MagicMissles": {
-    "NAME": "Magic Missles",
+  "stsjorbsmod:MagicMissiles": {
+    "NAME": "Magic Missiles",
     "DESCRIPTION": "Deal !D! damage. NL Deal !D! damage again once for each stsjorbsmod:Clarity."
   },
   "stsjorbsmod:AcidSplash": {

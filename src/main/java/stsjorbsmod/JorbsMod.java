@@ -9,7 +9,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
-import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -273,7 +272,7 @@ public class JorbsMod implements
         addUnlockedCard(new BlackTentacles());
         addUnlockedCard(new ArcaneWeapon());
         addUnlockedCard(new Firebolt());
-        addUnlockedCard(new MagicMissles());
+        addUnlockedCard(new MagicMissiles());
         addUnlockedCard(new AcidSplash());
         addUnlockedCard(new TrueStrike());
         addUnlockedCard(new RayOfFrost());

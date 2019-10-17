@@ -12,9 +12,9 @@ import stsjorbsmod.memories.MemoryUtils;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 // Deal 3(4) Damage. Deal 3(4) Damage again once for each Clarity.
-public class MagicMissles extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(MagicMissles.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Commons/magic_missles.png");
+public class MagicMissiles extends CustomJorbsModCard {
+    public static final String ID = JorbsMod.makeID(MagicMissiles.class.getSimpleName());
+    public static final String IMG = makeCardPath("Damage_Commons/magic_missiles.png");
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -25,16 +25,16 @@ public class MagicMissles extends CustomJorbsModCard {
     private static final int DAMAGE = 3;
     private static final int UPGRADE_PLUS_DMG = 1;
 
-    public MagicMissles() {
+    public MagicMissiles() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int numMissles = 1 + MemoryUtils.countClarities(p);
+        int numMissiles = 1 + MemoryUtils.countClarities(p);
 
-        for (int i=0; i<numMissles; ++i) {
+        for (int i=0; i<numMissiles; ++i) {
             enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SMASH));
         }
     }
