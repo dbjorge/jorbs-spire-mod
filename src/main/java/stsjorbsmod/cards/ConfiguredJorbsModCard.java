@@ -63,6 +63,9 @@ public abstract class ConfiguredJorbsModCard extends CustomJorbsModCard {
     @Override
     protected int calculateBonusBaseDamage() {
     	int savedValue = actionConfiguration.getCalculatedCardDamage();
+    	if (savedValue == 0) {
+    		return 0;
+    	}
     	return savedValue - this.baseDamage;
     }
     
