@@ -14,12 +14,6 @@
       " turns."
     ]
   },
-  "stsjorbsmod:FindFamiliarPower": {
-    "NAME": "Find Familiar",
-    "DESCRIPTIONS": [
-      "At the end of each turn, gain stsjorbsmod:Clarity"
-    ]
-  },
   "stsjorbsmod:CoilPower": {
     "NAME": "Coil",
     "DESCRIPTIONS": [
@@ -34,12 +28,24 @@
       " additional [E] next turn."
     ]
   },
+  "stsjorbsmod:FindFamiliarPower": {
+    "NAME": "Find Familiar",
+    "DESCRIPTIONS": [
+      "At the end of each turn, gain stsjorbsmod:Clarity"
+    ]
+  },
   "stsjorbsmod:PrestidigitationPower": {
     "NAME": "Prestidigitation",
     "DESCRIPTIONS": [
       "At the start of each turn, apply #b1 Weak or #b1 Vulnerable to a random enemy #b",
       " time.",
       " times."
+    ]
+  },
+  "stsjorbsmod:ReduceNextDamagePower": {
+    "NAME": "Reduce Damage",
+    "DESCRIPTIONS": [
+      "Reduce the next damage taken by #b", "."
     ]
   },
   "stsjorbsmod:SnappedPower": {

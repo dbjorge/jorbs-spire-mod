@@ -164,6 +164,10 @@
     "DESCRIPTION": "Gain !B! Block for each stsjorbsmod:Clarity. NL Draw !M! card.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block for each stsjorbsmod:Clarity. NL Draw !M! cards."
   },
+  "stsjorbsmod:MageArmor": {
+    "NAME": "Mage Armor",
+    "DESCRIPTION": "Reduce the next damage taken by !M!.",
+  },
   "stsjorbsmod:FindFamiliar": {
     "NAME": "FindFamiliar",
     "DESCRIPTION": "At the end of each turn, gain stsjorbsmod:Clarity.",
