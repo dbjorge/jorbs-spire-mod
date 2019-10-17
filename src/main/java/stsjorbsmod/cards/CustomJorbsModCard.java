@@ -1,14 +1,15 @@
 package stsjorbsmod.cards;
 
-import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import basemod.abstracts.CustomCard;
+
 public abstract class CustomJorbsModCard extends CustomCard {
+	
     public CustomJorbsModCard(final String id,
                               final String img,
                               final int cost,
@@ -26,10 +27,10 @@ public abstract class CustomJorbsModCard extends CustomCard {
     }
 
     protected void enqueueAction(AbstractGameAction action) {
-        AbstractDungeon.actionManager.addToBottom(action);
+    	AbstractDungeon.actionManager.addToBottom(action);
     }
     protected void enqueueActionToTop(AbstractGameAction action) {
-        AbstractDungeon.actionManager.addToTop(action);
+    	AbstractDungeon.actionManager.addToTop(action);
     }
 
     public void upgradeDescription() {
@@ -42,7 +43,7 @@ public abstract class CustomJorbsModCard extends CustomCard {
 
     // Intended for cards with effects like "deals X damage + Y damage per Z (it should return "Y * Z")
     protected int calculateBonusBaseDamage() {
-        return 0;
+    	return 0;
     }
 
     @Override
@@ -56,10 +57,11 @@ public abstract class CustomJorbsModCard extends CustomCard {
 
     @Override
     public void applyPowers() {
-        int realBaseDamage = this.baseDamage;
+    	int realBaseDamage = this.baseDamage;
         this.baseDamage += calculateBonusBaseDamage();
         super.applyPowers();
         this.baseDamage = realBaseDamage;
         this.isDamageModified = this.damage != this.baseDamage;
     }
+    
 }
