@@ -27,7 +27,6 @@ public class SchoolsOfMagic extends CustomJorbsModCard {
     public SchoolsOfMagic() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = DRAW;
-        exhaust = true;
     }
 
     @Override
