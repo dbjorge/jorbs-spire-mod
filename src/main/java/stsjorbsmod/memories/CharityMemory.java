@@ -14,18 +14,24 @@ public class CharityMemory extends AbstractMemory implements IGoldListenerPower 
 
     public CharityMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.VIRTUE, owner, isClarified);
-        setDescriptionPlaceholder("!S!", STRENGTH_PER_GOLD_THRESHOLD);
+        setDescriptionPlaceholder("!S!", calculateBonusDamage());
         setDescriptionPlaceholder("!G!", GOLD_THRESHOLD);
+    }
+
+    private int calculateBonusDamage() {
+        return (AbstractDungeon.player.gold / GOLD_THRESHOLD) * STRENGTH_PER_GOLD_THRESHOLD;
     }
 
     @Override
     public float atDamageGive(float originalDamage, DamageType type) {
-        int extraDamage = (AbstractDungeon.player.gold / GOLD_THRESHOLD) * STRENGTH_PER_GOLD_THRESHOLD;
-        return type == DamageType.NORMAL ? originalDamage + extraDamage : originalDamage;
+        return type == DamageType.NORMAL ?
+                originalDamage + calculateBonusDamage() :
+                originalDamage;
     }
 
     @Override
     public void onGoldModified(AbstractPlayer player) {
+        setDescriptionPlaceholder("!S!", calculateBonusDamage());
         flashWithoutSound();
     }
 }

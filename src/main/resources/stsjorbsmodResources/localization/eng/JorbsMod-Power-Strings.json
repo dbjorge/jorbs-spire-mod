@@ -69,55 +69,55 @@
   "stsjorbsmod:CharityMemory": {
     "NAME": "Charity",
     "DESCRIPTIONS": [
-      "Gain #b!S! #yStrength per #b!G! gold you have."
+      "Gain #b!S! #yStrength. Gain 1 additional #yStrength per !G! gold you have."
     ]
   },
   "stsjorbsmod:ChastityMemory": {
     "NAME": "Chastity",
     "DESCRIPTIONS": [
-      "At the end of each turn, lose #b!D! #yDexterity and gain #b!B! #yBlock."
+      "At the end of each turn, lose !D! #yDexterity and gain !B! #yBlock."
     ]
   },
   "stsjorbsmod:DiligenceMemory": {
     "NAME": "Diligence",
     "DESCRIPTIONS": [
-      "At the end of your turn, retain #b!M!."
+      "At the end of your turn, Retain !M!."
     ]
   },
   "stsjorbsmod:EnvyMemory": {
     "NAME": "Envy",
     "DESCRIPTIONS": [
-      "Whenever you target an enemy with a card, apply #b!M! #yVulnerable to that enemy."
+      "Whenever you target an enemy with a card, apply !M! #yVulnerable to that enemy."
     ]
   },
   "stsjorbsmod:GreedMemory": {
     "NAME": "Greed",
     "DESCRIPTIONS": [
-      "Whenever you kill a non-minion enemy, gain #b!M! gold."
+      "Whenever you kill a non-minion enemy, gain !M! gold."
     ]
   },
   "stsjorbsmod:GluttonyMemory": {
     "NAME": "Gluttony",
     "DESCRIPTIONS": [
-      "Whenever you kill a non-minion enemy, raise your Max HP by #b!M!."
+      "Whenever you kill a non-minion enemy, raise your Max HP by !M!."
     ]
   },
   "stsjorbsmod:HumilityMemory": {
     "NAME": "Humility",
     "DESCRIPTIONS": [
-      "Gain #b!M! #yThorns."
+      "Gain !M! #yThorns."
     ]
   },
   "stsjorbsmod:KindnessMemory": {
     "NAME": "Kindness",
     "DESCRIPTIONS": [
-      "Whenever an attack deals unblocked damage, apply #b!M! #yPoison."
+      "Whenever an attack deals unblocked damage, apply !M! #yPoison."
     ]
   },
   "stsjorbsmod:LustMemory": {
     "NAME": "Lust",
     "DESCRIPTIONS": [
-      "Your attacks deal #b!P!% bonus damage. When you forget Lust, gain #b!W! Weak."
+      "Your attacks deal !P!% bonus damage. When you forget Lust, gain !W! Weak."
     ]
   },
   "stsjorbsmod:PatienceMemory": {
@@ -135,19 +135,19 @@
   "stsjorbsmod:SlothMemory": {
     "NAME": "Sloth",
     "DESCRIPTIONS": [
-      "Draw #b", " fewer cards each turn."
+      "Draw !M! fewer cards each turn."
     ]
   },
   "stsjorbsmod:TemperanceMemory": {
     "NAME": "Temperance",
     "DESCRIPTIONS": [
-      "Reduce #yStrength of ALL enemies by #b!M!."
+      "Reduce #yStrength of ALL enemies by !M!."
     ]
   },
   "stsjorbsmod:WrathMemory": {
     "NAME": "Wrath",
     "DESCRIPTIONS": [
-      "Whenever you kill a non-minion enemy with an attack card, permanently increase that card's damage by #b!M!."
+      "Whenever you kill a non-minion enemy with an attack card, permanently increase that card's damage by !M!."
     ]
   }
 }
