@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryUtils;
 import stsjorbsmod.util.TextureLoader;
 
@@ -48,18 +49,28 @@ public class IntrospectionPower extends AbstractPower implements CloneablePowerI
         updateDescription();
     }
 
+    private int calculateDamage() {
+        return baseDamage + damagePerClarity * MemoryUtils.countClarities(owner);
+    }
+
     @Override
     public void atEndOfTurn(boolean isPlayerTurn) {
         if (isPlayerTurn) {
             AbstractDungeon.actionManager.addToBottom(new LoseHPAction(this.owner, this.owner, loseHpAmount));
-            int damage = baseDamage + damagePerClarity * MemoryUtils.countClarities(owner);
-            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(owner, DamageInfo.createDamageMatrix(damage), DamageType.THORNS, AttackEffect.BLUNT_LIGHT));
+            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(owner, DamageInfo.createDamageMatrix(calculateDamage()), DamageType.THORNS, AttackEffect.BLUNT_LIGHT));
+        }
+    }
+
+    @Override
+    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+        if(power instanceof AbstractMemory) {
+            updateDescription();
         }
     }
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + this.loseHpAmount + DESCRIPTIONS[1] + this.baseDamage + DESCRIPTIONS[2] + this.damagePerClarity + DESCRIPTIONS[3];
+        description = DESCRIPTIONS[0] + this.loseHpAmount + DESCRIPTIONS[1] + calculateDamage() + DESCRIPTIONS[2] + this.damagePerClarity + DESCRIPTIONS[3];
     }
 
     @Override
