@@ -17,8 +17,8 @@ public class CharityMemory extends AbstractMemory {
     }
 
     @Override
-    public float atDamageGive(float damage, DamageType type) {
+    public float atDamageGive(float originalDamage, DamageType type) {
         int extraDamage = (AbstractDungeon.player.gold / GOLD_THRESHOLD) * STRENGTH_PER_GOLD_THRESHOLD;
-        return type == DamageType.NORMAL ? amount + extraDamage : amount;
+        return type == DamageType.NORMAL ? originalDamage + extraDamage : originalDamage;
     }
 }
