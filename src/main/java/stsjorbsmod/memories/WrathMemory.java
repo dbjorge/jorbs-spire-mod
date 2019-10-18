@@ -40,17 +40,12 @@ public class WrathMemory extends AbstractMemory {
             return;
         }
 
-        if (target == null) {
-            // Maybe it's an AOE attack?
-
+        if (card.target != null) {
+            activateWrathUpgrade(card, target);
+        } else {
+            // Assuming it's a "damage ALL enemies" effect
             final MonsterGroup currentFightMonsters = AbstractDungeon.getMonsters();
             currentFightMonsters.monsters.forEach(monster -> activateWrathUpgrade(card, monster));
-
-            return;
         }
-
-        activateWrathUpgrade(card, target);
-
     }
-
 }
