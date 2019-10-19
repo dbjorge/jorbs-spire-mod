@@ -202,7 +202,7 @@ public class ActionConfiguration {
 				if (action.source == PLAYER_PLACEHOLDER) {
 					action.target = p;
 				}
-				if (action.target == MONSTER_PLACEHOLDER) {
+				else if (action.target == MONSTER_PLACEHOLDER) {
 					action.target = m;
 				}
 				AbstractDungeon.actionManager.addToBottom(action);
@@ -213,7 +213,7 @@ public class ActionConfiguration {
 				if (action.source == PLAYER_PLACEHOLDER) {
 					action.target = p;
 				}
-				if (action.target == MONSTER_PLACEHOLDER) {
+				else if (action.target == MONSTER_PLACEHOLDER) {
 					action.target = m;
 				}
 				AbstractDungeon.actionManager.addToTop(action);
