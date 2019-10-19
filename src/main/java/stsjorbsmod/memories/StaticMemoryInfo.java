@@ -26,7 +26,7 @@ public class StaticMemoryInfo {
         PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(ID);
         NAME = powerStrings.NAME;
         DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-        tex84 = TextureLoader.getTexture(makePowerPath(ID + "_84.png"));
-        tex32 = TextureLoader.getTexture(makePowerPath(ID + "_32.png"));
+        tex84 = TextureLoader.getTexture(makePowerPath(memoryClass.getSimpleName() + "_84.png"));
+        tex32 = TextureLoader.getTexture(makePowerPath(memoryClass.getSimpleName() + "_32.png"));
     }
 }
