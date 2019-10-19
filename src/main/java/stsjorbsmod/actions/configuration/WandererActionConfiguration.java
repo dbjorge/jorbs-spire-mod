@@ -1,6 +1,10 @@
 package stsjorbsmod.actions.configuration;
 
+import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
+
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import stsjorbsmod.memories.MemoryUtils;
 
@@ -12,6 +16,9 @@ public class WandererActionConfiguration extends ActionConfiguration {
 	private int clarityMultiplierTarget;
 	private int clarityAddendTarget;
 	private boolean clarityAddendTargetApplied;
+	
+	private int rememberMemoryCardMultiplierSource;
+	private int rememberMemoryCardMultiplierTarget;
 	
 	public WandererActionConfiguration() {
 		super();
@@ -25,21 +32,21 @@ public class WandererActionConfiguration extends ActionConfiguration {
 		super(source, target);
 	}
 	
-	public WandererActionConfiguration applyClarityMultiplicatively() {
-		return applyClarityMultiplicatively(1);
+	public WandererActionConfiguration multiplyWithClarity() {
+		return multiplyWithClarity(1);
 	}
 	
-	public WandererActionConfiguration applyClarityMultiplicatively(int clarityMultiplier) {
+	public WandererActionConfiguration multiplyWithClarity(int clarityMultiplier) {
 		this.clarityMultiplierSource = clarityMultiplier;
 		this.clarityMultiplierTarget = clarityMultiplier;
 		return this;
 	}
 	
-	public WandererActionConfiguration applyClarityAdditively() {
-		return applyClarityAdditively(0);
+	public WandererActionConfiguration addClarity() {
+		return addClarity(0);
 	}
 	
-	public WandererActionConfiguration applyClarityAdditively(int clarityAddend) {
+	public WandererActionConfiguration addClarity(int clarityAddend) {
 		this.clarityAddendSource = clarityAddend;
 		this.clarityAddendTarget = clarityAddend;
 		this.clarityAddendSourceApplied = true;
@@ -47,39 +54,39 @@ public class WandererActionConfiguration extends ActionConfiguration {
 		return this;
 	}
 	
-	public WandererActionConfiguration applyClarityToSourceMultiplicatively() {
-		return applyClarityToSourceMultiplicatively(1);
+	public WandererActionConfiguration multiplySourceValueWithClarity() {
+		return multiplySourceValueWithClarity(1);
 	}
 	
-	public WandererActionConfiguration applyClarityToSourceMultiplicatively(int clarityMultiplierSource) {
+	public WandererActionConfiguration multiplySourceValueWithClarity(int clarityMultiplierSource) {
 		this.clarityMultiplierSource = clarityMultiplierSource;
 		return this;
 	}
 	
-	public WandererActionConfiguration applyClarityToSourceAdditively() {
-		return applyClarityToSourceAdditively(0);
+	public WandererActionConfiguration addClarityToSourceValue() {
+		return addClarityToSourceValue(0);
 	}
 	
-	public WandererActionConfiguration applyClarityToSourceAdditively(int clarityAddendSource) {
+	public WandererActionConfiguration addClarityToSourceValue(int clarityAddendSource) {
 		this.clarityAddendSource = clarityAddendSource;
 		this.clarityAddendSourceApplied = true;
 		return this;
 	}
 	
-	public WandererActionConfiguration applyClarityToTargetMultiplicatively() {
-		return applyClarityMultiplicatively(1);
+	public WandererActionConfiguration multiplyTargetValueWithClarity() {
+		return multiplyWithClarity(1);
 	}
 	
-	public WandererActionConfiguration applyClarityToTargetMultiplicatively(int clarityMultiplierTarget) {
+	public WandererActionConfiguration multiplyTargetValueWithClarity(int clarityMultiplierTarget) {
 		this.clarityMultiplierTarget = clarityMultiplierTarget;
 		return this;
 	}
 	
-	public WandererActionConfiguration applyClarityToTargetAdditively() {
-		return applyClarityAdditively(0);
+	public WandererActionConfiguration addClarityToTargetValue() {
+		return addClarity(0);
 	}
 	
-	public WandererActionConfiguration applyClarityToTargetAdditively(int clarityAddendTarget) {
+	public WandererActionConfiguration addClarityToTargetValue(int clarityAddendTarget) {
 		this.clarityAddendTarget = clarityAddendTarget;
 		this.clarityAddendTargetApplied = true;
 		return this;
@@ -105,6 +112,12 @@ public class WandererActionConfiguration extends ActionConfiguration {
 		return this;
 	}
 	
+	public WandererActionConfiguration multiplyWithNumberOfRememberMemoryCards(int multiplier) {
+		this.rememberMemoryCardMultiplierSource = multiplier;
+		this.rememberMemoryCardMultiplierTarget = multiplier;
+		return this;
+	}
+	
 	@Override
 	protected int applySourceModifiers(int base) {
 		int modified;
@@ -119,6 +132,12 @@ public class WandererActionConfiguration extends ActionConfiguration {
 		}
 		else {
 			modified = base;
+		}
+		if (rememberMemoryCardMultiplierSource > 0) {
+			int numRememberMemoryCards = countRememberMemoryCards();
+			if (numRememberMemoryCards > 0) {
+				modified *= rememberMemoryCardMultiplierSource * numRememberMemoryCards;
+			}
 		}
 		return super.applySourceModifiers(modified);
 	}
@@ -138,7 +157,31 @@ public class WandererActionConfiguration extends ActionConfiguration {
 		else {
 			modified = base;
 		}
+		if (rememberMemoryCardMultiplierTarget > 0) {
+			int numRememberMemoryCards = countRememberMemoryCards();
+			if (numRememberMemoryCards > 0) {
+				modified *= rememberMemoryCardMultiplierTarget * numRememberMemoryCards;
+			}
+		}
 		return super.applyTargetModifiers(modified);
 	}
+	
+	private int countRememberMemoryCards() {
+        int count = 0;
+        for (AbstractCard c : AbstractDungeon.player.hand.group) {
+            if (isRememberMemoryCard(c)) { ++count; }
+        }
+        for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
+            if (isRememberMemoryCard(c)) { ++count; }
+        }
+        for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
+            if (isRememberMemoryCard(c)) { ++count; }
+        }
+        return count;
+    }
+
+    private boolean isRememberMemoryCard(AbstractCard c) {
+        return c.hasTag(REMEMBER_MEMORY);
+    }
 
 }

@@ -81,7 +81,7 @@ public abstract class ConfiguredJorbsModCard extends CustomJorbsModCard {
     
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-    	getActionConfiguration().enqueueActions(p, m);
+    	getActionConfiguration(m).enqueueActions(p, m);
     }
 
 }

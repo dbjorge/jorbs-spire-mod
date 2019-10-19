@@ -59,7 +59,7 @@ public class ActionConfiguration {
 	private AbstractMonster tempTarget;
 	
 	private int lastCalculatedValue;
-	private int savedCalculatedValue;
+	private int savedCalculatedValue = -1;
 	
 	private List<AbstractGameAction> bottomActions;
 	private List<AbstractGameAction> topActions;
@@ -103,7 +103,7 @@ public class ActionConfiguration {
 	}
 	
 	public int getCalculatedCardDamage() {
-		return savedCalculatedValue;
+		return savedCalculatedValue == -1 ? lastCalculatedValue : savedCalculatedValue;
 	}
 	
 	public ActionConfiguration setDefaultSourceDamage(int base, DamageType type, AttackEffect effect) {
@@ -200,9 +200,9 @@ public class ActionConfiguration {
 		if (bottomActions != null) {
 			for (AbstractGameAction action : bottomActions) {
 				if (action.source == PLAYER_PLACEHOLDER) {
-					action.target = p;
+					action.source = p;
 				}
-				else if (action.target == MONSTER_PLACEHOLDER) {
+				if (action.target == MONSTER_PLACEHOLDER) {
 					action.target = m;
 				}
 				AbstractDungeon.actionManager.addToBottom(action);
@@ -211,9 +211,9 @@ public class ActionConfiguration {
 		if (topActions != null) {
 			for (AbstractGameAction action : topActions) {
 				if (action.source == PLAYER_PLACEHOLDER) {
-					action.target = p;
+					action.source = p;
 				}
-				else if (action.target == MONSTER_PLACEHOLDER) {
+				if (action.target == MONSTER_PLACEHOLDER) {
 					action.target = m;
 				}
 				AbstractDungeon.actionManager.addToTop(action);
