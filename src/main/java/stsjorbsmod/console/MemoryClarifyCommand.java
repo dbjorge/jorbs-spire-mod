@@ -25,6 +25,10 @@ public class MemoryClarifyCommand extends ConsoleCommand {
         if (optionalId == null) {
             DevConsole.log("Clarifying currently-remembered memory (like Eye of the Storm)");
             AbstractDungeon.actionManager.addToBottom(new GainMemoryClarityAction(AbstractDungeon.player));
+        } else if (optionalId.equals("all")) {
+            for (AbstractMemory memory : MemoryUtils.allPossibleMemorys(AbstractDungeon.player, true)) {
+                AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(memory));
+            }
         } else {
             AbstractMemory newMemory = MemoryUtils.newMemoryByID(tokens[2], AbstractDungeon.player, true);
             AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(newMemory));
@@ -33,6 +37,8 @@ public class MemoryClarifyCommand extends ConsoleCommand {
 
     @Override
     public ArrayList<String> extraOptions(String[] tokens, int depth) {
-        return MemoryUtils.allPossibleMemoryIDs();
+        ArrayList<String> options = MemoryUtils.allPossibleMemoryIDs();
+        options.add("all");
+        return options;
     }
 }
