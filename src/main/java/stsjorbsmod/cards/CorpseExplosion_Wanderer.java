@@ -14,6 +14,7 @@ import stsjorbsmod.memories.WrathMemory;
 import stsjorbsmod.patches.EntombedField;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 // Deal 8 damage + 2(3) damager for each clarity
 public class CorpseExplosion_Wanderer extends CustomJorbsModCard {
@@ -34,6 +35,8 @@ public class CorpseExplosion_Wanderer extends CustomJorbsModCard {
         baseDamage = DAMAGE;
         EntombedField.entombed.set(this, true);
         exhaust = true;
+
+        tags.add(REMEMBER_MEMORY);
     }
 
     @Override
