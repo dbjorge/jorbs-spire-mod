@@ -1,12 +1,11 @@
 package stsjorbsmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DoubleTapPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.AdvanceAllRelicCountersAction;
+import stsjorbsmod.actions.AdvanceRelicsThroughTimeAction;
 import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
@@ -33,7 +32,7 @@ public class Haste extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new AdvanceAllRelicCountersAction(p, RELIC_COUNTER_INCREMENT));
+        enqueueAction(new AdvanceRelicsThroughTimeAction(p, RELIC_COUNTER_INCREMENT));
         enqueueAction(new ApplyPowerAction(p, p, new DoubleTapPower(p, magicNumber), magicNumber));
     }
 
