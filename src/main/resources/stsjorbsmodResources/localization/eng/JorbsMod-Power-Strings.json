@@ -46,6 +46,12 @@
       "Whenever you receive a debuff, apply that debuff to ALL enemies."
     ]
   },
+  "stsjorbsmod:NextAttackMissesPower": {
+    "NAME": "Mirror Image",
+    "DESCRIPTIONS": [
+      "The next enemy attack misses."
+    ]
+  },
   "stsjorbsmod:PrestidigitationPower": {
     "NAME": "Prestidigitation",
     "DESCRIPTIONS": [

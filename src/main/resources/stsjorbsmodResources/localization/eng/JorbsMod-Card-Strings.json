@@ -262,6 +262,11 @@
     "NAME": "Withdraw",
     "DESCRIPTION": "Gain !M! Artifact. NL Gain !B! Block. NL Exhaust."
   },
+  "stsjorbsmod:MirrorImage": {
+    "NAME": "Mirror Image",
+    "DESCRIPTION": "Remember stsjorbsmod:Temperance. NL The next enemy attack misses.",
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Temperance. NL The next enemy attack misses. NL Retain."
+  },
   "stsjorbsmod:Study": {
     "NAME": "Study",
     "DESCRIPTION": "Remember stsjorbsmod:Patience. NL At the start of each turn, draw !M! extra card.",
