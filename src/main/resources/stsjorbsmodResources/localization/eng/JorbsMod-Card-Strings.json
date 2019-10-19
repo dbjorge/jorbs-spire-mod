@@ -253,6 +253,11 @@
     "NAME": "Lose Grip",
     "DESCRIPTION": "If stsjorbsmod:Snapped, gain !M! Intangible. Otherwise, gain !B! Block. NL Retain. NL Exhaust."
   },
+  "stsjorbsmod:HoldMonster": {
+    "NAME": "Hold Monster",
+    "DESCRIPTION": "If you remember stsjorbsmod:Temperance, gain stsjorbsmod:Clarity. NL Remember stsjorbsmod:Temperance. NL Target enemy loses !M! Strength until end of turn.",
+    "UPGRADE_DESCRIPTION": "Gain stsjorbsmod:Clarity of stsjorbsmod:Temperance. NL Target enemy loses !M! Strength until end of turn."
+  },
   "stsjorbsmod:Withdraw": {
     "NAME": "Withdraw",
     "DESCRIPTION": "Gain !M! Artifact. NL Gain !B! Block. NL Exhaust."
