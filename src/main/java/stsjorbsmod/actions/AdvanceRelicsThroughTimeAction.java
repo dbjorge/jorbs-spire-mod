@@ -20,11 +20,11 @@ public class AdvanceRelicsThroughTimeAction extends AbstractGameAction {
             if (relic.counter >= 0) {
                 // We aren't just incrementing the counter directly because the relics generally aren't listening for
                 // that to happen, so incrementing a counter to a relic's trigger value that way wouldn't trigger
-                // the relic as desire. Instead, we simulate the passage of turn events, where those relics' trigger
-                // behavior can get a chance to run.
+                // the relic as desire. Instead, we simulate the passage of the turn ending and then starting again,
+                // so those relics' trigger behaviors can get a chance to run.
+                relic.onPlayerEndTurn();
                 relic.atTurnStart();
                 relic.atTurnStartPostDraw();
-                relic.onPlayerEndTurn();
             }
         }
 
