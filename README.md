@@ -33,6 +33,10 @@ This mod would not have been possible without the excellent documentation and gu
 
 ## How to build from source
 
+1. Create an environment variable named `STEAMAPPS_PATH`
+    * On Windows, open a Command Prompt run `setx STEAMAPPS_PATH "C:\Program Files (x86)\Steam\steamapps"`
+    * On Mac, open `~/.bash_profile` and add a line like `export STEAMAPPS_PATH="~/Library/Application Support/Steam/steamapps"`
+    * Adjust the paths accordingly if you have installed Steam to a different location 
 1. Install the Oracle Java 8 JDK (not Java 9+)
 1. Install IntelliJ IDEA (the free Community edition is fine)
 1. Through Steam, install Slay the Spire (stable branch)
@@ -43,24 +47,6 @@ This mod would not have been possible without the excellent documentation and gu
     1. Choose the repository folder
     1. Select "Maven"
     1. Press next a few times, all other settings can be left at defaults 
-1. Create a file named `settings.xml` in a folder named `.m2` in your home directory. On Windows, you can open your home directory by typing `%USERPROFILE%` in File Explorer. Paste the following content (or, if `settings.xml` already exists, extend it). **Replace the Steam installation path if you've installed Steam somewhere else!**:
-    ```xml
-    <settings>
-      <profiles>
-        <profile>
-          <id>inject-local-paths</id>
-          <properties>
-            <Steam.path>C:/Program Files/Steam/steamapps</Steam.path>
-            <STS.jar.path>${Steam.path}/common/SlayTheSpire/desktop-1.0.jar</STS.jar.path>
-          </properties>
-        </profile>
-      </profiles>
-     
-      <activeProfiles>
-        <activeProfile>inject-local-paths</activeProfile>
-      </activeProfiles>
-    </settings>
-    ```
 1. Follow the [these instructions from the StS-DefaultModBase wiki](https://github.com/Gremious/StS-DefaultModBase/wiki/Step-3:-Packaging-and-Playing-the-Default;-Writing-Your-First-Mod!) to build the mod package and debug it
 
 ## How to contribute card art
