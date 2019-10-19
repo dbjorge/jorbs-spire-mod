@@ -22,6 +22,12 @@ public class AdvanceRelicsThroughTimeAction extends AbstractGameAction {
                 // that to happen, so incrementing a counter to a relic's trigger value that way wouldn't trigger
                 // the relic as desire. Instead, we simulate the passage of the turn ending and then starting again,
                 // so those relics' trigger behaviors can get a chance to run.
+                //
+                // Notable test cases:
+                //   * Stone Calendar
+                //   * Happy Flower
+                //   * Fragile Mind
+                //   * Ancient Tea Set
                 relic.onPlayerEndTurn();
                 relic.atTurnStart();
                 relic.atTurnStartPostDraw();
