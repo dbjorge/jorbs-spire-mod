@@ -77,7 +77,7 @@
                         <configuration>
                             <target>
                                 <!-- This moves your mod into a common folder where all mods you make can go. -->
-                                <copy file="target/${project.artifactId}.jar" tofile="${Steam.path}/common/SlayTheSpire/mods/${project.artifactId}.jar"/>
+                                <copy file="target/${project.artifactId}.jar" tofile="${steamappsPath}/common/SlayTheSpire/mods/${project.artifactId}.jar"/>
                             </target>
                         </configuration>
                         <goals>
