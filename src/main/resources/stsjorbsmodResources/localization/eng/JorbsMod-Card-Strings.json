@@ -249,6 +249,10 @@
     "NAME": "Fireball",
     "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Remember stsjorbsmod:Lust."
   },
+  "stsjorbsmod:LoseGrip": {
+    "NAME": "Lose Grip",
+    "DESCRIPTION": "If stsjorbsmod:Snapped, gain !M! Intangible. Otherwise, gain !B! Block. NL Retain. NL Exhaust."
+  },
   "stsjorbsmod:Withdraw": {
     "NAME": "Withdraw",
     "DESCRIPTION": "Gain !M! Artifact. NL Gain !B! Block. NL Exhaust."
