@@ -34,8 +34,10 @@ public class SlothMemory extends AbstractMemory {
         AbstractDungeon.actionManager.addToTop(
                 new DiscardAction(owner, source, DISCARD_ON_REMEMBER, true));
 
+        final AbstractPower drawReductionPower = new DrawReductionPower(owner, DRAW_REDUCTION);
+        drawReductionPower.type = PowerType.BUFF; // This forces artifact to ignore it
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(owner, source, new DrawReductionPower(owner, DRAW_REDUCTION), DRAW_REDUCTION));
+                new ApplyPowerAction(owner, source, drawReductionPower, DRAW_REDUCTION));
     }
 
     @Override
