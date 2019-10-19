@@ -1,20 +1,20 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.DiligenceMemoryPower;
+import stsjorbsmod.memories.DiligenceMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 // Deal 12(15) damage and remember Diligence
-public class FreshAdventure extends AbstractDynamicCard {
+public class FreshAdventure extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(FreshAdventure.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Commons/fresh_adventure.png");
 
@@ -29,16 +29,15 @@ public class FreshAdventure extends AbstractDynamicCard {
 
     public FreshAdventure() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-
         baseDamage = DAMAGE;
+
+        this.tags.add(REMEMBER_MEMORY);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-        AbstractDungeon.actionManager.addToBottom(
-                new RememberSpecificMemoryAction(p, p, new DiligenceMemoryPower(p, p)));
+        enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SLASH_DIAGONAL));
+        enqueueAction(new RememberSpecificMemoryAction(new DiligenceMemory(p, false)));
     }
 
     @Override

@@ -1,26 +1,23 @@
 [
   {
-    "NAMES": [
-      "keyword",
-      "keywords"
-    ],
-    "DESCRIPTION": "Whenever you play a card, gain 1 dexterity this turn only."
-  },
-  {
-    "PROPER_NAME": "Multiword Keyword",
-    "NAMES": [
-      "Multiword Keyword",
-      "multiword_keyword",
-      "multiword_keywords",
-      "multikey",
-      "multikeyword"
-    ],
-    "DESCRIPTION": "Make sure the first element in the NAMES is the same as your PROPER_NAME. The rest is to match keywords like the single word keyword."
-  },
-  {
     "PROPER_NAME": "Snap",
     "NAMES": ["snap"],
     "DESCRIPTION": "Deal 5 damage to ALL enemies and 2 damage to yourself for every clarity bonus you have. You cannot be affected by memories or clarities for the remainder of the fight."
+  },
+  {
+    "PROPER_NAME": "Entombed",
+    "NAMES": ["entombed"],
+    "DESCRIPTION": "Starts combat Exhausted. Move from Exhaust pile to hand whenever an enemy dies."
+  },
+  {
+    "PROPER_NAME": "Sin",
+    "NAMES": ["sin", "Sin"],
+    "DESCRIPTION": "A memory of #yEnvy, #yGreed, #yGluttony, #yLust, #yPride, #ySloth, or #yWrath."
+  },
+  {
+    "PROPER_NAME": "Virtue",
+    "NAMES": ["virtue", "Virtue"],
+    "DESCRIPTION": "A memory of #yCharity, #yChastity, #yDiligence, #yHumility, #yKindness, #yPatience, or #yTemperance."
   },
   {
     "PROPER_NAME": "Clarity",
@@ -28,13 +25,73 @@
     "DESCRIPTION": "Memories you have Clarity of won't be forgotten when remembering a new memory."
   },
   {
+    "PROPER_NAME": "Charity",
+    "NAMES": ["chastity", "Chastity"],
+    "DESCRIPTION": "Increases attack damage by 1 for every 100 gold you have."
+  },
+  {
+    "PROPER_NAME": "Chastity",
+    "NAMES": ["chastity", "Chastity"],
+    "DESCRIPTION": "When you remember Chastity, gain #b2 #yDexterity. At the end of each turn, lose #b1 #yDexterity and gain #b6 #yBlock."
+  },
+  {
     "PROPER_NAME": "Diligence",
     "NAMES": ["diligence", "Diligence"],
     "DESCRIPTION": "When you remember Diligence, draw #b2 cards. At the end of your turn, retain #b1."
   },
   {
+    "PROPER_NAME": "Envy",
+    "NAMES": ["envy", "Envy"],
+    "DESCRIPTION": "When you remember Envy, gain #b1 #yVulnerable. Whenever you target an enemy with a card, apply #b1 #yVulnerable to that enemy."
+  },
+  {
+    "PROPER_NAME": "Greed",
+    "NAMES": ["greed", "Greed"],
+    "DESCRIPTION": "Whenever you kill a non-minion enemy, gain #b10 gold."
+  },
+  {
+    "PROPER_NAME": "Gluttony",
+    "NAMES": ["gluttony", "Gluttony"],
+    "DESCRIPTION": "Whenever you kill a non-minion enemy, raise your Max HP by #b3."
+  },
+  {
+    "PROPER_NAME": "Humility",
+    "NAMES": ["humility", "Humility"],
+    "DESCRIPTION": "Gain #b2 #yThorns."
+  },
+  {
+    "PROPER_NAME": "Kindness",
+    "NAMES": ["kindness", "Kindness"],
+    "DESCRIPTION": "When you remember Kindness, apply #b3 #yPoison to ALL enemies. Whenever an attack deals unblocked damage, apply #b1 #yPoison."
+  },
+  {
+    "PROPER_NAME": "Lust",
+    "NAMES": ["lust", "Lust"],
+    "DESCRIPTION": "Your attacks deal 50% bonus damage. When you forget Lust, gain 2 Weak."
+  },
+  {
     "PROPER_NAME": "Patience",
     "NAMES": ["patience", "Patience"],
     "DESCRIPTION": "Gain 1 Coil each time you play a card. When you forget Patience, deal 2 damage to ALL enemies for each Coil and lose all Coil."
+  },
+  {
+    "PROPER_NAME": "Pride",
+    "NAMES": ["pride", "Pride"],
+    "DESCRIPTION": "At the end of combat, permanently #yUpgrade a card in your deck."
+  },
+  {
+    "PROPER_NAME": "Sloth",
+    "NAMES": ["sloth", "Sloth"],
+    "DESCRIPTION": "When you remember Sloth, discard #b3 random cards. Draw #b1 fewer cards each turn."
+  },
+  {
+    "PROPER_NAME": "Temperance",
+    "NAMES": ["temperance", "Temperance"],
+    "DESCRIPTION": "Reduce #yStrength of ALL enemies by #b3."
+  },
+  {
+    "PROPER_NAME": "Wrath",
+    "NAMES": ["wrath", "Wrath"],
+    "DESCRIPTION": "Whenever you kill a non-minion enemy with an attack card, permanently increase that card's damage by #b1."
   }
 ]

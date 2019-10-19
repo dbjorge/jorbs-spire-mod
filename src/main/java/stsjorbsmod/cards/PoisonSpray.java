@@ -1,20 +1,16 @@
 package stsjorbsmod.cards;
 
-import basemod.abstracts.cardbuilder.actionbuilder.ApplyPowerActionBuilder;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PoisonPower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
 
-import java.util.Iterator;
-
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class PoisonSpray extends AbstractDynamicCard {
+public class PoisonSpray extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(PoisonSpray.class.getSimpleName());
     public static final String IMG = makeCardPath("AOE_Commons/poison_spray.png");
 
@@ -40,7 +36,7 @@ public class PoisonSpray extends AbstractDynamicCard {
 
         for(AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
             if (!monster.isDead && !monster.isDying) {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monster, p, new PoisonPower(monster, p, this.magicNumber), this.magicNumber));
+                enqueueAction(new ApplyPowerAction(monster, p, new PoisonPower(monster, p, this.magicNumber)));
             }
         }
     }

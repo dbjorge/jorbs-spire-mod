@@ -2,21 +2,13 @@ package stsjorbsmod.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.GameDictionary;
-import com.megacrit.cardcrawl.helpers.PowerTip;
-import com.megacrit.cardcrawl.helpers.TipHelper;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
-import stsjorbsmod.actions.SnapAction;
-import stsjorbsmod.powers.PatienceMemoryPower;
-import stsjorbsmod.util.MemoryPowerUtils;
+import stsjorbsmod.memories.PatienceMemory;
+import stsjorbsmod.memories.MemoryUtils;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makeRelicOutlinePath;
@@ -37,27 +29,9 @@ public class WandererStarterRelic extends CustomRelic {
 
     @Override
     public void atBattleStart() {
-        this.counter = 0;
-        AbstractPlayer player = AbstractDungeon.player;
+        AbstractPlayer p = AbstractDungeon.player;
         this.flash();
-        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(player, player, new PatienceMemoryPower(player, player)));
-    }
-
-    @Override
-    public void atTurnStart() {
-        ++this.counter;
-        if (this.counter == 7) {
-            this.beginLongPulse();
-        }
-    }
-
-    @Override
-    public void onPlayerEndTurn() {
-        if (this.counter == 7) {
-            this.flash();
-            AbstractDungeon.actionManager.addToBottom(new SnapAction(AbstractDungeon.player));
-            this.stopPulse();
-        }
+        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(new PatienceMemory(p, false)));
     }
 
     @Override
@@ -70,7 +44,7 @@ public class WandererStarterRelic extends CustomRelic {
         AbstractPlayer p = AbstractDungeon.player;
 
         if (p.currentHealth > 0) {
-            p.heal(MemoryPowerUtils.countClarities(p) * HEAL_PER_CLARITY);
+            p.heal(MemoryUtils.countClarities(p) * HEAL_PER_CLARITY);
         }
     }
 
@@ -83,6 +57,6 @@ public class WandererStarterRelic extends CustomRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0].replaceAll(JorbsMod.getModID() + ":", "#y");
+        return DESCRIPTIONS[0].replaceAll(JorbsMod.MOD_ID + ":", "#y");
     }
 }

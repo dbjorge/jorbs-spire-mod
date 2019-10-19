@@ -1,11 +1,10 @@
 package stsjorbsmod.cards;
 
 import basemod.helpers.BaseModCardTags;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
@@ -13,7 +12,7 @@ import stsjorbsmod.characters.Wanderer;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 // Deals 6(9) damage
-public class Strike_Wanderer extends AbstractDynamicCard {
+public class Strike_Wanderer extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Strike_Wanderer.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Commons/strike_wanderer.png");
 
@@ -28,7 +27,6 @@ public class Strike_Wanderer extends AbstractDynamicCard {
 
     public Strike_Wanderer() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-
         baseDamage = DAMAGE;
 
         this.tags.add(BaseModCardTags.BASIC_STRIKE);
@@ -37,8 +35,7 @@ public class Strike_Wanderer extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.BLUNT_LIGHT));
     }
 
     @Override

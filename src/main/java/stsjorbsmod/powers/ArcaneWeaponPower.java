@@ -3,10 +3,8 @@ package stsjorbsmod.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.unique.RetainCardsAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -48,7 +46,7 @@ public class ArcaneWeaponPower extends AbstractPower implements CloneablePowerIn
     public void atEndOfTurn(boolean isPlayer) {
         if (isPlayer) {
             AbstractDungeon.actionManager.addToBottom(
-                    new AttackDamageRandomEnemyAction(this.sourceCard, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+                    new AttackDamageRandomEnemyAction(this.sourceCard, AttackEffect.SLASH_HORIZONTAL));
         }
     }
 

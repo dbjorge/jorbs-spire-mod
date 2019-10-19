@@ -1,21 +1,19 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.util.MemoryPowerUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 // Deal 10(12) damage and apply 3(5) weak
-public class RayOfFrost extends AbstractDynamicCard {
+public class RayOfFrost extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(RayOfFrost.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Commons/ray_of_frost.png");
 
@@ -38,10 +36,8 @@ public class RayOfFrost extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber));
+        enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.BLUNT_LIGHT));
+        enqueueAction(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false)));
     }
 
     @Override

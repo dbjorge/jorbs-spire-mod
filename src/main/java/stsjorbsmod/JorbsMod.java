@@ -6,10 +6,10 @@ import basemod.ModPanel;
 import basemod.abstracts.CustomCard;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -19,33 +19,25 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import javassist.CtClass;
+import javassist.Modifier;
+import javassist.NotFoundException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.pattern.AbstractStyleNameConverter;
+import org.clapper.util.classutil.*;
 import stsjorbsmod.cards.*;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.console.MemoryCommand;
 import stsjorbsmod.events.DeckOfManyThingsEvent;
 import stsjorbsmod.relics.*;
-import stsjorbsmod.util.IDCheckDontTouchPls;
 import stsjorbsmod.util.TextureLoader;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.File;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Properties;
-
-/*
- * With that out of the way:
- * Welcome to this super over-commented Slay the Spire modding base.
- * Use it to make your own mod of any type. - If you want to add any standard in-game content (character,
- * cards, relics), this is a good starting point.
- * It features 1 character with a minimal set of things: 1 card of each type, 1 debuff, couple of relics, etc.
- * If you're new to modding, you basically *need* the BaseMod wiki for whatever you wish to add
- * https://github.com/daviscook477/BaseMod/wiki - work your way through with this base.
- * Feel free to use this in any way you like, of course. MIT licence applies. Happy modding!
- *
- * And pls. Read the comments.
- */
 
 @SpireInitializer
 public class JorbsMod implements
@@ -55,10 +47,9 @@ public class JorbsMod implements
         EditKeywordsSubscriber,
         EditCharactersSubscriber,
         PostInitializeSubscriber {
-    // Make sure to implement the subscribers *you* are using (read basemod wiki). Editing cards? EditCardsSubscriber.
-    // Making relics? EditRelicsSubscriber. etc., etc., for a full list and how to make your own, visit the basemod wiki.
+    public static final String MOD_ID = "stsjorbsmod";
+
     public static final Logger logger = LogManager.getLogger(JorbsMod.class.getName());
-    private static String modID;
 
     // Mod-settings settings. This is if you want an on/off savable button
     public static Properties theDefaultDefaultSettings = new Properties();
@@ -106,27 +97,27 @@ public class JorbsMod implements
     // =============== MAKE IMAGE PATHS =================
     
     public static String makeCardPath(String resourcePath) {
-        return getModID() + "Resources/images/cards/" + resourcePath;
+        return MOD_ID + "Resources/images/cards/" + resourcePath;
     }
     
     public static String makeRelicPath(String resourcePath) {
-        return getModID() + "Resources/images/relics/" + resourcePath;
+        return MOD_ID + "Resources/images/relics/" + resourcePath;
     }
     
     public static String makeRelicOutlinePath(String resourcePath) {
-        return getModID() + "Resources/images/relics/outline/" + resourcePath;
+        return MOD_ID + "Resources/images/relics/outline/" + resourcePath;
     }
     
     public static String makeOrbPath(String resourcePath) {
-        return getModID() + "Resources/orbs/" + resourcePath;
+        return MOD_ID + "Resources/orbs/" + resourcePath;
     }
     
     public static String makePowerPath(String resourcePath) {
-        return getModID() + "Resources/images/powers/" + resourcePath;
+        return MOD_ID + "Resources/images/powers/" + resourcePath;
     }
     
     public static String makeEventPath(String resourcePath) {
-        return getModID() + "Resources/images/events/" + resourcePath;
+        return MOD_ID + "Resources/images/events/" + resourcePath;
     }
     
     // =============== /MAKE IMAGE PATHS/ =================
@@ -140,8 +131,6 @@ public class JorbsMod implements
         logger.info("Subscribe to BaseMod hooks");
         
         BaseMod.subscribe(this);
-
-        setModID("stsjorbsmod");
 
         logger.info("Done subscribing");
         
@@ -172,50 +161,6 @@ public class JorbsMod implements
         
     }
     
-    // ====== NO EDIT AREA ======
-    // DON'T TOUCH THIS STUFF. IT IS HERE FOR STANDARDIZATION BETWEEN MODS AND TO ENSURE GOOD CODE PRACTICES.
-    // IF YOU MODIFY THIS I WILL HUNT YOU DOWN AND DOWNVOTE YOUR MOD ON WORKSHOP
-    
-    public static void setModID(String ID) { // DON'T EDIT
-        Gson coolG = new Gson(); // EY DON'T EDIT THIS
-        //   String IDjson = Gdx.files.internal("IDCheckStringsDONT-EDIT-AT-ALL.json").readString(String.valueOf(StandardCharsets.UTF_8)); // i hate u Gdx.files
-        InputStream in = JorbsMod.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json"); // DON'T EDIT THIS ETHER
-        IDCheckDontTouchPls EXCEPTION_STRINGS = coolG.fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), IDCheckDontTouchPls.class); // OR THIS, DON'T EDIT IT
-        logger.info("You are attempting to set your mod ID as: " + ID); // NO WHY
-        if (ID.equals(EXCEPTION_STRINGS.DEFAULTID)) { // DO *NOT* CHANGE THIS ESPECIALLY, TO EDIT YOUR MOD ID, SCROLL UP JUST A LITTLE, IT'S JUST ABOVE
-            throw new RuntimeException(EXCEPTION_STRINGS.EXCEPTION); // THIS ALSO DON'T EDIT
-        } else if (ID.equals(EXCEPTION_STRINGS.DEVID)) { // NO
-            modID = EXCEPTION_STRINGS.DEFAULTID; // DON'T
-        } else { // NO EDIT AREA
-            modID = ID; // DON'T WRITE OR CHANGE THINGS HERE NOT EVEN A LITTLE
-        } // NO
-        logger.info("Success! ID is " + modID); // WHY WOULD U WANT IT NOT TO LOG?? DON'T EDIT THIS.
-    } // NO
-    
-    public static String getModID() { // NO
-        return modID; // DOUBLE NO
-    } // NU-UH
-    
-    private static void pathCheck() { // ALSO NO
-        Gson coolG = new Gson(); // NNOPE DON'T EDIT THIS
-        //   String IDjson = Gdx.files.internal("IDCheckStringsDONT-EDIT-AT-ALL.json").readString(String.valueOf(StandardCharsets.UTF_8)); // i still hate u btw Gdx.files
-        InputStream in = JorbsMod.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json"); // DON'T EDIT THISSSSS
-        IDCheckDontTouchPls EXCEPTION_STRINGS = coolG.fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), IDCheckDontTouchPls.class); // NAH, NO EDIT
-        String packageName = JorbsMod.class.getPackage().getName(); // STILL NO EDIT ZONE
-        FileHandle resourcePathExists = Gdx.files.internal(getModID() + "Resources"); // PLEASE DON'T EDIT THINGS HERE, THANKS
-        if (!modID.equals(EXCEPTION_STRINGS.DEVID)) { // LEAVE THIS EDIT-LESS
-            if (!packageName.equals(getModID())) { // NOT HERE ETHER
-                throw new RuntimeException(EXCEPTION_STRINGS.PACKAGE_EXCEPTION + getModID()); // THIS IS A NO-NO
-            } // WHY WOULD U EDIT THIS
-            if (!resourcePathExists.exists()) { // DON'T CHANGE THIS
-                throw new RuntimeException(EXCEPTION_STRINGS.RESOURCE_FOLDER_EXCEPTION + getModID() + "Resources"); // NOT THIS
-            }// NO
-        }// NO
-    }// NO
-    
-    // ====== YOU CAN EDIT AGAIN ======
-    
-    
     @SuppressWarnings("unused")
     public static void initialize() {
         logger.info("========================= Initializing JorbsMod. !dig =========================");
@@ -234,8 +179,7 @@ public class JorbsMod implements
         
         BaseMod.addCharacter(new Wanderer("The Wanderer", Wanderer.Enums.WANDERER),
                 THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, Wanderer.Enums.WANDERER);
-        
-        receiveEditPotions();
+
         logger.info("Added " + Wanderer.Enums.WANDERER.toString());
     }
     
@@ -247,7 +191,9 @@ public class JorbsMod implements
     @Override
     public void receivePostInitialize() {
         logger.info("Loading badge image and mod options");
-        
+
+        MemoryCommand.register();
+
         // Load the Mod Badge
         Texture badgeTexture = TextureLoader.getTexture(BADGE_IMAGE);
         
@@ -291,36 +237,21 @@ public class JorbsMod implements
     }
     
     // =============== / POST-INITIALIZE/ =================
-    
-    
-    // ================ ADD POTIONS ===================
-    
-    public void receiveEditPotions() {
-        logger.info("Beginning to edit potions");
-        
-        // Class Specific Potion. If you want your potion to not be class-specific,
-        // just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEFAULT".
-        // Remember, you can press ctrl+P inside parentheses like addPotions)
-        //
-        // BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, Wanderer.Enums.WANDERER);
-        
-        logger.info("Done editing potions");
-    }
-    
-    // ================ /ADD POTIONS/ ===================
-    
+
     
     // ================ ADD RELICS ===================
-    
+
     @Override
     public void receiveEditRelics() {
         logger.info("Adding relics");
         
-        // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
+        // Character-specific relics for custom characters use BaseMod.addRelicToCustomPool
         BaseMod.addRelicToCustomPool(new WandererStarterRelic(), Wanderer.Enums.COLOR_GRAY);
         UnlockTracker.markRelicAsSeen(WandererStarterRelic.ID);
+        BaseMod.addRelicToCustomPool(new FragileMindRelic(), Wanderer.Enums.COLOR_GRAY);
+        UnlockTracker.markRelicAsSeen(FragileMindRelic.ID);
 
-        // This would add a relic to the Shared pool. Every character can find this relic.
+        // Shared (non-character-specific) relics would instead use this:
         // BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
 
         logger.info("Done adding relics!");
@@ -331,59 +262,53 @@ public class JorbsMod implements
     
     // ================ ADD CARDS ===================
 
-    private void addUnlockedCard(CustomCard cardInstance, String cardID) {
-        BaseMod.addCard(cardInstance);
-        UnlockTracker.unlockCard(cardID);
+    @SuppressWarnings("unchecked")
+    private static <T> ArrayList<Class<T>> findAllConcreteSubclasses(Class<T> baseClass)
+    {
+        try {
+            ClassFinder finder = new ClassFinder();
+            URL url = JorbsMod.class.getProtectionDomain().getCodeSource().getLocation();
+            finder.add(new File(url.toURI()));
+
+            ClassFilter filter =
+                    new AndClassFilter(
+                            new NotClassFilter(new InterfaceOnlyClassFilter()),
+                            new NotClassFilter(new AbstractClassFilter()),
+                            new ClassModifiersClassFilter(Modifier.PUBLIC),
+                            new SubclassClassFilter(baseClass)
+                    );
+            ArrayList<ClassInfo> foundClassInfos = new ArrayList<>();
+            finder.findClasses(foundClassInfos, filter);
+
+            ArrayList<Class<T>> foundClasses = new ArrayList<>();
+            for (ClassInfo classInfo : foundClassInfos) {
+                Class<T> cls = (Class<T>) Loader.getClassPool().getClassLoader().loadClass(classInfo.getClassName());
+                foundClasses.add(cls);
+            }
+            return foundClasses;
+        } catch(Exception e) {
+            throw new RuntimeException("Exception while finding concrete subclasses of " + baseClass.getName(), e);
+        }
     }
 
     @Override
     public void receiveEditCards() {
-        logger.info("Adding variables");
-        //Ignore this
-        pathCheck();
-        
         logger.info("Adding cards");
-        // Add the cards
 
-        // Watcher starter deck
-        addUnlockedCard(new Defend_Wanderer(), Defend_Wanderer.ID);
-        addUnlockedCard(new Strike_Wanderer(), Strike_Wanderer.ID);
-        addUnlockedCard(new FreshAdventure(), FreshAdventure.ID);
-        addUnlockedCard(new EyeOfTheStorm(), EyeOfTheStorm.ID);
-        // Watcher damage commons
-        addUnlockedCard(new BlackTentacles(), BlackTentacles.ID);
-        addUnlockedCard(new ArcaneWeapon(), ArcaneWeapon.ID);
-        addUnlockedCard(new Firebolt(), Firebolt.ID);
-        addUnlockedCard(new MagicMissles(), MagicMissles.ID);
-        addUnlockedCard(new AcidSplash(), AcidSplash.ID);
-        addUnlockedCard(new TrueStrike(), TrueStrike.ID);
-        addUnlockedCard(new RayOfFrost(), RayOfFrost.ID);
-        // Watcher block commons
-        addUnlockedCard(new Counterspell(), Counterspell.ID);
-        addUnlockedCard(new MinorIllusion(), MinorIllusion.ID);
-        addUnlockedCard(new DisguiseSelf(), DisguiseSelf.ID);
-        addUnlockedCard(new Loss(), Loss.ID);
-        addUnlockedCard(new DoubleCheck(), DoubleCheck.ID);
-        addUnlockedCard(new Channel(), Channel.ID);
-        // Watcher AOE commons
-        addUnlockedCard(new PoisonSpray(), PoisonSpray.ID);
-        addUnlockedCard(new ChainLightning(), ChainLightning.ID);
+        ArrayList<Class<CustomJorbsModCard>> cardClasses = findAllConcreteSubclasses(CustomJorbsModCard.class);
+        for (Class<CustomJorbsModCard> cardClass : cardClasses) {
+            try {
+                CustomJorbsModCard cardInstance = cardClass.newInstance();
+                logger.info("Adding card: " + cardInstance.cardID);
+                BaseMod.addCard(cardInstance);
+                UnlockTracker.unlockCard(cardInstance.cardID);
+            } catch(Exception e) {
+                throw new RuntimeException("Exception while instantiating CustomJorbsModCard " + cardClass.getName(), e);
+            }
+        }
 
-        // Don't comment out/delete these cards (yet). You need 1 of each type and rarity (technically) for your game not to crash
-        // when generating card rewards/shop screen items.
-        addUnlockedCard(new DefaultUncommonSkill(), DefaultUncommonSkill.ID);
-        addUnlockedCard(new DefaultUncommonAttack(), DefaultUncommonAttack.ID);
-        addUnlockedCard(new DefaultUncommonPower(), DefaultUncommonPower.ID);
-        addUnlockedCard(new DefaultRareAttack(), DefaultRareAttack.ID);
-        addUnlockedCard(new DefaultRareSkill(), DefaultRareSkill.ID);
-        addUnlockedCard(new DefaultRarePower(), DefaultRarePower.ID);
-        
         logger.info("Done adding cards!");
     }
-    
-    // There are better ways to do this than listing every single individual card, but I do not want to complicate things
-    // in a "tutorial" mod. This will do and it's completely ok to use. If you ever want to clean up and
-    // shorten all the imports, go look take a look at other mods, such as Hubris.
     
     // ================ /ADD CARDS/ ===================
     
@@ -392,33 +317,32 @@ public class JorbsMod implements
     
     @Override
     public void receiveEditStrings() {
-        logger.info("Beginning to edit strings for mod with ID: " + getModID());
+        logger.info("Beginning to edit strings for mod with ID: " + MOD_ID);
 
         // UIStrings
         BaseMod.loadCustomStringsFile(UIStrings.class,
-                getModID() + "Resources/localization/eng/JorbsMod-UI-Strings.json");
+                MOD_ID + "Resources/localization/eng/JorbsMod-UI-Strings.json");
 
         // CardStrings
         BaseMod.loadCustomStringsFile(CardStrings.class,
-                getModID() + "Resources/localization/eng/JorbsMod-Card-Strings.json");
+                MOD_ID + "Resources/localization/eng/JorbsMod-Card-Strings.json");
         
         // PowerStrings
         BaseMod.loadCustomStringsFile(PowerStrings.class,
-                getModID() + "Resources/localization/eng/JorbsMod-Power-Strings.json");
+                MOD_ID + "Resources/localization/eng/JorbsMod-Power-Strings.json");
         
         // RelicStrings
         BaseMod.loadCustomStringsFile(RelicStrings.class,
-                getModID() + "Resources/localization/eng/JorbsMod-Relic-Strings.json");
+                MOD_ID + "Resources/localization/eng/JorbsMod-Relic-Strings.json");
         
         // Event Strings
         BaseMod.loadCustomStringsFile(EventStrings.class,
-                getModID() + "Resources/localization/eng/JorbsMod-Event-Strings.json");
+                MOD_ID + "Resources/localization/eng/JorbsMod-Event-Strings.json");
 
         // CharacterStrings
         BaseMod.loadCustomStringsFile(CharacterStrings.class,
-                getModID() + "Resources/localization/eng/JorbsMod-Character-Strings.json");
+                MOD_ID + "Resources/localization/eng/JorbsMod-Character-Strings.json");
 
-        
         logger.info("Done editing strings");
     }
     
@@ -437,22 +361,22 @@ public class JorbsMod implements
         // In Keyword-Strings.json you would have PROPER_NAME as A Long Keyword and the first element in NAMES be a long keyword, and the second element be a_long_keyword
         
         Gson gson = new Gson();
-        String json = Gdx.files.internal(getModID() + "Resources/localization/eng/JorbsMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String json = Gdx.files.internal(MOD_ID + "Resources/localization/eng/JorbsMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
         
         if (keywords != null) {
             for (Keyword keyword : keywords) {
-                BaseMod.addKeyword(getModID().toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+                BaseMod.addKeyword(MOD_ID.toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
                 //  getModID().toLowerCase() makes your keyword mod specific (it won't show up in other cards that use that word)
             }
         }
     }
     
-    // ================ /LOAD THE KEYWORDS/ ===================    
-    
+    // ================ /LOAD THE KEYWORDS/ ===================
+
     // this adds "ModName:" before the ID of any card/relic/power etc.
     // in order to avoid conflicts if any other mod uses the same ID.
     public static String makeID(String idText) {
-        return getModID() + ":" + idText;
+        return MOD_ID + ":" + idText;
     }
 }

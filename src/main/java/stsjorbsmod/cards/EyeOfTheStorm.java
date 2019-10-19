@@ -1,19 +1,17 @@
 package stsjorbsmod.cards;
 
-import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.GainMemoryClarityAction;
-import stsjorbsmod.actions.RememberRandomMemoryAction;
+import stsjorbsmod.actions.RememberRandomNewMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-// Gain clarity of current memory, then remember a random memory you do not have clarity of. Gain 8(11) Block.
-public class EyeOfTheStorm extends AbstractDynamicCard {
+public class EyeOfTheStorm extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(EyeOfTheStorm.class.getSimpleName());
     public static final String IMG = makeCardPath("Block_Commons/eyeofthestorm.png");
 
@@ -29,13 +27,15 @@ public class EyeOfTheStorm extends AbstractDynamicCard {
     public EyeOfTheStorm() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
+
+        this.tags.add(REMEMBER_MEMORY);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainMemoryClarityAction(p, p));
-        AbstractDungeon.actionManager.addToBottom(new RememberRandomMemoryAction(p, p));
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+        enqueueAction(new GainMemoryClarityAction(p));
+        enqueueAction(new RememberRandomNewMemoryAction(p, p, false));
+        enqueueAction(new GainBlockAction(p, p, block));
     }
 
     @Override

@@ -1,41 +1,16 @@
 {
-  "stsjorbsmod:PlaceholderRelic": {
-    "NAME": "Placeholder Energy Relic",
-    "FLAVOR": "The snake is a friend.",
-    "DESCRIPTIONS": [
-      "Gain #b1 [E] ."
-    ]
-  },
-  "stsjorbsmod:PlaceholderRelic2": {
-    "NAME": "Placeholder Relic 2",
-    "FLAVOR": "You feel stronger.",
-    "DESCRIPTIONS": [
-      "At the start of each combat, gain #b1 #yStrength."
-    ]
-  },
-  "stsjorbsmod:DefaultClickableRelic": {
-    "NAME": "Right-Clicky Relic",
-    "FLAVOR": "The more you right-click it, the more orbs you've evoked in your lifetime.",
-    "DESCRIPTIONS": [
-      "[#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]turn.[] NL #yEvoke your rightmost Orb.",
-      "YOU ARE MINE!"
-    ]
-  },
-  "stsjorbsmod:BottledPlaceholderRelic": {
-    "NAME": "Bottled Placeholder",
-    "FLAVOR": "What is this?",
-    "DESCRIPTIONS": [
-      "Choose a card. Whenever you take play any card, draw the chosen card.",
-      "Whenever you play a card, draw ",
-      ".",
-      "Select a card to bottle for "
-    ]
-  },
   "stsjorbsmod:WandererStarterRelic": {
     "NAME": "Wanderer Starter Relic",
     "FLAVOR": "Ogbomosho to you as well.",
     "DESCRIPTIONS": [
-      "At the start of each combat, remember stsjorbsmod:Patience. NL At the end of each combat, heal #b1 HP per stsjorbsmod:Clarity. NL At the end of turn #b7, you stsjorbsmod:Snap."
+      "At the start of each combat, remember stsjorbsmod:Patience. NL At the end of each combat, heal #b1 HP per stsjorbsmod:Clarity."
+    ]
+  },
+  "stsjorbsmod:FragileMindRelic": {
+    "NAME": "Fragile Mind",
+    "FLAVOR": "Offer... shovel?",
+    "DESCRIPTIONS": [
+      "At the end of turn #b7, stsjorbsmod:Snap."
     ]
   }
 }

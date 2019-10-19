@@ -5,14 +5,13 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.NextTurnBlockPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class Loss extends AbstractDynamicCard {
+public class Loss extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Loss.class.getSimpleName());
     public static final String IMG = makeCardPath("Block_Commons/loss.png");
 
@@ -34,8 +33,8 @@ public class Loss extends AbstractDynamicCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new WeakPower(p, this.magicNumber, false), this.magicNumber));
+        enqueueAction(new GainBlockAction(p, p, block));
+        enqueueAction(new ApplyPowerAction(p, p, new WeakPower(p, this.magicNumber, false)));
     }
 
     @Override
