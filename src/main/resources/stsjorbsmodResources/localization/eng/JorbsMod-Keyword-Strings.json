@@ -5,6 +5,11 @@
     "DESCRIPTION": "Deal 5 damage to ALL enemies and 2 damage to yourself for every clarity bonus you have. You cannot be affected by memories or clarities for the remainder of the fight."
   },
   {
+    "PROPER_NAME": "Entombed",
+    "NAMES": ["entombed"],
+    "DESCRIPTION": "Starts combat Exhausted. Move from Exhaust pile to hand whenever an enemy dies."
+  },
+  {
     "PROPER_NAME": "Sin",
     "NAMES": ["sin", "Sin"],
     "DESCRIPTION": "A memory of #yEnvy, #yGreed, #yGluttony, #yLust, #yPride, #ySloth, or #yWrath."
@@ -22,7 +27,7 @@
   {
     "PROPER_NAME": "Charity",
     "NAMES": ["chastity", "Chastity"],
-    "DESCRIPTION": "Gain 1 #yStrength per #b100 gold you have."
+    "DESCRIPTION": "Increases attack damage by 1 for every 100 gold you have."
   },
   {
     "PROPER_NAME": "Chastity",

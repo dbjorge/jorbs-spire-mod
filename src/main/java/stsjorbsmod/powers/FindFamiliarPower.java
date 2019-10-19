@@ -3,7 +3,6 @@ package stsjorbsmod.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -16,8 +15,6 @@ import stsjorbsmod.util.TextureLoader;
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
 public class FindFamiliarPower extends AbstractPower implements CloneablePowerInterface {
-    public AbstractCard sourceCard;
-
     public static final String POWER_ID = JorbsMod.makeID(FindFamiliarPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -47,7 +44,7 @@ public class FindFamiliarPower extends AbstractPower implements CloneablePowerIn
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        description = DESCRIPTIONS[0];
     }
 
     @Override

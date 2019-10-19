@@ -1,14 +1,13 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.BlackTentaclesPower;
+import stsjorbsmod.memories.MemoryUtils;
 import stsjorbsmod.powers.IntrospectionPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
@@ -31,12 +30,18 @@ public class Introspection extends CustomJorbsModCard {
     public Introspection() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
+        damageType = damageTypeForTurn = DamageType.THORNS;
         magicNumber = baseMagicNumber = DAMAGE_PER_CLARITY;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new ApplyPowerAction(p, p, new IntrospectionPower(p, HP_LOSS, baseDamage, magicNumber)));
+        enqueueAction(new ApplyPowerAction(p, p, new IntrospectionPower(p, HP_LOSS, baseDamage, magicNumber, damageTypeForTurn)));
+    }
+
+    @Override
+    public int calculateBonusBaseDamage() {
+        return magicNumber * MemoryUtils.countClarities(AbstractDungeon.player);
     }
 
     @Override

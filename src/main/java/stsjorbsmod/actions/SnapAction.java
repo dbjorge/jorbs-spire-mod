@@ -30,6 +30,7 @@ public class SnapAction extends AbstractGameAction {
         int enemyDamage = ENEMY_DAMAGE_PER_CLARITY * numClarities;
         int targetDamage = PLAYER_DAMAGE_PER_CLARITY * numClarities;
 
+        // addToTop is important for Trauma effect ordering
         AbstractDungeon.actionManager.addToTop(
                 new ApplyPowerAction(target, (AbstractCreature)null, new SnappedPower(target)));
         AbstractDungeon.actionManager.addToTop(

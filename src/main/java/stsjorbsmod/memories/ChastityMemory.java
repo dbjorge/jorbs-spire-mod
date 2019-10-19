@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.LoseDexterityPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.util.TextureLoader;
 
@@ -33,7 +34,7 @@ public class ChastityMemory extends AbstractMemory {
     @Override
     public void onRemember() {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(owner, source, new DexterityPower(owner, DEXTERITY_ON_REMEMBER), DEXTERITY_ON_REMEMBER));
+                new ApplyPowerAction(owner, owner, new DexterityPower(owner, DEXTERITY_ON_REMEMBER), DEXTERITY_ON_REMEMBER));
     }
 
     @Override
@@ -43,7 +44,10 @@ public class ChastityMemory extends AbstractMemory {
         }
 
         AbstractDungeon.actionManager.addToBottom(
-                new ReducePowerAction(owner, source, DexterityPower.POWER_ID, DEXTERITY_LOSS_PER_TURN));
+                // It's important to apply a negative dex power rather than reducing an existing dex power
+                //   1. reducing the existing power doesn't work if the player currently has no dex
+                //   2. we want it to be blockable by Artifact, which ApplyPowerAction is and ReducePowerAction isn't
+                new ApplyPowerAction(owner, owner, new DexterityPower(this.owner, -this.DEXTERITY_LOSS_PER_TURN)));
         AbstractDungeon.actionManager.addToBottom(
                 new GainBlockAction(owner, source, BLOCK_PER_TURN));
     }
