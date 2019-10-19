@@ -22,7 +22,7 @@ public class HoldMonster extends CustomJorbsModCard {
     public static final String IMG = makeCardPath("Block_Rares/hold_monster.png");
 
     private static final CardRarity RARITY = CardRarity.RARE;
-    private static final CardTarget TARGET = CardTarget.SELF;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Wanderer.Enums.COLOR_GRAY;
 
