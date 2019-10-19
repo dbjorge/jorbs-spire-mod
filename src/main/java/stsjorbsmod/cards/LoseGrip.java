@@ -15,7 +15,7 @@ import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class LoseGrip extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(LoseGrip.class.getSimpleName());
-    public static final String IMG = makeCardPath("Block_Rares/withdraw.png");
+    public static final String IMG = makeCardPath("Block_Rares/lose_grip.png");
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
