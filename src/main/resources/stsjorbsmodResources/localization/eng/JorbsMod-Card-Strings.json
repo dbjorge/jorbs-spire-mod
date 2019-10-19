@@ -140,7 +140,7 @@
   },
   "stsjorbsmod:CorpseExplosion_Wanderer": {
     "NAME": "Corpse Explosion",
-    "DESCRIPTION": "Starts each combat Exhausted; when an enemy dies, move from Exhaust pile to your hand. NL Remember stsjorbsmod:Wrath. NL Deal !D! damage. NL Exhaust."
+    "DESCRIPTION": "stsjorbsmod:Entombed. NL Remember stsjorbsmod:Wrath. NL Deal !D! damage. NL Exhaust."
   },
   "stsjorbsmod:Hibernate": {
     "NAME": "Hibernate",
