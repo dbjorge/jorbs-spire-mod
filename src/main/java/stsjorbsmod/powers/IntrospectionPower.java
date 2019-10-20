@@ -14,8 +14,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.memories.AbstractMemory;
-import stsjorbsmod.memories.MemoryUtils;
+import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.OnModifyMemoriesListener;
 import stsjorbsmod.util.TextureLoader;
 
@@ -53,7 +52,7 @@ public class IntrospectionPower extends AbstractPower implements CloneablePowerI
     }
 
     private int calculateDamage() {
-        return baseDamage + damagePerClarity * MemoryUtils.countClarities(owner);
+        return baseDamage + damagePerClarity * MemoryManager.forPlayer(owner).countCurrentClarities();
     }
 
     @Override

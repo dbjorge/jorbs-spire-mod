@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.memories.MemoryUtils;
+import stsjorbsmod.memories.MemoryManager;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -32,7 +32,7 @@ public class MagicMissiles extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int numMissiles = 1 + MemoryUtils.countClarities(p);
+        int numMissiles = 1 + MemoryManager.forPlayer(p).countCurrentClarities();
 
         for (int i=0; i<numMissiles; ++i) {
             enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SMASH));

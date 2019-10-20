@@ -3,7 +3,6 @@ package stsjorbsmod.powers;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.EscapeAction;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -13,7 +12,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.memories.AbstractMemory;
-import stsjorbsmod.memories.MemoryUtils;
+import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
@@ -59,7 +58,7 @@ public class FearPower extends AbstractPower {
 
                 if (remainingMonsters == 0 && !AbstractDungeon.getCurrRoom().smoked) {
                     AbstractDungeon.getCurrRoom().smoked = true; // skips rewards
-                    for (AbstractMemory clarity : MemoryUtils.getCurrentClarities(AbstractDungeon.player)) {
+                    for (AbstractMemory clarity : MemoryManager.forPlayer(AbstractDungeon.player).currentClarities()) {
                         AbstractDungeon.actionManager.addToNextCombat(new RememberSpecificMemoryAction((AbstractMemory) clarity.makeCopy()));
                     }
                 }

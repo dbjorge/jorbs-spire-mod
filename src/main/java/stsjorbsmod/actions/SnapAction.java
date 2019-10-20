@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.powers.SnappedPower;
-import stsjorbsmod.memories.MemoryUtils;
 
 
 // At the end of turn 7 deal 5 damage to all enemies and 2 damage to yourself for every clarity bonus you have. You cannot be affected by memories or clarities for the remainder of the fight.
@@ -27,7 +26,7 @@ public class SnapAction extends AbstractGameAction {
             return;
         }
 
-        int numClarities = MemoryUtils.countClarities(target);
+        int numClarities = MemoryManager.forPlayer(target).countCurrentClarities();
         int enemyDamage = ENEMY_DAMAGE_PER_CLARITY * numClarities;
         int targetDamage = PLAYER_DAMAGE_PER_CLARITY * numClarities;
 

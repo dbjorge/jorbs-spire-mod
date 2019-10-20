@@ -6,19 +6,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import java.util.ArrayList;
 
 public class MemoryUtils {
-    public static ArrayList<AbstractMemory> getCurrentClarities(AbstractCreature creature) {
-        return MemoryManager.forPlayer(creature).currentClarities();
-    }
-
-    public static int countClarities(AbstractCreature creature) {
-
-        return MemoryManager.forPlayer(creature).countCurrentClarities();
-    }
-
-    public static AbstractMemory getCurrentMemory(AbstractCreature creature) {
-        return MemoryManager.forPlayer(creature).currentMemory;
-    }
-
     public static ArrayList<String> allPossibleMemoryIDs() {
         ArrayList<String> ids = new ArrayList<>();
         for (AbstractMemory p : allPossibleMemories(null, false)) {
