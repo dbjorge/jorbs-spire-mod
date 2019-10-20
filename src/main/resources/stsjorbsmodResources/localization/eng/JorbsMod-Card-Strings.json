@@ -275,6 +275,11 @@
     "NAME": "Old Friends",
     "DESCRIPTION": "Deal !D! damage to a random enemy. Gain HP equal to unblocked damage. NL Apply !M! Poison to a random enemy. NL Retain your hand this turn."
   },
+  "stsjorbsmod:Entangle": {
+    "NAME": "Entangle",
+    "DESCRIPTION": "Apply Slow to ALL enemies. NL Remember stsjorbsmod:Patience. NL Gain stsjorbsmod:Clarity.",
+    "UPGRADE_DESCRIPTION": "Apply Slow and !M! Vulnerable to ALL enemies. NL Remember stsjorbsmod:Patience. NL Gain stsjorbsmod:Clarity."
+  },
   "stsjorbsmod:Study": {
     "NAME": "Study",
     "DESCRIPTION": "Remember stsjorbsmod:Patience. NL At the start of each turn, draw !M! extra card.",
