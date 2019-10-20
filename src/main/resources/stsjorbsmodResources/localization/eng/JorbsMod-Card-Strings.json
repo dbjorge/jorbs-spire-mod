@@ -316,5 +316,9 @@
   "stsjorbsmod:Banish": {
     "NAME": "Banish",
     "DESCRIPTION": "Enemy takes no action and no damage for !M! turns. Exhaust."
+  },
+  "stsjorbsmod:Feast": {
+    "NAME": "Feast",
+    "DESCRIPTION": "Remember stsjorbsmod:Gluttony. NL Draw !M! cards. NL Exhaust."
   }
 }
