@@ -18,6 +18,7 @@ import stsjorbsmod.powers.FragilePower;
 import java.util.function.Predicate;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 public class Determination extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Determination.class.getSimpleName());
@@ -35,6 +36,8 @@ public class Determination extends CustomJorbsModCard {
     public Determination() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = TURNS_UNTIL_SNAP;
+
+        tags.add(REMEMBER_MEMORY);
     }
 
     @Override

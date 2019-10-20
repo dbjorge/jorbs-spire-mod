@@ -13,6 +13,7 @@ import stsjorbsmod.memories.TemperanceMemory;
 import stsjorbsmod.powers.NextAttackMissesPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 public class MirrorImage extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(MirrorImage.class.getSimpleName());
@@ -33,6 +34,8 @@ public class MirrorImage extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         enqueueAction(new RememberSpecificMemoryAction(new TemperanceMemory(p, false)));
         enqueueAction(new ApplyPowerAction(p, p, new NextAttackMissesPower(p)));
+
+        tags.add(REMEMBER_MEMORY);
     }
 
     @Override

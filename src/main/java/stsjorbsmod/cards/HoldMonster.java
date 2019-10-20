@@ -16,6 +16,7 @@ import stsjorbsmod.memories.DiligenceMemory;
 import stsjorbsmod.memories.TemperanceMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 public class HoldMonster extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(HoldMonster.class.getSimpleName());
@@ -32,6 +33,8 @@ public class HoldMonster extends CustomJorbsModCard {
     public HoldMonster() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = STRENGTH_PENALTY;
+
+        tags.add(REMEMBER_MEMORY);
     }
 
     @Override

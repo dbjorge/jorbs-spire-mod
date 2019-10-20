@@ -11,6 +11,7 @@ import stsjorbsmod.memories.GreedMemory;
 import stsjorbsmod.memories.MemoryUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 public class LocateObject extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(LocateObject.class.getSimpleName());
@@ -28,6 +29,8 @@ public class LocateObject extends CustomJorbsModCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = DRAW;
         exhaust = true;
+
+        tags.add(REMEMBER_MEMORY);
     }
 
     @Override

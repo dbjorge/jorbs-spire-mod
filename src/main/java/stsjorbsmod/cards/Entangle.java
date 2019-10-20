@@ -13,6 +13,7 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.PatienceMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 public class Entangle extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Entangle.class.getSimpleName());
@@ -30,6 +31,8 @@ public class Entangle extends CustomJorbsModCard {
     public Entangle() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = VULNERABLE;
+
+        tags.add(REMEMBER_MEMORY);
     }
 
     @Override
