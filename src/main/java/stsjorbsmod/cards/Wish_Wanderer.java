@@ -34,17 +34,9 @@ public class Wish_Wanderer extends CustomJorbsModCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
     }
 
-    private static boolean isBuffOrDebuff(AbstractPower power) {
-        return !(power instanceof AbstractMemory);
-    }
-    private static boolean isBuffDebuffOrClarity(AbstractPower power) {
-        return !(power instanceof AbstractMemory && !((AbstractMemory)power).isClarified);
-    }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Predicate<AbstractPower> shouldRetainPowerPredicate = upgraded ? Wish_Wanderer::isBuffDebuffOrClarity : Wish_Wanderer::isBuffOrDebuff;
-
-        enqueueAction(new RestartCombatAction(shouldRetainPowerPredicate));
+        enqueueAction(new RestartCombatAction(upgraded));
         removeFromMasterDeck(); // the other piles will get reset as part of RestartCombatAction
     }
 

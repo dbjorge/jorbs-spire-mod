@@ -35,7 +35,7 @@ public class PatienceMemory extends AbstractMemory {
     public void onUseCard(AbstractCard card, UseCardAction action) {
         this.flash();
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(owner, source, new CoilPower(owner, source, COIL_PER_CARD)));
+                new ApplyPowerAction(owner, owner, new CoilPower(owner, owner, COIL_PER_CARD)));
     }
 
     @Override
@@ -50,8 +50,8 @@ public class PatienceMemory extends AbstractMemory {
         int enemyDamage = DAMAGE_PER_COIL_ON_LEAVE * numCoil;
 
         AbstractDungeon.actionManager.addToBottom(
-                new DamageAllEnemiesAction(source, DamageInfo.createDamageMatrix(enemyDamage, true), DamageType.THORNS, AttackEffect.FIRE));
+                new DamageAllEnemiesAction(owner, DamageInfo.createDamageMatrix(enemyDamage, true), DamageType.THORNS, AttackEffect.FIRE));
         AbstractDungeon.actionManager.addToBottom(
-                new RemoveSpecificPowerAction(owner, source, CoilPower.POWER_ID));
+                new RemoveSpecificPowerAction(owner, owner, CoilPower.POWER_ID));
     }
 }

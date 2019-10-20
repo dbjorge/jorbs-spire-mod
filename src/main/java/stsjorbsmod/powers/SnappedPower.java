@@ -17,6 +17,7 @@ import stsjorbsmod.util.TextureLoader;
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
 // Cannot be affected by memories or clarities.
+// Marker power only; MemoryManager looks for it
 public class SnappedPower extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = JorbsMod.makeID(SnappedPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -39,16 +40,6 @@ public class SnappedPower extends AbstractPower implements CloneablePowerInterfa
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
-    }
-
-    @Override
-    public void onInitialApplication() {
-        for (AbstractPower power : owner.powers) {
-            if (power instanceof AbstractMemory) {
-                // addToTop required for correct interaction with Amnesia
-                AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(owner, (AbstractCreature)null, power));
-            }
-        }
     }
 
     @Override

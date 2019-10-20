@@ -16,11 +16,12 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryUtils;
+import stsjorbsmod.memories.OnModifyMemoriesListener;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
-public class IntrospectionPower extends AbstractPower implements CloneablePowerInterface {
+public class IntrospectionPower extends AbstractPower implements CloneablePowerInterface, OnModifyMemoriesListener {
     public int loseHpAmount;
     public int baseDamage;
     public int damagePerClarity;
@@ -64,10 +65,8 @@ public class IntrospectionPower extends AbstractPower implements CloneablePowerI
     }
 
     @Override
-    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if(power instanceof AbstractMemory) {
-            updateDescription();
-        }
+    public void onModifyMemories() {
+        updateDescription();
     }
 
     @Override

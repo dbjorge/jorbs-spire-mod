@@ -43,12 +43,12 @@ public class KindnessMemory extends AbstractMemory {
         }
 
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(owner, source, new EnvenomPower(owner, ENVENOM_MAGNITUDE), ENVENOM_MAGNITUDE));
+                new ApplyPowerAction(owner, owner, new EnvenomPower(owner, ENVENOM_MAGNITUDE), ENVENOM_MAGNITUDE));
     }
 
     @Override
     public void onForget() {
         AbstractDungeon.actionManager.addToBottom(
-                new ReducePowerAction(owner, source, EnvenomPower.POWER_ID, ENVENOM_MAGNITUDE));
+                new ReducePowerAction(owner, owner, EnvenomPower.POWER_ID, ENVENOM_MAGNITUDE));
     }
 }

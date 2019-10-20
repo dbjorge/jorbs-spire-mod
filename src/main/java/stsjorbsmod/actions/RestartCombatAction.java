@@ -15,31 +15,32 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.combat.BattleStartEffect;
+import stsjorbsmod.memories.AbstractMemory;
+import stsjorbsmod.memories.MemoryManager;
 
 import java.util.ArrayList;
 import java.util.function.Predicate;
 
 public class RestartCombatAction extends AbstractGameAction {
-    private Predicate<AbstractPower> shouldRetainPowerPredicate;
+    private final boolean shouldRetainClarities;
 
-    public RestartCombatAction(Predicate<AbstractPower> shouldRetainPowerPredicate) {
-        this.shouldRetainPowerPredicate = shouldRetainPowerPredicate;
+    public RestartCombatAction(boolean shouldRetainClarities) {
+        this.shouldRetainClarities = shouldRetainClarities;
     }
 
     @Override
     public void update() {
-        ArrayList<AbstractPower> retainedPowers = new ArrayList<>();
+        MemoryManager memoryManager = MemoryManager.forPlayer(AbstractDungeon.player);
+        ArrayList<AbstractMemory> retainedClarities = new ArrayList<>();
 
-        for (AbstractPower p : AbstractDungeon.player.powers) {
-            if (shouldRetainPowerPredicate.test(p)) {
-                retainedPowers.add(p);
-            }
+        if (shouldRetainClarities) {
+            retainedClarities = memoryManager.currentClarities();
         }
 
         restartCombat();
 
-        for (AbstractPower p : retainedPowers) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p.owner, AbstractDungeon.player, p));
+        for (AbstractMemory clarity : retainedClarities) {
+            AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(clarity));
         }
 
         isDone = true;
@@ -65,6 +66,7 @@ public class RestartCombatAction extends AbstractGameAction {
         AbstractDungeon.player.hideHealthBar();
         AbstractDungeon.player.hand.clear();
         AbstractDungeon.player.powers.clear();
+        MemoryManager.forPlayer(AbstractDungeon.player).clear();
         AbstractDungeon.player.drawPile.clear();
         AbstractDungeon.player.discardPile.clear();
         AbstractDungeon.player.exhaustPile.clear();

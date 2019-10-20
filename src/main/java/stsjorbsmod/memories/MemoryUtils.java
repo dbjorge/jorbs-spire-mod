@@ -1,60 +1,33 @@
 package stsjorbsmod.memories;
 
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import stsjorbsmod.memories.*;
 
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 public class MemoryUtils {
     public static ArrayList<AbstractMemory> getCurrentClarities(AbstractCreature creature) {
-        ArrayList<AbstractMemory> retVal = new ArrayList<>();
-
-        for (AbstractPower power : creature.powers) {
-            if (power instanceof AbstractMemory) {
-                AbstractMemory memory = (AbstractMemory) power;
-                if (memory.isClarified) { retVal.add(memory); }
-            }
-        }
-
-        return retVal;
+        return MemoryManager.forPlayer(creature).currentClarities();
     }
 
     public static int countClarities(AbstractCreature creature) {
-        return getCurrentClarities(creature).size();
+
+        return MemoryManager.forPlayer(creature).countCurrentClarities();
     }
 
     public static AbstractMemory getCurrentMemory(AbstractCreature creature) {
-        for (AbstractPower power : creature.powers) {
-            if (power instanceof AbstractMemory) {
-                AbstractMemory memory = (AbstractMemory) power;
-                if (!memory.isClarified) { return memory; }
-            }
-        }
-        return null;
-    }
-
-    public static ArrayList<String> allActiveMemoryIDs(AbstractCreature creature) {
-        ArrayList<String> ids = new ArrayList<>();
-        for (AbstractPower p : creature.powers) {
-            if (p instanceof AbstractMemory) {
-                ids.add(p.ID);
-            }
-        }
-        return ids;
+        return MemoryManager.forPlayer(creature).currentMemory;
     }
 
     public static ArrayList<String> allPossibleMemoryIDs() {
         ArrayList<String> ids = new ArrayList<>();
-        for (AbstractMemory p : allPossibleMemorys(null, false)) {
+        for (AbstractMemory p : allPossibleMemories(null, false)) {
             ids.add(p.ID);
         }
         return ids;
     }
 
-    public static ArrayList<AbstractMemory> allPossibleMemorys(AbstractCreature target, boolean isClarified) {
+    public static ArrayList<AbstractMemory> allPossibleMemories(AbstractCreature target, boolean isClarified) {
         ArrayList<AbstractMemory> powers = new ArrayList<>();
 
         powers.add(new CharityMemory(target, isClarified));
@@ -76,7 +49,7 @@ public class MemoryUtils {
     }
 
     public static AbstractMemory newMemoryByID(String id, AbstractCreature target, boolean isClarified) {
-        for (AbstractMemory memory : allPossibleMemorys(target, isClarified)) {
+        for (AbstractMemory memory : allPossibleMemories(target, isClarified)) {
             if (memory.ID.equals(id)) {
                 return memory;
             }

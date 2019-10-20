@@ -18,7 +18,7 @@ public class RememberRandomNewMemoryAction extends AbstractGameAction  {
     }
 
     public void update() {
-        ArrayList<AbstractMemory> candidates = MemoryUtils.allPossibleMemorys(target, isClarified);
+        ArrayList<AbstractMemory> candidates = MemoryUtils.allPossibleMemories(target, isClarified);
 
         candidates.removeIf(memory -> target.hasPower(memory.ID));
 

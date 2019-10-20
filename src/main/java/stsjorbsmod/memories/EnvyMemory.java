@@ -31,7 +31,7 @@ public class EnvyMemory extends AbstractMemory {
     @Override
     public void onRemember() {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(owner, source, new VulnerablePower(owner, VULNERABLE_ON_REMEMBER, false), VULNERABLE_ON_REMEMBER));
+                new ApplyPowerAction(owner, owner, new VulnerablePower(owner, VULNERABLE_ON_REMEMBER, false), VULNERABLE_ON_REMEMBER));
     }
 
     @Override

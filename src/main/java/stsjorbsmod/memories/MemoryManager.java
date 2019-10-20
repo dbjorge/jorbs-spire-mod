@@ -4,19 +4,18 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.TipHelper;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.powers.SnappedPower;
 
 import java.util.ArrayList;
 
-// For now, this exists side-by-side with the memories/clarities also being tracked like Powers, and is primarily
-// handling rendering the icons on the sides/top rather than the power bar.
-//
-// The intention is for this class to eventually *replace* AbstractCreature.powers as the source of truth, and for
-// memories/clarities to not live in the powers list at all. We'll need to hook up the necessary power on* hooks to
-// also go through here before we can make that change, though.
+// If a memory and a clarity of the same type are active at the same type, the *clarity* owns maintaining the passive
+// effect, and the memory only contributes onRemember/onForget effects.
 public class MemoryManager {
     private static final float MEMORY_HB_WIDTH = 64F * Settings.scale;
     private static final float MEMORY_HB_HEIGHT = 64F * Settings.scale;
@@ -35,14 +34,16 @@ public class MemoryManager {
     private final Hitbox sinClarityStackHb;
     private final Hitbox virtueClarityStackHb;
     private final Hitbox currentMemoryHb;
+    private final Wanderer owner;
 
-    private AbstractMemory currentMemory;
+    public AbstractMemory currentMemory;
 
     // We maintain these separately because rendering needs them separated and that's the hot path.
     private final ArrayList<AbstractMemory> sinClarities = new ArrayList<>();
     private final ArrayList<AbstractMemory> virtueClarities = new ArrayList<>();
 
-    public MemoryManager(float drawX, float drawY, float currentMemoryOffsetY, float clarityOffsetY, float sinOffsetX, float virtueOffsetX) {
+    public MemoryManager(Wanderer owner, float drawX, float drawY, float currentMemoryOffsetY, float clarityOffsetY, float sinOffsetX, float virtueOffsetX) {
+        this.owner = owner;
         this.drawX = drawX;
         this.drawY = drawY;
         this.currentMemoryOffsetY = currentMemoryOffsetY;
@@ -74,30 +75,148 @@ public class MemoryManager {
     }
 
     public void rememberMemory(AbstractMemory memoryToRemember) {
+        if (isSnapped()) {
+            flashSnap();
+            return;
+        }
+
         if (memoryToRemember.isClarified) {
-            addClarity(memoryToRemember);
+            gainClarity(memoryToRemember);
+        } else if (currentMemory != null && currentMemory.ID.equals(memoryToRemember.ID)) {
+            currentMemory.flashWithoutSound();
         } else {
+            forgetCurrentMemoryNoNotify();
+
             this.currentMemory = memoryToRemember;
+
+            this.currentMemory.onRemember();
+            if (!hasClarity(currentMemory.ID)) {
+                this.currentMemory.onGainPassiveEffect();
+            }
+
+            this.currentMemory.flash();
+            notifyModifyMemories();
+        }
+
+    }
+
+    public void forgetCurrentMemory() {
+        forgetCurrentMemoryNoNotify();
+        notifyModifyMemories();
+    }
+
+    private void forgetCurrentMemoryNoNotify() {
+        if (this.currentMemory != null) {
+            if (!this.hasClarity(currentMemory.ID)) {
+                this.currentMemory.onLosePassiveEffect();
+            }
+            this.currentMemory.onForget();
         }
     }
 
     public void gainClarityOfCurrentMemory() {
-        addClarity(currentMemory);
-        currentMemory = null;
+        gainClarity(currentMemory);
     }
 
-    public void snap() {
+    public void gainClarity(AbstractMemory newClarity) {
+        if (isSnapped()) {
+            flashSnap();
+            return;
+        }
+
+        if (hasClarity(newClarity.ID)) {
+            getClarity(newClarity.ID).flashWithoutSound();
+        }
+
+        boolean passiveAlreadyActive = currentMemory.ID.equals(newClarity.ID);
+        if (passiveAlreadyActive) {
+            // The current memory's passive effect will already be active, but we want to transition ownership of the
+            // passive effect to the new clarity so it isn't lost if the memory is forgotten later.
+            //
+            // Since the memories might be maintaining state related to the passive effect, we're going to upgrade the
+            // existing memory to act as the real new clarity, and downgrade the clarity to act as a replacement memory.
+            //
+            // There's nothing technically stopping remember + forget from also sharing state like this, but it doesn't
+            // happen in practice so we ignore that issue here.
+            currentMemory.isClarified = true;
+            currentMemory.updateDescription();
+            newClarity.isClarified = false;
+            newClarity.updateDescription();
+
+            AbstractMemory tmp = newClarity;
+            newClarity = currentMemory;
+            currentMemory = tmp;
+        }
+
+        if (newClarity.memoryType == MemoryType.SIN) {
+            sinClarities.add(newClarity);
+        } else {
+            virtueClarities.add(newClarity);
+        }
+
+        if (!passiveAlreadyActive) {
+            newClarity.onGainPassiveEffect();
+        }
+
+        newClarity.flash();
+        notifyModifyMemories();
+    }
+
+    public boolean hasClarity(String id) {
+        return getClarity(id) != null;
+    }
+
+    public AbstractMemory getClarity(String id) {
+        for (AbstractMemory c : sinClarities) {
+            if (c.ID.equals(id)) { return c; }
+        }
+        for (AbstractMemory c : virtueClarities) {
+            if (c.ID.equals(id)) { return c; }
+        }
+        return null;
+    }
+
+    // TODO: call this at end/start of combat
+    public void clear() {
         this.currentMemory = null;
         this.sinClarities.clear();
         this.virtueClarities.clear();
     }
 
-    public void addClarity(AbstractMemory m) {
-        if (m.memoryType == MemoryType.SIN) {
-            sinClarities.add(m);
-        } else {
-            virtueClarities.add(m);
+    public void snap() {
+        forgetCurrentMemoryNoNotify();
+
+        for (AbstractMemory clarity : this.sinClarities) {
+            clarity.onLosePassiveEffect();
         }
+        this.sinClarities.clear();
+        for (AbstractMemory clarity : this.virtueClarities) {
+            clarity.onLosePassiveEffect();
+        }
+        this.virtueClarities.clear();
+
+        notifyModifyMemories();
+    }
+
+
+    public void flashSnap() {
+        AbstractPower snapPower = owner.getPower(SnappedPower.POWER_ID);
+        if (snapPower != null) {
+            snapPower.flash();
+        }
+    }
+
+    public boolean isSnapped() { 
+        return owner.hasPower(SnappedPower.POWER_ID);
+    }
+    
+    public void notifyModifyMemories() {
+        for (AbstractPower p : owner.powers) {
+            if (p instanceof OnModifyMemoriesListener) {
+                ((OnModifyMemoriesListener)p).onModifyMemories();
+            }
+        }
+        AbstractDungeon.onModifyPower();
     }
 
     public int countCurrentClarities() {
@@ -128,7 +247,7 @@ public class MemoryManager {
 
     private void renderCurrentMemory(SpriteBatch sb) {
         // the position args are for the center point
-        currentMemory.renderIcons(sb, this.drawX, this.drawY + currentMemoryOffsetY, ICON_COLOR);
+        currentMemory.renderIcon(sb, this.drawX, this.drawY + currentMemoryOffsetY, ICON_COLOR);
 
         ArrayList<AbstractMemory> memories = new ArrayList<>();
         memories.add(currentMemory);
@@ -141,7 +260,7 @@ public class MemoryManager {
             yOffset += CLARITY_PADDING_Y;
 
             // the position args are for the center point
-            clarity.renderIcons(sb, hb.cX, hb.y + yOffset, ICON_COLOR);
+            clarity.renderIcon(sb, hb.cX, hb.y + yOffset, ICON_COLOR);
         }
 
         renderHitboxTips(sb, clarities, hb);

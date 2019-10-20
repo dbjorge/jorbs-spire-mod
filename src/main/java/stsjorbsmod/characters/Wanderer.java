@@ -18,19 +18,18 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.*;
-import stsjorbsmod.memories.AbstractMemory;
-import stsjorbsmod.memories.MemoryManager;
-import stsjorbsmod.memories.MemoryType;
-import stsjorbsmod.memories.MemoryUtils;
+import stsjorbsmod.memories.*;
 import stsjorbsmod.relics.FragileMindRelic;
 import stsjorbsmod.relics.WandererStarterRelic;
 
 import java.util.ArrayList;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import static stsjorbsmod.JorbsMod.*;
@@ -125,7 +124,7 @@ public class Wanderer extends CustomPlayer {
         final float CLARITY_OFFSET_Y = -10.0F * Settings.scale;
         final float SIN_OFFSET_X = -200.0F * Settings.scale;
         final float VIRTUE_OFFSET_X = 160.0F * Settings.scale;
-        this.memories = new MemoryManager(drawX, drawY, MEMORY_OFFSET_Y, CLARITY_OFFSET_Y, SIN_OFFSET_X, VIRTUE_OFFSET_X);
+        this.memories = new MemoryManager(this, drawX, drawY, MEMORY_OFFSET_Y, CLARITY_OFFSET_Y, SIN_OFFSET_X, VIRTUE_OFFSET_X);
 
         // =============== /TEXTURES, ENERGY, LOADOUT/ =================
 

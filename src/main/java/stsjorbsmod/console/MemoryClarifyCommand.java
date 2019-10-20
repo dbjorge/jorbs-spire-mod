@@ -26,7 +26,7 @@ public class MemoryClarifyCommand extends ConsoleCommand {
             DevConsole.log("Clarifying currently-remembered memory (like Eye of the Storm)");
             AbstractDungeon.actionManager.addToBottom(new GainMemoryClarityAction(AbstractDungeon.player));
         } else if (optionalId.equals("all")) {
-            for (AbstractMemory memory : MemoryUtils.allPossibleMemorys(AbstractDungeon.player, true)) {
+            for (AbstractMemory memory : MemoryUtils.allPossibleMemories(AbstractDungeon.player, true)) {
                 AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(memory));
             }
         } else {

@@ -42,6 +42,6 @@ public class LustMemory extends AbstractMemory {
     public void onForget() {
         this.flash();
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(owner, source, new WeakPower(owner, WEAK_ON_FORGET, false)));
+                new ApplyPowerAction(owner, owner, new WeakPower(owner, WEAK_ON_FORGET, false)));
     }
 }
