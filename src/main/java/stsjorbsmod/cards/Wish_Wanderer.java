@@ -1,8 +1,11 @@
 package stsjorbsmod.cards;
 
+import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
@@ -29,7 +32,6 @@ public class Wish_Wanderer extends CustomJorbsModCard {
 
     public Wish_Wanderer() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.purgeOnUse = true; // this is what StSLib calls the "destroy on use" effect
     }
 
     private static boolean isBuffOrDebuff(AbstractPower power) {
@@ -43,6 +45,14 @@ public class Wish_Wanderer extends CustomJorbsModCard {
         Predicate<AbstractPower> shouldRetainPowerPredicate = upgraded ? Wish_Wanderer::isBuffDebuffOrClarity : Wish_Wanderer::isBuffOrDebuff;
 
         enqueueAction(new RestartCombatAction(shouldRetainPowerPredicate));
+        removeFromMasterDeck(); // the other piles will get reset as part of RestartCombatAction
+    }
+
+    private void removeFromMasterDeck() {
+        final AbstractCard masterDeckCard = StSLib.getMasterDeckEquivalent(this);
+        if (masterDeckCard != null) {
+            AbstractDungeon.player.masterDeck.removeCard(masterDeckCard);
+        }
     }
 
     @Override

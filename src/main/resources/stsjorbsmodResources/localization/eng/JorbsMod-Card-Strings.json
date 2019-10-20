@@ -291,8 +291,8 @@
   },
   "stsjorbsmod:Wish_Wanderer": {
     "NAME": "Wish",
-    "DESCRIPTION": "Restart the combat retaining all buffs and debuffs. NL Purge.",
-    "UPGRADE_DESCRIPTION": "Restart the combat retaining all buffs, debuffs, and clarities. NL Purge."
+    "DESCRIPTION": "Restart the combat retaining all buffs and debuffs. NL Destroy this card.",
+    "UPGRADE_DESCRIPTION": "Restart the combat retaining all buffs, debuffs, and clarities. NL Destroy this card."
   },
   "stsjorbsmod:Study": {
     "NAME": "Study",
