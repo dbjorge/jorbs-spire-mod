@@ -44,7 +44,6 @@ public class Feast extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_DRAW);
-            //initializeDescription();
         }
     }
 }
