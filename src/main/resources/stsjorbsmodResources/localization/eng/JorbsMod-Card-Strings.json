@@ -303,6 +303,11 @@
     "NAME": "Arcane Form",
     "DESCRIPTION": "Gain stsjorbsmod:Clarity of stsjorbsmod:Wrath, stsjorbsmod:Lust, stsjorbsmod:Diligence, stsjorbsmod:Kindness, and stsjorbsmod:Chastity."
   },
+  "stsjorbsmod:FocusOnThePain": {
+    "NAME": "Focus on the Pain",
+    "DESCRIPTION": "Whenever you lose HP, gain stsjorbsmod:Clarity.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you lose HP, gain stsjorbsmod:Clarity."
+  },
   "stsjorbsmod:Study": {
     "NAME": "Study",
     "DESCRIPTION": "Remember stsjorbsmod:Patience. NL At the start of each turn, draw !M! extra card.",

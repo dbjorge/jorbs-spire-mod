@@ -43,6 +43,12 @@
       "At the end of each turn, gain Clarity."
     ]
   },
+  "stsjorbsmod:FocusOnThePainPower": {
+    "NAME": "Focus on the Pain",
+    "DESCRIPTIONS": [
+      "Whenever you lose HP, gain Clarity."
+    ]
+  },
   "stsjorbsmod:FragilePower": {
     "NAME": "Fragile",
     "DESCRIPTIONS": [

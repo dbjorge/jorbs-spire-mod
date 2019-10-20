@@ -3,6 +3,9 @@ package stsjorbsmod.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -14,16 +17,16 @@ import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
-public class FindFamiliarPower extends AbstractPower implements CloneablePowerInterface {
-    public static final String POWER_ID = JorbsMod.makeID(FindFamiliarPower.class.getSimpleName());
+public class FocusOnThePainPower extends AbstractPower implements CloneablePowerInterface {
+    public static final String POWER_ID = JorbsMod.makeID(FocusOnThePainPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("find_familiar_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("find_familiar_power32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("focus_on_the_pain_power84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("focus_on_the_pain_power32.png"));
 
-    public FindFamiliarPower(final AbstractCreature owner) {
+    public FocusOnThePainPower(final AbstractCreature owner) {
         ID = POWER_ID;
         this.name = NAME;
 
@@ -36,10 +39,9 @@ public class FindFamiliarPower extends AbstractPower implements CloneablePowerIn
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer) {
-        if (isPlayer) {
-            AbstractDungeon.actionManager.addToBottom(new GainMemoryClarityAction(owner));
-        }
+    public int onLoseHp(int damageAmount) {
+        AbstractDungeon.actionManager.addToBottom(new GainMemoryClarityAction(owner));
+        return damageAmount;
     }
 
     @Override
@@ -49,6 +51,7 @@ public class FindFamiliarPower extends AbstractPower implements CloneablePowerIn
 
     @Override
     public AbstractPower makeCopy() {
-        return new FindFamiliarPower(owner);
+        return new FocusOnThePainPower(owner);
     }
 }
+
