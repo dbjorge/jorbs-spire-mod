@@ -299,6 +299,10 @@
     "DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of this turn, stsjorbsmod:Snap.",
     "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of next turn, stsjorbsmod:Snap."
   },
+  "stsjorbsmod:ArcaneForm": {
+    "NAME": "Arcane Form",
+    "DESCRIPTION": "Gain stsjorbsmod:Clarity of stsjorbsmod:Wrath, stsjorbsmod:Lust, stsjorbsmod:Diligence, stsjorbsmod:Kindness, and stsjorbsmod:Chastity."
+  },
   "stsjorbsmod:Study": {
     "NAME": "Study",
     "DESCRIPTION": "Remember stsjorbsmod:Patience. NL At the start of each turn, draw !M! extra card.",
