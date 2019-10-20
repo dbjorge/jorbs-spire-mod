@@ -77,10 +77,7 @@ public class MemoryManager {
     public void rememberMemory(AbstractMemory memoryToRemember) {
         if (isSnapped()) {
             flashSnap();
-            return;
-        }
-
-        if (memoryToRemember.isClarified) {
+        } else if (memoryToRemember.isClarified) {
             gainClarity(memoryToRemember);
         } else if (currentMemory != null && currentMemory.ID.equals(memoryToRemember.ID)) {
             currentMemory.flashWithoutSound();
@@ -97,7 +94,6 @@ public class MemoryManager {
             this.currentMemory.flash();
             notifyModifyMemories();
         }
-
     }
 
     public void forgetCurrentMemory() {
@@ -115,7 +111,7 @@ public class MemoryManager {
     }
 
     public void gainClarityOfCurrentMemory() {
-        gainClarity(currentMemory);
+        gainClarity(currentMemory.makeCopy());
     }
 
     public void gainClarity(AbstractMemory newClarity) {
@@ -126,6 +122,7 @@ public class MemoryManager {
 
         if (hasClarity(newClarity.ID)) {
             getClarity(newClarity.ID).flashWithoutSound();
+            return;
         }
 
         boolean passiveAlreadyActive = currentMemory.ID.equals(newClarity.ID);
@@ -247,7 +244,7 @@ public class MemoryManager {
 
     private void renderCurrentMemory(SpriteBatch sb) {
         // the position args are for the center point
-        currentMemory.renderIcon(sb, this.drawX, this.drawY + currentMemoryOffsetY, ICON_COLOR);
+        currentMemory.render(sb, this.drawX, this.drawY + currentMemoryOffsetY, ICON_COLOR);
 
         ArrayList<AbstractMemory> memories = new ArrayList<>();
         memories.add(currentMemory);
@@ -260,7 +257,7 @@ public class MemoryManager {
             yOffset += CLARITY_PADDING_Y;
 
             // the position args are for the center point
-            clarity.renderIcon(sb, hb.cX, hb.y + yOffset, ICON_COLOR);
+            clarity.render(sb, hb.cX, hb.y + yOffset, ICON_COLOR);
         }
 
         renderHitboxTips(sb, clarities, hb);

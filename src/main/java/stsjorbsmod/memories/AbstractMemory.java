@@ -9,11 +9,20 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
+import com.megacrit.cardcrawl.vfx.combat.GainPowerEffect;
+import com.megacrit.cardcrawl.vfx.combat.SilentGainPowerEffect;
 import stsjorbsmod.JorbsMod;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 // In addition to the abstract methods, memories are expected to implement a constructor of form
@@ -38,6 +47,7 @@ public abstract class AbstractMemory {
 
     public TextureAtlas.AtlasRegion region128;
     public TextureAtlas.AtlasRegion region48;
+    private ArrayList<AbstractGameEffect> renderEffects = new ArrayList<>();
 
     private Class<? extends AbstractMemory> leafClass;
 
@@ -77,10 +87,45 @@ public abstract class AbstractMemory {
     public void onAttack(DamageInfo damageInfo, int damage, AbstractCreature target) { }
     public void onVictory() { }
 
-    // TODO
-    public void flash() {}
-    public void flashWithoutSound() {}
-    public void renderIcon(SpriteBatch sb, float centerX, float centerY, Color color) {}
+    private AbstractPower makeFakePowerForEffects() {
+        AbstractPower p = new AbstractPower() {};
+        p.region48 = this.region48;
+        p.region128 = this.region128;
+        p.owner = this.owner;
+        return p;
+    }
+
+    public void flash() {
+        AbstractPower p = makeFakePowerForEffects();
+        this.renderEffects.add(new GainPowerEffect(p));
+        AbstractDungeon.effectList.add(new FlashPowerEffect(p));
+    }
+
+    public void flashWithoutSound() {
+        AbstractPower p = makeFakePowerForEffects();
+        this.renderEffects.add(new SilentGainPowerEffect(p));
+        AbstractDungeon.effectList.add(new FlashPowerEffect(p));
+    }
+
+    public void render(SpriteBatch sb, float x, float y, Color color) {
+        sb.setColor(color);
+        sb.draw(this.region48, x - (float)this.region48.packedWidth / 2.0F, y - (float)this.region48.packedHeight / 2.0F, (float)this.region48.packedWidth / 2.0F, (float)this.region48.packedHeight / 2.0F, (float)this.region48.packedWidth, (float)this.region48.packedHeight, Settings.scale, Settings.scale, 0.0F);
+
+        for (AbstractGameEffect effect : renderEffects) {
+            effect.render(sb, x, y);
+        }
+    }
+
+    public void update() {
+        Iterator i = this.renderEffects.iterator();
+        while(i.hasNext()) {
+            AbstractGameEffect e = (AbstractGameEffect)i.next();
+            e.update();
+            if (e.isDone) {
+                i.remove();
+            }
+        }
+    }
 
     protected final void setDescriptionPlaceholder(String placeholder /* eg, !M! */, Object value) {
         descriptionPlaceholders.put(placeholder, value.toString());
