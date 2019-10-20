@@ -28,14 +28,14 @@ public class MirrorImage extends CustomJorbsModCard {
 
     public MirrorImage() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+
+        tags.add(REMEMBER_MEMORY);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         enqueueAction(new RememberSpecificMemoryAction(new TemperanceMemory(p, false)));
         enqueueAction(new ApplyPowerAction(p, p, new NextAttackMissesPower(p)));
-
-        tags.add(REMEMBER_MEMORY);
     }
 
     @Override
