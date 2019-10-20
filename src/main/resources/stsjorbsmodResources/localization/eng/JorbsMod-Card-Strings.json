@@ -267,6 +267,10 @@
     "DESCRIPTION": "Remember stsjorbsmod:Temperance. NL The next enemy attack misses.",
     "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Temperance. NL The next enemy attack misses. NL Retain."
   },
+  "stsjorbsmod:CorrodingBarrier": {
+    "NAME": "Corroding Barrier",
+    "DESCRIPTION": "Gain !B! Block. Gains !M! less Block this combat each time it is drawn. Lose 2 life when drawn if stsjorbsmod:Snapped."
+  },
   "stsjorbsmod:Study": {
     "NAME": "Study",
     "DESCRIPTION": "Remember stsjorbsmod:Patience. NL At the start of each turn, draw !M! extra card.",
