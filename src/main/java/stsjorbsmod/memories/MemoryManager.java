@@ -13,6 +13,7 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.SnappedPower;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 // If a memory and a clarity of the same type are active at the same type, the *clarity* owns maintaining the passive
 // effect, and the memory only contributes onRemember/onForget effects.
@@ -147,8 +148,10 @@ public class MemoryManager {
 
         if (newClarity.memoryType == MemoryType.SIN) {
             sinClarities.add(newClarity);
+            sinClarities.sort(Comparator.comparing(m -> m.ID));
         } else {
             virtueClarities.add(newClarity);
+            virtueClarities.sort(Comparator.comparing(m -> m.ID));
         }
 
         if (!passiveAlreadyActive) {
