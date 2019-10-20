@@ -284,4 +284,12 @@ public class MemoryManager {
             TipHelper.queuePowerTips(hb.cX, tipY, tips);
         }
     }
+
+    public ArrayList<AbstractMemory> currentMemories() {
+        ArrayList<AbstractMemory> retVal = currentClarities();
+        if (currentMemory != null) {
+            retVal.add(currentMemory);
+        }
+        return retVal;
+    }
 }

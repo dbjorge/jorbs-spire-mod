@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -19,6 +20,7 @@ import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
 import com.megacrit.cardcrawl.vfx.combat.GainPowerEffect;
 import com.megacrit.cardcrawl.vfx.combat.SilentGainPowerEffect;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.powers.IOnModifyGoldListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,7 +29,7 @@ import java.util.Map;
 
 // In addition to the abstract methods, memories are expected to implement a constructor of form
 //     new SpecificMemory(AbstractCreature owner, boolean isClarified)
-public abstract class AbstractMemory {
+public abstract class AbstractMemory implements IOnModifyGoldListener {
     private static final String UI_ID = JorbsMod.makeID(AbstractMemory.class.getSimpleName());
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(UI_ID);
     public static final String[] TEXT = uiStrings.TEXT;
@@ -79,7 +81,7 @@ public abstract class AbstractMemory {
     public void onForget() {}
 
     // These are the specific subset of power hooks required by Memory implementations
-    public void onGoldModified() {}
+    @Override public void onModifyGold(AbstractPlayer p) {}
     public void atEndOfTurn(boolean isPlayer) {}
     public float atDamageGive(float originalDamage, DamageType type) { return originalDamage; }
     public void onPlayCard(AbstractCard card, AbstractMonster monster) { }

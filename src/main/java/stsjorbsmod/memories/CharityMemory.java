@@ -4,9 +4,9 @@ import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import stsjorbsmod.powers.IGoldListenerPower;
+import stsjorbsmod.powers.IOnModifyGoldListener;
 
-public class CharityMemory extends AbstractMemory implements IGoldListenerPower {
+public class CharityMemory extends AbstractMemory {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(CharityMemory.class);
 
     private static final int STRENGTH_PER_GOLD_THRESHOLD = 1;
@@ -30,7 +30,7 @@ public class CharityMemory extends AbstractMemory implements IGoldListenerPower 
     }
 
     @Override
-    public void onGoldModified(AbstractPlayer player) {
+    public void onModifyGold(AbstractPlayer player) {
         setDescriptionPlaceholder("!S!", calculateBonusDamage());
         flashWithoutSound();
     }

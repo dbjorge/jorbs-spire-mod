@@ -2,6 +2,6 @@ package stsjorbsmod.powers;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 
-public interface IGoldListenerPower {
-    void onGoldModified(AbstractPlayer player);
+public interface IOnModifyGoldListener {
+    void onModifyGold(AbstractPlayer player);
 }
