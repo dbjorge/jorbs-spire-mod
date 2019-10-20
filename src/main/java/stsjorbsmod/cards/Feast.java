@@ -29,14 +29,14 @@ public class Feast extends CustomJorbsModCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = DRAW;
         exhaust = true;
+
+        tags.add(REMEMBER_MEMORY);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         enqueueAction(new RememberSpecificMemoryAction(new GluttonyMemory(p, false)));
         enqueueAction(new DrawCardAction(p, magicNumber, false));
-
-        tags.add(REMEMBER_MEMORY);
     }
 
     @Override
