@@ -43,6 +43,14 @@
       "At the end of each turn, gain Clarity."
     ]
   },
+  "stsjorbsmod:FragilePower": {
+    "NAME": "Fragile",
+    "DESCRIPTIONS": [
+      "At the end of this turn, Snap.",
+      "In ",
+      " turns, Snap."
+    ]
+  },
   "stsjorbsmod:IntrospectionPower": {
     "NAME": "Introspection",
     "DESCRIPTIONS": [
