@@ -44,7 +44,8 @@ public class SnappedPower extends AbstractPower implements CloneablePowerInterfa
     public void onInitialApplication() {
         for (AbstractPower power : owner.powers) {
             if (power instanceof AbstractMemory) {
-                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(owner, (AbstractCreature)null, power));
+                // addToTop required for correct interaction with Amnesia
+                AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(owner, (AbstractCreature)null, power));
             }
         }
     }
