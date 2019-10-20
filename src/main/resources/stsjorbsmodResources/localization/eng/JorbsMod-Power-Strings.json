@@ -28,6 +28,15 @@
       " additional [E] next turn."
     ]
   },
+  "stsjorbsmod:FearPower": {
+    "NAME": "Afraid",
+    "DESCRIPTIONS": [
+      "Will escape in #b",
+      " turn.",
+      " turns.",
+      " If this ends the fight, keep Clarities for next fight."
+    ]
+  },
   "stsjorbsmod:FindFamiliarPower": {
     "NAME": "Find Familiar",
     "DESCRIPTIONS": [

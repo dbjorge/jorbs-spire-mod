@@ -26,7 +26,6 @@ public class SnapAction extends AbstractGameAction {
             return;
         }
 
-        AbstractDungeon.getCurrRoom()
         int numClarities = MemoryUtils.countClarities(target);
         int enemyDamage = ENEMY_DAMAGE_PER_CLARITY * numClarities;
         int targetDamage = PLAYER_DAMAGE_PER_CLARITY * numClarities;

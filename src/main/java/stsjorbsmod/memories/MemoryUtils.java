@@ -1,5 +1,6 @@
 package stsjorbsmod.memories;
 
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.memories.*;
@@ -7,17 +8,21 @@ import stsjorbsmod.memories.*;
 import java.util.ArrayList;
 
 public class MemoryUtils {
-    public static int countClarities(AbstractCreature creature) {
-        int count = 0;
+    public static ArrayList<AbstractMemory> getCurrentClarities(AbstractCreature creature) {
+        ArrayList<AbstractMemory> retVal = new ArrayList<>();
 
         for (AbstractPower power : creature.powers) {
             if (power instanceof AbstractMemory) {
                 AbstractMemory memory = (AbstractMemory) power;
-                if (memory.isClarified) { ++count; }
+                if (memory.isClarified) { retVal.add(memory); }
             }
         }
 
-        return count;
+        return retVal;
+    }
+
+    public static int countClarities(AbstractCreature creature) {
+        return getCurrentClarities(creature).size();
     }
 
     public static AbstractMemory getCurrentMemory(AbstractCreature creature) {

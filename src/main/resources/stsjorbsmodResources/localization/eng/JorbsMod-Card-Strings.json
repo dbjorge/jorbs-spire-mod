@@ -285,6 +285,10 @@
     "DESCRIPTION": "Remove all buffs and debuffs from self. NL stsjorbsmod:Snap.",
     "UPGRADE_DESCRIPTION": "Remove all debuffs from self. NL stsjorbsmod:Snap."
   },
+  "stsjorbsmod:Fear": {
+    "NAME": "Fear",
+    "DESCRIPTION": "Target enemy will flee in !M! turns. If this ends combat, you gain no rewards but keep Clarities for the next combat."
+  },
   "stsjorbsmod:Study": {
     "NAME": "Study",
     "DESCRIPTION": "Remember stsjorbsmod:Patience. NL At the start of each turn, draw !M! extra card.",
