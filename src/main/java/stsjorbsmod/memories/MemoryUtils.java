@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.memories.*;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class MemoryUtils {
     public static ArrayList<AbstractMemory> getCurrentClarities(AbstractCreature creature) {

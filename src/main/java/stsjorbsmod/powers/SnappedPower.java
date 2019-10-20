@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.memories.AbstractMemory;
+import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
@@ -46,6 +47,7 @@ public class SnappedPower extends AbstractPower implements CloneablePowerInterfa
             if (power instanceof AbstractMemory) {
                 // addToTop required for correct interaction with Amnesia
                 AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(owner, (AbstractCreature)null, power));
+                MemoryManager.forPlayer(owner).snap();
             }
         }
     }

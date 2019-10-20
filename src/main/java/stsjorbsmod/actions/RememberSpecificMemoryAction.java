@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.memories.AbstractMemory;
+import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.powers.SnappedPower;
 
 
@@ -50,6 +51,8 @@ public class RememberSpecificMemoryAction extends AbstractGameAction  {
         if (!memoryToRemember.isClarified) {
             removeOtherMemories();
         }
+
+        MemoryManager.forPlayer(target).rememberMemory(memoryToRemember);
 
         isDone = true;
     }
