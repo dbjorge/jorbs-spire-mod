@@ -80,6 +80,6 @@ public class MemoryUtils {
                 return memory;
             }
         }
-        throw new RuntimeException("MemoryUtils.newMemoryByID was passed an unrecognized ID");
+        return null;
     }
 }

@@ -31,7 +31,9 @@ public class MemoryClarifyCommand extends ConsoleCommand {
             }
         } else {
             AbstractMemory newMemory = MemoryUtils.newMemoryByID(tokens[2], AbstractDungeon.player, true);
-            AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(newMemory));
+            if (newMemory != null) {
+                AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(newMemory));
+            }
         }
     }
 

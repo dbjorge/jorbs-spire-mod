@@ -27,7 +27,9 @@ public class MemoryRememberCommand extends ConsoleCommand {
             AbstractDungeon.actionManager.addToBottom(new RememberRandomNewMemoryAction(AbstractDungeon.player, AbstractDungeon.player, false));
         } else {
             AbstractMemory newMemory = MemoryUtils.newMemoryByID(tokens[2], AbstractDungeon.player, false);
-            AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(newMemory));
+            if (newMemory != null) {
+                AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(newMemory));
+            }
         }
     }
 

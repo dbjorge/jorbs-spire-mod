@@ -289,6 +289,11 @@
     "NAME": "Fear",
     "DESCRIPTION": "Target enemy will flee in !M! turns. If this ends combat, you gain no rewards but keep Clarities for the next combat."
   },
+  "stsjorbsmod:Wish_Wanderer": {
+    "NAME": "Wish",
+    "DESCRIPTION": "Restart the combat retaining all buffs and debuffs. NL Purge.",
+    "UPGRADE_DESCRIPTION": "Restart the combat retaining all buffs, debuffs, and clarities. NL Purge."
+  },
   "stsjorbsmod:Study": {
     "NAME": "Study",
     "DESCRIPTION": "Remember stsjorbsmod:Patience. NL At the start of each turn, draw !M! extra card.",
