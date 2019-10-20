@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.powers.CoilPower;
@@ -32,7 +33,7 @@ public class PatienceMemory extends AbstractMemory {
     }
 
     @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
+    public void onPlayCard(AbstractCard card, AbstractMonster target) {
         this.flash();
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(owner, owner, new CoilPower(owner, owner, COIL_PER_CARD)));
