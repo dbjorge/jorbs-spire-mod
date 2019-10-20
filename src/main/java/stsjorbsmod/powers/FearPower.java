@@ -30,6 +30,9 @@ public class FearPower extends AbstractPower {
     public FearPower(AbstractMonster owner, int turnsBeforeFleeing) {
         this.name = NAME;
         this.ID = POWER_ID;
+        this.type = PowerType.DEBUFF;
+        this.isTurnBased = true;
+
         this.owner = owner;
         this.amount = turnsBeforeFleeing;
 

@@ -57,6 +57,12 @@
       " turns, Snap."
     ]
   },
+  "stsjorbsmod:ImmuneToDamagePower": {
+    "NAME": "Damage-immune",
+    "DESCRIPTIONS": [
+      "Cannot take damage."
+    ]
+  },
   "stsjorbsmod:IntrospectionPower": {
     "NAME": "Introspection",
     "DESCRIPTIONS": [

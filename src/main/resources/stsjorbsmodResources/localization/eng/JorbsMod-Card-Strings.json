@@ -312,5 +312,9 @@
     "NAME": "Study",
     "DESCRIPTION": "Remember stsjorbsmod:Patience. NL At the start of each turn, draw !M! extra card.",
     "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Patience. NL At the start of each turn, draw !M! extra cards."
+  },
+  "stsjorbsmod:Banish": {
+    "NAME": "Banish",
+    "DESCRIPTION": "Enemy takes no action and no damage for !M! turns. Exhaust."
   }
 }
