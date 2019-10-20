@@ -121,9 +121,11 @@ public class Wanderer extends CustomPlayer {
                 THE_DEFAULT_CORPSE, // dead corpse
                 getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
 
-        final float MEMORY_OFFSET_DISTANCE = 300.0F * Settings.scale;
-        final float CLARITY_OFFSET_DISTANCE = 160.0F * Settings.scale;
-        this.memories = new MemoryManager(drawX, drawY, MEMORY_OFFSET_DISTANCE, CLARITY_OFFSET_DISTANCE);
+        final float MEMORY_OFFSET_Y = 310.0F * Settings.scale;
+        final float CLARITY_OFFSET_Y = -10.0F * Settings.scale;
+        final float SIN_OFFSET_X = -200.0F * Settings.scale;
+        final float VIRTUE_OFFSET_X = 160.0F * Settings.scale;
+        this.memories = new MemoryManager(drawX, drawY, MEMORY_OFFSET_Y, CLARITY_OFFSET_Y, SIN_OFFSET_X, VIRTUE_OFFSET_X);
 
         // =============== /TEXTURES, ENERGY, LOADOUT/ =================
 

@@ -22,15 +22,16 @@ public class MemoryManager {
     private static final float MEMORY_HB_HEIGHT = 64F * Settings.scale;
     private static final float CLARITY_PADDING_Y = 32.0F * Settings.scale;
     private static final float MAX_CLARITIES_PER_STACK = 7;
-    private static final float CLARITY_HB_Y_OFFSET = -64 * Settings.scale;
     private static final float CLARITY_HB_WIDTH = 64F * Settings.scale;
-    private static final float CLARITY_HB_HEIGHT = 64F * Settings.scale + CLARITY_PADDING_Y * MAX_CLARITIES_PER_STACK;
+    private static final float CLARITY_HB_HEIGHT = CLARITY_PADDING_Y * MAX_CLARITIES_PER_STACK;
     private static final Color ICON_COLOR = new Color(1.0F, 1.0F, 1.0F, 1.0F);
+    private static final float TIP_X_THRESHOLD = 1544.0F * Settings.scale;
+    private static final float TIP_OFFSET_R_X = 20.0F * Settings.scale;
+    private static final float TIP_OFFSET_L_X = -380.0F * Settings.scale;
 
     private final float drawX;
     private final float drawY;
     private final float currentMemoryOffsetY;
-    private final float clarityOffsetX; // Sins on the left (negative offset), Virtues on the right (positive offset)
     private final Hitbox sinClarityStackHb;
     private final Hitbox virtueClarityStackHb;
     private final Hitbox currentMemoryHb;
@@ -41,21 +42,20 @@ public class MemoryManager {
     private final ArrayList<AbstractMemory> sinClarities = new ArrayList<>();
     private final ArrayList<AbstractMemory> virtueClarities = new ArrayList<>();
 
-    public MemoryManager(float drawX, float drawY, float currentMemoryOffsetY, float clarityOffsetX) {
+    public MemoryManager(float drawX, float drawY, float currentMemoryOffsetY, float clarityOffsetY, float sinOffsetX, float virtueOffsetX) {
         this.drawX = drawX;
         this.drawY = drawY;
         this.currentMemoryOffsetY = currentMemoryOffsetY;
-        this.clarityOffsetX = clarityOffsetX;
 
         this.sinClarityStackHb = new Hitbox(
-                drawX - clarityOffsetX,
-                drawY + CLARITY_HB_Y_OFFSET,
+                drawX + sinOffsetX,
+                drawY + clarityOffsetY,
                 CLARITY_HB_WIDTH,
                 CLARITY_HB_HEIGHT);
 
         this.virtueClarityStackHb = new Hitbox(
-                drawX + clarityOffsetX,
-                drawY + CLARITY_HB_Y_OFFSET,
+                drawX + virtueOffsetX,
+                drawY + clarityOffsetY,
                 CLARITY_HB_WIDTH,
                 CLARITY_HB_HEIGHT);
 
@@ -122,38 +122,47 @@ public class MemoryManager {
             renderCurrentMemory(sb);
         }
 
-        renderClarityStack(sb, sinClarities, -clarityOffsetX);
-        renderClarityStack(sb, virtueClarities, +clarityOffsetX);
-
-        renderClarityStackTips(sb, sinClarityStackHb, sinClarities);
-        renderClarityStackTips(sb, virtueClarityStackHb, virtueClarities);
+        renderClarityStack(sb, sinClarities, sinClarityStackHb);
+        renderClarityStack(sb, virtueClarities, virtueClarityStackHb);
     }
 
     private void renderCurrentMemory(SpriteBatch sb) {
+        // the position args are for the center point
         currentMemory.renderIcons(sb, this.drawX, this.drawY + currentMemoryOffsetY, ICON_COLOR);
-        if (currentMemoryHb.hovered) {
-            PowerTip tip = new PowerTip(currentMemory.name, currentMemory.description, currentMemory.region48);
-            ArrayList<PowerTip> tips = new ArrayList<>();
-            tips.add(tip);
-            TipHelper.queuePowerTips(currentMemoryHb.cX, currentMemoryHb.cY, tips);
-        }
+
+        ArrayList<AbstractMemory> memories = new ArrayList<>();
+        memories.add(currentMemory);
+        renderHitboxTips(sb, memories, currentMemoryHb);
     }
 
-    private void renderClarityStack(SpriteBatch sb, ArrayList<AbstractMemory> clarities, float xOffset) {
-        float yOffset = -CLARITY_PADDING_Y;
+    private void renderClarityStack(SpriteBatch sb, ArrayList<AbstractMemory> clarities, Hitbox hb) {
+        float yOffset = 0;
         for (AbstractMemory clarity : clarities) {
             yOffset += CLARITY_PADDING_Y;
-            clarity.renderIcons(sb, this.drawX + xOffset, this.drawY + yOffset, ICON_COLOR);
+
+            // the position args are for the center point
+            clarity.renderIcons(sb, hb.cX, hb.y + yOffset, ICON_COLOR);
         }
+
+        renderHitboxTips(sb, clarities, hb);
     }
 
-    private void renderClarityStackTips(SpriteBatch sb, Hitbox hb, ArrayList<AbstractMemory> clarities) {
-        if (hb.hovered && !clarities.isEmpty()) {
+    private void renderHitboxTips(SpriteBatch sb, ArrayList<AbstractMemory> memories, Hitbox hb) {
+        if (hb.hovered && !memories.isEmpty()) {
             ArrayList<PowerTip> tips = new ArrayList<>();
-            for (AbstractMemory c : clarities) {
+            for (AbstractMemory c : memories) {
                 tips.add(new PowerTip(c.name, c.description, c.region48));
             }
-            TipHelper.queuePowerTips(hb.cX, hb.cY, tips);
+
+            // Based on the AbstractCreature.renderPowerTips impl
+            float tipX = hb.cX + hb.width / 2.0F < TIP_X_THRESHOLD ?
+                    hb.cX + hb.width / 2.0F + TIP_OFFSET_R_X :
+                    hb.cX - hb.width / 2.0F + TIP_OFFSET_L_X;
+
+            // The calculatedAdditionalOffset ensures everything is shifted to avoid going offscreen
+            float tipY = hb.cY + TipHelper.calculateAdditionalOffset(tips, hb.cY);
+
+            TipHelper.queuePowerTips(hb.cX, tipY, tips);
         }
     }
 }
