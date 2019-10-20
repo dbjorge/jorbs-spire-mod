@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.powers.SnappedPower;
 import stsjorbsmod.memories.MemoryUtils;
 
@@ -37,6 +38,8 @@ public class SnapAction extends AbstractGameAction {
                 new DamageAction(target, new DamageInfo(target, targetDamage, DamageInfo.DamageType.THORNS), AttackEffect.BLUNT_LIGHT));
         AbstractDungeon.actionManager.addToTop(
                 new DamageAllEnemiesAction((AbstractCreature)null, DamageInfo.createDamageMatrix(enemyDamage, true), DamageInfo.DamageType.THORNS, AttackEffect.BLUNT_LIGHT));
+
+        MemoryManager.forPlayer(target).snap();
 
         isDone = true;
     }
