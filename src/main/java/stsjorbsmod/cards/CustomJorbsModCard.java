@@ -8,6 +8,19 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 public abstract class CustomJorbsModCard extends CustomCard {
+    
+    // Second magic number that isn't damage or block for card text display.
+    public int urMagicNumber;
+    public int baseUrMagicNumber;
+    public boolean upgradedUrMagicNumber;
+    public boolean isUrMagicNumberModified;
+    
+    // Third magic number that isn't damage or block for card text display.
+    public int metaMagicNumber;
+    public int baseMetaMagicNumber;
+    public boolean upgradedMetaMagicNumber;
+    public boolean isMetaMagicNumberModified;
+
     public CustomJorbsModCard(final String id,
                               final String img,
                               final int cost,
@@ -22,6 +35,8 @@ public abstract class CustomJorbsModCard extends CustomCard {
         isDamageModified = false;
         isBlockModified = false;
         isMagicNumberModified = false;
+        isUrMagicNumberModified = false;
+        isMetaMagicNumberModified = false;
     }
 
     protected void enqueueAction(AbstractGameAction action) {
@@ -29,6 +44,33 @@ public abstract class CustomJorbsModCard extends CustomCard {
     }
     protected void enqueueActionToTop(AbstractGameAction action) {
         AbstractDungeon.actionManager.addToTop(action);
+    }
+
+    @Override
+    public void displayUpgrades() {
+        super.displayUpgrades();
+
+        if (upgradedUrMagicNumber) {
+            urMagicNumber = baseUrMagicNumber;
+            isUrMagicNumberModified = true;
+        }
+
+        if (upgradedMetaMagicNumber) {
+            metaMagicNumber = baseMetaMagicNumber;
+            isMetaMagicNumberModified = true;
+        }
+    }
+
+    public void upgradeUrMagicNumber(int amount) {
+        baseUrMagicNumber += amount;
+        urMagicNumber = baseUrMagicNumber;
+        upgradedUrMagicNumber = true;
+    }
+
+    public void upgradeMetaMagicNumber(int amount) {
+        baseMetaMagicNumber += amount;
+        metaMagicNumber = baseMetaMagicNumber;
+        upgradedMetaMagicNumber = true;
     }
 
     public void upgradeDescription() {
