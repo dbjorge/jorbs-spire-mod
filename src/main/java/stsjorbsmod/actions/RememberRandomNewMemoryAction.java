@@ -19,8 +19,7 @@ public class RememberRandomNewMemoryAction extends AbstractGameAction  {
 
     public void update() {
         ArrayList<AbstractMemory> candidates = MemoryUtils.allPossibleMemories(target, isClarified);
-
-        candidates.removeIf(memory -> target.hasPower(memory.ID));
+        candidates.removeIf(memory -> MemoryManager.forPlayer(target).hasClarity(memory.ID));
 
         if (!candidates.isEmpty()) {
             int randomIndex = AbstractDungeon.cardRandomRng.random(0, candidates.size() - 1);
