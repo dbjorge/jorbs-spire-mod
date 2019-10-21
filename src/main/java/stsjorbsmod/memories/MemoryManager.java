@@ -184,7 +184,6 @@ public class MemoryManager {
         return null;
     }
 
-    // TODO: call this at end/start of combat
     public void clear() {
         this.currentMemory = null;
         this.sinClarities.clear();
