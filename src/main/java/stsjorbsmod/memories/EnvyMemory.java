@@ -36,8 +36,10 @@ public class EnvyMemory extends AbstractMemory {
 
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster monster) {
-        this.flash();
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(monster, owner, new VulnerablePower(monster, VULNERABLE_ON_TARGET_ENEMY, false), VULNERABLE_ON_TARGET_ENEMY));
+        if (isPassiveEffectActive) {
+            this.flash();
+            AbstractDungeon.actionManager.addToBottom(
+                    new ApplyPowerAction(monster, owner, new VulnerablePower(monster, VULNERABLE_ON_TARGET_ENEMY, false), VULNERABLE_ON_TARGET_ENEMY));
+        }
     }
 }

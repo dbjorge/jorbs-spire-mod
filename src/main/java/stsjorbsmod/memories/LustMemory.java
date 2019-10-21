@@ -31,7 +31,7 @@ public class LustMemory extends AbstractMemory {
 
     @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
-        if (type == DamageInfo.DamageType.NORMAL) {
+        if (isPassiveEffectActive && type == DamageInfo.DamageType.NORMAL) {
             return damage * ATTACK_BONUS_MODIFIER;
         } else {
             return damage;

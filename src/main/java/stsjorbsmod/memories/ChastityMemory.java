@@ -39,12 +39,14 @@ public class ChastityMemory extends AbstractMemory {
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        AbstractDungeon.actionManager.addToBottom(
-                // It's important to apply a negative dex power rather than reducing an existing dex power
-                //   1. reducing the existing power doesn't work if the player currently has no dex
-                //   2. we want it to be blockable by Artifact, which ApplyPowerAction is and ReducePowerAction isn't
-                new ApplyPowerAction(owner, owner, new DexterityPower(this.owner, -this.DEXTERITY_LOSS_PER_TURN)));
-        AbstractDungeon.actionManager.addToBottom(
-                new GainBlockAction(owner, owner, BLOCK_PER_TURN));
+        if (isPassiveEffectActive) {
+            AbstractDungeon.actionManager.addToBottom(
+                    // It's important to apply a negative dex power rather than reducing an existing dex power
+                    //   1. reducing the existing power doesn't work if the player currently has no dex
+                    //   2. we want it to be blockable by Artifact, which ApplyPowerAction is and ReducePowerAction isn't
+                    new ApplyPowerAction(owner, owner, new DexterityPower(this.owner, -this.DEXTERITY_LOSS_PER_TURN)));
+            AbstractDungeon.actionManager.addToBottom(
+                    new GainBlockAction(owner, owner, BLOCK_PER_TURN));
+        }
     }
 }

@@ -89,7 +89,7 @@ public class MemoryManager {
 
             this.currentMemory.onRemember();
             if (!hasClarity(currentMemory.ID)) {
-                this.currentMemory.onGainPassiveEffect();
+                this.currentMemory.gainPassiveEffect();
             }
 
             this.currentMemory.flash();
@@ -105,7 +105,7 @@ public class MemoryManager {
     private void forgetCurrentMemoryNoNotify() {
         if (this.currentMemory != null) {
             if (!this.hasClarity(currentMemory.ID)) {
-                this.currentMemory.onLosePassiveEffect();
+                this.currentMemory.losePassiveEffect();
             }
             this.currentMemory.onForget();
         }
@@ -155,7 +155,7 @@ public class MemoryManager {
         }
 
         if (!passiveAlreadyActive) {
-            newClarity.onGainPassiveEffect();
+            newClarity.gainPassiveEffect();
         }
 
         newClarity.flash();
@@ -187,11 +187,11 @@ public class MemoryManager {
         forgetCurrentMemoryNoNotify();
 
         for (AbstractMemory clarity : this.sinClarities) {
-            clarity.onLosePassiveEffect();
+            clarity.losePassiveEffect();
         }
         this.sinClarities.clear();
         for (AbstractMemory clarity : this.virtueClarities) {
-            clarity.onLosePassiveEffect();
+            clarity.losePassiveEffect();
         }
         this.virtueClarities.clear();
 

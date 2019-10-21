@@ -34,20 +34,23 @@ public class KindnessMemory extends AbstractMemory {
     @Override
     public void onRemember() {
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-            for(AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+            for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
                 if (!monster.isDead && !monster.isDying) {
                     AbstractDungeon.actionManager.addToBottom(
                             new ApplyPowerAction(monster, owner, new PoisonPower(monster, owner, POISON_ON_REMEMBER), POISON_ON_REMEMBER));
                 }
             }
         }
+    }
 
+    @Override
+    public void onGainPassiveEffect() {
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(owner, owner, new EnvenomPower(owner, ENVENOM_MAGNITUDE), ENVENOM_MAGNITUDE));
     }
 
     @Override
-    public void onForget() {
+    public void onLosePassiveEffect() {
         AbstractDungeon.actionManager.addToBottom(
                 new ReducePowerAction(owner, owner, EnvenomPower.POWER_ID, ENVENOM_MAGNITUDE));
     }

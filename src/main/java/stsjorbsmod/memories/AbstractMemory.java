@@ -45,6 +45,7 @@ public abstract class AbstractMemory implements IOnModifyGoldListener {
 
     public AbstractCreature owner;
     public boolean isClarified;
+    public boolean isPassiveEffectActive;
     public MemoryType memoryType;
 
     public TextureAtlas.AtlasRegion region128;
@@ -62,6 +63,7 @@ public abstract class AbstractMemory implements IOnModifyGoldListener {
         this.owner = owner;
         this.memoryType = memoryType;
         this.isClarified = isClarified;
+        this.isPassiveEffectActive = false;
 
         this.region128 = new TextureAtlas.AtlasRegion(staticInfo.tex84, 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(staticInfo.tex32, 0, 0, 32, 32);
@@ -73,14 +75,17 @@ public abstract class AbstractMemory implements IOnModifyGoldListener {
     public void onRemember() {}
     // This is triggered when a memory is remembered *or* a clarity is gained
     // Unlike onRemember, this is *not* triggered when remembering a memory you already have clarity of
-    public void onGainPassiveEffect() {}
+    public final void gainPassiveEffect() { this.isPassiveEffectActive = true; this.onGainPassiveEffect(); }
+    protected void onGainPassiveEffect() {}
     // This is triggered when a memory is forgotten *or* a memory/clarity is snapped
     // Unlike onForget, this is *not* triggered when forgetting a memory you already have clarity of
-    public void onLosePassiveEffect() {}
+    public final void losePassiveEffect() { this.isPassiveEffectActive = false; this.onLosePassiveEffect(); }
+    protected void onLosePassiveEffect() {}
     // This is triggered when a memory is forgotten/snapped, but *not* when a clarity is snapped
     public void onForget() {}
 
-    // These are the specific subset of power hooks required by Memory implementations
+    // These are the specific subset of power hooks required by Memory implementations.
+    // ** Be sure to check isPassiveEffectActive as necessary. **
     @Override public void onModifyGold(AbstractPlayer p) {}
     public void atEndOfTurn(boolean isPlayer) {}
     public float atDamageGive(float originalDamage, DamageType type) { return originalDamage; }

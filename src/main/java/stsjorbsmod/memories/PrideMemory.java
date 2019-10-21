@@ -24,17 +24,19 @@ public class PrideMemory extends AbstractMemory {
 
     @Override
     public void onVictory() {
-        CardGroup masterDeckCandidates = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-            if (c.canUpgrade()) {
-                masterDeckCandidates.addToBottom(c);
+        if (isPassiveEffectActive) {
+            CardGroup masterDeckCandidates = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+            for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+                if (c.canUpgrade()) {
+                    masterDeckCandidates.addToBottom(c);
+                }
             }
-        }
 
-        if (!masterDeckCandidates.isEmpty()) {
-            AbstractCard masterDeckCard = masterDeckCandidates.getRandomCard(AbstractDungeon.cardRandomRng);
-            masterDeckCard.upgrade();
-            masterDeckCard.superFlash();
+            if (!masterDeckCandidates.isEmpty()) {
+                AbstractCard masterDeckCard = masterDeckCandidates.getRandomCard(AbstractDungeon.cardRandomRng);
+                masterDeckCard.upgrade();
+                masterDeckCard.superFlash();
+            }
         }
     }
 }

@@ -27,7 +27,9 @@ public class GluttonyMemory extends AbstractMemory {
 
     @Override
     public void onNonMinionMonsterDeath() {
-        JorbsMod.logger.info("Gluttony: gaining max hp");
-        AbstractDungeon.player.increaseMaxHp(MAX_HP_PER_KILL, true);
+        if (isPassiveEffectActive) {
+            JorbsMod.logger.info("Gluttony: gaining max hp");
+            AbstractDungeon.player.increaseMaxHp(MAX_HP_PER_KILL, true);
+        }
     }
 }

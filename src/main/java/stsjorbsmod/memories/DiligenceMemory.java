@@ -34,7 +34,7 @@ public class DiligenceMemory extends AbstractMemory {
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        if (isPlayer) {
+        if (isPassiveEffectActive && isPlayer) {
             AbstractDungeon.actionManager.addToBottom(
                     new RetainCardsAction(owner, CARDS_RETAINED));
         }

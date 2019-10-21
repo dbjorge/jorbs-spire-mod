@@ -24,7 +24,7 @@ public class CharityMemory extends AbstractMemory {
 
     @Override
     public float atDamageGive(float originalDamage, DamageType type) {
-        return type == DamageType.NORMAL ?
+        return isPassiveEffectActive && type == DamageType.NORMAL ?
                 originalDamage + calculateBonusDamage() :
                 originalDamage;
     }

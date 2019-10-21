@@ -27,7 +27,9 @@ public class GreedMemory extends AbstractMemory {
 
     @Override
     public void onNonMinionMonsterDeath() {
-        JorbsMod.logger.info("Greed: gaining gold");
-        AbstractDungeon.player.gainGold(GOLD_PER_KILL);
+        if (isPassiveEffectActive) {
+            JorbsMod.logger.info("Greed: gaining gold");
+            AbstractDungeon.player.gainGold(GOLD_PER_KILL);
+        }
     }
 }

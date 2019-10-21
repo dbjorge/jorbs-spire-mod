@@ -24,7 +24,7 @@ public class TemperanceMemory extends AbstractMemory {
     }
 
     @Override
-    public void onRemember() {
+    public void onGainPassiveEffect() {
         this.restoreStrengthActions = new ArrayList<>();
 
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
@@ -39,7 +39,7 @@ public class TemperanceMemory extends AbstractMemory {
     }
 
     @Override
-    public void onForget() {
+    public void onLosePassiveEffect() {
         for (AbstractGameAction restoreAction : this.restoreStrengthActions) {
             AbstractDungeon.actionManager.addToBottom(restoreAction);
         }

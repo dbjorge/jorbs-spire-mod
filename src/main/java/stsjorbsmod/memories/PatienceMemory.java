@@ -34,9 +34,11 @@ public class PatienceMemory extends AbstractMemory {
 
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster target) {
-        this.flash();
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(owner, owner, new CoilPower(owner, owner, COIL_PER_CARD)));
+        if (isPassiveEffectActive) {
+            this.flash();
+            AbstractDungeon.actionManager.addToBottom(
+                    new ApplyPowerAction(owner, owner, new CoilPower(owner, owner, COIL_PER_CARD)));
+        }
     }
 
     @Override
