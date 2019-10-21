@@ -3,18 +3,20 @@ package stsjorbsmod.patches;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardQueueItem;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.MinionPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import javassist.CtBehavior;
+import stsjorbsmod.JorbsMod;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
-import stsjorbsmod.powers.IOnModifyGoldListener;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.function.Consumer;
 
 public class MemoryHooksPatch {
@@ -32,9 +34,7 @@ public class MemoryHooksPatch {
             method = "getNextAction"
     )
     public static class onPlayCardHook {
-        @SpireInsertPatch(
-                locator = Locator.class
-        )
+        @SpireInsertPatch(locator = Locator.class)
         public static void patch(GameActionManager __this) {
             forEachMemory(AbstractDungeon.player, m -> m.onPlayCard(__this.cardQueue.get(0).card, __this.cardQueue.get(0).monster));
         }
@@ -69,6 +69,69 @@ public class MemoryHooksPatch {
             if (!__this.isDying) {
                 forEachMemory(__this, m -> m.onVictory());
             }
+        }
+    }
+
+    // Directly locating the relevant atDamageGive calls to insert next to would be very fragile
+    // because of how the implementation is laid out, so instead, we patch before and after to add in
+    // a fake power to receive and redirect the atDamageGive effect
+    @SpirePatch(
+            clz = AbstractCard.class,
+            method = "applyPowers"
+    )
+    public static class atDamageGiveHooks {
+        private final static AbstractPower hookPower = new AbstractPower() {
+            @Override
+            public float atDamageGive(float damage, DamageInfo.DamageType type) {
+                MemoryManager memoryManager = MemoryManager.forPlayer(AbstractDungeon.player);
+                if (memoryManager != null) {
+                    for (AbstractMemory memory : memoryManager.currentMemories()) {
+                        damage = memory.atDamageGive(damage, type);
+                    }
+                }
+                return damage;
+            }
+        };
+        @SpirePrefixPatch
+        public static void prefixPatch(AbstractCard __this) {
+            AbstractDungeon.player.powers.add(hookPower);
+        }
+
+        @SpirePostfixPatch
+        public static void postfixPatch(AbstractCard __this) {
+            AbstractDungeon.player.powers.remove(hookPower);
+        }
+    }
+
+    // Directly locating the relevant atDamageGive calls to insert next to would be very fragile
+    // because of how the implementation is laid out, so instead, we patch before and after to add in
+    // a fake power to receive and redirect the atDamageGive effect
+    @SpirePatch(
+            clz = AbstractMonster.class,
+            method = "damage"
+    )
+    public static class onAttackHooks {
+        private final static AbstractPower hookPower = new AbstractPower() {
+            @Override
+            public void onAttack(DamageInfo info, int damage, AbstractCreature target) {
+                if (target.isPlayer || target.isDead || target.isDying || target.halfDead || target.hasPower(MinionPower.POWER_ID)) {
+                    return;
+                }
+
+                if (damage >= target.currentHealth) {
+                    forEachMemory(info.owner, m -> m.onNonMinionMonsterDeath());
+                }
+            }
+        };
+
+        @SpirePrefixPatch
+        public static void prefixPatch(AbstractMonster __this) {
+            AbstractDungeon.player.powers.add(hookPower);
+        }
+
+        @SpirePostfixPatch
+        public static void postfixPatch(AbstractMonster __this) {
+            AbstractDungeon.player.powers.remove(hookPower);
         }
     }
 }
