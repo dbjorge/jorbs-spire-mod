@@ -9,7 +9,7 @@
 
 Many people have contributed code and art for this mod; thanks to all the contributors listed among the [mod authors](./src/main/resources/ModTheSpire.json).
 
-This mod would not have been possible without the excellent documentation and guidance from all of the contributors at [ModTheSpire](), [BaseMod](), [StSLib](), [StS-DefaultModBase](https://github.com/Gremious/StS-DefaultModBase), and [Slay the Spire Discord](https://discordapp.com/invite/SlayTheSpire) **#modding**.
+This mod would not have been possible without the excellent documentation and guidance from all of the contributors at [ModTheSpire](https://github.com/kiooeht/ModTheSpire), [BaseMod](https://github.com/daviscook477/BaseMod), [StSLib](), [StS-DefaultModBase](https://github.com/Gremious/StS-DefaultModBase), and [Slay the Spire Discord](https://discordapp.com/invite/SlayTheSpire) **#modding**.
 
 ## Table of contents
 
@@ -74,7 +74,7 @@ This project uses GitHub Pull Requests to handle merging contributed changes. If
     git clone --origin upstream https://github.com/dbjorge/jorbs-spire-mod.git
     cd jorbs-spire-mod
    
-    git remote add my_fork https://github/your_username/jorbs-spire-mod.git
+    git remote add my_fork https://github.com/your_username/jorbs-spire-mod.git
    
     git config --global alias.newfeature "!git checkout master && git pull && git checkout -b"
     git config --global alias.pushtofork "!git push --set-upstream my_fork HEAD"
