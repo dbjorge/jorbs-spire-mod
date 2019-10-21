@@ -166,6 +166,14 @@ public class MemoryManager {
         return getClarity(id) != null;
     }
 
+    public boolean isRemembering(String id) {
+        return currentMemory != null && currentMemory.ID.equals(id);
+    }
+
+    public boolean hasMemoryOrClarity(String id) {
+        return isRemembering(id) || hasClarity(id);
+    }
+
     public AbstractMemory getClarity(String id) {
         for (AbstractMemory c : sinClarities) {
             if (c.ID.equals(id)) { return c; }

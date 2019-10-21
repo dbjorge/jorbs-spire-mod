@@ -116,7 +116,7 @@
   },
   "stsjorbsmod:Mania": {
     "NAME": "Mania",
-    "DESCRIPTION": "Deal !D! damage 2 times. NL If you have stsjorbsmod:Sloth, deal !D! damage 2 times again."
+    "DESCRIPTION": "Deal !D! damage 2 times. NL If you have memory or stsjorbsmod:Clarity of stsjorbsmod:Sloth, deal !D! damage 2 times again."
   },
   "stsjorbsmod:Mindworm": {
     "NAME": "Mindworm",
