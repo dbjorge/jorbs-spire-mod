@@ -6,16 +6,11 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
-import stsjorbsmod.actions.RestartCombatAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.PrideMemory;
 import stsjorbsmod.powers.FragilePower;
-
-import java.util.function.Predicate;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
@@ -27,7 +22,7 @@ public class Determination extends CustomJorbsModCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = Wanderer.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = 2;
     private static final int TURNS_UNTIL_SNAP = 1;

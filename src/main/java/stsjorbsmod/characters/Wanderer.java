@@ -18,7 +18,6 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,11 +28,9 @@ import stsjorbsmod.relics.FragileMindRelic;
 import stsjorbsmod.relics.WandererStarterRelic;
 
 import java.util.ArrayList;
-import java.util.function.Consumer;
-import java.util.stream.Collectors;
 
 import static stsjorbsmod.JorbsMod.*;
-import static stsjorbsmod.characters.Wanderer.Enums.COLOR_GRAY;
+import static stsjorbsmod.characters.Wanderer.Enums.WANDERER_GRAY_COLOR;
 
 //Wiki-page https://github.com/daviscook477/BaseMod/wiki/Custom-Characters
 //and https://github.com/daviscook477/BaseMod/wiki/Migrating-to-5.0
@@ -52,10 +49,10 @@ public class Wanderer extends CustomPlayer {
     public static class Enums {
         @SpireEnum
         public static AbstractPlayer.PlayerClass WANDERER;
-        @SpireEnum(name = "DEFAULT_GRAY_COLOR") // These two HAVE to have the same absolutely identical name.
-        public static AbstractCard.CardColor COLOR_GRAY;
-        @SpireEnum(name = "DEFAULT_GRAY_COLOR") @SuppressWarnings("unused")
-        public static CardLibrary.LibraryType LIBRARY_COLOR;
+        @SpireEnum(name = "WANDERER_GRAY_COLOR") // These two HAVE to have the same absolutely identical name.
+        public static AbstractCard.CardColor WANDERER_GRAY_COLOR;
+        @SpireEnum(name = "WANDERER_GRAY_COLOR") @SuppressWarnings("unused")
+        public static CardLibrary.LibraryType WANDERER_LIBRARY_COLOR;
         @SpireEnum(name = "REMEMBER_MEMORY")
         public static AbstractCard.CardTags REMEMBER_MEMORY;
     }
@@ -230,7 +227,7 @@ public class Wanderer extends CustomPlayer {
     // Should return the card color enum to be associated with your character.
     @Override
     public AbstractCard.CardColor getCardColor() {
-        return COLOR_GRAY;
+        return WANDERER_GRAY_COLOR;
     }
 
     // Should return a color object to be used to color the trail of moving cards

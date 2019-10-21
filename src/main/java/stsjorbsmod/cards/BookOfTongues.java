@@ -5,12 +5,9 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DrawPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.memories.PatienceMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
-import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 public class BookOfTongues extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(BookOfTongues.class.getSimpleName());
@@ -19,7 +16,7 @@ public class BookOfTongues extends CustomJorbsModCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
-    public static final CardColor COLOR = Wanderer.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = 1;
     private static final int DRAW_PER_TURN = 1;
