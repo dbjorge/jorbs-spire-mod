@@ -31,6 +31,8 @@ import stsjorbsmod.console.MemoryCommand;
 import stsjorbsmod.events.DeckOfManyThingsEvent;
 import stsjorbsmod.relics.*;
 import stsjorbsmod.util.TextureLoader;
+import stsjorbsmod.variables.MetaMagicNumber;
+import stsjorbsmod.variables.UrMagicNumber;
 
 import java.io.File;
 import java.net.URISyntaxException;
@@ -294,6 +296,9 @@ public class JorbsMod implements
     @Override
     public void receiveEditCards() {
         logger.info("Adding cards");
+
+        BaseMod.addDynamicVariable(new UrMagicNumber());
+        BaseMod.addDynamicVariable(new MetaMagicNumber());
 
         ArrayList<Class<CustomJorbsModCard>> cardClasses = findAllConcreteSubclasses(CustomJorbsModCard.class);
         for (Class<CustomJorbsModCard> cardClass : cardClasses) {
