@@ -1,5 +1,6 @@
 package stsjorbsmod.cards;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.unique.LoseEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -39,7 +40,7 @@ public class TimeWalk extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         enqueueAction(new LoseEnergyAction(EnergyPanel.getCurrentEnergy()));
-        enqueueAction(new DiscardAction(p, p, 10, false));
+        enqueueAction(new DiscardAction(p, p, BaseMod.MAX_HAND_SIZE, false));
         enqueueAction(new RemoveAllBlockAction(p, p));
         enqueueAction(new GainEnergyAction(magicNumber));
         enqueueAction(new DrawCardAction(p, urMagicNumber, false));
