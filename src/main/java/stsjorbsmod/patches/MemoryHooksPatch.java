@@ -1,5 +1,7 @@
 package stsjorbsmod.patches;
 
+import basemod.BaseMod;
+import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.DamageHooks;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,14 +14,20 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import javassist.CtBehavior;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.function.Consumer;
 
 public class MemoryHooksPatch {
+    public static final Logger logger = LogManager.getLogger(MemoryHooksPatch.class.getName());
+
     private static void forEachMemory(AbstractCreature owner, Consumer<AbstractMemory> callback) {
         MemoryManager memoryManager = MemoryManager.forPlayer(owner);
         if (memoryManager != null) {
@@ -72,66 +80,88 @@ public class MemoryHooksPatch {
         }
     }
 
-    // Directly locating the relevant atDamageGive calls to insert next to would be very fragile
-    // because of how the implementation is laid out, so instead, we patch before and after to add in
-    // a fake power to receive and redirect the atDamageGive effect
+    // This hook is based on basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.DamageHooks.ApplyPowers
     @SpirePatch(
             clz = AbstractCard.class,
             method = "applyPowers"
     )
-    public static class atDamageGiveHooks {
-        private final static AbstractPower hookPower = new AbstractPower() {
-            @Override
-            public float atDamageGive(float damage, DamageInfo.DamageType type) {
-                MemoryManager memoryManager = MemoryManager.forPlayer(AbstractDungeon.player);
-                if (memoryManager != null) {
-                    for (AbstractMemory memory : memoryManager.currentMemories()) {
-                        damage = memory.atDamageGive(damage, type);
-                    }
+    public static class atDamageGiveHook_ApplyPowersSingle {
+        @SpireInsertPatch(
+                locator = Locator.class,
+                localvars = {"tmp"}
+        )
+        public static void Insert(AbstractCard __this, @ByRef float[] tmp) {
+            AbstractPlayer player = AbstractDungeon.player;
+            MemoryManager memoryManager = MemoryManager.forPlayer(player);
+            if (memoryManager != null) {
+                for (AbstractMemory memory : memoryManager.currentMemories()) {
+                    tmp[0] = memory.atDamageGive(tmp[0], __this.damageTypeForTurn);
                 }
-                return damage;
             }
-        };
-        @SpirePrefixPatch
-        public static void prefixPatch(AbstractCard __this) {
-            AbstractDungeon.player.powers.add(hookPower);
         }
 
-        @SpirePostfixPatch
-        public static void postfixPatch(AbstractCard __this) {
-            AbstractDungeon.player.powers.remove(hookPower);
+        private static class Locator extends SpireInsertLocator {
+            public int[] Locate(CtBehavior ctBehavior) throws Exception {
+                Matcher matcher = new Matcher.FieldAccessMatcher(AbstractPlayer.class, "powers");
+                return LineFinder.findInOrder(ctBehavior, matcher);
+            }
         }
     }
 
-    // Directly locating the relevant atDamageGive calls to insert next to would be very fragile
-    // because of how the implementation is laid out, so instead, we patch before and after to add in
-    // a fake power to receive and redirect the atDamageGive effect
+    // This hook is based on basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.DamageHooks.ApplyPowersMulti
     @SpirePatch(
-            clz = AbstractMonster.class,
-            method = "damage"
+            clz = AbstractCard.class,
+            method = "applyPowers"
     )
-    public static class onAttackHooks {
-        private final static AbstractPower hookPower = new AbstractPower() {
-            @Override
-            public void onAttack(DamageInfo info, int damage, AbstractCreature target) {
-                if (target.isPlayer || target.isDead || target.isDying || target.halfDead || target.hasPower(MinionPower.POWER_ID)) {
-                    return;
-                }
-
-                if (damage >= target.currentHealth) {
-                    forEachMemory(info.owner, m -> m.onNonMinionMonsterDeath());
+    public static class atDamageGiveHook_ApplyPowersMulti {
+        @SpireInsertPatch(
+                locator = Locator.class,
+                localvars = {"tmp", "i"}
+        )
+        public static void Insert(AbstractCard __this, float[] tmp, int i) {
+            ArrayList<AbstractMonster> monsters = AbstractDungeon.getMonsters().monsters;
+            AbstractPlayer player = AbstractDungeon.player;
+            MemoryManager memoryManager = MemoryManager.forPlayer(player);
+            if (memoryManager != null) {
+                for (AbstractMemory memory : memoryManager.currentMemories()) {
+                    tmp[i] = memory.atDamageGive(tmp[i], __this.damageTypeForTurn);
                 }
             }
-        };
-
-        @SpirePrefixPatch
-        public static void prefixPatch(AbstractMonster __this) {
-            AbstractDungeon.player.powers.add(hookPower);
         }
 
-        @SpirePostfixPatch
-        public static void postfixPatch(AbstractMonster __this) {
-            AbstractDungeon.player.powers.remove(hookPower);
+        private static class Locator extends SpireInsertLocator {
+            public int[] Locate(CtBehavior ctBehavior) throws Exception {
+                Matcher intermediateMatcher = new Matcher.FieldAccessMatcher(AbstractRoom.class, "monsters");
+                Matcher finalMatcher = new Matcher.FieldAccessMatcher(AbstractPlayer.class, "powers");
+                return LineFinder.findInOrder(ctBehavior, Collections.singletonList(intermediateMatcher), finalMatcher);
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz = AbstractMonster.class,
+            method = "die",
+            paramtypez = {boolean.class}
+    )
+    public static class onNonMinionMonsterDeathHook {
+        @SpirePrefixPatch
+        public static void Prefix(AbstractMonster __this) {
+            AbstractPlayer player = AbstractDungeon.player;
+            MemoryManager memoryManager = MemoryManager.forPlayer(player);
+            if (memoryManager != null) {
+                forEachMemory(player, m -> m.onNonMinionMonsterDeath());
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz = AbstractPlayer.class,
+            method = "preBattlePrep"
+    )
+    public static class ClearAtStartOfCombatHook {
+        @SpirePrefixPatch
+        public static void prefixPatch(AbstractPlayer __this) {
+            MemoryManager.forPlayer(__this).clear();
         }
     }
 }
