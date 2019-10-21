@@ -11,11 +11,13 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.memories.AbstractMemory;
+import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
 // Cannot be affected by memories or clarities.
+// Marker power only; MemoryManager looks for it
 public class SnappedPower extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = JorbsMod.makeID(SnappedPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -38,15 +40,6 @@ public class SnappedPower extends AbstractPower implements CloneablePowerInterfa
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
-    }
-
-    @Override
-    public void onInitialApplication() {
-        for (AbstractPower power : owner.powers) {
-            if (power instanceof AbstractMemory) {
-                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(owner, (AbstractCreature)null, power));
-            }
-        }
     }
 
     @Override

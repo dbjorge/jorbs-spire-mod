@@ -9,8 +9,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.AbstractMemory;
+import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.MemoryType;
-import stsjorbsmod.memories.MemoryUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -21,7 +21,7 @@ public class FocusedMind extends CustomJorbsModCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = Wanderer.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = 1;
     private static final int DAMAGE = 10;
@@ -37,7 +37,7 @@ public class FocusedMind extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractMemory currentMemory = MemoryUtils.getCurrentMemory(p);
+        AbstractMemory currentMemory = MemoryManager.forPlayer(p).currentMemory;
 
         if (currentMemory != null && currentMemory.memoryType == MemoryType.SIN) {
             enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.BLUNT_LIGHT));

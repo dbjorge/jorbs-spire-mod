@@ -4,10 +4,8 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.actions.SchoolsOfMagicAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.memories.GreedMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -18,7 +16,7 @@ public class SchoolsOfMagic extends CustomJorbsModCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = Wanderer.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = 1;
     private static final int DRAW = 3;

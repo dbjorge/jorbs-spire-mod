@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.memories.MemoryUtils;
+import stsjorbsmod.memories.MemoryManager;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -19,7 +19,7 @@ public class MagicMissiles extends CustomJorbsModCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = Wanderer.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = 1;
     private static final int DAMAGE = 3;
@@ -32,7 +32,7 @@ public class MagicMissiles extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int numMissiles = 1 + MemoryUtils.countClarities(p);
+        int numMissiles = 1 + MemoryManager.forPlayer(p).countCurrentClarities();
 
         for (int i=0; i<numMissiles; ++i) {
             enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SMASH));

@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.EndTurnNowAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.memories.MemoryUtils;
+import stsjorbsmod.memories.MemoryManager;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -17,7 +17,7 @@ public class Mending extends CustomJorbsModCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = Wanderer.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = 1;
     private static final int HEAL_PER_CLARITY = 1;
@@ -29,7 +29,7 @@ public class Mending extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int healAmount = MemoryUtils.countClarities(p) * magicNumber;
+        int healAmount = MemoryManager.forPlayer(p).countCurrentClarities() * magicNumber;
         enqueueAction(new HealAction(p, p, healAmount));
         enqueueAction(new EndTurnNowAction());
     }

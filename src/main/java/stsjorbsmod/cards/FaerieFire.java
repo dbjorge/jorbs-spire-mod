@@ -1,10 +1,6 @@
 package stsjorbsmod.cards;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -14,8 +10,8 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.AbstractMemory;
+import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.MemoryType;
-import stsjorbsmod.memories.MemoryUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -26,7 +22,7 @@ public class FaerieFire extends CustomJorbsModCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = Wanderer.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = 1;
     private static final int DEBUFF_DURATION = 3;
@@ -39,7 +35,7 @@ public class FaerieFire extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster _) {
-        AbstractMemory currentMemory = MemoryUtils.getCurrentMemory(p);
+        AbstractMemory currentMemory = MemoryManager.forPlayer(p).currentMemory;
         if (currentMemory == null) { return; }
 
         for(AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {

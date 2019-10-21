@@ -36,7 +36,7 @@ public class WrathMemory extends AbstractMemory {
 
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster target) {
-        if (card.type != AbstractCard.CardType.ATTACK) {
+        if (!isPassiveEffectActive || card.type != AbstractCard.CardType.ATTACK) {
             return;
         }
 

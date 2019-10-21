@@ -1,7 +1,7 @@
 [
   {
     "PROPER_NAME": "Snap",
-    "NAMES": ["snap"],
+    "NAMES": ["snap", "snapped"],
     "DESCRIPTION": "Deal 5 damage to ALL enemies and 2 damage to yourself for every clarity bonus you have. You cannot be affected by memories or clarities for the remainder of the fight."
   },
   {
@@ -26,7 +26,7 @@
   },
   {
     "PROPER_NAME": "Charity",
-    "NAMES": ["chastity", "Chastity"],
+    "NAMES": ["charity", "Charity"],
     "DESCRIPTION": "Increases attack damage by 1 for every 100 gold you have."
   },
   {

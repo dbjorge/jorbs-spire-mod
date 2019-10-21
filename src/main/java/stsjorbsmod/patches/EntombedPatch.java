@@ -24,7 +24,7 @@ public class EntombedPatch {
         )
         public static void Insert(CardGroup __instance, CardGroup masterDeck, CardGroup copy) {
             for (AbstractCard c : copy.group) {
-                if ((Boolean) EntombedField.entombed.get(c)) {
+                if (EntombedField.entombed.get(c)) {
                     AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(c, AbstractDungeon.player.drawPile));
                 }
             }

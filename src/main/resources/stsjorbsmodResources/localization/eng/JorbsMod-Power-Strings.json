@@ -28,10 +28,39 @@
       " additional [E] next turn."
     ]
   },
+  "stsjorbsmod:FearPower": {
+    "NAME": "Afraid",
+    "DESCRIPTIONS": [
+      "Will escape in #b",
+      " turn.",
+      " turns.",
+      " If this ends the fight, keep Clarities for next fight."
+    ]
+  },
   "stsjorbsmod:FindFamiliarPower": {
     "NAME": "Find Familiar",
     "DESCRIPTIONS": [
       "At the end of each turn, gain Clarity."
+    ]
+  },
+  "stsjorbsmod:FocusOnThePainPower": {
+    "NAME": "Focus on the Pain",
+    "DESCRIPTIONS": [
+      "Whenever you lose HP, gain Clarity."
+    ]
+  },
+  "stsjorbsmod:FragilePower": {
+    "NAME": "Fragile",
+    "DESCRIPTIONS": [
+      "At the end of this turn, Snap.",
+      "In ",
+      " turns, Snap."
+    ]
+  },
+  "stsjorbsmod:ImmuneToDamagePower": {
+    "NAME": "Damage-immune",
+    "DESCRIPTIONS": [
+      "Cannot take damage."
     ]
   },
   "stsjorbsmod:IntrospectionPower": {
@@ -44,6 +73,12 @@
     "NAME": "Magic Mirror",
     "DESCRIPTIONS": [
       "Whenever you receive a debuff, apply that debuff to ALL enemies."
+    ]
+  },
+  "stsjorbsmod:NextAttackMissesPower": {
+    "NAME": "Mirror Image",
+    "DESCRIPTIONS": [
+      "The next enemy attack misses."
     ]
   },
   "stsjorbsmod:PrestidigitationPower": {

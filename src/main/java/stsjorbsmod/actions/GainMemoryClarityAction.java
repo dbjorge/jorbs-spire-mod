@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
 import stsjorbsmod.memories.AbstractMemory;
+import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.MemoryUtils;
 
 public class GainMemoryClarityAction extends AbstractGameAction {
@@ -21,13 +22,9 @@ public class GainMemoryClarityAction extends AbstractGameAction {
     }
 
     public void update() {
-        AbstractMemory oldMemory = MemoryUtils.getCurrentMemory(this.target);
-        if (oldMemory != null && !oldMemory.isClarified && (specificMemoryID == null || specificMemoryID == oldMemory.ID)) {
-            oldMemory.flash();
-            oldMemory.isClarified = true;
-            oldMemory.updateDescription(); // for memories, also updates name to "Clarity of X"
-            AbstractDungeon.effectList.add(new TextAboveCreatureEffect(target.hb.cX, target.hb.cY, oldMemory.name, Color.WHITE));
-            AbstractDungeon.onModifyPower();
+        MemoryManager m = MemoryManager.forPlayer(target);
+        if (specificMemoryID == null || (m.currentMemory != null && m.currentMemory.ID == specificMemoryID)) {
+            MemoryManager.forPlayer(target).gainClarityOfCurrentMemory();
         }
 
         isDone = true;

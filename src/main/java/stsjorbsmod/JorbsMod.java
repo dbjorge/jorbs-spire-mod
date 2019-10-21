@@ -3,7 +3,6 @@ package stsjorbsmod;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
-import basemod.abstracts.CustomCard;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -19,9 +18,7 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import javassist.CtClass;
 import javassist.Modifier;
-import javassist.NotFoundException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.clapper.util.classutil.*;
@@ -31,9 +28,10 @@ import stsjorbsmod.console.MemoryCommand;
 import stsjorbsmod.events.DeckOfManyThingsEvent;
 import stsjorbsmod.relics.*;
 import stsjorbsmod.util.TextureLoader;
+import stsjorbsmod.variables.MetaMagicNumber;
+import stsjorbsmod.variables.UrMagicNumber;
 
 import java.io.File;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -134,9 +132,9 @@ public class JorbsMod implements
 
         logger.info("Done subscribing");
         
-        logger.info("Creating the color " + Wanderer.Enums.COLOR_GRAY.toString());
+        logger.info("Creating the color " + Wanderer.Enums.WANDERER_GRAY_COLOR.toString());
         
-        BaseMod.addColor(Wanderer.Enums.COLOR_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
+        BaseMod.addColor(Wanderer.Enums.WANDERER_GRAY_COLOR, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
                 DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
                 ATTACK_DEFAULT_GRAY, SKILL_DEFAULT_GRAY, POWER_DEFAULT_GRAY, ENERGY_ORB_DEFAULT_GRAY,
                 ATTACK_DEFAULT_GRAY_PORTRAIT, SKILL_DEFAULT_GRAY_PORTRAIT, POWER_DEFAULT_GRAY_PORTRAIT,
@@ -246,9 +244,9 @@ public class JorbsMod implements
         logger.info("Adding relics");
         
         // Character-specific relics for custom characters use BaseMod.addRelicToCustomPool
-        BaseMod.addRelicToCustomPool(new WandererStarterRelic(), Wanderer.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new WandererStarterRelic(), Wanderer.Enums.WANDERER_GRAY_COLOR);
         UnlockTracker.markRelicAsSeen(WandererStarterRelic.ID);
-        BaseMod.addRelicToCustomPool(new FragileMindRelic(), Wanderer.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new FragileMindRelic(), Wanderer.Enums.WANDERER_GRAY_COLOR);
         UnlockTracker.markRelicAsSeen(FragileMindRelic.ID);
 
         // Shared (non-character-specific) relics would instead use this:
@@ -294,6 +292,9 @@ public class JorbsMod implements
     @Override
     public void receiveEditCards() {
         logger.info("Adding cards");
+
+        BaseMod.addDynamicVariable(new UrMagicNumber());
+        BaseMod.addDynamicVariable(new MetaMagicNumber());
 
         ArrayList<Class<CustomJorbsModCard>> cardClasses = findAllConcreteSubclasses(CustomJorbsModCard.class);
         for (Class<CustomJorbsModCard> cardClass : cardClasses) {

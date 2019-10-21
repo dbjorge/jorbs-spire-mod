@@ -4,6 +4,7 @@ import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -22,13 +23,14 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.*;
+import stsjorbsmod.memories.*;
 import stsjorbsmod.relics.FragileMindRelic;
 import stsjorbsmod.relics.WandererStarterRelic;
 
 import java.util.ArrayList;
 
 import static stsjorbsmod.JorbsMod.*;
-import static stsjorbsmod.characters.Wanderer.Enums.COLOR_GRAY;
+import static stsjorbsmod.characters.Wanderer.Enums.WANDERER_GRAY_COLOR;
 
 //Wiki-page https://github.com/daviscook477/BaseMod/wiki/Custom-Characters
 //and https://github.com/daviscook477/BaseMod/wiki/Migrating-to-5.0
@@ -47,10 +49,10 @@ public class Wanderer extends CustomPlayer {
     public static class Enums {
         @SpireEnum
         public static AbstractPlayer.PlayerClass WANDERER;
-        @SpireEnum(name = "DEFAULT_GRAY_COLOR") // These two HAVE to have the same absolutely identical name.
-        public static AbstractCard.CardColor COLOR_GRAY;
-        @SpireEnum(name = "DEFAULT_GRAY_COLOR") @SuppressWarnings("unused")
-        public static CardLibrary.LibraryType LIBRARY_COLOR;
+        @SpireEnum(name = "WANDERER_GRAY_COLOR") // These two HAVE to have the same absolutely identical name.
+        public static AbstractCard.CardColor WANDERER_GRAY_COLOR;
+        @SpireEnum(name = "WANDERER_GRAY_COLOR") @SuppressWarnings("unused")
+        public static CardLibrary.LibraryType WANDERER_LIBRARY_COLOR;
         @SpireEnum(name = "REMEMBER_MEMORY")
         public static AbstractCard.CardTags REMEMBER_MEMORY;
     }
@@ -115,6 +117,12 @@ public class Wanderer extends CustomPlayer {
                 THE_DEFAULT_CORPSE, // dead corpse
                 getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
 
+        final float MEMORY_OFFSET_Y = 310.0F * Settings.scale;
+        final float CLARITY_OFFSET_Y = -10.0F * Settings.scale;
+        final float SIN_OFFSET_X = -200.0F * Settings.scale;
+        final float VIRTUE_OFFSET_X = 160.0F * Settings.scale;
+        this.memories = new MemoryManager(this, drawX, drawY, MEMORY_OFFSET_Y, CLARITY_OFFSET_Y, SIN_OFFSET_X, VIRTUE_OFFSET_X);
+
         // =============== /TEXTURES, ENERGY, LOADOUT/ =================
 
 
@@ -140,6 +148,20 @@ public class Wanderer extends CustomPlayer {
     }
 
     // =============== /CHARACTER CLASS END/ =================
+
+    public final MemoryManager memories;
+
+    @Override
+    public void renderHealth(SpriteBatch sb) {
+        super.renderHealth(sb);
+        memories.render(sb);
+    }
+
+    @Override
+    public void updatePowers() {
+        super.updatePowers();
+        memories.update();
+    }
 
     // Starting description and loadout
     @Override
@@ -205,7 +227,7 @@ public class Wanderer extends CustomPlayer {
     // Should return the card color enum to be associated with your character.
     @Override
     public AbstractCard.CardColor getCardColor() {
-        return COLOR_GRAY;
+        return WANDERER_GRAY_COLOR;
     }
 
     // Should return a color object to be used to color the trail of moving cards

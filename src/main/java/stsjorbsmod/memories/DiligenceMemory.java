@@ -29,14 +29,14 @@ public class DiligenceMemory extends AbstractMemory {
 
     @Override
     public void onRemember() {
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(this.source, CARDS_DRAWN_ON_ENTER));
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(owner, CARDS_DRAWN_ON_ENTER));
     }
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        if (isPlayer) {
+        if (isPassiveEffectActive && isPlayer) {
             AbstractDungeon.actionManager.addToBottom(
-                    new RetainCardsAction(this.source, CARDS_RETAINED));
+                    new RetainCardsAction(owner, CARDS_RETAINED));
         }
     }
 }

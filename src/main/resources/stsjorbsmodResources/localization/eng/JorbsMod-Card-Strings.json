@@ -116,7 +116,7 @@
   },
   "stsjorbsmod:Mania": {
     "NAME": "Mania",
-    "DESCRIPTION": "Deal !D! damage 2 times. NL If you have stsjorbsmod:Sloth, deal !D! damage 2 times again."
+    "DESCRIPTION": "Deal !D! damage 2 times. NL If you have memory or stsjorbsmod:Clarity of stsjorbsmod:Sloth, deal !D! damage 2 times again."
   },
   "stsjorbsmod:Mindworm": {
     "NAME": "Mindworm",
@@ -242,20 +242,88 @@
   },
   "stsjorbsmod:Haste": {
     "NAME": "Haste",
-    "DESCRIPTION": "Advance all relic counters by 1. NL This turn, your next attack is played twice. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Advance all relic counters by 1. NL This turn, your next two attacks are played twice. NL Exhaust."
+    "DESCRIPTION": "Advance all turn-based relic counters by 1. NL This turn, your next attack is played twice. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Advance all turn-based relic counters by 1. NL This turn, your next two attacks are played twice. NL Exhaust."
   },
   "stsjorbsmod:Fireball": {
     "NAME": "Fireball",
     "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Remember stsjorbsmod:Lust."
   },
+  "stsjorbsmod:LoseGrip": {
+    "NAME": "Lose Grip",
+    "DESCRIPTION": "If stsjorbsmod:Snapped, gain !M! Intangible. Otherwise, gain !B! Block. NL Retain. NL Exhaust."
+  },
+  "stsjorbsmod:HoldMonster": {
+    "NAME": "Hold Monster",
+    "DESCRIPTION": "If you remember stsjorbsmod:Temperance, gain stsjorbsmod:Clarity. NL Remember stsjorbsmod:Temperance. NL Enemy loses !M! Strength this turn.",
+    "UPGRADE_DESCRIPTION": "Gain stsjorbsmod:Clarity of stsjorbsmod:Temperance. NL Enemy loses !M! Strength this turn."
+  },
   "stsjorbsmod:Withdraw": {
     "NAME": "Withdraw",
     "DESCRIPTION": "Gain !M! Artifact. NL Gain !B! Block. NL Exhaust."
+  },
+  "stsjorbsmod:MirrorImage": {
+    "NAME": "Mirror Image",
+    "DESCRIPTION": "Remember stsjorbsmod:Temperance. NL The next enemy attack misses.",
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Temperance. NL The next enemy attack misses. NL Retain."
+  },
+  "stsjorbsmod:CorrodingBarrier": {
+    "NAME": "Corroding Barrier",
+    "DESCRIPTION": "Gain !B! Block. Gains !M! less Block this combat each time it is drawn. Lose 2 life when drawn if stsjorbsmod:Snapped."
+  },
+  "stsjorbsmod:OldFriends": {
+    "NAME": "Old Friends",
+    "DESCRIPTION": "Deal !D! damage to a random enemy. Gain HP equal to unblocked damage. NL Apply !M! Poison to a random enemy. NL Retain your hand this turn."
+  },
+  "stsjorbsmod:Entangle": {
+    "NAME": "Entangle",
+    "DESCRIPTION": "Apply Slow to ALL enemies. NL Remember stsjorbsmod:Patience. NL Gain stsjorbsmod:Clarity.",
+    "UPGRADE_DESCRIPTION": "Apply Slow and !M! Vulnerable to ALL enemies. NL Remember stsjorbsmod:Patience. NL Gain stsjorbsmod:Clarity."
+  },
+  "stsjorbsmod:Amnesia": {
+    "NAME": "Amnesia",
+    "DESCRIPTION": "Remove all buffs and debuffs from self. NL stsjorbsmod:Snap.",
+    "UPGRADE_DESCRIPTION": "Remove all debuffs from self. NL stsjorbsmod:Snap."
+  },
+  "stsjorbsmod:Fear": {
+    "NAME": "Fear",
+    "DESCRIPTION": "Target enemy will flee in !M! turns. If this ends combat, you gain no rewards but keep Clarities for the next combat."
+  },
+  "stsjorbsmod:Wish_Wanderer": {
+    "NAME": "Wish",
+    "DESCRIPTION": "Restart the combat retaining all buffs and debuffs. NL Destroy this card.",
+    "UPGRADE_DESCRIPTION": "Restart the combat retaining all buffs, debuffs, and clarities. NL Destroy this card."
+  },
+  "stsjorbsmod:Determination": {
+    "NAME": "Determination",
+    "DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of this turn, stsjorbsmod:Snap.",
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of next turn, stsjorbsmod:Snap."
+  },
+  "stsjorbsmod:ArcaneForm": {
+    "NAME": "Arcane Form",
+    "DESCRIPTION": "Gain stsjorbsmod:Clarity of stsjorbsmod:Wrath, stsjorbsmod:Lust, stsjorbsmod:Diligence, stsjorbsmod:Kindness, and stsjorbsmod:Chastity."
+  },
+  "stsjorbsmod:FocusOnThePain": {
+    "NAME": "Focus on the Pain",
+    "DESCRIPTION": "Whenever you lose HP, gain stsjorbsmod:Clarity.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you lose HP, gain stsjorbsmod:Clarity."
   },
   "stsjorbsmod:Study": {
     "NAME": "Study",
     "DESCRIPTION": "Remember stsjorbsmod:Patience. NL At the start of each turn, draw !M! extra card.",
     "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Patience. NL At the start of each turn, draw !M! extra cards."
+  },
+  "stsjorbsmod:Banish": {
+    "NAME": "Banish",
+    "DESCRIPTION": "Enemy takes no action and no damage for !M! turns. Exhaust."
+  },
+  "stsjorbsmod:Feast": {
+    "NAME": "Feast",
+    "DESCRIPTION": "Remember stsjorbsmod:Gluttony. NL Draw !M! cards. NL Exhaust."
+  },
+  "stsjorbsmod:TimeWalk": {
+    "NAME": "Time Walk",
+    "DESCRIPTION": "Discard your hand and lose all Block. NL Gain !M! [E] and draw !stsjorbsmod:UrMagic! cards. NL Gain !stsjorbsmod:MetaMagic! Weak. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Discard your hand and lose all Block. NL Gain !M! [E] and draw !stsjorbsmod:UrMagic! cards. NL Exhaust."
   }
 }

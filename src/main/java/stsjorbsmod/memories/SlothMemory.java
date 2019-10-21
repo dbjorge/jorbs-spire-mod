@@ -32,15 +32,18 @@ public class SlothMemory extends AbstractMemory {
     public void onRemember() {
         // addToTop is required for correct interaction with Unseen Servant
         AbstractDungeon.actionManager.addToTop(
-                new DiscardAction(owner, source, DISCARD_ON_REMEMBER, true));
+                new DiscardAction(owner, owner, DISCARD_ON_REMEMBER, true));
+    }
 
+    @Override
+    public void onGainPassiveEffect() {
         // We modify gameHandSize directly rather than using a DrawReductionPower because we don't want
         // the effect to be prevented by artifact.
         --AbstractDungeon.player.gameHandSize;
     }
 
     @Override
-    public void onForget() {
+    public void onLosePassiveEffect() {
         ++AbstractDungeon.player.gameHandSize;
     }
 }

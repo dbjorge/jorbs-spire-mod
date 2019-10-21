@@ -18,10 +18,12 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.util.TextureLoader;
 
+import java.util.ArrayList;
+
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
-// attacks with random targets (specifically, uses of the AttackDamageRandomEnemyAction) target this enemy
-// The actual implementation is in BlackTentaclesOverrideAttackDamageRandomEnemyActionPatch
+// attacks with random targets (specifically, uses of the AttackDamageRandomEnemyAction) target this enemy.
+// This is primarily a marker power for applyPossibleActionTargetOverride to look for.
 public class BlackTentaclesPower extends AbstractPower implements CloneablePowerInterface {
     public AbstractCreature source;
 
@@ -66,6 +68,20 @@ public class BlackTentaclesPower extends AbstractPower implements CloneablePower
     @Override
     public AbstractPower makeCopy() {
         return new BlackTentaclesPower(owner, source, amount);
+    }
+
+    public static void applyPossibleActionTargetOverride(AbstractGameAction action) {
+        ArrayList<AbstractCreature> candidateTargetsWithBlackTentacles = new ArrayList<>();
+        for (AbstractCreature m : AbstractDungeon.getMonsters().monsters) {
+            if (!m.halfDead && !m.isDying && !m.isEscaping && m.hasPower(BlackTentaclesPower.POWER_ID)) {
+                candidateTargetsWithBlackTentacles.add(m);
+            }
+        }
+        if (!candidateTargetsWithBlackTentacles.isEmpty()) {
+            JorbsMod.logger.info("Black Tentacles overriding AttackDamageRandomEnemyAction target");
+            int blackTentaclesTargetIndex = AbstractDungeon.cardRandomRng.random(0, candidateTargetsWithBlackTentacles.size() - 1);
+            action.target = candidateTargetsWithBlackTentacles.get(blackTentaclesTargetIndex);
+        }
     }
 }
 

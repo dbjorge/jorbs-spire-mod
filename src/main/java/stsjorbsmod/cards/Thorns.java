@@ -8,19 +8,18 @@ import stsjorbsmod.actions.IfEnemyIntendsToAttackAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.HumilityMemory;
-import stsjorbsmod.memories.KindnessMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 public class Thorns extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Thorns.class.getSimpleName());
-    public static final String IMG = makeCardPath("Scaling_Uncommons/tiny_hut.png");
+    public static final String IMG = makeCardPath("Scaling_Uncommons/thorns.png");
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = Wanderer.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = 1;
     private static final int UPGRADED_COST = 0;

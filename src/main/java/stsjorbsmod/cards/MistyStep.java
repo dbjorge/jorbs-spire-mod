@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.memories.MemoryUtils;
+import stsjorbsmod.memories.MemoryManager;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -17,7 +17,7 @@ public class MistyStep extends CustomJorbsModCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = Wanderer.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = 0;
     private static final int BLOCK_PER_CLARITY = 1;
@@ -32,7 +32,7 @@ public class MistyStep extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int calculatedBlock = MemoryUtils.countClarities(p) * block;
+        int calculatedBlock = MemoryManager.forPlayer(p).countCurrentClarities() * block;
         enqueueAction(new GainBlockAction(p, p, calculatedBlock));
         enqueueAction(new DrawCardAction(p, magicNumber));
     }

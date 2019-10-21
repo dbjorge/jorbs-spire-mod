@@ -52,4 +52,3 @@ public class FindFamiliarPower extends AbstractPower implements CloneablePowerIn
         return new FindFamiliarPower(owner);
     }
 }
-

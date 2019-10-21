@@ -27,15 +27,15 @@ public class HumilityMemory extends AbstractMemory {
     }
 
     @Override
-    public void onRemember() {
+    public void onGainPassiveEffect() {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(owner, source, new ThornsPower(owner, THORNS_DAMAGE)));
+                new ApplyPowerAction(owner, owner, new ThornsPower(owner, THORNS_DAMAGE)));
     }
 
     @Override
-    public void onForget() {
+    public void onLosePassiveEffect() {
         this.flash();
         AbstractDungeon.actionManager.addToBottom(
-                new ReducePowerAction(owner, source, ThornsPower.POWER_ID, THORNS_DAMAGE));
+                new ReducePowerAction(owner, owner, ThornsPower.POWER_ID, THORNS_DAMAGE));
     }
 }

@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.memories.MemoryUtils;
+import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.powers.IntrospectionPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
@@ -19,7 +19,7 @@ public class Introspection extends CustomJorbsModCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
-    public static final CardColor COLOR = Wanderer.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = 1;
     private static final int HP_LOSS = 1;
@@ -41,7 +41,7 @@ public class Introspection extends CustomJorbsModCard {
 
     @Override
     public int calculateBonusBaseDamage() {
-        return magicNumber * MemoryUtils.countClarities(AbstractDungeon.player);
+        return magicNumber * MemoryManager.forPlayer(AbstractDungeon.player).countCurrentClarities();
     }
 
     @Override
