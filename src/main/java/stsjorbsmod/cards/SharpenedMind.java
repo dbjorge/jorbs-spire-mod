@@ -11,9 +11,7 @@ import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 // [Power, unstackable]
-// 1(0): At the start of your turn, remember Patience. NL At the end of your turn, remember Diligence.
-// Note: this implementation means the only effect from Diligence is the card draw. By the time Diligence
-// is remembered, the end-of-turn trigger has already passed for it to retain a card. That could be changed.
+// 1(0): At the start of your turn, remember Patience. At the end of your turn, remember Diligence.
 public class SharpenedMind extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(SharpenedMind.class.getSimpleName());
     public static final String IMG = makeCardPath("Manipulation_Rares/sharpened_mind.png");

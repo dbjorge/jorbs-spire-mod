@@ -22,14 +22,32 @@ public class DiligenceMemory extends AbstractMemory {
     private static final int CARDS_DRAWN_ON_ENTER = 2;
     private static final int CARDS_RETAINED = 1;
 
-    public DiligenceMemory(final AbstractCreature owner, boolean isClarified) {
+    // Set to true if the memory is gained after the end-of-turn trigger has already passed,
+    // but we still need to process the end-of-turn effects for this memory.
+    private boolean isTurnAlreadyEnding;
+
+    public DiligenceMemory(final AbstractCreature owner, boolean isClarified, boolean isTurnAlreadyEnding) {
         super(STATIC, MemoryType.VIRTUE, owner, isClarified);
         setDescriptionPlaceholder("!M!", CARDS_RETAINED);
+        this.isTurnAlreadyEnding = isTurnAlreadyEnding;
+    }
+
+    public DiligenceMemory(final AbstractCreature owner, boolean isClarified) {
+        this(owner, isClarified, false);
     }
 
     @Override
     public void onRemember() {
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(owner, CARDS_DRAWN_ON_ENTER));
+        if (isTurnAlreadyEnding) {
+            // Add the Retain action first, so the Draw action goes on top of it and happens first.
+            // Both happen at the top so that we draw and retain before discarding our hand for the turn.
+            AbstractDungeon.actionManager.addToTop(
+                    new RetainCardsAction(owner, CARDS_RETAINED));
+            AbstractDungeon.actionManager.addToTop(new DrawCardAction(owner, CARDS_DRAWN_ON_ENTER));
+            isTurnAlreadyEnding = false;
+        } else {
+            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(owner, CARDS_DRAWN_ON_ENTER));
+        }
     }
 
     @Override

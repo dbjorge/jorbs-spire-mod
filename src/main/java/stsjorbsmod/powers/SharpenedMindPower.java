@@ -47,7 +47,7 @@ public class SharpenedMindPower extends AbstractPower implements CloneablePowerI
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         AbstractDungeon.actionManager.addToBottom(
-                new RememberSpecificMemoryAction(new DiligenceMemory(owner, false)));
+                new RememberSpecificMemoryAction(new DiligenceMemory(owner, false, true)));
     }
 
     @Override
