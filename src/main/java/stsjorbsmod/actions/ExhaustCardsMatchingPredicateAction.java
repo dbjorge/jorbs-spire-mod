@@ -7,25 +7,29 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 // Based on ExhaustSpecificCardAction
-public class ExhaustNegativeCardAction extends AbstractGameAction {
+public class ExhaustCardsMatchingPredicateAction extends AbstractGameAction {
     private CardGroup pile;
+    private Predicate<AbstractCard> filter;
 
-    public ExhaustNegativeCardAction(AbstractCreature source, CardGroup pile) {
+    public ExhaustCardsMatchingPredicateAction(
+            AbstractCreature source, CardGroup pile, Predicate<AbstractCard> filter)
+    {
         this.setValues(AbstractDungeon.player, source, 1);
         this.actionType = ActionType.EXHAUST;
         this.duration = Settings.ACTION_DUR_FASTER;
         this.pile = pile;
+        this.filter = filter;
     }
 
     @Override
     public void update() {
         ArrayList<AbstractCard> toExhaust = new ArrayList<AbstractCard>();
         for (AbstractCard c : pile.group) {
-            if (c.type == AbstractCard.CardType.CURSE || c.type == AbstractCard.CardType.STATUS) {
+            if (filter.test(c)) {
                 toExhaust.add(c);
             }
         }
