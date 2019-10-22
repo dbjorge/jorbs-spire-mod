@@ -10,7 +10,7 @@ import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-// 0: Draw 2(4) cards, exhaust all curses and statuses in your hand.
+// 0: Draw 2(4) cards. Exhaust all Curse and Status cards in your hand.
 public class IvoryTower extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(IvoryTower.class.getSimpleName());
     public static final String IMG = makeCardPath("Manipulation_Rares/ivory_tower.png");
