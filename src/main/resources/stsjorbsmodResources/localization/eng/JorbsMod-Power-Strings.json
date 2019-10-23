@@ -95,6 +95,12 @@
       "Reduce the next damage taken by #b", "."
     ]
   },
+  "stsjorbsmod:SharpenedMindPower": {
+    "NAME": "Sharpened Mind",
+    "DESCRIPTIONS": [
+      "At the start of your turn, remember #yPatience. NL At the end of your turn, remember #yDiligence."
+    ]
+  },
   "stsjorbsmod:SnappedPower": {
     "NAME": "Snapped",
     "DESCRIPTIONS": [
