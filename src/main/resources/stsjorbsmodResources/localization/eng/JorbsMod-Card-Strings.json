@@ -325,5 +325,9 @@
     "NAME": "Time Walk",
     "DESCRIPTION": "Discard your hand and lose all Block. NL Gain !M! [E] and draw !stsjorbsmod:UrMagic! cards. NL Gain !stsjorbsmod:MetaMagic! Weak. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Discard your hand and lose all Block. NL Gain !M! [E] and draw !stsjorbsmod:UrMagic! cards. NL Exhaust."
+  },
+  "stsjorbsmod:IvoryTower": {
+    "NAME": "Ivory Tower",
+    "DESCRIPTION": "Draw !M! cards. NL Exhaust all Curse and Status cards in your hand."
   }
 }
