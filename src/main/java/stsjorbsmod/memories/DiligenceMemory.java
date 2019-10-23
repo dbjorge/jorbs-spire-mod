@@ -38,11 +38,20 @@ public class DiligenceMemory extends AbstractMemory {
 
     @Override
     public void onRemember() {
+        // isTurnAlreadyEnding is a special case for effects like SharpenedMindPower that "remember Diligence" as an
+        // end-of-turn effect. Since atEndOfTurn triggers have already gone off by the time the action remembering
+        // the memory goes off, atEndOfTurn won't trigger in that case, and since the action discarding your hand at
+        // end of turn is already on the action queue, we need to add both the onRemember draw action and passive
+        // Retain effect to the top of the action queue.
+        //
+        // Because they both have to go on top and the DrawCardAction has to end up before the retain, we can't use
+        // onGainPassiveEffect for the retain action (the ordering would be backwards). Not using onGainPassiveEffect
+        // means the MemoryManager can't deal with avoiding the double passive effect if the player has both memory and
+        // clarity at the same time, so we manually check for the Clarity existing already to avoid that.
         if (isTurnAlreadyEnding) {
-            // Add the Retain action first, so the Draw action goes on top of it and happens first.
-            // Both happen at the top so that we draw and retain before discarding our hand for the turn.
-            AbstractDungeon.actionManager.addToTop(
-                    new RetainCardsAction(owner, CARDS_RETAINED));
+            if (!MemoryManager.forPlayer(owner).hasClarity(this.ID)) {
+                AbstractDungeon.actionManager.addToTop(new RetainCardsAction(owner, CARDS_RETAINED));
+            }
             AbstractDungeon.actionManager.addToTop(new DrawCardAction(owner, CARDS_DRAWN_ON_ENTER));
             isTurnAlreadyEnding = false;
         } else {
@@ -53,8 +62,12 @@ public class DiligenceMemory extends AbstractMemory {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         if (isPassiveEffectActive && isPlayer) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new RetainCardsAction(owner, CARDS_RETAINED));
+            AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(owner, CARDS_RETAINED));
         }
+    }
+
+    @Override
+    public AbstractMemory makeCopy() {
+        return new DiligenceMemory(owner, isClarified, isTurnAlreadyEnding);
     }
 }
