@@ -8,7 +8,6 @@
         <file id="4" name="lefthand.png" width="88" height="177" pivot_x="0.806818" pivot_y="0.333333"/>
         <file id="5" name="hat.png" width="460" height="262" pivot_x="0.478261" pivot_y="0.236641"/>
         <file id="6" name="face.png" width="460" height="256" pivot_x="0.576087" pivot_y="0.507812"/>
-        <file id="7" name="leftsleeve50.png" width="163" height="149" pivot_x="0" pivot_y="1"/>
     </folder>
     <entity id="0" name="Character">
         <obj_info name="bone_000" type="bone" w="350.92" h="10"/>
