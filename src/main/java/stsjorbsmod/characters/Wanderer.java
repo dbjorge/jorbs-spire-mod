@@ -105,7 +105,7 @@ public class Wanderer extends CustomPlayer {
         super(name, setClass, orbTextures,
                 "stsjorbsmodResources/images/char/wanderer/orb/vfx.png", null,
                 new SpriterAnimation(
-                        "stsjorbsmodResources/images/char/wanderer/Spriter/theDefaultAnimation.scml"));
+                        "stsjorbsmodResources/images/char/wanderer/Spriter/jorbsWizard50.scml"));
 
 
         // =============== TEXTURES, ENERGY, LOADOUT =================  
