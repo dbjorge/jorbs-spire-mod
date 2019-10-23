@@ -22,7 +22,7 @@ public class IvoryTower extends CustomJorbsModCard {
 
     private static final int COST = 0;
     private static final int DRAW = 2;
-    private static final int UPGRADE_PLUS_DRAW = 2;
+    private static final int UPGRADE_PLUS_DRAW = 1;
 
     public IvoryTower() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
