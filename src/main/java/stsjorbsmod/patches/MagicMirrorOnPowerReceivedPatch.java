@@ -30,7 +30,6 @@ public class MagicMirrorOnPowerReceivedPatch {
 
     @SpirePrefixPatch
     public static void patch(ApplyPowerAction __this) {
-        logger.info("Entering patch");
         if (__this.target != null && !__this.target.isDeadOrEscaped()) {
             float duration = getPrivateField(__this, AbstractGameAction.class, "duration");
             float startingDuration = getPrivateField(__this, ApplyPowerAction.class, "startingDuration");
@@ -42,6 +41,5 @@ public class MagicMirrorOnPowerReceivedPatch {
                 }
             }
         }
-        logger.info("Leaving patch");
     }
 }
