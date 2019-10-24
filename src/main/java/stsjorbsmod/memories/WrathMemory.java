@@ -1,6 +1,7 @@
 package stsjorbsmod.memories;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -35,17 +36,19 @@ public class WrathMemory extends AbstractMemory {
     }
 
     @Override
-    public void onPlayCard(AbstractCard card, AbstractMonster target) {
+    public void onPlayCard(AbstractCard card, AbstractMonster monster) {
         if (!isPassiveEffectActive || card.type != AbstractCard.CardType.ATTACK) {
             return;
         }
 
-        if (card.target != null) {
-            activateWrathUpgrade(card, target);
-        } else {
-            // Assuming it's a "damage ALL enemies" effect
-            final MonsterGroup currentFightMonsters = AbstractDungeon.getMonsters();
-            currentFightMonsters.monsters.forEach(monster -> activateWrathUpgrade(card, monster));
+        boolean isTargetingSingleEnemy = monster != null && card.target == CardTarget.ENEMY || card.target == CardTarget.SELF_AND_ENEMY;
+        boolean isTargetingAllEnemies = card.target == CardTarget.ALL || card.target == CardTarget.ALL_ENEMY;
+        if (isTargetingSingleEnemy) {
+            this.flash();
+            activateWrathUpgrade(card, monster);
+        } else if(isTargetingAllEnemies) {
+            this.flash();
+            AbstractDungeon.getMonsters().monsters.forEach(m -> activateWrathUpgrade(card, m));
         }
     }
 }
