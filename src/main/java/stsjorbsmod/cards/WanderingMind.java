@@ -26,7 +26,7 @@ public class WanderingMind extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new RememberRandomNewMemoryAction(p, p, true));
+        addToBot(new RememberRandomNewMemoryAction(p, p, true));
     }
 
     @Override

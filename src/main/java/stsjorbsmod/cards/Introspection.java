@@ -36,7 +36,7 @@ public class Introspection extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new ApplyPowerAction(p, p, new IntrospectionPower(p, HP_LOSS, baseDamage, magicNumber, damageTypeForTurn)));
+        addToBot(new ApplyPowerAction(p, p, new IntrospectionPower(p, HP_LOSS, baseDamage, magicNumber, damageTypeForTurn)));
     }
 
     @Override

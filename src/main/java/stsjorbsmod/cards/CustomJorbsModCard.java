@@ -1,8 +1,6 @@
 package stsjorbsmod.cards;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
@@ -37,13 +35,6 @@ public abstract class CustomJorbsModCard extends CustomCard {
         isMagicNumberModified = false;
         isUrMagicNumberModified = false;
         isMetaMagicNumberModified = false;
-    }
-
-    protected void enqueueAction(AbstractGameAction action) {
-        AbstractDungeon.actionManager.addToBottom(action);
-    }
-    protected void enqueueActionToTop(AbstractGameAction action) {
-        AbstractDungeon.actionManager.addToTop(action);
     }
 
     @Override

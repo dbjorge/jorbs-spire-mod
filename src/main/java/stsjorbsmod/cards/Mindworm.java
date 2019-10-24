@@ -40,8 +40,8 @@ public class Mindworm extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.FIRE));
-        enqueueAction(new MakeTempCardInDiscardAction(this.makeStatEquivalentCopy(), 1));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.FIRE));
+        addToBot(new MakeTempCardInDiscardAction(this.makeStatEquivalentCopy(), 1));
     }
 
     @Override

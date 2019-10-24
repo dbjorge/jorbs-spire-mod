@@ -26,7 +26,7 @@ public class FindFamiliar extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new ApplyPowerAction(p, p, new FindFamiliarPower(p)));
+        addToBot(new ApplyPowerAction(p, p, new FindFamiliarPower(p)));
     }
 
     @Override

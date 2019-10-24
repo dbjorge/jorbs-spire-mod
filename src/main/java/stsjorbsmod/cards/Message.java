@@ -28,7 +28,7 @@ public class Message extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new BetterDiscardPileToHandAction(this.magicNumber));
+        addToBot(new BetterDiscardPileToHandAction(this.magicNumber));
     }
 
     @Override

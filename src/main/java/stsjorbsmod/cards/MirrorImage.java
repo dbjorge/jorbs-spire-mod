@@ -31,8 +31,8 @@ public class MirrorImage extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new RememberSpecificMemoryAction(new TemperanceMemory(p, false)));
-        enqueueAction(new ApplyPowerAction(p, p, new NextAttackMissesPower(p)));
+        addToBot(new RememberSpecificMemoryAction(new TemperanceMemory(p, false)));
+        addToBot(new ApplyPowerAction(p, p, new NextAttackMissesPower(p)));
     }
 
     @Override

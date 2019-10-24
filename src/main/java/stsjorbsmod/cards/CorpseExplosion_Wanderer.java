@@ -14,7 +14,6 @@ import stsjorbsmod.patches.EntombedField;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-// Deal 8 damage + 2(3) damager for each clarity
 public class CorpseExplosion_Wanderer extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(CorpseExplosion_Wanderer.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Uncommons/corpse_explosion_wanderer.png");
@@ -39,8 +38,8 @@ public class CorpseExplosion_Wanderer extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new RememberSpecificMemoryAction(new WrathMemory(p, false)));
-        enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.FIRE));
+        addToBot(new RememberSpecificMemoryAction(new WrathMemory(p, false)));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.FIRE));
     }
 
     @Override

@@ -33,8 +33,8 @@ public class UnseenServant extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new RememberSpecificMemoryAction(new SlothMemory(p, false)));
-        enqueueAction(new CardsToTopOfDeckAction(p, p.discardPile, this.magicNumber, false));
+        addToBot(new RememberSpecificMemoryAction(new SlothMemory(p, false)));
+        addToBot(new CardsToTopOfDeckAction(p, p.discardPile, this.magicNumber, false));
     }
 
     @Override

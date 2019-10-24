@@ -32,8 +32,8 @@ public class Thorns extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new RememberSpecificMemoryAction(new HumilityMemory(p, false)));
-        enqueueAction(new IfEnemyIntendsToAttackAction(m, new GainMemoryClarityAction(p)));
+        addToBot(new RememberSpecificMemoryAction(new HumilityMemory(p, false)));
+        addToBot(new IfEnemyIntendsToAttackAction(m, new GainMemoryClarityAction(p)));
     }
 
     @Override
