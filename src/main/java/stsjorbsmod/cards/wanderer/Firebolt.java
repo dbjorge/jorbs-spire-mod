@@ -11,7 +11,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.MemoryManager;
 
-
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 // Deal 8 damage + 2(3) damager for each clarity
@@ -42,7 +41,7 @@ public class Firebolt extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.FIRE));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.FIRE));
     }
 
     @Override

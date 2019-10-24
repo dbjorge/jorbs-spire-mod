@@ -29,7 +29,7 @@ public class Wish_Wanderer extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new RestartCombatAction(upgraded));
+        addToBot(new RestartCombatAction(upgraded));
         removeFromMasterDeck(); // the other piles will get reset as part of RestartCombatAction
     }
 

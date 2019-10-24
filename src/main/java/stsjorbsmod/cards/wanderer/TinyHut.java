@@ -32,8 +32,8 @@ public class TinyHut extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new RememberSpecificMemoryAction(new KindnessMemory(p, false)));
-        enqueueAction(new GainMemoryClarityAction(p));
+        addToBot(new RememberSpecificMemoryAction(new KindnessMemory(p, false)));
+        addToBot(new GainMemoryClarityAction(p));
     }
 
     @Override

@@ -59,7 +59,7 @@ public class WeightOfMemory extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.BLUNT_HEAVY));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.BLUNT_HEAVY));
     }
 
     @Override

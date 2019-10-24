@@ -1,7 +1,6 @@
 package stsjorbsmod.cards.wanderer;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
@@ -32,9 +31,9 @@ public class IvoryTower extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new DrawCardAction(p, magicNumber, false));
-        enqueueAction(new ExhaustCardsMatchingPredicateAction(p, p.hand,
-                c -> c.type == AbstractCard.CardType.CURSE || c.type == AbstractCard.CardType.STATUS));
+        addToBot(new DrawCardAction(p, magicNumber, false));
+        addToBot(new ExhaustCardsMatchingPredicateAction(p, p.hand,
+                c -> c.type == CardType.CURSE || c.type == CardType.STATUS));
     }
 
     @Override

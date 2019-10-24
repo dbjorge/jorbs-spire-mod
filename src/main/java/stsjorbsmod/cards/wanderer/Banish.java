@@ -33,9 +33,9 @@ public class Banish extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new StunMonsterAction(m, p, magicNumber));
+        addToBot(new StunMonsterAction(m, p, magicNumber));
         if (!m.hasPower(ArtifactPower.POWER_ID)) {
-            enqueueAction(new ApplyPowerAction(m, p, new ImmuneToDamagePower(m, magicNumber), magicNumber));
+            addToBot(new ApplyPowerAction(m, p, new ImmuneToDamagePower(m, magicNumber), magicNumber));
         }
     }
 

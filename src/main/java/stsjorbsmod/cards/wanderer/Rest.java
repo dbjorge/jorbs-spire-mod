@@ -35,9 +35,9 @@ public class Rest extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new RememberSpecificMemoryAction(new ChastityMemory(p, false)));
-        enqueueAction(new GainBlockAction(p, p, block));
-        enqueueAction(new EndTurnNowAction());
+        addToBot(new RememberSpecificMemoryAction(new ChastityMemory(p, false)));
+        addToBot(new GainBlockAction(p, p, block));
+        addToBot(new EndTurnNowAction());
     }
 
     @Override

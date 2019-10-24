@@ -37,9 +37,9 @@ public class OldFriends extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new VampireDamageRandomEnemyAction(this, AttackEffect.SLASH_DIAGONAL));
-        enqueueAction(new ApplyPowerToRandomEnemyAction(p, new PoisonPower(null, p, magicNumber), magicNumber));
-        enqueueAction(new ApplyPowerAction(p, p, new EquilibriumPower(p, 1), 1));
+        addToBot(new VampireDamageRandomEnemyAction(this, AttackEffect.SLASH_DIAGONAL));
+        addToBot(new ApplyPowerToRandomEnemyAction(p, new PoisonPower(null, p, magicNumber), magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new EquilibriumPower(p, 1), 1));
     }
 
     @Override

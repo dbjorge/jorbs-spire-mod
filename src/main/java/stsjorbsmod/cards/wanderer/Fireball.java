@@ -36,8 +36,8 @@ public class Fireball extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueActionToTop(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.FIRE));
-        enqueueAction(new RememberSpecificMemoryAction(new LustMemory(p, false)));
+        addToTop(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.FIRE));
+        addToBot(new RememberSpecificMemoryAction(new LustMemory(p, false)));
     }
 
     @Override

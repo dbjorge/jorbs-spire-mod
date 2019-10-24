@@ -44,15 +44,15 @@ public class Trauma extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         // Phase 1
-        enqueueAction(new SnapAction(p));
+        addToBot(new SnapAction(p));
 
         // Phase 2
-        enqueueAction(makeTransientLoseHPAction(p));
-        enqueueAction(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.BLUNT_HEAVY));
+        addToBot(makeTransientLoseHPAction(p));
+        addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.BLUNT_HEAVY));
 
         // Phase 3
-        enqueueAction(makeTransientLoseHPAction(p));
-        enqueueAction(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.BLUNT_HEAVY));
+        addToBot(makeTransientLoseHPAction(p));
+        addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.BLUNT_HEAVY));
     }
 
     @Override

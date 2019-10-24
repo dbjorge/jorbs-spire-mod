@@ -33,11 +33,11 @@ public class ArcaneForm extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new RememberSpecificMemoryAction(new WrathMemory(p, true)));
-        enqueueAction(new RememberSpecificMemoryAction(new LustMemory(p, true)));
-        enqueueAction(new RememberSpecificMemoryAction(new DiligenceMemory(p, true)));
-        enqueueAction(new RememberSpecificMemoryAction(new KindnessMemory(p, true)));
-        enqueueAction(new RememberSpecificMemoryAction(new ChastityMemory(p, true)));
+        addToBot(new RememberSpecificMemoryAction(new WrathMemory(p, true)));
+        addToBot(new RememberSpecificMemoryAction(new LustMemory(p, true)));
+        addToBot(new RememberSpecificMemoryAction(new DiligenceMemory(p, true)));
+        addToBot(new RememberSpecificMemoryAction(new KindnessMemory(p, true)));
+        addToBot(new RememberSpecificMemoryAction(new ChastityMemory(p, true)));
     }
 
     @Override

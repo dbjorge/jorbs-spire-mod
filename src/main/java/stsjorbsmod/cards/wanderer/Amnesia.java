@@ -28,8 +28,8 @@ public class Amnesia extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster _) {
         // Order matters here, since Clarities are technically powers and we want Snap to consider them.
-        enqueueAction(new SnapAction(p));
-        enqueueAction(new RemoveAllPowersAction(p, upgraded));
+        addToBot(new SnapAction(p));
+        addToBot(new RemoveAllPowersAction(p, upgraded));
     }
 
     @Override

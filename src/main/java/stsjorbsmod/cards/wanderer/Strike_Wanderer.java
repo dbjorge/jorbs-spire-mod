@@ -36,7 +36,7 @@ public class Strike_Wanderer extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.BLUNT_LIGHT));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.BLUNT_LIGHT));
     }
 
     @Override

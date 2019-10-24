@@ -31,8 +31,8 @@ public class Mending extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int healAmount = MemoryManager.forPlayer(p).countCurrentClarities() * magicNumber;
-        enqueueAction(new HealAction(p, p, healAmount));
-        enqueueAction(new EndTurnNowAction());
+        addToBot(new HealAction(p, p, healAmount));
+        addToBot(new EndTurnNowAction());
     }
 
     @Override

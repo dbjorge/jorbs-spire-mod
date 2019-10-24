@@ -42,7 +42,7 @@ public class ColorSpray extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster monster) {
-        enqueueAction(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.FIRE));
+        addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.FIRE));
 
         for(AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
             int randomDebuffType = AbstractDungeon.cardRandomRng.random(0, 3);
@@ -53,7 +53,7 @@ public class ColorSpray extends CustomJorbsModCard {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, randomDebuff, 1, true, AttackEffect.NONE));
         }
 
-        enqueueAction(new RememberSpecificMemoryAction(new EnvyMemory(p, false)));
+        addToBot(new RememberSpecificMemoryAction(new EnvyMemory(p, false)));
     }
 
     @Override

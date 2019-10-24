@@ -37,8 +37,8 @@ public class FreshAdventure extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SLASH_DIAGONAL));
-        enqueueAction(new RememberSpecificMemoryAction(new DiligenceMemory(p, false)));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SLASH_DIAGONAL));
+        addToBot(new RememberSpecificMemoryAction(new DiligenceMemory(p, false)));
     }
 
     @Override

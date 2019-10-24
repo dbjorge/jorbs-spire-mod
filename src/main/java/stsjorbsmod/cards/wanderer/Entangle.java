@@ -40,15 +40,15 @@ public class Entangle extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster _) {
         for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (!m.hasPower(SlowPower.POWER_ID)) {
-                enqueueAction(new ApplyPowerAction(m, p, new SlowPower(m, 0)));
+                addToBot(new ApplyPowerAction(m, p, new SlowPower(m, 0)));
             }
             if (magicNumber > 0) {
-                enqueueAction(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false)));
+                addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false)));
             }
         }
 
-        enqueueAction(new RememberSpecificMemoryAction(new PatienceMemory(p, false)));
-        enqueueAction(new GainMemoryClarityAction(p));
+        addToBot(new RememberSpecificMemoryAction(new PatienceMemory(p, false)));
+        addToBot(new GainMemoryClarityAction(p));
     }
 
     @Override

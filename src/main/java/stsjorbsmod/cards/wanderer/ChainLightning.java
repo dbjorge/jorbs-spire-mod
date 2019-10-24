@@ -36,7 +36,7 @@ public class ChainLightning extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         ArrayList<AbstractMonster> targets = AbstractDungeon.getMonsters().monsters;
-        enqueueAction(new ChainLightningAction(p, m, targets, damage, magicNumber, AttackEffect.SLASH_VERTICAL));
+        addToBot(new ChainLightningAction(p, m, targets, damage, magicNumber, AttackEffect.SLASH_VERTICAL));
     }
 
     @Override

@@ -27,7 +27,7 @@ public class FocusOnThePain extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new ApplyPowerAction(p, p, new FocusOnThePainPower(p)));
+        addToBot(new ApplyPowerAction(p, p, new FocusOnThePainPower(p)));
     }
 
     @Override

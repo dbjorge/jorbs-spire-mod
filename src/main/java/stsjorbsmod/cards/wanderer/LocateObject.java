@@ -34,8 +34,8 @@ public class LocateObject extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new RememberSpecificMemoryAction(new GreedMemory(p, upgraded)));
-        enqueueAction(new DrawCardAction(p, magicNumber));
+        addToBot(new RememberSpecificMemoryAction(new GreedMemory(p, upgraded)));
+        addToBot(new DrawCardAction(p, magicNumber));
     }
 
     @Override

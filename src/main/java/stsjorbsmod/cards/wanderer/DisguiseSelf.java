@@ -31,8 +31,8 @@ public class DisguiseSelf extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new GainBlockAction(p, p, block));
-        enqueueAction(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, this.block), this.block));
+        addToBot(new GainBlockAction(p, p, block));
+        addToBot(new ApplyPowerAction(p, p, new NextTurnBlockPower(p, this.block), this.block));
     }
 
     @Override

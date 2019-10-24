@@ -30,8 +30,8 @@ public class SchoolsOfMagic extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new DrawCardAction(p, magicNumber));
-        enqueueAction(new SchoolsOfMagicAction(p));
+        addToBot(new DrawCardAction(p, magicNumber));
+        addToBot(new SchoolsOfMagicAction(p));
     }
 
     @Override

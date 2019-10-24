@@ -1,5 +1,6 @@
 package stsjorbsmod.cards.wanderer;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -38,15 +39,16 @@ public class HoldMonster extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (upgraded) {
-            enqueueAction(new RememberSpecificMemoryAction(new TemperanceMemory(p, true)));
+            addToBot(new RememberSpecificMemoryAction(new TemperanceMemory(p, true)));
         } else {
-            enqueueAction(new GainMemoryClarityAction(p, TemperanceMemory.STATIC.ID));
-            enqueueAction(new RememberSpecificMemoryAction(new TemperanceMemory(p, false)));
+            addToBot(new GainMemoryClarityAction(p, TemperanceMemory.STATIC.ID));
+            addToBot(new RememberSpecificMemoryAction(new TemperanceMemory(p, false)));
         }
 
-        enqueueAction(new ApplyPowerAction(m, p, new StrengthPower(m, -this.magicNumber), -this.magicNumber));
+        AbstractGameAction action = new ApplyPowerAction(m, p, new StrengthPower(m, -this.magicNumber), -this.magicNumber);
+        addToBot(action);
         if (m != null && !m.hasPower(ArtifactPower.POWER_ID)) {
-            enqueueAction(new ApplyPowerAction(m, p, new GainStrengthPower(m, this.magicNumber), this.magicNumber));
+            addToBot(new ApplyPowerAction(m, p, new GainStrengthPower(m, this.magicNumber), this.magicNumber));
         }
     }
 

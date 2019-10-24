@@ -36,7 +36,7 @@ public class MagicMissiles extends CustomJorbsModCard {
         int numMissiles = 1 + MemoryManager.forPlayer(p).countCurrentClarities();
 
         for (int i=0; i<numMissiles; ++i) {
-            enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SMASH));
+            addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SMASH));
         }
     }
 

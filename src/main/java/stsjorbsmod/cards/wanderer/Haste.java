@@ -33,8 +33,8 @@ public class Haste extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new AdvanceRelicsThroughTimeAction(p, RELIC_COUNTER_INCREMENT));
-        enqueueAction(new ApplyPowerAction(p, p, new DoubleTapPower(p, magicNumber), magicNumber));
+        addToBot(new AdvanceRelicsThroughTimeAction(p, RELIC_COUNTER_INCREMENT));
+        addToBot(new ApplyPowerAction(p, p, new DoubleTapPower(p, magicNumber), magicNumber));
     }
 
     @Override

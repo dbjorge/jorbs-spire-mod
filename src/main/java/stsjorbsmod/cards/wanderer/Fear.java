@@ -30,7 +30,7 @@ public class Fear extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new ApplyPowerAction(m, p, new FearPower(m, magicNumber), magicNumber));
+        addToBot(new ApplyPowerAction(m, p, new FearPower(m, magicNumber), magicNumber));
     }
 
     @Override

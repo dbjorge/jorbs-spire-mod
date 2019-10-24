@@ -32,10 +32,10 @@ public class TollTheDead extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SMASH));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SMASH));
 
         if (MonsterDamageTracker.hasMonsterBeenDamagedThisTurn(m)) {
-            enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SMASH));
+            addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SMASH));
         }
     }
 

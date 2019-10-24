@@ -33,8 +33,8 @@ public class Counterspell extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new GainBlockAction(p, p, block));
-        enqueueAction(new CounterspellAction(p, m, magicNumber));
+        addToBot(new GainBlockAction(p, p, block));
+        addToBot(new CounterspellAction(p, m, magicNumber));
     }
 
     @Override

@@ -32,8 +32,8 @@ public class Enervation extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new ApplyPowerAction(m, p, new PoisonPower(m, p, this.magicNumber)));
-        enqueueAction(new GainBlockPerPoisonAction(p, m));
+        addToBot(new ApplyPowerAction(m, p, new PoisonPower(m, p, this.magicNumber)));
+        addToBot(new GainBlockPerPoisonAction(p, m));
     }
 
     @Override

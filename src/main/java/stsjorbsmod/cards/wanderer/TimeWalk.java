@@ -40,13 +40,13 @@ public class TimeWalk extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new LoseEnergyAction(EnergyPanel.getCurrentEnergy()));
-        enqueueAction(new DiscardAction(p, p, BaseMod.MAX_HAND_SIZE, false));
-        enqueueAction(new RemoveAllBlockAction(p, p));
-        enqueueAction(new GainEnergyAction(magicNumber));
-        enqueueAction(new DrawCardAction(p, urMagicNumber, false));
+        addToBot(new LoseEnergyAction(EnergyPanel.getCurrentEnergy()));
+        addToBot(new DiscardAction(p, p, BaseMod.MAX_HAND_SIZE, false));
+        addToBot(new RemoveAllBlockAction(p, p));
+        addToBot(new GainEnergyAction(magicNumber));
+        addToBot(new DrawCardAction(p, urMagicNumber, false));
         if (metaMagicNumber > 0) {
-            enqueueAction(new ApplyPowerAction(p, p, new WeakPower(p, metaMagicNumber, false)));
+            addToBot(new ApplyPowerAction(p, p, new WeakPower(p, metaMagicNumber, false)));
         }
     }
 

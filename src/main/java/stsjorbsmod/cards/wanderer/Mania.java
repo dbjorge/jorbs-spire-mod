@@ -41,7 +41,7 @@ public class Mania extends CustomJorbsModCard {
         }
 
         for (int i=0; i<numSwings; ++i) {
-            enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SLASH_VERTICAL));
+            addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SLASH_VERTICAL));
         }
     }
 
