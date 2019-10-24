@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import stsjorbsmod.JorbsMod;
@@ -75,9 +76,9 @@ public class WrathMemory extends AbstractMemory {
             masterCard.superFlash();
         }
 
-        card.baseDamage += DAMAGE_INCREASE_PER_KILL;
-        card.applyPowers();
-
-        // Arguable whether to also upgrade other cards in GetAllInBattleInstances.get(card.uuid) (ie, doubled cards)
+        for (AbstractCard instance : GetAllInBattleInstances.get(card.uuid)) {
+            instance.baseDamage += DAMAGE_INCREASE_PER_KILL;
+            instance.applyPowers();
+        }
     }
 }
