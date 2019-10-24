@@ -40,7 +40,7 @@ public class WrathMemory extends AbstractMemory {
             return;
         }
 
-        if (card.target != null) {
+        if (card.target != null && card.target != AbstractCard.CardTarget.ALL_ENEMY) {
             activateWrathUpgrade(card, target);
         } else {
             // Assuming it's a "damage ALL enemies" effect
