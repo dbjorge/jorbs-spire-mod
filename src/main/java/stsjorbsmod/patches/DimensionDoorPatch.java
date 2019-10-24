@@ -2,11 +2,9 @@ package stsjorbsmod.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
-import com.megacrit.cardcrawl.map.MapEdge;
 import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.scenes.AbstractScene;
-import java.util.Iterator;
 import stsjorbsmod.cards.DimensionDoor;
 
 public class DimensionDoorPatch {
@@ -23,18 +21,11 @@ public class DimensionDoorPatch {
                 return __result;
             }
 
-            // Any room on the next level is actually reachable.
-            Iterator edgeIterator = __this.getEdges().iterator();
-
-            while(edgeIterator.hasNext()) {
-                MapEdge edge = (MapEdge)edgeIterator.next();
-
-                if (__node.y == edge.dstY) {
-                    return true;
-                }
-            }
-
-            return false;
+            // Any room on the next level, or up to a range beyond that, is actually reachable.
+            return __this.getEdges().stream().anyMatch(
+                    edge -> (edge.dstY <= __node.y)
+                            && (__node.y <= edge.dstY + DimensionDoor.getMapTravelRange())
+            );
         }
     }
 

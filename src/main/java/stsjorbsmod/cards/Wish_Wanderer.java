@@ -1,9 +1,6 @@
 package stsjorbsmod.cards;
 
-import com.evacipated.cardcrawl.mod.stslib.StSLib;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RestartCombatAction;
@@ -30,13 +27,6 @@ public class Wish_Wanderer extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         enqueueAction(new RestartCombatAction(upgraded));
         removeFromMasterDeck(); // the other piles will get reset as part of RestartCombatAction
-    }
-
-    private void removeFromMasterDeck() {
-        final AbstractCard masterDeckCard = StSLib.getMasterDeckEquivalent(this);
-        if (masterDeckCard != null) {
-            AbstractDungeon.player.masterDeck.removeCard(masterDeckCard);
-        }
     }
 
     @Override

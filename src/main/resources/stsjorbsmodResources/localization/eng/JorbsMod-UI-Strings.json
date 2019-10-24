@@ -8,6 +8,9 @@
   "stsjorbsmod:CounterspellAction": {
     "TEXT": ["Enemy does not intend to debuff"]
   },
+  "stsjorbsmod:DimensionDoor": {
+    "TEXT": ["Failed because of a strong enemy"]
+  },
   "stsjorbsmod:IfEnemyIntendsToAttackAction": {
     "TEXT": ["Enemy does not intend to attack"]
   }
