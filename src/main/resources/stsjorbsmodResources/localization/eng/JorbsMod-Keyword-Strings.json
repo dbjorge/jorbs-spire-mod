@@ -92,6 +92,6 @@
   {
     "PROPER_NAME": "Wrath",
     "NAMES": ["wrath", "Wrath"],
-    "DESCRIPTION": "Whenever you kill a non-minion enemy with an attack card, permanently increase that card's damage by #b1."
+    "DESCRIPTION": "Whenever you kill a non-minion enemy, permanently increase the damage of the last damage-dealing attack card played this combat by 1."
   }
 ]
