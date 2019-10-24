@@ -140,16 +140,25 @@ public class MemoryHooksPatch {
 
     @SpirePatch(
             clz = AbstractMonster.class,
-            method = "die",
-            paramtypez = {boolean.class}
+            method = "damage"
     )
-    public static class onNonMinionMonsterDeathHook {
-        @SpirePrefixPatch
-        public static void Prefix(AbstractMonster __this) {
+    public static class onMonsterDeathHook {
+        @SpireInsertPatch(
+                locator = Locator.class,
+                localvars = "info"
+        )
+        public static void patch(AbstractMonster __this, DamageInfo info) {
             AbstractPlayer player = AbstractDungeon.player;
             MemoryManager memoryManager = MemoryManager.forPlayer(player);
             if (memoryManager != null) {
-                forEachMemory(player, m -> m.onNonMinionMonsterDeath());
+                forEachMemory(player, m -> m.onMonsterDeath(__this, info));
+            }
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            public int[] Locate(CtBehavior ctBehavior) throws Exception {
+                Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractMonster.class, "die");
+                return LineFinder.findInOrder(ctBehavior, finalMatcher);
             }
         }
     }

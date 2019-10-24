@@ -90,7 +90,8 @@ public abstract class AbstractMemory implements IOnModifyGoldListener {
     public void atEndOfTurn(boolean isPlayer) {}
     public float atDamageGive(float originalDamage, DamageType type) { return originalDamage; }
     public void onPlayCard(AbstractCard card, AbstractMonster monster) { }
-    public void onNonMinionMonsterDeath() { }
+    // onMonsterDeath can happen within the same action that ends the combat, so you shouldn't queue new actions in here.
+    public void onMonsterDeath(AbstractMonster monster, DamageInfo damageInfo) { }
     public void onVictory() { }
 
     private AbstractPower makeFakePowerForEffects() {

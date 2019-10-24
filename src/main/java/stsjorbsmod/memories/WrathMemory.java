@@ -1,15 +1,27 @@
 package stsjorbsmod.memories;
 
+import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.PermanentlyIncreaseCardDamageAction;
 
+import java.util.ArrayList;
+
+// We want to detect the case where a card that was just played resulted in an enemy's death.
+//
+// Generally, a card will queue actions to happen later, and the actions are what actually kill the
+// enemy, and there is usually no direct link back from the action to the card. The two options are:
+// * hook onPlayCard, and try to guess whether the card will eventually result in an enemy's death
+// * hook AbstractMonster.die(), and try to guess which card (if any) was responsible
+//
+// The former is extremely difficult to calculate in all cases and outright impossible to calculate in a few
+// special cases (particularly, if a card queues any form of DamageRandomEnemyAction, it's impossible to
+// determine which enemy would be targeted before the Action executes), so we attempt the latter.
 public class WrathMemory extends AbstractMemory {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(WrathMemory.class);
 
@@ -20,35 +32,52 @@ public class WrathMemory extends AbstractMemory {
         setDescriptionPlaceholder("!M!", DAMAGE_INCREASE_PER_KILL);
     }
 
-    private void activateWrathUpgrade(AbstractCard card, AbstractMonster target) {
-        if (target.hasPower(MinionPower.POWER_ID)) {
+    @Override
+    public void onMonsterDeath(AbstractMonster m, DamageInfo damageInfo) {
+        if (!isPassiveEffectActive || damageInfo.owner != this.owner || m.hasPower(MinionPower.POWER_ID)) {
             return;
         }
 
-        // This sets a field on the card object
-        card.calculateCardDamage(target);
+        // There doesn't exist any reliable mapping from actions back to the cards that were responsible for them,
+        // so we do a best-effort guess of "the most recently played card this turn". At one point we attempted
+        // checking whether the card was still "in progress" by looking for an associated UseCardAction on the
+        // actions queue, but this doesn't work with cards that queue actions that queue other actions.
+        ArrayList<AbstractCard> cardsPlayed = AbstractDungeon.actionManager.cardsPlayedThisTurn;
+        if (!cardsPlayed.isEmpty()) {
+            AbstractCard lastCard = cardsPlayed.get(cardsPlayed.size()-1);
 
-        if (card.damage >= target.currentHealth) {
-            JorbsMod.logger.info("Wrath: increasing damage");
-            AbstractDungeon.actionManager.addToTop(
-                    new PermanentlyIncreaseCardDamageAction(card.uuid, DAMAGE_INCREASE_PER_KILL));
+            this.flash();
+            permanentlyIncreaseCardDamage(lastCard);
         }
     }
 
-    @Override
-    public void onPlayCard(AbstractCard card, AbstractMonster monster) {
-        if (!isPassiveEffectActive || card.type != AbstractCard.CardType.ATTACK) {
+    // It's important that this effect *not* be implemented as an action, because if it happens in response to the
+    // last enemy in a fight dying, no further actions will be executed during that fight.
+    private void permanentlyIncreaseCardDamage(AbstractCard card) {
+        AbstractPlayer p = AbstractDungeon.player;
+        String logPrefix = "WrathMemory effect for " + card.cardID + " (" + card.uuid + "): ";
+
+        if (card.type != AbstractCard.CardType.ATTACK) {
+            JorbsMod.logger.warn(logPrefix + "Ignoring non-attack card");
             return;
         }
 
-        boolean isTargetingSingleEnemy = monster != null && card.target == CardTarget.ENEMY || card.target == CardTarget.SELF_AND_ENEMY;
-        boolean isTargetingAllEnemies = card.target == CardTarget.ALL || card.target == CardTarget.ALL_ENEMY;
-        if (isTargetingSingleEnemy) {
-            this.flash();
-            activateWrathUpgrade(card, monster);
-        } else if(isTargetingAllEnemies) {
-            this.flash();
-            AbstractDungeon.getMonsters().monsters.forEach(m -> activateWrathUpgrade(card, m));
+        if (card.baseDamage <= 0) {
+            JorbsMod.logger.warn(logPrefix + "Ignoring card with <=0 baseDamage");
+            return;
         }
+
+        JorbsMod.logger.info(logPrefix + "Increasing baseDamage by " + DAMAGE_INCREASE_PER_KILL + " from " + card.baseDamage);
+
+        AbstractCard masterCard = StSLib.getMasterDeckEquivalent(card);
+        if (masterCard != null) {
+            masterCard.baseDamage += DAMAGE_INCREASE_PER_KILL;
+            masterCard.superFlash();
+        }
+
+        card.baseDamage += DAMAGE_INCREASE_PER_KILL;
+        card.applyPowers();
+
+        // Arguable whether to also upgrade other cards in GetAllInBattleInstances.get(card.uuid) (ie, doubled cards)
     }
 }
