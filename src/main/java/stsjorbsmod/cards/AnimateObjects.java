@@ -51,7 +51,7 @@ public class AnimateObjects extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster monster) {
-        enqueueAction(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.FIRE));
+        addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.FIRE));
     }
 
     @Override

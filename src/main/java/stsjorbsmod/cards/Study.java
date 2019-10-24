@@ -34,8 +34,8 @@ public class Study extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new RememberSpecificMemoryAction(new PatienceMemory(p, false)));
-        enqueueAction(new ApplyPowerAction(p, p, new DrawPower(p, this.magicNumber)));
+        addToBot(new RememberSpecificMemoryAction(new PatienceMemory(p, false)));
+        addToBot(new ApplyPowerAction(p, p, new DrawPower(p, this.magicNumber)));
     }
 
     @Override

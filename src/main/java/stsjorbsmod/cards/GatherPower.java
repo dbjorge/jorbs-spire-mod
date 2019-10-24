@@ -31,8 +31,8 @@ public class GatherPower extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new DrawCardAction(p, magicNumber));
-        enqueueAction(new ApplyPowerAction(p, p, new DoubleTapPower(p, DOUBLE_TAP_TURNS), DOUBLE_TAP_TURNS));
+        addToBot(new DrawCardAction(p, magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new DoubleTapPower(p, DOUBLE_TAP_TURNS), DOUBLE_TAP_TURNS));
     }
 
     @Override

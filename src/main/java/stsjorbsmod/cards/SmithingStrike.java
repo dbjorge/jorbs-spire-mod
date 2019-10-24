@@ -35,8 +35,8 @@ public class SmithingStrike extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new RememberSpecificMemoryAction(new WrathMemory(p, false)));
-        enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.BLUNT_LIGHT));
+        addToBot(new RememberSpecificMemoryAction(new WrathMemory(p, false)));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.BLUNT_LIGHT));
     }
 
     @Override

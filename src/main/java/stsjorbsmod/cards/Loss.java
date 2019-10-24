@@ -32,8 +32,8 @@ public class Loss extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new GainBlockAction(p, p, block));
-        enqueueAction(new ApplyPowerAction(p, p, new WeakPower(p, this.magicNumber, false)));
+        addToBot(new GainBlockAction(p, p, block));
+        addToBot(new ApplyPowerAction(p, p, new WeakPower(p, this.magicNumber, false)));
     }
 
     @Override

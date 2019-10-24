@@ -40,11 +40,11 @@ public class FocusedMind extends CustomJorbsModCard {
         AbstractMemory currentMemory = MemoryManager.forPlayer(p).currentMemory;
 
         if (currentMemory != null && currentMemory.memoryType == MemoryType.SIN) {
-            enqueueAction(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.BLUNT_LIGHT));
+            addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.BLUNT_LIGHT));
         }
 
         if (currentMemory != null && currentMemory.memoryType == MemoryType.VIRTUE) {
-            enqueueAction(new GainBlockAction(p, p, block));
+            addToBot(new GainBlockAction(p, p, block));
         }
     }
 

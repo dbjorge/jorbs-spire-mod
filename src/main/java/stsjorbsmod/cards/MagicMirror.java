@@ -27,7 +27,7 @@ public class MagicMirror extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new ApplyPowerAction(p, p, new MagicMirrorPower(p)));
+        addToBot(new ApplyPowerAction(p, p, new MagicMirrorPower(p)));
     }
 
     @Override

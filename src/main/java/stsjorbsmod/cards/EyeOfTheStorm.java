@@ -33,9 +33,9 @@ public class EyeOfTheStorm extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new GainMemoryClarityAction(p));
-        enqueueAction(new RememberRandomNewMemoryAction(p, p, false));
-        enqueueAction(new GainBlockAction(p, p, block));
+        addToBot(new GainMemoryClarityAction(p));
+        addToBot(new RememberRandomNewMemoryAction(p, p, false));
+        addToBot(new GainBlockAction(p, p, block));
     }
 
     @Override

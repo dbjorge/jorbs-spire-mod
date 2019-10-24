@@ -43,7 +43,7 @@ public class FaerieFire extends CustomJorbsModCard {
                     new VulnerablePower(m, magicNumber, false) :
                     new WeakPower(m, magicNumber, false);
 
-            enqueueAction(new ApplyPowerAction(m, p, debuff));
+            addToBot(new ApplyPowerAction(m, p, debuff));
         }
     }
 

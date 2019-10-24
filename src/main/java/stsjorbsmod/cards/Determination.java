@@ -37,8 +37,8 @@ public class Determination extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new RememberSpecificMemoryAction(new PrideMemory(p, false)));
-        enqueueAction(new ApplyPowerAction(p, p, new FragilePower(p, magicNumber), magicNumber));
+        addToBot(new RememberSpecificMemoryAction(new PrideMemory(p, false)));
+        addToBot(new ApplyPowerAction(p, p, new FragilePower(p, magicNumber), magicNumber));
     }
 
     private void removeFromMasterDeck() {

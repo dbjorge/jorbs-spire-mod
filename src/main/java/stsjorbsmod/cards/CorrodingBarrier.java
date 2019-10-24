@@ -1,5 +1,6 @@
 package stsjorbsmod.cards;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -35,18 +36,19 @@ public class CorrodingBarrier extends CustomJorbsModCard implements IOnDrawCardS
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new GainBlockAction(p, p, block));
+        addToBot(new GainBlockAction(p, p, block));
     }
 
     @Override
     public void onDraw() {
         final AbstractPlayer p = AbstractDungeon.player;
 
-        enqueueAction(new ModifyBlockAction(this.uuid, -this.magicNumber));
+        AbstractGameAction action = new ModifyBlockAction(this.uuid, -this.magicNumber);
+        addToBot(action);
 
         if (p.hasPower(SnappedPower.POWER_ID)) {
             flash();
-            enqueueAction(new LoseHPAction(p, p, HP_LOSS_PER_SNAPPED_DRAW, AttackEffect.POISON));
+            addToBot(new LoseHPAction(p, p, HP_LOSS_PER_SNAPPED_DRAW, AttackEffect.POISON));
         }
     }
 

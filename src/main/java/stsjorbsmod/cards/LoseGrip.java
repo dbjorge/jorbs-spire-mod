@@ -36,9 +36,9 @@ public class LoseGrip extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (p.hasPower(SnappedPower.POWER_ID)) {
-            enqueueAction(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, this.magicNumber), this.magicNumber));
+            addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, this.magicNumber), this.magicNumber));
         } else {
-            enqueueAction(new GainBlockAction(p, p, block));
+            addToBot(new GainBlockAction(p, p, block));
         }
     }
 

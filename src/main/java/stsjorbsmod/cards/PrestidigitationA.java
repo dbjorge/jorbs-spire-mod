@@ -29,7 +29,7 @@ public class PrestidigitationA extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new ApplyPowerAction(p, p, new PrestidigitationPower(p, magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new PrestidigitationPower(p, magicNumber)));
     }
 
     @Override

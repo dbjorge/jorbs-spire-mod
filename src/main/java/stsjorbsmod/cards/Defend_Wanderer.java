@@ -31,7 +31,7 @@ public class Defend_Wanderer extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new GainBlockAction(p, p, block));
+        addToBot(new GainBlockAction(p, p, block));
     }
 
     @Override

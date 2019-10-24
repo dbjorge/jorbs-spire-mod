@@ -30,7 +30,7 @@ public class Stalwart extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new RememberSpecificMemoryAction(new TemperanceMemory(p, upgraded)));
+        addToBot(new RememberSpecificMemoryAction(new TemperanceMemory(p, upgraded)));
     }
 
     @Override

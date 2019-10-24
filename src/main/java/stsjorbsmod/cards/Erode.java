@@ -35,8 +35,8 @@ public class Erode extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        enqueueAction(new ErodeAction(m, p, block, magicNumber));
-        enqueueAction(new RememberSpecificMemoryAction(new TemperanceMemory(p, false)));
+        addToBot(new ErodeAction(m, p, block, magicNumber));
+        addToBot(new RememberSpecificMemoryAction(new TemperanceMemory(p, false)));
     }
 
     @Override
