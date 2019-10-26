@@ -22,7 +22,7 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.cards.*;
+import stsjorbsmod.cards.wanderer.*;
 import stsjorbsmod.memories.*;
 import stsjorbsmod.relics.FragileMindRelic;
 import stsjorbsmod.relics.WandererStarterRelic;

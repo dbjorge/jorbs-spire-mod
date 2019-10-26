@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import javassist.CtBehavior;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import stsjorbsmod.cards.BlackTentacles;
 import stsjorbsmod.powers.BlackTentaclesPower;
 
 @SpirePatch(
