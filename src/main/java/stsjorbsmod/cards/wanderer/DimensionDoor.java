@@ -1,4 +1,4 @@
-package stsjorbsmod.cards;
+package stsjorbsmod.cards.wanderer;
 
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.powers.BackAttackPower;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import com.megacrit.cardcrawl.vfx.combat.SmokeBombEffect;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
@@ -61,7 +62,7 @@ public class DimensionDoor extends CustomJorbsModCard {
 
             // Fleeing sequence copied from SmokeBomb.use()
             AbstractDungeon.getCurrRoom().smoked = true;
-            enqueueAction(new VFXAction(new SmokeBombEffect(p.hb.cX, p.hb.cY)));
+            addToBot(new VFXAction(new SmokeBombEffect(p.hb.cX, p.hb.cY)));
             p.hideHealthBar();
             p.isEscaping = true;
             p.flipHorizontal = !p.flipHorizontal;

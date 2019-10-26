@@ -5,7 +5,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.scenes.AbstractScene;
-import stsjorbsmod.cards.DimensionDoor;
+import stsjorbsmod.cards.wanderer.DimensionDoor;
 
 public class DimensionDoorPatch {
     @SpirePatch(
