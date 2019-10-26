@@ -1,6 +1,10 @@
 package stsjorbsmod.cards;
 
 import basemod.abstracts.CustomCard;
+import com.evacipated.cardcrawl.mod.stslib.StSLib;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
@@ -70,6 +74,13 @@ public abstract class CustomJorbsModCard extends CustomCard {
             this.rawDescription = upgradeDescription;
         }
         initializeDescription();
+    }
+
+    protected void removeFromMasterDeck() {
+        final AbstractCard masterDeckCard = StSLib.getMasterDeckEquivalent(this);
+        if (masterDeckCard != null) {
+            AbstractDungeon.player.masterDeck.removeCard(masterDeckCard);
+        }
     }
 
     // Intended for cards with effects like "deals X damage + Y damage per Z (it should return "Y * Z")
