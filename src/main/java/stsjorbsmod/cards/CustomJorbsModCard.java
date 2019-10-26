@@ -41,13 +41,6 @@ public abstract class CustomJorbsModCard extends CustomCard {
         isMetaMagicNumberModified = false;
     }
 
-    protected void enqueueAction(AbstractGameAction action) {
-        AbstractDungeon.actionManager.addToBottom(action);
-    }
-    protected void enqueueActionToTop(AbstractGameAction action) {
-        AbstractDungeon.actionManager.addToTop(action);
-    }
-
     @Override
     public void displayUpgrades() {
         super.displayUpgrades();

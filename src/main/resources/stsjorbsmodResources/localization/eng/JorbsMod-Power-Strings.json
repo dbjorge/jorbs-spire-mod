@@ -188,7 +188,7 @@
   "stsjorbsmod:WrathMemory": {
     "NAME": "Wrath",
     "DESCRIPTIONS": [
-      "Whenever you kill a non-minion enemy with an attack card, permanently increase that card's damage by !M!."
+      "Whenever you kill a non-minion enemy, permanently increase the damage of the last damage-dealing attack card played this combat (currently, !C!) by !M!."
     ]
   }
 }

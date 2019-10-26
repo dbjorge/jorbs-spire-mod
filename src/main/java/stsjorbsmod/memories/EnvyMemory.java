@@ -1,21 +1,12 @@
 package stsjorbsmod.memories;
 
-import basemod.interfaces.CloneablePowerInterface;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
-import stsjorbsmod.JorbsMod;
-import stsjorbsmod.util.TextureLoader;
-
-import static stsjorbsmod.JorbsMod.makePowerPath;
 
 public class EnvyMemory extends AbstractMemory {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(EnvyMemory.class);
@@ -34,12 +25,26 @@ public class EnvyMemory extends AbstractMemory {
                 new ApplyPowerAction(owner, owner, new VulnerablePower(owner, VULNERABLE_ON_REMEMBER, false), VULNERABLE_ON_REMEMBER));
     }
 
+    private void applyPassiveVulnerable(AbstractMonster monster) {
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(monster, owner, new VulnerablePower(monster, VULNERABLE_ON_TARGET_ENEMY, false), VULNERABLE_ON_TARGET_ENEMY));
+    }
+
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster monster) {
-        if (isPassiveEffectActive) {
+        if (!isPassiveEffectActive) {
+            return;
+        }
+
+        boolean isTargetingSingleEnemy = monster != null && card.target == CardTarget.ENEMY || card.target == CardTarget.SELF_AND_ENEMY;
+        boolean isTargetingAllEnemies = card.target == CardTarget.ALL || card.target == CardTarget.ALL_ENEMY;
+        if (isTargetingSingleEnemy) {
             this.flash();
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(monster, owner, new VulnerablePower(monster, VULNERABLE_ON_TARGET_ENEMY, false), VULNERABLE_ON_TARGET_ENEMY));
+            applyPassiveVulnerable(monster);
+        } else if(isTargetingAllEnemies) {
+            this.flash();
+            // Unclear from design doc whether this should be a no-op or apply vulnerable to all enemies
+            AbstractDungeon.getMonsters().monsters.forEach(this::applyPassiveVulnerable);
         }
     }
 }
