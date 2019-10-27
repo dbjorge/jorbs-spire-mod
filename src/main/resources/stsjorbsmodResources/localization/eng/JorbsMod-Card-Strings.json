@@ -228,7 +228,7 @@
     "DESCRIPTION": "Draw !M! cards. NL If you have no duplicate cards in hand, gain stsjorbsmod:Clarity; otherwise, Exhaust 1 of each duplicate."
   },
   "stsjorbsmod:FindFamiliar": {
-    "NAME": "FindFamiliar",
+    "NAME": "Find Familiar",
     "DESCRIPTION": "At the end of each turn, gain stsjorbsmod:Clarity of current memory.",
     "UPGRADE_DESCRIPTION": "At the end of each turn, gain stsjorbsmod:Clarity of current memory. NL Innate."
   },
