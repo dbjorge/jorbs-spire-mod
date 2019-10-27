@@ -8,31 +8,27 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
-import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.TheCity;
-import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import javassist.Modifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.clapper.util.classutil.*;
-import stsjorbsmod.cards.*;
+import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.console.MemoryCommand;
 import stsjorbsmod.events.DeckOfManyThingsEvent;
-import stsjorbsmod.relics.*;
+import stsjorbsmod.relics.FragileMindRelic;
+import stsjorbsmod.relics.WandererStarterRelic;
+import stsjorbsmod.util.ReflectionUtils;
 import stsjorbsmod.util.TextureLoader;
 import stsjorbsmod.variables.MetaMagicNumber;
 import stsjorbsmod.variables.UrMagicNumber;
 
-import java.io.File;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Properties;
@@ -260,35 +256,6 @@ public class JorbsMod implements
     
     // ================ ADD CARDS ===================
 
-    @SuppressWarnings("unchecked")
-    private static <T> ArrayList<Class<T>> findAllConcreteSubclasses(Class<T> baseClass)
-    {
-        try {
-            ClassFinder finder = new ClassFinder();
-            URL url = JorbsMod.class.getProtectionDomain().getCodeSource().getLocation();
-            finder.add(new File(url.toURI()));
-
-            ClassFilter filter =
-                    new AndClassFilter(
-                            new NotClassFilter(new InterfaceOnlyClassFilter()),
-                            new NotClassFilter(new AbstractClassFilter()),
-                            new ClassModifiersClassFilter(Modifier.PUBLIC),
-                            new SubclassClassFilter(baseClass)
-                    );
-            ArrayList<ClassInfo> foundClassInfos = new ArrayList<>();
-            finder.findClasses(foundClassInfos, filter);
-
-            ArrayList<Class<T>> foundClasses = new ArrayList<>();
-            for (ClassInfo classInfo : foundClassInfos) {
-                Class<T> cls = (Class<T>) Loader.getClassPool().getClassLoader().loadClass(classInfo.getClassName());
-                foundClasses.add(cls);
-            }
-            return foundClasses;
-        } catch(Exception e) {
-            throw new RuntimeException("Exception while finding concrete subclasses of " + baseClass.getName(), e);
-        }
-    }
-
     @Override
     public void receiveEditCards() {
         logger.info("Adding cards");
@@ -296,7 +263,7 @@ public class JorbsMod implements
         BaseMod.addDynamicVariable(new UrMagicNumber());
         BaseMod.addDynamicVariable(new MetaMagicNumber());
 
-        ArrayList<Class<CustomJorbsModCard>> cardClasses = findAllConcreteSubclasses(CustomJorbsModCard.class);
+        ArrayList<Class<CustomJorbsModCard>> cardClasses = ReflectionUtils.findAllConcreteSubclasses(CustomJorbsModCard.class);
         for (Class<CustomJorbsModCard> cardClass : cardClasses) {
             try {
                 CustomJorbsModCard cardInstance = cardClass.newInstance();
