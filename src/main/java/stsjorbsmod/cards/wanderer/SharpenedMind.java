@@ -22,8 +22,8 @@ public class SharpenedMind extends CustomJorbsModCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
-    private static final int COST = 1;
-    private static final int UPGRADE_NEW_BASE_COST = 0;
+    private static final int COST = 2;
+    private static final int UPGRADE_NEW_BASE_COST = 1;
 
     public SharpenedMind() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
