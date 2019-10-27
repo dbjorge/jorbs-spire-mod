@@ -10,6 +10,11 @@
     "DESCRIPTION": "Starts combat Exhausted. Move from Exhaust pile to hand whenever an enemy dies."
   },
   {
+    "PROPER_NAME": "Destroy",
+    "NAMES": ["destroy"],
+    "DESCRIPTION": "Permanently removes this card from your deck (not just this combat)."
+  },
+  {
     "PROPER_NAME": "Sin",
     "NAMES": ["sin", "Sin"],
     "DESCRIPTION": "A memory of #yEnvy, #yGreed, #yGluttony, #yLust, #yPride, #ySloth, or #yWrath."

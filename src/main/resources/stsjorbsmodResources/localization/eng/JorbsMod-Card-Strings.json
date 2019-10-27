@@ -291,8 +291,8 @@
   },
   "stsjorbsmod:Wish_Wanderer": {
     "NAME": "Wish",
-    "DESCRIPTION": "Restart the combat retaining all buffs and debuffs. NL Destroy this card.",
-    "UPGRADE_DESCRIPTION": "Restart the combat retaining all buffs, debuffs, and clarities. NL Destroy this card."
+    "DESCRIPTION": "Restart the combat retaining all buffs and debuffs. NL stsjorbsmod:Destroy this card.",
+    "UPGRADE_DESCRIPTION": "Restart the combat retaining all buffs, debuffs, and clarities. NL stsjorbsmod:Destroy this card."
   },
   "stsjorbsmod:Determination": {
     "NAME": "Determination",
@@ -319,8 +319,8 @@
   },
   "stsjorbsmod:DimensionDoor": {
     "NAME": "Dimension Door",
-    "DESCRIPTION": "Escape from a non-boss combat and receive no rewards. NL If you escape, you may ignore paths when choosing the next room to travel to. NL Destroy this card.",
-    "UPGRADE_DESCRIPTION": "Escape from a non-boss combat and receive no rewards. NL If you escape, you may choose any room to travel to, with a bonus range of !M!. NL Destroy this card."
+    "DESCRIPTION": "Escape from a non-boss combat and receive no rewards. NL If you escape, you may ignore paths when choosing the next room to travel to. NL stsjorbsmod:Destroy this card.",
+    "UPGRADE_DESCRIPTION": "Escape from a non-boss combat and receive no rewards. NL If you escape, you may choose any room to travel to, with a bonus range of !M!. NL stsjorbsmod:Destroy this card."
   },
   "stsjorbsmod:Feast": {
     "NAME": "Feast",
