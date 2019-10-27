@@ -11,8 +11,7 @@ import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import stsjorbsmod.JorbsMod;
-
-import java.util.ArrayList;
+import stsjorbsmod.util.EffectUtils;
 
 public class WrathMemory extends AbstractMemory {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(WrathMemory.class);
@@ -81,15 +80,19 @@ public class WrathMemory extends AbstractMemory {
 
         JorbsMod.logger.info(logPrefix + "Increasing baseDamage by " + DAMAGE_INCREASE_PER_KILL + " from " + card.baseDamage);
 
+        AbstractCard cardToShowForVfx = card;
         AbstractCard masterCard = StSLib.getMasterDeckEquivalent(card);
         if (masterCard != null) {
             masterCard.baseDamage += DAMAGE_INCREASE_PER_KILL;
             masterCard.superFlash();
+            cardToShowForVfx = masterCard;
         }
 
         for (AbstractCard instance : GetAllInBattleInstances.get(card.uuid)) {
             instance.baseDamage += DAMAGE_INCREASE_PER_KILL;
             instance.applyPowers();
         }
+
+        EffectUtils.addPermanentCardUpgradeEffect(cardToShowForVfx);
     }
 }
