@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.vfx.combat.GainPowerEffect;
 import com.megacrit.cardcrawl.vfx.combat.SilentGainPowerEffect;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.powers.IOnModifyGoldListener;
+import stsjorbsmod.util.RenderUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -115,8 +116,7 @@ public abstract class AbstractMemory implements IOnModifyGoldListener {
     }
 
     public void render(SpriteBatch sb, float x, float y, Color color) {
-        sb.setColor(color);
-        sb.draw(this.region48, x - (float)this.region48.packedWidth / 2.0F, y - (float)this.region48.packedHeight / 2.0F, (float)this.region48.packedWidth / 2.0F, (float)this.region48.packedHeight / 2.0F, (float)this.region48.packedWidth, (float)this.region48.packedHeight, Settings.scale, Settings.scale, 0.0F);
+        RenderUtils.renderAtlasRegionCenteredAt(sb, this.region48, x, y, color);
 
         for (AbstractGameEffect effect : renderEffects) {
             effect.render(sb, x, y);

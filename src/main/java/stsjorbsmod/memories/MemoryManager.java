@@ -1,7 +1,10 @@
 package stsjorbsmod.memories;
 
+import basemod.patches.com.megacrit.cardcrawl.relics.AbstractRelic.FixLargeImageRender;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,9 +14,13 @@ import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.SnappedPower;
+import stsjorbsmod.util.RenderUtils;
+import stsjorbsmod.util.TextureLoader;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+
+import static stsjorbsmod.JorbsMod.makePowerPath;
 
 // If a memory and a clarity of the same type are active at the same type, the *clarity* owns maintaining the passive
 // effect, and the memory only contributes onRemember/onForget effects.
@@ -24,10 +31,13 @@ public class MemoryManager {
     private static final float MAX_CLARITIES_PER_STACK = 7;
     private static final float CLARITY_HB_WIDTH = 64F * Settings.scale;
     private static final float CLARITY_HB_HEIGHT = CLARITY_PADDING_Y * MAX_CLARITIES_PER_STACK;
-    private static final Color ICON_COLOR = new Color(1.0F, 1.0F, 1.0F, 1.0F);
     private static final float TIP_X_THRESHOLD = 1544.0F * Settings.scale;
     private static final float TIP_OFFSET_R_X = 20.0F * Settings.scale;
     private static final float TIP_OFFSET_L_X = -380.0F * Settings.scale;
+
+    private static final Color MEMORY_BACKGROUND_COLOR = new Color(1.0F, 1.0F, 1.0F, 0.35F);
+    private static final Texture MEMORY_BACKGROUND_TEXTURE32 = TextureLoader.getTexture(makePowerPath("thoughtbubble32.png"));
+    private static final TextureAtlas.AtlasRegion MEMORY_BACKGROUND_REGION32 = new TextureAtlas.AtlasRegion(MEMORY_BACKGROUND_TEXTURE32, 0, 0, 77, 85);
 
     private final float drawX;
     private final float drawY;
@@ -253,8 +263,10 @@ public class MemoryManager {
     }
 
     private void renderCurrentMemory(SpriteBatch sb) {
+        RenderUtils.renderAtlasRegionCenteredAt(sb, MEMORY_BACKGROUND_REGION32, drawX, drawY + currentMemoryOffsetY, MEMORY_BACKGROUND_COLOR);
+
         // the position args are for the center point
-        currentMemory.render(sb, this.drawX, this.drawY + currentMemoryOffsetY, ICON_COLOR);
+        currentMemory.render(sb, this.drawX, this.drawY + currentMemoryOffsetY, RenderUtils.UNMODIFIED_COLOR);
 
         ArrayList<AbstractMemory> memories = new ArrayList<>();
         memories.add(currentMemory);
@@ -267,7 +279,7 @@ public class MemoryManager {
             yOffset += CLARITY_PADDING_Y;
 
             // the position args are for the center point
-            clarity.render(sb, hb.cX, hb.y + yOffset, ICON_COLOR);
+            clarity.render(sb, hb.cX, hb.y + yOffset, RenderUtils.UNMODIFIED_COLOR);
         }
 
         renderHitboxTips(sb, clarities, hb);
