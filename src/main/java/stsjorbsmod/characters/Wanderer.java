@@ -307,4 +307,10 @@ public class Wanderer extends CustomPlayer {
         return TEXT[2];
     }
 
+    // Name of portrait. Placeholder for now.
+    @Override
+    public String getPortraitImageName() {
+        return "DefaultCharacterPortraitBG.png";
+    }
+
 }
