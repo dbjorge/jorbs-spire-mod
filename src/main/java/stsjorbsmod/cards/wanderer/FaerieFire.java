@@ -32,6 +32,7 @@ public class FaerieFire extends CustomJorbsModCard {
     public FaerieFire() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = DEBUFF_DURATION;
+        exhaust = true;
     }
 
     @Override
