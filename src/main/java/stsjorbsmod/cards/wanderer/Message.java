@@ -25,6 +25,7 @@ public class Message extends CustomJorbsModCard {
     public Message() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = CARD_PULL_COUNT;
+        this.exhaust = true;
     }
 
     @Override

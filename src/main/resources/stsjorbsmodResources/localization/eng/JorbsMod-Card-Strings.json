@@ -94,8 +94,8 @@
   },
   "stsjorbsmod:Message": {
     "NAME": "Message",
-    "DESCRIPTION": "Put !M! card from your discard pile into your hand.",
-    "UPGRADE_DESCRIPTION": "Put !M! cards from your discard pile into your hand."
+    "DESCRIPTION": "Put !M! card from your discard pile into your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Put !M! cards from your discard pile into your hand. NL Exhaust."
   },
   "stsjorbsmod:PrestidigitationB": {
     "NAME": "Prestidigitation B",
