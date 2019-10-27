@@ -29,6 +29,7 @@ public class Counterspell extends CustomJorbsModCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = BLOCK;
         magicNumber = baseMagicNumber = ARTIFACT;
+        exhaust = true;
     }
 
     @Override
