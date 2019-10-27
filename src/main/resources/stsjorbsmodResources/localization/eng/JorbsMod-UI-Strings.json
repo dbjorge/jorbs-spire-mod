@@ -13,5 +13,8 @@
   },
   "stsjorbsmod:IfEnemyIntendsToAttackAction": {
     "TEXT": ["Enemy does not intend to attack"]
+  },
+  "stsjorbsmod:DigEmote": {
+    "TEXT": ["jorbsBird Dig! jorbsBird RELIC jorbsBird DIG jorbsBird"]
   }
 }
