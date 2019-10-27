@@ -212,7 +212,7 @@
   },
   "stsjorbsmod:Thorns": {
     "NAME": "Thorns",
-    "DESCRIPTION": "Remember stsjorbsmod:Humility. NL If an enemy intends to attack, gain stsjorbsmod:Clarity of current memory."
+    "DESCRIPTION": "Remember stsjorbsmod:Humility. NL If an enemy intends to attack, gain stsjorbsmod:Clarity of current memory. NL Exhaust."
   },
   "stsjorbsmod:RefuseToForget": {
     "NAME": "Refuse to Forget",

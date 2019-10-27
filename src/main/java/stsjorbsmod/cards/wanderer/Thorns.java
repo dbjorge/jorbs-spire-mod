@@ -27,6 +27,7 @@ public class Thorns extends CustomJorbsModCard {
 
     public Thorns() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        this.exhaust = true;
 
         this.tags.add(REMEMBER_MEMORY);
     }
