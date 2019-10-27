@@ -26,7 +26,7 @@ public class WeightOfMemory extends CustomJorbsModCard {
     private static final int COST = 2;
     private static final int DAMAGE = 12;
     private static final int DAMAGE_PER_REMEMBER_CARD = 2;
-    private static final int UPGRADE_PLUS_DAMAGE_PER_REMEMBER_CARD = 2;
+    private static final int UPGRADE_PLUS_DAMAGE_PER_REMEMBER_CARD = 1;
 
     public WeightOfMemory() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
