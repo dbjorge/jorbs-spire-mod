@@ -72,7 +72,7 @@
   {
     "PROPER_NAME": "Lust",
     "NAMES": ["lust", "Lust"],
-    "DESCRIPTION": "Your attacks deal 50% bonus damage. When you forget Lust, gain 2 Weak."
+    "DESCRIPTION": "Your attacks deal 25% bonus damage. When you forget Lust, gain 2 Weak."
   },
   {
     "PROPER_NAME": "Patience",
