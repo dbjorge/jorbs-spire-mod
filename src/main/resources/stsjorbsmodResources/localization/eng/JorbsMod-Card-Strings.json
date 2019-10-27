@@ -287,7 +287,7 @@
   },
   "stsjorbsmod:Fear": {
     "NAME": "Fear",
-    "DESCRIPTION": "Target enemy will flee in !M! turns. If this ends combat, you gain no rewards but keep Clarities for the next combat."
+    "DESCRIPTION": "Target non-boss enemy will flee in !M! turns. If this ends combat, you gain no rewards but keep Clarities for the next combat."
   },
   "stsjorbsmod:Wish_Wanderer": {
     "NAME": "Wish",

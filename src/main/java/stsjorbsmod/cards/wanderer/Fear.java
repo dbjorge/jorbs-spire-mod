@@ -2,15 +2,22 @@ package stsjorbsmod.cards.wanderer;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.AbstractMonster.EnemyType;
+import com.megacrit.cardcrawl.powers.BackAttackPower;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.FearPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.JorbsMod.makeID;
 
 public class Fear extends CustomJorbsModCard {
+    public static final String[] BOSS_IMMUNE_TEXT = CardCrawlGame.languagePack.getUIString(makeID("BossImmuneToFear")).TEXT;
     public static final String ID = JorbsMod.makeID(Fear.class.getSimpleName());
     public static final String IMG = makeCardPath("Bad_Rares/fear.png");
 
@@ -30,7 +37,11 @@ public class Fear extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(m, p, new FearPower(m, magicNumber), magicNumber));
+        if (m.type == EnemyType.BOSS) {
+            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, BOSS_IMMUNE_TEXT[0], true));
+        } else {
+            addToBot(new ApplyPowerAction(m, p, new FearPower(m, magicNumber), magicNumber));
+        }
     }
 
     @Override
