@@ -118,6 +118,7 @@ public class MemoryManager {
                 this.currentMemory.losePassiveEffect();
             }
             this.currentMemory.onForget();
+            this.currentMemory = null;
         }
     }
 

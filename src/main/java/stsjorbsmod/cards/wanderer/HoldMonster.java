@@ -33,7 +33,7 @@ public class HoldMonster extends CustomJorbsModCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = STRENGTH_PENALTY;
         exhaust = true;
-        
+
         tags.add(REMEMBER_MEMORY);
     }
 
