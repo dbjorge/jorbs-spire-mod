@@ -19,5 +19,8 @@
   },
   "stsjorbsmod:DigEmote": {
     "TEXT": ["jorbsBird Dig! jorbsBird RELIC jorbsBird DIG jorbsBird"]
+  },
+  "stsjorbsmod:CallCalipers": {
+    "TEXT": ["Calipers would be good here..."]
   }
 }
