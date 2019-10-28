@@ -113,6 +113,14 @@ public class JorbsMod implements
     public static String makeEventPath(String resourcePath) {
         return MOD_ID + "Resources/images/events/" + resourcePath;
     }
+
+    public static String makeLocalizedStringsPath(String resourcePath) {
+        String languageFolder =
+                Settings.language == Settings.GameLanguage.FRA ? "fra" :
+                /* default: */ "eng";
+
+        return MOD_ID + "Resources/localization/" + languageFolder + "/" + resourcePath;
+    }
     
     // =============== /MAKE IMAGE PATHS/ =================
     
@@ -282,34 +290,17 @@ public class JorbsMod implements
     
     
     // ================ LOAD THE TEXT ===================
-    
+
     @Override
     public void receiveEditStrings() {
         logger.info("Beginning to edit strings for mod with ID: " + MOD_ID);
 
-        // UIStrings
-        BaseMod.loadCustomStringsFile(UIStrings.class,
-                MOD_ID + "Resources/localization/eng/JorbsMod-UI-Strings.json");
-
-        // CardStrings
-        BaseMod.loadCustomStringsFile(CardStrings.class,
-                MOD_ID + "Resources/localization/eng/JorbsMod-Card-Strings.json");
-        
-        // PowerStrings
-        BaseMod.loadCustomStringsFile(PowerStrings.class,
-                MOD_ID + "Resources/localization/eng/JorbsMod-Power-Strings.json");
-        
-        // RelicStrings
-        BaseMod.loadCustomStringsFile(RelicStrings.class,
-                MOD_ID + "Resources/localization/eng/JorbsMod-Relic-Strings.json");
-        
-        // Event Strings
-        BaseMod.loadCustomStringsFile(EventStrings.class,
-                MOD_ID + "Resources/localization/eng/JorbsMod-Event-Strings.json");
-
-        // CharacterStrings
-        BaseMod.loadCustomStringsFile(CharacterStrings.class,
-                MOD_ID + "Resources/localization/eng/JorbsMod-Character-Strings.json");
+        BaseMod.loadCustomStringsFile(UIStrings.class, makeLocalizedStringsPath("JorbsMod-UI-Strings.json"));
+        BaseMod.loadCustomStringsFile(CardStrings.class, makeLocalizedStringsPath("JorbsMod-Card-Strings.json"));
+        BaseMod.loadCustomStringsFile(PowerStrings.class, makeLocalizedStringsPath("JorbsMod-Power-Strings.json"));
+        BaseMod.loadCustomStringsFile(RelicStrings.class, makeLocalizedStringsPath("JorbsMod-Relic-Strings.json"));
+        BaseMod.loadCustomStringsFile(EventStrings.class, makeLocalizedStringsPath("JorbsMod-Event-Strings.json"));
+        BaseMod.loadCustomStringsFile(CharacterStrings.class, makeLocalizedStringsPath("JorbsMod-Character-Strings.json"));
 
         logger.info("Done editing strings");
     }
@@ -329,7 +320,7 @@ public class JorbsMod implements
         // In Keyword-Strings.json you would have PROPER_NAME as A Long Keyword and the first element in NAMES be a long keyword, and the second element be a_long_keyword
         
         Gson gson = new Gson();
-        String json = Gdx.files.internal(MOD_ID + "Resources/localization/eng/JorbsMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String json = Gdx.files.internal( makeLocalizedStringsPath("JorbsMod-Keyword-Strings.json")).readString(String.valueOf(StandardCharsets.UTF_8));
         com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
         
         if (keywords != null) {

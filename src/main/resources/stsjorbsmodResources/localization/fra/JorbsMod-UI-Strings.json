@@ -1,0 +1,46 @@
+{
+  "stsjorbsmod:DimensionDoor": {
+    "TEXT": [
+      "Échec à cause d'un puissant ennemi"
+    ]
+  },
+  "stsjorbsmod:CardsToTopOfDeckAction": {
+    "TEXT": [
+      "Choisir ",
+      "Carte à ",
+      "Cartes à ",
+      "déplacez-vous au sommet de votre pile de tirage."
+    ]
+  },
+  "stsjorbsmod:BossImmuneToFear": {
+    "TEXT": [
+      "Les patrons n'ont peur de rien!"
+    ]
+  },
+  "stsjorbsmod:CounterspellAction": {
+    "TEXT": [
+      "Enemy n'a pas l'intention d'affaiblir"
+    ]
+  },
+  "stsjorbsmod:IfEnemyIntendsToAttackAction": {
+    "TEXT": [
+      "Ennemi n'a pas l'intention d'attaquer"
+    ]
+  },
+  "stsjorbsmod:CallCalipers": {
+    "TEXT": [
+      "Les étriers seraient bien ici ..."
+    ]
+  },
+  "stsjorbsmod:DigEmote": {
+    "TEXT": [
+      "jorbsbirds creuser! jorbsBird RELIC jorbsBird DIG jorbsBird"
+    ]
+  },
+  "stsjorbsmod:AbstractMemory": {
+    "TEXT": [
+      "Mémoire de ",
+      "Clarté de "
+    ]
+  }
+}

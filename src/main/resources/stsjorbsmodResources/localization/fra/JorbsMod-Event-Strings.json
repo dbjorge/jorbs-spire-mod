@@ -1,0 +1,21 @@
+{
+  "stsjorbsmod:DeckOfManyThingsEvent": {
+    "OPTIONS": [
+      "[Inspiration] Gagnez une relique de départ aléatoire.",
+      "[Déni] Perdre ",
+      " Max HP. Retirer une carte de votre deck.",
+      "[Acceptation] Gagnez Apothéose.",
+      "[TOUCHER LE MIROIR] TOUCH TOUCH POUR C # TOUCH TOUCH POUR UTILISER TOUCH TOUCH TOUCH",
+      "[Laisser]",
+      "Sélectionnez la carte à retirer."
+    ],
+    "NAME": "Pont de beaucoup de choses",
+    "DESCRIPTIONS": [
+      "En vous déplaçant dans ~ The ~ ~ City ~, vous rencontrez un #pPurple #pMirror. NL Vous le regardez, mais vous ne voyez pas de reflet.",
+      "Vous ne voyez personne mais ~ Vous ~ ~ souhaitez ~ ~ ~ ~ devenir ~ quelqu'un ~.",
+      "# r @ VOUS @ @ EXIST @ @ ET @ @ ARE @ @VALID! @",
+      "#vous êtes en paix avec votre présence.",
+      "Tu n'as pas de mains."
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "stsjorbsmod:WandererStarterRelic": {
+    "FLAVOR": "Ogbomosho à vous aussi.",
+    "NAME": "Relique de départ de vagabond",
+    "DESCRIPTIONS": [
+      "Au début de chaque combat, souvenez-vous de stsjorbsmod:Patience. NL À la fin de chaque combat, soigne 1 PV par stsjorbsmod:Clarté."
+    ]
+  },
+  "stsjorbsmod:FragileMindRelic": {
+    "FLAVOR": "Offrez ... une pelle?",
+    "NAME": "Esprit fragile",
+    "DESCRIPTIONS": [
+      "À la fin du tour 7, stsjorbsmod:claquer."
+    ]
+  }
+}
