@@ -39,7 +39,7 @@ public class EntombedPatch {
     public static class EntombedOnMonsterDeathPatch {
         @SpirePrefixPatch
         public static void Prefix(AbstractMonster __this) {
-            if (!__this.isDying && __this.currentHealth <= 0) {
+            if ((!__this.isDying && __this.currentHealth <= 0) && !__this.halfDead) {
                 AbstractDungeon.actionManager.addToBottom(new ExhumeEntombedCardsAction());
             }
         }
