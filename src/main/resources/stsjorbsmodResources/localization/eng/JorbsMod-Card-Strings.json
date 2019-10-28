@@ -161,8 +161,8 @@
   },
   "stsjorbsmod:MistyStep": {
     "NAME": "Misty Step",
-    "DESCRIPTION": "Gain !B! Block for each stsjorbsmod:Clarity. NL Draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block for each stsjorbsmod:Clarity. NL Draw !M! cards."
+    "DESCRIPTION": "Gain !B! Block, !stsjorbsmod:MetaMagic! per stsjorbsmod:Clarity. NL Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block, !stsjorbsmod:MetaMagic! per stsjorbsmod:Clarity. NL Draw !M! cards."
   },
   "stsjorbsmod:MageArmor": {
     "NAME": "Mage Armor",

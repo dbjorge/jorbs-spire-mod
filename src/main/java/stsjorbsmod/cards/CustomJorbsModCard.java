@@ -87,6 +87,9 @@ public abstract class CustomJorbsModCard extends CustomCard {
     protected int calculateBonusBaseDamage() {
         return 0;
     }
+    protected int calculateBonusBlock() {
+        return 0;
+    }
 
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
@@ -99,10 +102,16 @@ public abstract class CustomJorbsModCard extends CustomCard {
 
     @Override
     public void applyPowers() {
+        int realBaseBlock = this.baseBlock;
+        this.baseBlock += calculateBonusBlock();
         int realBaseDamage = this.baseDamage;
         this.baseDamage += calculateBonusBaseDamage();
+
         super.applyPowers();
+
         this.baseDamage = realBaseDamage;
         this.isDamageModified = this.damage != this.baseDamage;
+        this.baseBlock = realBaseBlock;
+        this.isBlockModified = this.block != this.baseBlock;
     }
 }

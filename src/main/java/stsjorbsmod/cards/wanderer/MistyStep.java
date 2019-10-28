@@ -3,6 +3,7 @@ package stsjorbsmod.cards.wanderer;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
@@ -27,14 +28,19 @@ public class MistyStep extends CustomJorbsModCard {
 
     public MistyStep() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        block = baseBlock = BLOCK_PER_CLARITY;
+        block = baseBlock = 0;
         magicNumber = baseMagicNumber = DRAW;
+        metaMagicNumber = baseMetaMagicNumber = BLOCK_PER_CLARITY;
+    }
+
+    @Override
+    protected int calculateBonusBlock() {
+        return MemoryManager.forPlayer(AbstractDungeon.player).countCurrentClarities() * metaMagicNumber;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int calculatedBlock = MemoryManager.forPlayer(p).countCurrentClarities() * block;
-        addToBot(new GainBlockAction(p, p, calculatedBlock));
+        addToBot(new GainBlockAction(p, p, block));
         addToBot(new DrawCardAction(p, magicNumber));
     }
 
@@ -43,7 +49,7 @@ public class MistyStep extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_DRAW);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

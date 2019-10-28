@@ -322,9 +322,9 @@
     "DESCRIPTION": "Inflige !M! points de dommage à TOUS les ennemis pour chaque carte de votre tirage et défaussez les piles qui n'ont pas commencé le combat dans votre deck."
   },
   "stsjorbsmod:MistyStep": {
-    "DESCRIPTION": "Gagnez !B! blocs pour chaque stsjorbsmod:Clarté. NL Piocher une carte.",
+    "DESCRIPTION": "Gagnez !B! blocs, !stsjorbsmod:MetaMagic! pour stsjorbsmod:Clarté. NL Piocher une carte.",
     "NAME": "Pas brumeux",
-    "UPGRADE_DESCRIPTION": "Gagnez !B! blocs pour chaque stsjorbsmod:Clarté. NL Tirez !M! cartes."
+    "UPGRADE_DESCRIPTION": "Gagnez !B! blocs, !stsjorbsmod:MetaMagic! pour stsjorbsmod:Clarté. NL Tirez !M! cartes."
   },
   "stsjorbsmod:FocusOnThePain": {
     "DESCRIPTION": "Chaque fois que vous perdez des HP, gagnez stsjorbsmod:Clarté.",
