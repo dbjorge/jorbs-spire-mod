@@ -163,6 +163,12 @@ public class Wanderer extends CustomPlayer {
         memories.update();
     }
 
+    @Override
+    public void movePosition(float x, float y) {
+        super.movePosition(x, y);
+        memories.movePosition(x, y);
+    }
+
     // Starting description and loadout
     @Override
     public CharSelectInfo getLoadout() {

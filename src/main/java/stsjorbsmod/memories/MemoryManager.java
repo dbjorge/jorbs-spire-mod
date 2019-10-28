@@ -39,8 +39,8 @@ public class MemoryManager {
     private static final Texture MEMORY_BACKGROUND_TEXTURE32 = TextureLoader.getTexture(makePowerPath("thoughtbubble32.png"));
     private static final TextureAtlas.AtlasRegion MEMORY_BACKGROUND_REGION32 = new TextureAtlas.AtlasRegion(MEMORY_BACKGROUND_TEXTURE32, 0, 0, 77, 85);
 
-    private final float drawX;
-    private final float drawY;
+    private float drawX;
+    private float drawY;
     private final float currentMemoryOffsetY;
     private final Hitbox sinClarityStackHb;
     private final Hitbox virtueClarityStackHb;
@@ -311,5 +311,10 @@ public class MemoryManager {
             retVal.add(currentMemory);
         }
         return retVal;
+    }
+
+    public void movePosition(float x, float y) {
+        this.drawX = x;
+        this.drawY = y;
     }
 }
