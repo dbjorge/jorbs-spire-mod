@@ -20,8 +20,7 @@ public class Stalwart extends CustomJorbsModCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
-    private static final int COST = 0;
-    private static final int UPGRADED_COST = 1; // yes, higher
+    private static final int COST = 1;
 
     public Stalwart() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -38,7 +37,6 @@ public class Stalwart extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
             upgradeDescription();
         }
     }
