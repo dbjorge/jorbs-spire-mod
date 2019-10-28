@@ -114,6 +114,10 @@ public class JorbsMod implements
         return MOD_ID + "Resources/images/events/" + resourcePath;
     }
 
+    public static String makeScenePath(String resourcePath) {
+        return MOD_ID + "Resources/images/scenes/" + resourcePath;
+    }
+
     public static String makeLocalizedStringsPath(String resourcePath) {
         String languageFolder =
                 Settings.language == Settings.GameLanguage.FRA ? "fra" :
