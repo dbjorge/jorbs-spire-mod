@@ -200,10 +200,14 @@ public class MemoryHooksPatch {
                 localvars = "info"
         )
         public static void patch(AbstractMonster __this, DamageInfo info) {
-            AbstractPlayer player = AbstractDungeon.player;
-            MemoryManager memoryManager = MemoryManager.forPlayer(player);
-            if (memoryManager != null) {
-                forEachMemory(player, m -> m.onMonsterDeath(__this, info));
+            // halfDead is for cases like the black slimes or awakened one; all "on monster death" memory effects
+            // want to ignore those cases.
+            if (!__this.halfDead) {
+                AbstractPlayer player = AbstractDungeon.player;
+                MemoryManager memoryManager = MemoryManager.forPlayer(player);
+                if (memoryManager != null) {
+                    forEachMemory(player, m -> m.onMonsterDeath(__this, info));
+                }
             }
         }
 
