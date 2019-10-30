@@ -31,6 +31,8 @@ public class EntombedPatch {
         }
     }
 
+    // Note: it's very important this happen as a prefix to die() rather than as an insert before the die() call in
+    // damage(); this is because isHalfDead gets set by subclasses (Darkling, AwakenedOne) overriding damage().
     @SpirePatch(
             clz = AbstractMonster.class,
             method = "die",

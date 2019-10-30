@@ -190,23 +190,23 @@ public class MemoryHooksPatch {
         }
     }
 
+    // Note: it's very important this happen as a prefix to die() rather than as an insert before the die() call in
+    // damage(); this is because isHalfDead gets set by subclasses (Darkling, AwakenedOne) overriding damage().
     @SpirePatch(
             clz = AbstractMonster.class,
-            method = "damage"
+            method = "die",
+            paramtypez = { boolean.class }
     )
     public static class onMonsterDeathHook {
-        @SpireInsertPatch(
-                locator = Locator.class,
-                localvars = "info"
-        )
-        public static void patch(AbstractMonster __this, DamageInfo info) {
+        @SpirePrefixPatch
+        public static void Prefix(AbstractMonster __this) {
             // halfDead is for cases like the black slimes or awakened one; all "on monster death" memory effects
             // want to ignore those cases.
             if (!__this.halfDead) {
                 AbstractPlayer player = AbstractDungeon.player;
                 MemoryManager memoryManager = MemoryManager.forPlayer(player);
                 if (memoryManager != null) {
-                    forEachMemory(player, m -> m.onMonsterDeath(__this, info));
+                    forEachMemory(player, m -> m.onMonsterDeath(__this));
                 }
             }
         }
