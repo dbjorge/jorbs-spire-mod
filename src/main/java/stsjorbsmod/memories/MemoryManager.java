@@ -123,7 +123,10 @@ public class MemoryManager {
     }
 
     public void gainClarityOfCurrentMemory() {
-        gainClarity(currentMemory.makeCopy());
+
+        if (currentMemory != null) {
+            gainClarity(currentMemory.makeCopy());
+        }
     }
 
     public void gainClarity(AbstractMemory newClarity) {
