@@ -50,8 +50,8 @@ public class WrathMemory extends AbstractMemory {
     }
 
     @Override
-    public void onMonsterDeath(AbstractMonster m, DamageInfo damageInfo) {
-        if (!isPassiveEffectActive || damageInfo.owner != this.owner || m.hasPower(MinionPower.POWER_ID)) {
+    public void onMonsterDeath(AbstractMonster m) {
+        if (!isPassiveEffectActive || m.hasPower(MinionPower.POWER_ID)) {
             return;
         }
 
