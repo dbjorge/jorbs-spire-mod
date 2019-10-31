@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import stsjorbsmod.powers.BurningPower;
 
 /**
  * Burning Action:
@@ -54,7 +55,7 @@ public class BurningLoseHpAction extends AbstractGameAction{
                     }
                 }
 
-                AbstractPower p = this.target.getPower("Burning");
+                AbstractPower p = this.target.getPower(BurningPower.POWER_ID);
                 if (p != null) {
                     p.amount/=2;
                     if (p.amount == 0) {
