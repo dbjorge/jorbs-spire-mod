@@ -1,6 +1,7 @@
 package stsjorbsmod.cards.wanderer;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,6 +11,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.MemoryManager;
+import stsjorbsmod.powers.BurningPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -27,6 +29,7 @@ public class Firebolt extends CustomJorbsModCard {
     private static final int DAMAGE = 8;
     private static final int DAMAGE_PER_CLARITY = 2;
     private static final int UPGRADE_PLUS_DAMAGE_PER_CLARITY = 1;
+    private static final int UPGRADE_PLUS_BURNING = 3;
 
     public Firebolt() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -42,6 +45,9 @@ public class Firebolt extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.FIRE));
+        if(upgraded) {
+            addToBot(new ApplyPowerAction(m, p, new BurningPower(m, p, urMagicNumber)));
+        }
     }
 
     @Override
@@ -49,7 +55,8 @@ public class Firebolt extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_DAMAGE_PER_CLARITY);
-            initializeDescription();
+            upgradeUrMagicNumber(UPGRADE_PLUS_BURNING);
+            upgradeDescription();
         }
     }
 }

@@ -1,6 +1,7 @@
 package stsjorbsmod.cards.wanderer;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -9,6 +10,7 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.LustMemory;
+import stsjorbsmod.powers.BurningPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
@@ -25,6 +27,7 @@ public class Fireball extends CustomJorbsModCard {
     private static final int COST = 2;
     private static final int DAMAGE = 21;
     private static final int UPGRADE_PLUS_DMG = 7;
+    private static final int UPGRADE_PLUS_BURNING = 3;
 
     public Fireball() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -38,6 +41,9 @@ public class Fireball extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToTop(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.FIRE));
         addToBot(new RememberSpecificMemoryAction(new LustMemory(p, false)));
+        if(upgraded) {
+            addToBot(new ApplyPowerAction(m, p, new BurningPower(m, p, magicNumber)));
+        }
     }
 
     @Override
@@ -45,7 +51,8 @@ public class Fireball extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            initializeDescription();
+            upgradeMagicNumber(UPGRADE_PLUS_BURNING);
+            upgradeDescription();
         }
     }
 }
