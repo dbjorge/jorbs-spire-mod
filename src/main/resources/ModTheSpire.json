@@ -5,6 +5,7 @@
     "dbjorge",
     "DietTonicWater",
     "Forceful Storm",
+    "Fr33ly",
     "Frenoss",
     "Gremious",
     "JoeKage",
@@ -13,7 +14,8 @@
     "mikeynap",
     "Neablis",
     "Twitch chat",
-    "wang429"
+    "wang429",
+    "Zyalin"
   ],
   "description": "${project.description}",
   "version": "${project.version}",
