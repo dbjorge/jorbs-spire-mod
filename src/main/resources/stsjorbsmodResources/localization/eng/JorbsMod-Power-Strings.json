@@ -95,6 +95,12 @@
       "Reduce the next damage taken by #b", "."
     ]
   },
+  "stsjorbsmod:SharpenedMindPower": {
+    "NAME": "Sharpened Mind",
+    "DESCRIPTIONS": [
+      "At the start of your turn, remember #yPatience. NL At the end of your turn, remember #yDiligence."
+    ]
+  },
   "stsjorbsmod:SnappedPower": {
     "NAME": "Snapped",
     "DESCRIPTIONS": [
@@ -182,7 +188,7 @@
   "stsjorbsmod:WrathMemory": {
     "NAME": "Wrath",
     "DESCRIPTIONS": [
-      "Whenever you kill a non-minion enemy with an attack card, permanently increase that card's damage by !M!."
+      "Whenever you kill a non-minion enemy, permanently increase the damage of the last damage-dealing attack card played this combat (currently, !C!) by !M!."
     ]
   }
 }

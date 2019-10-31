@@ -15,7 +15,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
-import com.megacrit.cardcrawl.unlock.relics.defectrelics.VirusUnlock;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.memories.MemoryUtils;
 import stsjorbsmod.util.TextureLoader;

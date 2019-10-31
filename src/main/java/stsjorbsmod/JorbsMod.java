@@ -8,31 +8,27 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
-import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.TheCity;
-import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import javassist.Modifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.clapper.util.classutil.*;
-import stsjorbsmod.cards.*;
+import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.console.MemoryCommand;
 import stsjorbsmod.events.DeckOfManyThingsEvent;
-import stsjorbsmod.relics.*;
+import stsjorbsmod.relics.FragileMindRelic;
+import stsjorbsmod.relics.WandererStarterRelic;
+import stsjorbsmod.util.ReflectionUtils;
 import stsjorbsmod.util.TextureLoader;
 import stsjorbsmod.variables.MetaMagicNumber;
 import stsjorbsmod.variables.UrMagicNumber;
 
-import java.io.File;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Properties;
@@ -63,7 +59,7 @@ public class JorbsMod implements
     
     // Colors (RGB)
     // Character Color
-    public static final Color DEFAULT_GRAY = CardHelper.getColor(64.0f, 70.0f, 70.0f);
+    public static final Color DEFAULT_GRAY = new Color(64.0f, 70.0f, 70.0f, 1.0f);
 
     // Card backgrounds - The actual rectangular card.
     private static final String ATTACK_DEFAULT_GRAY = "stsjorbsmodResources/images/512/bg_attack_default_gray.png";
@@ -116,6 +112,18 @@ public class JorbsMod implements
     
     public static String makeEventPath(String resourcePath) {
         return MOD_ID + "Resources/images/events/" + resourcePath;
+    }
+
+    public static String makeScenePath(String resourcePath) {
+        return MOD_ID + "Resources/images/scenes/" + resourcePath;
+    }
+
+    public static String makeLocalizedStringsPath(String resourcePath) {
+        String languageFolder =
+                Settings.language == Settings.GameLanguage.FRA ? "fra" :
+                /* default: */ "eng";
+
+        return MOD_ID + "Resources/localization/" + languageFolder + "/" + resourcePath;
     }
     
     // =============== /MAKE IMAGE PATHS/ =================
@@ -260,35 +268,6 @@ public class JorbsMod implements
     
     // ================ ADD CARDS ===================
 
-    @SuppressWarnings("unchecked")
-    private static <T> ArrayList<Class<T>> findAllConcreteSubclasses(Class<T> baseClass)
-    {
-        try {
-            ClassFinder finder = new ClassFinder();
-            URL url = JorbsMod.class.getProtectionDomain().getCodeSource().getLocation();
-            finder.add(new File(url.toURI()));
-
-            ClassFilter filter =
-                    new AndClassFilter(
-                            new NotClassFilter(new InterfaceOnlyClassFilter()),
-                            new NotClassFilter(new AbstractClassFilter()),
-                            new ClassModifiersClassFilter(Modifier.PUBLIC),
-                            new SubclassClassFilter(baseClass)
-                    );
-            ArrayList<ClassInfo> foundClassInfos = new ArrayList<>();
-            finder.findClasses(foundClassInfos, filter);
-
-            ArrayList<Class<T>> foundClasses = new ArrayList<>();
-            for (ClassInfo classInfo : foundClassInfos) {
-                Class<T> cls = (Class<T>) Loader.getClassPool().getClassLoader().loadClass(classInfo.getClassName());
-                foundClasses.add(cls);
-            }
-            return foundClasses;
-        } catch(Exception e) {
-            throw new RuntimeException("Exception while finding concrete subclasses of " + baseClass.getName(), e);
-        }
-    }
-
     @Override
     public void receiveEditCards() {
         logger.info("Adding cards");
@@ -296,7 +275,7 @@ public class JorbsMod implements
         BaseMod.addDynamicVariable(new UrMagicNumber());
         BaseMod.addDynamicVariable(new MetaMagicNumber());
 
-        ArrayList<Class<CustomJorbsModCard>> cardClasses = findAllConcreteSubclasses(CustomJorbsModCard.class);
+        ArrayList<Class<CustomJorbsModCard>> cardClasses = ReflectionUtils.findAllConcreteSubclasses(CustomJorbsModCard.class);
         for (Class<CustomJorbsModCard> cardClass : cardClasses) {
             try {
                 CustomJorbsModCard cardInstance = cardClass.newInstance();
@@ -315,34 +294,17 @@ public class JorbsMod implements
     
     
     // ================ LOAD THE TEXT ===================
-    
+
     @Override
     public void receiveEditStrings() {
         logger.info("Beginning to edit strings for mod with ID: " + MOD_ID);
 
-        // UIStrings
-        BaseMod.loadCustomStringsFile(UIStrings.class,
-                MOD_ID + "Resources/localization/eng/JorbsMod-UI-Strings.json");
-
-        // CardStrings
-        BaseMod.loadCustomStringsFile(CardStrings.class,
-                MOD_ID + "Resources/localization/eng/JorbsMod-Card-Strings.json");
-        
-        // PowerStrings
-        BaseMod.loadCustomStringsFile(PowerStrings.class,
-                MOD_ID + "Resources/localization/eng/JorbsMod-Power-Strings.json");
-        
-        // RelicStrings
-        BaseMod.loadCustomStringsFile(RelicStrings.class,
-                MOD_ID + "Resources/localization/eng/JorbsMod-Relic-Strings.json");
-        
-        // Event Strings
-        BaseMod.loadCustomStringsFile(EventStrings.class,
-                MOD_ID + "Resources/localization/eng/JorbsMod-Event-Strings.json");
-
-        // CharacterStrings
-        BaseMod.loadCustomStringsFile(CharacterStrings.class,
-                MOD_ID + "Resources/localization/eng/JorbsMod-Character-Strings.json");
+        BaseMod.loadCustomStringsFile(UIStrings.class, makeLocalizedStringsPath("JorbsMod-UI-Strings.json"));
+        BaseMod.loadCustomStringsFile(CardStrings.class, makeLocalizedStringsPath("JorbsMod-Card-Strings.json"));
+        BaseMod.loadCustomStringsFile(PowerStrings.class, makeLocalizedStringsPath("JorbsMod-Power-Strings.json"));
+        BaseMod.loadCustomStringsFile(RelicStrings.class, makeLocalizedStringsPath("JorbsMod-Relic-Strings.json"));
+        BaseMod.loadCustomStringsFile(EventStrings.class, makeLocalizedStringsPath("JorbsMod-Event-Strings.json"));
+        BaseMod.loadCustomStringsFile(CharacterStrings.class, makeLocalizedStringsPath("JorbsMod-Character-Strings.json"));
 
         logger.info("Done editing strings");
     }
@@ -362,7 +324,7 @@ public class JorbsMod implements
         // In Keyword-Strings.json you would have PROPER_NAME as A Long Keyword and the first element in NAMES be a long keyword, and the second element be a_long_keyword
         
         Gson gson = new Gson();
-        String json = Gdx.files.internal(MOD_ID + "Resources/localization/eng/JorbsMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String json = Gdx.files.internal( makeLocalizedStringsPath("JorbsMod-Keyword-Strings.json")).readString(String.valueOf(StandardCharsets.UTF_8));
         com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
         
         if (keywords != null) {

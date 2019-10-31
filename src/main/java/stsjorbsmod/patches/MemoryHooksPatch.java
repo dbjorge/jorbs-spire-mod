@@ -91,8 +91,7 @@ public class MemoryHooksPatch {
                 localvars = {"tmp"}
         )
         public static void Insert(AbstractCard __this, @ByRef float[] tmp) {
-            AbstractPlayer player = AbstractDungeon.player;
-            MemoryManager memoryManager = MemoryManager.forPlayer(player);
+            MemoryManager memoryManager = MemoryManager.forPlayer(AbstractDungeon.player);
             if (memoryManager != null) {
                 for (AbstractMemory memory : memoryManager.currentMemories()) {
                     tmp[0] = memory.atDamageGive(tmp[0], __this.damageTypeForTurn);
@@ -119,9 +118,7 @@ public class MemoryHooksPatch {
                 localvars = {"tmp", "i"}
         )
         public static void Insert(AbstractCard __this, float[] tmp, int i) {
-            ArrayList<AbstractMonster> monsters = AbstractDungeon.getMonsters().monsters;
-            AbstractPlayer player = AbstractDungeon.player;
-            MemoryManager memoryManager = MemoryManager.forPlayer(player);
+            MemoryManager memoryManager = MemoryManager.forPlayer(AbstractDungeon.player);
             if (memoryManager != null) {
                 for (AbstractMemory memory : memoryManager.currentMemories()) {
                     tmp[i] = memory.atDamageGive(tmp[i], __this.damageTypeForTurn);
@@ -138,18 +135,86 @@ public class MemoryHooksPatch {
         }
     }
 
+    // This hook is based on basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.DamageHooks.CalculateCardDamage
+    @SpirePatch(
+            clz = AbstractCard.class,
+            method = "calculateCardDamage"
+    )
+    public static class atDamageGiveHook_CalculateCardDamageSingle {
+        @SpireInsertPatch(
+                locator = Locator.class,
+                localvars = {"tmp"}
+        )
+        public static void Insert(AbstractCard __this, AbstractMonster _, @ByRef float[] tmp) {
+            MemoryManager memoryManager = MemoryManager.forPlayer(AbstractDungeon.player);
+            if (memoryManager != null) {
+                for (AbstractMemory memory : memoryManager.currentMemories()) {
+                    tmp[0] = memory.atDamageGive(tmp[0], __this.damageTypeForTurn);
+                }
+            }
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            public int[] Locate(CtBehavior ctBehavior) throws Exception {
+                Matcher matcher = new Matcher.FieldAccessMatcher(AbstractPlayer.class, "powers");
+                return LineFinder.findInOrder(ctBehavior, matcher);
+            }
+        }
+    }
+
+    // This hook is based on basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.DamageHooks.CalculateCardDamageMulti
+    @SpirePatch(
+            clz = AbstractCard.class,
+            method = "calculateCardDamage"
+    )
+    public static class atDamageGiveHook_CalculateCardDamageMulti {
+        @SpireInsertPatch(
+                locator = Locator.class,
+                localvars = {"tmp", "i"}
+        )
+        public static void Insert(AbstractCard __this, float[] tmp, int i) {
+            MemoryManager memoryManager = MemoryManager.forPlayer(AbstractDungeon.player);
+            if (memoryManager != null) {
+                for (AbstractMemory memory : memoryManager.currentMemories()) {
+                    tmp[i] = memory.atDamageGive(tmp[i], __this.damageTypeForTurn);
+                }
+            }
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            public int[] Locate(CtBehavior ctBehavior) throws Exception {
+                Matcher intermediateMatcher = new Matcher.FieldAccessMatcher(AbstractRoom.class, "monsters");
+                Matcher finalMatcher = new Matcher.FieldAccessMatcher(AbstractPlayer.class, "powers");
+                return LineFinder.findInOrder(ctBehavior, Collections.singletonList(intermediateMatcher), finalMatcher);
+            }
+        }
+    }
+
+    // Note: it's very important this happen as a prefix to die() rather than as an insert before the die() call in
+    // damage(); this is because isHalfDead gets set by subclasses (Darkling, AwakenedOne) overriding damage().
     @SpirePatch(
             clz = AbstractMonster.class,
             method = "die",
-            paramtypez = {boolean.class}
+            paramtypez = { boolean.class }
     )
-    public static class onNonMinionMonsterDeathHook {
+    public static class onMonsterDeathHook {
         @SpirePrefixPatch
         public static void Prefix(AbstractMonster __this) {
-            AbstractPlayer player = AbstractDungeon.player;
-            MemoryManager memoryManager = MemoryManager.forPlayer(player);
-            if (memoryManager != null) {
-                forEachMemory(player, m -> m.onNonMinionMonsterDeath());
+            // halfDead is for cases like the black slimes or awakened one; all "on monster death" memory effects
+            // want to ignore those cases.
+            if (!__this.halfDead) {
+                AbstractPlayer player = AbstractDungeon.player;
+                MemoryManager memoryManager = MemoryManager.forPlayer(player);
+                if (memoryManager != null) {
+                    forEachMemory(player, m -> m.onMonsterDeath(__this));
+                }
+            }
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            public int[] Locate(CtBehavior ctBehavior) throws Exception {
+                Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractMonster.class, "die");
+                return LineFinder.findInOrder(ctBehavior, finalMatcher);
             }
         }
     }

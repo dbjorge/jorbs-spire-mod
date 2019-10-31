@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.util.EffectUtils;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
@@ -36,6 +37,7 @@ public class PrideMemory extends AbstractMemory {
                 AbstractCard masterDeckCard = masterDeckCandidates.getRandomCard(AbstractDungeon.cardRandomRng);
                 masterDeckCard.upgrade();
                 masterDeckCard.superFlash();
+                EffectUtils.addPermanentCardUpgradeEffect(masterDeckCard);
             }
         }
     }

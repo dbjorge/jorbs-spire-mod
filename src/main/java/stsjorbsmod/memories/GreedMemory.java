@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import stsjorbsmod.JorbsMod;
@@ -26,8 +27,8 @@ public class GreedMemory extends AbstractMemory {
     }
 
     @Override
-    public void onNonMinionMonsterDeath() {
-        if (isPassiveEffectActive) {
+    public void onMonsterDeath(AbstractMonster m) {
+        if (isPassiveEffectActive && !m.hasPower(MinionPower.POWER_ID)) {
             JorbsMod.logger.info("Greed: gaining gold");
             AbstractDungeon.player.gainGold(GOLD_PER_KILL);
         }

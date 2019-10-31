@@ -1,13 +1,17 @@
 package stsjorbsmod.memories;
 
+import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.PermanentlyIncreaseCardDamageAction;
+import stsjorbsmod.util.EffectUtils;
 
 public class WrathMemory extends AbstractMemory {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(WrathMemory.class);
@@ -17,35 +21,78 @@ public class WrathMemory extends AbstractMemory {
     public WrathMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.SIN, owner, isClarified);
         setDescriptionPlaceholder("!M!", DAMAGE_INCREASE_PER_KILL);
-    }
-
-    private void activateWrathUpgrade(AbstractCard card, AbstractMonster target) {
-        if (target.hasPower(MinionPower.POWER_ID)) {
-            return;
-        }
-
-        // This sets a field on the card object
-        card.calculateCardDamage(target);
-
-        if (card.damage >= target.currentHealth) {
-            JorbsMod.logger.info("Wrath: increasing damage");
-            AbstractDungeon.actionManager.addToTop(
-                    new PermanentlyIncreaseCardDamageAction(card.uuid, DAMAGE_INCREASE_PER_KILL));
-        }
+        setCardDescriptionPlaceholder(getCardToUpgrade());
     }
 
     @Override
-    public void onPlayCard(AbstractCard card, AbstractMonster target) {
-        if (!isPassiveEffectActive || card.type != AbstractCard.CardType.ATTACK) {
+    public void onPlayCard(AbstractCard card, AbstractMonster monster) {
+        setCardDescriptionPlaceholder(isUpgradeCandidate(card) ? card : getCardToUpgrade());
+    }
+
+    private void setCardDescriptionPlaceholder(AbstractCard c) {
+        String text = c != null ? c.name : "none";
+        setDescriptionPlaceholder("!C!", text);
+    }
+
+    private boolean isUpgradeCandidate(AbstractCard c) {
+        return c.type == CardType.ATTACK && c.baseDamage > 0;
+    }
+
+    private AbstractCard getCardToUpgrade() {
+        for (int i = AbstractDungeon.actionManager.cardsPlayedThisCombat.size() - 1; i >= 0; --i) {
+            AbstractCard candidate = AbstractDungeon.actionManager.cardsPlayedThisCombat.get(i);
+            if (isUpgradeCandidate(candidate)) {
+                return candidate;
+            }
+        }
+
+        return null;
+    }
+
+    @Override
+    public void onMonsterDeath(AbstractMonster m) {
+        if (!isPassiveEffectActive || m.hasPower(MinionPower.POWER_ID)) {
             return;
         }
 
-        if (card.target != null) {
-            activateWrathUpgrade(card, target);
-        } else {
-            // Assuming it's a "damage ALL enemies" effect
-            final MonsterGroup currentFightMonsters = AbstractDungeon.getMonsters();
-            currentFightMonsters.monsters.forEach(monster -> activateWrathUpgrade(card, monster));
+        AbstractCard cardToUpgrade = getCardToUpgrade();
+        if (cardToUpgrade != null) {
+            this.flash();
+            permanentlyIncreaseCardDamage(cardToUpgrade);
         }
+    }
+
+    // It's important that this effect *not* be implemented as an action, because if it happens in response to the
+    // last enemy in a fight dying, no further actions will be executed during that fight.
+    private void permanentlyIncreaseCardDamage(AbstractCard card) {
+        AbstractPlayer p = AbstractDungeon.player;
+        String logPrefix = "WrathMemory effect for " + card.cardID + " (" + card.uuid + "): ";
+
+        if (card.type != CardType.ATTACK) {
+            JorbsMod.logger.warn(logPrefix + "Ignoring non-attack card");
+            return;
+        }
+
+        if (card.baseDamage <= 0) {
+            JorbsMod.logger.warn(logPrefix + "Ignoring card with <=0 baseDamage");
+            return;
+        }
+
+        JorbsMod.logger.info(logPrefix + "Increasing baseDamage by " + DAMAGE_INCREASE_PER_KILL + " from " + card.baseDamage);
+
+        AbstractCard cardToShowForVfx = card;
+        AbstractCard masterCard = StSLib.getMasterDeckEquivalent(card);
+        if (masterCard != null) {
+            masterCard.baseDamage += DAMAGE_INCREASE_PER_KILL;
+            masterCard.superFlash();
+            cardToShowForVfx = masterCard;
+        }
+
+        for (AbstractCard instance : GetAllInBattleInstances.get(card.uuid)) {
+            instance.baseDamage += DAMAGE_INCREASE_PER_KILL;
+            instance.applyPowers();
+        }
+
+        EffectUtils.addPermanentCardUpgradeEffect(cardToShowForVfx);
     }
 }

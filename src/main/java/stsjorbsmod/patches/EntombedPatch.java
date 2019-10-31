@@ -31,6 +31,8 @@ public class EntombedPatch {
         }
     }
 
+    // Note: it's very important this happen as a prefix to die() rather than as an insert before the die() call in
+    // damage(); this is because isHalfDead gets set by subclasses (Darkling, AwakenedOne) overriding damage().
     @SpirePatch(
             clz = AbstractMonster.class,
             method = "die",
@@ -39,7 +41,7 @@ public class EntombedPatch {
     public static class EntombedOnMonsterDeathPatch {
         @SpirePrefixPatch
         public static void Prefix(AbstractMonster __this) {
-            if (!__this.isDying && __this.currentHealth <= 0) {
+            if ((!__this.isDying && __this.currentHealth <= 0) && !__this.halfDead) {
                 AbstractDungeon.actionManager.addToBottom(new ExhumeEntombedCardsAction());
             }
         }

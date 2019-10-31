@@ -10,6 +10,11 @@
     "DESCRIPTION": "Starts combat Exhausted. Move from Exhaust pile to hand whenever an enemy dies."
   },
   {
+    "PROPER_NAME": "Destroy",
+    "NAMES": ["destroy"],
+    "DESCRIPTION": "Permanently removes this card from your deck (not just this combat)."
+  },
+  {
     "PROPER_NAME": "Sin",
     "NAMES": ["sin", "Sin"],
     "DESCRIPTION": "A memory of #yEnvy, #yGreed, #yGluttony, #yLust, #yPride, #ySloth, or #yWrath."
@@ -67,7 +72,7 @@
   {
     "PROPER_NAME": "Lust",
     "NAMES": ["lust", "Lust"],
-    "DESCRIPTION": "Your attacks deal 50% bonus damage. When you forget Lust, gain 2 Weak."
+    "DESCRIPTION": "Your attacks deal 25% bonus damage. When you forget Lust, gain 2 Weak."
   },
   {
     "PROPER_NAME": "Patience",
@@ -92,6 +97,6 @@
   {
     "PROPER_NAME": "Wrath",
     "NAMES": ["wrath", "Wrath"],
-    "DESCRIPTION": "Whenever you kill a non-minion enemy with an attack card, permanently increase that card's damage by #b1."
+    "DESCRIPTION": "Whenever you kill a non-minion enemy, permanently increase the damage of the last damage-dealing attack card played this combat by 1."
   }
 ]

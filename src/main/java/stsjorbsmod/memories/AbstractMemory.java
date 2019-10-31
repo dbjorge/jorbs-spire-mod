@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.vfx.combat.GainPowerEffect;
 import com.megacrit.cardcrawl.vfx.combat.SilentGainPowerEffect;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.powers.IOnModifyGoldListener;
+import stsjorbsmod.util.RenderUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -90,7 +91,8 @@ public abstract class AbstractMemory implements IOnModifyGoldListener {
     public void atEndOfTurn(boolean isPlayer) {}
     public float atDamageGive(float originalDamage, DamageType type) { return originalDamage; }
     public void onPlayCard(AbstractCard card, AbstractMonster monster) { }
-    public void onNonMinionMonsterDeath() { }
+    // onMonsterDeath can happen within the same action that ends the combat, so you shouldn't queue new actions in here.
+    public void onMonsterDeath(AbstractMonster monster) { }
     public void onVictory() { }
 
     private AbstractPower makeFakePowerForEffects() {
@@ -114,8 +116,7 @@ public abstract class AbstractMemory implements IOnModifyGoldListener {
     }
 
     public void render(SpriteBatch sb, float x, float y, Color color) {
-        sb.setColor(color);
-        sb.draw(this.region48, x - (float)this.region48.packedWidth / 2.0F, y - (float)this.region48.packedHeight / 2.0F, (float)this.region48.packedWidth / 2.0F, (float)this.region48.packedHeight / 2.0F, (float)this.region48.packedWidth, (float)this.region48.packedHeight, Settings.scale, Settings.scale, 0.0F);
+        RenderUtils.renderAtlasRegionCenteredAt(sb, this.region48, x, y, color);
 
         for (AbstractGameEffect effect : renderEffects) {
             effect.render(sb, x, y);

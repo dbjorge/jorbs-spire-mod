@@ -19,8 +19,8 @@ import static stsjorbsmod.JorbsMod.makePowerPath;
 public class LustMemory extends AbstractMemory {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(LustMemory.class);
 
-    private static final float ATTACK_BONUS_MODIFIER = 1.5f;
-    private static final int ATTACK_BONUS_PERCENTAGE_DESCRIPTION = 50;
+    private static final float ATTACK_BONUS_MODIFIER = 1.25f;
+    private static final int ATTACK_BONUS_PERCENTAGE_DESCRIPTION = 25;
     private static final int WEAK_ON_FORGET = 2;
 
     public LustMemory(final AbstractCreature owner, boolean isClarified) {

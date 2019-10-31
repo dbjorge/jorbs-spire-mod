@@ -9,11 +9,13 @@ import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.audio.Sfx;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
@@ -22,12 +24,13 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.cards.*;
+import stsjorbsmod.cards.wanderer.*;
 import stsjorbsmod.memories.*;
 import stsjorbsmod.relics.FragileMindRelic;
 import stsjorbsmod.relics.WandererStarterRelic;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static stsjorbsmod.JorbsMod.*;
 import static stsjorbsmod.characters.Wanderer.Enums.WANDERER_GRAY_COLOR;
@@ -105,7 +108,7 @@ public class Wanderer extends CustomPlayer {
         super(name, setClass, orbTextures,
                 "stsjorbsmodResources/images/char/wanderer/orb/vfx.png", null,
                 new SpriterAnimation(
-                        "stsjorbsmodResources/images/char/wanderer/Spriter/theDefaultAnimation.scml"));
+                        "stsjorbsmodResources/images/char/wanderer/Spriter/jorbsWizard50.scml"));
 
 
         // =============== TEXTURES, ENERGY, LOADOUT =================  
@@ -161,6 +164,12 @@ public class Wanderer extends CustomPlayer {
     public void updatePowers() {
         super.updatePowers();
         memories.update();
+    }
+
+    @Override
+    public void movePosition(float x, float y) {
+        super.movePosition(x, y);
+        memories.movePosition(x, y);
     }
 
     // Starting description and loadout
@@ -307,4 +316,19 @@ public class Wanderer extends CustomPlayer {
         return TEXT[2];
     }
 
+    // When you defeat the heart, this happens
+    @Override
+    public List<CutscenePanel> getCutscenePanels() {
+        List<CutscenePanel> panels = new ArrayList<CutscenePanel>();
+        panels.add(new CutscenePanel(makeScenePath("wanderer_heart_kill_1.png"), "ATTACK_DEFECT_BEAM"));
+        panels.add(new CutscenePanel(makeScenePath("wanderer_heart_kill_2.png")));
+        panels.add(new CutscenePanel(makeScenePath("wanderer_heart_kill_3.png")));
+        return panels;
+    }
+
+    // Required for beta branch support
+    // @Override (uncomment once released)
+    public String getPortraitImageName() {
+        return "DefaultCharacterPortraitBG.png";
+    }
 }
