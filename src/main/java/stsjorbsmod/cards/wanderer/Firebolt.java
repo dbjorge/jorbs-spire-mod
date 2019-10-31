@@ -30,8 +30,8 @@ public class Firebolt extends CustomJorbsModCard {
 
     public Firebolt() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = DAMAGE;
-        baseMagicNumber = DAMAGE_PER_CLARITY;
+        damage = baseDamage = DAMAGE;
+        magicNumber = baseMagicNumber = DAMAGE_PER_CLARITY;
     }
 
     @Override
