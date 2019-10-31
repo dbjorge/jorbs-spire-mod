@@ -18,9 +18,6 @@ import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
-/**
- * Any and all references to poison are either accidental or temporary as we don't have the effect yet.
- */
 public class BurningPower extends AbstractPower implements CloneablePowerInterface, HealthBarRenderPower {
     public static final String POWER_ID = JorbsMod.makeID(FearPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -43,8 +40,9 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
         }
 
         this.updateDescription();
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        this.loadRegion("attackBurn"); // TODO use community art
+//        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+//        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
         this.type = PowerType.DEBUFF;
         this.isTurnBased = true;
     }
