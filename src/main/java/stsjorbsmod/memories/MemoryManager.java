@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.powers.CoilPower;
 import stsjorbsmod.powers.SnappedPower;
 import stsjorbsmod.util.RenderUtils;
 import stsjorbsmod.util.TextureLoader;
@@ -100,6 +101,11 @@ public class MemoryManager {
             this.currentMemory.onRemember();
             if (!hasClarity(currentMemory.ID)) {
                 this.currentMemory.gainPassiveEffect();
+            }
+
+            AbstractPower possibleCoilPower = this.owner.getPower(CoilPower.POWER_ID);
+            if (possibleCoilPower != null) {
+                possibleCoilPower.onSpecificTrigger();
             }
 
             this.currentMemory.flash();

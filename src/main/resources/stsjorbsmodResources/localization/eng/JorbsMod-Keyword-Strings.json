@@ -77,7 +77,7 @@
   {
     "PROPER_NAME": "Patience",
     "NAMES": ["patience", "Patience"],
-    "DESCRIPTION": "Gain 1 Coil each time you play a card. When you forget Patience, deal 2 damage to ALL enemies for each Coil and lose all Coil."
+    "DESCRIPTION": "Gain 1 Coil each time you play a card. When you remember a new memory, deal 2 damage to ALL enemies for each Coil and lose all Coil."
   },
   {
     "PROPER_NAME": "Pride",
