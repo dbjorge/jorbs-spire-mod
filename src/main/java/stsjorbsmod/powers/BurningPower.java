@@ -2,6 +2,8 @@ package stsjorbsmod.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.HealthBarRenderPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -10,21 +12,29 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.BurningLoseHpAction;
+import stsjorbsmod.util.TextureLoader;
+
+import static stsjorbsmod.JorbsMod.makePowerPath;
 
 /**
  * Any and all references to poison are either accidental or temporary as we don't have the effect yet.
  */
 public class BurningPower extends AbstractPower implements CloneablePowerInterface, HealthBarRenderPower {
-    public static final String POWER_ID = "Burning";
+    public static final String POWER_ID = JorbsMod.makeID(FearPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("burning_power84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("burning_power32.png"));
+
     private AbstractCreature source;
 
     public BurningPower(AbstractCreature owner, AbstractCreature source, int burningAmt) {
         this.name = NAME;
-        this.ID = "Burning";
+        this.ID = POWER_ID;
         this.owner = owner;
         this.source = source;
         this.amount = burningAmt;
@@ -33,25 +43,30 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
         }
 
         this.updateDescription();
-        this.loadRegion("burning");
+        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
         this.type = PowerType.DEBUFF;
         this.isTurnBased = true;
     }
 
+    @Override
+    public void flash() {
+        JorbsMod.logger.info("FLASH");
+        super.flash();
+    }
+
+    @Override
     public void playApplyPowerSfx() {
         CardCrawlGame.sound.play("ATTACK_FIRE", 0.05F);
     }
 
+    @Override
     public void updateDescription() {
         if (this.owner != null && !this.owner.isPlayer) {
             this.description = DESCRIPTIONS[2] + this.amount + DESCRIPTIONS[1];
         } else {
             this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
         }
-    }
-
-    public void stackPower(int stackAmount) {
-        super.stackPower(stackAmount);
     }
 
     @Override

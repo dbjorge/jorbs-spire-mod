@@ -190,5 +190,13 @@
     "DESCRIPTIONS": [
       "Whenever you kill a non-minion enemy, permanently increase the damage of the last damage-dealing attack card played this combat (currently, !C!) by !M!."
     ]
+  },
+  "stsjorbsmod:Burning": {
+    "NAME": "Burning",
+    "DESCRIPTIONS": [
+      "At the start of your turn, lose #b",
+      " HP, then reduce #yBurning by #b1.",
+      "At the start of its turn, loses #b"
+    ]
   }
 }
