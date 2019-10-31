@@ -57,10 +57,10 @@
       " turns, Snap."
     ]
   },
-  "stsjorbsmod:ImmuneToDamagePower": {
-    "NAME": "Damage-immune",
+  "stsjorbsmod:BanishedPower": {
+    "NAME": "Banished",
     "DESCRIPTIONS": [
-      "Cannot take damage."
+      "Cannot give or receive damage. Cannot give or receive conditions."
     ]
   },
   "stsjorbsmod:IntrospectionPower": {

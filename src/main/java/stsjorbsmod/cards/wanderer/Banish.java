@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.powers.ArtifactPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.ImmuneToDamagePower;
+import stsjorbsmod.powers.BanishedPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -35,7 +35,8 @@ public class Banish extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new StunMonsterAction(m, p, magicNumber));
         if (!m.hasPower(ArtifactPower.POWER_ID)) {
-            addToBot(new ApplyPowerAction(m, p, new ImmuneToDamagePower(m, magicNumber), magicNumber));
+            // This must go second, or else it will prevent the StunnedPower from taking effect
+            addToBot(new ApplyPowerAction(m, p, new BanishedPower(m, magicNumber), magicNumber));
         }
     }
 
