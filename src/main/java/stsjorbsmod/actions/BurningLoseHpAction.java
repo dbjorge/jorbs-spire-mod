@@ -47,7 +47,7 @@ public class BurningLoseHpAction extends AbstractGameAction{
             this.tickDuration();
             if (this.isDone) {
                 if (this.target.currentHealth > 0) {
-                    this.target.tint.color = Color.CHARTREUSE.cpy();
+                    this.target.tint.color = Color.ORANGE.cpy();
                     this.target.tint.changeColor(Color.WHITE.cpy());
                     this.target.damage(new DamageInfo(this.source, this.amount, DamageInfo.DamageType.HP_LOSS));
                 }
