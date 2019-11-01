@@ -196,8 +196,9 @@
     "DESCRIPTIONS": [
       "At the start of your turn, lose #b",
       " HP, then reduce #yBurning by #b",
-      ".",
-      "At the start of its turn, loses #b"
+      ". ",
+      "At the start of its turn, loses #b",
+      "Reduce healing by 50%."
     ]
   }
 }

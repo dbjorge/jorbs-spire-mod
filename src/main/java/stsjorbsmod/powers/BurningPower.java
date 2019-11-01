@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.HealthBarRenderPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -28,6 +30,7 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("burning_power32.png"));
 
     private AbstractCreature source;
+    private boolean justApplied = false;
 
     public BurningPower(AbstractCreature owner, AbstractCreature source, int burningAmt) {
         this.name = NAME;
@@ -37,6 +40,9 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
         this.amount = burningAmt;
         if (this.amount >= 9999) {
             this.amount = 9999;
+        }
+        if (!source.isPlayer) {
+            this.justApplied = true;
         }
 
         this.updateDescription();
@@ -54,10 +60,12 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
 
     @Override
     public void updateDescription() {
-        if (this.owner != null && !this.owner.isPlayer) {
-            this.description = DESCRIPTIONS[3] + this.amount + DESCRIPTIONS[1] + (this.amount - this.amount / 2) + DESCRIPTIONS[2];
+        if (amount <= 0) {
+            this.description = DESCRIPTIONS[4];
+        } else if (this.owner != null && !this.owner.isPlayer) {
+            this.description = DESCRIPTIONS[3] + this.amount + DESCRIPTIONS[1] + (this.amount - this.amount / 2) + DESCRIPTIONS[2] + DESCRIPTIONS[4];
         } else {
-            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + (this.amount - this.amount / 2) + DESCRIPTIONS[2];
+            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + (this.amount - this.amount / 2) + DESCRIPTIONS[2] + DESCRIPTIONS[4];
         }
     }
 
@@ -68,6 +76,17 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
             this.flashWithoutSound();
             AbstractDungeon.actionManager.addToBottom(
                     new BurningLoseHpAction(this.owner, this.source, this.amount, AbstractGameAction.AttackEffect.FIRE));
+        }
+    }
+
+    @Override
+    public void atEndOfRound() {
+        if (this.justApplied) {
+            this.justApplied = false;
+        } else {
+            if (this.amount <= 0) {
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+            }
         }
     }
 
