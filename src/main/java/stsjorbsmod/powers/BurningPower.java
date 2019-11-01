@@ -47,8 +47,8 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
 
         this.updateDescription();
         this.loadRegion("attackBurn"); // TODO use community art
-//        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-//        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        // this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        // this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
         this.type = PowerType.DEBUFF;
         this.isTurnBased = true;
     }
@@ -92,7 +92,7 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
 
     @Override
     public int onHeal(int healAmount) {
-        return healAmount/2;
+        return healAmount / 2;
     }
 
     @Override
