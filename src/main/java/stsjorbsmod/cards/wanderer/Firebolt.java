@@ -34,14 +34,14 @@ public class Firebolt extends CustomJorbsModCard {
 
     public Firebolt() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = DAMAGE;
-        baseMagicNumber = AMOUNT_PER_CLARITY;
+        damage = baseDamage = metaMagicNumber = baseMetaMagicNumber = DAMAGE;
+        magicNumber = baseMagicNumber = AMOUNT_PER_CLARITY;
     }
 
     @Override
     protected int calculateBonusBaseDamage() {
         if (upgraded) {
-            return this.magicNumber;
+            return 0;
         } else {
             return this.magicNumber * MemoryManager.forPlayer(AbstractDungeon.player).countCurrentClarities();
         }
