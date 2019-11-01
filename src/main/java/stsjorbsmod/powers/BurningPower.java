@@ -55,9 +55,9 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
     @Override
     public void updateDescription() {
         if (this.owner != null && !this.owner.isPlayer) {
-            this.description = DESCRIPTIONS[2] + this.amount + DESCRIPTIONS[1];
+            this.description = DESCRIPTIONS[3] + this.amount + DESCRIPTIONS[1] + (this.amount - this.amount / 2) + DESCRIPTIONS[2];
         } else {
-            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + (this.amount - this.amount / 2) + DESCRIPTIONS[2];
         }
     }
 

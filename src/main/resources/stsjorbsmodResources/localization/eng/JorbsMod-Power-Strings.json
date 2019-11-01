@@ -195,7 +195,8 @@
     "NAME": "Burning",
     "DESCRIPTIONS": [
       "At the start of your turn, lose #b",
-      " HP, then reduce #yBurning by #b1.",
+      " HP, then reduce #yBurning by #b",
+      ".",
       "At the start of its turn, loses #b"
     ]
   }
