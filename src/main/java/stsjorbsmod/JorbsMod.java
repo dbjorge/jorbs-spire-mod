@@ -26,6 +26,7 @@ import stsjorbsmod.relics.FragileMindRelic;
 import stsjorbsmod.relics.WandererStarterRelic;
 import stsjorbsmod.util.ReflectionUtils;
 import stsjorbsmod.util.TextureLoader;
+import stsjorbsmod.variables.BaseDamageNumber;
 import stsjorbsmod.variables.MetaMagicNumber;
 import stsjorbsmod.variables.UrMagicNumber;
 
@@ -274,6 +275,7 @@ public class JorbsMod implements
     public void receiveEditCards() {
         logger.info("Adding cards");
 
+        BaseMod.addDynamicVariable(new BaseDamageNumber());
         BaseMod.addDynamicVariable(new UrMagicNumber());
         BaseMod.addDynamicVariable(new MetaMagicNumber());
 

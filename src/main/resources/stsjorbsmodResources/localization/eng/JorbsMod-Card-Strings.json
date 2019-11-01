@@ -26,7 +26,7 @@
   },
   "stsjorbsmod:Firebolt": {
     "NAME": "Firebolt",
-    "DESCRIPTION": "Deal !D! damage, !stsjorbsmod:MetaMagic! + !M! damage for each stsjorbsmod:Clarity.",
+    "DESCRIPTION": "Deal !D! damage, !stsjorbsmod:BaseDamage! + !M! damage for each stsjorbsmod:Clarity.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage NL Apply !M! stsjorbsmod:Burning for each stsjorbsmod:Clarity."
   },
   "stsjorbsmod:MagicMissiles": {
