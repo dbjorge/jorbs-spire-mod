@@ -16,11 +16,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.powers.BurningPower;
 
-
 /**
- * Burning Action:
- * - Deal N damage
- * - Reduce N to floor(N/2)
+ * As PoisonLoseHpAction, except:
+ * - Decays as N -> floor(N/2) rather than poison's N -> N-1
+ * - The "remove power" step happens as an end-of-round effect in BurningPower rather than as part of this action's
+ *   "reduce amount" step like poison does, because we want the "halve healing" effect to persist across the turn in
+ *   the burning amount is reduced to zero.
  */
 public class BurningLoseHpAction extends AbstractGameAction{
     private static final Logger logger = LogManager.getLogger(BurningLoseHpAction.class.getName());
@@ -54,7 +55,7 @@ public class BurningLoseHpAction extends AbstractGameAction{
 
                 AbstractPower p = this.target.getPower(BurningPower.POWER_ID);
                 if (p != null) {
-                    p.amount/=2;
+                    p.amount /= 2;
                     p.updateDescription();
                 }
 
