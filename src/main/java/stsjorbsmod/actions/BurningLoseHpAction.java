@@ -30,14 +30,14 @@ public class BurningLoseHpAction extends AbstractGameAction{
         this.setValues(target, source, amount);
         this.actionType = AbstractGameAction.ActionType.DAMAGE;
         this.attackEffect = effect;
-        this.duration = 0.33F;
+        this.duration = DURATION;
     }
 
     public void update() {
         if (AbstractDungeon.getCurrRoom().phase != AbstractRoom.RoomPhase.COMBAT) {
             this.isDone = true;
         } else {
-            if (this.duration == 0.33F && this.target.currentHealth > 0) {
+            if (this.duration == DURATION && this.target.currentHealth > 0) {
                 logger.info(this.target.name + " HAS " + this.target.currentHealth + " HP.");
                 this.target.damageFlash = true;
                 this.target.damageFlashFrames = 4;
