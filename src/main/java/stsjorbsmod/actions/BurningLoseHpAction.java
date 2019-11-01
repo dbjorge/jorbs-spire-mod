@@ -50,10 +50,6 @@ public class BurningLoseHpAction extends AbstractGameAction{
                     this.target.tint.color = Color.CHARTREUSE.cpy();
                     this.target.tint.changeColor(Color.WHITE.cpy());
                     this.target.damage(new DamageInfo(this.source, this.amount, DamageInfo.DamageType.HP_LOSS));
-                    if (this.target.isDying) {
-                        // TODO find out what poisonKillCount's purpose. Perhaps we want something similar
-                        // ++AbstractPlayer.poisonKillCount;
-                    }
                 }
 
                 AbstractPower p = this.target.getPower(BurningPower.POWER_ID);
