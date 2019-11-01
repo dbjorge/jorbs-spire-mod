@@ -26,7 +26,8 @@
   },
   "stsjorbsmod:Firebolt": {
     "NAME": "Firebolt",
-    "DESCRIPTION": "Deal !D! damage + !M! damage for each stsjorbsmod:Clarity."
+    "DESCRIPTION": "Deal !D! damage, !stsjorbsmod:BaseDamage! + !M! damage for each stsjorbsmod:Clarity.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage NL Apply !M! stsjorbsmod:Burning for each stsjorbsmod:Clarity."
   },
   "stsjorbsmod:MagicMissiles": {
     "NAME": "Magic Missiles",
@@ -247,7 +248,8 @@
   },
   "stsjorbsmod:Fireball": {
     "NAME": "Fireball",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Remember stsjorbsmod:Lust."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Remember stsjorbsmod:Lust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Remember stsjorbsmod:Lust. NL Apply !M! stsjorbsmod:Burning to ALL enemies."
   },
   "stsjorbsmod:LoseGrip": {
     "NAME": "Lose Grip",
