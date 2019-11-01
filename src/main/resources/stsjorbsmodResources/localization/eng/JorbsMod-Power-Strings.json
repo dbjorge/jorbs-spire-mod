@@ -17,7 +17,7 @@
   "stsjorbsmod:CoilPower": {
     "NAME": "Coil",
     "DESCRIPTIONS": [
-      "When you forget #yPatience, deal #b",
+      "When you remember a new memory, deal #b",
       " Damage to all enemies and lose all Coil."
     ]
   },
@@ -57,10 +57,10 @@
       " turns, Snap."
     ]
   },
-  "stsjorbsmod:ImmuneToDamagePower": {
-    "NAME": "Damage-immune",
+  "stsjorbsmod:BanishedPower": {
+    "NAME": "Banished",
     "DESCRIPTIONS": [
-      "Cannot take damage."
+      "Cannot give or receive damage. Cannot give or receive conditions."
     ]
   },
   "stsjorbsmod:IntrospectionPower": {

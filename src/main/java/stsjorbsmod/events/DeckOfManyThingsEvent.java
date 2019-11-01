@@ -18,8 +18,6 @@ import stsjorbsmod.JorbsMod;
 import static stsjorbsmod.JorbsMod.makeEventPath;
 
 public class DeckOfManyThingsEvent extends AbstractImageEvent {
-
-
     public static final String ID = JorbsMod.makeID(DeckOfManyThingsEvent.class.getSimpleName());
     private static final EventStrings eventStrings = CardCrawlGame.languagePack.getEventString(ID);
 
