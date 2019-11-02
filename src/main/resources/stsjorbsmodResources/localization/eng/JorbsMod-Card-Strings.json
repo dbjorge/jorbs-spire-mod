@@ -125,7 +125,7 @@
   },
   "stsjorbsmod:Hurt": {
     "NAME": "Hurt",
-    "DESCRIPTION": "Deal !D! damage. NL Lose 1 HP per stsjorbsmod:Clarity you have."
+    "DESCRIPTION": "Deal !D! damage. NL Lose !M! HP per stsjorbsmod:Clarity you have."
   },
   "stsjorbsmod:SmithingStrike": {
     "NAME": "Smithing Strike",
