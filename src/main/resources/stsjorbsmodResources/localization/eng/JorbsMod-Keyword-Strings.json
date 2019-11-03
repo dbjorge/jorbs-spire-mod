@@ -2,7 +2,7 @@
   {
     "PROPER_NAME": "Snap",
     "NAMES": ["snap", "snapped"],
-    "DESCRIPTION": "Deal 5 damage to ALL enemies and 2 damage to yourself for every clarity bonus you have. You cannot be affected by memories or clarities for the remainder of the fight."
+    "DESCRIPTION": "Deal 6 damage to ALL enemies and lose 3 HP for every #yClarity you have. You cannot #yRemember or have #yClarity of any memories for the remainder of the fight."
   },
   {
     "PROPER_NAME": "Entombed",
