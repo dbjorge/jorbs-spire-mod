@@ -43,7 +43,6 @@ public class EnvyMemory extends AbstractMemory {
             applyPassiveVulnerable(monster);
         } else if(isTargetingAllEnemies) {
             this.flash();
-            // Unclear from design doc whether this should be a no-op or apply vulnerable to all enemies
             AbstractDungeon.getMonsters().monsters.forEach(this::applyPassiveVulnerable);
         }
     }
