@@ -2,7 +2,7 @@
   {
     "PROPER_NAME": "Snap",
     "NAMES": ["snap", "snapped"],
-    "DESCRIPTION": "Deal 5 damage to ALL enemies and 2 damage to yourself for every clarity bonus you have. You cannot be affected by memories or clarities for the remainder of the fight."
+    "DESCRIPTION": "Deal 6 damage to ALL enemies and lose 3 HP for every #yClarity you have. You cannot #yRemember or have #yClarity of any memories for the remainder of the fight."
   },
   {
     "PROPER_NAME": "Entombed",
@@ -57,7 +57,7 @@
   {
     "PROPER_NAME": "Gluttony",
     "NAMES": ["gluttony", "Gluttony"],
-    "DESCRIPTION": "Whenever you kill a non-minion enemy, raise your Max HP by #b3."
+    "DESCRIPTION": "Whenever you kill a non-minion enemy, raise your Max HP by #b3. At the start of each turn, discard one card."
   },
   {
     "PROPER_NAME": "Humility",
@@ -77,12 +77,12 @@
   {
     "PROPER_NAME": "Patience",
     "NAMES": ["patience", "Patience"],
-    "DESCRIPTION": "Gain 1 Coil each time you play a card. When you forget Patience, deal 2 damage to ALL enemies for each Coil and lose all Coil."
+    "DESCRIPTION": "Gain 1 Coil each time you play a card. When you remember a new memory, deal 2 damage to ALL enemies for each Coil and lose all Coil."
   },
   {
     "PROPER_NAME": "Pride",
     "NAMES": ["pride", "Pride"],
-    "DESCRIPTION": "At the end of combat, permanently #yUpgrade a card in your deck."
+    "DESCRIPTION": "At the end of combat, permanently #yUpgrade a card in your deck. Decreases #yBlock gained from cards by #b2."
   },
   {
     "PROPER_NAME": "Sloth",
@@ -98,5 +98,10 @@
     "PROPER_NAME": "Wrath",
     "NAMES": ["wrath", "Wrath"],
     "DESCRIPTION": "Whenever you kill a non-minion enemy, permanently increase the damage of the last damage-dealing attack card played this combat by 1."
+  },
+  {
+    "PROPER_NAME": "Burning",
+    "NAMES": ["burning", "Burning"],
+    "DESCRIPTION": "Burning creatures lose HP at the start of their turn and have healing reduced by 50%. Each turn, Burning is reduced by half."
   }
 ]

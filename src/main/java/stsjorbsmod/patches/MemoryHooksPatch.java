@@ -68,6 +68,17 @@ public class MemoryHooksPatch {
     }
 
     @SpirePatch(
+            clz = AbstractCreature.class,
+            method = "applyStartOfTurnPostDrawPowers"
+    )
+    public static class atStartOfTurnPostDrawHook {
+        @SpirePostfixPatch
+        public static void patch(AbstractCreature __this) {
+            forEachMemory(__this, m -> m.atStartOfTurnPostDraw());
+        }
+    }
+
+    @SpirePatch(
             clz = AbstractPlayer.class,
             method = "onVictory"
     )
@@ -76,6 +87,58 @@ public class MemoryHooksPatch {
         public static void patch(AbstractPlayer __this) {
             if (!__this.isDying) {
                 forEachMemory(__this, m -> m.onVictory());
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz = AbstractCard.class,
+            method = "applyPowersToBlock"
+    )
+    public static class modifyBlockHook_applyPowersToBlock {
+        @SpireInsertPatch(
+                locator = Locator.class,
+                localvars = {"tmp"}
+        )
+        public static void Insert(AbstractCard __this, @ByRef float[] tmp) {
+            MemoryManager memoryManager = MemoryManager.forPlayer(AbstractDungeon.player);
+            if (memoryManager != null) {
+                for (AbstractMemory memory : memoryManager.currentMemories()) {
+                    tmp[0] = memory.modifyBlock(tmp[0]);
+                }
+            }
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            public int[] Locate(CtBehavior ctBehavior) throws Exception {
+                Matcher matcher = new Matcher.FieldAccessMatcher(AbstractPlayer.class, "powers");
+                return LineFinder.findInOrder(ctBehavior, matcher);
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz = AbstractCard.class,
+            method = "applyPowerOnBlockHelper"
+    )
+    public static class modifyBlockHook_applyPowerOnBlockHelper {
+        @SpireInsertPatch(
+                locator = Locator.class,
+                localvars = {"tmp"}
+        )
+        public static void Insert(int base, @ByRef float[] tmp) {
+            MemoryManager memoryManager = MemoryManager.forPlayer(AbstractDungeon.player);
+            if (memoryManager != null) {
+                for (AbstractMemory memory : memoryManager.currentMemories()) {
+                    tmp[0] = memory.modifyBlock(tmp[0]);
+                }
+            }
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            public int[] Locate(CtBehavior ctBehavior) throws Exception {
+                Matcher matcher = new Matcher.FieldAccessMatcher(AbstractPlayer.class, "powers");
+                return LineFinder.findInOrder(ctBehavior, matcher);
             }
         }
     }
@@ -226,7 +289,10 @@ public class MemoryHooksPatch {
     public static class ClearAtStartOfCombatHook {
         @SpirePrefixPatch
         public static void prefixPatch(AbstractPlayer __this) {
-            MemoryManager.forPlayer(__this).clear();
+            MemoryManager memoryManager = MemoryManager.forPlayer(__this);
+            if (memoryManager != null) {
+                MemoryManager.forPlayer(__this).clear();
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.GainMemoryClarityAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
@@ -22,7 +23,6 @@ public class Aid extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = 1;
-    private static final int UPGRADED_COST = 0;
     private static final int ENEMY_HEAL = 5;
 
     public Aid() {
@@ -36,14 +36,16 @@ public class Aid extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new HealAction(m, p, this.magicNumber));
         addToBot(new RememberSpecificMemoryAction(new KindnessMemory(p, false)));
+        if (upgraded) {
+            addToBot(new GainMemoryClarityAction(p));
+        }
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

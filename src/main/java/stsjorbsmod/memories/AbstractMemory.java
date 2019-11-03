@@ -88,8 +88,10 @@ public abstract class AbstractMemory implements IOnModifyGoldListener {
     // These are the specific subset of power hooks required by Memory implementations.
     // ** Be sure to check isPassiveEffectActive as necessary. **
     @Override public void onModifyGold(AbstractPlayer p) {}
+    public void atStartOfTurnPostDraw() {}
     public void atEndOfTurn(boolean isPlayer) {}
     public float atDamageGive(float originalDamage, DamageType type) { return originalDamage; }
+    public float modifyBlock(float originalBlockAmount) { return originalBlockAmount; };
     public void onPlayCard(AbstractCard card, AbstractMonster monster) { }
     // onMonsterDeath can happen within the same action that ends the combat, so you shouldn't queue new actions in here.
     public void onMonsterDeath(AbstractMonster monster) { }

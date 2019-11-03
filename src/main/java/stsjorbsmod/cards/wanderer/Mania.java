@@ -2,14 +2,24 @@ package stsjorbsmod.cards.wanderer;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.GainMemoryClarityAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.SlothMemory;
+import stsjorbsmod.util.UniqueCardUtils;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -23,25 +33,32 @@ public class Mania extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 4;
-    private static final int UPGRADE_PLUS_DMG = 2;
-    private static final int BASE_SWINGS = 2;
-    private static final int ADDITIONAL_SLOTH_SWINGS = 2;
+    private static final int BASE_DAMAGE = 0;
+    private static final int UPGRADE_PLUS_BASE_DMG = 3;
+    private static final int DAMAGE_PER_UNIQUE_CARD = 1;
+    private static final int ALL_UNIQUE_ENERGY = 1;
+    private static final int ALL_UNIQUE_DRAW = 1;
 
     public Mania() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = DAMAGE;
+        damage = baseDamage = BASE_DAMAGE;
+        magicNumber = baseMagicNumber = DAMAGE_PER_UNIQUE_CARD;
+        metaMagicNumber = baseMetaMagicNumber = ALL_UNIQUE_ENERGY;
+        urMagicNumber = baseUrMagicNumber = ALL_UNIQUE_DRAW;
+    }
+
+    @Override
+    public int calculateBonusBaseDamage() {
+        return UniqueCardUtils.countUniqueCards(AbstractDungeon.player.hand) * magicNumber;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int numSwings = BASE_SWINGS;
-        if (MemoryManager.forPlayer(p).hasMemoryOrClarity(SlothMemory.STATIC.ID)) {
-            numSwings += ADDITIONAL_SLOTH_SWINGS;
-        }
+        addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SLASH_VERTICAL));
 
-        for (int i=0; i<numSwings; ++i) {
-            addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SLASH_VERTICAL));
+        if (UniqueCardUtils.countUniqueCards(AbstractDungeon.player.hand) == p.hand.size()) {
+            addToBot(new GainEnergyAction(metaMagicNumber));
+            addToBot(new DrawCardAction(p, urMagicNumber));
         }
     }
 
@@ -49,8 +66,8 @@ public class Mania extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
-            initializeDescription();
+            upgradeDamage(UPGRADE_PLUS_BASE_DMG);
+            upgradeDescription();
         }
     }
 }

@@ -1,5 +1,6 @@
 package stsjorbsmod.cards.wanderer;
 
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -24,11 +25,13 @@ public class DoubleCheck extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int BLOCK = 5;
-    private static final int UPGRADE_PLUS_BLOCK = 3;
+    private static final int DRAW = 0;
+    private static final int UPGRADE_DRAW = 1;
 
     public DoubleCheck() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = BLOCK;
+        magicNumber = baseMagicNumber = DRAW;
 
         this.tags.add(REMEMBER_MEMORY);
     }
@@ -38,14 +41,17 @@ public class DoubleCheck extends CustomJorbsModCard {
         addToBot(new GainBlockAction(p, p, block));
         addToBot(new GainMemoryClarityAction(p, DiligenceMemory.STATIC.ID));
         addToBot(new RememberSpecificMemoryAction(new DiligenceMemory(p, false)));
+        if (upgraded) {
+            addToBot(new DrawCardAction(p, magicNumber));
+        }
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(UPGRADE_PLUS_BLOCK);
-            initializeDescription();
+            upgradeMagicNumber(UPGRADE_DRAW);
+            upgradeDescription();
         }
     }
 }

@@ -20,7 +20,7 @@ public class MinorIllusion extends CustomJorbsModCard {
 
     private static final int COST = 0;
     private static final int BLOCK = 5;
-    private static final int UPGRADE_PLUS_BLOCK = 3;
+    private static final int UPGRADE_PLUS_BLOCK = 2;
 
     public MinorIllusion() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

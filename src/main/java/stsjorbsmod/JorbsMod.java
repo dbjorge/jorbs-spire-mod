@@ -5,14 +5,12 @@ import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -21,11 +19,11 @@ import org.apache.logging.log4j.Logger;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.console.MemoryCommand;
-import stsjorbsmod.events.DeckOfManyThingsEvent;
 import stsjorbsmod.relics.FragileMindRelic;
 import stsjorbsmod.relics.WandererStarterRelic;
 import stsjorbsmod.util.ReflectionUtils;
 import stsjorbsmod.util.TextureLoader;
+import stsjorbsmod.variables.BaseDamageNumber;
 import stsjorbsmod.variables.MetaMagicNumber;
 import stsjorbsmod.variables.UrMagicNumber;
 
@@ -56,37 +54,10 @@ public class JorbsMod implements
     private static final String DESCRIPTION = "New characters, brought to you by Jorbs and Twitch chat!";
     
     // =============== INPUT TEXTURE LOCATION =================
-    
-    // Colors (RGB)
-    // Character Color
-    public static final Color DEFAULT_GRAY = new Color(64.0f, 70.0f, 70.0f, 1.0f);
 
-    // Card backgrounds - The actual rectangular card.
-    private static final String ATTACK_DEFAULT_GRAY = "stsjorbsmodResources/images/512/bg_attack_default_gray.png";
-    private static final String SKILL_DEFAULT_GRAY = "stsjorbsmodResources/images/512/bg_skill_default_gray.png";
-    private static final String POWER_DEFAULT_GRAY = "stsjorbsmodResources/images/512/bg_power_default_gray.png";
-    
-    private static final String ENERGY_ORB_DEFAULT_GRAY = "stsjorbsmodResources/images/512/card_default_gray_orb.png";
-    private static final String CARD_ENERGY_ORB = "stsjorbsmodResources/images/512/card_small_orb.png";
-    
-    private static final String ATTACK_DEFAULT_GRAY_PORTRAIT = "stsjorbsmodResources/images/1024/bg_attack_default_gray.png";
-    private static final String SKILL_DEFAULT_GRAY_PORTRAIT = "stsjorbsmodResources/images/1024/bg_skill_default_gray.png";
-    private static final String POWER_DEFAULT_GRAY_PORTRAIT = "stsjorbsmodResources/images/1024/bg_power_default_gray.png";
-    private static final String ENERGY_ORB_DEFAULT_GRAY_PORTRAIT = "stsjorbsmodResources/images/1024/card_default_gray_orb.png";
-    
-    // Character assets
-    private static final String THE_DEFAULT_BUTTON = "stsjorbsmodResources/images/charSelect/DefaultCharacterButton.png";
-    private static final String THE_DEFAULT_PORTRAIT = "stsjorbsmodResources/images/charSelect/DefaultCharacterPortraitBG.png";
-    public static final String THE_DEFAULT_SHOULDER_1 = "stsjorbsmodResources/images/char/wanderer/shoulder.png";
-    public static final String THE_DEFAULT_SHOULDER_2 = "stsjorbsmodResources/images/char/wanderer/shoulder2.png";
-    public static final String THE_DEFAULT_CORPSE = "stsjorbsmodResources/images/char/wanderer/corpse.png";
-    
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.
     public static final String BADGE_IMAGE = "stsjorbsmodResources/images/Badge.png";
-    
-    // Atlas and JSON files for the Animations
-    public static final String THE_DEFAULT_SKELETON_ATLAS = "stsjorbsmodResources/images/char/wanderer/skeleton.atlas";
-    public static final String THE_DEFAULT_SKELETON_JSON = "stsjorbsmodResources/images/char/wanderer/skeleton.json";
+
     
     // =============== MAKE IMAGE PATHS =================
     
@@ -140,15 +111,11 @@ public class JorbsMod implements
 
         logger.info("Done subscribing");
         
-        logger.info("Creating the color " + Wanderer.Enums.WANDERER_GRAY_COLOR.toString());
+        logger.info("Creating new card colors..." + Wanderer.Enums.WANDERER_GRAY_COLOR.toString());
+
+        Wanderer.ColorInfo.registerColorWithBaseMod();
         
-        BaseMod.addColor(Wanderer.Enums.WANDERER_GRAY_COLOR, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
-                DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
-                ATTACK_DEFAULT_GRAY, SKILL_DEFAULT_GRAY, POWER_DEFAULT_GRAY, ENERGY_ORB_DEFAULT_GRAY,
-                ATTACK_DEFAULT_GRAY_PORTRAIT, SKILL_DEFAULT_GRAY_PORTRAIT, POWER_DEFAULT_GRAY_PORTRAIT,
-                ENERGY_ORB_DEFAULT_GRAY_PORTRAIT, CARD_ENERGY_ORB);
-        
-        logger.info("Done creating the color");
+        logger.info("Done creating colors");
         
         
         logger.info("Adding mod settings");
@@ -183,8 +150,11 @@ public class JorbsMod implements
     public void receiveEditCharacters() {
         logger.info("Beginning to edit characters. " + "Add " + Wanderer.Enums.WANDERER.toString());
         
-        BaseMod.addCharacter(new Wanderer("The Wanderer", Wanderer.Enums.WANDERER),
-                THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, Wanderer.Enums.WANDERER);
+        BaseMod.addCharacter(
+                new Wanderer("The Wanderer", Wanderer.Enums.WANDERER),
+                Wanderer.CHARACTER_SELECT_BUTTON_TEXTURE,
+                Wanderer.CHARACTER_SELECT_BG_TEXTURE,
+                Wanderer.Enums.WANDERER);
 
         logger.info("Added " + Wanderer.Enums.WANDERER.toString());
     }
@@ -236,7 +206,9 @@ public class JorbsMod implements
         // part of the game, simply don't include the dungeon ID
         // If you want to have a character-specific event, look at slimebound (CityRemoveEventPatch).
         // Essentially, you need to patch the game and say "if a player is not playing my character class, remove the event from the pool"
-        BaseMod.addEvent(DeckOfManyThingsEvent.ID, DeckOfManyThingsEvent.class, TheCity.ID);
+        //
+        // Not complete yet:
+        // BaseMod.addEvent(DeckOfManyThingsEvent.ID, DeckOfManyThingsEvent.class, TheCity.ID);
         
         // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");
@@ -272,6 +244,7 @@ public class JorbsMod implements
     public void receiveEditCards() {
         logger.info("Adding cards");
 
+        BaseMod.addDynamicVariable(new BaseDamageNumber());
         BaseMod.addDynamicVariable(new UrMagicNumber());
         BaseMod.addDynamicVariable(new MetaMagicNumber());
 

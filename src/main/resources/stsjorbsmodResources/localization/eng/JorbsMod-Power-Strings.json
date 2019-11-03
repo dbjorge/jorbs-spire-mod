@@ -17,7 +17,7 @@
   "stsjorbsmod:CoilPower": {
     "NAME": "Coil",
     "DESCRIPTIONS": [
-      "When you forget #yPatience, deal #b",
+      "When you remember a new memory, deal #b",
       " Damage to all enemies and lose all Coil."
     ]
   },
@@ -57,10 +57,10 @@
       " turns, Snap."
     ]
   },
-  "stsjorbsmod:ImmuneToDamagePower": {
-    "NAME": "Damage-immune",
+  "stsjorbsmod:BanishedPower": {
+    "NAME": "Banished",
     "DESCRIPTIONS": [
-      "Cannot take damage."
+      "Cannot give or receive damage. Cannot give or receive conditions."
     ]
   },
   "stsjorbsmod:IntrospectionPower": {
@@ -84,9 +84,9 @@
   "stsjorbsmod:PrestidigitationPower": {
     "NAME": "Prestidigitation",
     "DESCRIPTIONS": [
-      "At the start of each turn, apply #b1 Weak or #b1 Vulnerable to a random enemy #b",
-      " time.",
-      " times."
+      "At the start of each turn, apply #b",
+      " Weak or #b",
+      " Vulnerable to a random enemy"
     ]
   },
   "stsjorbsmod:ReduceNextDamagePower": {
@@ -140,7 +140,7 @@
   "stsjorbsmod:GluttonyMemory": {
     "NAME": "Gluttony",
     "DESCRIPTIONS": [
-      "Whenever you kill a non-minion enemy, raise your Max HP by !M!."
+      "Whenever you kill a non-minion enemy, raise your Max HP by !M!. At the start of each turn, discard one card."
     ]
   },
   "stsjorbsmod:HumilityMemory": {
@@ -170,7 +170,7 @@
   "stsjorbsmod:PrideMemory": {
     "NAME": "Pride",
     "DESCRIPTIONS": [
-      "At the end of combat, permanently #yUpgrade a card in your deck."
+      "At the end of combat, permanently #yUpgrade a card in your deck. Decreases #yBlock gained from cards by !M!."
     ]
   },
   "stsjorbsmod:SlothMemory": {
@@ -189,6 +189,16 @@
     "NAME": "Wrath",
     "DESCRIPTIONS": [
       "Whenever you kill a non-minion enemy, permanently increase the damage of the last damage-dealing attack card played this combat (currently, !C!) by !M!."
+    ]
+  },
+  "stsjorbsmod:BurningPower": {
+    "NAME": "Burning",
+    "DESCRIPTIONS": [
+      "At the start of your turn, lose #b",
+      " HP, then reduce #yBurning by #b",
+      ". ",
+      "At the start of its turn, loses #b",
+      "Reduce healing by 50%."
     ]
   }
 }

@@ -1,5 +1,6 @@
 package stsjorbsmod.cards.wanderer;
 
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
@@ -23,11 +24,14 @@ public class UnseenServant extends CustomJorbsModCard {
 
     private static final int COST = 0;
     private static final int CARD_MOVE_COUNT = 2;
+    private static final int DRAW = 0;
+    private static final int UPGRADE_PLUS_DRAW = 1;
 
     public UnseenServant() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = CARD_MOVE_COUNT;
-        this.exhaust = true;
+        magicNumber = baseMagicNumber = CARD_MOVE_COUNT;
+        metaMagicNumber = baseMetaMagicNumber = DRAW;
+        exhaust = true;
 
         this.tags.add(REMEMBER_MEMORY);
     }
@@ -36,13 +40,16 @@ public class UnseenServant extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new RememberSpecificMemoryAction(new SlothMemory(p, false)));
         addToBot(new CardsToTopOfDeckAction(p, p.discardPile, this.magicNumber, false));
+        if (metaMagicNumber > 0) {
+            addToBot(new DrawCardAction(p, metaMagicNumber));
+        }
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.exhaust = false;
+            upgradeMetaMagicNumber(UPGRADE_PLUS_DRAW);
             upgradeDescription();
         }
     }

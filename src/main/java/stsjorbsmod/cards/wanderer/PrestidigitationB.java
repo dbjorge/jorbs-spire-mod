@@ -21,25 +21,27 @@ public class PrestidigitationB extends CustomJorbsModCard {
 
     private static final int COST = 0;
     private static final int CARD_DRAW = 2;
-    private static final int UPGRADE_PLUS_CARD_DRAW = 1;
+    private static final int TOP_OF_DECK = 2;
+    private static final int UPGRADE_PLUS_TOP_OF_DECK = -1;
 
     public PrestidigitationB() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = CARD_DRAW;
+        magicNumber = baseMagicNumber = CARD_DRAW;
+        metaMagicNumber = baseMetaMagicNumber = TOP_OF_DECK;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DrawCardAction(p, this.magicNumber));
-        addToBot(new CardsToTopOfDeckAction(p, p.hand, this.magicNumber, true));
+        addToBot(new CardsToTopOfDeckAction(p, p.hand, this.metaMagicNumber, true));
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_CARD_DRAW);
-            initializeDescription();
+            upgradeMetaMagicNumber(UPGRADE_PLUS_TOP_OF_DECK);
+            upgradeDescription();
         }
     }
 }

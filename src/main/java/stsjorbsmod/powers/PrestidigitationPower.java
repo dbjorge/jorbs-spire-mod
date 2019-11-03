@@ -45,22 +45,20 @@ public class PrestidigitationPower extends AbstractPower implements CloneablePow
 
     @Override
     public void atStartOfTurn() {
-        for (int i=0; i<this.amount; ++i) {
-            AbstractCreature target = AbstractDungeon.getRandomMonster();
-            if (target != null) {
-                this.flash();
-                AbstractPower effect = AbstractDungeon.cardRandomRng.randomBoolean() ?
-                        new WeakPower(target, amount, !owner.isPlayer) :
-                        new VulnerablePower(target, amount, !owner.isPlayer);
+        AbstractCreature target = AbstractDungeon.getRandomMonster();
+        if (target != null) {
+            this.flash();
+            AbstractPower effect = AbstractDungeon.cardRandomRng.randomBoolean() ?
+                    new WeakPower(target, amount, !owner.isPlayer) :
+                    new VulnerablePower(target, amount, !owner.isPlayer);
 
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, owner, effect, 1));
-            }
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, owner, effect, amount));
         }
     }
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + this.amount + (this.amount == 1 ? DESCRIPTIONS[1] : DESCRIPTIONS[2]);
+        description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
     }
 
     @Override

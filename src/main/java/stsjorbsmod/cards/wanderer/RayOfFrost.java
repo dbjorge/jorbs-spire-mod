@@ -13,7 +13,6 @@ import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-// Deal 10(12) damage and apply 3(5) weak
 public class RayOfFrost extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(RayOfFrost.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Commons/ray_of_frost.png");
@@ -37,7 +36,17 @@ public class RayOfFrost extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.BLUNT_LIGHT));
-        addToBot(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false)));
+
+        if (!upgraded) {
+            // !M! weak once
+            addToBot(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false)));
+        } else {
+            // 1 weak !M! times
+            for (int i=0; i<this.magicNumber; ++i) {
+                addToBot(new ApplyPowerAction(m, p, new WeakPower(m, 1, false)));
+            }
+        }
+
     }
 
     @Override
@@ -45,7 +54,7 @@ public class RayOfFrost extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

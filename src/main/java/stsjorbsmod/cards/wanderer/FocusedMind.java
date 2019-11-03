@@ -39,12 +39,15 @@ public class FocusedMind extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractMemory currentMemory = MemoryManager.forPlayer(p).currentMemory;
+        boolean isSnapped = MemoryManager.forPlayer(p).isSnapped();
+        boolean rememberingSin = currentMemory != null && currentMemory.memoryType == MemoryType.SIN;
+        boolean rememberingVirtue = currentMemory != null && currentMemory.memoryType == MemoryType.VIRTUE;
 
-        if (currentMemory != null && currentMemory.memoryType == MemoryType.SIN) {
+        if (rememberingSin || isSnapped) {
             addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.BLUNT_LIGHT));
         }
 
-        if (currentMemory != null && currentMemory.memoryType == MemoryType.VIRTUE) {
+        if (rememberingVirtue || isSnapped) {
             addToBot(new GainBlockAction(p, p, block));
         }
     }

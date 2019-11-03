@@ -18,7 +18,7 @@
   "stsjorbsmod:BlackTentacles": {
     "NAME": "Black Tentacles",
     "DESCRIPTION": "Deal !D! damage. NL Attacks with random targets target this enemy for !M! turn.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Attacks with random targets target this enemy for !M! turns."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Attacks with random targets target this enemy for !M! turn. NL Draw !stsjorbsmod:MetaMagic! card."
   },
   "stsjorbsmod:ArcaneWeapon": {
     "NAME": "Arcane Weapon",
@@ -26,15 +26,17 @@
   },
   "stsjorbsmod:Firebolt": {
     "NAME": "Firebolt",
-    "DESCRIPTION": "Deal !D! damage + !M! damage for each stsjorbsmod:Clarity."
+    "DESCRIPTION": "Deal !D! damage, !stsjorbsmod:BaseDamage! + !M! damage for each stsjorbsmod:Clarity.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage NL Apply !M! stsjorbsmod:Burning for each stsjorbsmod:Clarity."
   },
   "stsjorbsmod:MagicMissiles": {
     "NAME": "Magic Missiles",
     "DESCRIPTION": "Deal !D! damage. NL Deal !D! damage again once for each stsjorbsmod:Clarity."
   },
-  "stsjorbsmod:AcidSplash": {
-    "NAME": "Acid Splash",
-    "DESCRIPTION": "Apply !M! Poison."
+  "stsjorbsmod:SnakeOilFlask": {
+    "NAME": "Snake Oil Flask",
+    "DESCRIPTION": "Apply !M! Poison.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Poison. NL Remember stsjorbsmod:Patience."
   },
   "stsjorbsmod:TrueStrike": {
     "NAME": "True Strike",
@@ -42,7 +44,8 @@
   },
   "stsjorbsmod:RayOfFrost": {
     "NAME": "Ray of Frost",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak."
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply 1 Weak !M! times."
   },
   "stsjorbsmod:Counterspell": {
     "NAME": "Counterspell",
@@ -58,15 +61,17 @@
   },
   "stsjorbsmod:Loss": {
     "NAME": "Loss",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Weak"
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Weak."
   },
   "stsjorbsmod:DoubleCheck": {
     "NAME": "Double-check",
-    "DESCRIPTION": "Gain !B! Block. NL If you remember stsjorbsmod:Diligence, gain stsjorbsmod:Clarity. NL Remember stsjorbsmod:Diligence."
+    "DESCRIPTION": "Gain !B! Block. NL If you remember stsjorbsmod:Diligence, gain stsjorbsmod:Clarity. NL Remember stsjorbsmod:Diligence.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL If you remember stsjorbsmod:Diligence, gain stsjorbsmod:Clarity. NL Remember stsjorbsmod:Diligence. NL Draw !M! card."
   },
   "stsjorbsmod:Channel": {
     "NAME": "Channel",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! [E] next turn."
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! [E] next turn.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !M! [E] next turn. NL Put a card from your discard pile on top of your draw pile."
   },
   "stsjorbsmod:PoisonSpray": {
     "NAME": "Poison Spray",
@@ -78,14 +83,14 @@
   },
   "stsjorbsmod:WanderingMind": {
     "NAME": "Wandering Mind",
-    "DESCRIPTION": "Gain a random stsjorbsmod:Clarity you do not have yet."
+    "DESCRIPTION": "Draw !M! cards. NL Remember a random memory you do not have stsjorbsmod:Clarity of."
   },
   "stsjorbsmod:WeightOfMemory": {
     "NAME": "Weight of Memory",
     "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for ALL cards which \"remember\"."
   },
-  "stsjorbsmod:PrestidigitationA": {
-    "NAME": "Prestidigitation A",
+  "stsjorbsmod:Prestidigitation": {
+    "NAME": "Prestidigitation",
     "DESCRIPTION": "At the start of each turn, apply !M! Weak or !M! Vulnerable to a random enemy."
   },
   "stsjorbsmod:WizardRobe": {
@@ -98,25 +103,28 @@
     "UPGRADE_DESCRIPTION": "Put !M! cards from your discard pile into your hand. NL Exhaust."
   },
   "stsjorbsmod:PrestidigitationB": {
-    "NAME": "Prestidigitation B",
-    "DESCRIPTION": "Draw !M! cards, then put !M! cards from your hand on top of your draw pile in random order."
+    "NAME": "Prestidigitation II",
+    "DESCRIPTION": "Draw !M! cards, then put !stsjorbsmod:MetaMagic! cards from your hand on top of your draw pile in random order.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards, then put !stsjorbsmod:MetaMagic! card from your hand on top of your draw pile."
   },
   "stsjorbsmod:FocusedMind": {
     "NAME": "Focused Mind",
-    "DESCRIPTION": "When remembering stsjorbsmod:Sin, deal !D! damage. NL When remembering stsjorbsmod:Virtue, gain !B! Block."
+    "DESCRIPTION": "When remembering stsjorbsmod:Sin, deal !D! damage. NL When remembering stsjorbsmod:Virtue, gain !B! Block. NL When stsjorbsmod:Snapped, do both."
   },
   "stsjorbsmod:UnseenServant": {
     "NAME": "Unseen Servant",
     "DESCRIPTION": "Remember stsjorbsmod:Sloth. NL Put !M! cards from your discard pile on top of your draw pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Sloth. NL Put !M! cards from your discard pile on top of your draw pile."
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Sloth. NL Put !M! cards from your discard pile on top of your draw pile. NL Draw !stsjorbsmod:MetaMagic! card. NL Exhaust."
   },
   "stsjorbsmod:Aid": {
     "NAME": "Aid",
-    "DESCRIPTION": "Heal an enemy for !M! HP. NL Remember stsjorbsmod:Kindness."
+    "DESCRIPTION": "Heal an enemy for !M! HP. NL Remember stsjorbsmod:Kindness.",
+    "UPGRADE_DESCRIPTION": "Heal an enemy for !M! HP. NL Remember stsjorbsmod:Kindness. NL Gain stsjorbsmod:Clarity of current memory."
   },
   "stsjorbsmod:Mania": {
     "NAME": "Mania",
-    "DESCRIPTION": "Deal !D! damage 2 times. NL If you have memory or stsjorbsmod:Clarity of stsjorbsmod:Sloth, deal !D! damage 2 times again."
+    "DESCRIPTION": "Deal !D! damage, equal to the number of unique cards in your hand. If they are all unique, gain !stsjorbsmod:MetaMagic! [E] and draw !stsjorbsmod:UrMagic! card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage, equal to !stsjorbsmod:BaseDamage! + the number of unique cards in your hand. If they are all unique, gain !stsjorbsmod:MetaMagic! [E] and draw !stsjorbsmod:UrMagic! card."
   },
   "stsjorbsmod:Mindworm": {
     "NAME": "Mindworm",
@@ -124,7 +132,7 @@
   },
   "stsjorbsmod:Hurt": {
     "NAME": "Hurt",
-    "DESCRIPTION": "Deal !D! damage. NL Lose 1 HP per stsjorbsmod:Clarity you have."
+    "DESCRIPTION": "Deal !D! damage. NL Lose !M! HP per stsjorbsmod:Clarity you have."
   },
   "stsjorbsmod:SmithingStrike": {
     "NAME": "Smithing Strike",
@@ -132,7 +140,8 @@
   },
   "stsjorbsmod:OldPocket": {
     "NAME": "Old Pocket",
-    "DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Exhaust."
+    "DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
   },
   "stsjorbsmod:TollTheDead": {
     "NAME": "Toll the Dead",
@@ -247,7 +256,8 @@
   },
   "stsjorbsmod:Fireball": {
     "NAME": "Fireball",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Remember stsjorbsmod:Lust."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Remember stsjorbsmod:Lust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Remember stsjorbsmod:Lust. NL Apply !M! stsjorbsmod:Burning to ALL enemies."
   },
   "stsjorbsmod:LoseGrip": {
     "NAME": "Lose Grip",
