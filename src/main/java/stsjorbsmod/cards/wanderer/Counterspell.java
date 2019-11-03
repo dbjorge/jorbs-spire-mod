@@ -20,10 +20,9 @@ public class Counterspell extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = 0;
-    private static final int BLOCK = 5;
+    private static final int BLOCK = 4;
     private static final int UPGRADE_PLUS_BLOCK = 2;
     private static final int ARTIFACT = 1;
-    private static final int UPGRADE_PLUS_ARTIFACT = 1;
 
     public Counterspell() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -43,7 +42,6 @@ public class Counterspell extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
-            upgradeMagicNumber(UPGRADE_PLUS_ARTIFACT);
             initializeDescription();
         }
     }
