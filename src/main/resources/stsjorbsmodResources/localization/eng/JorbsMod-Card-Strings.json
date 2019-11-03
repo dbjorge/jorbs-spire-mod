@@ -70,7 +70,8 @@
   },
   "stsjorbsmod:Channel": {
     "NAME": "Channel",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! [E] next turn."
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! [E] next turn.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !M! [E] next turn. NL Put a card from your discard pile on top of your draw pile."
   },
   "stsjorbsmod:PoisonSpray": {
     "NAME": "Poison Spray",
