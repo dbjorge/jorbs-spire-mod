@@ -23,9 +23,8 @@ public class Hurt extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int DAMAGE = 14;
-    private static final int UPGRADE_PLUS_DMG = 6;
+    private static final int UPGRADE_PLUS_DMG = 4;
     private static final int HP_LOSS_PER_CLARITY = 1;
-    private static final int UPGRADE_PLUS_HP_LOSS_PER_CLARITY = 1;
 
     public Hurt() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -48,7 +47,6 @@ public class Hurt extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            upgradeMagicNumber(UPGRADE_PLUS_HP_LOSS_PER_CLARITY);
             initializeDescription();
         }
     }
