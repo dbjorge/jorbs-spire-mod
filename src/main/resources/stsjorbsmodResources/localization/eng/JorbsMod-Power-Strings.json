@@ -140,7 +140,7 @@
   "stsjorbsmod:GluttonyMemory": {
     "NAME": "Gluttony",
     "DESCRIPTIONS": [
-      "Whenever you kill a non-minion enemy, raise your Max HP by !M!."
+      "Whenever you kill a non-minion enemy, raise your Max HP by !M!. At the start of each turn, discard one card."
     ]
   },
   "stsjorbsmod:HumilityMemory": {

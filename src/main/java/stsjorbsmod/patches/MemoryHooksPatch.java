@@ -68,6 +68,17 @@ public class MemoryHooksPatch {
     }
 
     @SpirePatch(
+            clz = AbstractCreature.class,
+            method = "applyStartOfTurnPostDrawPowers"
+    )
+    public static class atStartOfTurnPostDrawHook {
+        @SpirePostfixPatch
+        public static void patch(AbstractCreature __this) {
+            forEachMemory(__this, m -> m.atStartOfTurnPostDraw());
+        }
+    }
+
+    @SpirePatch(
             clz = AbstractPlayer.class,
             method = "onVictory"
     )
