@@ -28,7 +28,6 @@ public class Aid extends CustomJorbsModCard {
     public Aid() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = ENEMY_HEAL;
-        exhaust = true;
 
         this.tags.add(REMEMBER_MEMORY);
     }
