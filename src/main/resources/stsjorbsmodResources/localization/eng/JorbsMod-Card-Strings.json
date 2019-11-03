@@ -89,8 +89,8 @@
     "NAME": "Weight of Memory",
     "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for ALL cards which \"remember\"."
   },
-  "stsjorbsmod:PrestidigitationA": {
-    "NAME": "Prestidigitation A",
+  "stsjorbsmod:Prestidigitation": {
+    "NAME": "Prestidigitation",
     "DESCRIPTION": "At the start of each turn, apply !M! Weak or !M! Vulnerable to a random enemy."
   },
   "stsjorbsmod:WizardRobe": {

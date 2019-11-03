@@ -84,9 +84,9 @@
   "stsjorbsmod:PrestidigitationPower": {
     "NAME": "Prestidigitation",
     "DESCRIPTIONS": [
-      "At the start of each turn, apply #b1 Weak or #b1 Vulnerable to a random enemy #b",
-      " time.",
-      " times."
+      "At the start of each turn, apply #b",
+      " Weak or #b",
+      " Vulnerable to a random enemy"
     ]
   },
   "stsjorbsmod:ReduceNextDamagePower": {
