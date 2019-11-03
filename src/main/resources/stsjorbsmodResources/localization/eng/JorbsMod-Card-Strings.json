@@ -109,7 +109,7 @@
   },
   "stsjorbsmod:FocusedMind": {
     "NAME": "Focused Mind",
-    "DESCRIPTION": "When remembering stsjorbsmod:Sin, deal !D! damage. NL When remembering stsjorbsmod:Virtue, gain !B! Block."
+    "DESCRIPTION": "When remembering stsjorbsmod:Sin, deal !D! damage. NL When remembering stsjorbsmod:Virtue, gain !B! Block. NL When stsjorbsmod:Snapped, do both."
   },
   "stsjorbsmod:UnseenServant": {
     "NAME": "Unseen Servant",
