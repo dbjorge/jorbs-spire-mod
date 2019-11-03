@@ -67,7 +67,7 @@ public class Mania extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_BASE_DMG);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }
