@@ -11,6 +11,7 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.PatienceMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 public class SnakeOilFlask extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(SnakeOilFlask.class.getSimpleName());
@@ -42,6 +43,8 @@ public class SnakeOilFlask extends CustomJorbsModCard {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_POISON);
             upgradeDescription();
+
+            tags.add(REMEMBER_MEMORY);
         }
     }
 }
