@@ -123,7 +123,8 @@
   },
   "stsjorbsmod:Mania": {
     "NAME": "Mania",
-    "DESCRIPTION": "Deal !D! damage 2 times. NL If you have memory or stsjorbsmod:Clarity of stsjorbsmod:Sloth, deal !D! damage 2 times again."
+    "DESCRIPTION": "Deal !D! damage, equal to the number of unique cards in your hand. If they are all unique, gain !stsjorbsmod:MetaMagic! [E] and draw !stsjorbsmod:UrMagic! card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage, equal to !stsjorbsmod:BaseDamage! + the number of unique cards in your hand. If they are all unique, gain !stsjorbsmod:MetaMagic! [E] and draw !stsjorbsmod:UrMagic! card."
   },
   "stsjorbsmod:Mindworm": {
     "NAME": "Mindworm",
