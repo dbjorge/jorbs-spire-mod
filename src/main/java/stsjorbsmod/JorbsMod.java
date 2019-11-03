@@ -113,7 +113,7 @@ public class JorbsMod implements
         
         logger.info("Creating new card colors..." + Wanderer.Enums.WANDERER_GRAY_COLOR.toString());
 
-        Wanderer.registerColor();
+        Wanderer.ColorInfo.registerColorWithBaseMod();
         
         logger.info("Done creating colors");
         
