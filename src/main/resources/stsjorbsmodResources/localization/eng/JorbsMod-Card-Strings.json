@@ -103,8 +103,9 @@
     "UPGRADE_DESCRIPTION": "Put !M! cards from your discard pile into your hand. NL Exhaust."
   },
   "stsjorbsmod:PrestidigitationB": {
-    "NAME": "Prestidigitation B",
-    "DESCRIPTION": "Draw !M! cards, then put !M! cards from your hand on top of your draw pile in random order."
+    "NAME": "Prestidigitation II",
+    "DESCRIPTION": "Draw !M! cards, then put !stsjorbsmod:MetaMagic! cards from your hand on top of your draw pile in random order.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards, then put !stsjorbsmod:MetaMagic! card from your hand on top of your draw pile."
   },
   "stsjorbsmod:FocusedMind": {
     "NAME": "Focused Mind",
