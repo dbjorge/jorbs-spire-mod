@@ -108,7 +108,7 @@ public class Wanderer extends CustomPlayer {
 
     // Character assets
     public static final String CHARACTER_SELECT_BUTTON_TEXTURE = "stsjorbsmodResources/images/charSelect/DefaultCharacterButton.png";
-    public static final String CHARACTER_SELECT_BG_TEXTURE = "stsjorbsmodResources/images/charSelect/DefaultCharacterPortraitBG.png";
+    public static final String CHARACTER_SELECT_BG_TEXTURE = "stsjorbsmodResources/images/charSelect/WandererPortraitBG.png";
     public static final String SHOULDER_TEXTURE = "stsjorbsmodResources/images/char/wanderer/shoulder.png";
     public static final String SHOULDER_2_TEXTURE = "stsjorbsmodResources/images/char/wanderer/shoulder2.png";
     public static final String CORPSE_TEXTURE = "stsjorbsmodResources/images/char/wanderer/corpse.png";
