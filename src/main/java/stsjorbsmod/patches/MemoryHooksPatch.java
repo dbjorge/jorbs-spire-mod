@@ -289,7 +289,10 @@ public class MemoryHooksPatch {
     public static class ClearAtStartOfCombatHook {
         @SpirePrefixPatch
         public static void prefixPatch(AbstractPlayer __this) {
-            MemoryManager.forPlayer(__this).clear();
+            MemoryManager memoryManager = MemoryManager.forPlayer(__this);
+            if (memoryManager != null) {
+                MemoryManager.forPlayer(__this).clear();
+            }
         }
     }
 }
