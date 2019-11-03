@@ -1,8 +1,10 @@
 package stsjorbsmod.cards.wanderer;
 
+import basemod.devcommands.draw.Draw;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -25,25 +27,28 @@ public class BlackTentacles extends CustomJorbsModCard {
     private static final int COST = 0;
     private static final int DAMAGE = 4;
     private static final int EFFECT_TURN_DURATION = 1;
-    private static final int UPGRADE_PLUS_EFFECT_TURN_DURATION = 1;
+    private static final int UPGRADE_DRAW = 1;
 
     public BlackTentacles() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = EFFECT_TURN_DURATION;
+        metaMagicNumber = baseMetaMagicNumber = UPGRADE_DRAW;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SLASH_HORIZONTAL));
         addToBot(new ApplyPowerAction(m, p, new BlackTentaclesPower(m, p, this.magicNumber)));
+        if (upgraded) {
+            addToBot(new DrawCardAction(p, metaMagicNumber));
+        }
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_EFFECT_TURN_DURATION);
             upgradeDescription();
         }
     }
