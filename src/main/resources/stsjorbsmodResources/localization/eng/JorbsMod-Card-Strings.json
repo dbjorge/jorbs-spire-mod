@@ -83,7 +83,7 @@
   },
   "stsjorbsmod:WanderingMind": {
     "NAME": "Wandering Mind",
-    "DESCRIPTION": "Gain a random stsjorbsmod:Clarity you do not have yet."
+    "DESCRIPTION": "Draw !M! cards. NL Remember a random memory you do not have stsjorbsmod:Clarity of."
   },
   "stsjorbsmod:WeightOfMemory": {
     "NAME": "Weight of Memory",
