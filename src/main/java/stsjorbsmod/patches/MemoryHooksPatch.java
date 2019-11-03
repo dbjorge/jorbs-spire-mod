@@ -91,6 +91,58 @@ public class MemoryHooksPatch {
         }
     }
 
+    @SpirePatch(
+            clz = AbstractCard.class,
+            method = "applyPowersToBlock"
+    )
+    public static class modifyBlockHook_applyPowersToBlock {
+        @SpireInsertPatch(
+                locator = Locator.class,
+                localvars = {"tmp"}
+        )
+        public static void Insert(AbstractCard __this, @ByRef float[] tmp) {
+            MemoryManager memoryManager = MemoryManager.forPlayer(AbstractDungeon.player);
+            if (memoryManager != null) {
+                for (AbstractMemory memory : memoryManager.currentMemories()) {
+                    tmp[0] = memory.modifyBlock(tmp[0]);
+                }
+            }
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            public int[] Locate(CtBehavior ctBehavior) throws Exception {
+                Matcher matcher = new Matcher.FieldAccessMatcher(AbstractPlayer.class, "powers");
+                return LineFinder.findInOrder(ctBehavior, matcher);
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz = AbstractCard.class,
+            method = "applyPowerOnBlockHelper"
+    )
+    public static class modifyBlockHook_applyPowerOnBlockHelper {
+        @SpireInsertPatch(
+                locator = Locator.class,
+                localvars = {"tmp"}
+        )
+        public static void Insert(int base, @ByRef float[] tmp) {
+            MemoryManager memoryManager = MemoryManager.forPlayer(AbstractDungeon.player);
+            if (memoryManager != null) {
+                for (AbstractMemory memory : memoryManager.currentMemories()) {
+                    tmp[0] = memory.modifyBlock(tmp[0]);
+                }
+            }
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            public int[] Locate(CtBehavior ctBehavior) throws Exception {
+                Matcher matcher = new Matcher.FieldAccessMatcher(AbstractPlayer.class, "powers");
+                return LineFinder.findInOrder(ctBehavior, matcher);
+            }
+        }
+    }
+
     // This hook is based on basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.DamageHooks.ApplyPowers
     @SpirePatch(
             clz = AbstractCard.class,

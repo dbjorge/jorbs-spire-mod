@@ -170,7 +170,7 @@
   "stsjorbsmod:PrideMemory": {
     "NAME": "Pride",
     "DESCRIPTIONS": [
-      "At the end of combat, permanently #yUpgrade a card in your deck."
+      "At the end of combat, permanently #yUpgrade a card in your deck. Decreases #yBlock gained from cards by !M!."
     ]
   },
   "stsjorbsmod:SlothMemory": {
