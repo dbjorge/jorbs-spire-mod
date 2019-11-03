@@ -9,6 +9,7 @@ import stsjorbsmod.actions.RememberRandomNewMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 public class WanderingMind extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(WanderingMind.class.getSimpleName());
@@ -26,6 +27,8 @@ public class WanderingMind extends CustomJorbsModCard {
     public WanderingMind() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = DRAW;
+
+        tags.add(REMEMBER_MEMORY);
     }
 
     @Override
