@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.GainMemoryClarityAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
@@ -23,7 +24,6 @@ public class OldPocket extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int GOLD_GAIN = 10;
-    private static final int UPGRADE_PLUS_GOLD_GAIN = 4;
 
     public OldPocket() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -37,14 +37,16 @@ public class OldPocket extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.player.gainGold(magicNumber);
         addToBot(new RememberSpecificMemoryAction(new CharityMemory(p, false)));
+        if (upgraded) {
+            addToBot(new GainMemoryClarityAction(p));
+        }
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_GOLD_GAIN);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

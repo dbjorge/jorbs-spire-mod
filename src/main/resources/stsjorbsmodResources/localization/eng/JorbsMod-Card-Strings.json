@@ -139,7 +139,8 @@
   },
   "stsjorbsmod:OldPocket": {
     "NAME": "Old Pocket",
-    "DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Exhaust."
+    "DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
   },
   "stsjorbsmod:TollTheDead": {
     "NAME": "Toll the Dead",
