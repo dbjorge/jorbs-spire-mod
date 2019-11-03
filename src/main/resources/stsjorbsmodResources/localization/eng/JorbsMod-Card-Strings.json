@@ -114,7 +114,7 @@
   "stsjorbsmod:UnseenServant": {
     "NAME": "Unseen Servant",
     "DESCRIPTION": "Remember stsjorbsmod:Sloth. NL Put !M! cards from your discard pile on top of your draw pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Sloth. NL Put !M! cards from your discard pile on top of your draw pile."
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Sloth. NL Put !M! cards from your discard pile on top of your draw pile. NL Draw !stsjorbsmod:MetaMagic! card. NL Exhaust."
   },
   "stsjorbsmod:Aid": {
     "NAME": "Aid",
