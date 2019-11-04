@@ -292,7 +292,7 @@
   },
   "stsjorbsmod:Amnesia": {
     "NAME": "Amnesia",
-    "DESCRIPTION": "Unplayable. NL At the end of your turn, remove all buffs and debuffs from self. NL stsjorbsmod:Snap."
+    "DESCRIPTION": "Unplayable. NL At the end of your turn, stsjorbsmod:Snap. NL Remove all buffs and debuffs from self."
   },
   "stsjorbsmod:Fear": {
     "NAME": "Fear",
