@@ -110,7 +110,7 @@
   "stsjorbsmod:CharityMemory": {
     "NAME": "Charity",
     "DESCRIPTIONS": [
-      "Increases attack damage by #b!S!. Increases by an additional 1 for every !G! gold you have."
+      "Maintaining #b!S! #yStrength. Maintains an additional 1 #yStrength for every additional !G! gold you gain."
     ]
   },
   "stsjorbsmod:ChastityMemory": {

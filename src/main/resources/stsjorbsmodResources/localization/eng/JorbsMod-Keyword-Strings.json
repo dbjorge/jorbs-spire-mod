@@ -32,7 +32,7 @@
   {
     "PROPER_NAME": "Charity",
     "NAMES": ["charity", "Charity"],
-    "DESCRIPTION": "Increases attack damage by 1 for every 100 gold you have."
+    "DESCRIPTION": "Maintains 1 #yStrength for every 100 gold you have."
   },
   {
     "PROPER_NAME": "Chastity",
