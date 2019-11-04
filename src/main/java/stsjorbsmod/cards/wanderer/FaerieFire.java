@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.GainMemoryClarityAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.AbstractMemory;
@@ -27,7 +28,6 @@ public class FaerieFire extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int DEBUFF_DURATION = 3;
-    private static final int UPGRADE_PLUS_DEBUFF_DURATION = 2;
 
     public FaerieFire() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -47,14 +47,17 @@ public class FaerieFire extends CustomJorbsModCard {
 
             addToBot(new ApplyPowerAction(m, p, debuff));
         }
+
+        if (upgraded) {
+            addToBot(new GainMemoryClarityAction(p));
+        }
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_DEBUFF_DURATION);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }
