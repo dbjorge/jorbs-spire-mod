@@ -62,6 +62,6 @@ public class FragilePower extends AbstractPower implements CloneablePowerInterfa
 
     @Override
     public AbstractPower makeCopy() {
-        return new FindFamiliarPower(owner);
+        return new FragilePower(owner, amount);
     }
 }
