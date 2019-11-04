@@ -38,7 +38,6 @@ public class Amnesia extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster _) {
-        // Order matters here, since Clarities are technically powers and we want Snap to consider them.
         if(dontTriggerOnUseCard) {
             addToBot(new SnapAction(p));
             addToBot(new RemovePowersMatchingPredicateAction(p, power -> power.type == AbstractPower.PowerType.BUFF || power.type == AbstractPower.PowerType.DEBUFF));
