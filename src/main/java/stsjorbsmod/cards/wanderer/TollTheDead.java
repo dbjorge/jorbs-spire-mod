@@ -4,11 +4,12 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.util.MonsterDamageTracker;
+import stsjorbsmod.patches.MonsterLastDamagedOnTurnField;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -34,7 +35,8 @@ public class TollTheDead extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SMASH));
 
-        if (MonsterDamageTracker.hasMonsterBeenDamagedThisTurn(m)) {
+        final boolean monsterWasDamagedThisTurn = MonsterLastDamagedOnTurnField.lastDamagedOnTurn.get(m) == AbstractDungeon.actionManager.turn;
+        if (monsterWasDamagedThisTurn) {
             addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SMASH));
         }
     }

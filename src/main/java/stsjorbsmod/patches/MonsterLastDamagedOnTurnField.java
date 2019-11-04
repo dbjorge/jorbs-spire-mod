@@ -2,13 +2,13 @@ package stsjorbsmod.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireField;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 @SpirePatch(
-        clz = AbstractCard.class,
+        clz = AbstractMonster.class,
         method = SpirePatch.CLASS
 )
-public class EntombedField {
+public class MonsterLastDamagedOnTurnField {
     @SuppressWarnings("unchecked")
-    public static SpireField<Boolean> entombed = new SpireField(() -> false);
+    public static SpireField<Integer> lastDamagedOnTurn = new SpireField(() -> -1);
 }
