@@ -50,8 +50,6 @@ public class BanishedPower extends AbstractPower implements CloneablePowerInterf
         updateDescription();
     }
 
-
-
     @Override
     public void onInitialApplication() {
         if (owner instanceof AbstractMonster) {
@@ -59,7 +57,7 @@ public class BanishedPower extends AbstractPower implements CloneablePowerInterf
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.owner, this.source, associatedStunPower, this.amount));
         }
     }
-    
+
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         this.flash();
