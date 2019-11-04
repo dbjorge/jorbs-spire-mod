@@ -19,7 +19,30 @@
             See README.md (the "How to build from source" section) for details.
         -->
         <steamappsPath>${env.STEAMAPPS_PATH}</steamappsPath>
+
+        <!--
+            If you're using a Steam install of Slay the Spire, you shouldn't need to modify these.
+            If you're using a non-steam-based install, override these during mvn build using -D parameters.
+        -->
+        <SlayTheSpire.jar>${steamappsPath}/common/SlayTheSpire/desktop-1.0.jar</SlayTheSpire.jar>
+        <ModTheSpire.jar>${steamappsPath}/workshop/content/646570/1605060445/ModTheSpire.jar</ModTheSpire.jar>
+        <BaseMod.jar>${steamappsPath}/workshop/content/646570/1605833019/BaseMod.jar</BaseMod.jar>
+        <StSLib.jar>${steamappsPath}/workshop/content/646570/1609158507/StSLib.jar</StSLib.jar>
     </properties>
+
+    <profiles>
+        <profile>
+            <id>mac_path_overrides</id>
+            <activation>
+                <os>
+                    <family>mac</family>
+                </os>
+            </activation>
+            <properties>
+                <SlayTheSpire.jar>${steamappsPath}/common/SlayTheSpire/SlayTheSpire.app/Contents/Resources/desktop-1.0.jar</SlayTheSpire.jar>
+            </properties>
+        </profile>
+    </profiles>
 
     <dependencies>
         <dependency>
@@ -27,31 +50,30 @@
             <artifactId>slaythespire</artifactId>
             <version>${SlayTheSpire.version}</version>
             <scope>system</scope>
-            <systemPath>${steamappsPath}/common/SlayTheSpire/desktop-1.0.jar</systemPath>
+            <systemPath>${SlayTheSpire.jar}</systemPath>
         </dependency>
         <dependency>
             <groupId>com.evacipated.cardcrawl</groupId>
             <artifactId>modthespire</artifactId>
             <version>${ModTheSpire.version}</version>
             <scope>system</scope>
-            <systemPath>${steamappsPath}/workshop/content/646570/1605060445/ModTheSpire.jar</systemPath>
+            <systemPath>${ModTheSpire.jar}</systemPath>
         </dependency>
         <dependency>
             <groupId>basemod</groupId>
             <artifactId>basemod</artifactId>
             <version>5.0.0</version>
             <scope>system</scope>
-            <systemPath>${steamappsPath}/workshop/content/646570/1605833019/BaseMod.jar</systemPath>
+            <systemPath>${BaseMod.jar}</systemPath>
         </dependency>
         <dependency>
             <groupId>com.evacipated.cardcrawl.mod</groupId>
             <artifactId>StSLib</artifactId>
             <version>1.3.2</version>
             <scope>system</scope>
-            <systemPath>${steamappsPath}/workshop/content/646570/1609158507/StSLib.jar</systemPath>
+            <systemPath>${StSLib.jar}</systemPath>
         </dependency>
     </dependencies>
-
 
     <!-- This is how your code is packaged into the jar file-->
     <build>
