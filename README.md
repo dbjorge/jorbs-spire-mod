@@ -51,11 +51,11 @@ This mod would not have been possible without the excellent documentation and gu
 
 ## How to contribute art
 
-See the [.../images/README.md](src/main/resources/stsjorbsmodResources/images/README.md) file in the resources folder.
+See the [.../images/README.md](./src/main/resources/stsjorbsmodResources/images/README.md) file in the resources folder.
 
 ## How to contribute sound effects
 
-See the [.../audio/README.md](src/main/resources/stsjorbsmodResources/audio/README.md) file in the resources folder.
+See the [.../audio/README.md](./src/main/resources/stsjorbsmodResources/audio/README.md) file in the resources folder.
 
 ## How to contribute changes
 
