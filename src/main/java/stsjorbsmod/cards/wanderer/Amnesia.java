@@ -16,7 +16,10 @@ import stsjorbsmod.characters.Wanderer;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 /**
- * TODO move to curse
+ * Curse
+ * - Unplayable
+ * - At the end of player turn, Snap.
+ * - Remove player buffs and debuffs.
  */
 public class Amnesia extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Amnesia.class.getSimpleName());
