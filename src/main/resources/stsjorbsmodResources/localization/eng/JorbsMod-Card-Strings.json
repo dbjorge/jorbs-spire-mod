@@ -272,8 +272,7 @@
   },
   "stsjorbsmod:HoldMonster": {
     "NAME": "Hold Monster",
-    "DESCRIPTION": "If you remember stsjorbsmod:Temperance, gain stsjorbsmod:Clarity. NL Remember stsjorbsmod:Temperance. NL Enemy loses !M! Strength this turn. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain stsjorbsmod:Clarity of stsjorbsmod:Temperance. NL Enemy loses !M! Strength this turn. NL Exhaust."
+    "DESCRIPTION": "If you remember stsjorbsmod:Temperance, gain stsjorbsmod:Clarity. NL Remember stsjorbsmod:Temperance. NL Enemy loses !M! Strength this turn. NL Exhaust."
   },
   "stsjorbsmod:Withdraw": {
     "NAME": "Withdraw",

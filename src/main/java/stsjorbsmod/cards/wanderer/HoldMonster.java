@@ -28,6 +28,7 @@ public class HoldMonster extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int STRENGTH_PENALTY = 6;
+    private static final int UPGRADE_PLUS_STRENGTH_PENALTY = 3;
 
     public HoldMonster() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -39,12 +40,8 @@ public class HoldMonster extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (upgraded) {
-            addToBot(new RememberSpecificMemoryAction(new TemperanceMemory(p, true)));
-        } else {
-            addToBot(new GainMemoryClarityAction(p, TemperanceMemory.STATIC.ID));
-            addToBot(new RememberSpecificMemoryAction(new TemperanceMemory(p, false)));
-        }
+        addToBot(new GainMemoryClarityAction(p, TemperanceMemory.STATIC.ID));
+        addToBot(new RememberSpecificMemoryAction(new TemperanceMemory(p, false)));
 
         AbstractGameAction action = new ApplyPowerAction(m, p, new StrengthPower(m, -this.magicNumber), -this.magicNumber);
         addToBot(action);
@@ -57,7 +54,8 @@ public class HoldMonster extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDescription();
+            upgradeMagicNumber(UPGRADE_PLUS_STRENGTH_PENALTY);
+            initializeDescription();
         }
     }
 }
