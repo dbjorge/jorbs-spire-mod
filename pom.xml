@@ -24,6 +24,7 @@
             If you're using a Steam install of Slay the Spire, you shouldn't need to modify these.
             If you're using a non-steam-based install, override these during mvn build using -D parameters.
         -->
+        <SlayTheSpire.mod_folder>${steamappsPath}/common/SlayTheSpire/mods</SlayTheSpire.mod_folder>
         <SlayTheSpire.jar>${steamappsPath}/common/SlayTheSpire/desktop-1.0.jar</SlayTheSpire.jar>
         <ModTheSpire.jar>${steamappsPath}/workshop/content/646570/1605060445/ModTheSpire.jar</ModTheSpire.jar>
         <BaseMod.jar>${steamappsPath}/workshop/content/646570/1605833019/BaseMod.jar</BaseMod.jar>
@@ -39,6 +40,7 @@
                 </os>
             </activation>
             <properties>
+                <SlayTheSpire.mod_folder>${steamappsPath}/common/SlayTheSpire/SlayTheSpire.app/Contents/Resources/mods</SlayTheSpire.mod_folder>
                 <SlayTheSpire.jar>${steamappsPath}/common/SlayTheSpire/SlayTheSpire.app/Contents/Resources/desktop-1.0.jar</SlayTheSpire.jar>
             </properties>
         </profile>
@@ -99,7 +101,7 @@
                         <configuration>
                             <target>
                                 <!-- This moves your mod into a common folder where all mods you make can go. -->
-                                <copy file="target/${project.artifactId}.jar" tofile="${steamappsPath}/common/SlayTheSpire/mods/${project.artifactId}.jar"/>
+                                <copy file="target/${project.artifactId}.jar" tofile="${SlayTheSpire.mod_folder}/${project.artifactId}.jar"/>
                             </target>
                         </configuration>
                         <goals>
