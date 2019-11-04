@@ -21,8 +21,7 @@ public class TinyHut extends CustomJorbsModCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
-    private static final int COST = 2;
-    private static final int UPGRADED_COST = 1;
+    private static final int COST = 1;
 
     public TinyHut() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -40,8 +39,8 @@ public class TinyHut extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
-            initializeDescription();
+            this.isInnate = true;
+            upgradeDescription();
         }
     }
 }
