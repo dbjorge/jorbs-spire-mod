@@ -59,7 +59,8 @@ public class IntrospectionPower extends AbstractPower implements CloneablePowerI
     public void atEndOfTurn(boolean isPlayerTurn) {
         if (isPlayerTurn) {
             AbstractDungeon.actionManager.addToBottom(new LoseHPAction(this.owner, this.owner, loseHpAmount));
-            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(owner, DamageInfo.createDamageMatrix(calculateDamage()), damageType, AttackEffect.BLUNT_LIGHT));
+            int[] damageMatrix = DamageInfo.createDamageMatrix(calculateDamage(), damageType != DamageType.NORMAL);
+            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(owner, damageMatrix, damageType, AttackEffect.FIRE));
         }
     }
 
