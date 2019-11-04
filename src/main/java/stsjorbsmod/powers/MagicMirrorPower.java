@@ -33,10 +33,13 @@ public class MagicMirrorPower extends AbstractPower implements CloneablePowerInt
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("magic_mirror_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("magic_mirror_power32.png"));
 
-    public MagicMirrorPower(final AbstractCreature owner) {
+    private int damagePerReflect;
+
+    public MagicMirrorPower(final AbstractCreature owner, int damagePerReflect) {
         ID = POWER_ID;
         this.name = NAME;
         this.owner = owner;
+        this.damagePerReflect = damagePerReflect;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
@@ -49,7 +52,7 @@ public class MagicMirrorPower extends AbstractPower implements CloneablePowerInt
             Class<? extends AbstractPower> originalClass = originalPower.getClass();
             try {
                 return originalClass.getConstructor(AbstractCreature.class, int.class, boolean.class)
-                        .newInstance(newTarget, originalPower.amount, !owner.isPlayer);
+                        .newInstance(newTarget, originalPower.amount, owner.isPlayer);
             } catch (NoSuchMethodException e) {}
             try {
                 return originalClass.getConstructor(AbstractCreature.class, int.class)
@@ -75,17 +78,25 @@ public class MagicMirrorPower extends AbstractPower implements CloneablePowerInt
                     }
                 }
             }
+
+            if (this.damagePerReflect > 0) {
+                AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction((AbstractCreature) null, DamageInfo.createDamageMatrix(this.damagePerReflect, true), DamageType.THORNS, AttackEffect.SHIELD));
+            }
         }
     }
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0];
+        if (damagePerReflect <= 0) {
+            description = DESCRIPTIONS[0];
+        } else {
+            description = DESCRIPTIONS[1] + damagePerReflect + DESCRIPTIONS[2];
+        }
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new MagicMirrorPower(owner);
+        return new MagicMirrorPower(owner, damagePerReflect);
     }
 }
 
