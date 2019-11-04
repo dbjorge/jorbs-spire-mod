@@ -22,6 +22,7 @@ public class Mending extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int HEAL_PER_CLARITY = 1;
+    private static final int UPGRADE_PLUS_HEAL_PER_CLARITY = 1;
 
     public Mending() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -39,8 +40,8 @@ public class Mending extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.retain = true;
-            upgradeDescription();
+            upgradeMagicNumber(UPGRADE_PLUS_HEAL_PER_CLARITY);
+            initializeDescription();
         }
     }
 }
