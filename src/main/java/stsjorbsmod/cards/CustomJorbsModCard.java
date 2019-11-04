@@ -2,7 +2,6 @@ package stsjorbsmod.cards;
 
 import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -87,23 +86,30 @@ public abstract class CustomJorbsModCard extends CustomCard {
     protected int calculateBonusBaseDamage() {
         return 0;
     }
-    protected int calculateBonusBlock() {
+    protected int calculateBonusBaseBlock() {
         return 0;
     }
 
+    // Note: this base game method is misleadingly named, it's also used when calculating card block
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
+        int realBaseBlock = this.baseBlock;
+        this.baseBlock += calculateBonusBaseBlock();
         int realBaseDamage = this.baseDamage;
         this.baseDamage += calculateBonusBaseDamage();
+
         super.calculateCardDamage(mo);
+
         this.baseDamage = realBaseDamage;
         this.isDamageModified = this.damage != this.baseDamage;
+        this.baseBlock = realBaseBlock;
+        this.isBlockModified = this.block != this.baseBlock;
     }
 
     @Override
     public void applyPowers() {
         int realBaseBlock = this.baseBlock;
-        this.baseBlock += calculateBonusBlock();
+        this.baseBlock += calculateBonusBaseBlock();
         int realBaseDamage = this.baseDamage;
         this.baseDamage += calculateBonusBaseDamage();
 
