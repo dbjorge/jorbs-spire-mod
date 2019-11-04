@@ -1,5 +1,7 @@
 package stsjorbsmod.cards.wanderer;
 
+import basemod.devcommands.draw.Draw;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
@@ -24,28 +26,33 @@ public class Erode extends CustomJorbsModCard {
     private static final int COST = 1;
     private static final int BLOCK_REMOVAL = 10;
     private static final int POISON = 5;
-    private static final int UPGRADE_PLUS_POISON = 3;
+    private static final int DRAW = 0;
+    private static final int UPGRADE_PLUS_DRAW = 1;
 
     public Erode() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = POISON;
-        block = baseBlock = BLOCK_REMOVAL;
+        magicNumber = baseMagicNumber = BLOCK_REMOVAL;
+        metaMagicNumber = baseMetaMagicNumber = POISON;
+        urMagicNumber = baseUrMagicNumber = DRAW;
 
         this.tags.add(REMEMBER_MEMORY);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ErodeAction(m, p, block, magicNumber));
+        addToBot(new ErodeAction(m, p, magicNumber, metaMagicNumber));
         addToBot(new RememberSpecificMemoryAction(new TemperanceMemory(p, false)));
+        if (urMagicNumber > 0) {
+            addToBot(new DrawCardAction(p, urMagicNumber));
+        }
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_POISON);
-            initializeDescription();
+            upgradeUrMagicNumber(UPGRADE_PLUS_DRAW);
+            upgradeDescription();
         }
     }
 }
