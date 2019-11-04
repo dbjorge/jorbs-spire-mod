@@ -59,7 +59,7 @@ public class FearPower extends AbstractPower {
                 if (remainingMonsters == 0 && !AbstractDungeon.getCurrRoom().smoked) {
                     AbstractDungeon.getCurrRoom().smoked = true; // skips rewards
                     for (AbstractMemory clarity : MemoryManager.forPlayer(AbstractDungeon.player).currentClarities()) {
-                        AbstractDungeon.actionManager.addToNextCombat(new RememberSpecificMemoryAction((AbstractMemory) clarity.makeCopy()));
+                        AbstractDungeon.actionManager.addToNextCombat(new RememberSpecificMemoryAction(clarity.makeCopy()));
                     }
                 }
             }
