@@ -15,7 +15,7 @@ This mod would not have been possible without the excellent documentation and gu
 
 * [How to Install](#how-to-install)
 * [How to build from source](#how-to-build-from-source)
-* [How to contribute card art](#how-to-contribute-card-art)
+* [How to contribute art](#how-to-contribute-art)
 * [How to contribute sound effects](#how-to-contribute-sound-effects)
 * [How to contribute changes](#how-to-contribute-changes)
 
@@ -49,9 +49,9 @@ This mod would not have been possible without the excellent documentation and gu
     1. Press next a few times, all other settings can be left at defaults 
 1. Follow the [these instructions from the StS-DefaultModBase wiki](https://github.com/Gremious/StS-DefaultModBase/wiki/Step-3:-Packaging-and-Playing-the-Default;-Writing-Your-First-Mod!) to build the mod package and debug it
 
-## How to contribute card art
+## How to contribute art
 
-See the [.../images/cards/README.md](src/main/resources/stsjorbsmodResources/images/cards/README.md) file in the resources folder.
+See the [.../images/README.md](src/main/resources/stsjorbsmodResources/images/README.md) file in the resources folder.
 
 ## How to contribute sound effects
 
