@@ -1,6 +1,7 @@
 package stsjorbsmod.cards.wanderer;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DrawPower;
@@ -21,6 +22,7 @@ public class BookOfTongues extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int DRAW_PER_TURN = 1;
+    private static final int UPGRADE_PLUS_DRAW_PER_TURN = 1;
 
     public BookOfTongues() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -30,13 +32,21 @@ public class BookOfTongues extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p, new DrawPower(p, this.magicNumber)));
+
+        // TODO: this should be adding a "draw from memory deck at start of turn" effect instead of increasing normal
+        //  cards drawn, but we haven't implemented the memory deck yet.
+        /*
+        if (upgraded) {
+            addToBot(new ApplyPowerAction(p, p, new MakeTempCardInHandAction(MemoryDeck.createRandomCard())));
+        }
+        */
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.isInnate = true;
+            upgradeMagicNumber(UPGRADE_PLUS_DRAW_PER_TURN);
             upgradeDescription();
         }
     }

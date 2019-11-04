@@ -218,7 +218,7 @@
   "stsjorbsmod:BookOfTongues": {
     "NAME": "Book of Tongues",
     "DESCRIPTION": "At the start of each turn, draw !M! extra card.",
-    "UPGRADE_DESCRIPTION": "Innate. NL At the start of each turn, draw !M! extra card."
+    "UPGRADE_DESCRIPTION": "At the start of each turn, draw !M! extra cards."
   },
   "stsjorbsmod:MagicMirror": {
     "NAME": "Magic Mirror",
