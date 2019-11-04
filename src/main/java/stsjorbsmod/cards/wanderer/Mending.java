@@ -27,13 +27,13 @@ public class Mending extends CustomJorbsModCard {
     public Mending() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = HEAL_PER_CLARITY;
+        exhaust = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int healAmount = MemoryManager.forPlayer(p).countCurrentClarities() * magicNumber;
         addToBot(new HealAction(p, p, healAmount));
-        addToBot(new EndTurnNowAction());
     }
 
     @Override

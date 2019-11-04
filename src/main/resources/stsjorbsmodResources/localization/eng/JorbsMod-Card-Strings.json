@@ -158,7 +158,7 @@
   },
   "stsjorbsmod:Mending": {
     "NAME": "Mending",
-    "DESCRIPTION": "Gain !M! HP for each stsjorbsmod:Clarity. NL End your turn."
+    "DESCRIPTION": "Gain !M! HP for each stsjorbsmod:Clarity. NL Exhaust."
   },
   "stsjorbsmod:Rest": {
     "NAME": "Rest",
