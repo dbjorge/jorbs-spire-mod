@@ -23,8 +23,7 @@ public class Withdraw extends CustomJorbsModCard {
     private static final int COST = 1;
     private static final int BLOCK = 10;
     private static final int ARTIFACT = 1;
-    private static final int UPGRADE_PLUS_BLOCK = 2;
-    private static final int UPGRADE_PLUS_ARTIFACT = 1;
+    private static final int UPGRADE_PLUS_BLOCK = 3;
 
     public Withdraw() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -44,7 +43,6 @@ public class Withdraw extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
-            upgradeMagicNumber(UPGRADE_PLUS_ARTIFACT);
             initializeDescription();
         }
     }
