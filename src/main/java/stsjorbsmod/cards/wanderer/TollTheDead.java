@@ -17,7 +17,7 @@ public class TollTheDead extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(TollTheDead.class.getSimpleName());
     public static final String IMG = makeCardPath("Damage_Uncommons/toll_the_dead.png");
 
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
