@@ -349,6 +349,7 @@
   },
   "stsjorbsmod:IvoryTower": {
     "NAME": "Ivory Tower",
-    "DESCRIPTION": "Draw !M! cards. NL Exhaust all Curse and Status cards in your hand."
+    "DESCRIPTION": "Draw !M! cards. NL Exhaust all Curse and Status cards in your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Exhaust all Curse and Status cards in your hand."
   }
 }

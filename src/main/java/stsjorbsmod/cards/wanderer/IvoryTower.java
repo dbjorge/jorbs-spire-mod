@@ -10,7 +10,6 @@ import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-// 0: Draw 2(4) cards. Exhaust all Curse and Status cards in your hand.
 public class IvoryTower extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(IvoryTower.class.getSimpleName());
     public static final String IMG = makeCardPath("Manipulation_Rares/ivory_tower.png");
@@ -22,11 +21,11 @@ public class IvoryTower extends CustomJorbsModCard {
 
     private static final int COST = 0;
     private static final int DRAW = 2;
-    private static final int UPGRADE_PLUS_DRAW = 1;
 
     public IvoryTower() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = DRAW;
+        exhaust = true;
     }
 
     @Override
@@ -40,7 +39,8 @@ public class IvoryTower extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_DRAW);
+            exhaust = false;
+            upgradeDescription();
         }
     }
 }
