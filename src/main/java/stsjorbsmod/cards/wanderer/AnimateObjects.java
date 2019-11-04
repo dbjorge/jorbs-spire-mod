@@ -38,12 +38,12 @@ public class AnimateObjects extends CustomJorbsModCard {
     protected int calculateBonusBaseDamage() {
         int numGeneratedCards = 0;
         for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
-            if (StSLib.getMasterDeckEquivalent(c) == null) {
+            if (EntombedField.entombed.get(c) || StSLib.getMasterDeckEquivalent(c) == null) {
                 numGeneratedCards++;
             }
         }
         for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
-            if (StSLib.getMasterDeckEquivalent(c) == null) {
+            if (EntombedField.entombed.get(c) || StSLib.getMasterDeckEquivalent(c) == null) {
                 numGeneratedCards++;
             }
         }
