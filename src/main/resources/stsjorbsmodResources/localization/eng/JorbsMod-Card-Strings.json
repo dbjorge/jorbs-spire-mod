@@ -184,7 +184,7 @@
   "stsjorbsmod:Stalwart": {
     "NAME": "Stalwart",
     "DESCRIPTION": "Remember stsjorbsmod:Temperance.",
-    "UPGRADE_DESCRIPTION": "Gain stsjorbsmod:Clarity of stsjorbsmod:Temperance."
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Temperance. NL Gain stsjorbsmod:Clarity of current memory."
   },
   "stsjorbsmod:AnimateObjects": {
     "NAME": "Animate Objects",
