@@ -1,7 +1,9 @@
 package stsjorbsmod.cards.wanderer;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.ThornsPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.GainMemoryClarityAction;
@@ -23,10 +25,12 @@ public class Thorns extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = 1;
-    private static final int UPGRADED_COST = 0;
+    private static final int THORNS = 0;
+    private static final int UPGRADE_PLUS_THORNS = 2;
 
     public Thorns() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        magicNumber = baseMagicNumber = THORNS;
         this.exhaust = true;
 
         this.tags.add(REMEMBER_MEMORY);
@@ -36,14 +40,17 @@ public class Thorns extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new RememberSpecificMemoryAction(new HumilityMemory(p, false)));
         addToBot(new IfEnemyIntendsToAttackAction(m, new GainMemoryClarityAction(p)));
+        if (magicNumber > 0) {
+            addToBot(new ApplyPowerAction(p, p, new ThornsPower(p, magicNumber)));
+        }
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
-            initializeDescription();
+            upgradeMagicNumber(UPGRADE_PLUS_THORNS);
+            upgradeDescription();
         }
     }
 }

@@ -227,7 +227,8 @@
   },
   "stsjorbsmod:Thorns": {
     "NAME": "Thorns",
-    "DESCRIPTION": "Remember stsjorbsmod:Humility. NL If an enemy intends to attack, gain stsjorbsmod:Clarity of current memory. NL Exhaust."
+    "DESCRIPTION": "Remember stsjorbsmod:Humility. NL If an enemy intends to attack, gain stsjorbsmod:Clarity of current memory. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Humility. NL If an enemy intends to attack, gain stsjorbsmod:Clarity of current memory. NL Gain !M! Thorns. NL Exhaust."
   },
   "stsjorbsmod:RefuseToForget": {
     "NAME": "Refuse to Forget",
