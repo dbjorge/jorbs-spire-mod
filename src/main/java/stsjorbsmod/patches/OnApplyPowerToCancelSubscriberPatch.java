@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import javassist.CtBehavior;
 import stsjorbsmod.powers.IOnApplyPowerToCancelSubscriber;
+import stsjorbsmod.util.ReflectionUtils;
 
 public class OnApplyPowerToCancelSubscriberPatch {
     @SpirePatch(
@@ -20,11 +21,12 @@ public class OnApplyPowerToCancelSubscriberPatch {
         )
         public static SpireReturn patch(ApplyPowerAction __this)
         {
+            AbstractPower powerBeingApplied = ReflectionUtils.getPrivateField(__this, ApplyPowerAction.class, "powerToApply");
             AbstractCreature target = __this.target;
             AbstractCreature source = __this.source;
             for (AbstractPower power : target.powers) {
                 if (power instanceof IOnApplyPowerToCancelSubscriber) {
-                    boolean shouldCancel = ((IOnApplyPowerToCancelSubscriber) power).onReceivePowerToCancel(power, source);
+                    boolean shouldCancel = ((IOnApplyPowerToCancelSubscriber) power).onReceivePowerToCancel(powerBeingApplied, source);
                     if (shouldCancel) {
                         __this.isDone = true;
                         return SpireReturn.Return(null);
@@ -34,7 +36,7 @@ public class OnApplyPowerToCancelSubscriberPatch {
             if (source != null) {
                 for (AbstractPower power : source.powers) {
                     if (power instanceof IOnApplyPowerToCancelSubscriber) {
-                        boolean shouldCancel = ((IOnApplyPowerToCancelSubscriber) power).onGivePowerToCancel(power, target);
+                        boolean shouldCancel = ((IOnApplyPowerToCancelSubscriber) power).onGivePowerToCancel(powerBeingApplied, target);
                         if (shouldCancel) {
                             __this.isDone = true;
                             return SpireReturn.Return(null);

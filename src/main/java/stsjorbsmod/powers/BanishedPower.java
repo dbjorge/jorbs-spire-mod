@@ -1,8 +1,12 @@
 package stsjorbsmod.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
+import com.evacipated.cardcrawl.mod.stslib.powers.StunMonsterPower;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -26,12 +30,18 @@ public class BanishedPower extends AbstractPower implements CloneablePowerInterf
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("banished_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("banished_power32.png"));
 
-    public BanishedPower(final AbstractCreature owner, final int duration) {
+    private static final Color CREATURE_TINT = new Color(.7F,.7F,.7F,.4F);
+
+    private AbstractCreature source;
+    private AbstractPower associatedStunPower;
+
+    public BanishedPower(final AbstractCreature owner, final AbstractCreature source, final int duration) {
         ID = POWER_ID;
         this.name = NAME;
         this.isTurnBased = true;
 
         this.owner = owner;
+        this.source = source;
         this.amount = duration;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
@@ -40,6 +50,16 @@ public class BanishedPower extends AbstractPower implements CloneablePowerInterf
         updateDescription();
     }
 
+
+
+    @Override
+    public void onInitialApplication() {
+        if (owner instanceof AbstractMonster) {
+            associatedStunPower = new StunMonsterPower((AbstractMonster)this.owner, this.amount);
+            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.owner, this.source, associatedStunPower, this.amount));
+        }
+    }
+    
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         this.flash();
@@ -57,7 +77,7 @@ public class BanishedPower extends AbstractPower implements CloneablePowerInterf
 
     @Override
     public boolean onReceivePowerToCancel(AbstractPower power, AbstractCreature source) {
-        return (source != this.owner);
+        return (source != this.owner) && (power != associatedStunPower);
     }
 
     @Override
@@ -87,6 +107,6 @@ public class BanishedPower extends AbstractPower implements CloneablePowerInterf
 
     @Override
     public AbstractPower makeCopy() {
-        return new BanishedPower(owner, amount);
+        return new BanishedPower(owner, source, amount);
     }
 }

@@ -33,11 +33,7 @@ public class Banish extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new StunMonsterAction(m, p, magicNumber));
-        if (!m.hasPower(ArtifactPower.POWER_ID)) {
-            // This must go second, or else it will prevent the StunnedPower from taking effect
-            addToBot(new ApplyPowerAction(m, p, new BanishedPower(m, magicNumber), magicNumber));
-        }
+        addToBot(new ApplyPowerAction(m, p, new BanishedPower(m, p, magicNumber), magicNumber));
     }
 
     @Override
