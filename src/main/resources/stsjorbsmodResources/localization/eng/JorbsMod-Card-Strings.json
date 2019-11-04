@@ -245,7 +245,7 @@
   "stsjorbsmod:FindFamiliar": {
     "NAME": "Find Familiar",
     "DESCRIPTION": "At the end of each turn, gain stsjorbsmod:Clarity of current memory.",
-    "UPGRADE_DESCRIPTION": "Innate. NL At the end of each turn, gain stsjorbsmod:Clarity of current memory."
+    "UPGRADE_DESCRIPTION": "At the end of each turn, gain stsjorbsmod:Clarity of current memory. NL If stsjorbsmod:Snapped, Retain up to !M! cards."
   },
   "stsjorbsmod:Trauma": {
     "NAME": "Trauma",

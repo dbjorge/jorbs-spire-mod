@@ -40,7 +40,7 @@
   "stsjorbsmod:FindFamiliarPower": {
     "NAME": "Find Familiar",
     "DESCRIPTIONS": [
-      "At the end of each turn, gain Clarity."
+      "At the end of each turn, gain Clarity. If stsjorbsmod:Snapped, Retain up to #b", " cards."
     ]
   },
   "stsjorbsmod:FocusOnThePainPower": {
