@@ -23,14 +23,16 @@ public class Trauma extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = 3;
-    private static final int DAMAGE = 30;
-    private static final int UPGRADE_PLUS_DMG = 10;
+    private static final int DAMAGE = 18;
     private static final int HP_LOSS = 5;
+    private static final int ITERATIONS = 2;
+    private static final int UPGRADE_PLUS_ITERATIONS = 1;
 
     public Trauma() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = HP_LOSS;
+        metaMagicNumber = baseMetaMagicNumber = ITERATIONS;
         isMultiDamage = true;
     }
 
@@ -43,24 +45,20 @@ public class Trauma extends CustomJorbsModCard {
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        // Phase 1
         addToBot(new SnapAction(p));
 
-        // Phase 2
-        addToBot(makeTransientLoseHPAction(p));
-        addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.BLUNT_HEAVY));
-
-        // Phase 3
-        addToBot(makeTransientLoseHPAction(p));
-        addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.BLUNT_HEAVY));
+        for (int i = 0; i < metaMagicNumber; ++i) {
+            addToBot(makeTransientLoseHPAction(p));
+            addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.BLUNT_HEAVY));
+        }
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
-            initializeDescription();
+            upgradeMetaMagicNumber(UPGRADE_PLUS_ITERATIONS);
+            upgradeDescription();
         }
     }
 }

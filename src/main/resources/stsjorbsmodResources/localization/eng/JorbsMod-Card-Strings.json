@@ -250,7 +250,8 @@
   },
   "stsjorbsmod:Trauma": {
     "NAME": "Trauma",
-    "DESCRIPTION": "stsjorbsmod:Snap. NL Deal !D! damage to ALL enemies and lose !M! HP. NL Deal !D! damage to ALL enemies and lose !M! HP."
+    "DESCRIPTION": "stsjorbsmod:Snap. NL Deal !D! damage to ALL enemies and lose !M! HP. NL Repeat.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Snap. NL Deal !D! damage to ALL enemies and lose !M! HP. NL Repeat. NL Repeat again."
   },
   "stsjorbsmod:GatherPower": {
     "NAME": "Gather Power",
