@@ -3,6 +3,7 @@ package stsjorbsmod.cards.wanderer;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -10,6 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.patches.EntombedField;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -22,13 +24,12 @@ public class AnimateObjects extends CustomJorbsModCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
-    private static final int COST = 1;
+    private static final int COST = 2;
     private static final int DAMAGE_PER_GENERATED_CARD = 3;
-    private static final int UPGRADE_PLUS_DMG = 1;
 
     public AnimateObjects() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = 0;
+        baseDamage = 0; // for wrath purposes
         magicNumber = baseMagicNumber = DAMAGE_PER_GENERATED_CARD;
         isMultiDamage = true;
     }
@@ -53,14 +54,16 @@ public class AnimateObjects extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster monster) {
         addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.FIRE));
+        if (upgraded) {
+            addToBot(new MakeTempCardInDiscardAction(this.makeCopy() /* not stat-equivalent */, 1));
+        }
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_DMG); // not upgradeDamage
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }
