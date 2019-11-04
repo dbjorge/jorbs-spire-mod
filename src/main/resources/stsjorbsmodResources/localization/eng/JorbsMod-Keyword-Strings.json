@@ -82,7 +82,7 @@
   {
     "PROPER_NAME": "Pride",
     "NAMES": ["pride", "Pride"],
-    "DESCRIPTION": "At the end of combat, permanently #yUpgrade a card in your deck. Decreases #yBlock gained from cards by #b2."
+    "DESCRIPTION": "At the end of combat, permanently #yUpgrade a card in your deck. Maintains #b-2 Dexterity."
   },
   {
     "PROPER_NAME": "Sloth",
