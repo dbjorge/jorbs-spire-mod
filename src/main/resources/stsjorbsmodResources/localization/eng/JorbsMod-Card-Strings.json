@@ -292,8 +292,7 @@
   },
   "stsjorbsmod:Amnesia": {
     "NAME": "Amnesia",
-    "DESCRIPTION": "Remove all buffs and debuffs from self. NL stsjorbsmod:Snap.",
-    "UPGRADE_DESCRIPTION": "Remove all debuffs from self. NL stsjorbsmod:Snap."
+    "DESCRIPTION": "Unplayable. NL At the end of your turn, stsjorbsmod:Snap. NL Remove all buffs and debuffs from self."
   },
   "stsjorbsmod:Fear": {
     "NAME": "Fear",
