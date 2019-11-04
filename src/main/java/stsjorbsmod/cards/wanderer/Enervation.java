@@ -20,8 +20,8 @@ public class Enervation extends CustomJorbsModCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
-    private static final int COST = 1;
-    private static final int POISON = 5;
+    private static final int COST = 2;
+    private static final int POISON = 7;
     private static final int UPGRADE_PLUS_POISON = 2;
 
     public Enervation() {
