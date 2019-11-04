@@ -281,10 +281,6 @@
     "NAME": "Corroding Barrier",
     "DESCRIPTION": "Gain !B! Block. Gains !M! less Block this combat each time it is drawn. Lose 2 life when drawn if stsjorbsmod:Snapped."
   },
-  "stsjorbsmod:OldFriends": {
-    "NAME": "Old Friends",
-    "DESCRIPTION": "Deal !D! damage to a random enemy. Gain HP equal to unblocked damage. NL Apply !M! Poison to a random enemy. NL Retain your hand this turn."
-  },
   "stsjorbsmod:Entangle": {
     "NAME": "Entangle",
     "DESCRIPTION": "Apply Slow to ALL enemies. NL Remember stsjorbsmod:Patience. NL Gain stsjorbsmod:Clarity.",
