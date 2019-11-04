@@ -13,8 +13,6 @@ import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-// X: Discard your hand and lose all Block. Gain 4 energy and draw 6 cards. Gain 1 Weak. Exhaust.
-// (Upgrade removes the Weak power.)
 public class TimeWalk extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(TimeWalk.class.getSimpleName());
     public static final String IMG = makeCardPath("Manipulation_Rares/time_walk.png");
@@ -25,8 +23,9 @@ public class TimeWalk extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = -1;
-    private static final int ENERGY = 4;
-    private static final int DRAW = 6;
+    private static final int ENERGY = 2;
+    private static final int DRAW = 3;
+    private static final int UPGRADE_PLUS_DRAW = 1;
     private static final int WEAK = 1;
     private static final int UPGRADE_PLUS_WEAK = -1;
 
@@ -54,6 +53,7 @@ public class TimeWalk extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeUrMagicNumber(UPGRADE_PLUS_DRAW);
             upgradeMetaMagicNumber(UPGRADE_PLUS_WEAK);
             upgradeDescription();
         }
