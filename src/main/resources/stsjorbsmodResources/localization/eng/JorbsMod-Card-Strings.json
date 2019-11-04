@@ -236,8 +236,7 @@
   },
   "stsjorbsmod:LocateObject": {
     "NAME": "Locate Object",
-    "DESCRIPTION": "Remember stsjorbsmod:Greed. NL Draw !M! cards. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain stsjorbsmod:Clarity of stsjorbsmod:Greed. NL Draw !M! cards. NL Exhaust."
+    "DESCRIPTION": "Remember stsjorbsmod:Greed. NL Draw !M! cards. NL Exhaust."
   },
   "stsjorbsmod:SchoolsOfMagic": {
     "NAME": "Schools of Magic",
