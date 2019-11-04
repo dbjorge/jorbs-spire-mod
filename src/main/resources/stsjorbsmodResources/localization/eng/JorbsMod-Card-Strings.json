@@ -285,7 +285,8 @@
   },
   "stsjorbsmod:CorrodingBarrier": {
     "NAME": "Corroding Barrier",
-    "DESCRIPTION": "Gain !B! Block. Gains !M! less Block this combat each time it is drawn. Lose 2 life when drawn if stsjorbsmod:Snapped."
+    "DESCRIPTION": "Gain !B! Block. Gains !M! less Block this combat each time it is drawn. Lose 2 life when drawn if stsjorbsmod:Snapped.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Lose 2 life when drawn if stsjorbsmod:Snapped."
   },
   "stsjorbsmod:Entangle": {
     "NAME": "Entangle",
