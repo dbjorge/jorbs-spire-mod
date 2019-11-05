@@ -3,7 +3,6 @@ package stsjorbsmod.memories;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,6 +10,7 @@ import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.util.EffectUtils;
 
 public class WrathMemory extends AbstractMemory {
@@ -86,9 +86,16 @@ public class WrathMemory extends AbstractMemory {
             masterCard.baseDamage += DAMAGE_INCREASE_PER_KILL;
             masterCard.superFlash();
             cardToShowForVfx = masterCard;
+
+            // Because it is the master deck that's saved, we need to track
+            // the card's deviation from base for potential future loads.
+            if (masterCard instanceof CustomJorbsModCard) {
+                ((CustomJorbsModCard) masterCard).persistentData.wrathBonusDamage += DAMAGE_INCREASE_PER_KILL;
+            }
         }
 
         for (AbstractCard instance : GetAllInBattleInstances.get(card.uuid)) {
+            instance.isDamageModified = true;
             instance.baseDamage += DAMAGE_INCREASE_PER_KILL;
             instance.applyPowers();
         }
