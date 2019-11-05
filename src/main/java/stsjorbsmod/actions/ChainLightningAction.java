@@ -59,7 +59,7 @@ public class ChainLightningAction extends AbstractGameAction {
     }
 
     private void addLightningEffect(AbstractMonster monster, int multiplier) {
-        float duration = (0.075F * multiplier);
+        float duration = (0.05F * multiplier);
         AbstractDungeon.actionManager.addToBottom(new SFXAction("THUNDERCLAP", duration));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(monster.drawX, monster.drawY), duration));
     }
