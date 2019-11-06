@@ -5,8 +5,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.ChainLightningAction;
+import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 
 import java.util.ArrayList;
@@ -36,7 +36,7 @@ public class ChainLightning extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         ArrayList<AbstractMonster> targets = AbstractDungeon.getMonsters().monsters;
-        addToBot(new ChainLightningAction(p, m, targets, damage, magicNumber, AttackEffect.SLASH_VERTICAL));
+        addToBot(new ChainLightningAction(p, m, targets, damage, magicNumber, AttackEffect.NONE));
     }
 
     @Override
