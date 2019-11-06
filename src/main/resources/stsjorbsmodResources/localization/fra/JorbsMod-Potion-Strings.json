@@ -1,0 +1,8 @@
+{
+  "stsjorbsmod:DimensionDoorPotion": {
+    "NAME": "Scroll of Porte de Dimension",
+    "DESCRIPTIONS": [
+      "Ignorer les chemins lors du choix de la prochaine salle."
+    ]
+  }
+}
