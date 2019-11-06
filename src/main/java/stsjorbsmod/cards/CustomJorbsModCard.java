@@ -1,18 +1,14 @@
 package stsjorbsmod.cards;
 
 import basemod.abstracts.CustomCard;
-import basemod.abstracts.CustomSavable;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
-import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import java.lang.reflect.Type;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
-public abstract class CustomJorbsModCard extends CustomCard implements
-        CustomSavable<JorbsCardPersistentData> {
+public abstract class CustomJorbsModCard extends CustomCard {
     
     // Second magic number that isn't damage or block for card text display.
     public int urMagicNumber = 0;
@@ -25,9 +21,6 @@ public abstract class CustomJorbsModCard extends CustomCard implements
     public int baseMetaMagicNumber = 0;
     public boolean upgradedMetaMagicNumber = false;
     public boolean isMetaMagicNumberModified = false;
-
-    // Persistent card changes, specially handled to cross play sessions.
-    public JorbsCardPersistentData persistentData;
 
     public CustomJorbsModCard(final String id,
                               final String img,
@@ -43,7 +36,6 @@ public abstract class CustomJorbsModCard extends CustomCard implements
         isDamageModified = false;
         isBlockModified = false;
         isMagicNumberModified = false;
-        persistentData = new JorbsCardPersistentData();
     }
 
     @Override
@@ -125,26 +117,5 @@ public abstract class CustomJorbsModCard extends CustomCard implements
         isDamageModified = damage != baseDamage;
         baseBlock = realBaseBlock;
         isBlockModified = block != baseBlock;
-    }
-
-    @Override
-    public Type savedType()
-    {
-        return new TypeToken<JorbsCardPersistentData>(){}.getType();
-    }
-
-    @Override
-    public JorbsCardPersistentData onSave() {
-        return persistentData;
-    }
-
-    @Override
-    public void onLoad(JorbsCardPersistentData value) {
-        if (value == null) {
-            return;
-        }
-
-        persistentData = value;
-        baseDamage += value.wrathBonusDamage;
     }
 }

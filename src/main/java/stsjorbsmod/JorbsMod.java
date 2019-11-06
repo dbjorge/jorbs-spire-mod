@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import stsjorbsmod.cards.CardSaveData;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.console.MemoryCommand;
@@ -132,7 +133,10 @@ public class JorbsMod implements
             e.printStackTrace();
         }
         logger.info("Done adding mod settings");
-        
+
+        logger.info("Adding save fields");
+        BaseMod.addSaveField(MOD_ID + ":CardSaveData", new CardSaveData());
+        logger.info("Done adding save fields");
     }
     
     @SuppressWarnings("unused")
