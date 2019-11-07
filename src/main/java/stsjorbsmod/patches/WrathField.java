@@ -10,5 +10,5 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 )
 public class WrathField {
     @SuppressWarnings("unchecked")
-    public static SpireField<Integer> upgradeCount = new SpireField(() -> 0);
+    public static SpireField<Integer> effectCount = new SpireField(() -> 0);
 }

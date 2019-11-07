@@ -16,10 +16,10 @@ import java.util.ArrayList;
 
 public class CardSaveData implements CustomSavableRaw {
     static class CardData {
-        Integer wrathUpgradeCount;
+        Integer wrathEffectCount;
 
-        CardData(Integer wrathUpgradeCount) {
-            this.wrathUpgradeCount = wrathUpgradeCount;
+        CardData(Integer wrathEffectCount) {
+            this.wrathEffectCount = wrathEffectCount;
         }
     };
     private ArrayList<CardData> cardData = null;
@@ -29,7 +29,7 @@ public class CardSaveData implements CustomSavableRaw {
     public JsonElement onSaveRaw() {
         cardData = new ArrayList<>();
         for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
-            cardData.add(new CardData(WrathField.upgradeCount.get(card)));
+            cardData.add(new CardData(WrathField.effectCount.get(card)));
         }
         return saveFileGson.toJsonTree(cardData);
     }
@@ -55,8 +55,8 @@ public class CardSaveData implements CustomSavableRaw {
             int i = 0;
 
             for (AbstractCard card : masterDeck.group) {
-                int wrathUpgradeCount = cardData.get(i++).wrathUpgradeCount;
-                WrathField.upgradeCount.set(card, wrathUpgradeCount);
+                int wrathUpgradeCount = cardData.get(i++).wrathEffectCount;
+                WrathField.effectCount.set(card, wrathUpgradeCount);
             }
 
             WrathMemory.reapplyToDeck(masterDeck);
