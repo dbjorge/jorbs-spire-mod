@@ -27,6 +27,8 @@ public class ChainLightning extends CustomJorbsModCard {
     private static final int DAMAGE_PLUS_PER_HOP = 2;
     private static final int UPGRADE_PLUS_PER_HOP = 2;
 
+    private int multiplier = 0;
+
     public ChainLightning() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = DAMAGE;
@@ -35,8 +37,42 @@ public class ChainLightning extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractMonster> targets = AbstractDungeon.getMonsters().monsters;
-        addToBot(new ChainLightningAction(p, m, targets, damage, magicNumber, AttackEffect.NONE));
+        ArrayList<AbstractMonster> targets = getRandomOrderMonsters(AbstractDungeon.getMonsters().monsters, m);
+        int[] damagesArray = getDamagesArray(targets);
+        addToBot(new ChainLightningAction(p, m, targets, damagesArray, magicNumber, AttackEffect.NONE));
+    }
+
+    private ArrayList<AbstractMonster> getRandomOrderMonsters(ArrayList<AbstractMonster> targets, AbstractMonster initialTarget) {
+        ArrayList<AbstractMonster> finalTargets = new ArrayList<>();
+        ArrayList<AbstractMonster> newTargets = new ArrayList<>();
+
+        newTargets.addAll(targets);
+        int nextTargetIndex = newTargets.indexOf(initialTarget);
+        while(true) {
+            finalTargets.add(newTargets.remove(nextTargetIndex));
+            if (newTargets.isEmpty()) break;
+            nextTargetIndex = AbstractDungeon.cardRandomRng.random(0, newTargets.size() - 1);
+        }
+        return finalTargets;
+    }
+
+    private int[] getDamagesArray(ArrayList<AbstractMonster> targets) {
+        int[] damagesArray = targets.stream().map(monster -> {
+            if (monster.halfDead || monster.isDying || monster.isEscaping) return 0;
+            int monsterDamage = getDamage(monster, multiplier);
+            multiplier += 1;
+            return monsterDamage;
+        }).mapToInt(i -> i).toArray();
+
+        multiplier = 0;
+
+        return damagesArray;
+    }
+
+    private int getDamage(AbstractMonster monster, int multiplier) {
+        this.baseDamage = DAMAGE + (DAMAGE_PLUS_PER_HOP * multiplier);
+        this.calculateCardDamage(monster);
+        return this.damage;
     }
 
     @Override

@@ -19,10 +19,10 @@ public class ChainLightningAction extends AbstractGameAction {
     private AbstractCreature owner;
     private AbstractMonster initialTarget;
     ArrayList<AbstractMonster> allTargets;
-    private int damage;
+    private int[] damage;
     private int extraDamagePerHop;
 
-    public ChainLightningAction(AbstractCreature owner, AbstractMonster initialTarget, ArrayList<AbstractMonster> allTargets, int damage, int extraDamagePerHop, AttackEffect attackEffect) {
+    public ChainLightningAction(AbstractCreature owner, AbstractMonster initialTarget, ArrayList<AbstractMonster> allTargets, int[] damage, int extraDamagePerHop, AttackEffect attackEffect) {
         this.owner = owner;
         this.initialTarget = initialTarget;
         this.allTargets = allTargets;
@@ -32,27 +32,18 @@ public class ChainLightningAction extends AbstractGameAction {
     }
 
     public void update() {
-        ArrayList<AbstractMonster> remainingTargets = new ArrayList<>(allTargets);
-        int nextTargetIndex = remainingTargets.indexOf(initialTarget);
-        int currentDamage = this.damage;
         int multiplier = 0;
+        int currentDamage = 0;
+        AbstractMonster currentTarget;
+        for (int i = 0; i < allTargets.size(); i++) {
+            currentTarget = allTargets.get(i);
+            currentDamage = this.damage[i];
+            if (currentDamage <= 0) continue;
 
-        while(true) {
-            AbstractMonster nextTarget = remainingTargets.remove(nextTargetIndex);
-
-            if (!nextTarget.halfDead && !nextTarget.isDying && !nextTarget.isEscaping) {
-                AbstractDungeon.actionManager.addToBottom(
-                        new DamageAction(nextTarget, new DamageInfo(owner, currentDamage, DamageInfo.DamageType.NORMAL), this.attackEffect));
-                addLightningEffect(nextTarget, multiplier);
-                multiplier += 1;
-                currentDamage += this.extraDamagePerHop;
-            }
-
-            if (remainingTargets.isEmpty()) {
-                break;
-            }
-
-            nextTargetIndex = AbstractDungeon.cardRandomRng.random(0, remainingTargets.size() - 1);
+            AbstractDungeon.actionManager.addToBottom(
+                    new DamageAction(currentTarget, new DamageInfo(owner, currentDamage, DamageInfo.DamageType.NORMAL), this.attackEffect));
+            addLightningEffect(currentTarget, multiplier);
+            multiplier += 1;
         }
 
         this.isDone = true;
