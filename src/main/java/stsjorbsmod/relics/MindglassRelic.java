@@ -41,18 +41,31 @@ public class MindglassRelic extends CustomRelic implements OnModifyMemoriesListe
     @Override
     public void onTrigger() {
         ++this.counter;
-        int damage = this.counter == 10 ? TEN_CLARITY_DAMAGE : ONE_CLARITY_DAMAGE;
-        if (this.counter == 9) {
-            this.beginPulse();
+        this.flash();
+        if (this.counter == 10) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new DamageAllEnemiesAction(
+                            (AbstractCreature) null,
+                            DamageInfo.createDamageMatrix(TEN_CLARITY_DAMAGE, true),
+                            DamageInfo.DamageType.NORMAL,
+                            // TODO: More impactful and relevant FX. See FlashAtkImgEffect.loadImage() and
+                            //  FlashAtkImgEffect.playSound() for usage of AttackEffect in base game.
+                            AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        } else {
+            AbstractDungeon.actionManager.addToBottom(
+                    new DamageAllEnemiesAction(
+                            (AbstractCreature) null,
+                            DamageInfo.createDamageMatrix(ONE_CLARITY_DAMAGE, true),
+                            DamageInfo.DamageType.NORMAL,
+                            // TODO: More impactful and relevant FX. See FlashAtkImgEffect.loadImage() and
+                            //  FlashAtkImgEffect.playSound() for usage of AttackEffect in base game.
+                            AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAllEnemiesAction(
-                        (AbstractCreature)null,
-                        DamageInfo.createDamageMatrix(damage, true),
-                        DamageInfo.DamageType.THORNS,
-                        AbstractGameAction.AttackEffect.BLUNT_LIGHT
-                )
-        );
+        if (this.counter == 9) {
+            // TODO: make not interrupt flash()
+            //  Currently, it seems like it's not possible to both pulse and flash in the same game tick.
+            this.beginLongPulse();
+        }
     }
 
     @Override
