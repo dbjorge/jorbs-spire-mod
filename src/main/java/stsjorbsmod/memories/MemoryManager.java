@@ -12,9 +12,11 @@ import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.CoilPower;
 import stsjorbsmod.powers.SnappedPower;
+import stsjorbsmod.relics.MindglassRelic;
 import stsjorbsmod.util.RenderUtils;
 import stsjorbsmod.util.TextureLoader;
 
@@ -178,6 +180,11 @@ public class MemoryManager {
             newClarity.gainPassiveEffect();
         }
 
+        AbstractRelic possibleMindglassRelic = this.owner.getRelic(MindglassRelic.ID);
+        if (possibleMindglassRelic != null) {
+            possibleMindglassRelic.onTrigger();
+        }
+
         newClarity.flash();
         notifyModifyMemories();
     }
@@ -238,6 +245,11 @@ public class MemoryManager {
     }
     
     public void notifyModifyMemories() {
+        for (AbstractRelic r : owner.relics) {
+            if (r instanceof OnModifyMemoriesListener) {
+                ((OnModifyMemoriesListener)r).onModifyMemories();
+            }
+        }
         for (AbstractPower p : owner.powers) {
             if (p instanceof OnModifyMemoriesListener) {
                 ((OnModifyMemoriesListener)p).onModifyMemories();
@@ -325,5 +337,9 @@ public class MemoryManager {
     public void movePosition(float x, float y) {
         this.drawX = x;
         this.drawY = y;
+    }
+
+    enum MemoryEventType {
+        REMEMBER, CLARITY, FORGET, SNAP
     }
 }

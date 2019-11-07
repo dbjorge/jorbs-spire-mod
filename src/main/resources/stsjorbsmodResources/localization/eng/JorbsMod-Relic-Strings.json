@@ -12,5 +12,12 @@
     "DESCRIPTIONS": [
       "At the end of turn #b7, stsjorbsmod:Snap."
     ]
+  },
+  "stsjorbsmod:MindglassRelic": {
+    "NAME": "Mindglass",
+    "FLAVOR": "Press e to e.",
+    "DESCRIPTIONS": [
+      "Gaining stsjorbsmod:Clarity deals 5 damage to all enemies. NL Gaining 10 stsjorbsmod:Clarity in the same fight deals 500 damage to all enemies."
+    ]
   }
 }
