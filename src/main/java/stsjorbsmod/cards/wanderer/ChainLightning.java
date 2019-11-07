@@ -27,7 +27,7 @@ public class ChainLightning extends CustomJorbsModCard {
     private static final int DAMAGE_PLUS_PER_HOP = 2;
     private static final int UPGRADE_PLUS_PER_HOP = 2;
 
-    private int multiplier = 0;
+    private int damageMultiplier = 0;
 
     public ChainLightning() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -59,12 +59,12 @@ public class ChainLightning extends CustomJorbsModCard {
     private int[] getDamagesArray(ArrayList<AbstractMonster> targets) {
         int[] damagesArray = targets.stream().map(monster -> {
             if (monster.halfDead || monster.isDying || monster.isEscaping) return 0;
-            int monsterDamage = getDamage(monster, multiplier);
-            multiplier += 1;
+            int monsterDamage = getDamage(monster, damageMultiplier);
+            damageMultiplier += 1;
             return monsterDamage;
         }).mapToInt(i -> i).toArray();
 
-        multiplier = 0;
+        damageMultiplier = 0;
 
         return damagesArray;
     }
