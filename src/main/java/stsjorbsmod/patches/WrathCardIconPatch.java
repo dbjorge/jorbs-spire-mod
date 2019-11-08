@@ -11,56 +11,81 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 import stsjorbsmod.util.ReflectionUtils;
+import stsjorbsmod.util.RenderUtils;
 import stsjorbsmod.util.TextureLoader;
 
-@SpirePatch(
-        clz = AbstractCard.class,
-        method = "renderEnergy"
-)
 public class WrathCardIconPatch {
-    // This is intentionally a little further out than the Energy cost because it can feasibly hit 2-digit numbers
-    private static final float WRATH_TEXT_OFFSET_X = 135.0F;
-    private static final float WRATH_TEXT_OFFSET_Y = 192.0F;
-    private static final Texture wrathIconOverlayTexture = TextureLoader.getTexture("stsjorbsmodResources/images/512/card_wrath_icon_overlay.png");
-    private static final AtlasRegion wrathIconOverlayImg = new AtlasRegion(wrathIconOverlayTexture, 0, 0, 512, 512);
+    @SpirePatch(
+            clz = AbstractCard.class,
+            method = "renderEnergy"
+    )
+    public static class AbstractCard_renderEnergy {
+        // This is intentionally a little further out than the Energy cost because it can feasibly hit 2-digit numbers
+        public static final float WRATH_TEXT_OFFSET_X = 135.0F;
+        public static final float WRATH_TEXT_OFFSET_Y = 192.0F;
+        public static final Texture wrathIconOverlayTexture = TextureLoader.getTexture("stsjorbsmodResources/images/512/card_wrath_icon_overlay.png");
+        public static final AtlasRegion wrathIconOverlayImg = new AtlasRegion(wrathIconOverlayTexture, 0, 0, 512, 512);
 
-    @SpirePostfixPatch
-    public static void Postfix(AbstractCard __this, SpriteBatch sb) {
-        int wrathCount = WrathField.wrathEffectCount.get(__this);
+        @SpirePostfixPatch
+        public static void Postfix(AbstractCard card, SpriteBatch sb) {
+            int wrathCount = WrathField.wrathEffectCount.get(card);
 
-        boolean darken = ReflectionUtils.getPrivateField(__this, AbstractCard.class, "darken");
-        if (wrathCount == 0 || darken || __this.isLocked || !__this.isSeen) {
-            return;
+            boolean darken = ReflectionUtils.getPrivateField(card, AbstractCard.class, "darken");
+            if (wrathCount == 0 || darken || card.isLocked || !card.isSeen) {
+                return;
+            }
+
+            Color renderColor = ReflectionUtils.getPrivateField(card, AbstractCard.class, "renderColor");
+            RenderUtils.renderAtlasRegionCenteredAt(sb, wrathIconOverlayImg, card.current_x, card.current_y, card.drawScale * Settings.scale, renderColor, card.angle);
+
+            Color textColor = Color.WHITE.cpy();
+            textColor.a = card.transparency;
+            String text = Integer.toString(wrathCount);
+            BitmapFont font = FontHelper.cardEnergyFont_L;
+            font.getData().setScale(card.drawScale);
+            FontHelper.renderRotatedText(sb,
+                    font,
+                    text,
+                    card.current_x,
+                    card.current_y,
+                    WRATH_TEXT_OFFSET_X * card.drawScale * Settings.scale,
+                    WRATH_TEXT_OFFSET_Y * card.drawScale * Settings.scale,
+                    card.angle,
+                    false,
+                    textColor);
         }
+    }
+    
+    @SpirePatch(
+            clz = SingleCardViewPopup.class,
+            method = "renderCost"
+    )
+    public static class SingleCardViewPopup_renderCost {
+        public static final float WRATH_ICON_OFFSET_X = (float)Settings.WIDTH / 2.0F + 270.0F * Settings.scale;
+        public static final float WRATH_TEXT_OFFSET_X = (float)Settings.WIDTH / 2.0F + 248.0F * Settings.scale;
+        public static final float WRATH_ICON_OFFSET_Y = (float)Settings.HEIGHT / 2.0F + 425.0F * Settings.scale;
+        public static final float WRATH_TEXT_OFFSET_Y = (float)Settings.HEIGHT / 2.0F + 404.0F * Settings.scale;
+        public static final Texture wrathIconOverlayTexture = TextureLoader.getTexture("stsjorbsmodResources/images/1024/card_wrath_icon_overlay.png");
+        public static final AtlasRegion wrathIconOverlayImg = new AtlasRegion(wrathIconOverlayTexture, 0, 0, 164, 250);
 
-        Color renderColor = ReflectionUtils.getPrivateField(__this, AbstractCard.class, "renderColor");
-        sb.setColor(renderColor);
-        sb.draw(wrathIconOverlayImg,
-                __this.current_x + wrathIconOverlayImg.offsetX - (float)wrathIconOverlayImg.originalWidth / 2.0F,
-                __this.current_y + wrathIconOverlayImg.offsetY - (float)wrathIconOverlayImg.originalHeight / 2.0F,
-                (float)wrathIconOverlayImg.originalWidth / 2.0F - wrathIconOverlayImg.offsetX,
-                (float)wrathIconOverlayImg.originalHeight / 2.0F - wrathIconOverlayImg.offsetY,
-                (float)wrathIconOverlayImg.packedWidth,
-                (float)wrathIconOverlayImg.packedHeight,
-                __this.drawScale * Settings.scale,
-                __this.drawScale * Settings.scale,
-                __this.angle);
+        @SpirePostfixPatch
+        public static void Postfix(SingleCardViewPopup __this, SpriteBatch sb) {
+            AbstractCard card = ReflectionUtils.getPrivateField(__this, SingleCardViewPopup.class, "card");
+            int wrathCount = WrathField.wrathEffectCount.get(card);
 
-        Color textColor = Color.WHITE.cpy();
-        textColor.a = __this.transparency;
-        String text = Integer.toString(wrathCount);
-        BitmapFont font = FontHelper.cardEnergyFont_L;
-        font.getData().setScale(__this.drawScale);
-        FontHelper.renderRotatedText(sb,
-                font,
-                text,
-                __this.current_x,
-                __this.current_y,
-                WRATH_TEXT_OFFSET_X * __this.drawScale * Settings.scale,
-                WRATH_TEXT_OFFSET_Y * __this.drawScale * Settings.scale,
-                __this.angle,
-                false,
-                textColor);
+            if (wrathCount == 0 || card.isLocked || !card.isSeen) {
+                return;
+            }
+
+            RenderUtils.renderAtlasRegionCenteredAt(sb, wrathIconOverlayImg, WRATH_ICON_OFFSET_X, WRATH_ICON_OFFSET_Y);
+
+            String text = Integer.toString(wrathCount);
+            BitmapFont font = FontHelper.SCP_cardEnergyFont;
+            float x = WRATH_TEXT_OFFSET_X;
+            if (wrathCount > 9) x -= (8 * Settings.scale);
+            FontHelper.renderFont(sb, font, text, WRATH_TEXT_OFFSET_X, WRATH_TEXT_OFFSET_Y, Settings.CREAM_COLOR);
+        }
     }
 }
