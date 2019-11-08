@@ -55,11 +55,9 @@ public class CardSaveData implements CustomSavableRaw {
             int i = 0;
 
             for (AbstractCard card : masterDeck.group) {
-                int wrathUpgradeCount = cardData.get(i++).wrathEffectCount;
-                WrathField.wrathEffectCount.set(card, wrathUpgradeCount);
+                int wrathEffectCount = cardData.get(i++).wrathEffectCount;
+                WrathMemory.reapplyToLoadedCard(card, wrathEffectCount);
             }
-
-            WrathMemory.reapplyToDeck(masterDeck);
         }
     }
 }
