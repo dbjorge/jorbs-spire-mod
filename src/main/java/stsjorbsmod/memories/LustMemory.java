@@ -23,8 +23,8 @@ public class LustMemory extends AbstractMemory {
     private static final int ATTACK_BONUS_PERCENTAGE_DESCRIPTION = 25;
     private static final int WEAK_ON_FORGET = 2;
 
-    public LustMemory(final AbstractCreature owner, boolean isClarified) {
-        super(STATIC, MemoryType.SIN, owner, isClarified);
+    public LustMemory(final AbstractCreature owner) {
+        super(STATIC, MemoryType.SIN, owner);
         setDescriptionPlaceholder("!P!", ATTACK_BONUS_PERCENTAGE_DESCRIPTION);
         setDescriptionPlaceholder("!W!", WEAK_ON_FORGET);
     }

@@ -26,14 +26,14 @@ public class DiligenceMemory extends AbstractMemory {
     // but we still need to process the end-of-turn effects for this memory.
     private boolean isTurnAlreadyEnding;
 
-    public DiligenceMemory(final AbstractCreature owner, boolean isClarified, boolean isTurnAlreadyEnding) {
-        super(STATIC, MemoryType.VIRTUE, owner, isClarified);
+    public DiligenceMemory(final AbstractCreature owner, boolean isTurnAlreadyEnding) {
+        super(STATIC, MemoryType.VIRTUE, owner);
         setDescriptionPlaceholder("!M!", CARDS_RETAINED);
         this.isTurnAlreadyEnding = isTurnAlreadyEnding;
     }
 
-    public DiligenceMemory(final AbstractCreature owner, boolean isClarified) {
-        this(owner, isClarified, false);
+    public DiligenceMemory(final AbstractCreature owner) {
+        this(owner, false);
     }
 
     @Override
@@ -68,6 +68,6 @@ public class DiligenceMemory extends AbstractMemory {
 
     @Override
     public AbstractMemory makeCopy() {
-        return new DiligenceMemory(owner, isClarified, isTurnAlreadyEnding);
+        return new DiligenceMemory(owner, isTurnAlreadyEnding);
     }
 }

@@ -21,8 +21,8 @@ public class GreedMemory extends AbstractMemory {
 
     private static final int GOLD_PER_KILL = 10;
 
-    public GreedMemory(final AbstractCreature owner, boolean isClarified) {
-        super(STATIC, MemoryType.SIN, owner, isClarified);
+    public GreedMemory(final AbstractCreature owner) {
+        super(STATIC, MemoryType.SIN, owner);
         setDescriptionPlaceholder("!M!", GOLD_PER_KILL);
     }
 

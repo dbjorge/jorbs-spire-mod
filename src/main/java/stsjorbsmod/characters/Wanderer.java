@@ -178,11 +178,7 @@ public class Wanderer extends CustomPlayer {
                 CORPSE_TEXTURE, // dead corpse
                 getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
 
-        final float MEMORY_OFFSET_Y = 310.0F * Settings.scale;
-        final float CLARITY_OFFSET_Y = -10.0F * Settings.scale;
-        final float SIN_OFFSET_X = -200.0F * Settings.scale;
-        final float VIRTUE_OFFSET_X = 160.0F * Settings.scale;
-        this.memories = new MemoryManager(this, drawX, drawY, MEMORY_OFFSET_Y, CLARITY_OFFSET_Y, SIN_OFFSET_X, VIRTUE_OFFSET_X);
+        this.memories = new MemoryManager(this);
 
         // =============== /TEXTURES, ENERGY, LOADOUT/ =================
 
@@ -218,13 +214,7 @@ public class Wanderer extends CustomPlayer {
     @Override
     public void updatePowers() {
         super.updatePowers();
-        memories.update();
-    }
-
-    @Override
-    public void movePosition(float x, float y) {
-        super.movePosition(x, y);
-        memories.movePosition(x, y);
+        memories.update(drawX, drawY);
     }
 
     // Starting description and loadout

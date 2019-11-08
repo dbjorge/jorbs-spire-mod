@@ -25,8 +25,8 @@ public class ChastityMemory extends AbstractMemory {
     private static final int DEXTERITY_LOSS_PER_TURN = 1;
     private static final int BLOCK_PER_TURN = 6;
 
-    public ChastityMemory(final AbstractCreature owner, boolean isClarified) {
-        super(STATIC, MemoryType.VIRTUE, owner, isClarified);
+    public ChastityMemory(final AbstractCreature owner) {
+        super(STATIC, MemoryType.VIRTUE, owner);
         setDescriptionPlaceholder("!D!", DEXTERITY_LOSS_PER_TURN);
         setDescriptionPlaceholder("!B!", BLOCK_PER_TURN);
     }

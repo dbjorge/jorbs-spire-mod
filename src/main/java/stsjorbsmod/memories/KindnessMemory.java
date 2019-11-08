@@ -26,8 +26,8 @@ public class KindnessMemory extends AbstractMemory {
     private static final int POISON_ON_REMEMBER = 3;
     private static final int ENVENOM_MAGNITUDE = 1;
 
-    public KindnessMemory(final AbstractCreature owner, boolean isClarified) {
-        super(STATIC, MemoryType.VIRTUE, owner, isClarified);
+    public KindnessMemory(final AbstractCreature owner) {
+        super(STATIC, MemoryType.VIRTUE, owner);
         setDescriptionPlaceholder("!M!", ENVENOM_MAGNITUDE);
     }
 

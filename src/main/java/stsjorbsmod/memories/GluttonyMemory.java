@@ -14,8 +14,8 @@ public class GluttonyMemory extends AbstractMemory {
     private static final int MAX_HP_PER_KILL = 3;
     private static final int DISCARD_AT_START_OF_TURN = 1;
 
-    public GluttonyMemory(final AbstractCreature owner, boolean isClarified) {
-        super(STATIC, MemoryType.SIN, owner, isClarified);
+    public GluttonyMemory(final AbstractCreature owner) {
+        super(STATIC, MemoryType.SIN, owner);
         setDescriptionPlaceholder("!M!", MAX_HP_PER_KILL);
     }
 

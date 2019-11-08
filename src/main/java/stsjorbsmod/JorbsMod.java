@@ -77,7 +77,11 @@ public class JorbsMod implements
     public static String makeRelicOutlinePath(String resourcePath) {
         return MOD_ID + "Resources/images/relics/outline/" + resourcePath;
     }
-    
+
+    public static String makeMemoryPath(String resourcePath) {
+        return MOD_ID + "Resources/images/memories/" + resourcePath;
+    }
+
     public static String makeOrbPath(String resourcePath) {
         return MOD_ID + "Resources/orbs/" + resourcePath;
     }

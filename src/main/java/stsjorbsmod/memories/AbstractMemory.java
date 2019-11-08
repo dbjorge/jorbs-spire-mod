@@ -2,16 +2,16 @@ package stsjorbsmod.memories;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.Hitbox;
+import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -31,6 +31,12 @@ import java.util.Map;
 // In addition to the abstract methods, memories are expected to implement a constructor of form
 //     new SpecificMemory(AbstractCreature owner, boolean isClarified)
 public abstract class AbstractMemory implements IOnModifyGoldListener {
+    private static final float HB_WIDTH = 64F * Settings.scale;
+    private static final float HB_HEIGHT = 64F * Settings.scale;
+    private static final float TIP_X_THRESHOLD = 1544.0F * Settings.scale;
+    private static final float TIP_OFFSET_R_X = 20.0F * Settings.scale;
+    private static final float TIP_OFFSET_L_X = -380.0F * Settings.scale;
+
     private static final String UI_ID = JorbsMod.makeID(AbstractMemory.class.getSimpleName());
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(UI_ID);
     public static final String[] TEXT = uiStrings.TEXT;
@@ -45,30 +51,35 @@ public abstract class AbstractMemory implements IOnModifyGoldListener {
     public String description;
 
     public AbstractCreature owner;
-    public boolean isClarified;
     public boolean isPassiveEffectActive;
+    public boolean isClarified;
+    public boolean isRemembered;
     public MemoryType memoryType;
 
-    public TextureAtlas.AtlasRegion region128;
-    public TextureAtlas.AtlasRegion region48;
     private ArrayList<AbstractGameEffect> renderEffects = new ArrayList<>();
 
     private Class<? extends AbstractMemory> leafClass;
 
-    public AbstractMemory(final StaticMemoryInfo staticInfo, final MemoryType memoryType, final AbstractCreature owner, final boolean isClarified) {
+    private StaticMemoryInfo staticInfo;
+
+    private static Color ICON_COLOR = Settings.CREAM_COLOR.cpy();
+    private float centerX;
+    private float centerY;
+    private Hitbox hb;
+
+    public AbstractMemory(final StaticMemoryInfo staticInfo, final MemoryType memoryType, final AbstractCreature owner) {
         this.ID = staticInfo.ID;
         this.baseName = staticInfo.NAME;
         this.baseDescription = staticInfo.DESCRIPTIONS[0];
         this.leafClass = staticInfo.CLASS;
+        this.staticInfo = staticInfo;
 
         this.owner = owner;
         this.memoryType = memoryType;
-        this.isClarified = isClarified;
-        this.isPassiveEffectActive = false;
+        this.isClarified = false;
+        this.isRemembered = false;
 
-        this.region128 = new TextureAtlas.AtlasRegion(staticInfo.tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(staticInfo.tex32, 0, 0, 32, 32);
-
+        this.hb = new Hitbox(HB_WIDTH, HB_HEIGHT);
         updateDescription();
     }
 
@@ -99,8 +110,8 @@ public abstract class AbstractMemory implements IOnModifyGoldListener {
 
     private AbstractPower makeFakePowerForEffects() {
         AbstractPower p = new AbstractPower() {};
-        p.region48 = this.region48;
-        p.region128 = this.region128;
+        p.region48 = this.staticInfo.CLARITY_IMG_48;
+        p.region128 = this.staticInfo.CLARITY_IMG_84;
         p.owner = this.owner;
         return p;
     }
@@ -117,15 +128,41 @@ public abstract class AbstractMemory implements IOnModifyGoldListener {
         AbstractDungeon.effectList.add(new FlashPowerEffect(p));
     }
 
-    public void render(SpriteBatch sb, float x, float y, Color color) {
-        RenderUtils.renderAtlasRegionCenteredAt(sb, this.region48, x, y, color);
+    public void render(SpriteBatch sb) {
+        if(isClarified) {
+            RenderUtils.renderAtlasRegionCenteredAt(sb, this.staticInfo.CLARITY_IMG_48, centerX, centerY, ICON_COLOR);
+        } else {
+            RenderUtils.renderAtlasRegionCenteredAt(sb, this.staticInfo.EMPTY_IMG_48, centerX, centerY, ICON_COLOR);
+        }
+        if (isRemembered) {
+            RenderUtils.renderAtlasRegionCenteredAt(sb, this.staticInfo.REMEMBER_IMG_48, centerX, centerY, ICON_COLOR);
+        }
 
         for (AbstractGameEffect effect : renderEffects) {
-            effect.render(sb, x, y);
+            effect.render(sb, centerX, centerY);
+        }
+
+        if (hb.hovered) {
+            ArrayList<PowerTip> tips = new ArrayList<>();
+            tips.add(new PowerTip(name, description, staticInfo.CLARITY_IMG_48));
+
+            // Based on the AbstractCreature.renderPowerTips impl
+            float tipX = hb.cX + hb.width / 2.0F < TIP_X_THRESHOLD ?
+                    hb.cX + hb.width / 2.0F + TIP_OFFSET_R_X :
+                    hb.cX - hb.width / 2.0F + TIP_OFFSET_L_X;
+
+            // The calculatedAdditionalOffset ensures everything is shifted to avoid going offscreen
+            float tipY = hb.cY + TipHelper.calculateAdditionalOffset(tips, hb.cY);
+
+            TipHelper.queuePowerTips(tipX, tipY, tips);
         }
     }
 
-    public void update() {
+    public void update(float centerX, float centerY) {
+        this.centerX = centerX;
+        this.centerY = centerY;
+        this.hb.update(centerX - (HB_WIDTH / 2.0F), centerY - (HB_HEIGHT / 2.0F));
+
         Iterator i = this.renderEffects.iterator();
         while(i.hasNext()) {
             AbstractGameEffect e = (AbstractGameEffect)i.next();

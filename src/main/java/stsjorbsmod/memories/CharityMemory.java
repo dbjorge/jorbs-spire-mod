@@ -15,8 +15,8 @@ public class CharityMemory extends AbstractMemory {
 
     private int strengthAlreadyApplied;
 
-    public CharityMemory(final AbstractCreature owner, boolean isClarified) {
-        super(STATIC, MemoryType.VIRTUE, owner, isClarified);
+    public CharityMemory(final AbstractCreature owner) {
+        super(STATIC, MemoryType.VIRTUE, owner);
         strengthAlreadyApplied = 0;
 
         setDescriptionPlaceholder("!S!", calculateBonusDamage());

@@ -14,8 +14,8 @@ public class EnvyMemory extends AbstractMemory {
     private static final int VULNERABLE_ON_REMEMBER = 1;
     private static final int VULNERABLE_ON_TARGET_ENEMY = 1;
 
-    public EnvyMemory(final AbstractCreature owner, boolean isClarified) {
-        super(STATIC, MemoryType.SIN, owner, isClarified);
+    public EnvyMemory(final AbstractCreature owner) {
+        super(STATIC, MemoryType.SIN, owner);
         setDescriptionPlaceholder("!M!", VULNERABLE_ON_TARGET_ENEMY);
     }
 

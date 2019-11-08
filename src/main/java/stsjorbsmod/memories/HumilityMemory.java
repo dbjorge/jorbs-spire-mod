@@ -21,8 +21,8 @@ public class HumilityMemory extends AbstractMemory {
 
     private static final int THORNS_DAMAGE = 2;
 
-    public HumilityMemory(final AbstractCreature owner, boolean isClarified) {
-        super(STATIC, MemoryType.VIRTUE, owner, isClarified);
+    public HumilityMemory(final AbstractCreature owner) {
+        super(STATIC, MemoryType.VIRTUE, owner);
         setDescriptionPlaceholder("!M!", THORNS_DAMAGE);
     }
 
