@@ -25,7 +25,7 @@ public class WrathMemory extends AbstractMemory {
 
     public static void reapplyToDeck(CardGroup deck) {
         for (AbstractCard card : deck.group) {
-            final int upgradeCount = WrathField.effectCount.get(card);
+            final int upgradeCount = WrathField.wrathEffectCount.get(card);
             if (!isUpgradeCandidate(card) && (upgradeCount > 0)) {
                 JorbsMod.logger.error("Wrath upgrade count modified for an ineligible card");
             }
@@ -95,14 +95,14 @@ public class WrathMemory extends AbstractMemory {
         AbstractCard masterCard = StSLib.getMasterDeckEquivalent(card);
         if (masterCard != null) {
             masterCard.baseDamage += DAMAGE_INCREASE_PER_KILL;
-            WrathField.effectCount.set(masterCard, WrathField.effectCount.get(masterCard) + 1);
+            WrathField.wrathEffectCount.set(masterCard, WrathField.wrathEffectCount.get(masterCard) + 1);
             masterCard.superFlash();
             cardToShowForVfx = masterCard;
         }
 
         for (AbstractCard instance : GetAllInBattleInstances.get(card.uuid)) {
             instance.baseDamage += DAMAGE_INCREASE_PER_KILL;
-            WrathField.effectCount.set(instance, WrathField.effectCount.get(instance) + 1);
+            WrathField.wrathEffectCount.set(instance, WrathField.wrathEffectCount.get(instance) + 1);
             instance.applyPowers();
         }
 

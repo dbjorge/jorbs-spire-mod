@@ -29,7 +29,7 @@ public class CardSaveData implements CustomSavableRaw {
     public JsonElement onSaveRaw() {
         cardData = new ArrayList<>();
         for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
-            cardData.add(new CardData(WrathField.effectCount.get(card)));
+            cardData.add(new CardData(WrathField.wrathEffectCount.get(card)));
         }
         return saveFileGson.toJsonTree(cardData);
     }
@@ -56,7 +56,7 @@ public class CardSaveData implements CustomSavableRaw {
 
             for (AbstractCard card : masterDeck.group) {
                 int wrathUpgradeCount = cardData.get(i++).wrathEffectCount;
-                WrathField.effectCount.set(card, wrathUpgradeCount);
+                WrathField.wrathEffectCount.set(card, wrathUpgradeCount);
             }
 
             WrathMemory.reapplyToDeck(masterDeck);
