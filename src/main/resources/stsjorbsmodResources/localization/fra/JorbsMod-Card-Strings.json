@@ -102,11 +102,6 @@
     "NAME": "Revérifier",
     "DESCRIPTION": "Gain de !B! blocs. NL Si vous vous souvenez de stsjorbsmod:Diligence, gagnez stsjorbsmod:Clarté. NL Rappelez-vous stsjorbsmod:Diligence."
   },
-  "stsjorbsmod:DimensionDoor": {
-    "DESCRIPTION": "Echappez à un combat qui ne concerne pas un boss et ne recevez aucune récompense. NL Si vous vous échappez, vous pouvez ignorer les chemins lors du choix de la prochaine salle. NL stsjorbsmod:Détruisez cette carte.",
-    "NAME": "Porte de dimension",
-    "UPGRADE_DESCRIPTION": "Echappez à un combat qui ne concerne pas un boss et ne recevez aucune récompense. NL Si vous vous échappez, vous pouvez choisir n’importe quelle pièce, avec une marge de bonus de !M!. NL stsjorbsmod:Détruisez cette carte."
-  },
   "stsjorbsmod:ArcaneWeapon": {
     "NAME": "Arme des Arcanes",
     "DESCRIPTION": "À la fin de chaque tour, attaquez un ennemi au hasard qui inflige !D! points de dégâts."

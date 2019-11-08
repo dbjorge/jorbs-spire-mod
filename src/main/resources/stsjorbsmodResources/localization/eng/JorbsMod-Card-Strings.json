@@ -329,11 +329,6 @@
     "NAME": "Banish",
     "DESCRIPTION": "Enemy takes no action and no damage for !M! turns. Exhaust."
   },
-  "stsjorbsmod:DimensionDoor": {
-    "NAME": "Dimension Door",
-    "DESCRIPTION": "Escape from a non-boss combat and receive no rewards. NL If you escape, you may ignore paths when choosing the next room to travel to. NL stsjorbsmod:Destroy this card.",
-    "UPGRADE_DESCRIPTION": "Escape from a non-boss combat and receive no rewards. NL If you escape, you may choose any room to travel to, with a bonus range of !M!. NL stsjorbsmod:Destroy this card."
-  },
   "stsjorbsmod:Feast": {
     "NAME": "Feast",
     "DESCRIPTION": "Remember stsjorbsmod:Gluttony. NL Draw !M! cards. NL Exhaust."
