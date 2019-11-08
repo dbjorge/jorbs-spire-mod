@@ -85,7 +85,7 @@ public class WrathCardIconPatch {
             BitmapFont font = FontHelper.SCP_cardEnergyFont;
             float x = WRATH_TEXT_OFFSET_X;
             if (wrathCount > 9) x -= (8 * Settings.scale);
-            FontHelper.renderFont(sb, font, text, WRATH_TEXT_OFFSET_X, WRATH_TEXT_OFFSET_Y, Settings.CREAM_COLOR);
+            FontHelper.renderFont(sb, font, text, x, WRATH_TEXT_OFFSET_Y, Settings.CREAM_COLOR);
         }
     }
 }
