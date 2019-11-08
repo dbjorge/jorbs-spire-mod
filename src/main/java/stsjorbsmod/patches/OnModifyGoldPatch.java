@@ -16,8 +16,11 @@ public class OnModifyGoldPatch {
                 ((IOnModifyGoldListener) p).onModifyGold(player);
             }
         }
-        for (AbstractMemory m : MemoryManager.forPlayer(player).currentMemories()) {
-            m.onModifyGold(player);
+        MemoryManager memoryManager = MemoryManager.forPlayer(player);
+        if (memoryManager != null) {
+            for (AbstractMemory m : memoryManager.currentMemories()) {
+                m.onModifyGold(player);
+            }
         }
         AbstractDungeon.onModifyPower();
     }
