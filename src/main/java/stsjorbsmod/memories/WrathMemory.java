@@ -3,7 +3,7 @@ package stsjorbsmod.memories;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
-import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,12 +11,27 @@ import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.patches.WrathField;
 import stsjorbsmod.util.EffectUtils;
 
 public class WrathMemory extends AbstractMemory {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(WrathMemory.class);
 
     private static final int DAMAGE_INCREASE_PER_KILL = 1;
+
+    private static boolean isUpgradeCandidate(AbstractCard c) {
+        return c.type == CardType.ATTACK && c.baseDamage > 0;
+    }
+
+    public static void reapplyToDeck(CardGroup deck) {
+        for (AbstractCard card : deck.group) {
+            final int upgradeCount = WrathField.wrathEffectCount.get(card);
+            if (!isUpgradeCandidate(card) && (upgradeCount > 0)) {
+                JorbsMod.logger.error("Wrath upgrade count modified for an ineligible card");
+            }
+            card.baseDamage += DAMAGE_INCREASE_PER_KILL * upgradeCount;
+        }
+    }
 
     public WrathMemory(final AbstractCreature owner, boolean isClarified) {
         super(STATIC, MemoryType.SIN, owner, isClarified);
@@ -32,10 +47,6 @@ public class WrathMemory extends AbstractMemory {
     private void setCardDescriptionPlaceholder(AbstractCard c) {
         String text = c != null ? c.name : "none";
         setDescriptionPlaceholder("!C!", text);
-    }
-
-    private boolean isUpgradeCandidate(AbstractCard c) {
-        return c.type == CardType.ATTACK && c.baseDamage > 0;
     }
 
     private AbstractCard getCardToUpgrade() {
@@ -84,12 +95,14 @@ public class WrathMemory extends AbstractMemory {
         AbstractCard masterCard = StSLib.getMasterDeckEquivalent(card);
         if (masterCard != null) {
             masterCard.baseDamage += DAMAGE_INCREASE_PER_KILL;
+            WrathField.wrathEffectCount.set(masterCard, WrathField.wrathEffectCount.get(masterCard) + 1);
             masterCard.superFlash();
             cardToShowForVfx = masterCard;
         }
 
         for (AbstractCard instance : GetAllInBattleInstances.get(card.uuid)) {
             instance.baseDamage += DAMAGE_INCREASE_PER_KILL;
+            WrathField.wrathEffectCount.set(instance, WrathField.wrathEffectCount.get(instance) + 1);
             instance.applyPowers();
         }
 
