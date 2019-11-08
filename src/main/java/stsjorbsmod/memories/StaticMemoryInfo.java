@@ -14,7 +14,7 @@ public class StaticMemoryInfo {
     public final String NAME;
     public final String[] DESCRIPTIONS;
     public final Texture tex84;
-    public final Texture tex32;
+    public final Texture tex48;
 
     public static <T extends AbstractMemory> StaticMemoryInfo Load(Class<T> memoryClass) {
         return new StaticMemoryInfo(memoryClass);
@@ -28,7 +28,7 @@ public class StaticMemoryInfo {
         DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
         String imageFilenamePrefix = memoryClass.getSimpleName().replace("Memory","").toLowerCase();
-        tex84 = TextureLoader.getTexture(makePowerPath(imageFilenamePrefix + "84.png"));
+        tex84 = TextureLoader.getTexture(makePowerPath("imageFilenamePrefix + "84.png"));
         tex32 = TextureLoader.getTexture(makePowerPath(imageFilenamePrefix + "32.png"));
     }
 }
