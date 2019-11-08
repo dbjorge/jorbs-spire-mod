@@ -38,7 +38,6 @@ public class ChainLightningAction extends AbstractGameAction {
         for (int i = 0; i < allTargets.size(); i++) {
             currentTarget = allTargets.get(i);
             currentDamage = this.damage[i];
-            if (currentDamage <= 0) continue;
 
             AbstractDungeon.actionManager.addToBottom(
                     new DamageAction(currentTarget, new DamageInfo(owner, currentDamage, DamageInfo.DamageType.NORMAL), this.attackEffect));

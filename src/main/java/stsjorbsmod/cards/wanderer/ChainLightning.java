@@ -10,6 +10,7 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -44,9 +45,11 @@ public class ChainLightning extends CustomJorbsModCard {
 
     private ArrayList<AbstractMonster> getRandomOrderMonsters(ArrayList<AbstractMonster> targets, AbstractMonster initialTarget) {
         ArrayList<AbstractMonster> finalTargets = new ArrayList<>();
-        ArrayList<AbstractMonster> newTargets = new ArrayList<>();
+        ArrayList<AbstractMonster> newTargets = targets
+                .stream()
+                .filter(t -> !(t.halfDead || t.isDying || t.isEscaping))
+                .collect(Collectors.toCollection(ArrayList::new));
 
-        newTargets.addAll(targets);
         int nextTargetIndex = newTargets.indexOf(initialTarget);
         while(true) {
             finalTargets.add(newTargets.remove(nextTargetIndex));
@@ -56,23 +59,21 @@ public class ChainLightning extends CustomJorbsModCard {
         return finalTargets;
     }
 
+    @Override
+    protected int calculateBonusBaseDamage() {
+        return magicNumber * damageMultiplier;
+    }
+
     private int[] getDamagesArray(ArrayList<AbstractMonster> targets) {
         int[] damagesArray = targets.stream().map(monster -> {
-            if (monster.halfDead || monster.isDying || monster.isEscaping) return 0;
-            int monsterDamage = getDamage(monster, damageMultiplier);
+            this.calculateCardDamage(monster);
             damageMultiplier += 1;
-            return monsterDamage;
+            return this.damage;
         }).mapToInt(i -> i).toArray();
 
         damageMultiplier = 0;
 
         return damagesArray;
-    }
-
-    private int getDamage(AbstractMonster monster, int multiplier) {
-        this.baseDamage = DAMAGE + (DAMAGE_PLUS_PER_HOP * multiplier);
-        this.calculateCardDamage(monster);
-        return this.damage;
     }
 
     @Override
