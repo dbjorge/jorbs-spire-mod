@@ -18,7 +18,7 @@
             You need to set a STEAMAPPS_PATH environment variable to enable Maven to find the dependencies.
             See README.md (the "How to build from source" section) for details.
         -->
-        <steamappsPath>C:\Program Files (x86)\Steam\steamapps</steamappsPath>
+        <steamappsPath>${env.STEAMAPPS_PATH}</steamappsPath>
 
         <!--
             If you're using a Steam install of Slay the Spire, you shouldn't need to modify these.
