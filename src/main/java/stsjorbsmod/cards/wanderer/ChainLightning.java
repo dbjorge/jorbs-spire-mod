@@ -32,7 +32,7 @@ public class ChainLightning extends CustomJorbsModCard {
     private static final int DAMAGE_PLUS_PER_HOP = 2;
     private static final int UPGRADE_PLUS_PER_HOP = 2;
 
-    private int damageMultiplier = 0;
+    private int currentChainHopIndex = 0;
 
     public ChainLightning() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -42,24 +42,24 @@ public class ChainLightning extends CustomJorbsModCard {
 
     @Override
     protected int calculateBonusBaseDamage() {
-        return magicNumber * damageMultiplier;
+        return magicNumber * currentChainHopIndex;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         ArrayList<AbstractMonster> targets = getRandomOrderMonsters(AbstractDungeon.getMonsters().monsters, m);
-        this.damageMultiplier = 0;
+        this.currentChainHopIndex = 0;
         for (AbstractMonster monster: targets) {
             this.calculateCardDamage(monster);
             AbstractDungeon.actionManager.addToBottom(new DamageAction(
                     monster,
                     new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL),
                     AttackEffect.NONE));
-            addLightningEffect(monster, this.damageMultiplier);
-            this.damageMultiplier += 1;
+            addLightningEffect(monster, this.currentChainHopIndex);
+            this.currentChainHopIndex += 1;
         }
 
-        this.damageMultiplier = 0;
+        this.currentChainHopIndex = 0;
     }
 
     private ArrayList<AbstractMonster> getRandomOrderMonsters(ArrayList<AbstractMonster> targets, AbstractMonster initialTarget) {
