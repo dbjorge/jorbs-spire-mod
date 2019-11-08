@@ -204,7 +204,7 @@ public class JorbsMod implements
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
         BaseMod.addPotion(DimensionDoorPotion.class, Color.BLACK, Color.CORAL, null,
-                DimensionDoorPotion.ID, Wanderer.Enums.WANDERER);
+                DimensionDoorPotion.POTION_ID, Wanderer.Enums.WANDERER);
         
         // =============== EVENTS =================
         
@@ -285,6 +285,7 @@ public class JorbsMod implements
         BaseMod.loadCustomStringsFile(RelicStrings.class, makeLocalizedStringsPath("JorbsMod-Relic-Strings.json"));
         BaseMod.loadCustomStringsFile(EventStrings.class, makeLocalizedStringsPath("JorbsMod-Event-Strings.json"));
         BaseMod.loadCustomStringsFile(CharacterStrings.class, makeLocalizedStringsPath("JorbsMod-Character-Strings.json"));
+        BaseMod.loadCustomStringsFile(PotionStrings.class, makeLocalizedStringsPath("JorbsMod-Potion-Strings.json"));
 
         logger.info("Done editing strings");
     }
