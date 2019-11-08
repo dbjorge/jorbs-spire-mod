@@ -58,6 +58,8 @@ public class ChainLightning extends CustomJorbsModCard {
             addLightningEffect(monster, this.damageMultiplier);
             this.damageMultiplier += 1;
         }
+
+        this.damageMultiplier = 0;
     }
 
     private ArrayList<AbstractMonster> getRandomOrderMonsters(ArrayList<AbstractMonster> targets, AbstractMonster initialTarget) {
