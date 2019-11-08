@@ -19,7 +19,8 @@ import stsjorbsmod.util.TextureLoader;
         method = "renderEnergy"
 )
 public class WrathCardIconPatch {
-    private static final float WRATH_TEXT_OFFSET_X = 132.0F;
+    // This is intentionally a little further out than the Energy cost because it can feasibly hit 2-digit numbers
+    private static final float WRATH_TEXT_OFFSET_X = 135.0F;
     private static final float WRATH_TEXT_OFFSET_Y = 192.0F;
     private static final Texture wrathIconOverlayTexture = TextureLoader.getTexture("stsjorbsmodResources/images/512/card_wrath_icon_overlay.png");
     private static final AtlasRegion wrathIconOverlayImg = new AtlasRegion(wrathIconOverlayTexture, 0, 0, 512, 512);
