@@ -87,7 +87,7 @@
   },
   {
     "PROPER_NAME": "Gourmandise",
-    "DESCRIPTION": "Chaque fois que vous tuez un ennemi non-sbire, augmentez vos PV maximum de 3.",
+    "DESCRIPTION": "Chaque fois que vous tuez un ennemi non-sbire, augmentez vos PV maximum de #b2. Au début du tour, défaussez 1 carte.",
     "NAMES": [
       "gourmandise",
       "Gourmandise"

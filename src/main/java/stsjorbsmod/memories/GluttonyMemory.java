@@ -11,7 +11,7 @@ import stsjorbsmod.JorbsMod;
 public class GluttonyMemory extends AbstractMemory {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(GluttonyMemory.class);
 
-    private static final int MAX_HP_PER_KILL = 3;
+    private static final int MAX_HP_PER_KILL = 2;
     private static final int DISCARD_AT_START_OF_TURN = 1;
 
     public GluttonyMemory(final AbstractCreature owner, boolean isClarified) {
@@ -30,7 +30,7 @@ public class GluttonyMemory extends AbstractMemory {
     @Override
     public void atStartOfTurnPostDraw() {
         if (isPassiveEffectActive) {
-            AbstractDungeon.actionManager.addToBottom(new DiscardAction(owner, owner, DISCARD_AT_START_OF_TURN, true));
+            AbstractDungeon.actionManager.addToBottom(new DiscardAction(owner, owner, DISCARD_AT_START_OF_TURN, false));
         }
     }
 }

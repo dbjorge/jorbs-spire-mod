@@ -57,7 +57,7 @@
   {
     "PROPER_NAME": "Gluttony",
     "NAMES": ["gluttony", "Gluttony"],
-    "DESCRIPTION": "Whenever you kill a non-minion enemy, raise your Max HP by #b3. At the start of each turn, discard one card."
+    "DESCRIPTION": "Whenever you kill a non-minion enemy, raise your Max HP by #b2. At the start of your turn, discard 1 card."
   },
   {
     "PROPER_NAME": "Humility",
