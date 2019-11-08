@@ -1,11 +1,15 @@
 package stsjorbsmod.cards.wanderer;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.ChainLightningAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 
@@ -37,10 +41,23 @@ public class ChainLightning extends CustomJorbsModCard {
     }
 
     @Override
+    protected int calculateBonusBaseDamage() {
+        return magicNumber * damageMultiplier;
+    }
+
+    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         ArrayList<AbstractMonster> targets = getRandomOrderMonsters(AbstractDungeon.getMonsters().monsters, m);
-        int[] damagesArray = getDamagesArray(targets);
-        addToBot(new ChainLightningAction(p, m, targets, damagesArray, magicNumber, AttackEffect.NONE));
+        this.damageMultiplier = 0;
+        for (AbstractMonster monster: targets) {
+            this.calculateCardDamage(monster);
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(
+                    monster,
+                    new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL),
+                    AttackEffect.NONE));
+            addLightningEffect(monster, this.damageMultiplier);
+            this.damageMultiplier += 1;
+        }
     }
 
     private ArrayList<AbstractMonster> getRandomOrderMonsters(ArrayList<AbstractMonster> targets, AbstractMonster initialTarget) {
@@ -59,21 +76,10 @@ public class ChainLightning extends CustomJorbsModCard {
         return finalTargets;
     }
 
-    @Override
-    protected int calculateBonusBaseDamage() {
-        return magicNumber * damageMultiplier;
-    }
-
-    private int[] getDamagesArray(ArrayList<AbstractMonster> targets) {
-        int[] damagesArray = targets.stream().map(monster -> {
-            this.calculateCardDamage(monster);
-            damageMultiplier += 1;
-            return this.damage;
-        }).mapToInt(i -> i).toArray();
-
-        damageMultiplier = 0;
-
-        return damagesArray;
+    private void addLightningEffect(AbstractMonster monster, int multiplier) {
+        float duration = (0.05F * multiplier);
+        AbstractDungeon.actionManager.addToBottom(new SFXAction("THUNDERCLAP", duration));
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(monster.drawX, monster.drawY), duration));
     }
 
     @Override
