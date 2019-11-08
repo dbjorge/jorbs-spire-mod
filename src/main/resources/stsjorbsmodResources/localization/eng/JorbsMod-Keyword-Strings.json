@@ -7,12 +7,12 @@
   {
     "PROPER_NAME": "Entombed",
     "NAMES": ["entombed"],
-    "DESCRIPTION": "Starts combat Exhausted. Move from Exhaust pile to hand whenever an enemy dies."
+    "DESCRIPTION": "Start combat Exhausted. Move from Exhaust pile to hand whenever an enemy dies."
   },
   {
     "PROPER_NAME": "Destroy",
     "NAMES": ["destroy"],
-    "DESCRIPTION": "Permanently removes this card from your deck (not just this combat)."
+    "DESCRIPTION": "Permanently remove this card from your deck (not just this combat)."
   },
   {
     "PROPER_NAME": "Sin",
@@ -32,7 +32,7 @@
   {
     "PROPER_NAME": "Charity",
     "NAMES": ["charity", "Charity"],
-    "DESCRIPTION": "Maintains 1 #yStrength for every 100 gold you have."
+    "DESCRIPTION": "Until forgotten, gain 1 #yStrength for every 100 gold you have."
   },
   {
     "PROPER_NAME": "Chastity",
@@ -82,7 +82,7 @@
   {
     "PROPER_NAME": "Pride",
     "NAMES": ["pride", "Pride"],
-    "DESCRIPTION": "At the end of combat, permanently #yUpgrade a card in your deck. Maintains #b-2 Dexterity."
+    "DESCRIPTION": "At the end of combat, #yupgrade a card in your deck. Until forgotten, lose #b2 Dexterity."
   },
   {
     "PROPER_NAME": "Sloth",
@@ -92,7 +92,7 @@
   {
     "PROPER_NAME": "Temperance",
     "NAMES": ["temperance", "Temperance"],
-    "DESCRIPTION": "Reduce #yStrength of ALL enemies by #b3."
+    "DESCRIPTION": "Until forgotten, ALL enemies lose #b3 #yStrength."
   },
   {
     "PROPER_NAME": "Wrath",
@@ -103,5 +103,10 @@
     "PROPER_NAME": "Burning",
     "NAMES": ["burning", "Burning"],
     "DESCRIPTION": "Burning creatures lose HP at the start of their turn and have healing reduced by 50%. Each turn, Burning is reduced by half."
+  },
+  {
+    "PROPER_NAME": "Slow",
+    "NAMES": ["slow"],
+    "DESCRIPTION": "Slowed creatures take 10% more damage from attacks per card already played this turn."
   }
 ]
