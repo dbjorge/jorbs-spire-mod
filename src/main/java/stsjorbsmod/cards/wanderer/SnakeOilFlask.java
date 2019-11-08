@@ -34,7 +34,7 @@ public class SnakeOilFlask extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(m, p, new PoisonPower(m, p, this.magicNumber)));
-        addToBot(new RememberSpecificMemoryAction(new PatienceMemory(p, false)));
+        addToBot(new RememberSpecificMemoryAction(p, PatienceMemory.STATIC.ID));
     }
 
     @Override

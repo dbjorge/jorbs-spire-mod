@@ -35,7 +35,7 @@ public class Rest extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new RememberSpecificMemoryAction(new ChastityMemory(p, false)));
+        addToBot(new RememberSpecificMemoryAction(p, ChastityMemory.STATIC.ID));
         addToBot(new GainBlockAction(p, p, block));
         addToBot(new EndTurnNowAction());
     }

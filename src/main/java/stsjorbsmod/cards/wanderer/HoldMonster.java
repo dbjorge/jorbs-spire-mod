@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
-import stsjorbsmod.actions.GainMemoryClarityAction;
+import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.TemperanceMemory;
@@ -40,8 +40,8 @@ public class HoldMonster extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainMemoryClarityAction(p, TemperanceMemory.STATIC.ID));
-        addToBot(new RememberSpecificMemoryAction(new TemperanceMemory(p, false)));
+        addToBot(new GainClarityOfCurrentMemoryAction(p, TemperanceMemory.STATIC.ID));
+        addToBot(new RememberSpecificMemoryAction(p, TemperanceMemory.STATIC.ID));
 
         AbstractGameAction action = new ApplyPowerAction(m, p, new StrengthPower(m, -this.magicNumber), -this.magicNumber);
         addToBot(action);

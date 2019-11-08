@@ -4,7 +4,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
-import stsjorbsmod.actions.GainMemoryClarityAction;
+import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.KindnessMemory;
@@ -31,8 +31,8 @@ public class TinyHut extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new RememberSpecificMemoryAction(new KindnessMemory(p, false)));
-        addToBot(new GainMemoryClarityAction(p));
+        addToBot(new RememberSpecificMemoryAction(p, KindnessMemory.STATIC.ID));
+        addToBot(new GainClarityOfCurrentMemoryAction(p));
     }
 
     @Override

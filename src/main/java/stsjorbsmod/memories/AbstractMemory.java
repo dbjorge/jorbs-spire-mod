@@ -147,12 +147,12 @@ public abstract class AbstractMemory implements IOnModifyGoldListener {
             tips.add(new PowerTip(name, description, staticInfo.CLARITY_IMG_48));
 
             // Based on the AbstractCreature.renderPowerTips impl
-            float tipX = hb.cX + hb.width / 2.0F < TIP_X_THRESHOLD ?
-                    hb.cX + hb.width / 2.0F + TIP_OFFSET_R_X :
-                    hb.cX - hb.width / 2.0F + TIP_OFFSET_L_X;
+            float tipX = centerX + hb.width / 2.0F < TIP_X_THRESHOLD ?
+                    centerX + hb.width / 2.0F + TIP_OFFSET_R_X :
+                    centerX - hb.width / 2.0F + TIP_OFFSET_L_X;
 
             // The calculatedAdditionalOffset ensures everything is shifted to avoid going offscreen
-            float tipY = hb.cY + TipHelper.calculateAdditionalOffset(tips, hb.cY);
+            float tipY = centerY + TipHelper.calculateAdditionalOffset(tips, centerY);
 
             TipHelper.queuePowerTips(tipX, tipY, tips);
         }

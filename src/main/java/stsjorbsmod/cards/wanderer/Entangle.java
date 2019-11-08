@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.powers.SlowPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
-import stsjorbsmod.actions.GainMemoryClarityAction;
+import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.PatienceMemory;
@@ -47,8 +47,8 @@ public class Entangle extends CustomJorbsModCard {
             }
         }
 
-        addToBot(new RememberSpecificMemoryAction(new PatienceMemory(p, false)));
-        addToBot(new GainMemoryClarityAction(p));
+        addToBot(new RememberSpecificMemoryAction(p, PatienceMemory.STATIC.ID));
+        addToBot(new GainClarityOfCurrentMemoryAction(p));
     }
 
     @Override

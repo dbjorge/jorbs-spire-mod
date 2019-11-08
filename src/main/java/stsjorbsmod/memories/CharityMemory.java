@@ -24,7 +24,8 @@ public class CharityMemory extends AbstractMemory {
     }
 
     private int calculateBonusDamage() {
-        return (AbstractDungeon.player.gold / GOLD_THRESHOLD) * STRENGTH_PER_GOLD_THRESHOLD;
+        int gold = AbstractDungeon.player == null ? 0 : AbstractDungeon.player.gold;
+        return (gold / GOLD_THRESHOLD) * STRENGTH_PER_GOLD_THRESHOLD;
     }
 
     private void updateAppliedStrength() {

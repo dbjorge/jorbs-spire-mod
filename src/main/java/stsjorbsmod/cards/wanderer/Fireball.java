@@ -47,7 +47,7 @@ public class Fireball extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToTop(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.FIRE));
-        addToBot(new RememberSpecificMemoryAction(new LustMemory(p, false)));
+        addToBot(new RememberSpecificMemoryAction(p, LustMemory.STATIC.ID));
         if(upgraded && magicNumber > 0) {
             for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 addToBot(new ApplyPowerAction(mo, p, new BurningPower(mo, p, this.magicNumber)));
