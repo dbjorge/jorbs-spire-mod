@@ -30,6 +30,7 @@ public class ColorSpray extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int DAMAGE = 5;
+    private static final int UPGRADE_PLUS_DAMAGE = 3;
 
     public ColorSpray() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -62,15 +63,13 @@ public class ColorSpray extends CustomJorbsModCard {
         }
 
         addToBot(new RememberSpecificMemoryAction(p, EnvyMemory.STATIC.ID));
-        if (upgraded) {
-            addToBot(new GainClarityOfCurrentMemoryAction(p));
-        }
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeDamage(UPGRADE_PLUS_DAMAGE);
             upgradeDescription();
         }
     }

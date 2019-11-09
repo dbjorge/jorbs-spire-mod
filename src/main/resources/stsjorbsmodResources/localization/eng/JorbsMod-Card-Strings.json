@@ -192,8 +192,7 @@
   },
   "stsjorbsmod:ColorSpray": {
     "NAME": "Color Spray",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each one. NL Remember stsjorbsmod:Envy.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each one. NL Remember stsjorbsmod:Envy. NL Gain stsjorbsmod:Clarity of current memory."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each one. NL Remember stsjorbsmod:Envy."
   },
   "stsjorbsmod:Erode": {
     "NAME": "Erode",
