@@ -36,7 +36,7 @@ public class Feast extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new RememberSpecificMemoryAction(new GluttonyMemory(p, false)));
+        addToBot(new RememberSpecificMemoryAction(p, GluttonyMemory.STATIC.ID));
         addToBot(new DrawCardAction(p, magicNumber, false));
     }
 

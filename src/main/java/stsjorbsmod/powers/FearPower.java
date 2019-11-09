@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster.Intent;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.GainSpecificClarityAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
@@ -59,7 +60,7 @@ public class FearPower extends AbstractPower {
                 if (remainingMonsters == 0 && !AbstractDungeon.getCurrRoom().smoked) {
                     AbstractDungeon.getCurrRoom().smoked = true; // skips rewards
                     for (AbstractMemory clarity : MemoryManager.forPlayer(AbstractDungeon.player).currentClarities()) {
-                        AbstractDungeon.actionManager.addToNextCombat(new RememberSpecificMemoryAction(clarity.makeCopy()));
+                        AbstractDungeon.actionManager.addToNextCombat(new GainSpecificClarityAction(AbstractDungeon.player, clarity.ID));
                     }
                 }
             }

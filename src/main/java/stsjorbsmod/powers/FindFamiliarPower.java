@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.GainMemoryClarityAction;
+import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.util.TextureLoader;
 
@@ -44,7 +44,7 @@ public class FindFamiliarPower extends AbstractPower implements CloneablePowerIn
     public void atEndOfTurn(boolean isPlayer) {
         MemoryManager mm = MemoryManager.forPlayer(owner);
         if (isPlayer && mm != null) {
-            AbstractDungeon.actionManager.addToBottom(new GainMemoryClarityAction(owner));
+            AbstractDungeon.actionManager.addToBottom(new GainClarityOfCurrentMemoryAction(owner));
             if (cardsRetainedAfterSnapped > 0 && mm.isSnapped()) {
                 AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(owner, cardsRetainedAfterSnapped));
             }

@@ -35,7 +35,7 @@ public class HedgeWizard extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, block));
-        addToBot(new RememberSpecificMemoryAction(new HumilityMemory(p, false)));
+        addToBot(new RememberSpecificMemoryAction(p, HumilityMemory.STATIC.ID));
     }
 
     @Override

@@ -35,7 +35,7 @@ public class Determination extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new RememberSpecificMemoryAction(new PrideMemory(p, false)));
+        addToBot(new RememberSpecificMemoryAction(p, PrideMemory.STATIC.ID));
         addToBot(new ApplyPowerAction(p, p, new FragilePower(p, magicNumber), magicNumber));
     }
 

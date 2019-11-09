@@ -5,20 +5,24 @@ import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import stsjorbsmod.cards.CardSaveData;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.console.MemoryCommand;
+import stsjorbsmod.potions.DimensionDoorPotion;
 import stsjorbsmod.relics.FragileMindRelic;
 import stsjorbsmod.relics.MindGlassRelic;
 import stsjorbsmod.relics.WandererStarterRelic;
@@ -74,7 +78,11 @@ public class JorbsMod implements
     public static String makeRelicOutlinePath(String resourcePath) {
         return MOD_ID + "Resources/images/relics/outline/" + resourcePath;
     }
-    
+
+    public static String makeMemoryPath(String resourcePath) {
+        return MOD_ID + "Resources/images/memories/" + resourcePath;
+    }
+
     public static String makeOrbPath(String resourcePath) {
         return MOD_ID + "Resources/orbs/" + resourcePath;
     }
@@ -93,7 +101,7 @@ public class JorbsMod implements
 
     public static String makeLocalizedStringsPath(String resourcePath) {
         String languageFolder =
-                Settings.language == Settings.GameLanguage.FRA ? "fra" :
+                // Settings.language == Settings.GameLanguage.FRA ? "fra" :
                 /* default: */ "eng";
 
         return MOD_ID + "Resources/localization/" + languageFolder + "/" + resourcePath;
@@ -133,7 +141,10 @@ public class JorbsMod implements
             e.printStackTrace();
         }
         logger.info("Done adding mod settings");
-        
+
+        logger.info("Adding save fields");
+        BaseMod.addSaveField(MOD_ID + ":CardSaveData", new CardSaveData());
+        logger.info("Done adding save fields");
     }
     
     @SuppressWarnings("unused")
@@ -201,6 +212,8 @@ public class JorbsMod implements
         
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
+        BaseMod.addPotion(DimensionDoorPotion.class, Color.BLACK, Color.CORAL, null,
+                DimensionDoorPotion.POTION_ID, Wanderer.Enums.WANDERER);
         
         // =============== EVENTS =================
         
@@ -283,6 +296,7 @@ public class JorbsMod implements
         BaseMod.loadCustomStringsFile(RelicStrings.class, makeLocalizedStringsPath("JorbsMod-Relic-Strings.json"));
         BaseMod.loadCustomStringsFile(EventStrings.class, makeLocalizedStringsPath("JorbsMod-Event-Strings.json"));
         BaseMod.loadCustomStringsFile(CharacterStrings.class, makeLocalizedStringsPath("JorbsMod-Character-Strings.json"));
+        BaseMod.loadCustomStringsFile(PotionStrings.class, makeLocalizedStringsPath("JorbsMod-Potion-Strings.json"));
 
         logger.info("Done editing strings");
     }

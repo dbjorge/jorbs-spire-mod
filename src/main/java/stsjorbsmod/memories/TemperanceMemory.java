@@ -18,8 +18,8 @@ public class TemperanceMemory extends AbstractMemory {
 
     private ArrayList<AbstractGameAction> restoreStrengthActions;
 
-    public TemperanceMemory(final AbstractCreature owner, boolean isClarified) {
-        super(STATIC, MemoryType.VIRTUE, owner, isClarified);
+    public TemperanceMemory(final AbstractCreature owner) {
+        super(STATIC, MemoryType.VIRTUE, owner);
         setDescriptionPlaceholder("!M!", ENEMY_STRENGTH_REDUCTION);
     }
 

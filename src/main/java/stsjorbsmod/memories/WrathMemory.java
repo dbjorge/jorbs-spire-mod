@@ -3,7 +3,7 @@ package stsjorbsmod.memories;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
-import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.colorless.RitualDagger;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.patches.WrathField;
 import stsjorbsmod.util.EffectUtils;
 
 public class WrathMemory extends AbstractMemory {
@@ -18,8 +19,26 @@ public class WrathMemory extends AbstractMemory {
 
     private static final int DAMAGE_INCREASE_PER_KILL = 1;
 
-    public WrathMemory(final AbstractCreature owner, boolean isClarified) {
-        super(STATIC, MemoryType.SIN, owner, isClarified);
+    private static boolean isUpgradeCandidate(AbstractCard c) {
+        return c.type == CardType.ATTACK && c.baseDamage > 0;
+    }
+
+    public static void reapplyToLoadedCard(AbstractCard card, int effectCount) {
+        if (!isUpgradeCandidate(card) && (effectCount > 0)) {
+            JorbsMod.logger.error("Wrath effect count modified for an ineligible card");
+            return;
+        }
+
+        WrathField.wrathEffectCount.set(card, effectCount);
+
+        // Ritual Dagger saves the effect of wrath in its misc fields, so it alone doesn't need to be modified.
+        if (!(card instanceof RitualDagger)) {
+            card.baseDamage += DAMAGE_INCREASE_PER_KILL * effectCount;
+        }
+    }
+
+    public WrathMemory(final AbstractCreature owner) {
+        super(STATIC, MemoryType.SIN, owner);
         setDescriptionPlaceholder("!M!", DAMAGE_INCREASE_PER_KILL);
         setCardDescriptionPlaceholder(getCardToUpgrade());
     }
@@ -32,10 +51,6 @@ public class WrathMemory extends AbstractMemory {
     private void setCardDescriptionPlaceholder(AbstractCard c) {
         String text = c != null ? c.name : "none";
         setDescriptionPlaceholder("!C!", text);
-    }
-
-    private boolean isUpgradeCandidate(AbstractCard c) {
-        return c.type == CardType.ATTACK && c.baseDamage > 0;
     }
 
     private AbstractCard getCardToUpgrade() {
@@ -51,7 +66,7 @@ public class WrathMemory extends AbstractMemory {
 
     @Override
     public void onMonsterDeath(AbstractMonster m) {
-        if (!isPassiveEffectActive || m.hasPower(MinionPower.POWER_ID)) {
+        if (!isPassiveEffectActive() || m.hasPower(MinionPower.POWER_ID)) {
             return;
         }
 
@@ -84,12 +99,20 @@ public class WrathMemory extends AbstractMemory {
         AbstractCard masterCard = StSLib.getMasterDeckEquivalent(card);
         if (masterCard != null) {
             masterCard.baseDamage += DAMAGE_INCREASE_PER_KILL;
+            if (masterCard instanceof RitualDagger) {
+                masterCard.misc += DAMAGE_INCREASE_PER_KILL;
+            }
+            WrathField.wrathEffectCount.set(masterCard, WrathField.wrathEffectCount.get(masterCard) + 1);
             masterCard.superFlash();
             cardToShowForVfx = masterCard;
         }
 
         for (AbstractCard instance : GetAllInBattleInstances.get(card.uuid)) {
             instance.baseDamage += DAMAGE_INCREASE_PER_KILL;
+            if (instance instanceof RitualDagger) {
+                instance.misc += DAMAGE_INCREASE_PER_KILL;
+            }
+            WrathField.wrathEffectCount.set(instance, WrathField.wrathEffectCount.get(instance) + 1);
             instance.applyPowers();
         }
 

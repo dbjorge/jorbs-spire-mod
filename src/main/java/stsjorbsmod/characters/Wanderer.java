@@ -137,11 +137,6 @@ public class Wanderer extends CustomPlayer {
     public static final String SHOULDER_2_TEXTURE = "stsjorbsmodResources/images/char/wanderer/shoulder2.png";
     public static final String CORPSE_TEXTURE = "stsjorbsmodResources/images/char/wanderer/corpse.png";
 
-    // Atlas and JSON files for the Animations
-    public static final String SKELETON_ATLAS = "stsjorbsmodResources/images/char/wanderer/skeleton.atlas";
-    public static final String SKELETON_JSON = "stsjorbsmodResources/images/char/wanderer/skeleton.json";
-
-
     public static final String[] ORB_LAYER_TEXTURES = {
             "stsjorbsmodResources/images/char/wanderer/orb/layer1.png",
             "stsjorbsmodResources/images/char/wanderer/orb/layer2.png",
@@ -157,7 +152,6 @@ public class Wanderer extends CustomPlayer {
 
     // =============== /TEXTURES/ ===============
 
-    // =============== CHARACTER CLASS START =================
 
     public Wanderer(String name, PlayerClass setClass) {
         super(
@@ -168,7 +162,7 @@ public class Wanderer extends CustomPlayer {
                 null,
                 new SpriterAnimation("stsjorbsmodResources/images/char/wanderer/Spriter/idleanimation/idleanimation.scml"));
 
-        // =============== TEXTURES, ENERGY, LOADOUT =================  
+        ((SpriterAnimation)this.animation).myPlayer.setScale(Settings.scale * 1.1F);
 
         initializeClass(
                 null, // required call to load textures and setup energy/loadout.
@@ -178,34 +172,11 @@ public class Wanderer extends CustomPlayer {
                 CORPSE_TEXTURE, // dead corpse
                 getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
 
-        final float MEMORY_OFFSET_Y = 310.0F * Settings.scale;
-        final float CLARITY_OFFSET_Y = -10.0F * Settings.scale;
-        final float SIN_OFFSET_X = -200.0F * Settings.scale;
-        final float VIRTUE_OFFSET_X = 160.0F * Settings.scale;
-        this.memories = new MemoryManager(this, drawX, drawY, MEMORY_OFFSET_Y, CLARITY_OFFSET_Y, SIN_OFFSET_X, VIRTUE_OFFSET_X);
+        this.memories = new MemoryManager(this);
 
-        // =============== /TEXTURES, ENERGY, LOADOUT/ =================
-
-
-        // =============== ANIMATIONS =================  
-
-        loadAnimation(SKELETON_ATLAS, SKELETON_JSON, 1.0f);
-        AnimationState.TrackEntry e = state.setAnimation(0, "animation", true);
-        e.setTime(e.getEndTime() * MathUtils.random());
-
-        // =============== /ANIMATIONS/ =================
-
-
-        // =============== TEXT BUBBLE LOCATION =================
-
-        dialogX = (drawX + 0.0F * Settings.scale); // set location for text bubbles
-        dialogY = (drawY + 220.0F * Settings.scale); // you can just copy these values
-
-        // =============== /TEXT BUBBLE LOCATION/ =================
-
+        this.dialogX = (drawX + 0.0F * Settings.scale); // set location for text bubbles
+        this.dialogY = (drawY + 220.0F * Settings.scale); // you can just copy these values
     }
-
-    // =============== /CHARACTER CLASS END/ =================
 
     public final MemoryManager memories;
 
@@ -218,13 +189,7 @@ public class Wanderer extends CustomPlayer {
     @Override
     public void updatePowers() {
         super.updatePowers();
-        memories.update();
-    }
-
-    @Override
-    public void movePosition(float x, float y) {
-        super.movePosition(x, y);
-        memories.movePosition(x, y);
+        memories.update(drawX, drawY);
     }
 
     // Starting description and loadout

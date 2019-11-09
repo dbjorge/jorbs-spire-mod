@@ -4,7 +4,7 @@ import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.GainMemoryClarityAction;
+import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
@@ -35,9 +35,9 @@ public class Aid extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new HealAction(m, p, this.magicNumber));
-        addToBot(new RememberSpecificMemoryAction(new KindnessMemory(p, false)));
+        addToBot(new RememberSpecificMemoryAction(p, KindnessMemory.STATIC.ID));
         if (upgraded) {
-            addToBot(new GainMemoryClarityAction(p));
+            addToBot(new GainClarityOfCurrentMemoryAction(p));
         }
     }
 

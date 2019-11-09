@@ -23,8 +23,8 @@ public class SlothMemory extends AbstractMemory {
     private static final int DISCARD_ON_REMEMBER = 3;
     private static final int DRAW_REDUCTION = 1;
 
-    public SlothMemory(final AbstractCreature owner, boolean isClarified) {
-        super(STATIC, MemoryType.SIN, owner, isClarified);
+    public SlothMemory(final AbstractCreature owner) {
+        super(STATIC, MemoryType.SIN, owner);
         setDescriptionPlaceholder("!M!", DRAW_REDUCTION);
     }
 

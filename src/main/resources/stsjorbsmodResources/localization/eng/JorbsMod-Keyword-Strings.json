@@ -1,18 +1,33 @@
 [
   {
-    "PROPER_NAME": "Snap",
-    "NAMES": ["snap", "snapped"],
-    "DESCRIPTION": "Deal 6 damage to ALL enemies and lose 3 HP for every #yClarity you have. You cannot #yRemember or have #yClarity of any memories for the remainder of the fight."
-  },
-  {
-    "PROPER_NAME": "Entombed",
-    "NAMES": ["entombed"],
-    "DESCRIPTION": "Starts combat Exhausted. Move from Exhaust pile to hand whenever an enemy dies."
+    "PROPER_NAME": "Burning",
+    "NAMES": ["burning", "Burning"],
+    "DESCRIPTION": "Burning creatures lose HP at the start of their turn and have healing reduced by 50%. Each turn, Burning is reduced by half."
   },
   {
     "PROPER_NAME": "Destroy",
     "NAMES": ["destroy"],
-    "DESCRIPTION": "Permanently removes this card from your deck (not just this combat)."
+    "DESCRIPTION": "Permanently remove this card from your deck (not just this combat)."
+  },
+  {
+    "PROPER_NAME": "Entombed",
+    "NAMES": ["entombed"],
+    "DESCRIPTION": "Start combat Exhausted. Move from Exhaust pile to hand whenever an enemy dies."
+  },
+  {
+    "PROPER_NAME": "Slow",
+    "NAMES": ["slow"],
+    "DESCRIPTION": "Slowed creatures take 10% more damage from attacks per card already played this turn."
+  },
+  {
+    "PROPER_NAME": "Clarity",
+    "NAMES": ["clarity", "Clarity"],
+    "DESCRIPTION": "Memories you have Clarity of won't be forgotten when remembering a new memory."
+  },
+  {
+    "PROPER_NAME": "Snap",
+    "NAMES": ["snap", "snapped"],
+    "DESCRIPTION": "Deal 6 damage to ALL enemies and lose 3 HP for every #yClarity you have. You cannot #yRemember or have #yClarity of any memories for the remainder of the fight."
   },
   {
     "PROPER_NAME": "Sin",
@@ -25,14 +40,9 @@
     "DESCRIPTION": "A memory of #yCharity, #yChastity, #yDiligence, #yHumility, #yKindness, #yPatience, or #yTemperance."
   },
   {
-    "PROPER_NAME": "Clarity",
-    "NAMES": ["clarity", "Clarity"],
-    "DESCRIPTION": "Memories you have Clarity of won't be forgotten when remembering a new memory."
-  },
-  {
     "PROPER_NAME": "Charity",
     "NAMES": ["charity", "Charity"],
-    "DESCRIPTION": "Maintains 1 #yStrength for every 100 gold you have."
+    "DESCRIPTION": "Until forgotten, gain 1 #yStrength for every 100 gold you have."
   },
   {
     "PROPER_NAME": "Chastity",
@@ -50,14 +60,14 @@
     "DESCRIPTION": "When you remember Envy, gain #b1 #yVulnerable. Whenever you target an enemy with a card, apply #b1 #yVulnerable to that enemy."
   },
   {
-    "PROPER_NAME": "Greed",
-    "NAMES": ["greed", "Greed"],
-    "DESCRIPTION": "Whenever you kill a non-minion enemy, gain #b10 gold."
-  },
-  {
     "PROPER_NAME": "Gluttony",
     "NAMES": ["gluttony", "Gluttony"],
     "DESCRIPTION": "Whenever you kill a non-minion enemy, raise your Max HP by #b3. At the start of each turn, discard one card."
+  },
+  {
+    "PROPER_NAME": "Greed",
+    "NAMES": ["greed", "Greed"],
+    "DESCRIPTION": "Whenever you kill a non-minion enemy, gain #b10 gold."
   },
   {
     "PROPER_NAME": "Humility",
@@ -67,12 +77,12 @@
   {
     "PROPER_NAME": "Kindness",
     "NAMES": ["kindness", "Kindness"],
-    "DESCRIPTION": "When you remember Kindness, apply #b3 #yPoison to ALL enemies. Whenever an attack deals unblocked damage, apply #b1 #yPoison."
+    "DESCRIPTION": "Until forgotten, ALL enemies lose #b3 #yStrength."
   },
   {
     "PROPER_NAME": "Lust",
     "NAMES": ["lust", "Lust"],
-    "DESCRIPTION": "Your attacks deal 25% bonus damage. When you forget Lust, gain 2 Weak."
+    "DESCRIPTION": "Your attacks apply #b2 #yBurning. Each time remembered, apply #b2 #yBurning to ALL enemies. Each time forgotten, gain #b2 #yWeak."
   },
   {
     "PROPER_NAME": "Patience",
@@ -82,7 +92,7 @@
   {
     "PROPER_NAME": "Pride",
     "NAMES": ["pride", "Pride"],
-    "DESCRIPTION": "At the end of combat, permanently #yUpgrade a card in your deck. Maintains #b-2 Dexterity."
+    "DESCRIPTION": "At the end of combat, #yupgrade a card in your deck. Until forgotten, lose #b2 Dexterity."
   },
   {
     "PROPER_NAME": "Sloth",
@@ -92,16 +102,11 @@
   {
     "PROPER_NAME": "Temperance",
     "NAMES": ["temperance", "Temperance"],
-    "DESCRIPTION": "Reduce #yStrength of ALL enemies by #b3."
+    "DESCRIPTION": "Until forgotten, ALL enemies lose #b3 #yStrength."
   },
   {
     "PROPER_NAME": "Wrath",
     "NAMES": ["wrath", "Wrath"],
     "DESCRIPTION": "Whenever you kill a non-minion enemy, permanently increase the damage of the last damage-dealing attack card played this combat by 1."
-  },
-  {
-    "PROPER_NAME": "Burning",
-    "NAMES": ["burning", "Burning"],
-    "DESCRIPTION": "Burning creatures lose HP at the start of their turn and have healing reduced by 50%. Each turn, Burning is reduced by half."
   }
 ]
