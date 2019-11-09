@@ -6,11 +6,12 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.CoilPower;
 import stsjorbsmod.powers.SnappedPower;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -49,19 +50,14 @@ public class MemoryManager {
                 this.currentMemory.onGainPassiveEffect();
             }
 
-            AbstractPower possibleCoilPower = this.owner.getPower(CoilPower.POWER_ID);
-            if (possibleCoilPower != null) {
-                possibleCoilPower.onSpecificTrigger();
-            }
-
             this.currentMemory.flash();
-            notifyModifyMemories();
+            notifyModifyMemories(MemoryEventType.REMEMBER);
         }
     }
 
     public void forgetCurrentMemory() {
         forgetCurrentMemoryNoNotify();
-        notifyModifyMemories();
+        notifyModifyMemories(MemoryEventType.FORGET);
     }
 
     private void forgetCurrentMemoryNoNotify() {
@@ -100,7 +96,7 @@ public class MemoryManager {
         clarity.isClarified = true;
         clarity.updateDescription();
         clarity.flash();
-        notifyModifyMemories();
+        notifyModifyMemories(MemoryEventType.CLARITY);
     }
 
     public boolean hasClarity(String id) {
@@ -143,7 +139,7 @@ public class MemoryManager {
             clarity.isClarified = false;
         }
 
-        notifyModifyMemories();
+        notifyModifyMemories(MemoryEventType.SNAP);
     }
 
 
@@ -158,10 +154,21 @@ public class MemoryManager {
         return owner.hasPower(SnappedPower.POWER_ID);
     }
     
-    public void notifyModifyMemories() {
+    public void notifyModifyMemories(MemoryEventType type) {
+        for (AbstractRelic r : owner.relics) {
+            if (r instanceof OnModifyMemoriesListener) {
+                OnModifyMemoriesListener listener = (OnModifyMemoriesListener) r;
+                if (Arrays.asList(listener.getMemoryEventTypes()).contains(type)) {
+                    listener.onModifyMemories();
+                }
+            }
+        }
         for (AbstractPower p : owner.powers) {
             if (p instanceof OnModifyMemoriesListener) {
-                ((OnModifyMemoriesListener)p).onModifyMemories();
+                OnModifyMemoriesListener listener = (OnModifyMemoriesListener) p;
+                if (Arrays.asList(listener.getMemoryEventTypes()).contains(type)) {
+                    listener.onModifyMemories();
+                }
             }
         }
         AbstractDungeon.onModifyPower();
@@ -200,5 +207,9 @@ public class MemoryManager {
         for (AbstractMemory m : memories) {
             m.render(sb);
         }
+    }
+
+    public enum MemoryEventType {
+        REMEMBER, CLARITY, FORGET, SNAP
     }
 }
