@@ -45,7 +45,7 @@
   "stsjorbsmod:RayOfFrost": {
     "NAME": "Ray of Frost",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply 1 Weak !M! times."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak !stsjorbsmod:MetaMagic! times."
   },
   "stsjorbsmod:Counterspell": {
     "NAME": "Counterspell",
