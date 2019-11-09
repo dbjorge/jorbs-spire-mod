@@ -242,8 +242,8 @@
   },
   "stsjorbsmod:Fireball": {
     "NAME": "Fireball",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Remember stsjorbsmod:Lust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies. NL Remember stsjorbsmod:Lust. NL Apply !M! stsjorbsmod:Burning to ALL enemies."
+    "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Deal !D! damage to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Lust. NL Deal !D! damage to ALL enemies. NL Apply !M! stsjorbsmod:Burning to ALL enemies."
   },
   "stsjorbsmod:LoseGrip": {
     "NAME": "Lose Grip",

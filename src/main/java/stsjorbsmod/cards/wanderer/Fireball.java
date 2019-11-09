@@ -33,12 +33,14 @@ public class Fireball extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = 2;
-    private static final int DAMAGE = 21;
-    private static final int BURNING = 3;
+    private static final int DAMAGE = 18;
+    private static final int BURNING = 0;
+    private static final int UPGRADE_PLUS_BURNING = 4;
 
     public Fireball() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = DAMAGE;
+        damage = baseDamage = DAMAGE;
+        magicNumber = baseMagicNumber = BURNING;
         isMultiDamage = true;
 
         this.tags.add(REMEMBER_MEMORY);
@@ -46,9 +48,9 @@ public class Fireball extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToTop(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.FIRE));
         addToBot(new RememberSpecificMemoryAction(p, LustMemory.STATIC.ID));
-        if(upgraded && magicNumber > 0) {
+        addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.FIRE));
+        if(magicNumber > 0) {
             for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 addToBot(new ApplyPowerAction(mo, p, new BurningPower(mo, p, this.magicNumber)));
             }
@@ -59,7 +61,7 @@ public class Fireball extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(BURNING);
+            upgradeMagicNumber(UPGRADE_PLUS_BURNING);
             upgradeDescription();
         }
     }
