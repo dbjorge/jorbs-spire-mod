@@ -40,7 +40,7 @@ public class Hibernate extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, block));
-        addToBot(new RememberSpecificMemoryAction(new SlothMemory(p, false)));
+        addToBot(new RememberSpecificMemoryAction(p, SlothMemory.STATIC.ID));
 
         MemoryManager memoryManager = MemoryManager.forPlayer(p);
         if (upgraded && memoryManager != null && memoryManager.isSnapped()) {

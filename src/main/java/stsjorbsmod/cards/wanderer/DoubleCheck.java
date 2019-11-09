@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
-import stsjorbsmod.actions.GainMemoryClarityAction;
+import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.DiligenceMemory;
@@ -39,8 +39,8 @@ public class DoubleCheck extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, block));
-        addToBot(new GainMemoryClarityAction(p, DiligenceMemory.STATIC.ID));
-        addToBot(new RememberSpecificMemoryAction(new DiligenceMemory(p, false)));
+        addToBot(new GainClarityOfCurrentMemoryAction(p, DiligenceMemory.STATIC.ID));
+        addToBot(new RememberSpecificMemoryAction(p, DiligenceMemory.STATIC.ID));
         if (upgraded) {
             addToBot(new DrawCardAction(p, magicNumber));
         }

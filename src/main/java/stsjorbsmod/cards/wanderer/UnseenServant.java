@@ -38,7 +38,7 @@ public class UnseenServant extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new RememberSpecificMemoryAction(new SlothMemory(p, false)));
+        addToBot(new RememberSpecificMemoryAction(p, SlothMemory.STATIC.ID));
         addToBot(new CardsToTopOfDeckAction(p, p.discardPile, this.magicNumber, false));
         if (metaMagicNumber > 0) {
             addToBot(new DrawCardAction(p, metaMagicNumber));

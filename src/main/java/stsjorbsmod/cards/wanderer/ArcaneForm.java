@@ -4,6 +4,7 @@ import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.GainSpecificClarityAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
@@ -33,11 +34,11 @@ public class ArcaneForm extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new RememberSpecificMemoryAction(new WrathMemory(p, true)));
-        addToBot(new RememberSpecificMemoryAction(new LustMemory(p, true)));
-        addToBot(new RememberSpecificMemoryAction(new DiligenceMemory(p, true)));
-        addToBot(new RememberSpecificMemoryAction(new KindnessMemory(p, true)));
-        addToBot(new RememberSpecificMemoryAction(new ChastityMemory(p, true)));
+        addToBot(new GainSpecificClarityAction(p, WrathMemory.STATIC.ID));
+        addToBot(new GainSpecificClarityAction(p, LustMemory.STATIC.ID));
+        addToBot(new GainSpecificClarityAction(p, DiligenceMemory.STATIC.ID));
+        addToBot(new GainSpecificClarityAction(p, KindnessMemory.STATIC.ID));
+        addToBot(new GainSpecificClarityAction(p, ChastityMemory.STATIC.ID));
     }
 
     @Override

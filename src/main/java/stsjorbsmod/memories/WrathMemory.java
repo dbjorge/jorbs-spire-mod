@@ -37,8 +37,8 @@ public class WrathMemory extends AbstractMemory {
         }
     }
 
-    public WrathMemory(final AbstractCreature owner, boolean isClarified) {
-        super(STATIC, MemoryType.SIN, owner, isClarified);
+    public WrathMemory(final AbstractCreature owner) {
+        super(STATIC, MemoryType.SIN, owner);
         setDescriptionPlaceholder("!M!", DAMAGE_INCREASE_PER_KILL);
         setCardDescriptionPlaceholder(getCardToUpgrade());
     }
@@ -66,7 +66,7 @@ public class WrathMemory extends AbstractMemory {
 
     @Override
     public void onMonsterDeath(AbstractMonster m) {
-        if (!isPassiveEffectActive || m.hasPower(MinionPower.POWER_ID)) {
+        if (!isPassiveEffectActive() || m.hasPower(MinionPower.POWER_ID)) {
             return;
         }
 

@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.ThornsPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
-import stsjorbsmod.actions.GainMemoryClarityAction;
+import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.actions.IfEnemyIntendsToAttackAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
@@ -38,8 +38,8 @@ public class Thorns extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new RememberSpecificMemoryAction(new HumilityMemory(p, false)));
-        addToBot(new IfEnemyIntendsToAttackAction(m, new GainMemoryClarityAction(p)));
+        addToBot(new RememberSpecificMemoryAction(p, HumilityMemory.STATIC.ID));
+        addToBot(new IfEnemyIntendsToAttackAction(m, new GainClarityOfCurrentMemoryAction(p)));
         if (magicNumber > 0) {
             addToBot(new ApplyPowerAction(p, p, new ThornsPower(p, magicNumber)));
         }

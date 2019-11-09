@@ -41,7 +41,7 @@ public class Erode extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ErodeAction(m, p, magicNumber, metaMagicNumber));
-        addToBot(new RememberSpecificMemoryAction(new TemperanceMemory(p, false)));
+        addToBot(new RememberSpecificMemoryAction(p, TemperanceMemory.STATIC.ID));
         if (urMagicNumber > 0) {
             addToBot(new DrawCardAction(p, urMagicNumber));
         }

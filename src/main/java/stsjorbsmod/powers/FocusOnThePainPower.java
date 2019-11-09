@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.GainMemoryClarityAction;
+import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
@@ -40,7 +40,7 @@ public class FocusOnThePainPower extends AbstractPower implements CloneablePower
 
     @Override
     public int onLoseHp(int damageAmount) {
-        AbstractDungeon.actionManager.addToBottom(new GainMemoryClarityAction(owner));
+        AbstractDungeon.actionManager.addToBottom(new GainClarityOfCurrentMemoryAction(owner));
         return damageAmount;
     }
 

@@ -8,35 +8,36 @@ import java.util.ArrayList;
 public class MemoryUtils {
     public static ArrayList<String> allPossibleMemoryIDs() {
         ArrayList<String> ids = new ArrayList<>();
-        for (AbstractMemory p : allPossibleMemories(null, false)) {
+        for (AbstractMemory p : allPossibleMemories(null)) {
             ids.add(p.ID);
         }
         return ids;
     }
 
-    public static ArrayList<AbstractMemory> allPossibleMemories(AbstractCreature target, boolean isClarified) {
+    public static ArrayList<AbstractMemory> allPossibleMemories(AbstractCreature target) {
         ArrayList<AbstractMemory> powers = new ArrayList<>();
 
-        powers.add(new CharityMemory(target, isClarified));
-        powers.add(new ChastityMemory(target, isClarified));
-        powers.add(new DiligenceMemory(target, isClarified));
-        powers.add(new EnvyMemory(target, isClarified));
-        powers.add(new GreedMemory(target, isClarified));
-        powers.add(new GluttonyMemory(target, isClarified));
-        powers.add(new HumilityMemory(target, isClarified));
-        powers.add(new KindnessMemory(target, isClarified));
-        powers.add(new LustMemory(target, isClarified));
-        powers.add(new PatienceMemory(target, isClarified));
-        powers.add(new PrideMemory(target, isClarified));
-        powers.add(new SlothMemory(target, isClarified));
-        powers.add(new TemperanceMemory(target, isClarified));
-        powers.add(new WrathMemory(target, isClarified));
+        powers.add(new TemperanceMemory(target));
+        powers.add(new PatienceMemory(target));
+        powers.add(new KindnessMemory(target));
+        powers.add(new HumilityMemory(target));
+        powers.add(new DiligenceMemory(target));
+        powers.add(new ChastityMemory(target));
+        powers.add(new CharityMemory(target));
+
+        powers.add(new EnvyMemory(target));
+        powers.add(new GreedMemory(target));
+        powers.add(new GluttonyMemory(target));
+        powers.add(new LustMemory(target));
+        powers.add(new PrideMemory(target));
+        powers.add(new SlothMemory(target));
+        powers.add(new WrathMemory(target));
 
         return powers;
     }
 
     public static AbstractMemory newMemoryByID(String id, AbstractCreature target, boolean isClarified) {
-        for (AbstractMemory memory : allPossibleMemories(target, isClarified)) {
+        for (AbstractMemory memory : allPossibleMemories(target)) {
             if (memory.ID.equals(id)) {
                 return memory;
             }

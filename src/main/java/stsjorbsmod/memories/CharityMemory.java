@@ -1,7 +1,6 @@
 package stsjorbsmod.memories;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -15,8 +14,8 @@ public class CharityMemory extends AbstractMemory {
 
     private int strengthAlreadyApplied;
 
-    public CharityMemory(final AbstractCreature owner, boolean isClarified) {
-        super(STATIC, MemoryType.VIRTUE, owner, isClarified);
+    public CharityMemory(final AbstractCreature owner) {
+        super(STATIC, MemoryType.VIRTUE, owner);
         strengthAlreadyApplied = 0;
 
         setDescriptionPlaceholder("!S!", calculateBonusDamage());
@@ -24,7 +23,8 @@ public class CharityMemory extends AbstractMemory {
     }
 
     private int calculateBonusDamage() {
-        return (AbstractDungeon.player.gold / GOLD_THRESHOLD) * STRENGTH_PER_GOLD_THRESHOLD;
+        int gold = AbstractDungeon.player == null ? 0 : AbstractDungeon.player.gold;
+        return (gold / GOLD_THRESHOLD) * STRENGTH_PER_GOLD_THRESHOLD;
     }
 
     private void updateAppliedStrength() {
@@ -34,7 +34,7 @@ public class CharityMemory extends AbstractMemory {
         // remembered memory and there is already a clarity handling the passive effect).
         setDescriptionPlaceholder("!S!", newStrength);
 
-        if (!isPassiveEffectActive) {
+        if (!isPassiveEffectActive()) {
             newStrength = 0;
         }
 
