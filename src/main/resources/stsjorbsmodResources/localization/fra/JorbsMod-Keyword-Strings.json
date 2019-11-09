@@ -1,10 +1,17 @@
 [
   {
-    "PROPER_NAME": "Claquer",
-    "DESCRIPTION": "Inflige 5 dégâts à TOUS les ennemis et 2 dégâts à vous-même pour chaque bonus de clarté que vous avez. Vous ne pouvez pas être affecté par des souvenirs ou des éclaircissements pour le reste du combat.",
+    "PROPER_NAME": "Colère",
+    "DESCRIPTION": "À chaque fois que vous tuez un ennemi n'appartenant pas à un séide, augmentez de manière permanente les dégâts de la dernière carte d'attaque infligée qui inflige des dégâts à ce combat de 1.",
     "NAMES": [
-      "claquer",
-      "cassé"
+      "colère",
+      "Colère"
+    ]
+  },
+  {
+    "PROPER_NAME": "Détruire",
+    "DESCRIPTION": "Enlève définitivement cette carte de votre deck (pas seulement ce combat).",
+    "NAMES": [
+      "détruire", "Détruisez"
     ]
   },
   {
@@ -15,10 +22,19 @@
     ]
   },
   {
-    "PROPER_NAME": "Détruire",
-    "DESCRIPTION": "Enlève définitivement cette carte de votre deck (pas seulement ce combat).",
+    "PROPER_NAME": "Clarté",
+    "DESCRIPTION": "Les souvenirs dont vous avez la clarté ne seront pas oubliés lors de la mémorisation d'un nouveau souvenir.",
     "NAMES": [
-      "détruire", "Détruisez"
+      "clarté",
+      "Clarté"
+    ]
+  },
+  {
+    "PROPER_NAME": "Claquer",
+    "DESCRIPTION": "Inflige 5 dégâts à TOUS les ennemis et 2 dégâts à vous-même pour chaque bonus de clarté que vous avez. Vous ne pouvez pas être affecté par des souvenirs ou des éclaircissements pour le reste du combat.",
+    "NAMES": [
+      "claquer",
+      "cassé"
     ]
   },
   {
@@ -35,14 +51,6 @@
     "NAMES": [
       "vertu",
       "Vertu"
-    ]
-  },
-  {
-    "PROPER_NAME": "Clarté",
-    "DESCRIPTION": "Les souvenirs dont vous avez la clarté ne seront pas oubliés lors de la mémorisation d'un nouveau souvenir.",
-    "NAMES": [
-      "clarté",
-      "Clarté"
     ]
   },
   {
@@ -78,19 +86,19 @@
     ]
   },
   {
-    "PROPER_NAME": "Avidité",
-    "DESCRIPTION": "À chaque fois que vous tuez un ennemi non-sbire, gagnez 10 pièces d'or.",
-    "NAMES": [
-      "avidité",
-      "Avidité"
-    ]
-  },
-  {
     "PROPER_NAME": "Gourmandise",
     "DESCRIPTION": "Chaque fois que vous tuez un ennemi non-sbire, augmentez vos PV maximum de 3.",
     "NAMES": [
       "gourmandise",
       "Gourmandise"
+    ]
+  },
+  {
+    "PROPER_NAME": "Avidité",
+    "DESCRIPTION": "À chaque fois que vous tuez un ennemi non-sbire, gagnez 10 pièces d'or.",
+    "NAMES": [
+      "avidité",
+      "Avidité"
     ]
   },
   {
@@ -149,12 +157,4 @@
       "Tempérance"
     ]
   },
-  {
-    "PROPER_NAME": "Colère",
-    "DESCRIPTION": "À chaque fois que vous tuez un ennemi n'appartenant pas à un séide, augmentez de manière permanente les dégâts de la dernière carte d'attaque infligée qui inflige des dégâts à ce combat de 1.",
-    "NAMES": [
-      "colère",
-      "Colère"
-    ]
-  }
 ]
