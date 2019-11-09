@@ -183,8 +183,8 @@
   },
   "stsjorbsmod:Stalwart": {
     "NAME": "Stalwart",
-    "DESCRIPTION": "Remember stsjorbsmod:Temperance.",
-    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Temperance. NL Gain stsjorbsmod:Clarity of current memory."
+    "DESCRIPTION": "Remember stsjorbsmod:Temperance. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Temperance. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
   },
   "stsjorbsmod:AnimateObjects": {
     "NAME": "Animate Objects",
