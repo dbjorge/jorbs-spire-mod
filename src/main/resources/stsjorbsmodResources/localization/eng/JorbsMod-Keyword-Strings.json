@@ -82,7 +82,7 @@
   {
     "PROPER_NAME": "Lust",
     "NAMES": ["lust", "Lust"],
-    "DESCRIPTION": "Your attacks deal 25% bonus damage. When you forget Lust, gain 2 Weak."
+    "DESCRIPTION": "Your attacks apply #b2 #yBurning. Each time remembered, apply #b2 #yBurning to ALL enemies. Each time forgotten, gain #b2 #yWeak."
   },
   {
     "PROPER_NAME": "Patience",

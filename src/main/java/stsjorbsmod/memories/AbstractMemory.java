@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -108,8 +109,9 @@ public abstract class AbstractMemory implements IOnModifyGoldListener {
     public void atStartOfTurnPostDraw() {}
     public void atEndOfTurn(boolean isPlayer) {}
     public float atDamageGive(float originalDamage, DamageType type) { return originalDamage; }
-    public float modifyBlock(float originalBlockAmount) { return originalBlockAmount; };
+    public float modifyBlock(float originalBlockAmount) { return originalBlockAmount; }
     public void onPlayCard(AbstractCard card, AbstractMonster monster) { }
+    public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) { }
     // onMonsterDeath can happen within the same action that ends the combat, so you shouldn't queue new actions in here.
     public void onMonsterDeath(AbstractMonster monster) { }
     public void onVictory() { }
@@ -196,17 +198,13 @@ public abstract class AbstractMemory implements IOnModifyGoldListener {
     }
 
     public final void updateDescription() {
-        this.description = applyPlaceholderDictionary(this.baseDescription, this.descriptionPlaceholders);
+        String prefix =
+                (isClarified && isRemembered) ? TEXT[0] + TEXT[1] :
+                isClarified ? TEXT[0] :
+                isRemembered ? TEXT[1] :
+                /* neither: */ TEXT[2];
 
-        if (isClarified) {
-            this.description = TEXT[0] + this.description;
-        }
-        if (isRemembered) {
-            this.description = TEXT[1] + this.description;
-        }
-        if (!isClarified && !isRemembered) {
-            this.description = TEXT[2] + this.description;
-        }
+        this.description = prefix + " NL " + applyPlaceholderDictionary(this.baseDescription, this.descriptionPlaceholders);
     }
 
     private String applyPlaceholderDictionary(String string, Map<String, String> placeholders) {

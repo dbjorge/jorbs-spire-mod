@@ -153,7 +153,7 @@
   "stsjorbsmod:LustMemory": {
     "NAME": "Lust",
     "DESCRIPTIONS": [
-      "Your attacks deal !P!% bonus damage. When you forget Lust, gain !W! Weak."
+      "Your attacks apply !P! #yBurning. Each time remembered, apply !R! #yBurning to ALL enemies. Each time forgotten, gain !F! #yWeak."
     ]
   },
   "stsjorbsmod:PatienceMemory": {
