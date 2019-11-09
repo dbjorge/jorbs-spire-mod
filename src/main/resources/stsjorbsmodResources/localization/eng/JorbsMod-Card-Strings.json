@@ -153,8 +153,7 @@
   },
   "stsjorbsmod:Hibernate": {
     "NAME": "Hibernate",
-    "DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Sloth.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Sloth. NL If stsjorbsmod:Snapped, gain !M! Intangible."
+    "DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Sloth."
   },
   "stsjorbsmod:Mending": {
     "NAME": "Mending",
