@@ -18,21 +18,20 @@ import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 public class Hibernate extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Hibernate.class.getSimpleName());
-    public static final String IMG = makeCardPath("Block_Uncommons/hibernate.png");
+    public static final String IMG = makeCardPath("Block_Commons/hibernate.png");
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = 2;
-    private static final int BLOCK = 20;
-    private static final int UPGRADE_SNAP_INTANGIBLE = 1;
+    private static final int BLOCK = 15;
+    private static final int UPGRADE_PLUS_BLOCK = 5;
 
     public Hibernate() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = BLOCK;
-        magicNumber = baseMagicNumber = 0;
 
         this.tags.add(REMEMBER_MEMORY);
     }
@@ -41,18 +40,13 @@ public class Hibernate extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, block));
         addToBot(new RememberSpecificMemoryAction(p, SlothMemory.STATIC.ID));
-
-        MemoryManager memoryManager = MemoryManager.forPlayer(p);
-        if (upgraded && memoryManager != null && memoryManager.isSnapped()) {
-            addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, 1), 1));
-        }
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_SNAP_INTANGIBLE);
+            upgradeBlock(UPGRADE_PLUS_BLOCK);
             upgradeDescription();
         }
     }
