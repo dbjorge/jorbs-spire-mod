@@ -201,13 +201,13 @@ public abstract class AbstractMemory implements IOnModifyGoldListener {
         this.description = applyPlaceholderDictionary(this.baseDescription, this.descriptionPlaceholders);
 
         if (isClarified) {
-            this.description = "#gClarified. NL " + this.description;
+            this.description = TEXT[0] + this.description;
         }
         if (isRemembered) {
-            this.description = "#gRemembered. NL " + this.description;
+            this.description = TEXT[1] + this.description;
         }
         if (!isClarified && !isRemembered) {
-            this.description = "#rForgotten. NL " + this.description;
+            this.description = TEXT[2] + this.description;
         }
     }
 
