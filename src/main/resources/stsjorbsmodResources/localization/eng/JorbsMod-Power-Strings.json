@@ -147,7 +147,7 @@
   "stsjorbsmod:KindnessMemory": {
     "NAME": "Kindness",
     "DESCRIPTIONS": [
-      "Whenever an attack deals unblocked damage, apply !M! #yPoison."
+      "Reduce #yStrength of ALL enemies by !M!."
     ]
   },
   "stsjorbsmod:LustMemory": {

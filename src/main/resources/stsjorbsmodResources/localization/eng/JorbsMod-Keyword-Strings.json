@@ -77,7 +77,7 @@
   {
     "PROPER_NAME": "Kindness",
     "NAMES": ["kindness", "Kindness"],
-    "DESCRIPTION": "When you remember Kindness, apply #b3 #yPoison to ALL enemies. Whenever an attack deals unblocked damage, apply #b1 #yPoison."
+    "DESCRIPTION": "Until forgotten, ALL enemies lose #b3 #yStrength."
   },
   {
     "PROPER_NAME": "Lust",
