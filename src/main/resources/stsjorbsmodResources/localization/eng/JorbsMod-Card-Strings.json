@@ -281,11 +281,6 @@
     "NAME": "Fear",
     "DESCRIPTION": "Target non-boss enemy will flee in !M! turns. If this ends combat, you gain no rewards but keep Clarities for the next combat."
   },
-  "stsjorbsmod:Wish_Wanderer": {
-    "NAME": "Wish",
-    "DESCRIPTION": "Restart the combat retaining all buffs and debuffs. NL stsjorbsmod:Destroy this card.",
-    "UPGRADE_DESCRIPTION": "Restart the combat retaining all buffs, debuffs, and clarities. NL stsjorbsmod:Destroy this card."
-  },
   "stsjorbsmod:Determination": {
     "NAME": "Determination",
     "DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of this turn, stsjorbsmod:Snap.",
