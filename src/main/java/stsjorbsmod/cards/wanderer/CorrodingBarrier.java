@@ -27,7 +27,6 @@ public class CorrodingBarrier extends CustomJorbsModCard implements IOnDrawCardS
     private static final int BLOCK = 23;
     private static final int BLOCK_LOSS_PER_DRAW = 3;
     private static final int UPGRADE_PLUS_BLOCK_LOSS_PER_DRAW = -3;
-    private static final int HP_LOSS_PER_SNAPPED_DRAW = 2;
 
     public CorrodingBarrier() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -46,11 +45,6 @@ public class CorrodingBarrier extends CustomJorbsModCard implements IOnDrawCardS
 
         if (this.magicNumber > 0) {
             addToBot(new ModifyBlockAction(this.uuid, -this.magicNumber));
-        }
-
-        if (p.hasPower(SnappedPower.POWER_ID)) {
-            flash();
-            addToBot(new LoseHPAction(p, p, HP_LOSS_PER_SNAPPED_DRAW, AttackEffect.POISON));
         }
     }
 
