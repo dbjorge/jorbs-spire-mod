@@ -12,9 +12,9 @@ import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Counterspell extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Counterspell.class.getSimpleName());
-    public static final String IMG = makeCardPath("Block_Commons/counterspell.png");
+    public static final String IMG = makeCardPath("Block_Uncommons/counterspell.png");
 
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
