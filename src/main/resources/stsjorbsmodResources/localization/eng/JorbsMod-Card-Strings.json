@@ -35,7 +35,7 @@
   },
   "stsjorbsmod:SnakeOil": {
     "NAME": "Snake Oil",
-    "DESCRIPTION": "Retain. NL Deal !D! damage to ALL enemies. Deal an additional !M! damage per #yCoil. NL Exhaust"
+    "DESCRIPTION": "Retain. NL Deal !D! damage to ALL enemies. Deal an additional !M! damage per #yCoil. NL Exhaust."
   },
   "stsjorbsmod:TrueStrike": {
     "NAME": "True Strike",
@@ -304,6 +304,6 @@
   },
   "stsjorbsmod:BurningFlask": {
     "NAME": "Burning Flask",
-    "DESCRIPTION": "Apply !M! stsjorbsmod:Burning"
+    "DESCRIPTION": "Apply !M! stsjorbsmod:Burning."
   }
 }
