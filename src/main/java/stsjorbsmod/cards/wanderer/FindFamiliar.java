@@ -20,12 +20,12 @@ public class FindFamiliar extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = 1;
-    private static final int RETAIN_AFTER_SNAP = 0;
-    private static final int UPGRADE_PLUS_RETAIN_AFTER_SNAP = 2;
+    private static final int DAMAGE_PER_TURN_AFTER_SNAP = 0;
+    private static final int UPGRADE_PLUS_DAMAGE_PER_TURN_AFTER_SNAP = 10;
 
     public FindFamiliar() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = RETAIN_AFTER_SNAP;
+        magicNumber = baseMagicNumber = DAMAGE_PER_TURN_AFTER_SNAP;
     }
 
     @Override
@@ -37,7 +37,7 @@ public class FindFamiliar extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_RETAIN_AFTER_SNAP);
+            upgradeMagicNumber(UPGRADE_PLUS_DAMAGE_PER_TURN_AFTER_SNAP);
             upgradeDescription();
         }
     }
