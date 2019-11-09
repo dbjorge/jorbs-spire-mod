@@ -33,13 +33,11 @@ public class MagicMirrorPower extends AbstractPower implements CloneablePowerInt
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("magic_mirror_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("magic_mirror_power32.png"));
 
-    private int damagePerReflect;
-
-    public MagicMirrorPower(final AbstractCreature owner, int damagePerReflect) {
+    public MagicMirrorPower(final AbstractCreature owner, final int amount) {
         ID = POWER_ID;
         this.name = NAME;
         this.owner = owner;
-        this.damagePerReflect = damagePerReflect;
+        this.amount = amount;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
@@ -72,31 +70,30 @@ public class MagicMirrorPower extends AbstractPower implements CloneablePowerInt
         if (originalPower.type == PowerType.DEBUFF) {
             for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 if (!m.isDeadOrEscaped()) {
-                    AbstractPower reflectedPower = tryCreateReflectedPower(m, owner, originalPower);
-                    if (reflectedPower != null) {
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, owner, reflectedPower));
+                    for (int i = 0; i < this.amount; ++i) {
+                        AbstractPower reflectedPower = tryCreateReflectedPower(m, owner, originalPower);
+                        if (reflectedPower != null) {
+                            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, owner, reflectedPower));
+                        }
                     }
                 }
-            }
-
-            if (this.damagePerReflect > 0) {
-                AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction((AbstractCreature) null, DamageInfo.createDamageMatrix(this.damagePerReflect, true), DamageType.THORNS, AttackEffect.SHIELD));
             }
         }
     }
 
     @Override
     public void updateDescription() {
-        if (damagePerReflect <= 0) {
+        if (amount == 1) {
             description = DESCRIPTIONS[0];
         } else {
-            description = DESCRIPTIONS[1] + damagePerReflect + DESCRIPTIONS[2];
+            description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
         }
+
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new MagicMirrorPower(owner, damagePerReflect);
+        return new MagicMirrorPower(owner, amount);
     }
 }
 

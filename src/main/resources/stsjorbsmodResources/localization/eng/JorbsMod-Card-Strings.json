@@ -201,7 +201,7 @@
   "stsjorbsmod:MagicMirror": {
     "NAME": "Magic Mirror",
     "DESCRIPTION": "Whenever you receive a debuff, apply that debuff to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "Whenever you receive a debuff, apply that debuff and deal !M! damage to ALL enemies."
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you receive a debuff, apply that debuff to ALL enemies."
   },
   "stsjorbsmod:Thorns": {
     "NAME": "Thorns",
