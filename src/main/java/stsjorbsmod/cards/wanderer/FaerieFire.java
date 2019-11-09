@@ -28,6 +28,7 @@ public class FaerieFire extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int DEBUFF_DURATION = 3;
+    private static final int UPGRADE_PLUS_DEBUFF_DURATION = 2;
 
     public FaerieFire() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -47,17 +48,13 @@ public class FaerieFire extends CustomJorbsModCard {
 
             addToBot(new ApplyPowerAction(m, p, debuff));
         }
-
-        if (upgraded) {
-            addToBot(new GainClarityOfCurrentMemoryAction(p));
-        }
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDescription();
+            upgradeMagicNumber(UPGRADE_PLUS_DEBUFF_DURATION);
         }
     }
 }

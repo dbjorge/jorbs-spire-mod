@@ -186,8 +186,7 @@
   },
   "stsjorbsmod:FaerieFire": {
     "NAME": "Faerie Fire",
-    "DESCRIPTION": "When remembering stsjorbsmod:Sin, apply !M! Vulnerable to ALL enemies. NL When remembering stsjorbsmod:Virtue, apply !M! Weak to ALL enemies. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "When remembering stsjorbsmod:Sin, apply !M! Vulnerable to ALL enemies. NL When remembering stsjorbsmod:Virtue, apply !M! Weak to ALL enemies. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
+    "DESCRIPTION": "stsjorbsmod:Virtue: Apply !M! Weak to ALL enemies. NL stsjorbsmod:Sin: Apply !M! Vulnerable to ALL enemies. NL Exhaust."
   },
   "stsjorbsmod:Introspection": {
     "NAME": "Introspection",
