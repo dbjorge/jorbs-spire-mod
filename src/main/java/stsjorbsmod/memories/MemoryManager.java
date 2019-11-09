@@ -46,7 +46,7 @@ public class MemoryManager {
             this.currentMemory.isRemembered = true;
             this.currentMemory.updateDescription();
             if (!this.currentMemory.isClarified) {
-                this.currentMemory.gainPassiveEffect();
+                this.currentMemory.onGainPassiveEffect();
             }
 
             AbstractPower possibleCoilPower = this.owner.getPower(CoilPower.POWER_ID);
@@ -67,7 +67,7 @@ public class MemoryManager {
     private void forgetCurrentMemoryNoNotify() {
         if (this.currentMemory != null) {
             if (!this.currentMemory.isClarified) {
-                this.currentMemory.losePassiveEffect();
+                this.currentMemory.onLosePassiveEffect();
             }
             this.currentMemory.onForget();
             this.currentMemory.isRemembered = false;
@@ -95,7 +95,7 @@ public class MemoryManager {
         }
 
         if (!clarity.isPassiveEffectActive()) {
-            clarity.gainPassiveEffect();
+            clarity.onGainPassiveEffect();
         }
         clarity.isClarified = true;
         clarity.updateDescription();
@@ -139,7 +139,7 @@ public class MemoryManager {
         forgetCurrentMemoryNoNotify();
 
         for (AbstractMemory clarity : this.currentClarities()) {
-            clarity.losePassiveEffect();
+            clarity.onLosePassiveEffect();
             clarity.isClarified = false;
         }
 
@@ -168,7 +168,6 @@ public class MemoryManager {
     }
 
     public int countCurrentClarities() {
-
         return (int) memories.stream().filter(m -> m.isClarified).count();
     }
 

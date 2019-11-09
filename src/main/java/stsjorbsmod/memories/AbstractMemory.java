@@ -95,11 +95,9 @@ public abstract class AbstractMemory implements IOnModifyGoldListener {
     public void onRemember() {}
     // This is triggered when a memory is remembered *or* a clarity is gained
     // Unlike onRemember, this is *not* triggered when remembering a memory you already have clarity of
-    public final void gainPassiveEffect() { this.onGainPassiveEffect(); }
     protected void onGainPassiveEffect() {}
     // This is triggered when a memory is forgotten *or* a memory/clarity is snapped
     // Unlike onForget, this is *not* triggered when forgetting a memory you already have clarity of
-    public final void losePassiveEffect() { this.onLosePassiveEffect(); }
     protected void onLosePassiveEffect() {}
     // This is triggered when a memory is forgotten/snapped, but *not* when a clarity is snapped
     public void onForget() {}
