@@ -73,10 +73,6 @@
     "DESCRIPTION": "Gain !B! Block. NL Gain !M! [E] next turn.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !M! [E] next turn. NL Put a card from your discard pile on top of your draw pile."
   },
-  "stsjorbsmod:PoisonSpray": {
-    "NAME": "Poison Spray",
-    "DESCRIPTION": "Apply !M! Poison to ALL enemies."
-  },
   "stsjorbsmod:ChainLightning": {
     "NAME": "Chain Lightning",
     "DESCRIPTION": "Deal !D! damage. NL Chain to ALL enemies, gaining !M! damage per chain."
