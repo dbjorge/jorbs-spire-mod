@@ -1,6 +1,5 @@
 package stsjorbsmod.memories;
 
-import basemod.patches.com.megacrit.cardcrawl.relics.AbstractRelic.FixLargeImageRender;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -17,7 +16,7 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.CoilPower;
 import stsjorbsmod.powers.MindGlassPower;
 import stsjorbsmod.powers.SnappedPower;
-import stsjorbsmod.relics.MindglassRelic;
+import stsjorbsmod.relics.MindGlassRelic;
 import stsjorbsmod.util.RenderUtils;
 import stsjorbsmod.util.TextureLoader;
 
@@ -181,7 +180,7 @@ public class MemoryManager {
             newClarity.gainPassiveEffect();
         }
 
-        AbstractRelic possibleMindglassRelic = this.owner.getRelic(MindglassRelic.ID);
+        AbstractRelic possibleMindglassRelic = this.owner.getRelic(MindGlassRelic.ID);
         if (possibleMindglassRelic != null) {
             possibleMindglassRelic.onTrigger();
         }

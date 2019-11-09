@@ -6,7 +6,6 @@ import basemod.ModPanel;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
@@ -21,7 +20,7 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.console.MemoryCommand;
 import stsjorbsmod.relics.FragileMindRelic;
-import stsjorbsmod.relics.MindglassRelic;
+import stsjorbsmod.relics.MindGlassRelic;
 import stsjorbsmod.relics.WandererStarterRelic;
 import stsjorbsmod.util.ReflectionUtils;
 import stsjorbsmod.util.TextureLoader;
@@ -231,8 +230,8 @@ public class JorbsMod implements
         UnlockTracker.markRelicAsSeen(WandererStarterRelic.ID);
         BaseMod.addRelicToCustomPool(new FragileMindRelic(), Wanderer.Enums.WANDERER_GRAY_COLOR);
         UnlockTracker.markRelicAsSeen(FragileMindRelic.ID);
-        BaseMod.addRelicToCustomPool(new MindglassRelic(), Wanderer.Enums.WANDERER_GRAY_COLOR);
-        UnlockTracker.markBossAsSeen(MindglassRelic.ID);
+        BaseMod.addRelicToCustomPool(new MindGlassRelic(), Wanderer.Enums.WANDERER_GRAY_COLOR);
+        UnlockTracker.markBossAsSeen(MindGlassRelic.ID);
 
         // Shared (non-character-specific) relics would instead use this:
         // BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
