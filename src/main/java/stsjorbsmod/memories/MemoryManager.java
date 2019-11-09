@@ -176,11 +176,6 @@ public class MemoryManager {
             newClarity.gainPassiveEffect();
         }
 
-//        AbstractPower possibleMindGlassPower = this.owner.getPower(MindGlassPower.POWER_ID);
-//        if (possibleMindGlassPower != null) {
-//            possibleMindGlassPower.onSpecificTrigger();
-//        }
-
         newClarity.flash();
         notifyModifyMemories(MemoryEventType.CLARITY);
     }
