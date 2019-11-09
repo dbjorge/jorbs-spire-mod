@@ -14,7 +14,7 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 
 import java.util.ArrayList;
-import java.util.stream.Collectors;
+import java.util.Arrays;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -47,34 +47,33 @@ public class ChainLightning extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractMonster> targets = getRandomOrderMonsters(AbstractDungeon.getMonsters().monsters, m);
         this.currentChainHopIndex = 0;
-        for (AbstractMonster monster: targets) {
-            this.calculateCardDamage(monster);
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(
-                    monster,
-                    new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL),
-                    AttackEffect.NONE));
-            addLightningEffect(monster, this.currentChainHopIndex);
-            this.currentChainHopIndex += 1;
-        }
+
+        getRandomOrderMonsters(AbstractDungeon.getMonsters().monsters, m)
+                .forEach(monster -> {
+                    this.calculateCardDamage(monster);
+                    AbstractDungeon.actionManager.addToBottom(new DamageAction(
+                            monster,
+                            new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL),
+                            AttackEffect.NONE));
+                    addLightningEffect(monster, this.currentChainHopIndex);
+                    this.currentChainHopIndex += 1;
+                });
 
         this.currentChainHopIndex = 0;
     }
 
     private ArrayList<AbstractMonster> getRandomOrderMonsters(ArrayList<AbstractMonster> targets, AbstractMonster initialTarget) {
-        ArrayList<AbstractMonster> finalTargets = new ArrayList<>();
-        ArrayList<AbstractMonster> newTargets = targets
-                .stream()
-                .filter(t -> !(t.halfDead || t.isDying || t.isEscaping))
-                .collect(Collectors.toCollection(ArrayList::new));
+        ArrayList<AbstractMonster> finalTargets = new ArrayList<>(Arrays.asList(initialTarget));
+        targets.stream()
+                .filter(t -> !(t.halfDead || t.isDying || t.isEscaping || t == initialTarget))
+                .forEach(t -> {
+                    int targetIndex = AbstractDungeon.cardRandomRng.random(0, finalTargets.size() - 1);
+                    // Never add anything other than initialTarget at 0
+                    targetIndex = Math.max(1, targetIndex);
+                    finalTargets.add(targetIndex, t);
+                });
 
-        int nextTargetIndex = newTargets.indexOf(initialTarget);
-        while(true) {
-            finalTargets.add(newTargets.remove(nextTargetIndex));
-            if (newTargets.isEmpty()) break;
-            nextTargetIndex = AbstractDungeon.cardRandomRng.random(0, newTargets.size() - 1);
-        }
         return finalTargets;
     }
 
