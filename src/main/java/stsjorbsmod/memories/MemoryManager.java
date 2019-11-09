@@ -94,7 +94,7 @@ public class MemoryManager {
             return;
         }
 
-        if (!clarity.isPassiveEffectActive) {
+        if (!clarity.isPassiveEffectActive()) {
             clarity.gainPassiveEffect();
         }
         clarity.isClarified = true;
@@ -180,20 +180,18 @@ public class MemoryManager {
         return memories.stream().filter(m -> m.isClarified || m.isRemembered).collect(Collectors.toList());
     }
 
-    private static final float MEMORY_ARC_RADIUS = 180F;
+    private static final float MEMORY_ARC_X_RADIUS = 185F * Settings.scale;
+    private static final float MEMORY_ARC_Y_RADIUS = 195F * Settings.scale;
+    private static final float MEMORY_ARC_ANGLE = 230F;
+    private static final float MEMORY_ARC_Y_OFFSET = 140F * Settings.scale;
 
     public void update(float centerX, float centerY) {
         for (int i = 0; i < memories.size(); ++i) {
-            float dist = MEMORY_ARC_RADIUS * Settings.scale;
-
-            // This is mostly taken from orb rendering code
-            // TODO clean this up and give the constants names
-            float angle = 100.0F + (float)14 * 12.0F;
-            float offsetAngle = angle / 2.0F;
-            angle *= (float)i / ((float)14 - 1.0F);
-            angle += 90.0F - offsetAngle;
-            float x = dist * MathUtils.cosDeg(angle) + AbstractDungeon.player.drawX;
-            float y = dist * MathUtils.sinDeg(angle) + AbstractDungeon.player.drawY + AbstractDungeon.player.hb_h / 2.0F;
+            float relativeMemoryAngle = MEMORY_ARC_ANGLE * (((float)i) / (memories.size() - 1));
+            float absoluteArcStartAngle = 90.0F - MEMORY_ARC_ANGLE / 2.0F;
+            float absoluteAngle = absoluteArcStartAngle + relativeMemoryAngle;
+            float x = MEMORY_ARC_X_RADIUS * MathUtils.cosDeg(absoluteAngle) + centerX;
+            float y = MEMORY_ARC_Y_RADIUS * MathUtils.sinDeg(absoluteAngle) + centerY + MEMORY_ARC_Y_OFFSET;
 
             memories.get(i).update(x, y);
         }

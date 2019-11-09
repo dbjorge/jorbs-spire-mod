@@ -1,7 +1,6 @@
 package stsjorbsmod.memories;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -35,7 +34,7 @@ public class CharityMemory extends AbstractMemory {
         // remembered memory and there is already a clarity handling the passive effect).
         setDescriptionPlaceholder("!S!", newStrength);
 
-        if (!isPassiveEffectActive) {
+        if (!isPassiveEffectActive()) {
             newStrength = 0;
         }
 

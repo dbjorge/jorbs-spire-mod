@@ -1,22 +1,10 @@
 package stsjorbsmod.memories;
 
-import basemod.interfaces.CloneablePowerInterface;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.LoseDexterityPower;
-import stsjorbsmod.JorbsMod;
-import stsjorbsmod.util.TextureLoader;
-
-import static stsjorbsmod.JorbsMod.makePowerPath;
 
 public class ChastityMemory extends AbstractMemory {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(ChastityMemory.class);
@@ -39,7 +27,7 @@ public class ChastityMemory extends AbstractMemory {
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        if (isPassiveEffectActive) {
+        if (isPassiveEffectActive()) {
             AbstractDungeon.actionManager.addToBottom(
                     // It's important to apply a negative dex power rather than reducing an existing dex power
                     //   1. reducing the existing power doesn't work if the player currently has no dex

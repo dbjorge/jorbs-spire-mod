@@ -3,11 +3,9 @@ package stsjorbsmod.memories;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import stsjorbsmod.util.EffectUtils;
 
 public class PrideMemory extends AbstractMemory {
@@ -33,7 +31,7 @@ public class PrideMemory extends AbstractMemory {
 
     @Override
     public void onVictory() {
-        if (isPassiveEffectActive) {
+        if (isPassiveEffectActive()) {
             CardGroup masterDeckCandidates = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
             for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
                 if (c.canUpgrade()) {

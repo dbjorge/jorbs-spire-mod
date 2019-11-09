@@ -32,7 +32,7 @@ public class EnvyMemory extends AbstractMemory {
 
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster monster) {
-        if (!isPassiveEffectActive) {
+        if (!isPassiveEffectActive()) {
             return;
         }
 

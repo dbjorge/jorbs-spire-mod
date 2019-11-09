@@ -1,20 +1,10 @@
 package stsjorbsmod.memories;
 
-import basemod.interfaces.CloneablePowerInterface;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
-import stsjorbsmod.JorbsMod;
-import stsjorbsmod.util.TextureLoader;
-
-import static stsjorbsmod.JorbsMod.makePowerPath;
 
 public class LustMemory extends AbstractMemory {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(LustMemory.class);
@@ -31,7 +21,7 @@ public class LustMemory extends AbstractMemory {
 
     @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
-        if (isPassiveEffectActive && type == DamageInfo.DamageType.NORMAL) {
+        if (isPassiveEffectActive() && type == DamageInfo.DamageType.NORMAL) {
             return damage * ATTACK_BONUS_MODIFIER;
         } else {
             return damage;
