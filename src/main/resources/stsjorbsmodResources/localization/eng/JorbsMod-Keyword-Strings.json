@@ -5,6 +5,11 @@
     "DESCRIPTION": "Burning creatures lose HP at the start of their turn and have healing reduced by 50%. Each turn, Burning is reduced by half."
   },
   {
+    "PROPER_NAME": "Coil",
+    "NAMES": ["coil", "Coil"],
+    "DESCRIPTION": "Gain 1 Coil each time you play a card while remembering #yPatience."
+  },
+  {
     "PROPER_NAME": "Destroy",
     "NAMES": ["destroy"],
     "DESCRIPTION": "Permanently remove this card from your deck (not just this combat)."
@@ -87,7 +92,7 @@
   {
     "PROPER_NAME": "Patience",
     "NAMES": ["patience", "Patience"],
-    "DESCRIPTION": "Gain 1 Coil each time you play a card. When you remember a new memory, deal 2 damage to ALL enemies for each Coil and lose all Coil."
+    "DESCRIPTION": "Gain 1 #yCoil each time you play a card. When you remember a new memory, deal 2 damage to ALL enemies for each #yCoil and lose all #yCoil."
   },
   {
     "PROPER_NAME": "Pride",

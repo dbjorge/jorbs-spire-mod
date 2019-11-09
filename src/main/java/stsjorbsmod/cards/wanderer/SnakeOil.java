@@ -23,7 +23,7 @@ public class SnakeOil extends CustomJorbsModCard {
     public static final String IMG = makeCardPath("Material_Components/snake_oil.png");
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
