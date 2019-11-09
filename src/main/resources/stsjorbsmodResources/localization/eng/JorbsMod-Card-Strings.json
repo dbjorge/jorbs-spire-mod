@@ -181,11 +181,6 @@
     "NAME": "Color Spray",
     "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each one. NL Remember stsjorbsmod:Envy."
   },
-  "stsjorbsmod:Erode": {
-    "NAME": "Erode",
-    "DESCRIPTION": "Remove !M! Block from target enemy. If you remove any Block, apply !stsjorbsmod:MetaMagic! Poison. NL Remember stsjorbsmod:Temperance.",
-    "UPGRADE_DESCRIPTION": "Remove !M! Block from target enemy. If you remove any Block, apply !stsjorbsmod:MetaMagic! Poison. NL Remember stsjorbsmod:Temperance. NL Draw !stsjorbsmod:UrMagic! card."
-  },
   "stsjorbsmod:TinyHut": {
     "NAME": "Tiny Hut",
     "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Gain stsjorbsmod:Clarity of current memory.",
