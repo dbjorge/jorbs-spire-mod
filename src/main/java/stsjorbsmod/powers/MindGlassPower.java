@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -54,6 +55,8 @@ public class MindGlassPower extends AbstractPower implements OnModifyMemoriesLis
                         // TODO: More impactful and relevant FX. See FlashAtkImgEffect.loadImage() and
                         //  FlashAtkImgEffect.playSound() for usage of AttackEffect in base game.
                         AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        AbstractDungeon.actionManager.addToBottom(
+                new RemoveSpecificPowerAction(this.owner, this.owner, MindGlassPower.POWER_ID));
     }
 
     @Override

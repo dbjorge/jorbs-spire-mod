@@ -56,7 +56,9 @@ public class MindglassRelic extends CustomRelic implements OnModifyMemoriesListe
     public void onTrigger() {
         ++this.counter;
         this.flash();
-        if (this.counter == 9) {
+        if (this.counter == 10) {
+            this.stopPulse();
+        } else if (this.counter == 9) {
             AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             AbstractDungeon.actionManager.addToBottom(
                     new ApplyPowerAction(
