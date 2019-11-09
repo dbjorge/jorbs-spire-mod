@@ -30,8 +30,7 @@ public class CharityMemory extends AbstractMemory {
     private void updateAppliedStrength() {
         int newStrength = calculateBonusDamage();
 
-        // Note, we set this to the calculated value even if we aren't applying the passive effect (ie, we are a
-        // remembered memory and there is already a clarity handling the passive effect).
+        // We intentionally set this to the calculated value even if we aren't applying the passive effect
         setDescriptionPlaceholder("!S!", newStrength);
 
         if (!isPassiveEffectActive()) {

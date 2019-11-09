@@ -153,24 +153,21 @@ public class MemoryManager {
     public boolean isSnapped() { 
         return owner.hasPower(SnappedPower.POWER_ID);
     }
-    
+
+    private void notifyPossibleModifyMemoryListener(Object possibleListener, MemoryEventType type) {
+        if (possibleListener instanceof OnModifyMemoriesListener) {
+            OnModifyMemoriesListener listener = (OnModifyMemoriesListener) possibleListener;
+            if (Arrays.asList(listener.getMemoryEventTypes()).contains(type)) {
+                listener.onModifyMemories();
+            }
+        }
+    }
+
     public void notifyModifyMemories(MemoryEventType type) {
-        for (AbstractRelic r : owner.relics) {
-            if (r instanceof OnModifyMemoriesListener) {
-                OnModifyMemoriesListener listener = (OnModifyMemoriesListener) r;
-                if (Arrays.asList(listener.getMemoryEventTypes()).contains(type)) {
-                    listener.onModifyMemories();
-                }
-            }
-        }
-        for (AbstractPower p : owner.powers) {
-            if (p instanceof OnModifyMemoriesListener) {
-                OnModifyMemoriesListener listener = (OnModifyMemoriesListener) p;
-                if (Arrays.asList(listener.getMemoryEventTypes()).contains(type)) {
-                    listener.onModifyMemories();
-                }
-            }
-        }
+        owner.relics.forEach(possibleListener -> notifyPossibleModifyMemoryListener(possibleListener, type));
+        owner.powers.forEach(possibleListener -> notifyPossibleModifyMemoryListener(possibleListener, type));
+        this.memories.forEach(possibleListener -> notifyPossibleModifyMemoryListener(possibleListener, type));
+
         AbstractDungeon.onModifyPower();
     }
 
@@ -209,6 +206,7 @@ public class MemoryManager {
         }
     }
 
+    public static final MemoryEventType[] ALL_MEMORY_EVENTS = MemoryEventType.values();
     public enum MemoryEventType {
         REMEMBER, CLARITY, FORGET, SNAP
     }

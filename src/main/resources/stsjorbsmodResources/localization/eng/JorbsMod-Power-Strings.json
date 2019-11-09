@@ -105,7 +105,7 @@
   "stsjorbsmod:CharityMemory": {
     "NAME": "Charity",
     "DESCRIPTIONS": [
-      "Maintaining #b!S! #yStrength. Maintains an additional 1 #yStrength for every additional !G! gold you gain."
+      "Maintains #b!S! #yStrength. Maintains an additional 1 #yStrength for every additional !G! gold you gain."
     ]
   },
   "stsjorbsmod:ChastityMemory": {
@@ -177,7 +177,7 @@
   "stsjorbsmod:TemperanceMemory": {
     "NAME": "Temperance",
     "DESCRIPTIONS": [
-      "Reduce #yStrength of ALL enemies by !M!."
+      "Maintains #b!S! #yStrength. Maintains an additional 1 #yStrength for every additional #yClarity you gain. Each time remembered, apply !W! #yWeak to ALL enemies."
     ]
   },
   "stsjorbsmod:WrathMemory": {

@@ -102,7 +102,7 @@
   {
     "PROPER_NAME": "Temperance",
     "NAMES": ["temperance", "Temperance"],
-    "DESCRIPTION": "Until forgotten, ALL enemies lose #b3 #yStrength."
+    "DESCRIPTION": "Until forgotten, gain 1 #yStrength for every #yClarity you have. Each time remembered, apply #b1 #yWeak to ALL enemies."
   },
   {
     "PROPER_NAME": "Wrath",
