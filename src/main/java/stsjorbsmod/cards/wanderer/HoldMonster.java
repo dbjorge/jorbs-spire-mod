@@ -12,6 +12,7 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.memories.KindnessMemory;
 import stsjorbsmod.memories.TemperanceMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
@@ -28,7 +29,7 @@ public class HoldMonster extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int STRENGTH_PENALTY = 6;
-    private static final int UPGRADE_PLUS_STRENGTH_PENALTY = 3;
+    private static final int UPGRADE_PLUS_STRENGTH_PENALTY = 6;
 
     public HoldMonster() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -40,8 +41,7 @@ public class HoldMonster extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainClarityOfCurrentMemoryAction(p, TemperanceMemory.STATIC.ID));
-        addToBot(new RememberSpecificMemoryAction(p, TemperanceMemory.STATIC.ID));
+        addToBot(new RememberSpecificMemoryAction(p, KindnessMemory.STATIC.ID));
 
         AbstractGameAction action = new ApplyPowerAction(m, p, new StrengthPower(m, -this.magicNumber), -this.magicNumber);
         addToBot(action);
