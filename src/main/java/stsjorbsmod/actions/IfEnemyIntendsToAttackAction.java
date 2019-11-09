@@ -14,17 +14,28 @@ public class IfEnemyIntendsToAttackAction extends AbstractGameAction {
     public static final String[] TEXT = uiStrings.TEXT;
 
     private AbstractGameAction actionToChain;
-    private AbstractMonster targetMonster;
+    private AbstractMonster specificEnemy;
 
-    public IfEnemyIntendsToAttackAction(AbstractMonster targetMonster, AbstractGameAction actionToChain) {
+    public IfEnemyIntendsToAttackAction(AbstractGameAction actionToChain) {
+        this(null, actionToChain);
+    }
+
+    public IfEnemyIntendsToAttackAction(AbstractMonster specificEnemy, AbstractGameAction actionToChain) {
         this.duration = 0.0F;
         this.actionType = ActionType.WAIT;
         this.actionToChain = actionToChain;
-        this.targetMonster = targetMonster;
+        this.specificEnemy = specificEnemy;
     }
 
+    private static boolean intendsToAttack(AbstractMonster enemy) {
+        return enemy.getIntentBaseDmg() >= 0;
+    }
     public void update() {
-        if (this.targetMonster != null && this.targetMonster.getIntentBaseDmg() >= 0) {
+        boolean intendsToAttack = this.specificEnemy != null ?
+            intendsToAttack(specificEnemy) :
+            AbstractDungeon.getMonsters().monsters.stream().anyMatch(IfEnemyIntendsToAttackAction::intendsToAttack);
+
+        if (intendsToAttack) {
             AbstractDungeon.actionManager.addToBottom(actionToChain);
         } else {
             AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, TEXT[0], true));
