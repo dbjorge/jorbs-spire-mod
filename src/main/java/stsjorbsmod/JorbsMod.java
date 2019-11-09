@@ -100,7 +100,7 @@ public class JorbsMod implements
 
     public static String makeLocalizedStringsPath(String resourcePath) {
         String languageFolder =
-                Settings.language == Settings.GameLanguage.FRA ? "fra" :
+                // Settings.language == Settings.GameLanguage.FRA ? "fra" :
                 /* default: */ "eng";
 
         return MOD_ID + "Resources/localization/" + languageFolder + "/" + resourcePath;
