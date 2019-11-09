@@ -64,7 +64,7 @@ public class WrathCardIconPatch {
     )
     public static class SingleCardViewPopup_renderCost {
         public static final float WRATH_ICON_OFFSET_X = (float)Settings.WIDTH / 2.0F + 270.0F * Settings.scale;
-        public static final float WRATH_TEXT_OFFSET_X = (float)Settings.WIDTH / 2.0F + 248.0F * Settings.scale;
+        public static final float WRATH_TEXT_OFFSET_X = (float)Settings.WIDTH / 2.0F + 252.0F * Settings.scale;
         public static final float WRATH_ICON_OFFSET_Y = (float)Settings.HEIGHT / 2.0F + 425.0F * Settings.scale;
         public static final float WRATH_TEXT_OFFSET_Y = (float)Settings.HEIGHT / 2.0F + 404.0F * Settings.scale;
         public static final Texture wrathIconOverlayTexture = TextureLoader.getTexture("stsjorbsmodResources/images/1024/card_wrath_icon_overlay.png");
@@ -84,7 +84,7 @@ public class WrathCardIconPatch {
             String text = Integer.toString(wrathCount);
             BitmapFont font = FontHelper.SCP_cardEnergyFont;
             float x = WRATH_TEXT_OFFSET_X;
-            if (wrathCount > 9) x -= (8 * Settings.scale);
+            if (wrathCount > 9) x -= (20 * Settings.scale);
             FontHelper.renderFont(sb, font, text, x, WRATH_TEXT_OFFSET_Y, Settings.CREAM_COLOR);
         }
     }
