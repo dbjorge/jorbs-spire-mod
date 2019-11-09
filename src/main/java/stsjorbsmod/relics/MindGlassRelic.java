@@ -29,12 +29,11 @@ import static stsjorbsmod.JorbsMod.*;
 public class MindGlassRelic extends CustomRelic implements OnModifyMemoriesListener, PostUpdateSubscriber {
     public static final String ID = JorbsMod.makeID(MindGlassRelic.class.getSimpleName());
 
-    // TODO: relic path
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("placeholder_relic.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("placeholder_relic.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("mindglass_relic.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("mindglass_relic.png"));
 
     private static final int ONE_CLARITY_DAMAGE = 5;
-    private static final int TEN_CLARITY_DAMAGE = 50; //TODO 500
+    private static final int TEN_CLARITY_DAMAGE = 500;
 
     public MindGlassRelic() {
         super(ID, IMG, OUTLINE, RelicTier.UNCOMMON, LandingSound.CLINK);
@@ -100,11 +99,12 @@ public class MindGlassRelic extends CustomRelic implements OnModifyMemoriesListe
         return DESCRIPTIONS[0].replaceAll(JorbsMod.MOD_ID + ":", "#y");
     }
 
+    /**
+     * After every game update, if this instance of the relic was subscribed to the post relic, check if it should pulse
+     */
     @Override
     public void receivePostUpdate() {
         if (this.counter == 9 && !pulse && flashTimer == 0) {
-            // TODO: make not interrupt flash()
-            //  Currently, it seems like it's not possible to both pulse and flash in the same game tick.
             this.beginLongPulse();
         }
     }
