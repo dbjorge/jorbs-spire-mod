@@ -30,7 +30,8 @@ public class Firebolt extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int DAMAGE = 8;
-    private static final int AMOUNT_PER_CLARITY = 2;
+    private static final int AMOUNT_PER_CLARITY = 1;
+    private static final int UPGRADE_PLUS_PER_CLARITY = 1;
 
     public Firebolt() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -39,22 +40,11 @@ public class Firebolt extends CustomJorbsModCard {
     }
 
     @Override
-    protected int calculateBonusBaseDamage() {
-        if (upgraded) {
-            return 0;
-        } else {
-            return this.magicNumber * MemoryManager.forPlayer(AbstractDungeon.player).countCurrentClarities();
-        }
-    }
-
-    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, this.damage), AttackEffect.FIRE));
-        if(upgraded) {
-            int burningAmt = this.baseMagicNumber * MemoryManager.forPlayer(AbstractDungeon.player).countCurrentClarities();
-            if (burningAmt > 0) {
-                addToBot(new ApplyPowerAction(m, p, new BurningPower(m, p, burningAmt)));
-            }
+        addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.FIRE));
+        int burningAmt = baseMagicNumber * MemoryManager.forPlayer(AbstractDungeon.player).countCurrentClarities();
+        if (burningAmt > 0) {
+            addToBot(new ApplyPowerAction(m, p, new BurningPower(m, p, burningAmt)));
         }
     }
 
@@ -62,7 +52,7 @@ public class Firebolt extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDescription();
+            upgradeMagicNumber(UPGRADE_PLUS_PER_CLARITY);
         }
     }
 }
