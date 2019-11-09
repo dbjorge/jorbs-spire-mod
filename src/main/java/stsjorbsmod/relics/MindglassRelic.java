@@ -1,6 +1,8 @@
 package stsjorbsmod.relics;
 
+import basemod.BaseMod;
 import basemod.abstracts.CustomRelic;
+import basemod.interfaces.PostUpdateSubscriber;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -13,7 +15,7 @@ import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.*;
 
-public class MindglassRelic extends CustomRelic implements OnModifyMemoriesListener {
+public class MindglassRelic extends CustomRelic implements OnModifyMemoriesListener, PostUpdateSubscriber {
     public static final String ID = JorbsMod.makeID(MindglassRelic.class.getSimpleName());
 
     // TODO: relic path
@@ -24,8 +26,13 @@ public class MindglassRelic extends CustomRelic implements OnModifyMemoriesListe
     private static final int TEN_CLARITY_DAMAGE = 500;
 
     public MindglassRelic() {
-        // TODO verify relic tier
+        // TODO relic tier
         super(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.CLINK);
+    }
+
+    @Override
+    public void atPreBattle() {
+        BaseMod.subscribe(this);
     }
 
     @Override
@@ -61,17 +68,13 @@ public class MindglassRelic extends CustomRelic implements OnModifyMemoriesListe
                             //  FlashAtkImgEffect.playSound() for usage of AttackEffect in base game.
                             AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
-        if (this.counter == 9) {
-            // TODO: make not interrupt flash()
-            //  Currently, it seems like it's not possible to both pulse and flash in the same game tick.
-            this.beginLongPulse();
-        }
     }
 
     @Override
     public void onVictory() {
         this.counter = -1;
         this.stopPulse();
+        BaseMod.unsubscribe(this);
     }
 
     @Override
@@ -84,5 +87,14 @@ public class MindglassRelic extends CustomRelic implements OnModifyMemoriesListe
     @Override
     public String getUpdatedDescription() {
         return DESCRIPTIONS[0].replaceAll(JorbsMod.MOD_ID + ":", "#y");
+    }
+
+    @Override
+    public void receivePostUpdate() {
+        if (this.counter == 9 && !pulse && flashTimer == 0) {
+            // TODO: make not interrupt flash()
+            //  Currently, it seems like it's not possible to both pulse and flash in the same game tick.
+            this.beginLongPulse();
+        }
     }
 }
