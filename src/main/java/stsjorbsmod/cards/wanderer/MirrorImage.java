@@ -1,5 +1,6 @@
 package stsjorbsmod.cards.wanderer;
 
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -41,7 +42,7 @@ public class MirrorImage extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            retain = true;
+            AlwaysRetainField.alwaysRetain.set(this, true);
             upgradeDescription();
         }
     }
