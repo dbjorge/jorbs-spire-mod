@@ -30,7 +30,8 @@ public class Firebolt extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int DAMAGE = 8;
-    private static final int AMOUNT_PER_CLARITY = 2;
+    private static final int AMOUNT_PER_CLARITY = 1;
+    private static final int UPGRADE_PLUS_PER_CLARITY = 1;
 
     public Firebolt() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -62,7 +63,7 @@ public class Firebolt extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDescription();
+            upgradeMagicNumber(UPGRADE_PLUS_PER_CLARITY);
         }
     }
 }
