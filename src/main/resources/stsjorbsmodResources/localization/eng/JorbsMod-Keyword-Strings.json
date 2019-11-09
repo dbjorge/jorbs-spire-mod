@@ -102,6 +102,6 @@
   {
     "PROPER_NAME": "Burning",
     "NAMES": ["burning", "Burning"],
-    "DESCRIPTION": "Burning creatures lose HP at the start of their turn and have healing reduced by 50%. Each turn, if Burning was applied this turn, Burning is reduced by 1; otherwise Burning is reduced by half."
+    "DESCRIPTION": "Burning creatures lose HP at the start of their turn and have healing reduced by 50%. Each turn, Burning is reduced by half."
   }
 ]
