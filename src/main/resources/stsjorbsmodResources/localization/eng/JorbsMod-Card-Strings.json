@@ -110,8 +110,8 @@
   },
   "stsjorbsmod:Aid": {
     "NAME": "Aid",
-    "DESCRIPTION": "Heal an enemy for !M! HP. NL Remember stsjorbsmod:Kindness.",
-    "UPGRADE_DESCRIPTION": "Heal an enemy for !M! HP. NL Remember stsjorbsmod:Kindness. NL Gain stsjorbsmod:Clarity of current memory."
+    "DESCRIPTION": "Heal an enemy !M! HP. NL Remember stsjorbsmod:Kindness. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Heal an enemy !M! HP. NL Remember stsjorbsmod:Kindness. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
   },
   "stsjorbsmod:Mania": {
     "NAME": "Mania",
