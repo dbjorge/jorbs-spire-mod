@@ -89,10 +89,6 @@
     "NAME": "Prestidigitation",
     "DESCRIPTION": "At the start of each turn, apply !M! Weak or !M! Vulnerable to a random enemy."
   },
-  "stsjorbsmod:WizardRobe": {
-    "NAME": "Wizard Robe",
-    "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Gain stsjorbsmod:Clarity of current memory."
-  },
   "stsjorbsmod:Message": {
     "NAME": "Message",
     "DESCRIPTION": "Put !M! card from your discard pile into your hand. NL Exhaust.",
