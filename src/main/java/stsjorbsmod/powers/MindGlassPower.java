@@ -12,8 +12,12 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.OnModifyMemoriesListener;
 import stsjorbsmod.util.TextureLoader;
+
+import java.util.Collections;
+import java.util.Set;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
@@ -42,11 +46,6 @@ public class MindGlassPower extends AbstractPower implements OnModifyMemoriesLis
 
     @Override
     public void onModifyMemories() {
-        JorbsMod.logger.info("I wish still");
-    }
-
-    @Override
-    public void onSpecificTrigger() {
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAllEnemiesAction(
                         (AbstractCreature) null,
@@ -57,6 +56,11 @@ public class MindGlassPower extends AbstractPower implements OnModifyMemoriesLis
                         AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         AbstractDungeon.actionManager.addToBottom(
                 new RemoveSpecificPowerAction(this.owner, this.owner, MindGlassPower.POWER_ID));
+    }
+
+    @Override
+    public MemoryManager.MemoryEventType[] getMemoryEventTypes() {
+        return new MemoryManager.MemoryEventType[]{MemoryManager.MemoryEventType.CLARITY};
     }
 
     @Override

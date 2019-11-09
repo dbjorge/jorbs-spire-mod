@@ -21,6 +21,7 @@ import stsjorbsmod.util.RenderUtils;
 import stsjorbsmod.util.TextureLoader;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
@@ -105,19 +106,14 @@ public class MemoryManager {
                 this.currentMemory.gainPassiveEffect();
             }
 
-            AbstractPower possibleCoilPower = this.owner.getPower(CoilPower.POWER_ID);
-            if (possibleCoilPower != null) {
-                possibleCoilPower.onSpecificTrigger();
-            }
-
             this.currentMemory.flash();
-            notifyModifyMemories();
+            notifyModifyMemories(MemoryEventType.REMEMBER);
         }
     }
 
     public void forgetCurrentMemory() {
         forgetCurrentMemoryNoNotify();
-        notifyModifyMemories();
+        notifyModifyMemories(MemoryEventType.FORGET);
     }
 
     private void forgetCurrentMemoryNoNotify() {
@@ -180,18 +176,13 @@ public class MemoryManager {
             newClarity.gainPassiveEffect();
         }
 
-        AbstractRelic possibleMindglassRelic = this.owner.getRelic(MindGlassRelic.ID);
-        if (possibleMindglassRelic != null) {
-            possibleMindglassRelic.onTrigger();
-        }
-
-        AbstractPower possibleMindGlassPower = this.owner.getPower(MindGlassPower.POWER_ID);
-        if (possibleMindGlassPower != null) {
-            possibleMindGlassPower.onSpecificTrigger();
-        }
+//        AbstractPower possibleMindGlassPower = this.owner.getPower(MindGlassPower.POWER_ID);
+//        if (possibleMindGlassPower != null) {
+//            possibleMindGlassPower.onSpecificTrigger();
+//        }
 
         newClarity.flash();
-        notifyModifyMemories();
+        notifyModifyMemories(MemoryEventType.CLARITY);
     }
 
     public boolean hasClarity(String id) {
@@ -234,7 +225,7 @@ public class MemoryManager {
         }
         this.virtueClarities.clear();
 
-        notifyModifyMemories();
+        notifyModifyMemories(MemoryEventType.SNAP);
     }
 
 
@@ -249,15 +240,21 @@ public class MemoryManager {
         return owner.hasPower(SnappedPower.POWER_ID);
     }
     
-    public void notifyModifyMemories() {
+    public void notifyModifyMemories(MemoryEventType type) {
         for (AbstractRelic r : owner.relics) {
             if (r instanceof OnModifyMemoriesListener) {
-                ((OnModifyMemoriesListener)r).onModifyMemories();
+                OnModifyMemoriesListener listener = (OnModifyMemoriesListener) r;
+                if (Arrays.asList(listener.getMemoryEventTypes()).contains(type)) {
+                    listener.onModifyMemories();
+                }
             }
         }
         for (AbstractPower p : owner.powers) {
             if (p instanceof OnModifyMemoriesListener) {
-                ((OnModifyMemoriesListener)p).onModifyMemories();
+                OnModifyMemoriesListener listener = (OnModifyMemoriesListener) p;
+                if (Arrays.asList(listener.getMemoryEventTypes()).contains(type)) {
+                    listener.onModifyMemories();
+                }
             }
         }
         AbstractDungeon.onModifyPower();
@@ -344,7 +341,7 @@ public class MemoryManager {
         this.drawY = y;
     }
 
-    enum MemoryEventType {
+    public enum MemoryEventType {
         REMEMBER, CLARITY, FORGET, SNAP
     }
 }

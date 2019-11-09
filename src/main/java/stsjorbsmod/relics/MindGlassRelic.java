@@ -12,9 +12,13 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.OnModifyMemoriesListener;
 import stsjorbsmod.powers.MindGlassPower;
 import stsjorbsmod.util.TextureLoader;
+
+import java.util.Collections;
+import java.util.Set;
 
 import static stsjorbsmod.JorbsMod.*;
 
@@ -48,11 +52,6 @@ public class MindGlassRelic extends CustomRelic implements OnModifyMemoriesListe
 
     @Override
     public void onModifyMemories() {
-        JorbsMod.logger.info("I wish :(");
-    }
-
-    @Override
-    public void onTrigger() {
         ++this.counter;
         this.flash();
         if (this.counter == 10) {
@@ -75,6 +74,11 @@ public class MindGlassRelic extends CustomRelic implements OnModifyMemoriesListe
                         // TODO: More impactful and relevant FX. See FlashAtkImgEffect.loadImage() and
                         //  FlashAtkImgEffect.playSound() for usage of AttackEffect in base game.
                         AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+    }
+
+    @Override
+    public MemoryManager.MemoryEventType[] getMemoryEventTypes() {
+        return new MemoryManager.MemoryEventType[]{MemoryManager.MemoryEventType.CLARITY};
     }
 
     @Override

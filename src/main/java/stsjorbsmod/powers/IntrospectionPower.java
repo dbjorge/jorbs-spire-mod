@@ -18,6 +18,10 @@ import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.OnModifyMemoriesListener;
 import stsjorbsmod.util.TextureLoader;
 
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
 public class IntrospectionPower extends AbstractPower implements CloneablePowerInterface, OnModifyMemoriesListener {
@@ -67,6 +71,11 @@ public class IntrospectionPower extends AbstractPower implements CloneablePowerI
     @Override
     public void onModifyMemories() {
         updateDescription();
+    }
+
+    @Override
+    public MemoryManager.MemoryEventType[] getMemoryEventTypes() {
+        return MemoryManager.MemoryEventType.values();
     }
 
     @Override
