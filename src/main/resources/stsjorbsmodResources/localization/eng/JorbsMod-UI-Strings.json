@@ -1,6 +1,6 @@
 {
   "stsjorbsmod:AbstractMemory": {
-    "TEXT": ["Memory of ", "Clarity of "]
+    "TEXT": ["#gClarified. NL ", "#gRemembered. NL ", "#rForgotten. NL "]
   },
   "stsjorbsmod:CardsToTopOfDeckAction": {
     "TEXT": ["Choose ", "Card to ", "Cards to ", "move to the top of your draw pile."]

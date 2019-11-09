@@ -34,7 +34,7 @@ public class WanderingMind extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DrawCardAction(p, magicNumber));
-        addToBot(new RememberRandomNewMemoryAction(p, p, false));
+        addToBot(new RememberRandomNewMemoryAction(p));
     }
 
     @Override

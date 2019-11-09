@@ -32,7 +32,7 @@ public class MirrorImage extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new RememberSpecificMemoryAction(new TemperanceMemory(p, false)));
+        addToBot(new RememberSpecificMemoryAction(p, TemperanceMemory.STATIC.ID));
         addToBot(new ApplyPowerAction(p, p, new NextAttackMissesPower(p)));
     }
 

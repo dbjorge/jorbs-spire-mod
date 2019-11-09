@@ -24,6 +24,7 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.console.MemoryCommand;
 import stsjorbsmod.potions.DimensionDoorPotion;
 import stsjorbsmod.relics.FragileMindRelic;
+import stsjorbsmod.relics.MindGlassRelic;
 import stsjorbsmod.relics.WandererStarterRelic;
 import stsjorbsmod.util.ReflectionUtils;
 import stsjorbsmod.util.TextureLoader;
@@ -77,7 +78,11 @@ public class JorbsMod implements
     public static String makeRelicOutlinePath(String resourcePath) {
         return MOD_ID + "Resources/images/relics/outline/" + resourcePath;
     }
-    
+
+    public static String makeMemoryPath(String resourcePath) {
+        return MOD_ID + "Resources/images/memories/" + resourcePath;
+    }
+
     public static String makeOrbPath(String resourcePath) {
         return MOD_ID + "Resources/orbs/" + resourcePath;
     }
@@ -96,7 +101,7 @@ public class JorbsMod implements
 
     public static String makeLocalizedStringsPath(String resourcePath) {
         String languageFolder =
-                Settings.language == Settings.GameLanguage.FRA ? "fra" :
+                // Settings.language == Settings.GameLanguage.FRA ? "fra" :
                 /* default: */ "eng";
 
         return MOD_ID + "Resources/localization/" + languageFolder + "/" + resourcePath;
@@ -238,6 +243,8 @@ public class JorbsMod implements
         UnlockTracker.markRelicAsSeen(WandererStarterRelic.ID);
         BaseMod.addRelicToCustomPool(new FragileMindRelic(), Wanderer.Enums.WANDERER_GRAY_COLOR);
         UnlockTracker.markRelicAsSeen(FragileMindRelic.ID);
+        BaseMod.addRelicToCustomPool(new MindGlassRelic(), Wanderer.Enums.WANDERER_GRAY_COLOR);
+        UnlockTracker.markBossAsSeen(MindGlassRelic.ID);
 
         // Shared (non-character-specific) relics would instead use this:
         // BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);

@@ -10,21 +10,19 @@ import java.util.ArrayList;
 
 // "Remember a random memory you do not have clarity of"
 public class RememberRandomNewMemoryAction extends AbstractGameAction  {
-    private boolean isClarified;
 
-    public RememberRandomNewMemoryAction(AbstractCreature target, AbstractCreature source, boolean isClarified) {
-        this.setValues(target, source);
-        this.isClarified = isClarified;
+    public RememberRandomNewMemoryAction(AbstractCreature target) {
+        this.setValues(target, target);
     }
 
     public void update() {
-        ArrayList<AbstractMemory> candidates = MemoryUtils.allPossibleMemories(target, isClarified);
-        candidates.removeIf(memory -> MemoryManager.forPlayer(target).hasClarity(memory.ID));
+        ArrayList<String> candidates = MemoryUtils.allPossibleMemoryIDs();
+        candidates.removeIf(memory -> MemoryManager.forPlayer(target).hasMemoryOrClarity(memory));
 
         if (!candidates.isEmpty()) {
             int randomIndex = AbstractDungeon.cardRandomRng.random(0, candidates.size() - 1);
-            AbstractMemory chosenMemory = candidates.get(randomIndex);
-            AbstractDungeon.actionManager.addToTop(new RememberSpecificMemoryAction(chosenMemory));
+            String chosenMemoryID = candidates.get(randomIndex);
+            AbstractDungeon.actionManager.addToTop(new RememberSpecificMemoryAction(target, chosenMemoryID));
         }
 
         isDone = true;

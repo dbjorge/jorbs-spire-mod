@@ -1,57 +1,47 @@
 package stsjorbsmod.memories;
 
-import basemod.interfaces.CloneablePowerInterface;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.EnvenomPower;
-import com.megacrit.cardcrawl.powers.PoisonPower;
-import stsjorbsmod.JorbsMod;
-import stsjorbsmod.util.TextureLoader;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 
-import javax.tools.Diagnostic;
-
-import static stsjorbsmod.JorbsMod.makePowerPath;
+import java.util.ArrayList;
 
 public class KindnessMemory extends AbstractMemory {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(KindnessMemory.class);
 
-    private static final int POISON_ON_REMEMBER = 3;
-    private static final int ENVENOM_MAGNITUDE = 1;
+    private static final int ENEMY_STRENGTH_REDUCTION = 3;
 
-    public KindnessMemory(final AbstractCreature owner, boolean isClarified) {
-        super(STATIC, MemoryType.VIRTUE, owner, isClarified);
-        setDescriptionPlaceholder("!M!", ENVENOM_MAGNITUDE);
+    private ArrayList<AbstractGameAction> restoreStrengthActions;
+
+    public KindnessMemory(final AbstractCreature owner) {
+        super(STATIC, MemoryType.VIRTUE, owner);
+        setDescriptionPlaceholder("!M!", ENEMY_STRENGTH_REDUCTION);
     }
 
     @Override
-    public void onRemember() {
-        if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-            for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
-                if (!monster.isDead && !monster.isDying) {
-                    AbstractDungeon.actionManager.addToBottom(
-                            new ApplyPowerAction(monster, owner, new PoisonPower(monster, owner, POISON_ON_REMEMBER), POISON_ON_REMEMBER));
-                }
+    public void onGainPassiveEffect() {
+        this.restoreStrengthActions = new ArrayList<>();
+
+        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new ApplyPowerAction(mo, owner, new StrengthPower(mo, -ENEMY_STRENGTH_REDUCTION), -ENEMY_STRENGTH_REDUCTION, true, AbstractGameAction.AttackEffect.NONE));
+
+            if (!mo.hasPower(ArtifactPower.POWER_ID)) {
+                this.restoreStrengthActions.add(
+                        new ApplyPowerAction(mo, owner, new StrengthPower(mo, +ENEMY_STRENGTH_REDUCTION), +ENEMY_STRENGTH_REDUCTION, true, AbstractGameAction.AttackEffect.NONE));
             }
         }
     }
 
     @Override
-    public void onGainPassiveEffect() {
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(owner, owner, new EnvenomPower(owner, ENVENOM_MAGNITUDE), ENVENOM_MAGNITUDE));
-    }
-
-    @Override
     public void onLosePassiveEffect() {
-        AbstractDungeon.actionManager.addToBottom(
-                new ReducePowerAction(owner, owner, EnvenomPower.POWER_ID, ENVENOM_MAGNITUDE));
+        for (AbstractGameAction restoreAction : this.restoreStrengthActions) {
+            AbstractDungeon.actionManager.addToBottom(restoreAction);
+        }
+        restoreStrengthActions.clear();
     }
 }

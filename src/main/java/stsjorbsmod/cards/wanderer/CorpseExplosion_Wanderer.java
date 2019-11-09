@@ -39,7 +39,7 @@ public class CorpseExplosion_Wanderer extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new RememberSpecificMemoryAction(new WrathMemory(p, false)));
+        addToBot(new RememberSpecificMemoryAction(p, WrathMemory.STATIC.ID));
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.FIRE));
     }
 

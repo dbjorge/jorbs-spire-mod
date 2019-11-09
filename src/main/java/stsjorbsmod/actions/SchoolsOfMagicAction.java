@@ -1,24 +1,14 @@
 package stsjorbsmod.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.UIStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.ArtifactPower;
-import com.megacrit.cardcrawl.vfx.ThoughtBubble;
-import stsjorbsmod.JorbsMod;
 import stsjorbsmod.util.UniqueCardUtils;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static stsjorbsmod.actions.CardsToTopOfDeckAction.TEXT;
 
 public class SchoolsOfMagicAction extends AbstractGameAction {
     private AbstractPlayer owner;
@@ -42,7 +32,7 @@ public class SchoolsOfMagicAction extends AbstractGameAction {
         }
 
         if (noDuplicates) {
-            AbstractDungeon.actionManager.addToBottom(new GainMemoryClarityAction(owner));
+            AbstractDungeon.actionManager.addToBottom(new GainClarityOfCurrentMemoryAction(owner));
         }
 
         this.isDone = true;

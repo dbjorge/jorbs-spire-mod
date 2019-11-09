@@ -45,7 +45,7 @@
   "stsjorbsmod:RayOfFrost": {
     "NAME": "Ray of Frost",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply 1 Weak !M! times."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak !stsjorbsmod:MetaMagic! times."
   },
   "stsjorbsmod:Counterspell": {
     "NAME": "Counterspell",
@@ -183,18 +183,16 @@
   },
   "stsjorbsmod:Stalwart": {
     "NAME": "Stalwart",
-    "DESCRIPTION": "Remember stsjorbsmod:Temperance.",
-    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Temperance. NL Gain stsjorbsmod:Clarity of current memory."
+    "DESCRIPTION": "Remember stsjorbsmod:Temperance. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Temperance. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
   },
   "stsjorbsmod:AnimateObjects": {
     "NAME": "Animate Objects",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies, !M! for each card in your draw and discard piles that didn't start the combat in your deck.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies, !M! for each card in your draw and discard piles that didn't start the combat in your deck. Add an Animate Objects to your discard pile."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies for each non-exhausted card that didn't start the combat in your deck."
   },
   "stsjorbsmod:ColorSpray": {
     "NAME": "Color Spray",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each one. NL Remember stsjorbsmod:Envy.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each one. NL Remember stsjorbsmod:Envy. NL Gain stsjorbsmod:Clarity of current memory."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each one. NL Remember stsjorbsmod:Envy."
   },
   "stsjorbsmod:Erode": {
     "NAME": "Erode",
@@ -332,11 +330,6 @@
   "stsjorbsmod:Feast": {
     "NAME": "Feast",
     "DESCRIPTION": "Remember stsjorbsmod:Gluttony. NL Draw !M! cards. NL Exhaust."
-  },
-  "stsjorbsmod:SharpenedMind": {
-    "NAME": "Sharpened Mind",
-    "DESCRIPTION": "At the start of your turn, remember stsjorbsmod:Patience. NL At the end of your turn, remember stsjorbsmod:Diligence.",
-    "UPGRADE_DESCRIPTION": "Retain. NL At the start of your turn, remember stsjorbsmod:Patience. NL At the end of your turn, remember stsjorbsmod:Diligence."
   },
   "stsjorbsmod:TimeWalk": {
     "NAME": "Time Walk",

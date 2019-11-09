@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.GainMemoryClarityAction;
+import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
@@ -30,6 +30,7 @@ public class ColorSpray extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int DAMAGE = 5;
+    private static final int UPGRADE_PLUS_DAMAGE = 3;
 
     public ColorSpray() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -61,16 +62,14 @@ public class ColorSpray extends CustomJorbsModCard {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, randomDebuff, randomDebuff.amount, true, AttackEffect.NONE));
         }
 
-        addToBot(new RememberSpecificMemoryAction(new EnvyMemory(p, false)));
-        if (upgraded) {
-            addToBot(new GainMemoryClarityAction(p));
-        }
+        addToBot(new RememberSpecificMemoryAction(p, EnvyMemory.STATIC.ID));
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeDamage(UPGRADE_PLUS_DAMAGE);
             upgradeDescription();
         }
     }
