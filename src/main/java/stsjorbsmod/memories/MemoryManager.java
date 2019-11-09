@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.CoilPower;
+import stsjorbsmod.powers.MindGlassPower;
 import stsjorbsmod.powers.SnappedPower;
 import stsjorbsmod.relics.MindglassRelic;
 import stsjorbsmod.util.RenderUtils;
@@ -183,6 +184,11 @@ public class MemoryManager {
         AbstractRelic possibleMindglassRelic = this.owner.getRelic(MindglassRelic.ID);
         if (possibleMindglassRelic != null) {
             possibleMindglassRelic.onTrigger();
+        }
+
+        AbstractPower possibleMindGlassPower = this.owner.getPower(MindGlassPower.POWER_ID);
+        if (possibleMindGlassPower != null) {
+            possibleMindGlassPower.onSpecificTrigger();
         }
 
         newClarity.flash();

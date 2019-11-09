@@ -5,16 +5,24 @@ import basemod.abstracts.CustomRelic;
 import basemod.interfaces.PostUpdateSubscriber;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.PenNibPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.memories.OnModifyMemoriesListener;
+import stsjorbsmod.powers.MindGlassPower;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.*;
 
+/**
+ * When gaining a unique clarity, deals 5 damage to all enemies.
+ * When gain the tenth clarity in a combat, deal 500 damage to all enemies.
+ */
 public class MindglassRelic extends CustomRelic implements OnModifyMemoriesListener, PostUpdateSubscriber {
     public static final String ID = JorbsMod.makeID(MindglassRelic.class.getSimpleName());
 
@@ -23,11 +31,10 @@ public class MindglassRelic extends CustomRelic implements OnModifyMemoriesListe
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("placeholder_relic.png"));
 
     private static final int ONE_CLARITY_DAMAGE = 5;
-    private static final int TEN_CLARITY_DAMAGE = 500;
+    private static final int TEN_CLARITY_DAMAGE = 50; //TODO 500
 
     public MindglassRelic() {
-        // TODO relic tier
-        super(ID, IMG, OUTLINE, RelicTier.COMMON, LandingSound.CLINK);
+        super(ID, IMG, OUTLINE, RelicTier.UNCOMMON, LandingSound.CLINK);
     }
 
     @Override
@@ -49,25 +56,24 @@ public class MindglassRelic extends CustomRelic implements OnModifyMemoriesListe
     public void onTrigger() {
         ++this.counter;
         this.flash();
-        if (this.counter == 10) {
+        if (this.counter == 9) {
+            AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             AbstractDungeon.actionManager.addToBottom(
-                    new DamageAllEnemiesAction(
-                            (AbstractCreature) null,
-                            DamageInfo.createDamageMatrix(TEN_CLARITY_DAMAGE, true),
-                            DamageInfo.DamageType.NORMAL,
-                            // TODO: More impactful and relevant FX. See FlashAtkImgEffect.loadImage() and
-                            //  FlashAtkImgEffect.playSound() for usage of AttackEffect in base game.
-                            AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-        } else {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DamageAllEnemiesAction(
-                            (AbstractCreature) null,
-                            DamageInfo.createDamageMatrix(ONE_CLARITY_DAMAGE, true),
-                            DamageInfo.DamageType.NORMAL,
-                            // TODO: More impactful and relevant FX. See FlashAtkImgEffect.loadImage() and
-                            //  FlashAtkImgEffect.playSound() for usage of AttackEffect in base game.
-                            AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                    new ApplyPowerAction(
+                            AbstractDungeon.player,
+                            AbstractDungeon.player,
+                            new MindGlassPower(AbstractDungeon.player, TEN_CLARITY_DAMAGE),
+                            1,
+                            true));
         }
+        AbstractDungeon.actionManager.addToBottom(
+                new DamageAllEnemiesAction(
+                        (AbstractCreature) null,
+                        DamageInfo.createDamageMatrix(ONE_CLARITY_DAMAGE, true),
+                        DamageInfo.DamageType.NORMAL,
+                        // TODO: More impactful and relevant FX. See FlashAtkImgEffect.loadImage() and
+                        //  FlashAtkImgEffect.playSound() for usage of AttackEffect in base game.
+                        AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
 
     @Override

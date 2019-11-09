@@ -201,5 +201,11 @@
       "At the start of its turn, loses #b",
       "Reduce healing by 50%."
     ]
+  },
+  "stsjorbsmod:MindGlassPower": {
+    "NAME": "Mind Glass",
+    "DESCRIPTIONS": [
+      "When you next gain clarity of a memory this combat, deal #b%1$s damage to ALL enemies"
+    ]
   }
 }
