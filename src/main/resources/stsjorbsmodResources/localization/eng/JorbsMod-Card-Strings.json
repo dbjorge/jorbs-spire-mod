@@ -33,10 +33,9 @@
     "NAME": "Magic Missiles",
     "DESCRIPTION": "Deal !D! damage. NL Deal !D! damage again once for each stsjorbsmod:Clarity."
   },
-  "stsjorbsmod:SnakeOilFlask": {
-    "NAME": "Snake Oil Flask",
-    "DESCRIPTION": "Apply !M! Poison.",
-    "UPGRADE_DESCRIPTION": "Apply !M! Poison. NL Remember stsjorbsmod:Patience."
+  "stsjorbsmod:SnakeOil": {
+    "NAME": "Snake Oil",
+    "DESCRIPTION": "Retain. NL Deal !D! damage to ALL enemies. Deal an additional !M! damage per #yCoil. NL Exhaust"
   },
   "stsjorbsmod:TrueStrike": {
     "NAME": "True Strike",
