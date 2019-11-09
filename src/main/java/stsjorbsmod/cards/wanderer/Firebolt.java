@@ -40,22 +40,11 @@ public class Firebolt extends CustomJorbsModCard {
     }
 
     @Override
-    protected int calculateBonusBaseDamage() {
-        if (upgraded) {
-            return 0;
-        } else {
-            return this.magicNumber * MemoryManager.forPlayer(AbstractDungeon.player).countCurrentClarities();
-        }
-    }
-
-    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, this.damage), AttackEffect.FIRE));
-        if(upgraded) {
-            int burningAmt = this.baseMagicNumber * MemoryManager.forPlayer(AbstractDungeon.player).countCurrentClarities();
-            if (burningAmt > 0) {
-                addToBot(new ApplyPowerAction(m, p, new BurningPower(m, p, burningAmt)));
-            }
+        addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.FIRE));
+        int burningAmt = baseMagicNumber * MemoryManager.forPlayer(AbstractDungeon.player).countCurrentClarities();
+        if (burningAmt > 0) {
+            addToBot(new ApplyPowerAction(m, p, new BurningPower(m, p, burningAmt)));
         }
     }
 
