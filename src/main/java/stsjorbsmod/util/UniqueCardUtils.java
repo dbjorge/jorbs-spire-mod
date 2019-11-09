@@ -2,14 +2,15 @@ package stsjorbsmod.util;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.colorless.RitualDagger;
+import stsjorbsmod.patches.WrathField;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class UniqueCardUtils {
     public static String getUpgradeInclusiveCardID(AbstractCard card) {
-        // TODO; should account for Wrath upgrades too
-        return card.cardID + "__" + card.timesUpgraded;
+        return card.cardID + "__" + card.misc + "__" + card.timesUpgraded + "__" + WrathField.wrathEffectCount.get(card);
     }
 
     public static int countUniqueCards(CardGroup group) {
