@@ -236,8 +236,8 @@
     "NAME": "Gather Power",
     "DESCRIPTION": "Draw !M! cards. NL This turn, your next attack is played twice."
   },
-  "stsjorbsmod:Haste": {
-    "NAME": "Haste",
+  "stsjorbsmod:Quicksilver": {
+    "NAME": "Quicksilver",
     "DESCRIPTION": "Advance all turn-based relic counters by 1. NL This turn, your next attack is played twice. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Advance all turn-based relic counters by 1. NL This turn, your next two attacks are played twice. NL Exhaust."
   },
