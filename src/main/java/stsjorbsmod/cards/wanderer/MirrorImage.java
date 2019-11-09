@@ -7,6 +7,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.memories.KindnessMemory;
 import stsjorbsmod.memories.TemperanceMemory;
 import stsjorbsmod.powers.NextAttackMissesPower;
 
@@ -32,7 +33,7 @@ public class MirrorImage extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new RememberSpecificMemoryAction(p, TemperanceMemory.STATIC.ID));
+        addToBot(new RememberSpecificMemoryAction(p, KindnessMemory.STATIC.ID));
         addToBot(new ApplyPowerAction(p, p, new NextAttackMissesPower(p)));
     }
 
