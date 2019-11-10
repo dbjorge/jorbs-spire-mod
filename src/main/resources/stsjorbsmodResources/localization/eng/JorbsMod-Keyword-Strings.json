@@ -21,7 +21,7 @@
   },
   {
     "PROPER_NAME": "Slow",
-    "NAMES": ["slow"],
+    "NAMES": ["slow", "slowed"],
     "DESCRIPTION": "Slowed creatures take 10% more damage from attacks per card already played this turn."
   },
   {
