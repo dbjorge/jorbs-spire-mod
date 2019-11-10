@@ -15,6 +15,9 @@ import stsjorbsmod.characters.Wanderer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -65,14 +68,11 @@ public class ChainLightning extends CustomJorbsModCard {
 
     private ArrayList<AbstractMonster> getRandomOrderMonsters(ArrayList<AbstractMonster> targets, AbstractMonster initialTarget) {
         ArrayList<AbstractMonster> finalTargets = new ArrayList<>(Arrays.asList(initialTarget));
-        targets.stream()
+        ArrayList<AbstractMonster> chainCandidates = targets.stream()
                 .filter(t -> !(t.halfDead || t.isDying || t.isEscaping || t == initialTarget))
-                .forEach(t -> {
-                    int targetIndex = AbstractDungeon.cardRandomRng.random(0, finalTargets.size() - 1);
-                    // Never add anything other than initialTarget at 0
-                    targetIndex = Math.max(1, targetIndex);
-                    finalTargets.add(targetIndex, t);
-                });
+                .collect(Collectors.toCollection(ArrayList::new));
+        Collections.shuffle(chainCandidates, AbstractDungeon.cardRandomRng.random);
+        finalTargets.addAll(chainCandidates);
 
         return finalTargets;
     }
