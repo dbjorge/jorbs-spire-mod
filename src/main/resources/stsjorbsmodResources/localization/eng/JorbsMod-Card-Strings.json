@@ -310,5 +310,9 @@
   "stsjorbsmod:Sulfur": {
     "NAME": "Sulfur",
     "DESCRIPTION": "Apply !M! stsjorbsmod:Burning. NL Ephemeral."
+  },
+  "stsjorbsmod:OakLeaf": {
+    "NAME": "Oak Leaf",
+    "DESCRIPTION": "Gain !M! Dexterity."
   }
 }
