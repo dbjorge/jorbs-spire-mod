@@ -226,8 +226,7 @@
   },
   "stsjorbsmod:Trauma": {
     "NAME": "Trauma",
-    "DESCRIPTION": "stsjorbsmod:Snap. NL Deal !D! damage to ALL enemies and lose !M! HP. NL Repeat.",
-    "UPGRADE_DESCRIPTION": "stsjorbsmod:Snap. NL Deal !D! damage to ALL enemies and lose !M! HP. NL Repeat. NL Repeat again."
+    "DESCRIPTION": "stsjorbsmod:Snap. NL Deal !D! damage to ALL enemies. NL Put this card on top of your draw pile."
   },
   "stsjorbsmod:GatherPower": {
     "NAME": "Gather Power",
