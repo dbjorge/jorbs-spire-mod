@@ -88,6 +88,7 @@
                 <configuration>
                     <excludes>
                         <exclude>**/*.psd</exclude>
+                        <exclude>**/*.kra</exclude>
                     </excludes>
                 </configuration>
             </plugin>
