@@ -266,8 +266,8 @@
   },
   "stsjorbsmod:Entangle": {
     "NAME": "Entangle",
-    "DESCRIPTION": "Apply stsjorbsmod:Slow to ALL enemies. NL Remember stsjorbsmod:Patience. NL Gain stsjorbsmod:Clarity.",
-    "UPGRADE_DESCRIPTION": "Apply stsjorbsmod:Slow and !M! Vulnerable to ALL enemies. NL Remember stsjorbsmod:Patience. NL Gain stsjorbsmod:Clarity."
+    "DESCRIPTION": "Apply stsjorbsmod:Slow to ALL enemies. NL Add !M! stsjorbsmod:Web into your hand.",
+    "UPGRADE_DESCRIPTION": "Apply stsjorbsmod:Slow to ALL enemies. NL Add !M! stsjorbsmod:Webs into your hand."
   },
   "stsjorbsmod:Amnesia": {
     "NAME": "Amnesia",

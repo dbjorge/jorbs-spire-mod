@@ -1,6 +1,8 @@
 package stsjorbsmod.cards.wanderer;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.cards.colorless.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -25,15 +27,13 @@ public class Entangle extends CustomJorbsModCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
-    private static final int COST = 1;
-    private static final int VULNERABLE = 0;
-    private static final int UPGRADE_PLUS_VULNERABLE = 1;
+    private static final int COST = 2;
+    private static final int WEBS = 1;
+    private static final int UPGRADE_PLUS_WEBS = 2;
 
     public Entangle() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = VULNERABLE;
-
-        tags.add(REMEMBER_MEMORY);
+        magicNumber = baseMagicNumber = WEBS;
     }
 
     @Override
@@ -42,20 +42,16 @@ public class Entangle extends CustomJorbsModCard {
             if (!m.hasPower(SlowPower.POWER_ID)) {
                 addToBot(new ApplyPowerAction(m, p, new SlowPower(m, 0)));
             }
-            if (magicNumber > 0) {
-                addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false)));
-            }
         }
 
-        addToBot(new RememberSpecificMemoryAction(p, PatienceMemory.STATIC.ID));
-        addToBot(new GainClarityOfCurrentMemoryAction(p));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Web(), this.magicNumber));
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_VULNERABLE);
+            upgradeMagicNumber(UPGRADE_PLUS_WEBS);
             upgradeDescription();
         }
     }

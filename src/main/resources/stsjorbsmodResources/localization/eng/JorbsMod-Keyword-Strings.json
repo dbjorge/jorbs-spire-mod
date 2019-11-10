@@ -25,6 +25,11 @@
     "DESCRIPTION": "Slowed creatures take 10% more damage from attacks per card already played this turn."
   },
   {
+    "PROPER_NAME": "Web",
+    "NAMES": ["web", "Web", "webs", "Webs"],
+    "DESCRIPTION": "Webs are 0 cost Skill cards which Retain, apply Weak, and Exhaust."
+  },
+  {
     "PROPER_NAME": "Clarity",
     "NAMES": ["clarity", "Clarity"],
     "DESCRIPTION": "Memories you have Clarity of won't be forgotten when remembering a new memory."
