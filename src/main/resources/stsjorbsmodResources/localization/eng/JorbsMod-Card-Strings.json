@@ -302,5 +302,13 @@
   "stsjorbsmod:BurningFlask": {
     "NAME": "Burning Flask",
     "DESCRIPTION": "Apply !M! stsjorbsmod:Burning."
+  },
+  "stsjorbsmod:Web": {
+    "NAME": "Web",
+    "DESCRIPTION": "Retain. NL Apply !M! Weak. NL Exhaust."
+  },
+  "stsjorbsmod:Sulfur": {
+    "NAME": "Sulfur",
+    "DESCRIPTION": "Apply !M! stsjorbsmod:Burning. NL Ephemeral."
   }
 }
