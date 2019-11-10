@@ -132,6 +132,8 @@ public class MemoryManager {
     }
 
     public void snap() {
+        if (isSnapped()) { return; }
+
         forgetCurrentMemoryNoNotify();
 
         for (AbstractMemory clarity : this.currentClarities()) {
