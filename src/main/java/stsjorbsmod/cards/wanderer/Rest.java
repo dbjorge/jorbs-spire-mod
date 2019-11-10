@@ -24,7 +24,7 @@ public class Rest extends CustomJorbsModCard {
 
     private static final int COST = 2;
     private static final int BLOCK = 10;
-    private static final int UPGRADE_PLUS_BLOCK = 4;
+    private static final int UPGRADE_PLUS_BLOCK = 3;
 
     public Rest() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -35,7 +35,7 @@ public class Rest extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new RememberSpecificMemoryAction(new ChastityMemory(p, false)));
+        addToBot(new RememberSpecificMemoryAction(p, ChastityMemory.STATIC.ID));
         addToBot(new GainBlockAction(p, p, block));
         addToBot(new EndTurnNowAction());
     }

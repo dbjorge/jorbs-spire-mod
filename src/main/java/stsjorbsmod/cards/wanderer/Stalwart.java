@@ -3,6 +3,7 @@ package stsjorbsmod.cards.wanderer;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
@@ -24,13 +25,17 @@ public class Stalwart extends CustomJorbsModCard {
 
     public Stalwart() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        this.exhaust = true;
 
         this.tags.add(REMEMBER_MEMORY);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new RememberSpecificMemoryAction(new TemperanceMemory(p, upgraded)));
+        addToBot(new RememberSpecificMemoryAction(p, TemperanceMemory.STATIC.ID));
+        if (upgraded) {
+            addToBot(new GainClarityOfCurrentMemoryAction(p));
+        }
     }
 
     @Override

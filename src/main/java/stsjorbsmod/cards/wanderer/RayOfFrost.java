@@ -24,29 +24,28 @@ public class RayOfFrost extends CustomJorbsModCard {
 
     private static final int COST = 2;
     private static final int DAMAGE = 10;
-    private static final int WEAK = 3;
     private static final int UPGRADE_PLUS_DMG = 3;
+
+    private static final int WEAK = 2;
+    private static final int WEAK_APPLICATIONS = 1;
+    private static final int UPGRADE_PLUS_WEAK = -1;
+    private static final int UPGRADE_PLUS_WEAK_APPLICATIONS = 2;
+
 
     public RayOfFrost() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = WEAK;
+        metaMagicNumber = baseMetaMagicNumber = WEAK_APPLICATIONS;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.BLUNT_LIGHT));
 
-        if (!upgraded) {
-            // !M! weak once
-            addToBot(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false)));
-        } else {
-            // 1 weak !M! times
-            for (int i=0; i<this.magicNumber; ++i) {
-                addToBot(new ApplyPowerAction(m, p, new WeakPower(m, 1, false)));
-            }
+        for (int i=0; i<this.metaMagicNumber; ++i) {
+            addToBot(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber));
         }
-
     }
 
     @Override
@@ -54,6 +53,8 @@ public class RayOfFrost extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeMagicNumber(UPGRADE_PLUS_WEAK);
+            upgradeMetaMagicNumber(UPGRADE_PLUS_WEAK_APPLICATIONS);
             upgradeDescription();
         }
     }

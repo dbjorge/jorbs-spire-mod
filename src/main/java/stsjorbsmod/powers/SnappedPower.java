@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
+import stsjorbsmod.patches.EnumsPatch;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
@@ -33,7 +34,7 @@ public class SnappedPower extends AbstractPower implements CloneablePowerInterfa
 
         this.owner = owner;
 
-        type = PowerType.DEBUFF;
+        type = EnumsPatch.SPECIAL;
         isTurnBased = false;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);

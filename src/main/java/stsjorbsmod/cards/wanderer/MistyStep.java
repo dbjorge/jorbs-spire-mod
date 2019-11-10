@@ -23,8 +23,8 @@ public class MistyStep extends CustomJorbsModCard {
 
     private static final int COST = 0;
     private static final int BLOCK_PER_CLARITY = 1;
+    private static final int UPGRADE_PLUS_BLOCK = 2;
     private static final int DRAW = 1;
-    private static final int UPGRADE_PLUS_DRAW = 1;
 
     public MistyStep() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -34,7 +34,7 @@ public class MistyStep extends CustomJorbsModCard {
     }
 
     @Override
-    protected int calculateBonusBlock() {
+    protected int calculateBonusBaseBlock() {
         return MemoryManager.forPlayer(AbstractDungeon.player).countCurrentClarities() * metaMagicNumber;
     }
 
@@ -48,7 +48,7 @@ public class MistyStep extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_DRAW);
+            upgradeBlock(UPGRADE_PLUS_BLOCK);
             upgradeDescription();
         }
     }

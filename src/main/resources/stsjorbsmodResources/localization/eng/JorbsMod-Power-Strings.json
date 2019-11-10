@@ -14,6 +14,13 @@
       " turns."
     ]
   },
+  "stsjorbsmod:BookOfTonguesPower": {
+    "NAME": "Book of Tongues",
+    "DESCRIPTIONS": [
+      "At the start of your turn, draw #b1 random Material Component.",
+      "At the start of your turn, draw #b", " random Material Components."
+    ]
+  },
   "stsjorbsmod:CoilPower": {
     "NAME": "Coil",
     "DESCRIPTIONS": [
@@ -40,7 +47,7 @@
   "stsjorbsmod:FindFamiliarPower": {
     "NAME": "Find Familiar",
     "DESCRIPTIONS": [
-      "At the end of each turn, gain Clarity."
+      "At the end of each turn, gain #yClarity. If #ySnapped, deal #b", " damage to ALL enemies."
     ]
   },
   "stsjorbsmod:FocusOnThePainPower": {
@@ -72,7 +79,8 @@
   "stsjorbsmod:MagicMirrorPower": {
     "NAME": "Magic Mirror",
     "DESCRIPTIONS": [
-      "Whenever you receive a debuff, apply that debuff to ALL enemies."
+      "Whenever you receive a debuff, apply that debuff to ALL enemies.",
+      "Whenever you receive a debuff, apply that debuff to ALL enemies #b", " times."
     ]
   },
   "stsjorbsmod:NextAttackMissesPower": {
@@ -95,12 +103,6 @@
       "Reduce the next damage taken by #b", "."
     ]
   },
-  "stsjorbsmod:SharpenedMindPower": {
-    "NAME": "Sharpened Mind",
-    "DESCRIPTIONS": [
-      "At the start of your turn, remember #yPatience. NL At the end of your turn, remember #yDiligence."
-    ]
-  },
   "stsjorbsmod:SnappedPower": {
     "NAME": "Snapped",
     "DESCRIPTIONS": [
@@ -110,7 +112,7 @@
   "stsjorbsmod:CharityMemory": {
     "NAME": "Charity",
     "DESCRIPTIONS": [
-      "Increases attack damage by #b!S!. Increases by an additional 1 for every !G! gold you have."
+      "Maintains #b!S! #yStrength. Maintains an additional 1 #yStrength for every additional !G! gold you gain."
     ]
   },
   "stsjorbsmod:ChastityMemory": {
@@ -152,13 +154,13 @@
   "stsjorbsmod:KindnessMemory": {
     "NAME": "Kindness",
     "DESCRIPTIONS": [
-      "Whenever an attack deals unblocked damage, apply !M! #yPoison."
+      "Reduce #yStrength of ALL enemies by !M!."
     ]
   },
   "stsjorbsmod:LustMemory": {
     "NAME": "Lust",
     "DESCRIPTIONS": [
-      "Your attacks deal !P!% bonus damage. When you forget Lust, gain !W! Weak."
+      "Your attacks apply !P! #yBurning. Each time remembered, apply !R! #yBurning to ALL enemies. Each time forgotten, gain !F! #yWeak."
     ]
   },
   "stsjorbsmod:PatienceMemory": {
@@ -170,7 +172,7 @@
   "stsjorbsmod:PrideMemory": {
     "NAME": "Pride",
     "DESCRIPTIONS": [
-      "At the end of combat, permanently #yUpgrade a card in your deck. Decreases #yBlock gained from cards by !M!."
+      "At the end of combat, permanently #yUpgrade a card in your deck. Maintains #b!M! #yDexterity."
     ]
   },
   "stsjorbsmod:SlothMemory": {
@@ -182,7 +184,7 @@
   "stsjorbsmod:TemperanceMemory": {
     "NAME": "Temperance",
     "DESCRIPTIONS": [
-      "Reduce #yStrength of ALL enemies by !M!."
+      "Maintains #b!S! #yStrength. Maintains an additional 1 #yStrength for every additional #yClarity you gain. Each time remembered, apply !W! #yWeak to ALL enemies."
     ]
   },
   "stsjorbsmod:WrathMemory": {
@@ -199,6 +201,12 @@
       ". ",
       "At the start of its turn, loses #b",
       "Reduce healing by 50%."
+    ]
+  },
+  "stsjorbsmod:MindGlassPower": {
+    "NAME": "Mind Glass",
+    "DESCRIPTIONS": [
+      "When you next gain #yClarity, deal #b%1$s damage to ALL enemies."
     ]
   }
 }

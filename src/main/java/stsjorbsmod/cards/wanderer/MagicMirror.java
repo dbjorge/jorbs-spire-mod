@@ -20,7 +20,6 @@ public class MagicMirror extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = 1;
-    private static final int UPGRADED_COST = 0;
 
     public MagicMirror() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -28,14 +27,14 @@ public class MagicMirror extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new MagicMirrorPower(p)));
+        addToBot(new ApplyPowerAction(p, p, new MagicMirrorPower(p, 1)));
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            isInnate = true;
             upgradeDescription();
         }
     }

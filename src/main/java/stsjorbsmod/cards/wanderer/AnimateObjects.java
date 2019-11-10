@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.patches.EntombedField;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -22,45 +23,48 @@ public class AnimateObjects extends CustomJorbsModCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
-    private static final int COST = 1;
-    private static final int DAMAGE_PER_GENERATED_CARD = 3;
-    private static final int UPGRADE_PLUS_DMG = 1;
+    private static final int COST = 2;
+    private static final int DAMAGE_PER_MATCHING_CARD = 3;
+    private static final int UPGRADE_PLUS_PER_MATCHING_CARD = 2;
 
     public AnimateObjects() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = 0;
-        magicNumber = baseMagicNumber = DAMAGE_PER_GENERATED_CARD;
+        baseDamage = DAMAGE_PER_MATCHING_CARD;
         isMultiDamage = true;
     }
 
-    @Override
-    protected int calculateBonusBaseDamage() {
-        int numGeneratedCards = 0;
+    protected int calculateDamageInstanceCount() {
+        int numMatchingCards = 0;
         for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
-            if (StSLib.getMasterDeckEquivalent(c) == null) {
-                numGeneratedCards++;
+            if (EntombedField.entombed.get(c) || StSLib.getMasterDeckEquivalent(c) == null) {
+                numMatchingCards++;
             }
         }
         for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
-            if (StSLib.getMasterDeckEquivalent(c) == null) {
-                numGeneratedCards++;
+            if (EntombedField.entombed.get(c) || StSLib.getMasterDeckEquivalent(c) == null) {
+                numMatchingCards++;
             }
         }
-
-        return magicNumber * numGeneratedCards;
+        for (AbstractCard c : AbstractDungeon.player.hand.group) {
+            if (EntombedField.entombed.get(c) || StSLib.getMasterDeckEquivalent(c) == null) {
+                numMatchingCards++;
+            }
+        }
+        return numMatchingCards;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster monster) {
-        addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.FIRE));
+        for (int i = 0; i < calculateDamageInstanceCount(); ++i) {
+            addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.FIRE));
+        }
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_DMG); // not upgradeDamage
-            initializeDescription();
+            upgradeDamage(UPGRADE_PLUS_PER_MATCHING_CARD);
         }
     }
 }

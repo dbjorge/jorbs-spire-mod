@@ -4,7 +4,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.GainMemoryClarityAction;
+import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
@@ -36,9 +36,9 @@ public class OldPocket extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.player.gainGold(magicNumber);
-        addToBot(new RememberSpecificMemoryAction(new CharityMemory(p, false)));
+        addToBot(new RememberSpecificMemoryAction(p, CharityMemory.STATIC.ID));
         if (upgraded) {
-            addToBot(new GainMemoryClarityAction(p));
+            addToBot(new GainClarityOfCurrentMemoryAction(p));
         }
     }
 

@@ -1,12 +1,15 @@
 package stsjorbsmod.cards.wanderer;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DrawPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
+import stsjorbsmod.cards.wanderer.materialcomponents.MaterialComponentsDeck;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.powers.BookOfTonguesPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -21,6 +24,7 @@ public class BookOfTongues extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int DRAW_PER_TURN = 1;
+    private static final int UPGRADE_PLUS_DRAW_PER_TURN = 1;
 
     public BookOfTongues() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -29,14 +33,14 @@ public class BookOfTongues extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new DrawPower(p, this.magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new BookOfTonguesPower(p, this.magicNumber)));
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.isInnate = true;
+            upgradeMagicNumber(UPGRADE_PLUS_DRAW_PER_TURN);
             upgradeDescription();
         }
     }

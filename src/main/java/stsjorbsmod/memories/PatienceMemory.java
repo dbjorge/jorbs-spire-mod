@@ -12,13 +12,13 @@ public class PatienceMemory extends AbstractMemory {
 
     private static final int COIL_PER_CARD = 1;
 
-    public PatienceMemory(final AbstractCreature owner, boolean isClarified) {
-        super(STATIC, MemoryType.VIRTUE, owner, isClarified);
+    public PatienceMemory(final AbstractCreature owner) {
+        super(STATIC, MemoryType.VIRTUE, owner);
     }
 
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster target) {
-        if (isPassiveEffectActive) {
+        if (isPassiveEffectActive()) {
             this.flash();
             AbstractDungeon.actionManager.addToBottom(
                     new ApplyPowerAction(owner, owner, new CoilPower(owner, owner, COIL_PER_CARD)));

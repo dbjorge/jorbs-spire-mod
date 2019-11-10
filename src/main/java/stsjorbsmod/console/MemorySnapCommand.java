@@ -2,7 +2,6 @@ package stsjorbsmod.console;
 
 import basemod.devcommands.ConsoleCommand;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import stsjorbsmod.actions.GainMemoryClarityAction;
 import stsjorbsmod.actions.SnapAction;
 
 public class MemorySnapCommand extends ConsoleCommand {

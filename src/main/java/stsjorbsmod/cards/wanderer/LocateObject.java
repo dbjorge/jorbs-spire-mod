@@ -23,6 +23,7 @@ public class LocateObject extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int DRAW = 2;
+    private static final int UPGRADE_PLUS_DRAW = 1;
 
     public LocateObject() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -34,7 +35,7 @@ public class LocateObject extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new RememberSpecificMemoryAction(new GreedMemory(p, upgraded)));
+        addToBot(new RememberSpecificMemoryAction(p, GreedMemory.STATIC.ID));
         addToBot(new DrawCardAction(p, magicNumber));
     }
 
@@ -42,7 +43,8 @@ public class LocateObject extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDescription();
+            upgradeMagicNumber(UPGRADE_PLUS_DRAW);
+            initializeDescription();
         }
     }
 }

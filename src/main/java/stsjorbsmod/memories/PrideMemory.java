@@ -1,32 +1,37 @@
 package stsjorbsmod.memories;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.DexterityPower;
 import stsjorbsmod.util.EffectUtils;
 
 public class PrideMemory extends AbstractMemory {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(PrideMemory.class);
 
-    private static final int PASSIVE_DEXTERITY_LOSS = 2;
+    private static final int PASSIVE_DEXTERITY_MODIFIER = -2;
 
-    public PrideMemory(final AbstractCreature owner, boolean isClarified) {
-        super(STATIC, MemoryType.SIN, owner, isClarified);
-        setDescriptionPlaceholder("!M!", PASSIVE_DEXTERITY_LOSS);
+    public PrideMemory(final AbstractCreature owner) {
+        super(STATIC, MemoryType.SIN, owner);
+        setDescriptionPlaceholder("!M!", PASSIVE_DEXTERITY_MODIFIER);
     }
 
     @Override
-    public float modifyBlock(float blockAmount) {
-        if (isPassiveEffectActive) {
-            return (blockAmount -= (float) PASSIVE_DEXTERITY_LOSS) < 0.0F ? 0.0F : blockAmount;
-        }
-        return blockAmount;
+    public void onGainPassiveEffect() {
+        // It is by design that the dexterity decrease can be blocked by Artifact.
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new DexterityPower(owner, PASSIVE_DEXTERITY_MODIFIER), PASSIVE_DEXTERITY_MODIFIER));
+    }
+
+    @Override
+    public void onLosePassiveEffect() {
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new DexterityPower(owner, -PASSIVE_DEXTERITY_MODIFIER), -PASSIVE_DEXTERITY_MODIFIER));
     }
 
     @Override
     public void onVictory() {
-        if (isPassiveEffectActive) {
+        if (isPassiveEffectActive()) {
             CardGroup masterDeckCandidates = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
             for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
                 if (c.canUpgrade()) {

@@ -15,7 +15,7 @@ This mod would not have been possible without the excellent documentation and gu
 
 * [How to Install](#how-to-install)
 * [How to build from source](#how-to-build-from-source)
-* [How to contribute card art](#how-to-contribute-card-art)
+* [How to contribute art](#how-to-contribute-art)
 * [How to contribute sound effects](#how-to-contribute-sound-effects)
 * [How to contribute changes](#how-to-contribute-changes)
 
@@ -49,13 +49,13 @@ This mod would not have been possible without the excellent documentation and gu
     1. Press next a few times, all other settings can be left at defaults 
 1. Follow the [these instructions from the StS-DefaultModBase wiki](https://github.com/Gremious/StS-DefaultModBase/wiki/Step-3:-Packaging-and-Playing-the-Default;-Writing-Your-First-Mod!) to build the mod package and debug it
 
-## How to contribute card art
+## How to contribute art
 
-See the [.../images/cards/README.md](src/main/resources/stsjorbsmodResources/images/cards/README.md) file in the resources folder.
+See the [.../images/README.md](./src/main/resources/stsjorbsmodResources/images/README.md) file in the resources folder.
 
 ## How to contribute sound effects
 
-See the [.../audio/README.md](src/main/resources/stsjorbsmodResources/audio/README.md) file in the resources folder.
+See the [.../audio/README.md](./src/main/resources/stsjorbsmodResources/audio/README.md) file in the resources folder.
 
 ## How to contribute changes
 
@@ -68,14 +68,20 @@ This project uses GitHub Pull Requests to handle merging contributed changes. If
 1. Create your own fork of this repository by clicking the "Fork" button at the top right of this page (you'll need a GitHub account)
 1. [Install Git](https://git-scm.com/downloads)
 1. From a command prompt, run the following (replace `your_username` with your GitHub username):
-    ```sh
-    cd C:/path/to/code
-   
+    ```bash
+    # This is where the folder for the mod code will be placed inside of.
+    # This can be wherever you like; I like something short like "C:\code" or "C:\repos".
+    # Don't use a path with spaces in it!
+    cd C:/code
+    
+    # This will clone the repository into a new folder named "jorbs-spire-mod" inside the directory you picked above
     git clone --origin upstream https://github.com/dbjorge/jorbs-spire-mod.git
     cd jorbs-spire-mod
    
+    # Replace "your_username" with your GitHub username!
     git remote add my_fork https://github.com/your_username/jorbs-spire-mod.git
-   
+
+    # These are "aliases", helper commands that will make it easier to use GitHub Pull Requests
     git config --global alias.newfeature "!git checkout master && git pull && git checkout -b"
     git config --global alias.pushtofork "!git push --set-upstream my_fork HEAD"
     ```
@@ -85,7 +91,8 @@ This project uses GitHub Pull Requests to handle merging contributed changes. If
 1. (recommended) Discuss your idea on the [Discord #jorbs-spire-mod-char channel](https://discord.gg/invite/jorbs) first, to make sure noone else is already working on the same thing
 1. Run `git newfeature my-cool-feature-name`
 1. Make your code changes, build and test locally
-1. Use `git add *` and `git commit -m 'description of changes'` to make *local* commits
+1. Use the usual `git add *` and `git commit -m 'description of changes'` commands to make local commits
+    * If you're brand new to git, https://try.github.io has some good learning resources
 
 ### When you're ready to submit your changes to be reviewed and merged...
 

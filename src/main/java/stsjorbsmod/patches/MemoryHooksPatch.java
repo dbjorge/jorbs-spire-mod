@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.MinionPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import javassist.CtBehavior;
 import org.apache.logging.log4j.LogManager;
@@ -52,6 +53,31 @@ public class MemoryHooksPatch {
             public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
                 Matcher matcher = new Matcher.FieldAccessMatcher(AbstractPlayer.class, "blights");
                 return LineFinder.findInOrder(ctMethodToPatch, matcher);
+            }
+        }
+    }
+
+    @SpirePatch(
+            clz = AbstractMonster.class,
+            method = "damage"
+    )
+    public static class onAttackHook {
+        @SpireInsertPatch(
+                locator = Locator.class,
+                localvars = "damageAmount"
+        )
+        public static void patch(AbstractMonster __this, DamageInfo info, int damageAmount) {
+            if (info.owner == AbstractDungeon.player) {
+                forEachMemory(AbstractDungeon.player, m -> m.onAttack(info, damageAmount, __this));
+            }
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            @Override
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+                Matcher abstractPowerOnAttackedToChangeDamage = new Matcher.MethodCallMatcher(AbstractPower.class, "onAttackedToChangeDamage");
+                Matcher abstractPlayerRelics = new Matcher.FieldAccessMatcher(AbstractPlayer.class, "relics");
+                return LineFinder.findInOrder(ctMethodToPatch, Collections.singletonList(abstractPowerOnAttackedToChangeDamage), abstractPlayerRelics);
             }
         }
     }

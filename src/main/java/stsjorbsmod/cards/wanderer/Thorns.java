@@ -1,10 +1,12 @@
 package stsjorbsmod.cards.wanderer;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.ThornsPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
-import stsjorbsmod.actions.GainMemoryClarityAction;
+import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.actions.IfEnemyIntendsToAttackAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
@@ -18,12 +20,11 @@ public class Thorns extends CustomJorbsModCard {
     public static final String IMG = makeCardPath("Scaling_Uncommons/thorns.png");
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = 1;
-    private static final int UPGRADED_COST = 0;
 
     public Thorns() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -34,16 +35,19 @@ public class Thorns extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new RememberSpecificMemoryAction(new HumilityMemory(p, false)));
-        addToBot(new IfEnemyIntendsToAttackAction(m, new GainMemoryClarityAction(p)));
+        addToBot(new RememberSpecificMemoryAction(p, HumilityMemory.STATIC.ID));
+        if (upgraded) {
+            addToBot(new GainClarityOfCurrentMemoryAction(p));
+        } else {
+            addToBot(new IfEnemyIntendsToAttackAction(new GainClarityOfCurrentMemoryAction(p)));
+        }
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

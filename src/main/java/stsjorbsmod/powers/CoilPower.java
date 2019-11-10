@@ -3,27 +3,26 @@ package stsjorbsmod.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.memories.PatienceMemory;
+import stsjorbsmod.memories.MemoryManager;
+import stsjorbsmod.memories.OnModifyMemoriesListener;
 import stsjorbsmod.util.TextureLoader;
+
+import java.util.Collections;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
 // When you forget Patience, deal 2 damage to all enemies for each coil and lose all coil.
-public class CoilPower extends AbstractPower implements CloneablePowerInterface {
+public class CoilPower extends AbstractPower implements CloneablePowerInterface, OnModifyMemoriesListener {
     public AbstractCreature source;
 
     public static final String POWER_ID = JorbsMod.makeID(CoilPower.class.getSimpleName());
@@ -63,13 +62,18 @@ public class CoilPower extends AbstractPower implements CloneablePowerInterface 
     }
 
     @Override
-    public void onSpecificTrigger() {
+    public void onModifyMemories() {
         this.flash();
 
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAllEnemiesAction(owner, DamageInfo.createDamageMatrix(calculateDamage(), true), DamageInfo.DamageType.THORNS, AttackEffect.SLASH_HORIZONTAL));
         AbstractDungeon.actionManager.addToBottom(
                 new RemoveSpecificPowerAction(owner, owner, CoilPower.POWER_ID));
+    }
+
+    @Override
+    public MemoryManager.MemoryEventType[] getMemoryEventTypes() {
+        return new MemoryManager.MemoryEventType[]{MemoryManager.MemoryEventType.REMEMBER};
     }
 
     @Override

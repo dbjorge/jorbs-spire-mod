@@ -3,7 +3,8 @@ package stsjorbsmod.console;
 import basemod.DevConsole;
 import basemod.devcommands.ConsoleCommand;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import stsjorbsmod.actions.GainMemoryClarityAction;
+import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
+import stsjorbsmod.actions.GainSpecificClarityAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryUtils;
@@ -24,16 +25,13 @@ public class MemoryClarifyCommand extends ConsoleCommand {
 
         if (optionalId == null) {
             DevConsole.log("Clarifying currently-remembered memory (like Eye of the Storm)");
-            AbstractDungeon.actionManager.addToBottom(new GainMemoryClarityAction(AbstractDungeon.player));
+            AbstractDungeon.actionManager.addToBottom(new GainClarityOfCurrentMemoryAction(AbstractDungeon.player));
         } else if (optionalId.equals("all")) {
-            for (AbstractMemory memory : MemoryUtils.allPossibleMemories(AbstractDungeon.player, true)) {
-                AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(memory));
+            for (String id : MemoryUtils.allPossibleMemoryIDs()) {
+                AbstractDungeon.actionManager.addToBottom(new GainSpecificClarityAction(AbstractDungeon.player, id));
             }
         } else {
-            AbstractMemory newMemory = MemoryUtils.newMemoryByID(tokens[2], AbstractDungeon.player, true);
-            if (newMemory != null) {
-                AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(newMemory));
-            }
+            AbstractDungeon.actionManager.addToBottom(new GainSpecificClarityAction(AbstractDungeon.player, tokens[2]));
         }
     }
 

@@ -22,25 +22,26 @@ public class Mending extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int HEAL_PER_CLARITY = 1;
+    private static final int UPGRADE_PLUS_HEAL_PER_CLARITY = 1;
 
     public Mending() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = HEAL_PER_CLARITY;
+        exhaust = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int healAmount = MemoryManager.forPlayer(p).countCurrentClarities() * magicNumber;
         addToBot(new HealAction(p, p, healAmount));
-        addToBot(new EndTurnNowAction());
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.retain = true;
-            upgradeDescription();
+            upgradeMagicNumber(UPGRADE_PLUS_HEAL_PER_CLARITY);
+            initializeDescription();
         }
     }
 }

@@ -23,8 +23,8 @@ public class Feast extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = 1;
+    private static final int UPGRADE_COST = 0;
     private static final int DRAW = 3;
-    private static final int UPGRADE_PLUS_DRAW = 1;
 
     public Feast() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -36,7 +36,7 @@ public class Feast extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new RememberSpecificMemoryAction(new GluttonyMemory(p, false)));
+        addToBot(new RememberSpecificMemoryAction(p, GluttonyMemory.STATIC.ID));
         addToBot(new DrawCardAction(p, magicNumber, false));
     }
 
@@ -44,7 +44,8 @@ public class Feast extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_DRAW);
+            upgradeBaseCost(UPGRADE_COST);
+            initializeDescription();
         }
     }
 }

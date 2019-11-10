@@ -2,7 +2,6 @@ package stsjorbsmod.cards;
 
 import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -12,16 +11,16 @@ import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 public abstract class CustomJorbsModCard extends CustomCard {
     
     // Second magic number that isn't damage or block for card text display.
-    public int urMagicNumber;
-    public int baseUrMagicNumber;
-    public boolean upgradedUrMagicNumber;
-    public boolean isUrMagicNumberModified;
+    public int urMagicNumber = 0;
+    public int baseUrMagicNumber = 0;
+    public boolean upgradedUrMagicNumber = false;
+    public boolean isUrMagicNumberModified = false;
     
     // Third magic number that isn't damage or block for card text display.
-    public int metaMagicNumber;
-    public int baseMetaMagicNumber;
-    public boolean upgradedMetaMagicNumber;
-    public boolean isMetaMagicNumberModified;
+    public int metaMagicNumber = 0;
+    public int baseMetaMagicNumber = 0;
+    public boolean upgradedMetaMagicNumber = false;
+    public boolean isMetaMagicNumberModified = false;
 
     public CustomJorbsModCard(final String id,
                               final String img,
@@ -37,8 +36,6 @@ public abstract class CustomJorbsModCard extends CustomCard {
         isDamageModified = false;
         isBlockModified = false;
         isMagicNumberModified = false;
-        isUrMagicNumberModified = false;
-        isMetaMagicNumberModified = false;
     }
 
     @Override
@@ -69,9 +66,9 @@ public abstract class CustomJorbsModCard extends CustomCard {
     }
 
     public void upgradeDescription() {
-        String upgradeDescription = languagePack.getCardStrings(this.cardID).UPGRADE_DESCRIPTION;
+        String upgradeDescription = languagePack.getCardStrings(cardID).UPGRADE_DESCRIPTION;
         if (upgradeDescription != null) {
-            this.rawDescription = upgradeDescription;
+            rawDescription = upgradeDescription;
         }
         initializeDescription();
     }
@@ -87,31 +84,38 @@ public abstract class CustomJorbsModCard extends CustomCard {
     protected int calculateBonusBaseDamage() {
         return 0;
     }
-    protected int calculateBonusBlock() {
+    protected int calculateBonusBaseBlock() {
         return 0;
     }
 
+    // Note: this base game method is misleadingly named, it's also used when calculating card block
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
-        int realBaseDamage = this.baseDamage;
-        this.baseDamage += calculateBonusBaseDamage();
+        int realBaseBlock = baseBlock;
+        baseBlock += calculateBonusBaseBlock();
+        int realBaseDamage = baseDamage;
+        baseDamage += calculateBonusBaseDamage();
+
         super.calculateCardDamage(mo);
-        this.baseDamage = realBaseDamage;
-        this.isDamageModified = this.damage != this.baseDamage;
+
+        baseDamage = realBaseDamage;
+        isDamageModified = damage != baseDamage;
+        baseBlock = realBaseBlock;
+        isBlockModified = block != baseBlock;
     }
 
     @Override
     public void applyPowers() {
-        int realBaseBlock = this.baseBlock;
-        this.baseBlock += calculateBonusBlock();
-        int realBaseDamage = this.baseDamage;
-        this.baseDamage += calculateBonusBaseDamage();
+        int realBaseBlock = baseBlock;
+        baseBlock += calculateBonusBaseBlock();
+        int realBaseDamage = baseDamage;
+        baseDamage += calculateBonusBaseDamage();
 
         super.applyPowers();
 
-        this.baseDamage = realBaseDamage;
-        this.isDamageModified = this.damage != this.baseDamage;
-        this.baseBlock = realBaseBlock;
-        this.isBlockModified = this.block != this.baseBlock;
+        baseDamage = realBaseDamage;
+        isDamageModified = damage != baseDamage;
+        baseBlock = realBaseBlock;
+        isBlockModified = block != baseBlock;
     }
 }

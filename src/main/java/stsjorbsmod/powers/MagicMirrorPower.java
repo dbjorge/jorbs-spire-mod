@@ -33,10 +33,11 @@ public class MagicMirrorPower extends AbstractPower implements CloneablePowerInt
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("magic_mirror_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("magic_mirror_power32.png"));
 
-    public MagicMirrorPower(final AbstractCreature owner) {
+    public MagicMirrorPower(final AbstractCreature owner, final int amount) {
         ID = POWER_ID;
         this.name = NAME;
         this.owner = owner;
+        this.amount = amount;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
@@ -49,7 +50,7 @@ public class MagicMirrorPower extends AbstractPower implements CloneablePowerInt
             Class<? extends AbstractPower> originalClass = originalPower.getClass();
             try {
                 return originalClass.getConstructor(AbstractCreature.class, int.class, boolean.class)
-                        .newInstance(newTarget, originalPower.amount, !owner.isPlayer);
+                        .newInstance(newTarget, originalPower.amount, owner.isPlayer);
             } catch (NoSuchMethodException e) {}
             try {
                 return originalClass.getConstructor(AbstractCreature.class, int.class)
@@ -69,9 +70,11 @@ public class MagicMirrorPower extends AbstractPower implements CloneablePowerInt
         if (originalPower.type == PowerType.DEBUFF) {
             for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 if (!m.isDeadOrEscaped()) {
-                    AbstractPower reflectedPower = tryCreateReflectedPower(m, owner, originalPower);
-                    if (reflectedPower != null) {
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, owner, reflectedPower));
+                    for (int i = 0; i < this.amount; ++i) {
+                        AbstractPower reflectedPower = tryCreateReflectedPower(m, owner, originalPower);
+                        if (reflectedPower != null) {
+                            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, owner, reflectedPower));
+                        }
                     }
                 }
             }
@@ -80,12 +83,17 @@ public class MagicMirrorPower extends AbstractPower implements CloneablePowerInt
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0];
+        if (amount == 1) {
+            description = DESCRIPTIONS[0];
+        } else {
+            description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
+        }
+
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new MagicMirrorPower(owner);
+        return new MagicMirrorPower(owner, amount);
     }
 }
 

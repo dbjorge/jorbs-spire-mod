@@ -3,46 +3,88 @@ package stsjorbsmod.memories;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.WeakPower;
+import stsjorbsmod.memories.MemoryManager.MemoryEventType;
+import stsjorbsmod.powers.BurningPower;
 
 import java.util.ArrayList;
 
-public class TemperanceMemory extends AbstractMemory {
+public class TemperanceMemory extends AbstractMemory implements OnModifyMemoriesListener {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(TemperanceMemory.class);
 
-    private static final int ENEMY_STRENGTH_REDUCTION = 3;
+    private static final int WEAK_ON_REMEMBER = 1;
+    private static final int STRENGTH_PER_CLARITY = 1;
 
-    private ArrayList<AbstractGameAction> restoreStrengthActions;
+    private int strengthAlreadyApplied;
 
-    public TemperanceMemory(final AbstractCreature owner, boolean isClarified) {
-        super(STATIC, MemoryType.VIRTUE, owner, isClarified);
-        setDescriptionPlaceholder("!M!", ENEMY_STRENGTH_REDUCTION);
+    public TemperanceMemory(final AbstractCreature owner) {
+        super(STATIC, MemoryType.VIRTUE, owner);
+        strengthAlreadyApplied = 0;
+
+        setDescriptionPlaceholder("!W!", WEAK_ON_REMEMBER);
+        setDescriptionPlaceholder("!S!", calculateBonusDamage());
+    }
+
+    private int calculateBonusDamage() {
+        MemoryManager memoryManager = MemoryManager.forPlayer(owner);
+        int numCharities = memoryManager == null ? 0 : memoryManager.countCurrentClarities();
+        return numCharities * STRENGTH_PER_CLARITY;
+    }
+
+    private void updateAppliedStrength() {
+        int newStrength = calculateBonusDamage();
+
+        // We intentionally set this to the calculated value even if we aren't applying the passive effect
+        setDescriptionPlaceholder("!S!", newStrength);
+
+        if (!isPassiveEffectActive()) {
+            newStrength = 0;
+        }
+
+        int strengthDelta = newStrength - strengthAlreadyApplied;
+        if (strengthDelta != 0) {
+            // It is by design that strength decreases can be blocked by artifact.
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new StrengthPower(owner, strengthDelta), strengthDelta));
+            flashWithoutSound();
+            strengthAlreadyApplied = newStrength;
+        }
     }
 
     @Override
-    public void onGainPassiveEffect() {
-        this.restoreStrengthActions = new ArrayList<>();
-
-        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(mo, owner, new StrengthPower(mo, -ENEMY_STRENGTH_REDUCTION), -ENEMY_STRENGTH_REDUCTION, true, AttackEffect.NONE));
-
-            if (!mo.hasPower(ArtifactPower.POWER_ID)) {
-                this.restoreStrengthActions.add(
-                        new ApplyPowerAction(mo, owner, new StrengthPower(mo, +ENEMY_STRENGTH_REDUCTION), +ENEMY_STRENGTH_REDUCTION, true, AttackEffect.NONE));
+    public void onRemember() {
+        if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+            for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+                if (!monster.halfDead && !monster.isDead && !monster.isDying) {
+                    AbstractDungeon.actionManager.addToBottom(
+                            new ApplyPowerAction(monster, owner, new WeakPower(monster, WEAK_ON_REMEMBER, false), WEAK_ON_REMEMBER));
+                }
             }
         }
     }
 
     @Override
+    public void onGainPassiveEffect() {
+        updateAppliedStrength();
+    }
+
+    @Override
     public void onLosePassiveEffect() {
-        for (AbstractGameAction restoreAction : this.restoreStrengthActions) {
-            AbstractDungeon.actionManager.addToBottom(restoreAction);
-        }
-        restoreStrengthActions.clear();
+        updateAppliedStrength();
+    }
+
+    @Override
+    public void onModifyMemories() {
+        updateAppliedStrength();
+    }
+
+    @Override
+    public MemoryEventType[] getMemoryEventTypes() {
+        return MemoryManager.ALL_MEMORY_EVENTS;
     }
 }

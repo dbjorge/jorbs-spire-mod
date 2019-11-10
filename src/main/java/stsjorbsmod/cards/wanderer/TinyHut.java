@@ -4,7 +4,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
-import stsjorbsmod.actions.GainMemoryClarityAction;
+import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.KindnessMemory;
@@ -21,8 +21,7 @@ public class TinyHut extends CustomJorbsModCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
-    private static final int COST = 2;
-    private static final int UPGRADED_COST = 1;
+    private static final int COST = 1;
 
     public TinyHut() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -32,16 +31,16 @@ public class TinyHut extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new RememberSpecificMemoryAction(new KindnessMemory(p, false)));
-        addToBot(new GainMemoryClarityAction(p));
+        addToBot(new RememberSpecificMemoryAction(p, KindnessMemory.STATIC.ID));
+        addToBot(new GainClarityOfCurrentMemoryAction(p));
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
-            initializeDescription();
+            this.isInnate = true;
+            upgradeDescription();
         }
     }
 }
