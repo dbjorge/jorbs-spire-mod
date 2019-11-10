@@ -56,6 +56,11 @@
     "DESCRIPTION": "Your attacks apply #b2 #yBurning. Each time remembered, apply #b2 #yBurning to ALL enemies. Each time forgotten, gain #b2 #yWeak."
   },
   {
+    "PROPER_NAME": "Material Component",
+    "NAMES": ["material_component", "material_components"],
+    "DESCRIPTION": "Material Components are (mostly) 0-cost cards with a variety of minor effects."
+  },
+  {
     "NAMES": ["patience"],
     "DESCRIPTION": "Gain 1 #yCoil each time you play a card. When you remember a new memory, deal 2 damage to ALL enemies for each #yCoil and lose all #yCoil."
   },

@@ -194,8 +194,8 @@
   },
   "stsjorbsmod:BookOfTongues": {
     "NAME": "Book of Tongues",
-    "DESCRIPTION": "At the start of each turn, draw !M! extra card.",
-    "UPGRADE_DESCRIPTION": "At the start of each turn, draw !M! extra cards."
+    "DESCRIPTION": "At the start of each turn, draw !M! random stsjorbsmod:Material_Component.",
+    "UPGRADE_DESCRIPTION": "At the start of each turn, draw !M! random stsjorbsmod:Material_Components."
   },
   "stsjorbsmod:MagicMirror": {
     "NAME": "Magic Mirror",

@@ -14,6 +14,13 @@
       " turns."
     ]
   },
+  "stsjorbsmod:BookOfTonguesPower": {
+    "NAME": "Book of Tongues",
+    "DESCRIPTIONS": [
+      "At the start of your turn, draw #b1 random Material Component.",
+      "At the start of your turn, draw #b", " random Material Components."
+    ]
+  },
   "stsjorbsmod:CoilPower": {
     "NAME": "Coil",
     "DESCRIPTIONS": [

@@ -1,4 +1,4 @@
-package stsjorbsmod.cards.wanderer;
+package stsjorbsmod.cards.wanderer.materialcomponents;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
