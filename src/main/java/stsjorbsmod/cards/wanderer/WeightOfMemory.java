@@ -67,7 +67,7 @@ public class WeightOfMemory extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_DAMAGE_PER_REMEMBER_CARD);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

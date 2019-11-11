@@ -55,6 +55,7 @@ public class FaerieFire extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_DEBUFF_DURATION);
+            upgradeDescription();
         }
     }
 }

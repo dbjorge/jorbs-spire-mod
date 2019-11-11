@@ -43,6 +43,7 @@ public class Mending extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_HEAL_PER_CLARITY);
+            upgradeDescription();
         }
     }
 }

@@ -54,6 +54,7 @@ public class CorpseExplosion_Wanderer extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DAMAGE);
+            upgradeDescription();
         }
     }
 }

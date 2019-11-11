@@ -47,6 +47,7 @@ public class ArcaneForm extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeBaseCost(UPGRADED_COST);
+            upgradeDescription();
         }
     }
 }

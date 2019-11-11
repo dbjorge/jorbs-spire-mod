@@ -38,7 +38,7 @@ public class MageArmor extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_DAMAGE_REDUCTION);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

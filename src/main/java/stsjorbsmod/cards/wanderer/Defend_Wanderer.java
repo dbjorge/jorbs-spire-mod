@@ -40,7 +40,7 @@ public class Defend_Wanderer extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

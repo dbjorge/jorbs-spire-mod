@@ -42,7 +42,7 @@ public class BurningFlask extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(BURNING_PLUS_UPGRADE);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

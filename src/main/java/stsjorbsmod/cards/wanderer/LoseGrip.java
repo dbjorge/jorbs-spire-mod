@@ -49,7 +49,7 @@ public class LoseGrip extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

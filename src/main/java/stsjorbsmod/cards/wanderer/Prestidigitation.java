@@ -38,7 +38,7 @@ public class Prestidigitation extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_EFFECT_MAGNITUDE);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

@@ -53,6 +53,7 @@ public class Firebolt extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_PER_CLARITY);
+            upgradeDescription();
         }
     }
 }

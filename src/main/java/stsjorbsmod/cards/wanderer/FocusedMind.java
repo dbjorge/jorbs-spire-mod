@@ -58,7 +58,7 @@ public class FocusedMind extends CustomJorbsModCard {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DAMAGE);
             upgradeBlock(UPGRADE_PLUS_BLOCK);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

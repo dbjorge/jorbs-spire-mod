@@ -41,7 +41,7 @@ public class GatherPower extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_DRAW);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

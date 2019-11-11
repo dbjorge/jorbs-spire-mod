@@ -46,7 +46,7 @@ public class TollTheDead extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

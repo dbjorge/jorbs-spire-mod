@@ -27,22 +27,23 @@ public class Quicksilver extends CustomJorbsModCard {
 
     public Quicksilver() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = DOUBLE_TAP_TURNS;
+        magicNumber = baseMagicNumber = RELIC_COUNTER_INCREMENT;
+        metaMagicNumber = baseMetaMagicNumber = DOUBLE_TAP_TURNS;
         exhaust = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new AdvanceRelicsThroughTimeAction(p, RELIC_COUNTER_INCREMENT));
-        addToBot(new ApplyPowerAction(p, p, new DoubleTapPower(p, magicNumber), magicNumber));
+        addToBot(new AdvanceRelicsThroughTimeAction(p, magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new DoubleTapPower(p, metaMagicNumber), metaMagicNumber));
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_DOUBLE_TAP_TURNS);
-            initializeDescription();
+            upgradeMetaMagicNumber(UPGRADE_PLUS_DOUBLE_TAP_TURNS);
+            upgradeDescription();
         }
     }
 }

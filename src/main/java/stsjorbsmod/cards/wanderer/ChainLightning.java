@@ -88,7 +88,7 @@ public class ChainLightning extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_PER_HOP);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

@@ -51,7 +51,7 @@
   },
   "stsjorbsmod:Counterspell": {
     "NAME": "Counterspell",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Artifact if enemy intends to apply a negative effect. NL Exhaust."
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Artifact if an enemy intends to apply a negative effect. NL Exhaust."
   },
   "stsjorbsmod:MinorIllusion": {
     "NAME": "Minor Illusion",
@@ -181,7 +181,7 @@
   },
   "stsjorbsmod:ColorSpray": {
     "NAME": "Color Spray",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each one. NL Remember stsjorbsmod:Envy."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each. NL Remember stsjorbsmod:Envy."
   },
   "stsjorbsmod:TinyHut": {
     "NAME": "Tiny Hut",
@@ -234,12 +234,12 @@
   },
   "stsjorbsmod:GatherPower": {
     "NAME": "Gather Power",
-    "DESCRIPTION": "Draw !M! cards. NL This turn, your next attack is played twice."
+    "DESCRIPTION": "Draw !M! cards. NL This turn, your next Attack is played twice."
   },
   "stsjorbsmod:Quicksilver": {
     "NAME": "Quicksilver",
-    "DESCRIPTION": "Advance all turn-based relic counters by 1. NL This turn, your next attack is played twice. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Advance all turn-based relic counters by 1. NL This turn, your next two attacks are played twice. NL Exhaust."
+    "DESCRIPTION": "Advance all turn-based relic counters by !M!. NL This turn, your next Attack is played twice. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Advance all turn-based relic counters by !M!. NL This turn, your next !stsjorbsmod:MetaMagic! Attacks are played twice. NL Exhaust."
   },
   "stsjorbsmod:Fireball": {
     "NAME": "Fireball",
@@ -284,7 +284,7 @@
   "stsjorbsmod:Determination": {
     "NAME": "Determination",
     "DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of this turn, stsjorbsmod:Snap.",
-    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of next turn, stsjorbsmod:Snap."
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of your next turn, stsjorbsmod:Snap."
   },
   "stsjorbsmod:ArcaneForm": {
     "NAME": "Arcane Form",
