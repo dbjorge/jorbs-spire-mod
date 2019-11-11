@@ -6,8 +6,10 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.red.Exhume;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import stsjorbsmod.cards.AutoExhumeBehavior;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.powers.SnappedPower;
 
@@ -40,6 +42,8 @@ public class SnapAction extends AbstractGameAction {
                 new DamageAllEnemiesAction((AbstractCreature)null, DamageInfo.createDamageMatrix(enemyDamage, true), DamageInfo.DamageType.THORNS, AttackEffect.BLUNT_LIGHT));
 
         MemoryManager.forPlayer(target).snap();
+
+        AbstractDungeon.actionManager.addToBottom(new ExhumeCardsAction(AutoExhumeBehavior.EXHUME_ON_SNAP));
 
         isDone = true;
     }

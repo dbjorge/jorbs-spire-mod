@@ -248,7 +248,7 @@
   },
   "stsjorbsmod:LoseGrip": {
     "NAME": "Lose Grip",
-    "DESCRIPTION": "If stsjorbsmod:Snapped, gain !M! Intangible. Otherwise, gain !B! Block. NL Retain. NL Exhaust."
+    "DESCRIPTION": "Gain !B! Block. NL Exhaust. NL stsjorbsmod:Exhume when you stsjorbsmod:Snap."
   },
   "stsjorbsmod:HoldMonster": {
     "NAME": "Hold Monster",
