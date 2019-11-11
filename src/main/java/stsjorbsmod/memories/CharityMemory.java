@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 public class CharityMemory extends AbstractMemory {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(CharityMemory.class);
@@ -58,6 +59,8 @@ public class CharityMemory extends AbstractMemory {
 
     @Override
     public void onModifyGold(AbstractPlayer player) {
-        updateAppliedStrength();
+        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            updateAppliedStrength();
+        }
     }
 }
