@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import static stsjorbsmod.characters.Wanderer.Enums.PERSISTENT_POSITIVE_EFFECT;
 
 public class FilterRandomCardGenerationPatch {
-    private static void RemovePersistentPositiveEffects(ArrayList list) {
-        list.removeIf(o -> ((AbstractCard) o).hasTag(PERSISTENT_POSITIVE_EFFECT));
+    private static void RemovePersistentPositiveEffects(ArrayList<AbstractCard> list) {
+        list.removeIf(card -> card.hasTag(PERSISTENT_POSITIVE_EFFECT));
     }
 
     @SpirePatch(
@@ -26,7 +26,7 @@ public class FilterRandomCardGenerationPatch {
                 localvars = "list"
         )
         @SuppressWarnings("unchecked")
-        public static void patch(ArrayList list) {
+        public static void patch(ArrayList<AbstractCard> list) {
             RemovePersistentPositiveEffects(list);
         }
     }
@@ -42,7 +42,7 @@ public class FilterRandomCardGenerationPatch {
                 localvars = "list"
         )
         @SuppressWarnings("unchecked")
-        public static void patch(AbstractCard.CardType type, ArrayList list) {
+        public static void patch(AbstractCard.CardType type, ArrayList<AbstractCard> list) {
             RemovePersistentPositiveEffects(list);
         }
     }
@@ -58,7 +58,7 @@ public class FilterRandomCardGenerationPatch {
                 localvars = "list"
         )
         @SuppressWarnings("unchecked")
-        public static void patch(Random rng, ArrayList list) {
+        public static void patch(Random rng, ArrayList<AbstractCard> list) {
             RemovePersistentPositiveEffects(list);
         }
     }

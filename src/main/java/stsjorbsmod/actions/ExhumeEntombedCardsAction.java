@@ -11,13 +11,24 @@ import com.megacrit.cardcrawl.powers.CorruptionPower;
 import stsjorbsmod.cards.EntombedBehavior;
 import stsjorbsmod.patches.EntombedField;
 
-public class ExhumeEntombedCardsAction extends AbstractGameAction {
-    EntombedBehavior targettedBehavior;
+import java.util.function.DoublePredicate;
+import java.util.function.Predicate;
 
-    public ExhumeEntombedCardsAction(EntombedBehavior targettedBehavior) {
+public class ExhumeEntombedCardsAction extends AbstractGameAction {
+    private final Predicate<AbstractCard> shouldApplyToCardPredicate;
+
+    public ExhumeEntombedCardsAction(Predicate<AbstractCard> shouldApplyToCardPredicate) {
         this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FAST;
-        this.targettedBehavior = targettedBehavior;
+        this.shouldApplyToCardPredicate = shouldApplyToCardPredicate;
+    }
+
+    public ExhumeEntombedCardsAction(AbstractCard specificCard) {
+        this(c -> c == specificCard);
+    }
+
+    public ExhumeEntombedCardsAction(EntombedBehavior targettedBehavior) {
+        this(c -> EntombedField.entombedBehavior.get(c) == targettedBehavior);
     }
 
     public void update() {
@@ -32,7 +43,7 @@ public class ExhumeEntombedCardsAction extends AbstractGameAction {
 
         CardGroup targetCards = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (AbstractCard c : p.exhaustPile.group) {
-            if (EntombedField.entombedBehavior.get(c) == targettedBehavior) {
+            if (shouldApplyToCardPredicate.test(c)) {
                 targetCards.addToBottom(c);
             }
         }

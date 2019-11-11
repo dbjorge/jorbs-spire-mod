@@ -35,6 +35,14 @@
       " additional [E] next turn."
     ]
   },
+  "stsjorbsmod:ForbiddenGrimoireDelayedExhumePower": {
+    "NAME": "Delayed Exhume",
+    "DESCRIPTIONS": [
+      " will be Exhumed after you play #b",
+      " more card.",
+      " more cards."
+    ]
+  },
   "stsjorbsmod:FearPower": {
     "NAME": "Afraid",
     "DESCRIPTIONS": [

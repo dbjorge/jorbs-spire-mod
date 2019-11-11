@@ -55,9 +55,12 @@ public class EntombedPatch {
             method = "applyStartOfTurnPowers"
     )
     public static class EntombedOnStartOfTurn7Patch {
+        public static final int TURN_TO_RECOVER_ON = 7;
+
         @SpirePostfixPatch
         public static void patch(AbstractCreature __this) {
-            if (__this.isPlayer && AbstractDungeon.actionManager.turn == 7) {
+            // Note, the turn counter appears off by one because it isn't incremented til after start-of-turn powers are applied
+            if (__this.isPlayer && AbstractDungeon.actionManager.turn == TURN_TO_RECOVER_ON - 1) {
                 AbstractDungeon.actionManager.addToBottom(new ExhumeEntombedCardsAction(EntombedBehavior.RECOVER_ON_START_OF_TURN_7));
             }
         }

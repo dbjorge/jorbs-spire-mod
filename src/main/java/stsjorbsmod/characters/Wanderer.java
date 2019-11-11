@@ -24,10 +24,7 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.cards.wanderer.Defend_Wanderer;
-import stsjorbsmod.cards.wanderer.EyeOfTheStorm;
-import stsjorbsmod.cards.wanderer.FreshAdventure;
-import stsjorbsmod.cards.wanderer.Strike_Wanderer;
+import stsjorbsmod.cards.wanderer.*;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.relics.FragileMindRelic;
 import stsjorbsmod.relics.WandererStarterRelic;
@@ -222,6 +219,7 @@ public class Wanderer extends CustomPlayer {
         retVal.add(Defend_Wanderer.ID);
         retVal.add(FreshAdventure.ID);
         retVal.add(EyeOfTheStorm.ID);
+        retVal.add(ForbiddenGrimoire.ID);
 
         return retVal;
     }

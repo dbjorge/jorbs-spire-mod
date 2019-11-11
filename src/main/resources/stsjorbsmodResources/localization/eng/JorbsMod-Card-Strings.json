@@ -15,6 +15,10 @@
     "NAME": "Eye of the Storm",
     "DESCRIPTION": "Gain stsjorbsmod:Clarity of current memory, then remember a random memory you do not have stsjorbsmod:Clarity of. NL Gain !B! Block."
   },
+  "stsjorbsmod:ForbiddenGrimoire": {
+    "NAME": "Forbidden Grimoire",
+    "DESCRIPTION": "stsjorbsmod:Entombed until turn 7. NL Choose 1 of 3 stsjorbsmod:Material_Components. NL Exhaust, then stsjorbsmod:Exhume after playing !M! other cards, unless stsjorbsmod:Snapped."
+  },
   "stsjorbsmod:BlackTentacles": {
     "NAME": "Black Tentacles",
     "DESCRIPTION": "Deal !D! damage. NL Attacks with random targets target this enemy for !M! turn.",
@@ -139,7 +143,7 @@
   },
   "stsjorbsmod:CorpseExplosion_Wanderer": {
     "NAME": "Corpse Explosion",
-    "DESCRIPTION": "stsjorbsmod:Entombed. Ethereal. NL Exhume whenever an enemy dies. NL Deal !D! damage. NL Remember stsjorbsmod:Wrath. NL Exhaust."
+    "DESCRIPTION": "stsjorbsmod:Entombed. Ethereal. NL stsjorbsmod:Exhume whenever an enemy dies. NL Deal !D! damage. NL Remember stsjorbsmod:Wrath. NL Exhaust."
   },
   "stsjorbsmod:Hibernate": {
     "NAME": "Hibernate",

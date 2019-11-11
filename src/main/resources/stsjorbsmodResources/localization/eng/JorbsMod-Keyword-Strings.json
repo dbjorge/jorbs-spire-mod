@@ -32,6 +32,10 @@
     "DESCRIPTION": "This card starts each combat in your Exhaust pile. It will be Exhumed from your Exhaust pile into your hand each time its Exhume condition is met."
   },
   {
+    "NAMES": ["exhume"],
+    "DESCRIPTION": "Move from your Exhaust pile to your hand."
+  },
+  {
     "NAMES": ["envy"],
     "DESCRIPTION": "When you remember Envy, gain #b1 #yVulnerable. Whenever you target an enemy with a card, apply #b1 #yVulnerable to that enemy."
   },
@@ -57,7 +61,12 @@
   },
   {
     "PROPER_NAME": "Material Component",
-    "NAMES": ["material_component", "material_components"],
+    "NAMES": ["material component", "material components", "material_component", "material_components"],
+    "DESCRIPTION": "Material Components are (mostly) 0-cost cards with a variety of minor effects."
+  },
+  {
+    "PROPER_NAME": "Material Components",
+    "NAMES": ["material components", "material_components"],
     "DESCRIPTION": "Material Components are (mostly) 0-cost cards with a variety of minor effects."
   },
   {
