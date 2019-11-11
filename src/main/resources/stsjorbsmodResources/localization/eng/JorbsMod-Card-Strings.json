@@ -67,8 +67,8 @@
   },
   "stsjorbsmod:DoubleCheck": {
     "NAME": "Double-check",
-    "DESCRIPTION": "Gain !B! Block. NL If you remember stsjorbsmod:Diligence, gain stsjorbsmod:Clarity. NL Remember stsjorbsmod:Diligence.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL If you remember stsjorbsmod:Diligence, gain stsjorbsmod:Clarity. NL Remember stsjorbsmod:Diligence. NL Draw !M! card."
+    "DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Diligence.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Diligence. NL At the start of your next turn, if you remember stsjorbsmod:Diligence gain stsjorbsmod:Clarity."
   },
   "stsjorbsmod:Channel": {
     "NAME": "Channel",

@@ -28,6 +28,12 @@
       " Damage to all enemies and lose all Coil."
     ]
   },
+  "stsjorbsmod:DoubleCheckPower": {
+    "NAME": "Double-check",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, if you remember #yDiligence gain #yClarity."
+    ]
+  },
   "stsjorbsmod:EnergizedCustomPower": {
     "NAME": "Energized",
     "DESCRIPTIONS": [

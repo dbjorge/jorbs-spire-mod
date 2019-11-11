@@ -1,5 +1,6 @@
 package stsjorbsmod.cards.wanderer;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,6 +11,7 @@ import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.DiligenceMemory;
+import stsjorbsmod.powers.DoubleCheckPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
@@ -25,13 +27,10 @@ public class DoubleCheck extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int BLOCK = 5;
-    private static final int DRAW = 0;
-    private static final int UPGRADE_DRAW = 1;
 
     public DoubleCheck() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = BLOCK;
-        magicNumber = baseMagicNumber = DRAW;
 
         this.tags.add(REMEMBER_MEMORY);
     }
@@ -39,10 +38,9 @@ public class DoubleCheck extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, block));
-        addToBot(new GainClarityOfCurrentMemoryAction(p, DiligenceMemory.STATIC.ID));
         addToBot(new RememberSpecificMemoryAction(p, DiligenceMemory.STATIC.ID));
         if (upgraded) {
-            addToBot(new DrawCardAction(p, magicNumber));
+            addToBot(new ApplyPowerAction(p, p, new DoubleCheckPower(p)));
         }
     }
 
@@ -50,7 +48,6 @@ public class DoubleCheck extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_DRAW);
             upgradeDescription();
         }
     }
