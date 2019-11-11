@@ -6,9 +6,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
-import stsjorbsmod.cards.EntombedBehavior;
+import stsjorbsmod.cards.AutoExhumeBehavior;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.MemoryManager;
+import stsjorbsmod.patches.AutoExhumeField;
 import stsjorbsmod.patches.EntombedField;
 import stsjorbsmod.powers.ForbiddenGrimoireDelayedExhumePower;
 
@@ -30,7 +31,8 @@ public class ForbiddenGrimoire extends CustomJorbsModCard {
     public ForbiddenGrimoire() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = CARD_PLAYS_TO_EXHUME;
-        EntombedField.entombedBehavior.set(this, EntombedBehavior.RECOVER_ON_START_OF_TURN_7);
+        EntombedField.entombed.set(this, true);
+        AutoExhumeField.autoExhumeBehavior.set(this, AutoExhumeBehavior.EXHUME_AT_START_OF_TURN_7);
         exhaust = true;
 
         upgrade(); // Always starts upgraded

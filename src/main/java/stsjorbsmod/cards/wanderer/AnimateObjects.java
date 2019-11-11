@@ -36,7 +36,7 @@ public class AnimateObjects extends CustomJorbsModCard {
 
     private int countCardsThatDidNotStartCombatInDeck(CardGroup group) {
         return (int) group.group.stream()
-                .filter(c -> EntombedField.entombedBehavior.get(c) != null || StSLib.getMasterDeckEquivalent(c) == null)
+                .filter(c -> EntombedField.entombed.get(c) || StSLib.getMasterDeckEquivalent(c) == null)
                 .count();
     }
 

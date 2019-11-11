@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.ExhumeEntombedCardsAction;
+import stsjorbsmod.actions.ExhumeCardsAction;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.MemoryManager.MemoryEventType;
 import stsjorbsmod.memories.OnModifyMemoriesListener;
@@ -69,7 +69,7 @@ public class ForbiddenGrimoireDelayedExhumePower extends AbstractPower implement
 
         if (amount <= 1) {
             this.flash();
-            AbstractDungeon.actionManager.addToBottom(new ExhumeEntombedCardsAction(cardToExhume));
+            AbstractDungeon.actionManager.addToBottom(new ExhumeCardsAction(cardToExhume));
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(owner, owner, this));
         } else {
             AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(owner, owner, this, 1));
