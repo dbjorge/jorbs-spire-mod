@@ -311,6 +311,23 @@
     "NAME": "Sulfur",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Apply !M! stsjorbsmod:Burning."
   },
+  "stsjorbsmod:Eye": {
+    "NAME": "Eye",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Apply !M! Vulnerable."
+  },
+  "stsjorbsmod:Moss": {
+    "NAME": "Moss",
+    "DESCRIPTION": "Retain. NL Gain !M! Dexterity until end of turn. NL Exhaust."
+  },
+  "stsjorbsmod:Steel": {
+    "NAME": "Steel",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Upgrade !M! random card in your hand until the end of combat.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Upgrade !M! random cards in your hand until the end of combat."
+  },
+  "stsjorbsmod:Barb": {
+    "NAME": "Barb",
+    "DESCRIPTION": "Deal !D! damage."
+  },
   "stsjorbsmod:OakLeaf": {
     "NAME": "Oak Leaf",
     "DESCRIPTION": "Gain !M! Dexterity."

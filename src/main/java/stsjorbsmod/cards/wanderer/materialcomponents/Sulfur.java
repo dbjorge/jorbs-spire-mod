@@ -11,11 +11,6 @@ import stsjorbsmod.powers.BurningPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-/**
- * Material component
- * 0 cost skill
- * Apply 3 burning. Ephemeral.
- */
 public class Sulfur extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Sulfur.class.getSimpleName());
     public static final String IMG = makeCardPath("Material_Components/Sulfur.png");
@@ -45,7 +40,7 @@ public class Sulfur extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(BURNING_PLUS_UPGRADE);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

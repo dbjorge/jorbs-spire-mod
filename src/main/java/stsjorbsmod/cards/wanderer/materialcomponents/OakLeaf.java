@@ -38,6 +38,7 @@ public class OakLeaf extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_DEXTERITY);
+            upgradeDescription();
         }
     }
 }
