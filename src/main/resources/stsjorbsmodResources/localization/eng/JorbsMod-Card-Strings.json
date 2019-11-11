@@ -328,9 +328,32 @@
     "NAME": "Barb",
     "DESCRIPTION": "Deal !D! damage."
   },
+  "stsjorbsmod:EnergyBulb": {
+    "NAME": "Energy Bulb",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !M! [E]."
+  },
+  "stsjorbsmod:LooseLeaf": {
+    "NAME": "Loose Leaf",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Draw !M! cards."
+  },
+  "stsjorbsmod:StrangePendant": {
+    "NAME": "Strange Pendant",
+    "DESCRIPTION": ""
+  },
+  "stsjorbsmod:Chamomile": {
+    "NAME": "Chamomile",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Remove Frail and Vulnerable from yourself.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Remove Frail and Vulnerable from yourself. NL Exhaust."
+  },
   "stsjorbsmod:OakLeaf": {
     "NAME": "Oak Leaf",
     "DESCRIPTION": "Gain !M! Dexterity."
+  },
+  "stsjorbsmod:Rot": {
+    "NAME": "Rot",
+    "DESCRIPTION": "Lose a random stsjorbsmod:Clarity. NL When this is initially added to your hand, add !M! additional copy of it to your hand.",
+    "UPGRADE_DESCRIPTION": "Lose a random stsjorbsmod:Clarity. NL When this is initially added to your hand, add !M! additional copies of it to your hand."
   },
   "stsjorbsmod:Quicksilver": {
     "NAME": "Quicksilver",
