@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.patches.EphemeralField;
 import stsjorbsmod.powers.BurningPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
@@ -31,8 +32,7 @@ public class Sulfur extends CustomJorbsModCard {
     public Sulfur() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = BURNING;
-        exhaust = true;
-        isEthereal = true;
+        EphemeralField.ephemeral.set(this, true);
     }
 
     @Override
