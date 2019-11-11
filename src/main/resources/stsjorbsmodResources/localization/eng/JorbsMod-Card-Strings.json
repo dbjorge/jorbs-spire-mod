@@ -147,7 +147,7 @@
   },
   "stsjorbsmod:Mending": {
     "NAME": "Mending",
-    "DESCRIPTION": "Gain !M! HP for each stsjorbsmod:Clarity. NL Exhaust."
+    "DESCRIPTION": "Heal !M! HP for each stsjorbsmod:Clarity. NL Exhaust."
   },
   "stsjorbsmod:Rest": {
     "NAME": "Rest",

@@ -5,11 +5,11 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
-import stsjorbsmod.actions.EndTurnNowAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.MemoryManager;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.PERSISTENT_POSITIVE_EFFECT;
 
 public class Mending extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Mending.class.getSimpleName());
@@ -28,6 +28,8 @@ public class Mending extends CustomJorbsModCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = HEAL_PER_CLARITY;
         exhaust = true;
+
+        tags.add(CardTags.HEALING);
     }
 
     @Override
@@ -41,7 +43,6 @@ public class Mending extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_HEAL_PER_CLARITY);
-            initializeDescription();
         }
     }
 }

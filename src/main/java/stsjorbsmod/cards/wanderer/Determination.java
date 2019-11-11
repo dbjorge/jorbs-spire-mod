@@ -11,6 +11,7 @@ import stsjorbsmod.memories.PrideMemory;
 import stsjorbsmod.powers.FragilePower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.PERSISTENT_POSITIVE_EFFECT;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 public class Determination extends CustomJorbsModCard {
@@ -30,6 +31,7 @@ public class Determination extends CustomJorbsModCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = TURNS_UNTIL_SNAP;
 
+        tags.add(PERSISTENT_POSITIVE_EFFECT);
         tags.add(REMEMBER_MEMORY);
     }
 
