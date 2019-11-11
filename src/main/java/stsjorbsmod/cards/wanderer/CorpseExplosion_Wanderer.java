@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
+import stsjorbsmod.cards.EntombedBehavior;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.WrathMemory;
 import stsjorbsmod.patches.EntombedField;
@@ -31,7 +32,7 @@ public class CorpseExplosion_Wanderer extends CustomJorbsModCard {
     public CorpseExplosion_Wanderer() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        EntombedField.entombed.set(this, true);
+        EntombedField.entombedBehavior.set(this, EntombedBehavior.RECOVER_ON_KILL);
         exhaust = true;
         isEthereal = true;
 

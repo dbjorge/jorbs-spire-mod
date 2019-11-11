@@ -4,6 +4,7 @@ import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -33,24 +34,16 @@ public class AnimateObjects extends CustomJorbsModCard {
         isMultiDamage = true;
     }
 
-    protected int calculateDamageInstanceCount() {
-        int numMatchingCards = 0;
-        for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
-            if (EntombedField.entombed.get(c) || StSLib.getMasterDeckEquivalent(c) == null) {
-                numMatchingCards++;
-            }
-        }
-        for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
-            if (EntombedField.entombed.get(c) || StSLib.getMasterDeckEquivalent(c) == null) {
-                numMatchingCards++;
-            }
-        }
-        for (AbstractCard c : AbstractDungeon.player.hand.group) {
-            if (EntombedField.entombed.get(c) || StSLib.getMasterDeckEquivalent(c) == null) {
-                numMatchingCards++;
-            }
-        }
-        return numMatchingCards;
+    private int countCardsThatDidNotStartCombatInDeck(CardGroup group) {
+        return (int) group.group.stream()
+                .filter(c -> EntombedField.entombedBehavior.get(c) != null || StSLib.getMasterDeckEquivalent(c) == null)
+                .count();
+    }
+
+    private int calculateDamageInstanceCount() {
+        return countCardsThatDidNotStartCombatInDeck(AbstractDungeon.player.discardPile) +
+               countCardsThatDidNotStartCombatInDeck(AbstractDungeon.player.drawPile) +
+               countCardsThatDidNotStartCombatInDeck(AbstractDungeon.player.hand);
     }
 
     @Override

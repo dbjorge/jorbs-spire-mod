@@ -29,7 +29,7 @@
   },
   {
     "NAMES": ["entombed"],
-    "DESCRIPTION": "Start combat Exhausted. Move from Exhaust pile to hand whenever an enemy dies."
+    "DESCRIPTION": "This card starts each combat in your Exhaust pile. It will be Exhumed from your Exhaust pile into your hand each time its Exhume condition is met."
   },
   {
     "NAMES": ["envy"],

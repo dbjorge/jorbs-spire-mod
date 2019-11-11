@@ -8,12 +8,16 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.CorruptionPower;
+import stsjorbsmod.cards.EntombedBehavior;
 import stsjorbsmod.patches.EntombedField;
 
 public class ExhumeEntombedCardsAction extends AbstractGameAction {
-    public ExhumeEntombedCardsAction() {
+    EntombedBehavior targettedBehavior;
+
+    public ExhumeEntombedCardsAction(EntombedBehavior targettedBehavior) {
         this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FAST;
+        this.targettedBehavior = targettedBehavior;
     }
 
     public void update() {
@@ -28,7 +32,7 @@ public class ExhumeEntombedCardsAction extends AbstractGameAction {
 
         CardGroup targetCards = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (AbstractCard c : p.exhaustPile.group) {
-            if (EntombedField.entombed.get(c)) {
+            if (EntombedField.entombedBehavior.get(c) == targettedBehavior) {
                 targetCards.addToBottom(c);
             }
         }

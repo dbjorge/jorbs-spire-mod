@@ -139,7 +139,7 @@
   },
   "stsjorbsmod:CorpseExplosion_Wanderer": {
     "NAME": "Corpse Explosion",
-    "DESCRIPTION": "stsjorbsmod:Entombed, Ethereal. NL Deal !D! damage. NL Remember stsjorbsmod:Wrath. NL Exhaust."
+    "DESCRIPTION": "stsjorbsmod:Entombed. Ethereal. NL Exhume whenever an enemy dies. NL Deal !D! damage. NL Remember stsjorbsmod:Wrath. NL Exhaust."
   },
   "stsjorbsmod:Hibernate": {
     "NAME": "Hibernate",
