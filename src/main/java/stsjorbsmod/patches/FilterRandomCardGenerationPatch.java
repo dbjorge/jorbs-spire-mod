@@ -26,8 +26,8 @@ public class FilterRandomCardGenerationPatch {
                 localvars = "list"
         )
         @SuppressWarnings("unchecked")
-        public static void patch(@ByRef ArrayList[] list) {
-            RemovePersistentPositiveEffects(list[0]);
+        public static void patch(ArrayList list) {
+            RemovePersistentPositiveEffects(list);
         }
     }
 
@@ -42,8 +42,8 @@ public class FilterRandomCardGenerationPatch {
                 localvars = "list"
         )
         @SuppressWarnings("unchecked")
-        public static void patch(AbstractCard.CardType type, @ByRef ArrayList[] list) {
-            RemovePersistentPositiveEffects(list[0]);
+        public static void patch(AbstractCard.CardType type, ArrayList list) {
+            RemovePersistentPositiveEffects(list);
         }
     }
 
@@ -58,8 +58,8 @@ public class FilterRandomCardGenerationPatch {
                 localvars = "list"
         )
         @SuppressWarnings("unchecked")
-        public static void patch(Random rng, @ByRef ArrayList[] list) {
-            RemovePersistentPositiveEffects(list[0]);
+        public static void patch(Random rng, ArrayList list) {
+            RemovePersistentPositiveEffects(list);
         }
     }
 
