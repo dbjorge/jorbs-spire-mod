@@ -30,12 +30,13 @@ public class Quicksilver extends CustomJorbsModCard {
     public Quicksilver() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = NEXT_ATTACK_ADDITIONAL_TIMES;
+        metaMagicNumber = baseMetaMagicNumber = RELIC_COUNTER_INCREMENT;
         EphemeralField.ephemeral.set(this, true);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new AdvanceRelicsThroughTimeAction(p, RELIC_COUNTER_INCREMENT));
+        addToBot(new AdvanceRelicsThroughTimeAction(p, metaMagicNumber));
         addToBot(new ApplyPowerAction(p, p, new PlayNextAttackThisTurnAdditionalTimesPower(p, magicNumber), magicNumber));
     }
 

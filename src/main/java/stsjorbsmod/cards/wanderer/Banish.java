@@ -41,7 +41,7 @@ public class Banish extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeBaseCost(UPGRADED_COST);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

@@ -42,7 +42,7 @@ public class WanderingMind extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_DRAW);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

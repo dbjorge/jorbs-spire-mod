@@ -58,6 +58,7 @@ public class AnimateObjects extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_PER_MATCHING_CARD);
+            upgradeDescription();
         }
     }
 }

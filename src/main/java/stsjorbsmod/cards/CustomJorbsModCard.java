@@ -72,8 +72,8 @@ public abstract class CustomJorbsModCard extends CustomCard {
         String upgradeDescription = languagePack.getCardStrings(cardID).UPGRADE_DESCRIPTION;
         if (upgradeDescription != null) {
             rawDescription = upgradeDescription;
+            initializeDescription();
         }
-        initializeDescription();
     }
 
     protected void removeFromMasterDeck() {

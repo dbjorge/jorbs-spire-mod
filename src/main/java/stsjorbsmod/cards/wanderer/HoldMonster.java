@@ -55,7 +55,7 @@ public class HoldMonster extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_STRENGTH_PENALTY);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

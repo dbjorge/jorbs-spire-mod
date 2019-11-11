@@ -52,7 +52,7 @@ public class Mindworm extends CustomJorbsModCard {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DAMAGE);
             upgradeMagicNumber(UPGRADE_PLUS_BONUS_SNAPPED_DAMAGE);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

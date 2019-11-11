@@ -181,7 +181,7 @@
   },
   "stsjorbsmod:ColorSpray": {
     "NAME": "Color Spray",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each one. NL Remember stsjorbsmod:Envy."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each. NL Remember stsjorbsmod:Envy."
   },
   "stsjorbsmod:TinyHut": {
     "NAME": "Tiny Hut",
@@ -280,7 +280,7 @@
   "stsjorbsmod:Determination": {
     "NAME": "Determination",
     "DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of this turn, stsjorbsmod:Snap.",
-    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of next turn, stsjorbsmod:Snap."
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of your next turn, stsjorbsmod:Snap."
   },
   "stsjorbsmod:ArcaneForm": {
     "NAME": "Arcane Form",
@@ -317,8 +317,8 @@
   },
   "stsjorbsmod:Quicksilver": {
     "NAME": "Quicksilver",
-    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance relics 1 turn through time. NL This turn, your next attack is played !M! additional time.",
-    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance relics 1 turn through time. NL This turn, your next attack is played !M! additional times."
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance relics !stsjorbsmod:MetaMagic! turn through time. NL This turn, your next attack is played !M! additional time.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance relics !stsjorbsmod:MetaMagic! turn through time. NL This turn, your next attack is played !M! additional times."
   },
   "stsjorbsmod:Stone": {
     "NAME": "Stone",

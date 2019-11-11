@@ -46,6 +46,7 @@ public class Feast extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeBaseCost(UPGRADE_COST);
+            upgradeDescription();
         }
     }
 }

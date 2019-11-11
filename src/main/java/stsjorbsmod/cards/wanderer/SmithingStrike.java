@@ -47,6 +47,7 @@ public class SmithingStrike extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeDescription();
         }
     }
 }

@@ -46,7 +46,7 @@ public class Web extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_WEAK);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

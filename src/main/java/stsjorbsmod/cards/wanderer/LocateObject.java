@@ -46,6 +46,7 @@ public class LocateObject extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_DRAW);
+            upgradeDescription();
         }
     }
 }
