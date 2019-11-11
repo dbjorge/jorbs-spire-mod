@@ -234,12 +234,13 @@
   },
   "stsjorbsmod:GatherPower": {
     "NAME": "Gather Power",
-    "DESCRIPTION": "Draw !M! cards. NL This turn, your next Attack is played twice."
+    "DESCRIPTION": "Draw !M! cards. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional time.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional times."
   },
   "stsjorbsmod:Quicksilver": {
     "NAME": "Quicksilver",
-    "DESCRIPTION": "Advance all turn-based relic counters by !M!. NL This turn, your next Attack is played twice. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Advance all turn-based relic counters by !M!. NL This turn, your next !stsjorbsmod:MetaMagic! Attacks are played twice. NL Exhaust."
+    "DESCRIPTION": "Advance relics !stsjorbsmod:MetaMagic! turn through time. NL This turn, your next attack is played !M! additional time. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Advance relics !stsjorbsmod:MetaMagic! turn through time. NL This turn, your next attack is played !M! additional times. NL Exhaust."
   },
   "stsjorbsmod:Fireball": {
     "NAME": "Fireball",
@@ -248,7 +249,7 @@
   },
   "stsjorbsmod:LoseGrip": {
     "NAME": "Lose Grip",
-    "DESCRIPTION": "If stsjorbsmod:Snapped, gain !M! Intangible. Otherwise, gain !B! Block. NL Retain. NL Exhaust."
+    "DESCRIPTION": "Gain !B! Block. NL Exhaust. NL stsjorbsmod:Exhume when you stsjorbsmod:Snap."
   },
   "stsjorbsmod:HoldMonster": {
     "NAME": "Hold Monster",

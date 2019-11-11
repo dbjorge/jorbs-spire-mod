@@ -8,6 +8,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.AdvanceRelicsThroughTimeAction;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.powers.PlayNextAttackThisTurnAdditionalTimesPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -22,27 +23,27 @@ public class Quicksilver extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int RELIC_COUNTER_INCREMENT = 1;
-    private static final int DOUBLE_TAP_TURNS = 1;
-    private static final int UPGRADE_PLUS_DOUBLE_TAP_TURNS = 1;
+    private static final int NEXT_ATTACK_ADDITIONAL_TIMES = 1;
+    private static final int UPGRADE_PLUS_NEXT_ATTACK_ADDITIONAL_TIMES = 1;
 
     public Quicksilver() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = RELIC_COUNTER_INCREMENT;
-        metaMagicNumber = baseMetaMagicNumber = DOUBLE_TAP_TURNS;
+        magicNumber = baseMagicNumber = NEXT_ATTACK_ADDITIONAL_TIMES;
+        metaMagicNumber = baseMetaMagicNumber = RELIC_COUNTER_INCREMENT;
         exhaust = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new AdvanceRelicsThroughTimeAction(p, magicNumber));
-        addToBot(new ApplyPowerAction(p, p, new DoubleTapPower(p, metaMagicNumber), metaMagicNumber));
+        addToBot(new AdvanceRelicsThroughTimeAction(p, metaMagicNumber));
+        addToBot(new ApplyPowerAction(p, p, new PlayNextAttackThisTurnAdditionalTimesPower(p, magicNumber), magicNumber));
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMetaMagicNumber(UPGRADE_PLUS_DOUBLE_TAP_TURNS);
+            upgradeMagicNumber(UPGRADE_PLUS_NEXT_ATTACK_ADDITIONAL_TIMES);
             upgradeDescription();
         }
     }

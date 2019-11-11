@@ -111,6 +111,13 @@
       " Vulnerable to a random enemy"
     ]
   },
+  "stsjorbsmod:PlayNextAttackThisTurnAdditionalTimesPower": {
+    "NAME": "Hastened",
+    "DESCRIPTIONS": [
+      "The next attack you play this turn is played an additional time.",
+      "The next attack you play this turn is played an additional #b", " times."
+    ]
+  },
   "stsjorbsmod:ReduceNextDamagePower": {
     "NAME": "Reduce Damage",
     "DESCRIPTIONS": [
