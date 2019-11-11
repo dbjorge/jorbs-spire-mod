@@ -51,7 +51,7 @@
   },
   "stsjorbsmod:Counterspell": {
     "NAME": "Counterspell",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Artifact if an enemy intends to apply a negative effect. NL Exhaust."
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Artifact if enemy intends to apply a negative effect. NL Exhaust."
   },
   "stsjorbsmod:MinorIllusion": {
     "NAME": "Minor Illusion",
