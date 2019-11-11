@@ -2,9 +2,12 @@ package stsjorbsmod.cards;
 
 import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import stsjorbsmod.patches.EphemeralField;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
@@ -118,4 +121,14 @@ public abstract class CustomJorbsModCard extends CustomCard {
         baseBlock = realBaseBlock;
         isBlockModified = block != baseBlock;
     }
+
+    @Override
+    public final void onMoveToDiscard() {
+        if (EphemeralField.ephemeral.get(this)) {
+            AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(this, AbstractDungeon.player.discardPile, true));
+        }
+        this.onMoveToDiscardImpl();
+    }
+
+    public void onMoveToDiscardImpl() { }
 }

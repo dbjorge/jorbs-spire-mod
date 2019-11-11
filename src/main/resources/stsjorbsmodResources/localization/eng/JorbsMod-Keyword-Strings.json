@@ -40,6 +40,10 @@
     "DESCRIPTION": "When you remember Envy, gain #b1 #yVulnerable. Whenever you target an enemy with a card, apply #b1 #yVulnerable to that enemy."
   },
   {
+    "NAMES": ["ephemeral"],
+    "DESCRIPTION": "Exhausts at the end of your turn, when played, or when discarded."
+  },
+  {
     "NAMES": ["gluttony"],
     "DESCRIPTION": "Whenever you kill a non-minion enemy, raise your Max HP by #b2. At the start of your turn, discard 1 card."
   },

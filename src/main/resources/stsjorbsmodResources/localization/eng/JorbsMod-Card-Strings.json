@@ -237,11 +237,6 @@
     "DESCRIPTION": "Draw !M! cards. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional time.",
     "UPGRADE_DESCRIPTION": "Draw !M! cards. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional times."
   },
-  "stsjorbsmod:Quicksilver": {
-    "NAME": "Quicksilver",
-    "DESCRIPTION": "Advance relics !stsjorbsmod:MetaMagic! turn through time. NL This turn, your next attack is played !M! additional time. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Advance relics !stsjorbsmod:MetaMagic! turn through time. NL This turn, your next attack is played !M! additional times. NL Exhaust."
-  },
   "stsjorbsmod:Fireball": {
     "NAME": "Fireball",
     "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Deal !D! damage to ALL enemies.",
@@ -314,11 +309,16 @@
   },
   "stsjorbsmod:Sulfur": {
     "NAME": "Sulfur",
-    "DESCRIPTION": "Apply !M! stsjorbsmod:Burning. NL Ephemeral."
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Apply !M! stsjorbsmod:Burning."
   },
   "stsjorbsmod:OakLeaf": {
     "NAME": "Oak Leaf",
     "DESCRIPTION": "Gain !M! Dexterity."
+  },
+  "stsjorbsmod:Quicksilver": {
+    "NAME": "Quicksilver",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance relics !stsjorbsmod:MetaMagic! turn through time. NL This turn, your next attack is played !M! additional time.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance relics !stsjorbsmod:MetaMagic! turn through time. NL This turn, your next attack is played !M! additional times."
   },
   "stsjorbsmod:Stone": {
     "NAME": "Stone",

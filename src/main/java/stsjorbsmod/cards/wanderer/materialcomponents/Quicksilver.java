@@ -8,6 +8,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.AdvanceRelicsThroughTimeAction;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.patches.EphemeralField;
 import stsjorbsmod.powers.PlayNextAttackThisTurnAdditionalTimesPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
@@ -30,7 +31,7 @@ public class Quicksilver extends CustomJorbsModCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = NEXT_ATTACK_ADDITIONAL_TIMES;
         metaMagicNumber = baseMetaMagicNumber = RELIC_COUNTER_INCREMENT;
-        exhaust = true;
+        EphemeralField.ephemeral.set(this, true);
     }
 
     @Override
