@@ -13,6 +13,7 @@ import stsjorbsmod.memories.WrathMemory;
 import stsjorbsmod.patches.EntombedField;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.PERSISTENT_POSITIVE_EFFECT;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 public class CorpseExplosion_Wanderer extends CustomJorbsModCard {
@@ -35,6 +36,7 @@ public class CorpseExplosion_Wanderer extends CustomJorbsModCard {
         exhaust = true;
         isEthereal = true;
 
+        tags.add(PERSISTENT_POSITIVE_EFFECT);
         tags.add(REMEMBER_MEMORY);
     }
 
@@ -49,7 +51,6 @@ public class CorpseExplosion_Wanderer extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DAMAGE);
-            initializeDescription();
         }
     }
 }

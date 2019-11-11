@@ -62,6 +62,11 @@ public class Wanderer extends CustomPlayer {
         public static CardLibrary.LibraryType WANDERER_LIBRARY_COLOR;
         @SpireEnum(name = "REMEMBER_MEMORY")
         public static AbstractCard.CardTags REMEMBER_MEMORY;
+        // Use on a card that brings in a possible beneficial effect that lasts longer than the combat and isn't
+        // directly healing or gaining Max HP. If the effect has indirect healing, such as adding a second effect
+        // that conditionally heals or grants Max HP, do use this card tag instead of HEALING.
+        @SpireEnum(name = "PERSISTENT_POSITIVE_EFFECT")
+        public static AbstractCard.CardTags PERSISTENT_POSITIVE_EFFECT;
     }
     
     // Note: These have to live in a separate static subclass to ensure the BaseMode.addColor call can happen before the

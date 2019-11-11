@@ -10,9 +10,9 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.GluttonyMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.PERSISTENT_POSITIVE_EFFECT;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
-// 1: Remember Gluttony. Draw 3(4) cards. Exhaust.
 public class Feast extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Feast.class.getSimpleName());
     public static final String IMG = makeCardPath("Manipulation_Rares/feast.png");
@@ -31,6 +31,7 @@ public class Feast extends CustomJorbsModCard {
         magicNumber = baseMagicNumber = DRAW;
         exhaust = true;
 
+        tags.add(PERSISTENT_POSITIVE_EFFECT);
         tags.add(REMEMBER_MEMORY);
     }
 
@@ -45,7 +46,6 @@ public class Feast extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeBaseCost(UPGRADE_COST);
-            initializeDescription();
         }
     }
 }
