@@ -35,11 +35,7 @@ public class DamageAsBurningPatch {
             @Override
             public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
                 Matcher abstractMonsterCurrentHealth = new Matcher.FieldAccessMatcher(AbstractMonster.class, "currentHealth");
-                int[] lines = LineFinder.findInOrder(ctMethodToPatch, abstractMonsterCurrentHealth);
-                for (int i : lines) {
-                    logger.info(i + "");
-                }
-                return lines;
+                return LineFinder.findInOrder(ctMethodToPatch, abstractMonsterCurrentHealth);
             }
         }
     }
