@@ -23,7 +23,7 @@ public class ScorchingRayAction extends AbstractGameAction {
         AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_MAGIC_BEAM_SHORT", 0.5F));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(
                 new ScalingLaserEffect(source.hb.cX, source.hb.cX, target.hb.cX, target.hb.cY, Color.ORANGE.cpy(), amount), 0.1F));
-        AbstractDungeon.actionManager.addToBottom(new DamageAsBurningAction(target, new DamageInfo(source, amount, EnumsPatch.BURNING)));
+        AbstractDungeon.actionManager.addToBottom(new DamageAsBurningAction(target, new DamageInfo(source, amount)));
         isDone = true;
     }
 }
