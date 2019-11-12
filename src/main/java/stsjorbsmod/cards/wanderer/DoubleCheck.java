@@ -12,7 +12,7 @@ import stsjorbsmod.memories.DiligenceMemory;
 import stsjorbsmod.powers.DoubleCheckPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
-import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class DoubleCheck extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(DoubleCheck.class.getSimpleName());

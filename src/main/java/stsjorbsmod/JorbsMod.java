@@ -9,8 +9,10 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
+import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
@@ -58,7 +60,19 @@ public class JorbsMod implements
     private static final String MODNAME = "Jorbs Mod";
     private static final String AUTHOR = "Twitch chat"; // And pretty soon - You!
     private static final String DESCRIPTION = "New characters, brought to you by Jorbs and Twitch chat!";
-    
+
+    public static class JorbsCardTags {
+        // Use on a card that brings in a possible beneficial effect that lasts longer than the combat and isn't
+        // directly healing or gaining Max HP. If the effect has indirect healing, such as adding a second effect
+        // that conditionally heals or grants Max HP, do use this card tag instead of HEALING.
+        @SpireEnum(name = "PERSISTENT_POSITIVE_EFFECT")
+        public static AbstractCard.CardTags PERSISTENT_POSITIVE_EFFECT;
+
+        // Use on a card that remembers a memory, which is mechanic specific to the Wanderer character.
+        @SpireEnum(name = "REMEMBER_MEMORY")
+        public static AbstractCard.CardTags REMEMBER_MEMORY;
+    }
+
     // =============== INPUT TEXTURE LOCATION =================
 
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.

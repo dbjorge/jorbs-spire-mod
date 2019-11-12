@@ -8,7 +8,7 @@ import javassist.CtBehavior;
 
 import java.util.ArrayList;
 
-import static stsjorbsmod.characters.Wanderer.Enums.PERSISTENT_POSITIVE_EFFECT;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
 
 public class FilterRandomCardGenerationPatch {
     private static void RemovePersistentPositiveEffects(ArrayList<AbstractCard> list) {

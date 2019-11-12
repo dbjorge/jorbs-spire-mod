@@ -12,8 +12,8 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.WrathMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
-import static stsjorbsmod.characters.Wanderer.Enums.PERSISTENT_POSITIVE_EFFECT;
-import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class SmithingStrike extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(SmithingStrike.class.getSimpleName());

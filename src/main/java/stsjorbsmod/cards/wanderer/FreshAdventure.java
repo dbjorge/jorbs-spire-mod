@@ -12,7 +12,7 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.DiligenceMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
-import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 // Deal 12(15) damage and remember Diligence
 public class FreshAdventure extends CustomJorbsModCard {

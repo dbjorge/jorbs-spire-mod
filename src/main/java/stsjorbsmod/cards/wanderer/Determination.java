@@ -11,8 +11,8 @@ import stsjorbsmod.memories.PrideMemory;
 import stsjorbsmod.powers.FragilePower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
-import static stsjorbsmod.characters.Wanderer.Enums.PERSISTENT_POSITIVE_EFFECT;
-import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class Determination extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Determination.class.getSimpleName());

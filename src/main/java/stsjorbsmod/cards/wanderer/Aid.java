@@ -11,7 +11,7 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.KindnessMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
-import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class Aid extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Aid.class.getSimpleName());
