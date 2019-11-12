@@ -41,11 +41,9 @@ public class DamageAsBurningPatch {
     }
 
     /**
-     * The purpose of isBurning on {@link DamageInfo} is to indicate to the {@link onAttackHook} to apply {@link BurningPower}
-     * based on the damage values available. Unfortunately, adding a new {@link DamageInfo.DamageType} doesn't work since
-     * {@link com.megacrit.cardcrawl.powers.CurlUpPower} and {@link com.megacrit.cardcrawl.powers.MalleablePower} check for
-     * {@link com.megacrit.cardcrawl.cards.DamageInfo.DamageType.NORMAL} to trigger. This patch also allows for no change to
-     * {@link stsjorbsmod.memories.LustMemory} which applies burning on hit.
+     * Indicate to the onAttackHook to apply BurningPower based on the calculated damage values. Unfortunately, adding a
+     * new damage type doesn't work since CurlUpPower and MalleablePower trigger on DamageType.NORMAL. This patch also
+     * causes no change to LustMemory which applies burning on hit.
      */
     @SpirePatch(
             clz = DamageInfo.class,
