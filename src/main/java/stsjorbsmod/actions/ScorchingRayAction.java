@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import stsjorbsmod.effects.ScalingLaserEffect;
-import stsjorbsmod.patches.EnumsPatch;
 
 public class ScorchingRayAction extends AbstractGameAction {
 

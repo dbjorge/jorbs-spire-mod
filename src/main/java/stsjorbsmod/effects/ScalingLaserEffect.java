@@ -10,7 +10,6 @@ import com.badlogic.gdx.math.Vector2;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
-import stsjorbsmod.JorbsMod;
 
 public class ScalingLaserEffect extends AbstractGameEffect {
     private float sX;
