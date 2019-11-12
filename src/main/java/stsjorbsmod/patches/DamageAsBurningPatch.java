@@ -2,20 +2,14 @@ package stsjorbsmod.patches;
 
 
 import com.evacipated.cardcrawl.modthespire.lib.*;
-import com.evacipated.cardcrawl.modthespire.patcher.Expectation;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import javassist.CtBehavior;
-import javassist.expr.Expr;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.Arrays;
-import java.util.Collections;
+import stsjorbsmod.powers.BurningPower;
 
 public class DamageAsBurningPatch {
     public static Logger logger = LogManager.getLogger(DamageAsBurningPatch.class.getName());
@@ -27,14 +21,12 @@ public class DamageAsBurningPatch {
     public static class onAttackHook {
         @SpireInsertPatch(
                 locator = DamageAsBurningPatch.onAttackHook.Locator.class,
-                localvars = {}
+                localvars = {"damageAmount"}
         )
-        public static SpireReturn patch(AbstractMonster __this, DamageInfo info) {
-            if (info.owner == AbstractDungeon.player) {
-                if (info.type == EnumsPatch.BURNING) {
-                    logger.info("WE BURNING!");
-                    return SpireReturn.Return(null);
-                }
+        public static SpireReturn patch(AbstractMonster __this, DamageInfo info, int damageAmount) {
+            if (info.owner == AbstractDungeon.player && isBurningField.isBurning.get(info) && damageAmount > 0) {
+                AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(__this, info.owner, new BurningPower(__this, info.owner, damageAmount)));
+                return SpireReturn.Return(null);
             }
             return SpireReturn.Continue();
         }
@@ -50,5 +42,20 @@ public class DamageAsBurningPatch {
                 return lines;
             }
         }
+    }
+
+    /**
+     * The purpose of isBurning on {@link DamageInfo} is to indicate to the {@link onAttackHook} to apply {@link BurningPower}
+     * based on the damage values available. Unfortunately, adding a new {@link DamageInfo.DamageType} doesn't work since
+     * {@link com.megacrit.cardcrawl.powers.CurlUpPower} and {@link com.megacrit.cardcrawl.powers.MalleablePower} check for
+     * {@link com.megacrit.cardcrawl.cards.DamageInfo.DamageType.NORMAL} to trigger. This patch also allows for no change to
+     * {@link stsjorbsmod.memories.LustMemory} which applies burning on hit.
+     */
+    @SpirePatch(
+            clz = DamageInfo.class,
+            method = SpirePatch.CLASS
+    )
+    public static class isBurningField {
+        public static SpireField<Boolean> isBurning = new SpireField<>(() -> Boolean.FALSE);
     }
 }

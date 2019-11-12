@@ -7,7 +7,4 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 public class EnumsPatch {
     @SpireEnum
     public static AbstractPower.PowerType SPECIAL;
-
-    @SpireEnum
-    public static DamageInfo.DamageType BURNING;
 }
