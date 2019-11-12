@@ -19,6 +19,7 @@ import stsjorbsmod.powers.BurningPower;
  * - The "remove power" step happens as an end-of-round effect in BurningPower rather than as part of this action's
  * "reduce amount" step like poison does, because we want the "halve healing" effect to persist across the turn in
  * the burning amount is reduced to zero.
+ * - Damage can be blocked
  */
 public class BurningLoseHpAction extends AbstractGameAction {
     private static final Logger logger = LogManager.getLogger(BurningLoseHpAction.class.getName());
