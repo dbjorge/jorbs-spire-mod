@@ -21,8 +21,9 @@ public class ScalingLaserEffect extends AbstractGameEffect {
     private static final float DUR = 0.5F;
     private static TextureAtlas.AtlasRegion img;
     private float beamThickness;
+    private Color color2;
 
-    public ScalingLaserEffect(float sX, float sY, float dX, float dY, Color color, int amount) {
+    public ScalingLaserEffect(float sX, float sY, float dX, float dY, Color color1, Color color2, int amount) {
         if (img == null) {
             img = ImageMaster.vfxAtlas.findRegion("combat/laserThin");
         }
@@ -32,7 +33,8 @@ public class ScalingLaserEffect extends AbstractGameEffect {
         this.dX = dX;
         this.dY = dY;
         this.dst = Vector2.dst(this.sX, this.sY, this.dX, this.dY) / Settings.scale;
-        this.color = color;
+        this.color = color1;
+        this.color2 = color2;
         this.duration = DUR;
         this.startingDuration = DUR;
         this.rotation = MathUtils.atan2(dX - sX, dY - sY);
@@ -72,21 +74,18 @@ public class ScalingLaserEffect extends AbstractGameEffect {
                 this.scale + MathUtils.random(-0.01F, 0.01F),
                 this.scale,
                 this.rotation);
-//        sb.setColor(new Color(0.3F, 0.3F, 1.0F, this.color.a));
-//        if (img != null) {
-//            JorbsMod.logger.info(img.name);
-//        }
-//        sb.draw(img,
-//                this.sX,
-//                this.sY - (float) img.packedHeight / 2.0F,
-//                0.0F,
-//                (float) img.packedHeight / 2.0F,
-//                this.dst,
-//                MathUtils.random(50.0F, 90.0F),
-//                this.scale + MathUtils.random(-0.02F, 0.02F),
-//                this.scale,
-//                this.rotation);
-//        sb.setBlendFunction(770, 771);
+        sb.setColor(this.color2);
+        sb.draw(img,
+                this.sX,
+                this.sY - (float) img.packedHeight / 2.0F - (Settings.scale * beamThickness / 4),
+                0.0F,
+                (float) img.packedHeight / 2.0F,
+                this.dst,
+                MathUtils.random(50.0F, 90.0F) + (Settings.scale * beamThickness / 2),
+                this.scale + MathUtils.random(-0.02F, 0.02F),
+                this.scale,
+                this.rotation);
+        sb.setBlendFunction(770, 771);
     }
 
     public void dispose() {

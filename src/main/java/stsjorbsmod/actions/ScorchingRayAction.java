@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import stsjorbsmod.effects.ScalingLaserEffect;
 import stsjorbsmod.patches.EnumsPatch;
 
@@ -21,8 +22,9 @@ public class ScorchingRayAction extends AbstractGameAction {
     @Override
     public void update() {
         AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_MAGIC_BEAM_SHORT", 0.5F));
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new BorderFlashEffect(Color.GOLDENROD)));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(
-                new ScalingLaserEffect(source.hb.cX, source.hb.cX, target.hb.cX, target.hb.cY, Color.ORANGE.cpy(), amount), 0.1F));
+                new ScalingLaserEffect(source.hb.cX, source.hb.cX, target.hb.cX, target.hb.cY, Color.ORANGE.cpy(), Color.RED.cpy(), amount), 0.1F));
         AbstractDungeon.actionManager.addToBottom(new DamageAsBurningAction(target, new DamageInfo(source, amount)));
         isDone = true;
     }
