@@ -27,6 +27,10 @@ public class MemoryManager {
         this.memories = MemoryUtils.allPossibleMemories(owner);
     }
 
+    public static MemoryManager forPlayer() {
+        return forPlayer(AbstractDungeon.player);
+    }
+
     public static MemoryManager forPlayer(AbstractCreature target) {
         if (target instanceof Wanderer) {
             return ((Wanderer)target).memories;
@@ -132,6 +136,8 @@ public class MemoryManager {
     }
 
     public void snap() {
+        if (isSnapped()) { return; }
+
         forgetCurrentMemoryNoNotify();
 
         for (AbstractMemory clarity : this.currentClarities()) {

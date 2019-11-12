@@ -7,7 +7,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DrawPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
+import stsjorbsmod.cards.wanderer.materialcomponents.MaterialComponentsDeck;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.powers.BookOfTonguesPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -31,15 +33,7 @@ public class BookOfTongues extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new DrawPower(p, this.magicNumber)));
-
-        // TODO: this should be adding a "draw from memory deck at start of turn" effect instead of increasing normal
-        //  cards drawn, but we haven't implemented the memory deck yet.
-        /*
-        if (upgraded) {
-            addToBot(new ApplyPowerAction(p, p, new MakeTempCardInHandAction(MemoryDeck.createRandomCard())));
-        }
-        */
+        addToBot(new ApplyPowerAction(p, p, new BookOfTonguesPower(p, this.magicNumber)));
     }
 
     @Override

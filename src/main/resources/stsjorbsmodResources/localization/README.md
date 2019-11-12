@@ -8,13 +8,3 @@ There is a script in the repo at `/build/GenerateLocalization.ps1` that can use 
 * eng files are used as the target order.
 * eng sections are alphabetized.
 * Other localizations (when we add them) will follow the eng ordering.
-
-## Keyword-specific info
-
-**Keywords** are special terms that get highlighted when they appear in card descriptions. They are defined in
-`JorbsMod-Keyword-Strings.json`. They are sorted as:
-
-* Status effects that can apply to enemies.
-* Memory mechanics.
-* Memory groups.
-* Individual memories.

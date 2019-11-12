@@ -1,117 +1,116 @@
 [
   {
-    "PROPER_NAME": "Burning",
-    "NAMES": ["burning", "Burning"],
+    "NAMES": ["burning"],
     "DESCRIPTION": "Burning creatures lose HP at the start of their turn and have healing reduced by 50%. Each turn, Burning is reduced by half."
   },
   {
-    "PROPER_NAME": "Coil",
-    "NAMES": ["coil", "Coil"],
+    "NAMES": ["clarity", "clarities"],
+    "DESCRIPTION": "Memories you have Clarity of won't be forgotten when remembering a new memory."
+  },
+  {
+    "NAMES": ["charity"],
+    "DESCRIPTION": "Until forgotten, gain 1 #yStrength for every 100 gold you have."
+  },
+  {
+    "NAMES": ["chastity"],
+    "DESCRIPTION": "When you remember Chastity, gain #b2 #yDexterity. At the end of each turn, lose #b1 #yDexterity and gain #b6 #yBlock."
+  },
+  {
+    "NAMES": ["coil"],
     "DESCRIPTION": "Gain 1 Coil each time you play a card while remembering #yPatience."
   },
   {
-    "PROPER_NAME": "Destroy",
     "NAMES": ["destroy"],
     "DESCRIPTION": "Permanently remove this card from your deck (not just this combat)."
   },
   {
-    "PROPER_NAME": "Entombed",
-    "NAMES": ["entombed"],
-    "DESCRIPTION": "Start combat Exhausted. Move from Exhaust pile to hand whenever an enemy dies."
+    "NAMES": ["diligence"],
+    "DESCRIPTION": "When you remember Diligence, draw #b2 cards. At the end of your turn, retain #b1."
   },
   {
-    "PROPER_NAME": "Slow",
-    "NAMES": ["slow"],
+    "NAMES": ["entombed"],
+    "DESCRIPTION": "This card starts each combat in your Exhaust pile. It will be Exhumed from your Exhaust pile into your hand each time its Exhume condition is met."
+  },
+  {
+    "NAMES": ["exhume"],
+    "DESCRIPTION": "Move from your Exhaust pile to your hand."
+  },
+  {
+    "NAMES": ["envy"],
+    "DESCRIPTION": "When you remember Envy, gain #b1 #yVulnerable. Whenever you target an enemy with a card, apply #b1 #yVulnerable to that enemy."
+  },
+  {
+    "NAMES": ["ephemeral"],
+    "DESCRIPTION": "Exhausts at the end of your turn, when played, or when discarded."
+  },
+  {
+    "NAMES": ["gluttony"],
+    "DESCRIPTION": "Whenever you kill a non-minion enemy, raise your Max HP by #b2. At the start of your turn, discard 1 card."
+  },
+  {
+    "NAMES": ["greed"],
+    "DESCRIPTION": "Whenever you kill a non-minion enemy, gain #b10 gold."
+  },
+  {
+    "NAMES": ["humility"],
+    "DESCRIPTION": "Gain #b2 #yThorns."
+  },
+  {
+    "NAMES": ["kindness"],
+    "DESCRIPTION": "Until forgotten, ALL enemies lose #b3 #yStrength."
+  },
+  {
+    "NAMES": ["lust"],
+    "DESCRIPTION": "Your attacks apply #b2 #yBurning. Each time remembered, apply #b2 #yBurning to ALL enemies. Each time forgotten, gain #b2 #yWeak."
+  },
+  {
+    "PROPER_NAME": "Material Component",
+    "NAMES": ["material component", "material components", "material_component", "material_components"],
+    "DESCRIPTION": "Material Components are (mostly) 0-cost cards with a variety of minor effects."
+  },
+  {
+    "PROPER_NAME": "Material Components",
+    "NAMES": ["material components", "material_components"],
+    "DESCRIPTION": "Material Components are (mostly) 0-cost cards with a variety of minor effects."
+  },
+  {
+    "NAMES": ["patience"],
+    "DESCRIPTION": "Gain 1 #yCoil each time you play a card. When you remember a new memory, deal 2 damage to ALL enemies for each #yCoil and lose all #yCoil."
+  },
+  {
+    "NAMES": ["pride"],
+    "DESCRIPTION": "At the end of combat, #yupgrade a card in your deck. Until forgotten, lose #b2 Dexterity."
+  },
+  {
+    "NAMES": ["sin"],
+    "DESCRIPTION": "A memory of #yEnvy, #yGreed, #yGluttony, #yLust, #yPride, #ySloth, or #yWrath."
+  },
+  {
+    "NAMES": ["sloth"],
+    "DESCRIPTION": "When you remember Sloth, discard #b3 random cards. Draw #b1 fewer cards each turn."
+  },
+  {
+    "NAMES": ["slow", "slowed"],
     "DESCRIPTION": "Slowed creatures take 10% more damage from attacks per card already played this turn."
   },
   {
-    "PROPER_NAME": "Clarity",
-    "NAMES": ["clarity", "Clarity"],
-    "DESCRIPTION": "Memories you have Clarity of won't be forgotten when remembering a new memory."
-  },
-  {
-    "PROPER_NAME": "Snap",
     "NAMES": ["snap", "snapped"],
     "DESCRIPTION": "Deal 6 damage to ALL enemies and lose 3 HP for every #yClarity you have. You cannot #yRemember or have #yClarity of any memories for the remainder of the fight."
   },
   {
-    "PROPER_NAME": "Sin",
-    "NAMES": ["sin", "Sin"],
-    "DESCRIPTION": "A memory of #yEnvy, #yGreed, #yGluttony, #yLust, #yPride, #ySloth, or #yWrath."
-  },
-  {
-    "PROPER_NAME": "Virtue",
-    "NAMES": ["virtue", "Virtue"],
-    "DESCRIPTION": "A memory of #yCharity, #yChastity, #yDiligence, #yHumility, #yKindness, #yPatience, or #yTemperance."
-  },
-  {
-    "PROPER_NAME": "Charity",
-    "NAMES": ["charity", "Charity"],
-    "DESCRIPTION": "Until forgotten, gain 1 #yStrength for every 100 gold you have."
-  },
-  {
-    "PROPER_NAME": "Chastity",
-    "NAMES": ["chastity", "Chastity"],
-    "DESCRIPTION": "When you remember Chastity, gain #b2 #yDexterity. At the end of each turn, lose #b1 #yDexterity and gain #b6 #yBlock."
-  },
-  {
-    "PROPER_NAME": "Diligence",
-    "NAMES": ["diligence", "Diligence"],
-    "DESCRIPTION": "When you remember Diligence, draw #b2 cards. At the end of your turn, retain #b1."
-  },
-  {
-    "PROPER_NAME": "Envy",
-    "NAMES": ["envy", "Envy"],
-    "DESCRIPTION": "When you remember Envy, gain #b1 #yVulnerable. Whenever you target an enemy with a card, apply #b1 #yVulnerable to that enemy."
-  },
-  {
-    "PROPER_NAME": "Gluttony",
-    "NAMES": ["gluttony", "Gluttony"],
-    "DESCRIPTION": "Whenever you kill a non-minion enemy, raise your Max HP by #b2. At the start of your turn, discard 1 card."
-  },
-  {
-    "PROPER_NAME": "Greed",
-    "NAMES": ["greed", "Greed"],
-    "DESCRIPTION": "Whenever you kill a non-minion enemy, gain #b10 gold."
-  },
-  {
-    "PROPER_NAME": "Humility",
-    "NAMES": ["humility", "Humility"],
-    "DESCRIPTION": "Gain #b2 #yThorns."
-  },
-  {
-    "PROPER_NAME": "Kindness",
-    "NAMES": ["kindness", "Kindness"],
-    "DESCRIPTION": "Until forgotten, ALL enemies lose #b3 #yStrength."
-  },
-  {
-    "PROPER_NAME": "Lust",
-    "NAMES": ["lust", "Lust"],
-    "DESCRIPTION": "Your attacks apply #b2 #yBurning. Each time remembered, apply #b2 #yBurning to ALL enemies. Each time forgotten, gain #b2 #yWeak."
-  },
-  {
-    "PROPER_NAME": "Patience",
-    "NAMES": ["patience", "Patience"],
-    "DESCRIPTION": "Gain 1 #yCoil each time you play a card. When you remember a new memory, deal 2 damage to ALL enemies for each #yCoil and lose all #yCoil."
-  },
-  {
-    "PROPER_NAME": "Pride",
-    "NAMES": ["pride", "Pride"],
-    "DESCRIPTION": "At the end of combat, #yupgrade a card in your deck. Until forgotten, lose #b2 Dexterity."
-  },
-  {
-    "PROPER_NAME": "Sloth",
-    "NAMES": ["sloth", "Sloth"],
-    "DESCRIPTION": "When you remember Sloth, discard #b3 random cards. Draw #b1 fewer cards each turn."
-  },
-  {
-    "PROPER_NAME": "Temperance",
-    "NAMES": ["temperance", "Temperance"],
+    "NAMES": ["temperance"],
     "DESCRIPTION": "Until forgotten, gain 1 #yStrength for every #yClarity you have. Each time remembered, apply #b1 #yWeak to ALL enemies."
   },
   {
-    "PROPER_NAME": "Wrath",
-    "NAMES": ["wrath", "Wrath"],
+    "NAMES": ["virtue"],
+    "DESCRIPTION": "A memory of #yCharity, #yChastity, #yDiligence, #yHumility, #yKindness, #yPatience, or #yTemperance."
+  },
+  {
+    "NAMES": ["web", "webs"],
+    "DESCRIPTION": "Webs are 0 cost Skill cards which Retain, apply Weak, and Exhaust."
+  },
+  {
+    "NAMES": ["wrath"],
     "DESCRIPTION": "Whenever you kill a non-minion enemy, permanently increase the damage of the last damage-dealing attack card played this combat by 1."
   }
 ]

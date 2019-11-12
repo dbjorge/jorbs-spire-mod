@@ -6,11 +6,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.GainSpecificClarityAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
-import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.*;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.PERSISTENT_POSITIVE_EFFECT;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 public class ArcaneForm extends CustomJorbsModCard {
@@ -28,6 +28,7 @@ public class ArcaneForm extends CustomJorbsModCard {
     public ArcaneForm() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 
+        tags.add(PERSISTENT_POSITIVE_EFFECT);
         tags.add(REMEMBER_MEMORY);
         tags.add(BaseModCardTags.FORM);
     }
@@ -46,7 +47,7 @@ public class ArcaneForm extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeBaseCost(UPGRADED_COST);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

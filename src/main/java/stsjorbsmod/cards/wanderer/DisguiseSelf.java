@@ -40,7 +40,7 @@ public class DisguiseSelf extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

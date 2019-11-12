@@ -12,6 +12,7 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.WrathMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.PERSISTENT_POSITIVE_EFFECT;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 public class SmithingStrike extends CustomJorbsModCard {
@@ -31,7 +32,8 @@ public class SmithingStrike extends CustomJorbsModCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
 
-        this.tags.add(REMEMBER_MEMORY);
+        tags.add(PERSISTENT_POSITIVE_EFFECT);
+        tags.add(REMEMBER_MEMORY);
     }
 
     @Override
@@ -45,7 +47,7 @@ public class SmithingStrike extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

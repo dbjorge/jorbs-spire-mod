@@ -4,5 +4,12 @@
     "DESCRIPTIONS": [
       "Ignore paths when choosing the next room to travel to."
     ]
+  },
+  "stsjorbsmod:BurningPotion": {
+    "NAME": "Burning Potion",
+    "DESCRIPTIONS": [
+      "Apply #b",
+      " #yBurning."
+    ]
   }
 }

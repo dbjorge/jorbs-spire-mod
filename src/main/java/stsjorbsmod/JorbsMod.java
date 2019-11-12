@@ -22,6 +22,7 @@ import stsjorbsmod.cards.CardSaveData;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.console.MemoryCommand;
+import stsjorbsmod.potions.BurningPotion;
 import stsjorbsmod.potions.DimensionDoorPotion;
 import stsjorbsmod.relics.FragileMindRelic;
 import stsjorbsmod.relics.MindGlassRelic;
@@ -214,6 +215,8 @@ public class JorbsMod implements
 
         BaseMod.addPotion(DimensionDoorPotion.class, Color.BLACK, Color.CORAL, null,
                 DimensionDoorPotion.POTION_ID, Wanderer.Enums.WANDERER);
+        BaseMod.addPotion(BurningPotion.class, Color.ORANGE, null, new Color(-1033371393),
+                BurningPotion.POTION_ID, Wanderer.Enums.WANDERER);
         
         // =============== EVENTS =================
         

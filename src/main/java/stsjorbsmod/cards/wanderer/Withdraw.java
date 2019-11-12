@@ -43,7 +43,7 @@ public class Withdraw extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

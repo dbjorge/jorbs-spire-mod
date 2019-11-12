@@ -10,6 +10,7 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.GreedMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
+import static stsjorbsmod.characters.Wanderer.Enums.PERSISTENT_POSITIVE_EFFECT;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
 public class LocateObject extends CustomJorbsModCard {
@@ -30,6 +31,7 @@ public class LocateObject extends CustomJorbsModCard {
         magicNumber = baseMagicNumber = DRAW;
         exhaust = true;
 
+        tags.add(PERSISTENT_POSITIVE_EFFECT);
         tags.add(REMEMBER_MEMORY);
     }
 
@@ -44,7 +46,7 @@ public class LocateObject extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_DRAW);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

@@ -7,41 +7,39 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.cards.AutoExhumeBehavior;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.patches.AutoExhumeField;
 import stsjorbsmod.powers.SnappedPower;
+
+import java.util.EnumSet;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class LoseGrip extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(LoseGrip.class.getSimpleName());
-    public static final String IMG = makeCardPath("Block_Rares/lose_grip.png");
+    public static final String IMG = makeCardPath("Block_Uncommons/lose_grip.png");
 
-    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
 
     private static final int COST = 1;
-    private static final int BLOCK = 12;
-    private static final int INTANGIBLE = 1;
-    private static final int UPGRADE_PLUS_BLOCK = 3;
+    private static final int BLOCK = 10;
+    private static final int UPGRADE_PLUS_BLOCK = 4;
 
     public LoseGrip() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = BLOCK;
-        magicNumber = baseMagicNumber = INTANGIBLE;
-        AlwaysRetainField.alwaysRetain.set(this, true);
         exhaust = true;
+        AutoExhumeField.autoExhumeBehavior.set(this, AutoExhumeBehavior.EXHUME_ON_SNAP);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (p.hasPower(SnappedPower.POWER_ID)) {
-            addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, this.magicNumber), this.magicNumber));
-        } else {
-            addToBot(new GainBlockAction(p, p, block));
-        }
+        addToBot(new GainBlockAction(p, p, block));
     }
 
     @Override
@@ -49,7 +47,7 @@ public class LoseGrip extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

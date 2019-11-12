@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.powers.DoubleTapPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.powers.PlayNextAttackThisTurnAdditionalTimesPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -22,26 +23,27 @@ public class GatherPower extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int DRAW = 2;
-    private static final int UPGRADE_PLUS_DRAW = 1;
-    private static final int DOUBLE_TAP_TURNS = 1;
+    private static final int NEXT_ATTACK_ADDITIONAL_TIMES = 1;
+    private static final int UPGRADE_PLUS_NEXT_ATTACK_ADDITIONAL_TIMES = 1;
 
     public GatherPower() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = DRAW;
+        metaMagicNumber = baseMetaMagicNumber = NEXT_ATTACK_ADDITIONAL_TIMES;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DrawCardAction(p, magicNumber));
-        addToBot(new ApplyPowerAction(p, p, new DoubleTapPower(p, DOUBLE_TAP_TURNS), DOUBLE_TAP_TURNS));
+        addToBot(new ApplyPowerAction(p, p, new PlayNextAttackThisTurnAdditionalTimesPower(p, metaMagicNumber), metaMagicNumber));
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_DRAW);
-            initializeDescription();
+            upgradeMetaMagicNumber(UPGRADE_PLUS_NEXT_ATTACK_ADDITIONAL_TIMES);
+            upgradeDescription();
         }
     }
 }

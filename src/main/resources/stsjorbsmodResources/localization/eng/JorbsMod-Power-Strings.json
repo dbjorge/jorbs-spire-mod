@@ -14,6 +14,13 @@
       " turns."
     ]
   },
+  "stsjorbsmod:BookOfTonguesPower": {
+    "NAME": "Book of Tongues",
+    "DESCRIPTIONS": [
+      "At the start of your turn, draw #b1 random Material Component.",
+      "At the start of your turn, draw #b", " random Material Components."
+    ]
+  },
   "stsjorbsmod:CoilPower": {
     "NAME": "Coil",
     "DESCRIPTIONS": [
@@ -21,11 +28,25 @@
       " Damage to all enemies and lose all Coil."
     ]
   },
+  "stsjorbsmod:DoubleCheckPower": {
+    "NAME": "Double-check",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, if you remember #yDiligence gain #yClarity."
+    ]
+  },
   "stsjorbsmod:EnergizedCustomPower": {
     "NAME": "Energized",
     "DESCRIPTIONS": [
       "Gain #b",
       " additional [E] next turn."
+    ]
+  },
+  "stsjorbsmod:ForbiddenGrimoireDelayedExhumePower": {
+    "NAME": "Delayed Exhume",
+    "DESCRIPTIONS": [
+      " will be Exhumed after you play #b",
+      " more card.",
+      " more cards."
     ]
   },
   "stsjorbsmod:FearPower": {
@@ -88,6 +109,13 @@
       "At the start of each turn, apply #b",
       " Weak or #b",
       " Vulnerable to a random enemy"
+    ]
+  },
+  "stsjorbsmod:PlayNextAttackThisTurnAdditionalTimesPower": {
+    "NAME": "Hastened",
+    "DESCRIPTIONS": [
+      "The next attack you play this turn is played an additional time.",
+      "The next attack you play this turn is played an additional #b", " times."
     ]
   },
   "stsjorbsmod:ReduceNextDamagePower": {
