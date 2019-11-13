@@ -26,7 +26,7 @@ public class ForbiddenGrimoire extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 0;
-    private static final int CARD_PLAYS_TO_EXHUME = 2;
+    private static final int CARD_PLAYS_TO_EXHUME = 3;
 
     public ForbiddenGrimoire() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
