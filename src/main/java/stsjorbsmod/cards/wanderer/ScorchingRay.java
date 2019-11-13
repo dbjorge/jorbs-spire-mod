@@ -24,6 +24,7 @@ public class ScorchingRay extends CustomJorbsModCard {
     private static final int COST = 1;
     private static final int DAMAGE = 1;
     private static final int NUM_ATTACKS = 3;
+    private static final int UPGRADE_PLUS_NUM_ATTACKS = 1;
 
     public ScorchingRay() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -33,9 +34,9 @@ public class ScorchingRay extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(p, LustMemory.STATIC.ID));
+        addToBot(new RememberSpecificMemoryAction(p, LustMemory.STATIC.ID));
         for (int i = 0; i < magicNumber; i++) {
-            AbstractDungeon.actionManager.addToBottom(new ScorchingRayAction(m, p, damage));
+            addToBot(new ScorchingRayAction(m, p, damage));
         }
     }
 
@@ -43,8 +44,8 @@ public class ScorchingRay extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
-            initializeDescription();
+            upgradeMagicNumber(UPGRADE_PLUS_NUM_ATTACKS);
+            upgradeDescription();
         }
     }
 }

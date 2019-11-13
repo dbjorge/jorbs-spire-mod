@@ -1,6 +1,5 @@
 package stsjorbsmod.patches;
 
-
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -12,8 +11,6 @@ import org.apache.logging.log4j.Logger;
 import stsjorbsmod.powers.BurningPower;
 
 public class DamageAsBurningPatch {
-    public static Logger logger = LogManager.getLogger(DamageAsBurningPatch.class.getName());
-
     @SpirePatch(
             clz = AbstractMonster.class,
             method = "damage"

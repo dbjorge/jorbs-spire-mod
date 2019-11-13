@@ -13,7 +13,6 @@ import stsjorbsmod.effects.ScalingLaserEffect;
 import stsjorbsmod.patches.DamageAsBurningPatch;
 
 public class ScorchingRayAction extends AbstractGameAction {
-
     public ScorchingRayAction(AbstractCreature target, AbstractCreature source, int amount) {
         this.target = target;
         this.source = source;
@@ -26,9 +25,11 @@ public class ScorchingRayAction extends AbstractGameAction {
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new BorderFlashEffect(Color.GOLDENROD)));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(
                 new ScalingLaserEffect(source.hb.cX, source.hb.cX, target.hb.cX, target.hb.cY, Color.ORANGE.cpy(), Color.RED.cpy(), amount), 0.1F));
+
         DamageInfo info = new DamageInfo(source, amount);
         DamageAsBurningPatch.isBurningField.isBurning.set(info, true);
         AbstractDungeon.actionManager.addToBottom(new DamageAction(target, info, AttackEffect.FIRE));
+
         isDone = true;
     }
 }

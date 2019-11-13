@@ -12,31 +12,31 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 public class ScalingLaserEffect extends AbstractGameEffect {
-    private float sX;
-    private float sY;
-    private float dX;
-    private float dY;
-    private float dst;
+    private float sourceX;
+    private float sourceY;
+    private float targetX;
+    private float targetY;
+    private float distance;
     private static final float DUR = 0.5F;
     private static TextureAtlas.AtlasRegion img;
     private float beamThickness;
     private Color color2;
 
-    public ScalingLaserEffect(float sX, float sY, float dX, float dY, Color color1, Color color2, int amount) {
+    public ScalingLaserEffect(float sourceX, float sourceY, float targetX, float targetY, Color color1, Color color2, int amount) {
         if (img == null) {
             img = ImageMaster.vfxAtlas.findRegion("combat/laserThin");
         }
 
-        this.sX = sX;
-        this.sY = sY;
-        this.dX = dX;
-        this.dY = dY;
-        this.dst = Vector2.dst(this.sX, this.sY, this.dX, this.dY) / Settings.scale;
+        this.sourceX = sourceX;
+        this.sourceY = sourceY;
+        this.targetX = targetX;
+        this.targetY = targetY;
+        this.distance = Vector2.dst(this.sourceX, this.sourceY, this.targetX, this.targetY) / Settings.scale;
         this.color = color1;
         this.color2 = color2;
         this.duration = DUR;
         this.startingDuration = DUR;
-        this.rotation = MathUtils.atan2(dX - sX, dY - sY);
+        this.rotation = MathUtils.atan2(targetX - sourceX, targetY - sourceY);
         this.rotation *= 57.295776F;
         this.rotation = -this.rotation + 90.0F;
         if (amount <= 0) {
@@ -46,6 +46,7 @@ public class ScalingLaserEffect extends AbstractGameEffect {
         }
     }
 
+    @Override
     public void update() {
         this.duration -= Gdx.graphics.getDeltaTime();
         if (this.duration > this.startingDuration / 2.0F) {
@@ -57,29 +58,29 @@ public class ScalingLaserEffect extends AbstractGameEffect {
         if (this.duration < 0.0F) {
             this.isDone = true;
         }
-
     }
 
+    @Override
     public void render(SpriteBatch sb) {
         sb.setBlendFunction(770, 1);
         sb.setColor(this.color);
         sb.draw(img,
-                this.sX,
-                (this.sY - (float) img.packedHeight / 2.0F + 10.0F) - (Settings.scale * (beamThickness / 2)),
+                this.sourceX,
+                (this.sourceY - (float) img.packedHeight / 2.0F + 10.0F) - (Settings.scale * (beamThickness / 2)),
                 0.0F,
                 (float) img.packedHeight / 2.0F,
-                this.dst,
+                this.distance,
                 50.0F + (Settings.scale * beamThickness),
                 this.scale + MathUtils.random(-0.01F, 0.01F),
                 this.scale,
                 this.rotation);
         sb.setColor(this.color2);
         sb.draw(img,
-                this.sX,
-                this.sY - (float) img.packedHeight / 2.0F - (Settings.scale * beamThickness / 4),
+                this.sourceX,
+                this.sourceY - (float) img.packedHeight / 2.0F - (Settings.scale * beamThickness / 4),
                 0.0F,
                 (float) img.packedHeight / 2.0F,
-                this.dst,
+                this.distance,
                 MathUtils.random(50.0F, 90.0F) + (Settings.scale * beamThickness / 2),
                 this.scale + MathUtils.random(-0.02F, 0.02F),
                 this.scale,
@@ -87,7 +88,6 @@ public class ScalingLaserEffect extends AbstractGameEffect {
         sb.setBlendFunction(770, 771);
     }
 
-    public void dispose() {
-    }
-
+    @Override
+    public void dispose() { }
 }
