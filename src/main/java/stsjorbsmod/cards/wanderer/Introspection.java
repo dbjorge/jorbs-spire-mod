@@ -24,20 +24,21 @@ public class Introspection extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int HP_LOSS = 1;
-    private static final int DAMAGE = 3;
+    private static final int DAMAGE = 2;
     private static final int DAMAGE_PER_CLARITY = 2;
-    private static final int UPGRADE_PLUS_DAMAGE_PER_CLARITY = 1;
+    private static final int UPGRADE_PLUS_DAMAGE = 2;
 
     public Introspection() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = DAMAGE;
         damageType = damageTypeForTurn = DamageType.THORNS;
-        magicNumber = baseMagicNumber = DAMAGE_PER_CLARITY;
+        magicNumber = baseMagicNumber = DAMAGE;
+        metaMagicNumber = baseMetaMagicNumber = DAMAGE_PER_CLARITY;
+        urMagicNumber = baseUrMagicNumber = HP_LOSS;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new IntrospectionPower(p, HP_LOSS, baseDamage, magicNumber, damageTypeForTurn)));
+        addToBot(new ApplyPowerAction(p, p, new IntrospectionPower(p, urMagicNumber, magicNumber, metaMagicNumber, damageTypeForTurn)));
     }
 
     @Override
@@ -49,7 +50,7 @@ public class Introspection extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_DAMAGE_PER_CLARITY);
+            upgradeMagicNumber(UPGRADE_PLUS_DAMAGE);
             upgradeDescription();
         }
     }

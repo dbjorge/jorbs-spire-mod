@@ -194,7 +194,7 @@
   },
   "stsjorbsmod:Introspection": {
     "NAME": "Introspection",
-    "DESCRIPTION": "At the end of each turn, lose 1 HP and deal !D! damage to ALL enemies. Deal !M! additional damage per stsjorbsmod:Clarity."
+    "DESCRIPTION": "At the end of each turn, lose !stsjorbsmod:UrMagic! HP and deal !M! damage to ALL enemies. Deal !stsjorbsmod:MetaMagic! additional damage per stsjorbsmod:Clarity."
   },
   "stsjorbsmod:BookOfTongues": {
     "NAME": "Book of Tongues",
