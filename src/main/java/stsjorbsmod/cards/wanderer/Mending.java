@@ -9,7 +9,6 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.MemoryManager;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
-import static stsjorbsmod.characters.Wanderer.Enums.PERSISTENT_POSITIVE_EFFECT;
 
 public class Mending extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Mending.class.getSimpleName());
@@ -18,7 +17,7 @@ public class Mending extends CustomJorbsModCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 1;
     private static final int HEAL_PER_CLARITY = 1;

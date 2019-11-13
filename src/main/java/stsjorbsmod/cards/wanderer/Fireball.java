@@ -13,8 +13,6 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.LustMemory;
 import stsjorbsmod.powers.BurningPower;
 
-import java.util.Iterator;
-
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
 
@@ -30,7 +28,7 @@ public class Fireball extends CustomJorbsModCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 2;
     private static final int DAMAGE = 18;

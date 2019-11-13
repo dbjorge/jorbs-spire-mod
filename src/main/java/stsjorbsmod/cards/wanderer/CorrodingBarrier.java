@@ -1,7 +1,5 @@
 package stsjorbsmod.cards.wanderer;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -10,7 +8,6 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.cards.IOnDrawCardSubscriber;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.SnappedPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -21,7 +18,7 @@ public class CorrodingBarrier extends CustomJorbsModCard implements IOnDrawCardS
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 2;
     private static final int BLOCK = 23;

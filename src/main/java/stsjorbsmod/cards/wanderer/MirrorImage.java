@@ -9,7 +9,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.KindnessMemory;
-import stsjorbsmod.memories.TemperanceMemory;
 import stsjorbsmod.powers.NextAttackMissesPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
@@ -22,7 +21,7 @@ public class MirrorImage extends CustomJorbsModCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 2;
 

@@ -11,7 +11,6 @@ import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
@@ -75,6 +74,10 @@ public class JorbsMod implements
     public static String makeRelicPath(String resourcePath) {
         return MOD_ID + "Resources/images/relics/" + resourcePath;
     }
+
+    public static String makeCharPath(String resourcePath) {
+        return MOD_ID + "Resources/images/characters/" + resourcePath;
+    }
     
     public static String makeRelicOutlinePath(String resourcePath) {
         return MOD_ID + "Resources/images/relics/outline/" + resourcePath;
@@ -122,7 +125,7 @@ public class JorbsMod implements
 
         logger.info("Done subscribing");
         
-        logger.info("Creating new card colors..." + Wanderer.Enums.WANDERER_GRAY_COLOR.toString());
+        logger.info("Creating new card colors..." + Wanderer.Enums.WANDERER_CARD_COLOR.toString());
 
         Wanderer.ColorInfo.registerColorWithBaseMod();
         
@@ -242,11 +245,11 @@ public class JorbsMod implements
         logger.info("Adding relics");
         
         // Character-specific relics for custom characters use BaseMod.addRelicToCustomPool
-        BaseMod.addRelicToCustomPool(new WandererStarterRelic(), Wanderer.Enums.WANDERER_GRAY_COLOR);
+        BaseMod.addRelicToCustomPool(new WandererStarterRelic(), Wanderer.Enums.WANDERER_CARD_COLOR);
         UnlockTracker.markRelicAsSeen(WandererStarterRelic.ID);
-        BaseMod.addRelicToCustomPool(new FragileMindRelic(), Wanderer.Enums.WANDERER_GRAY_COLOR);
+        BaseMod.addRelicToCustomPool(new FragileMindRelic(), Wanderer.Enums.WANDERER_CARD_COLOR);
         UnlockTracker.markRelicAsSeen(FragileMindRelic.ID);
-        BaseMod.addRelicToCustomPool(new MindGlassRelic(), Wanderer.Enums.WANDERER_GRAY_COLOR);
+        BaseMod.addRelicToCustomPool(new MindGlassRelic(), Wanderer.Enums.WANDERER_CARD_COLOR);
         UnlockTracker.markBossAsSeen(MindGlassRelic.ID);
 
         // Shared (non-character-specific) relics would instead use this:
