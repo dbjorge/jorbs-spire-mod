@@ -364,5 +364,9 @@
     "NAME": "Stone",
     "DESCRIPTION": "Retain. NL Apply stsjorbsmod:Slow to enemy. NL If already stsjorbsmod:Slowed, double its stsjorbsmod:Slow stacks. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Retain. NL Apply stsjorbsmod:Slow to enemy. NL If already stsjorbsmod:Slowed, triple its stsjorbsmod:Slow stacks. NL Exhaust."
+  },
+  "stsjorbsmod:ScorchingRay": {
+    "NAME": "Scorching Ray",
+    "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Apply !D! damage as stsjorbsmod:Burning !M! times."
   }
 }
