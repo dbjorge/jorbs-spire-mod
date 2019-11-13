@@ -93,8 +93,8 @@
   "stsjorbsmod:MagicMirrorPower": {
     "NAME": "Magic Mirror",
     "DESCRIPTIONS": [
-      "Whenever you receive a debuff, apply that debuff to ALL enemies.",
-      "Whenever you receive a debuff, apply that debuff to ALL enemies #b", " times."
+      "Whenever an enemy applies a debuff to you, apply that debuff to ALL enemies.",
+      "Whenever an enemy applies a debuff to you, apply that debuff to ALL enemies #b", " times."
     ]
   },
   "stsjorbsmod:NextAttackMissesPower": {
