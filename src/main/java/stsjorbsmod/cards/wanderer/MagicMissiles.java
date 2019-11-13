@@ -15,9 +15,9 @@ import static stsjorbsmod.JorbsMod.makeCardPath;
 // Deal 3(4) Damage. Deal 3(4) Damage again once for each Clarity.
 public class MagicMissiles extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(MagicMissiles.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Commons/magic_missiles.png");
+    public static final String IMG = makeCardPath("Damage_Uncommons/magic_missiles.png");
 
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
