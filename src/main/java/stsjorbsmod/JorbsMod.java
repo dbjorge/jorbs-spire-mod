@@ -14,6 +14,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -38,6 +39,8 @@ import stsjorbsmod.variables.UrMagicNumber;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Properties;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 @SpireInitializer
 public class JorbsMod implements
@@ -46,7 +49,8 @@ public class JorbsMod implements
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         EditCharactersSubscriber,
-        PostInitializeSubscriber {
+        PostInitializeSubscriber,
+        PostDungeonInitializeSubscriber {
     public static final String MOD_ID = "stsjorbsmod";
 
     public static final Logger logger = LogManager.getLogger(JorbsMod.class.getName());
@@ -67,6 +71,13 @@ public class JorbsMod implements
         // that conditionally heals or grants Max HP, do use this card tag instead of HEALING.
         @SpireEnum(name = "PERSISTENT_POSITIVE_EFFECT")
         public static AbstractCard.CardTags PERSISTENT_POSITIVE_EFFECT;
+
+        // Use on a card that can only ever enter the deck by special means, and cannot be removed or transformed once
+        // present. The card can exhaust but still counts as present.
+        // NOTE: Legendary cards will never appear when drafting with the Draft mod enabled, as implemented.
+        // This is because CardRewardScreen.draftOpen() calls AbstractDungeon.returnRandomCard() to show three cards.
+        @SpireEnum(name = "LEGENDARY")
+        public static AbstractCard.CardTags LEGENDARY;
 
         // Use on a card that remembers a memory, which is mechanic specific to the Wanderer character.
         @SpireEnum(name = "REMEMBER_MEMORY")
@@ -353,5 +364,22 @@ public class JorbsMod implements
     // in order to avoid conflicts if any other mod uses the same ID.
     public static String makeID(String idText) {
         return MOD_ID + ":" + idText;
+    }
+
+    // Handle the Legendary quality, in terms of preventing duplicates, by removing existing Legendary cards from the
+    // pools of possible cards to generate.
+    @Override
+    public void receivePostDungeonInitialize() {
+        Predicate<AbstractCard> isLegendary = c -> c.hasTag(JorbsCardTags.LEGENDARY);
+        AbstractDungeon.colorlessCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.srcColorlessCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.commonCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.srcCommonCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.uncommonCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.srcUncommonCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.rareCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.srcRareCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.curseCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.srcCurseCardPool.group.removeIf(isLegendary);
     }
 }
