@@ -32,8 +32,8 @@ public class MindGlassRelic extends CustomRelic implements OnModifyMemoriesListe
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("mindglass_relic.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("mindglass_relic.png"));
 
-    private static final int ONE_CLARITY_DAMAGE = 5;
-    private static final int TEN_CLARITY_DAMAGE = 500;
+    private static final int ONE_CLARITY_DAMAGE = 3;
+    private static final int TEN_CLARITY_DAMAGE = 100;
 
     public MindGlassRelic() {
         super(ID, IMG, OUTLINE, RelicTier.UNCOMMON, LandingSound.CLINK);
