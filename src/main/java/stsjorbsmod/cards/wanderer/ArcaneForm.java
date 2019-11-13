@@ -23,10 +23,10 @@ public class ArcaneForm extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 3;
-    private static final int UPGRADED_COST = 2;
 
     public ArcaneForm() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        isEthereal = true;
 
         tags.add(PERSISTENT_POSITIVE_EFFECT);
         tags.add(REMEMBER_MEMORY);
@@ -35,7 +35,7 @@ public class ArcaneForm extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainSpecificClarityAction(p, WrathMemory.STATIC.ID));
+        addToBot(new GainSpecificClarityAction(p, PatienceMemory.STATIC.ID));
         addToBot(new GainSpecificClarityAction(p, LustMemory.STATIC.ID));
         addToBot(new GainSpecificClarityAction(p, DiligenceMemory.STATIC.ID));
         addToBot(new GainSpecificClarityAction(p, KindnessMemory.STATIC.ID));
@@ -46,7 +46,7 @@ public class ArcaneForm extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            isEthereal = false;
             upgradeDescription();
         }
     }
