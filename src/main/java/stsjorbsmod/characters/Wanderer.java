@@ -67,7 +67,7 @@ public class Wanderer extends CustomPlayer {
     // static initializers for the class run, due to temporal coupling between the abstract base class initializers.
     public static class ColorInfo {
         // Character Color
-        public static final Color CHARACTER_COLOR = new Color(64.0f, 70.0f, 70.0f, 1.0f);
+        public static final Color CHARACTER_COLOR = new Color(0.7f, 0.8f, 1.0f, 1.0f);
 
         // Card backgrounds - The actual rectangular card.
         public static final String CARD_BG_ATTACK_TEXTURE = makeCharPath("wanderer/card_bgs/card_bg_attack_512.png");
@@ -109,7 +109,7 @@ public class Wanderer extends CustomPlayer {
 
     public static final int ENERGY_PER_TURN = 3;
     public static final int STARTING_HP = 60;
-    public static final int MAX_HP = 60;
+    public static final int MAX_HP = 64;
     public static final int STARTING_GOLD = 99;
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
@@ -235,15 +235,14 @@ public class Wanderer extends CustomPlayer {
     // character Select screen effect
     @Override
     public void doCharSelectScreenSelectEffect() {
-        CardCrawlGame.sound.playA("ATTACK_DAGGER_1", 1.25f); // Sound Effect
-        CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT,
-                false); // Screen Effect
+        CardCrawlGame.sound.playA("ATTACK_FIRE", 0.8f);
+        CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT, false);
     }
 
     // character Select on-button-press sound effect
     @Override
     public String getCustomModeCharacterButtonSoundKey() {
-        return "ATTACK_DAGGER_1";
+        return "ATTACK_FIRE";
     }
 
     // Should return how much HP your maximum HP reduces by when starting a run at
