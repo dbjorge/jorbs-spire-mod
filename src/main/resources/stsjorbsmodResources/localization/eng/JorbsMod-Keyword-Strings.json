@@ -1,7 +1,7 @@
 [
   {
     "NAMES": ["burning"],
-    "DESCRIPTION": "Burning creatures lose HP at the start of their turn and have healing reduced by %s%. Each turn, Burning is reduced by half."
+    "DESCRIPTION": "Burning creatures lose HP at the start of their turn and have healing reduced by 50%. Each turn, Burning is reduced by half."
   },
   {
     "NAMES": ["clarity", "clarities"],

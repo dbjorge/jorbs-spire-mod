@@ -19,5 +19,8 @@
   },
   "stsjorbsmod:CallCalipers": {
     "TEXT": ["Calipers would be good here..."]
+  },
+  "stsjorbsmod:AlchemistsFireOnClick": {
+    "TEXT": ["GOLASO! GOL! GOL! GOL!"]
   }
 }
