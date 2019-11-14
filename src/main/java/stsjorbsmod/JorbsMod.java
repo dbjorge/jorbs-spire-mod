@@ -14,8 +14,6 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -25,6 +23,7 @@ import stsjorbsmod.cards.CardSaveData;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.console.MemoryCommand;
+import stsjorbsmod.patches.LegendaryPatch;
 import stsjorbsmod.potions.BurningPotion;
 import stsjorbsmod.potions.DimensionDoorPotion;
 import stsjorbsmod.relics.AlchemistsFireRelic;
@@ -40,9 +39,7 @@ import stsjorbsmod.variables.UrMagicNumber;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Properties;
-import java.util.function.Predicate;
 
 @SpireInitializer
 public class JorbsMod implements
@@ -77,17 +74,15 @@ public class JorbsMod implements
         // Use on a card that can only ever enter the deck by special means, and cannot be removed or transformed once
         // present. The card can exhaust but still counts as present.
         // Interaction notes:
-        // - Legendary cards will never appear when drafting with the Draft mod enabled. In the implementation as is,
-        //   CardRewardScreen.draftOpen() calls AbstractDungeon.returnRandomCard() to show three cards. We have
-        //   filtered the reward pools that returnRandomCard() draws from.
-        // - Legendary rare cards won't be added to the deck with Shiny enabled.  In the implementation as is,
-        //   the player invokes AbstractDungeon.getEachRare() instead of the CardLibrary's version. This again uses
-        //   the filtered reward pools, whereas the CardLibrary version would use the full set of available cards.
         // - Any red, green, or blue cards that duplicate a card could pick a Legendary card. These behaviors remain
         //   because this mod is not designed to interact with colored cards from the main game.
         //   Known cards: Dual Wield, Nightmare
         // - Living Wall event: if the player has no purgeable cards, they won't be given a chance to upgrade.
         // - Designer event: the Remove option can be active without any purgeable cards to select from.
+        // - All Star mod won't give any Legendary colorless cards (should they ever exist).
+        // - Hoarder mod will add two additional copies of Legendary cards.
+        // - Insanity mod has access to Legendary cards and can generate duplicates.
+        // - Specialized mod can start with five of the same Legendary card, if Draft or Sealed is enabled.
         @SpireEnum(name = "LEGENDARY")
         public static AbstractCard.CardTags LEGENDARY;
 
@@ -380,32 +375,12 @@ public class JorbsMod implements
         return MOD_ID + ":" + idText;
     }
 
-    // Handle the Legendary quality, in terms of preventing duplicates, by removing existing Legendary cards from the
-    // pools of possible cards to generate.
+    // Removing Legendary cards from the pools of possible cards to generate. They must be given out specifically,
+    // not randomly as a reward or transformed card.
     @Override
     public void receivePostDungeonInitialize() {
-        Predicate<AbstractCard> isLegendary = c -> c.hasTag(JorbsCardTags.LEGENDARY);
-
-        // AbstractDungeon has many returnRandam*, returnTrulyRandom*, and *transformCard methods that use these pools.
-        AbstractDungeon.colorlessCardPool.group.removeIf(isLegendary);
-        AbstractDungeon.srcColorlessCardPool.group.removeIf(isLegendary);
-        AbstractDungeon.commonCardPool.group.removeIf(isLegendary);
-        AbstractDungeon.srcCommonCardPool.group.removeIf(isLegendary);
-        AbstractDungeon.uncommonCardPool.group.removeIf(isLegendary);
-        AbstractDungeon.srcUncommonCardPool.group.removeIf(isLegendary);
-        AbstractDungeon.rareCardPool.group.removeIf(isLegendary);
-        AbstractDungeon.srcRareCardPool.group.removeIf(isLegendary);
-        AbstractDungeon.curseCardPool.group.removeIf(isLegendary);
-        AbstractDungeon.srcCurseCardPool.group.removeIf(isLegendary);
-
-        // AbstractDungeon.transformCard can call getCurse to generate a replacement curse.
-        HashMap<String, AbstractCard> curses = ReflectionUtils.getPrivateField(null, CardLibrary.class, "curses");
-        ArrayList<String> removals = new ArrayList<>();
-        curses.forEach((s, c) -> {
-            if (isLegendary.test(c)) {
-                removals.add(s);
-            };
-        });
-        removals.forEach(s -> curses.remove(s));
+        if (!LegendaryPatch.doesStartingDeckNeedFullPools()) {
+            LegendaryPatch.removeLegendaryCardsFromPools();
+        }
     }
 }

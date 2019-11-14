@@ -5,35 +5,87 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.events.shrines.Duplicator;
 import com.megacrit.cardcrawl.events.shrines.FountainOfCurseRemoval;
 import com.megacrit.cardcrawl.events.shrines.WeMeetAgain;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.helpers.ModHelper;
+import com.megacrit.cardcrawl.neow.NeowEvent;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.Astrolabe;
 import com.megacrit.cardcrawl.relics.DollysMirror;
 import com.megacrit.cardcrawl.relics.EmptyCage;
+import com.megacrit.cardcrawl.screens.CardRewardScreen;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
+import stsjorbsmod.JorbsMod;
+import stsjorbsmod.util.ReflectionUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 
 public class LegendaryPatch {
     private static final String LEGENDARY_QUALIFIED_NAME = "stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY";
-    private static void RemoveLegendaryCards(ArrayList<AbstractCard> list) {
+    private static final String DraftMod = "Draft";
+    private static final String SealedMod = "SealedDeck";
+
+    private static void removeLegendaryCards(ArrayList<AbstractCard> list) {
         list.removeIf(c -> c.hasTag(LEGENDARY));
     }
 
-    public static CardGroup CloneCardGroupWithoutLegendaryCards(CardGroup original) {
+    public static boolean doesStartingDeckNeedFullPools() {
+        return ModHelper.isModEnabled(DraftMod) || ModHelper.isModEnabled(SealedMod);
+    }
+
+    public static void removeLegendaryCardsFromPools() {
+        Predicate<AbstractCard> isLegendary = c -> c.hasTag(JorbsMod.JorbsCardTags.LEGENDARY);
+
+        // AbstractDungeon has many returnRandam*, returnTrulyRandom*, and *transformCard methods that use these pools.
+        AbstractDungeon.colorlessCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.srcColorlessCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.commonCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.srcCommonCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.uncommonCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.srcUncommonCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.rareCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.srcRareCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.curseCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.srcCurseCardPool.group.removeIf(isLegendary);
+
+        // AbstractDungeon.transformCard can call getCurse to generate a replacement curse.
+        HashMap<String, AbstractCard> curses = ReflectionUtils.getPrivateField(null, CardLibrary.class, "curses");
+        ArrayList<String> removals = new ArrayList<>();
+        curses.forEach((s, c) -> {
+            if (isLegendary.test(c)) {
+                removals.add(s);
+            };
+        });
+        removals.forEach(s -> curses.remove(s));
+    }
+
+    // Note: this is called only by edited expressions in the main game. See the derived ExprEditor that follows.
+    public static CardGroup cloneCardGroupWithoutLegendaryCards(CardGroup original) {
         CardGroup copy = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         copy.group = new ArrayList<>(original.group);
-        RemoveLegendaryCards(copy.group);
+        removeLegendaryCards(copy.group);
         return copy;
+    }
+
+    private static class CloneMasterDeckWithoutLegendaryCardsEditor extends ExprEditor {
+        @Override
+        public void edit(FieldAccess fieldAccess) throws CannotCompileException {
+            // Replace the "AbstractPlayer.masterDeck" with a new list that filters out the legendary cards.
+            if (fieldAccess.getClassName().equals(AbstractPlayer.class.getName()) && fieldAccess.getFieldName().equals("masterDeck")) {
+                fieldAccess.replace("{ $_ = " + LegendaryPatch.class.getName() + ".cloneCardGroupWithoutLegendaryCards($proceed()); }");
+            }
+        }
     }
 
     // Legendary cards aren't purgeable. By removing them from choices to purge, we sidestep them even being picked
@@ -42,7 +94,7 @@ public class LegendaryPatch {
     public static class CardGroup_getPurgeableCards {
         @SpirePostfixPatch
         public static CardGroup patch(CardGroup result, CardGroup instance) {
-            RemoveLegendaryCards(result.group);
+            removeLegendaryCards(result.group);
             return result;
         }
     }
@@ -50,15 +102,12 @@ public class LegendaryPatch {
     // While we filter Legendary cards from being in the random reward pools after the dungeon initializes, if the
     // player has the Prismatic Shard relic, this particular method is also used in AbstractDungeon.getRewardCards.
     // We don't want to modify the overall list of cards that the CardLibrary draws from, hence this patch.
-    @SpirePatch(
-            clz = CardLibrary.class,
-            method = "getAnyColorCard",
-            paramtypez = { AbstractCard.CardRarity.class }
-    )
+    @SpirePatch(clz = CardLibrary.class, method = "getAnyColorCard",
+            paramtypez = { AbstractCard.CardRarity.class })
     public static class CardLibrary_getAnyColorCard {
         @SpireInsertPatch(locator = CardGroup_shuffle_Locator.class, localvars = "anyCard")
         public static void patch(AbstractCard.CardRarity rarity, CardGroup anyCard) {
-            RemoveLegendaryCards(anyCard.group);
+            removeLegendaryCards(anyCard.group);
         }
     }
 
@@ -85,6 +134,23 @@ public class LegendaryPatch {
         }
     }
 
+    // The Duplicator event makes a copy of any card in the deck. Provide a filtered list to choose from.
+    @SpirePatch(clz = Duplicator.class, method = "use")
+    public static class Duplicator_use {
+        public static ExprEditor Instrument() {
+            return new CloneMasterDeckWithoutLegendaryCardsEditor();
+        }
+    }
+
+    // The Fountain of Curse Removal event should only be eligible if the player has a non-Legendary curse;
+    // i.e., one that could be removed.
+    @SpirePatch(clz = AbstractPlayer.class, method = "isCursed")
+    public static class AbstractPlayer_isCursed {
+        public static ExprEditor Instrument() {
+            return new CloneMasterDeckWithoutLegendaryCardsEditor();
+        }
+    }
+
     // The Fountain of Curse Removal event removes curse cards from the deck. It selects them directly from the
     // masterDeck. We don't let it remove any Legendary curses.
     @SpirePatch(clz = FountainOfCurseRemoval.class, method = "buttonEffect")
@@ -108,7 +174,7 @@ public class LegendaryPatch {
     public static class WeMeetAgain_getRandomNonBasicCard {
         @SpireInsertPatch(locator = ArrayList_isEmpty_Locator.class, localvars = "list")
         public static void patch(ArrayList<AbstractCard> list) {
-            RemoveLegendaryCards(list);
+            removeLegendaryCards(list);
         }
     }
 
@@ -117,7 +183,7 @@ public class LegendaryPatch {
     public static class Astrolabe_onEquip {
         @SpireInsertPatch(locator = ArrayList_isEmpty_Locator.class, localvars = "tmp")
         public static void patch(CardGroup tmp) {
-            RemoveLegendaryCards(tmp.group);
+            removeLegendaryCards(tmp.group);
         }
     }
 
@@ -125,16 +191,7 @@ public class LegendaryPatch {
     @SpirePatch(clz = DollysMirror.class, method = "onEquip")
     public static class DollysMirror_onEquip {
         public static ExprEditor Instrument() {
-            return new ExprEditor() {
-                @Override
-                public void edit(FieldAccess fieldAccess) throws CannotCompileException {
-                    // replacing the "AbstractDungeon.player.masterDeck" parameter passed to gridSelectScreen.open with
-                    // a new list that filters out the legendary cards
-                    if (fieldAccess.getClassName().equals(AbstractPlayer.class.getName()) && fieldAccess.getFieldName().equals("masterDeck")) {
-                        fieldAccess.replace("{ $_ = " + LegendaryPatch.class.getName() + ".CloneCardGroupWithoutLegendaryCards($proceed()); }");
-                    }
-                }
-            };
+            return new CloneMasterDeckWithoutLegendaryCardsEditor();
         }
     }
 
@@ -143,7 +200,84 @@ public class LegendaryPatch {
     public static class EmptyCage_onEquip {
         @SpireInsertPatch(locator = ArrayList_isEmpty_Locator.class, localvars = "tmp")
         public static void patch(CardGroup tmp) {
-            RemoveLegendaryCards(tmp.group);
+            removeLegendaryCards(tmp.group);
+        }
+    }
+
+    // We expect to have patched all situations in the main game. These four routines are almost universally invoked
+    // to do the disallowed work of removing or transforming a Legendary card. Log any such instances encountered.
+    @SpirePatch(clz = CardGroup.class, method = "removeCard",
+            paramtypez = { AbstractCard.class })
+    public static class CardGroup_removeCard_1 {
+        @SpirePrefixPatch
+        public static void patch(CardGroup instance, AbstractCard c) {
+            if (instance.type == CardGroup.CardGroupType.MASTER_DECK && c.hasTag(LEGENDARY)) {
+                JorbsMod.logger.error("Legendary card removed from Master Deck.");
+            }
+        }
+    }
+
+    @SpirePatch(clz = CardGroup.class, method = "removeCard",
+            paramtypez = { String.class })
+    public static class CardGroup_removeCard_2 {
+        @SpirePrefixPatch
+        public static void patch(CardGroup instance, String targetID) {
+            if (instance.type == CardGroup.CardGroupType.MASTER_DECK) {
+                if (instance.group.stream().anyMatch(c -> c.cardID.equals(targetID) && c.hasTag(LEGENDARY))) {
+                    JorbsMod.logger.error("Legendary card removed by cardID from Master Deck.");
+                }
+            }
+        }
+    }
+
+    @SpirePatch(clz = AbstractDungeon.class, method = "transformCard",
+            paramtypez = { AbstractCard.class, boolean.class, Random.class })
+    public static class AbstractDungeon_transformCard {
+        @SpirePostfixPatch
+        public static void patch(AbstractCard c, boolean autoUpgrade, Random rng) {
+            // Because the transformed card is replaced, this can incorrectly mark cards as seen in the UnlockTracker.
+            if (c.hasTag(LEGENDARY)) {
+                JorbsMod.logger.error(
+                        "AbstractDungeon.transformCard invoked on Legendary card. "
+                                + "Setting original card as the transform.");
+                AbstractDungeon.transformedCard = c;
+            }
+        }
+    }
+
+    @SpirePatch(clz = AbstractDungeon.class, method = "srcTransformCard")
+    public static class AbstractDungeon_srcTransformCard {
+        @SpirePostfixPatch
+        public static void patch(AbstractCard c) {
+            if (c.hasTag(LEGENDARY)) {
+                JorbsMod.logger.error(
+                        "AbstractDungeon.srcTransformCard invoked on Legendary card. "
+                                + "Setting original card as the transform.");
+                AbstractDungeon.transformedCard = c;
+            }
+        }
+    }
+
+    // Mod support for Draft. After the player picks cards, remove Legendary cards from the reward pools.
+    @SpirePatch(clz = CardRewardScreen.class, method = "onClose")
+    public static class CardRewardScreen_onClose {
+        @SpirePostfixPatch
+        public static void patch(CardRewardScreen instance) {
+            boolean isDrafting = ReflectionUtils.getPrivateField(instance, CardRewardScreen.class, "draft");
+            if (isDrafting) {
+                removeLegendaryCardsFromPools();
+            }
+        }
+    }
+
+    // Mod support for SealedDeck. After the starting deck is created, remove Legendary cards from the reward pools.
+    @SpirePatch(clz = NeowEvent.class, method = "dailyBlessing")
+    public static class NeowEvent_dailyBlessing {
+        @SpirePostfixPatch
+        public static void patch(NeowEvent instance) {
+            if (ModHelper.isModEnabled(SealedMod)) {
+                removeLegendaryCardsFromPools();
+            }
         }
     }
 
