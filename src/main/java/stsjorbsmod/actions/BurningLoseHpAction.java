@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.powers.BurningPower;
+import stsjorbsmod.util.BurningUtils;
 
 /**
  * As PoisonLoseHpAction, except:
@@ -24,6 +25,7 @@ import stsjorbsmod.powers.BurningPower;
 public class BurningLoseHpAction extends AbstractGameAction {
     private static final Logger logger = LogManager.getLogger(BurningLoseHpAction.class.getName());
     private static final float DURATION = 0.33F;
+    public static final int BASE_BURNING_FALLOFF_RATE = 50;
 
     public BurningLoseHpAction(AbstractCreature target, AbstractCreature source, int amount, AbstractGameAction.AttackEffect effect) {
         this.setValues(target, source, amount);
@@ -53,7 +55,8 @@ public class BurningLoseHpAction extends AbstractGameAction {
 
                 AbstractPower p = this.target.getPower(BurningPower.POWER_ID);
                 if (p != null) {
-                    p.amount /= 2;
+                    p.amount = BurningUtils.calculateNextBurningAmount(source, p.amount);
+
                     p.updateDescription();
                 }
 

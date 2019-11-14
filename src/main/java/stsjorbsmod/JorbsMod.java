@@ -27,6 +27,7 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.console.MemoryCommand;
 import stsjorbsmod.potions.BurningPotion;
 import stsjorbsmod.potions.DimensionDoorPotion;
+import stsjorbsmod.relics.AlchemistsFireRelic;
 import stsjorbsmod.relics.FragileMindRelic;
 import stsjorbsmod.relics.MindGlassRelic;
 import stsjorbsmod.relics.WandererStarterRelic;
@@ -286,7 +287,9 @@ public class JorbsMod implements
         BaseMod.addRelicToCustomPool(new FragileMindRelic(), Wanderer.Enums.WANDERER_CARD_COLOR);
         UnlockTracker.markRelicAsSeen(FragileMindRelic.ID);
         BaseMod.addRelicToCustomPool(new MindGlassRelic(), Wanderer.Enums.WANDERER_CARD_COLOR);
-        UnlockTracker.markBossAsSeen(MindGlassRelic.ID);
+        UnlockTracker.markRelicAsSeen(MindGlassRelic.ID);
+        BaseMod.addRelicToCustomPool(new AlchemistsFireRelic(), Wanderer.Enums.WANDERER_CARD_COLOR);
+        UnlockTracker.markRelicAsSeen(AlchemistsFireRelic.ID);
 
         // Shared (non-character-specific) relics would instead use this:
         // BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
