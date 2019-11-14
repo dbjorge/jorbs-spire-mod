@@ -19,5 +19,12 @@
     "DESCRIPTIONS": [
       "Gaining stsjorbsmod:Clarity deals 3 damage to all enemies. NL Gaining 10 stsjorbsmod:Clarity in the same fight deals 100 damage to all enemies."
     ]
+  },
+  "stsjorbsmod:AlchemistsFireRelic": {
+    "NAME": "Alchemist's Fire",
+    "FLAVOR": "Forca Messi! Messi Animal! GOLASO",
+    "DESCRIPTIONS": [
+      "Reduces stsjorbsmod:Burning status falloff rate to 10% per turn"
+    ]
   }
 }

@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -12,6 +13,7 @@ import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.powers.BurningPower;
+import stsjorbsmod.relics.AlchemistsFireRelic;
 
 /**
  * As PoisonLoseHpAction, except:
@@ -24,6 +26,7 @@ import stsjorbsmod.powers.BurningPower;
 public class BurningLoseHpAction extends AbstractGameAction {
     private static final Logger logger = LogManager.getLogger(BurningLoseHpAction.class.getName());
     private static final float DURATION = 0.33F;
+    public static final int BASE_BURNING_FALLOFF_RATE = 50;
 
     public BurningLoseHpAction(AbstractCreature target, AbstractCreature source, int amount, AbstractGameAction.AttackEffect effect) {
         this.setValues(target, source, amount);
@@ -53,7 +56,12 @@ public class BurningLoseHpAction extends AbstractGameAction {
 
                 AbstractPower p = this.target.getPower(BurningPower.POWER_ID);
                 if (p != null) {
-                    p.amount /= 2;
+                    if (this.source.isPlayer && ((AbstractPlayer) this.source).hasRelic(AlchemistsFireRelic.ID)) {
+                        p.amount = AlchemistsFireRelic.CALCULATE_BURNING_AMOUNT.apply(p.amount);
+                    } else {
+                        p.amount /= 2;
+                    }
+
                     p.updateDescription();
                 }
 

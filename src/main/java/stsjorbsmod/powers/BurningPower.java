@@ -3,11 +3,10 @@ package stsjorbsmod.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.HealthBarRenderPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -16,6 +15,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.BurningLoseHpAction;
+import stsjorbsmod.relics.AlchemistsFireRelic;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
@@ -60,12 +60,20 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
 
     @Override
     public void updateDescription() {
-        if (amount <= 0) {
+        if (this.amount <= 0) {
             this.description = DESCRIPTIONS[4];
-        } else if (this.owner != null && !this.owner.isPlayer) {
-            this.description = DESCRIPTIONS[3] + this.amount + DESCRIPTIONS[1] + (this.amount - this.amount / 2) + DESCRIPTIONS[2] + DESCRIPTIONS[4];
         } else {
-            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + (this.amount - this.amount / 2) + DESCRIPTIONS[2] + DESCRIPTIONS[4];
+            int amountToReduceBy;
+            if(this.source != null && this.source.isPlayer && ((AbstractPlayer) this.source).hasRelic(AlchemistsFireRelic.ID)) {
+                amountToReduceBy = this.amount - AlchemistsFireRelic.CALCULATE_BURNING_AMOUNT.apply(this.amount);
+            } else {
+                amountToReduceBy = (this.amount - this.amount / 2);
+            }
+            if (this.owner != null && !this.owner.isPlayer) {
+                this.description = DESCRIPTIONS[3] + this.amount + DESCRIPTIONS[1] + amountToReduceBy + DESCRIPTIONS[2] + DESCRIPTIONS[4];
+            } else {
+                this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + amountToReduceBy + DESCRIPTIONS[2] + DESCRIPTIONS[4];
+            }
         }
     }
 
