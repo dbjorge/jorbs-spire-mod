@@ -196,6 +196,11 @@
     "NAME": "Introspection",
     "DESCRIPTION": "At the end of each turn, lose !stsjorbsmod:UrMagic! HP and deal !M! damage to ALL enemies. Deal !stsjorbsmod:MetaMagic! additional damage per stsjorbsmod:Clarity."
   },
+  "stsjorbsmod:Inferno": {
+    "NAME": "Inferno",
+    "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Double target enemy's stsjorbsmod:Burning. NL Exhaust. stsjorbsmod:Exhume when you stsjorbsmod:Snap.",
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Lust. NL Triple target enemy's stsjorbsmod:Burning. NL Exhaust. stsjorbsmod:Exhume when you stsjorbsmod:Snap."
+  },
   "stsjorbsmod:BookOfTongues": {
     "NAME": "Book of Tongues",
     "DESCRIPTION": "At the start of each turn, draw !M! random stsjorbsmod:Material_Component.",
@@ -244,7 +249,7 @@
   },
   "stsjorbsmod:LoseGrip": {
     "NAME": "Lose Grip",
-    "DESCRIPTION": "Gain !B! Block. NL Exhaust. NL stsjorbsmod:Exhume when you stsjorbsmod:Snap."
+    "DESCRIPTION": "Gain !B! Block. NL Exhaust. stsjorbsmod:Exhume when you stsjorbsmod:Snap."
   },
   "stsjorbsmod:HoldMonster": {
     "NAME": "Hold Monster",
