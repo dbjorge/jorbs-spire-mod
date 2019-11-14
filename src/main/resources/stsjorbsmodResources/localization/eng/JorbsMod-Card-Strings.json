@@ -251,6 +251,11 @@
     "NAME": "Lose Grip",
     "DESCRIPTION": "Gain !B! Block. NL Exhaust. stsjorbsmod:Exhume when you stsjorbsmod:Snap."
   },
+  "stsjorbsmod:SiphonEnergy": {
+    "NAME": "Siphon Energy",
+    "DESCRIPTION": "Remove all stsjorbsmod:Burning from target and gain that much Strength until end of turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Remove all stsjorbsmod:Burning from target and gain that much Strength until end of turn."
+  },
   "stsjorbsmod:HoldMonster": {
     "NAME": "Hold Monster",
     "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Enemy loses !M! Strength until end of turn. NL Exhaust."
