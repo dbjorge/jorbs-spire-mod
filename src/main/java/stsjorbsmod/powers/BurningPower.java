@@ -8,6 +8,7 @@ import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.HealthBarRenderPowe
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -31,13 +32,19 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
 
     private AbstractCreature source;
     private boolean justApplied = false;
+    public boolean generatedByPyromancy;
 
     public BurningPower(AbstractCreature owner, AbstractCreature source, int burningAmt) {
+        this(owner, source, burningAmt, false);
+    }
+
+    public BurningPower(AbstractCreature owner, AbstractCreature source, int burningAmt, boolean generatedByPyromancy) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
         this.source = source;
         this.amount = burningAmt;
+        this.generatedByPyromancy = generatedByPyromancy;
         if (this.amount >= 9999) {
             this.amount = 9999;
         }

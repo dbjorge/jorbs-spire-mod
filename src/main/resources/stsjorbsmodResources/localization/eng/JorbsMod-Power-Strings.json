@@ -118,6 +118,12 @@
       "The next attack you play this turn is played an additional #b", " times."
     ]
   },
+  "stsjorbsmod:PyromancyPower": {
+    "NAME": "Pyromancy",
+    "DESCRIPTIONS": [
+      "Apply #yBurning #b", " extra time.", " extra times."
+    ]
+  },
   "stsjorbsmod:ReduceNextDamagePower": {
     "NAME": "Reduce Damage",
     "DESCRIPTIONS": [

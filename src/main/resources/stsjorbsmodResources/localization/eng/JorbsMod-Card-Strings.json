@@ -301,6 +301,11 @@
     "NAME": "Banish",
     "DESCRIPTION": "Enemy takes no action and no damage for !M! turns. Exhaust."
   },
+  "stsjorbsmod:Pyromancy": {
+    "NAME": "Pyromancy",
+    "DESCRIPTION": "Ethereal. NL Apply stsjorbsmod:Burning twice.",
+    "UPGRADE_DESCRIPTION": "Apply stsjorbsmod:Burning twice."
+  },
   "stsjorbsmod:Feast": {
     "NAME": "Feast",
     "DESCRIPTION": "Remember stsjorbsmod:Gluttony. NL Draw !M! cards. NL Exhaust."
