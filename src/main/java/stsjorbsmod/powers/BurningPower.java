@@ -62,7 +62,7 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
         if (this.amount <= 0) {
             this.description = DESCRIPTIONS[4];
         } else {
-            int amountToReduceBy = BurningUtils.calculateNextBurningAmount(this.source, this.amount);
+            int amountToReduceBy = amount - BurningUtils.calculateNextBurningAmount(this.source, this.amount);
             if (this.owner != null && !this.owner.isPlayer) {
                 this.description = DESCRIPTIONS[3] + this.amount + DESCRIPTIONS[1] + amountToReduceBy + DESCRIPTIONS[2] + DESCRIPTIONS[4];
             } else {
