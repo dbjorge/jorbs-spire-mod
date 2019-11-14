@@ -1,10 +1,10 @@
 package stsjorbsmod.cards.wanderer;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.unique.DiscoveryAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.DiscoveryAtCostAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.cards.AutoExhumeBehavior;
 import stsjorbsmod.characters.Wanderer;
@@ -42,7 +42,7 @@ public class ForbiddenGrimoire extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DiscoveryAction(MATERIAL_COMPONENT));
+        addToBot(new DiscoveryAtCostAction(MATERIAL_COMPONENT));
         if (!MemoryManager.forPlayer(p).isSnapped()) {
             addToBot(new ApplyPowerAction(p, p, new ForbiddenGrimoireDelayedExhumePower(p, this, magicNumber)));
         }
