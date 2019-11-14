@@ -8,7 +8,7 @@ import javassist.CtBehavior;
 
 import java.util.ArrayList;
 
-import static stsjorbsmod.characters.Wanderer.Enums.PERSISTENT_POSITIVE_EFFECT;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
 
 public class FilterRandomCardGenerationPatch {
     private static void RemovePersistentPositiveEffects(ArrayList<AbstractCard> list) {
@@ -22,7 +22,7 @@ public class FilterRandomCardGenerationPatch {
     )
     public static class AbstractDungeon_returnTrulyRandomCardInCombat_1 {
         @SpireInsertPatch(
-                locator = Locator.class,
+                locator = ArrayList_get_Locator.class,
                 localvars = "list"
         )
         @SuppressWarnings("unchecked")
@@ -38,7 +38,7 @@ public class FilterRandomCardGenerationPatch {
     )
     public static class AbstractDungeon_returnTrulyRandomCardInCombat_2 {
         @SpireInsertPatch(
-                locator = Locator.class,
+                locator = ArrayList_get_Locator.class,
                 localvars = "list"
         )
         @SuppressWarnings("unchecked")
@@ -54,7 +54,7 @@ public class FilterRandomCardGenerationPatch {
     )
     public static class AbstractDungeon_returnTrulyRandomColorlessCardInCombat {
         @SpireInsertPatch(
-                locator = Locator.class,
+                locator = ArrayList_get_Locator.class,
                 localvars = "list"
         )
         @SuppressWarnings("unchecked")
@@ -63,9 +63,9 @@ public class FilterRandomCardGenerationPatch {
         }
     }
 
-    // Because all of the random card generation functions are structured so similarly, we use the same locator.
+    // Because most of the random card generation functions are structured so similarly, we use a shared locator.
     // Before a card is picked from the list, filter its contents.
-    private static class Locator extends SpireInsertLocator {
+    private static class ArrayList_get_Locator extends SpireInsertLocator {
         @Override
         public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
             final Matcher matcher = new Matcher.MethodCallMatcher(ArrayList.class, "get");

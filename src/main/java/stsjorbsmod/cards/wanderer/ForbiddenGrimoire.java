@@ -13,6 +13,7 @@ import stsjorbsmod.patches.AutoExhumeField;
 import stsjorbsmod.patches.EntombedField;
 import stsjorbsmod.powers.ForbiddenGrimoireDelayedExhumePower;
 
+import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.patches.MaterialComponentsDeckPatch.MATERIAL_COMPONENT;
 
@@ -36,6 +37,7 @@ public class ForbiddenGrimoire extends CustomJorbsModCard {
         exhaust = true;
 
         upgrade(); // Always starts upgraded
+        tags.add(LEGENDARY);
     }
 
     @Override

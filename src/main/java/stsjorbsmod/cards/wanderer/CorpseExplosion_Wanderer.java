@@ -15,8 +15,8 @@ import stsjorbsmod.patches.AutoExhumeField;
 import stsjorbsmod.patches.EntombedField;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
-import static stsjorbsmod.characters.Wanderer.Enums.PERSISTENT_POSITIVE_EFFECT;
-import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class CorpseExplosion_Wanderer extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(CorpseExplosion_Wanderer.class.getSimpleName());

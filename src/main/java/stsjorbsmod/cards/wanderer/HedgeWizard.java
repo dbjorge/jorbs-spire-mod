@@ -10,7 +10,7 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.HumilityMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
-import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class HedgeWizard extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(HedgeWizard.class.getSimpleName());

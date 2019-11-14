@@ -14,7 +14,7 @@ import stsjorbsmod.memories.LustMemory;
 import stsjorbsmod.powers.BurningPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
-import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 /**
  * Base: Deal 21 damage to all enemies

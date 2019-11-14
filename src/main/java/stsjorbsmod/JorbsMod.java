@@ -9,9 +9,13 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
+import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -35,7 +39,9 @@ import stsjorbsmod.variables.UrMagicNumber;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Properties;
+import java.util.function.Predicate;
 
 @SpireInitializer
 public class JorbsMod implements
@@ -44,7 +50,8 @@ public class JorbsMod implements
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         EditCharactersSubscriber,
-        PostInitializeSubscriber {
+        PostInitializeSubscriber,
+        PostDungeonInitializeSubscriber {
     public static final String MOD_ID = "stsjorbsmod";
 
     public static final Logger logger = LogManager.getLogger(JorbsMod.class.getName());
@@ -58,7 +65,36 @@ public class JorbsMod implements
     private static final String MODNAME = "Jorbs Mod";
     private static final String AUTHOR = "Twitch chat"; // And pretty soon - You!
     private static final String DESCRIPTION = "New characters, brought to you by Jorbs and Twitch chat!";
-    
+
+    public static class JorbsCardTags {
+        // Use on a card that brings in a possible beneficial effect that lasts longer than the combat and isn't
+        // directly healing or gaining Max HP. If the effect has indirect healing, such as adding a second effect
+        // that conditionally heals or grants Max HP, do use this card tag instead of HEALING.
+        @SpireEnum(name = "PERSISTENT_POSITIVE_EFFECT")
+        public static AbstractCard.CardTags PERSISTENT_POSITIVE_EFFECT;
+
+        // Use on a card that can only ever enter the deck by special means, and cannot be removed or transformed once
+        // present. The card can exhaust but still counts as present.
+        // Interaction notes:
+        // - Legendary cards will never appear when drafting with the Draft mod enabled. In the implementation as is,
+        //   CardRewardScreen.draftOpen() calls AbstractDungeon.returnRandomCard() to show three cards. We have
+        //   filtered the reward pools that returnRandomCard() draws from.
+        // - Legendary rare cards won't be added to the deck with Shiny enabled.  In the implementation as is,
+        //   the player invokes AbstractDungeon.getEachRare() instead of the CardLibrary's version. This again uses
+        //   the filtered reward pools, whereas the CardLibrary version would use the full set of available cards.
+        // - Any red, green, or blue cards that duplicate a card could pick a Legendary card. These behaviors remain
+        //   because this mod is not designed to interact with colored cards from the main game.
+        //   Known cards: Dual Wield, Nightmare
+        // - Living Wall event: if the player has no purgeable cards, they won't be given a chance to upgrade.
+        // - Designer event: the Remove option can be active without any purgeable cards to select from.
+        @SpireEnum(name = "LEGENDARY")
+        public static AbstractCard.CardTags LEGENDARY;
+
+        // Use on a card that remembers a memory, which is mechanic specific to the Wanderer character.
+        @SpireEnum(name = "REMEMBER_MEMORY")
+        public static AbstractCard.CardTags REMEMBER_MEMORY;
+    }
+
     // =============== INPUT TEXTURE LOCATION =================
 
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.
@@ -339,5 +375,34 @@ public class JorbsMod implements
     // in order to avoid conflicts if any other mod uses the same ID.
     public static String makeID(String idText) {
         return MOD_ID + ":" + idText;
+    }
+
+    // Handle the Legendary quality, in terms of preventing duplicates, by removing existing Legendary cards from the
+    // pools of possible cards to generate.
+    @Override
+    public void receivePostDungeonInitialize() {
+        Predicate<AbstractCard> isLegendary = c -> c.hasTag(JorbsCardTags.LEGENDARY);
+
+        // AbstractDungeon has many returnRandam*, returnTrulyRandom*, and *transformCard methods that use these pools.
+        AbstractDungeon.colorlessCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.srcColorlessCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.commonCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.srcCommonCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.uncommonCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.srcUncommonCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.rareCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.srcRareCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.curseCardPool.group.removeIf(isLegendary);
+        AbstractDungeon.srcCurseCardPool.group.removeIf(isLegendary);
+
+        // AbstractDungeon.transformCard can call getCurse to generate a replacement curse.
+        HashMap<String, AbstractCard> curses = ReflectionUtils.getPrivateField(null, CardLibrary.class, "curses");
+        ArrayList<String> removals = new ArrayList<>();
+        curses.forEach((s, c) -> {
+            if (isLegendary.test(c)) {
+                removals.add(s);
+            };
+        });
+        removals.forEach(s -> curses.remove(s));
     }
 }
