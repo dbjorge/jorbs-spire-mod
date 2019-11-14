@@ -3,6 +3,7 @@ package stsjorbsmod.patches;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.shrines.FountainOfCurseRemoval;
 import com.megacrit.cardcrawl.events.shrines.WeMeetAgain;
@@ -26,6 +27,12 @@ public class LegendaryPatch {
     private static final String LEGENDARY_QUALIFIED_NAME = "stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY";
     private static void RemoveLegendaryCards(ArrayList<AbstractCard> list) {
         list.removeIf(c -> c.hasTag(LEGENDARY));
+    }
+    public static CardGroup CloneCardGroupWithoutLegendaryCards(CardGroup original) {
+        CardGroup copy = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        copy.group = (ArrayList<AbstractCard>)original.group.clone();
+        RemoveLegendaryCards(copy.group);
+        return copy;
     }
 
     // Legendary cards aren't purgeable. By removing them from choices to purge, we sidestep them even being picked
@@ -114,9 +121,20 @@ public class LegendaryPatch {
     }
 
     // Dolly's Mirror duplicates a card in the masterDeck. Filter that first.
-    //@SpirePatch(clz = DollysMirror.class, method = "onEquip")
+    @SpirePatch(clz = DollysMirror.class, method = "onEquip")
     public static class DollysMirror_onEquip {
-        // TODO raw patch
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                @Override
+                public void edit(FieldAccess fieldAccess) throws CannotCompileException {
+                    // replacing the "AbstractDungeon.player.masterDeck" parameter passed to gridSelectScreen.open with
+                    // a new list that filters out the legendary cards
+                    if (fieldAccess.getClassName().equals(AbstractPlayer.class.getName()) && fieldAccess.getFieldName().equals("masterDeck")) {
+                        fieldAccess.replace("{ $_ = " + LegendaryPatch.class.getName() + ".CloneCardGroupWithoutLegendaryCards($proceed()); }");
+                    }
+                }
+            };
+        }
     }
 
     // Empty Cage optimizes the user's choice, removing all eligible cards if <= 2. Filter that list.
