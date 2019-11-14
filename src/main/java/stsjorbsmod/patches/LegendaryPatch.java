@@ -12,7 +12,10 @@ import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.Astrolabe;
 import com.megacrit.cardcrawl.relics.DollysMirror;
 import com.megacrit.cardcrawl.relics.EmptyCage;
+import javassist.CannotCompileException;
 import javassist.CtBehavior;
+import javassist.expr.ExprEditor;
+import javassist.expr.FieldAccess;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -20,6 +23,7 @@ import java.util.stream.Collectors;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 
 public class LegendaryPatch {
+    private static final String LEGENDARY_QUALIFIED_NAME = "stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY";
     private static void RemoveLegendaryCards(ArrayList<AbstractCard> list) {
         list.removeIf(c -> c.hasTag(LEGENDARY));
     }
@@ -75,9 +79,20 @@ public class LegendaryPatch {
 
     // The Fountain of Curse Removal event removes curse cards from the deck. It selects them directly from the
     // masterDeck. We don't let it remove any Legendary curses.
-    //@SpirePatch(clz = FountainOfCurseRemoval.class, method = "buttonEffect")
+    @SpirePatch(clz = FountainOfCurseRemoval.class, method = "buttonEffect")
     public static class FountainOfCurseRemoval_buttonEffect {
-        // TODO raw patch
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                @Override
+                public void edit(FieldAccess fieldAccess) throws CannotCompileException {
+                    // replacing the "((AbstractCard)AbstractDungeon.player.masterDeck.group.get(i)).inBottleFlame"
+                    // expression in the original if statement to add in an "|| card.hasTag(LEGENDARY)"
+                    if (fieldAccess.getClassName().equals(AbstractCard.class.getName()) && fieldAccess.getFieldName().equals("inBottleFlame")) {
+                        fieldAccess.replace("{ $_ = ($proceed() || $0.hasTag(" + LEGENDARY_QUALIFIED_NAME + ")); }");
+                    }
+                }
+            };
+        }
     }
 
     // The We Meet Again event selects a non-basic, non-curse card. We ensure it's also non-legendary.
