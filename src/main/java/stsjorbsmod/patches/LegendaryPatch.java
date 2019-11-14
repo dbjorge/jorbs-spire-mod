@@ -28,9 +28,10 @@ public class LegendaryPatch {
     private static void RemoveLegendaryCards(ArrayList<AbstractCard> list) {
         list.removeIf(c -> c.hasTag(LEGENDARY));
     }
+
     public static CardGroup CloneCardGroupWithoutLegendaryCards(CardGroup original) {
         CardGroup copy = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-        copy.group = (ArrayList<AbstractCard>)original.group.clone();
+        copy.group = new ArrayList<>(original.group);
         RemoveLegendaryCards(copy.group);
         return copy;
     }
