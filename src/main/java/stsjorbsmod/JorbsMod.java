@@ -78,7 +78,11 @@ public class JorbsMod implements
         //   because this mod is not designed to interact with colored cards from the main game.
         //   Known cards: Dual Wield, Nightmare
         // - Living Wall event: if the player has no purgeable cards, they won't be given a chance to upgrade.
+        //     Spire bug #21944: Living Wall event checks for purgeable cards
+        //     in the Grow choice instead of upgradeable cards.
         // - Designer event: the Remove option can be active without any purgeable cards to select from.
+        //     Spire bug #21945: Designer event checks size of master deck for
+        //     enabling Remove/Transform option instead of purgeable cards.
         // - All Star mod won't give any Legendary colorless cards (should they ever exist).
         // - Hoarder mod will add two additional copies of Legendary cards.
         // - Insanity mod has access to Legendary cards and can generate duplicates.
