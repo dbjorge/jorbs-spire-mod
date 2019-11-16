@@ -39,7 +39,7 @@ public class FlameWardPower extends TwoAmountPower {
         super();
         this.name = NAME;
         this.ID = POWER_ID;
-        this.type = PowerType.DEBUFF;
+        this.type = PowerType.BUFF;
 
         this.owner = owner;
         this.amount = blockAmount;
