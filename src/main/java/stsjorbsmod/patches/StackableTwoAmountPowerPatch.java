@@ -4,9 +4,9 @@ import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import javassist.CtBehavior;
-import stsjorbsmod.powers.TwoAmountPower;
+import stsjorbsmod.powers.StackableTwoAmountPower;
 
-public class StackTwoAmountPowerPatch {
+public class StackableTwoAmountPowerPatch {
 
     @SpirePatch(
             clz = ApplyPowerAction.class,
@@ -14,12 +14,12 @@ public class StackTwoAmountPowerPatch {
     )
     public static class UpdateHook {
         @SpireInsertPatch(
-                locator = StackTwoAmountPowerPatch.UpdateHook.Locator.class,
+                locator = StackableTwoAmountPowerPatch.UpdateHook.Locator.class,
                 localvars = {"p", "this.powerToApply"}
         )
         public static SpireReturn patch(ApplyPowerAction __this, AbstractPower p, AbstractPower powerToApply) {
-            if (p instanceof TwoAmountPower) {
-                ((TwoAmountPower) p).stackSecondPower(((TwoAmountPower) powerToApply).amount2);
+            if (p instanceof StackableTwoAmountPower) {
+                ((StackableTwoAmountPower) p).stackSecondPower(((StackableTwoAmountPower) powerToApply).amount2);
             }
             return SpireReturn.Continue();
         }

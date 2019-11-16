@@ -2,7 +2,7 @@ package stsjorbsmod.powers;
 
 import stsjorbsmod.JorbsMod;
 
-public class TwoAmountPower extends com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower {
+public class StackableTwoAmountPower extends com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower {
     public void stackSecondPower(int stackAmount) {
         if (this.amount2 == -1) {
             JorbsMod.logger.info(this.name + " does not stack");

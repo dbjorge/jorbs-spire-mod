@@ -20,7 +20,7 @@ import java.util.List;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
-public class FlameWardPower extends TwoAmountPower {
+public class FlameWardPower extends StackableTwoAmountPower {
     public static final String POWER_ID = JorbsMod.makeID(FlameWardPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
