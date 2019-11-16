@@ -52,7 +52,7 @@ public class ThirstingSword extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.FIRE)); //Deal Damage
-        addToBot(new ApplyPowerAction(m, p, new BurningPower(m, p, BURNING))); //Apply Burning
+        addToBot(new ApplyPowerAction(m, p, new BurningPower(m, p, magicNumber))); //Apply Burning
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
@@ -76,6 +76,7 @@ public class ThirstingSword extends CustomJorbsModCard {
             upgradeDamage(UPGRADE_DAMAGE);
             upgradeMagicNumber(UPGRADE_BURNING);
             upgradeMetaMagicNumber(UPGRADE_LOSE_MAX_HP);
+            upgradeDescription();
         }
     }
 }
