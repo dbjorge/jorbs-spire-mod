@@ -2,9 +2,7 @@ package stsjorbsmod.powers;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -13,7 +11,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.util.TextureLoader;
@@ -29,8 +26,8 @@ public class FlameWardPower extends TwoAmountPower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("flame_ward_power84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("flame_ward_power32.png"));
 
     private static final List<AbstractMonster.Intent> ATTACK_INTENTS = Arrays.asList(
             AbstractMonster.Intent.ATTACK,
@@ -47,6 +44,7 @@ public class FlameWardPower extends TwoAmountPower {
         this.owner = owner;
         this.amount = blockAmount;
         this.amount2 = burningAmount;
+        this.isTurnBased = true;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
@@ -55,7 +53,7 @@ public class FlameWardPower extends TwoAmountPower {
     }
 
     public void preDamage(DamageInfo info) {
-        if (info != null && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && this.owner != info.owner) {
+        if (info != null && this.owner != info.owner && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS) {
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.owner.hb.cX, this.owner.hb.cY, AbstractGameAction.AttackEffect.SHIELD));
             this.owner.addBlock(this.amount);
             for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
@@ -71,6 +69,6 @@ public class FlameWardPower extends TwoAmountPower {
 
     @Override
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], this.amount, this.amount2);
+        this.description = String.format(DESCRIPTIONS[0], this.amount2, this.amount);
     }
 }
