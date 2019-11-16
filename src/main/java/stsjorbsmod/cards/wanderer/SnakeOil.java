@@ -3,6 +3,7 @@ package stsjorbsmod.cards.wanderer;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -31,6 +32,7 @@ public class SnakeOil extends CustomJorbsModCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = 0;
         magicNumber = baseMagicNumber = DAMAGE_PER_COIL;
+        damageType = damageTypeForTurn = DamageInfo.DamageType.THORNS;
         isMultiDamage = true;
         AlwaysRetainField.alwaysRetain.set(this, true);
         exhaust = true;
@@ -44,7 +46,7 @@ public class SnakeOil extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToTop(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
+        addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.POISON));
     }
 
     @Override
