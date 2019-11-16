@@ -30,7 +30,6 @@ public class Introspection extends CustomJorbsModCard {
 
     public Introspection() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        damageType = damageTypeForTurn = DamageType.THORNS;
         magicNumber = baseMagicNumber = DAMAGE;
         metaMagicNumber = baseMetaMagicNumber = DAMAGE_PER_CLARITY;
         urMagicNumber = baseUrMagicNumber = HP_LOSS;
@@ -38,7 +37,7 @@ public class Introspection extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new IntrospectionPower(p, urMagicNumber, magicNumber, metaMagicNumber, damageTypeForTurn)));
+        addToBot(new ApplyPowerAction(p, p, new IntrospectionPower(p, urMagicNumber, magicNumber, metaMagicNumber)));
     }
 
     @Override

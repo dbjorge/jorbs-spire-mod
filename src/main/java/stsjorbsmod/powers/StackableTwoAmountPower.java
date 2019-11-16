@@ -1,24 +1,18 @@
 package stsjorbsmod.powers;
 
+import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 
-public class StackableTwoAmountPower extends com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower {
-    public void stackSecondPower(int stackAmount) {
+public class StackableTwoAmountPower extends TwoAmountPower implements CustomStackBehaviorPower {
+    public void stackPower(AbstractPower otherPower) {
+        this.stackPower(otherPower.amount);
+
         if (this.amount2 == -1) {
             JorbsMod.logger.info(this.name + " does not stack");
         } else {
             this.fontScale = 8.0F;
-            this.amount2 += stackAmount;
-        }
-    }
-
-    public void reduceSecondPower(int reduceAmount) {
-        if (this.amount2 - reduceAmount <= 0) {
-            this.fontScale = 8.0F;
-            this.amount2 = 0;
-        } else {
-            this.fontScale = 8.0F;
-            this.amount2 -= reduceAmount;
+            this.amount2 += ((StackableTwoAmountPower) otherPower).amount2;
         }
     }
 }
