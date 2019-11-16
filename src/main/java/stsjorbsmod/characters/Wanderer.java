@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -18,12 +19,14 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.wanderer.*;
 import stsjorbsmod.memories.MemoryManager;
+import stsjorbsmod.powers.FlameWardPower;
 import stsjorbsmod.relics.FragileMindRelic;
 import stsjorbsmod.relics.WandererStarterRelic;
 
@@ -342,5 +345,15 @@ public class Wanderer extends CustomPlayer {
     // @Override (uncomment once released)
     public String getPortraitImageName() {
         return CHARACTER_SELECT_BG_TEXTURE;
+    }
+
+    @Override
+    public void damage(DamageInfo info) {
+        for(AbstractPower power : this.powers) {
+            if(power instanceof FlameWardPower) {
+                ((FlameWardPower) power).preDamage(info);
+            }
+        }
+        super.damage(info);
     }
 }

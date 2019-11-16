@@ -2,8 +2,9 @@ package stsjorbsmod.powers;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -12,6 +13,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.util.TextureLoader;
 
@@ -50,23 +52,19 @@ public class FlameWardPower extends AbstractPower {
         this.updateDescription();
     }
 
-    @Override
-    public int onAttackedToChangeDamage(DamageInfo info, int damageAmount) {
-        return damageAmount;
-    }
-
-    @Override
-    public int onAttacked(DamageInfo info, int damageAmount) {
-        AbstractDungeon.actionManager.addToTop(new GainBlockAction(this.owner, this.owner, this.amount));
-        for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
-            if (ATTACK_INTENTS.contains(m.intent)) {
-                AbstractDungeon.actionManager.addToBottom(
-                        new ApplyPowerAction(m, this.owner, new BurningPower(info.owner, this.owner, this.amount)));
+    public void preDamage(DamageInfo info) {
+        if (info != null && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && this.owner != info.owner) {
+            AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.owner.hb.cX, this.owner.hb.cY, AbstractGameAction.AttackEffect.SHIELD));
+            this.owner.addBlock(this.amount);
+            for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
+                if (ATTACK_INTENTS.contains(m.intent)) {
+                    AbstractDungeon.actionManager.addToTop(
+                            new ApplyPowerAction(m, this.owner, new BurningPower(info.owner, this.owner, this.amount), 1, AbstractGameAction.AttackEffect.FIRE));
+                }
             }
+            this.flash();
+            AbstractDungeon.actionManager.addToTop(new ReducePowerAction(this.owner, this.owner, this.ID, this.amount));
         }
-        AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this.ID, this.amount));
-
-        return damageAmount;
     }
 
     @Override

@@ -1,9 +1,11 @@
 package stsjorbsmod.cards.wanderer;
 
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.combat.FlameBarrierEffect;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
@@ -11,6 +13,10 @@ import stsjorbsmod.powers.FlameWardPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
+/**
+ * 2 Cost
+ * If attacked, gain 8(10) block and apply 8(10) Burning to all attacking enemies
+ */
 public class FlameWard extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(FlameWard.class.getSimpleName());
     public static final String IMG = makeCardPath("AoE_Uncommons/flame_ward.png");
@@ -30,16 +36,19 @@ public class FlameWard extends CustomJorbsModCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
         baseMagicNumber = BURNING;
+        this.exhaust = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        // for now, use flame barrier's VFX, maybe we get something else later, but it looks pretty sweet anyways.
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(p, new FlameBarrierEffect(p.hb.cX, p.hb.cY), 0.5F));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, m, new FlameWardPower(p, 8)));
     }
 
     @Override
     public void upgrade() {
-        if(!upgraded) {
+        if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
             upgradeMagicNumber(UPGRADE_PLUS_BURNING);
