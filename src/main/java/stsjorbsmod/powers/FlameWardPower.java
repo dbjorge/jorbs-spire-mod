@@ -23,7 +23,7 @@ import java.util.List;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
-public class FlameWardPower extends AbstractPower {
+public class FlameWardPower extends TwoAmountPower {
     public static final String POWER_ID = JorbsMod.makeID(FlameWardPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -38,14 +38,15 @@ public class FlameWardPower extends AbstractPower {
             AbstractMonster.Intent.ATTACK_DEBUFF,
             AbstractMonster.Intent.ATTACK_DEFEND);
 
-    public FlameWardPower(AbstractPlayer owner, int amount) {
+    public FlameWardPower(AbstractPlayer owner, int blockAmount, int burningAmount) {
         super();
         this.name = NAME;
         this.ID = POWER_ID;
         this.type = PowerType.DEBUFF;
 
         this.owner = owner;
-        this.amount = amount;
+        this.amount = blockAmount;
+        this.amount2 = burningAmount;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
@@ -60,7 +61,7 @@ public class FlameWardPower extends AbstractPower {
             for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
                 if (ATTACK_INTENTS.contains(m.intent)) {
                     AbstractDungeon.actionManager.addToTop(
-                            new ApplyPowerAction(m, this.owner, new BurningPower(info.owner, this.owner, this.amount), 1, AbstractGameAction.AttackEffect.FIRE));
+                            new ApplyPowerAction(m, this.owner, new BurningPower(info.owner, this.owner, this.amount2), 1, AbstractGameAction.AttackEffect.FIRE));
                 }
             }
             this.flash();
@@ -70,6 +71,6 @@ public class FlameWardPower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], this.amount, this.amount);
+        this.description = String.format(DESCRIPTIONS[0], this.amount, this.amount2);
     }
 }
