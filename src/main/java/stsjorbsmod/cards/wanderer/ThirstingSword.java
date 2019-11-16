@@ -51,7 +51,6 @@ public class ThirstingSword extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.FIRE)); //Deal Damage
         addToBot(new ApplyPowerAction(m, p, new BurningPower(m, p, magicNumber))); //Apply Burning
         addToBot(new AbstractGameAction() {
             @Override
@@ -59,14 +58,14 @@ public class ThirstingSword extends CustomJorbsModCard {
                 AbstractPower possibleExistingBurningPower = m.getPower(BurningPower.POWER_ID);  //Get burning amount currently on target
                 if (possibleExistingBurningPower != null) {
                     int healAmount = possibleExistingBurningPower.amount;
-                    addToBot(new HealAction(p, p, healAmount)); //Heal for total burning on target
+                    addToTop(new HealAction(p, p, healAmount)); //Heal for total burning on target
                 }
+
+                AbstractDungeon.player.decreaseMaxHealth(metaMagicNumber); //Lose MAX HP
                 isDone = true;
             }
         });
-
-        int loseMaxHPAmount = -metaMagicNumber;
-        AbstractDungeon.player.increaseMaxHp(loseMaxHPAmount, true); //Lose MAX HP
+        addToBot(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.FIRE)); //Deal Damage
     }
 
     @Override
