@@ -6,13 +6,17 @@ import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.patches.EphemeralField;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 public abstract class CustomJorbsModCard extends CustomCard {
-    
+    // These sentinel values are defined by the base game, we're just giving them more readable names.
+    public static final int COST_X = -1;
+    public static final int COST_UNPLAYABLE = -2;
+
     // Second magic number that isn't damage or block for card text display.
     public int urMagicNumber = 0;
     public int baseUrMagicNumber = 0;
@@ -25,6 +29,8 @@ public abstract class CustomJorbsModCard extends CustomCard {
     public boolean upgradedMetaMagicNumber = false;
     public boolean isMetaMagicNumberModified = false;
 
+    protected CardStrings cardStrings;
+
     public CustomJorbsModCard(final String id,
                               final String img,
                               final int cost,
@@ -32,8 +38,20 @@ public abstract class CustomJorbsModCard extends CustomCard {
                               final CardColor color,
                               final CardRarity rarity,
                               final CardTarget target) {
-        super(id, languagePack.getCardStrings(id).NAME, img, cost, languagePack.getCardStrings(id).DESCRIPTION, type, color, rarity, target);
+        this(id, languagePack.getCardStrings(id), img, cost, type, color, rarity, target);
+    }
 
+    private CustomJorbsModCard(final String id,
+                              final CardStrings cardStrings,
+                              final String img,
+                              final int cost,
+                              final CardType type,
+                              final CardColor color,
+                              final CardRarity rarity,
+                              final CardTarget target) {
+        super(id, cardStrings.NAME, img, cost, cardStrings.DESCRIPTION, type, color, rarity, target);
+
+        this.cardStrings = cardStrings;
         isCostModified = false;
         isCostModifiedForTurn = false;
         isDamageModified = false;

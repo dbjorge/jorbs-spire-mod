@@ -6,12 +6,12 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
-import stsjorbsmod.cards.IOnDrawCardSubscriber;
+import stsjorbsmod.cards.OnDrawCardSubscriber;
 import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class CorrodingBarrier extends CustomJorbsModCard implements IOnDrawCardSubscriber {
+public class CorrodingBarrier extends CustomJorbsModCard implements OnDrawCardSubscriber {
     public static final String ID = JorbsMod.makeID(CorrodingBarrier.class.getSimpleName());
     public static final String IMG = makeCardPath("Block_Rares/corroding_barrier.png");
 

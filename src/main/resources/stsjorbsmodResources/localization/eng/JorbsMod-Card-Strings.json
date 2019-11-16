@@ -168,7 +168,8 @@
   },
   "stsjorbsmod:MageArmor": {
     "NAME": "Mage Armor",
-    "DESCRIPTION": "Reduce the next damage taken by !M!."
+    "DESCRIPTION": "Unplayable. NL Retain. NL When you would lose HP, lose !M! fewer HP and discard this.",
+    "EXTENDED_DESCRIPTION": ["I can't play this card.", "Mage Armor"]
   },
   "stsjorbsmod:Stalwart": {
     "NAME": "Stalwart",

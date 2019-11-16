@@ -30,7 +30,7 @@ public class Amnesia extends CustomJorbsModCard {
     private static final CardType TYPE = CardType.CURSE;
     public static final CardColor COLOR = CardColor.CURSE;
 
-    private static final int COST = -2;
+    private static final int COST = COST_UNPLAYABLE;
 
     public Amnesia() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);

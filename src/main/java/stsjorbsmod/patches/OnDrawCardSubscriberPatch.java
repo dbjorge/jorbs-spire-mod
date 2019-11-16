@@ -4,7 +4,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import stsjorbsmod.cards.IOnDrawCardSubscriber;
+import stsjorbsmod.cards.OnDrawCardSubscriber;
 
 public class OnDrawCardSubscriberPatch {
     @SpirePatch(
@@ -19,8 +19,8 @@ public class OnDrawCardSubscriberPatch {
         )
         public static void patch(CardGroup __this, AbstractCard c)
         {
-            if (c instanceof IOnDrawCardSubscriber) {
-                ((IOnDrawCardSubscriber)c).onDraw();
+            if (c instanceof OnDrawCardSubscriber) {
+                ((OnDrawCardSubscriber)c).onDraw();
             }
         }
     }
