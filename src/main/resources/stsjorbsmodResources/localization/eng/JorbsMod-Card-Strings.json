@@ -32,6 +32,10 @@
     "NAME": "Firebolt",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! stsjorbsmod:Burning for each stsjorbsmod:Clarity."
   },
+  "stsjorbsmod:ThirstingSword": {
+    "NAME": "Thirsting Sword",
+    "DESCRIPTION": "Apply !M! stsjorbsmod:Burning and heal HP equal to target's stsjorbsmod:Burning. NL Lose !stsjorbsmod:MetaMagic! Max HP. NL Deal !D! damage. NL Exhaust."
+  },
   "stsjorbsmod:MagicMissiles": {
     "NAME": "Magic Missiles",
     "DESCRIPTION": "Deal !D! damage. NL Deal !D! damage again once for each stsjorbsmod:Clarity."
