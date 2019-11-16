@@ -1,9 +1,7 @@
 package stsjorbsmod.cards.wanderer;
 
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -12,8 +10,6 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.cards.OnPlayerHpLossSubscriber;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.ReduceNextDamagePower;
-import stsjorbsmod.util.UniqueCardUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
