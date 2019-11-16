@@ -235,5 +235,11 @@
     "DESCRIPTIONS": [
       "When you next gain #yClarity, deal #b%1$s damage to ALL enemies."
     ]
+  },
+  "stsjorbsmod:FlameWardPower": {
+    "NAME": "Flame Ward",
+    "DESCRIPTIONS": [
+      "When you are next attacked, apply #b%1$s #yBurning to ALL attackers and gain #b%2$s #yBlock."
+    ]
   }
 }

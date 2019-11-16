@@ -389,5 +389,9 @@
   "stsjorbsmod:ScorchingRay": {
     "NAME": "Scorching Ray",
     "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Apply !D! damage as stsjorbsmod:Burning !M! times."
+  },
+  "stsjorbsmod:FlameWard": {
+    "NAME": "Flame Ward",
+    "DESCRIPTION": "The next time you are attacked, apply !M! stsjorbsmod:Burning to ALL attackers and gain !B! Block. Exhaust."
   }
 }
