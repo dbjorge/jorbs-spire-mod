@@ -25,8 +25,10 @@ public class MemoryRememberCommand extends ConsoleCommand {
         if (optionalId == null) {
             DevConsole.log("Remembering an random new memory (like Eye of the Storm)");
             AbstractDungeon.actionManager.addToBottom(new RememberRandomNewMemoryAction(AbstractDungeon.player));
+        } else if(MemoryUtils.isValidMemoryID(optionalId)) {
+            AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(AbstractDungeon.player, optionalId));
         } else {
-            AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(AbstractDungeon.player, tokens[2]));
+            DevConsole.log("Unrecognized memory id: " + optionalId);
         }
     }
 
