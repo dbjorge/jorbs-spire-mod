@@ -2,6 +2,7 @@ package stsjorbsmod.powers;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -38,10 +39,10 @@ public class FlameWardPower extends AbstractPower {
             AbstractMonster.Intent.ATTACK_DEFEND);
 
     public FlameWardPower(AbstractPlayer owner, int amount) {
+        super();
         this.name = NAME;
         this.ID = POWER_ID;
         this.type = PowerType.DEBUFF;
-        this.isTurnBased = true;
 
         this.owner = owner;
         this.amount = amount;

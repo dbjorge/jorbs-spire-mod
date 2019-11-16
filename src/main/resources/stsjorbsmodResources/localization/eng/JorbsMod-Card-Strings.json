@@ -387,6 +387,6 @@
   },
   "stsjorbsmod:FlameWard": {
     "NAME": "Flame Ward",
-    "DESCRIPTION": "When attacked, apply !M! stsjorbsmod:Burning to all attackers and gain !B! block. Exhaust."
+    "DESCRIPTION": "When attacked, apply !M! stsjorbsmod:Burning to all attackers and gain !M! block. Exhaust."
   }
 }

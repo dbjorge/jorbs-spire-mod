@@ -239,7 +239,7 @@
   "stsjorbsmod:FlameWardPower": {
     "NAME": "Flame Ward",
     "DESCRIPTIONS": [
-      "When you are next attacked, gain #b%1$s block and apply #b%1$s #yBurning back."
+      "When you are next attacked, gain #b%1$s block and apply #b%1$s #yBurning to ALL attackers."
     ]
   }
 }

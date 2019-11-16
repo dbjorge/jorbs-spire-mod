@@ -27,15 +27,12 @@ public class FlameWard extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 1;
-    private static final int BURNING = 8;
-    private static final int BLOCK = 8;
-    private static final int UPGRADE_PLUS_BURNING = 2;
-    private static final int UPGRADE_PLUS_BLOCK = 2;
+    private static final int BASE_AMOUNT = 8;
+    private static final int UPGRADE_PLUS = 2;
 
     public FlameWard() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseBlock = BLOCK;
-        baseMagicNumber = BURNING;
+        magicNumber = baseMagicNumber = BASE_AMOUNT;
         this.exhaust = true;
     }
 
@@ -43,15 +40,14 @@ public class FlameWard extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         // for now, use flame barrier's VFX, maybe we get something else later, but it looks pretty sweet anyways.
         AbstractDungeon.actionManager.addToBottom(new VFXAction(p, new FlameBarrierEffect(p.hb.cX, p.hb.cY), 0.5F));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, m, new FlameWardPower(p, 8)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, m, new FlameWardPower(p, magicNumber)));
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBlock(UPGRADE_PLUS_BLOCK);
-            upgradeMagicNumber(UPGRADE_PLUS_BURNING);
+            upgradeMagicNumber(UPGRADE_PLUS);
             upgradeDescription();
         }
     }
