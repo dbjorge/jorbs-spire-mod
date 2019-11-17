@@ -40,6 +40,7 @@ public class BlackTentaclesPower extends AbstractPower implements CloneablePower
     public BlackTentaclesPower(final AbstractCreature owner, final AbstractCreature source) {
         ID = POWER_ID;
         this.name = NAME;
+        this.type = PowerType.DEBUFF;
 
         this.owner = owner;
         this.source = source;
