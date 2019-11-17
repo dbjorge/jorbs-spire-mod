@@ -16,9 +16,6 @@ import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.OnModifyMemoriesListener;
 import stsjorbsmod.util.TextureLoader;
 
-import java.util.Collections;
-import java.util.Set;
-
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
 public class MindGlassPower extends AbstractPower implements OnModifyMemoriesListener {
@@ -60,7 +57,7 @@ public class MindGlassPower extends AbstractPower implements OnModifyMemoriesLis
 
     @Override
     public MemoryManager.MemoryEventType[] getMemoryEventTypes() {
-        return new MemoryManager.MemoryEventType[]{MemoryManager.MemoryEventType.CLARITY};
+        return new MemoryManager.MemoryEventType[]{MemoryManager.MemoryEventType.GAIN_CLARITY};
     }
 
     @Override

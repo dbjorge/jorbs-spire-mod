@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.SnappedPower;
 
@@ -100,7 +99,13 @@ public class MemoryManager {
         }
         clarity.updateDescription();
         clarity.flash();
-        notifyModifyMemories(MemoryEventType.CLARITY);
+        notifyModifyMemories(MemoryEventType.GAIN_CLARITY);
+    }
+
+    public void loseClarity(AbstractMemory clarity) {
+        clarity.isClarified = false;
+        clarity.onLosePassiveEffect();
+        notifyModifyMemories(MemoryEventType.LOSE_CLARITY);
     }
 
     public boolean hasClarity(String id) {
@@ -213,7 +218,8 @@ public class MemoryManager {
     }
 
     public static final MemoryEventType[] ALL_MEMORY_EVENTS = MemoryEventType.values();
+
     public enum MemoryEventType {
-        REMEMBER, CLARITY, FORGET, SNAP
+        REMEMBER, GAIN_CLARITY, LOSE_CLARITY, FORGET, SNAP
     }
 }

@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
+import stsjorbsmod.patches.ExtraCopiesToAddWhenGeneratingCardField;
 
 public class DiscoveryAtCostAction extends AbstractGameAction {
     private boolean retrieveCard = false;
@@ -26,14 +27,17 @@ public class DiscoveryAtCostAction extends AbstractGameAction {
         } else {
             if (!retrieveCard) {
                 if (AbstractDungeon.cardRewardScreen.discoveryCard != null) {
-                    AbstractCard discoveredCard = AbstractDungeon.cardRewardScreen.discoveryCard.makeStatEquivalentCopy();
-                    discoveredCard.current_x = -1000.0F * Settings.scale;
-                    if (AbstractDungeon.player.hand.size() < 10) {
-                        AbstractDungeon.effectList.add(
-                                new ShowCardAndAddToHandEffect(discoveredCard, Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
-                    } else {
-                        AbstractDungeon.effectList.add(
-                                new ShowCardAndAddToDiscardEffect(discoveredCard, Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
+                    int copiesToGenerate = 1 + ExtraCopiesToAddWhenGeneratingCardField.field.get(AbstractDungeon.cardRewardScreen.discoveryCard);
+                    for (int i = 0; i < copiesToGenerate; ++i) {
+                        AbstractCard discoveredCard = AbstractDungeon.cardRewardScreen.discoveryCard.makeStatEquivalentCopy();
+                        discoveredCard.current_x = -1000.0F * Settings.scale;
+                        if (AbstractDungeon.player.hand.size() < 10) {
+                            AbstractDungeon.effectList.add(
+                                    new ShowCardAndAddToHandEffect(discoveredCard, Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
+                        } else {
+                            AbstractDungeon.effectList.add(
+                                    new ShowCardAndAddToDiscardEffect(discoveredCard, Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
+                        }
                     }
                     AbstractDungeon.cardRewardScreen.discoveryCard = null;
                 }

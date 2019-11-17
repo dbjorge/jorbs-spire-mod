@@ -40,7 +40,7 @@ public class MaterialComponentsDeck {
         uncommonPool.addToTop(new StrangePendant());
         uncommonPool.addToTop(new Chamomile());
         uncommonPool.addToTop(new OakLeaf());
-        // uncommonPool.addToTop(new Rot());
+        uncommonPool.addToTop(new Rot());
         uncommonPool.shuffle();
     }
 

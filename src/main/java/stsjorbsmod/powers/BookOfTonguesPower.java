@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.wanderer.materialcomponents.MaterialComponentsDeck;
+import stsjorbsmod.patches.ExtraCopiesToAddWhenGeneratingCardField;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
@@ -43,7 +44,8 @@ public class BookOfTonguesPower extends AbstractPower implements CloneablePowerI
             this.flash();
             for (int i = 0; i < this.amount; ++i) {
                 AbstractCard newCard = MaterialComponentsDeck.drawRandomCard();
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(newCard, 1, false));
+                int copiesToAdd = 1 + ExtraCopiesToAddWhenGeneratingCardField.field.get(newCard);
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(newCard, copiesToAdd, false));
             }
         }
     }

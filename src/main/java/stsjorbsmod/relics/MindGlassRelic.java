@@ -17,9 +17,6 @@ import stsjorbsmod.memories.OnModifyMemoriesListener;
 import stsjorbsmod.powers.MindGlassPower;
 import stsjorbsmod.util.TextureLoader;
 
-import java.util.Collections;
-import java.util.Set;
-
 import static stsjorbsmod.JorbsMod.*;
 
 /**
@@ -77,7 +74,7 @@ public class MindGlassRelic extends CustomRelic implements OnModifyMemoriesListe
 
     @Override
     public MemoryManager.MemoryEventType[] getMemoryEventTypes() {
-        return new MemoryManager.MemoryEventType[]{MemoryManager.MemoryEventType.CLARITY};
+        return new MemoryManager.MemoryEventType[]{MemoryManager.MemoryEventType.GAIN_CLARITY};
     }
 
     @Override
