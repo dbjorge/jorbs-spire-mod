@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -12,6 +13,8 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.util.UniqueCardUtils;
+
+import java.util.Iterator;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -44,14 +47,23 @@ public class Mania extends CustomJorbsModCard {
         return UniqueCardUtils.countUniqueCards(AbstractDungeon.player.hand) * magicNumber;
     }
 
+    private boolean isEligibleForExtraEffect() {
+        return UniqueCardUtils.countUniqueCards(AbstractDungeon.player.hand) == AbstractDungeon.player.hand.size();
+    }
+
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SLASH_VERTICAL));
 
-        if (UniqueCardUtils.countUniqueCards(AbstractDungeon.player.hand) == p.hand.size()) {
+        if (isEligibleForExtraEffect()) {
             addToBot(new GainEnergyAction(metaMagicNumber));
             addToBot(new DrawCardAction(p, urMagicNumber));
         }
+    }
+
+    @Override
+    public boolean shouldGlowGold() {
+        return isEligibleForExtraEffect();
     }
 
     @Override

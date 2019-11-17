@@ -126,7 +126,7 @@
   },
   "stsjorbsmod:Mindworm": {
     "NAME": "Mindworm",
-    "DESCRIPTION": "Deal !D! damage. NL If snapped, deal another !M! damage. NL Add a copy of this card to your discard pile."
+    "DESCRIPTION": "Deal !D! damage. NL Then, if stsjorbsmod:Snapped, deal !M! damage. NL Add a copy of this card to your discard pile."
   },
   "stsjorbsmod:Hurt": {
     "NAME": "Hurt",

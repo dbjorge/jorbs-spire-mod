@@ -3,6 +3,7 @@ package stsjorbsmod.cards.wanderer;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -36,14 +37,41 @@ public class Mindworm extends CustomJorbsModCard {
     }
 
     @Override
-    protected int calculateBonusBaseDamage() {
-        return AbstractDungeon.player.hasPower(SnappedPower.POWER_ID) ? this.magicNumber : 0;
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.FIRE));
+        if (AbstractDungeon.player.hasPower(SnappedPower.POWER_ID)) {
+            addToBot(new DamageAction(m, new DamageInfo(p, magicNumber), AttackEffect.FIRE));
+        }
+        addToBot(new MakeTempCardInDiscardAction(this.makeStatEquivalentCopy(), 1));
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.FIRE));
-        addToBot(new MakeTempCardInDiscardAction(this.makeStatEquivalentCopy(), 1));
+    public void calculateCardDamage(AbstractMonster mo) {
+        int realBaseDamage = baseDamage;
+        baseDamage = baseMagicNumber;
+        super.calculateCardDamage(mo);
+        magicNumber = damage;
+        isMagicNumberModified = magicNumber != baseMagicNumber;
+        baseDamage = realBaseDamage;
+
+        super.calculateCardDamage(mo);
+    }
+
+    @Override
+    public void applyPowers() {
+        int realBaseDamage = baseDamage;
+        baseDamage = baseMagicNumber;
+        super.applyPowers();
+        magicNumber = damage;
+        isMagicNumberModified = magicNumber != baseMagicNumber;
+        baseDamage = realBaseDamage;
+
+        super.applyPowers();
+    }
+
+    @Override
+    public boolean shouldGlowGold() {
+        return AbstractDungeon.player.hasPower(SnappedPower.POWER_ID);
     }
 
     @Override

@@ -1,6 +1,8 @@
 package stsjorbsmod.cards.wanderer;
 
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
@@ -9,6 +11,7 @@ import stsjorbsmod.actions.IfEnemyIntendsToAttackAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.HumilityMemory;
+import stsjorbsmod.util.IntentUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
@@ -39,6 +42,11 @@ public class Thorns extends CustomJorbsModCard {
         } else {
             addToBot(new IfEnemyIntendsToAttackAction(new GainClarityOfCurrentMemoryAction(p)));
         }
+    }
+
+    @Override
+    public boolean shouldGlowGold() {
+        return !upgraded && IntentUtils.playerCanSeeThatAnyEnemyIntentMatches(IntentUtils::isAttackIntent);
     }
 
     @Override

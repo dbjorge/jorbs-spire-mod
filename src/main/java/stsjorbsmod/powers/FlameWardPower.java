@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.util.IntentUtils;
 import stsjorbsmod.util.TextureLoader;
 
 import java.util.Arrays;
@@ -28,12 +29,6 @@ public class FlameWardPower extends StackableTwoAmountPower {
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("flame_ward_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("flame_ward_power32.png"));
-
-    private static final List<AbstractMonster.Intent> ATTACK_INTENTS = Arrays.asList(
-            AbstractMonster.Intent.ATTACK,
-            AbstractMonster.Intent.ATTACK_BUFF,
-            AbstractMonster.Intent.ATTACK_DEBUFF,
-            AbstractMonster.Intent.ATTACK_DEFEND);
 
     public FlameWardPower(AbstractPlayer owner, int blockAmount, int burningAmount) {
         super();
@@ -57,7 +52,7 @@ public class FlameWardPower extends StackableTwoAmountPower {
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.owner.hb.cX, this.owner.hb.cY, AbstractGameAction.AttackEffect.SHIELD));
             this.owner.addBlock(this.amount);
             for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
-                if (ATTACK_INTENTS.contains(m.intent)) {
+                if (IntentUtils.isAttackIntent(m.intent)) {
                     AbstractDungeon.actionManager.addToTop(
                             new ApplyPowerAction(m, this.owner, new BurningPower(info.owner, this.owner, this.amount2), 1, AbstractGameAction.AttackEffect.FIRE));
                 }

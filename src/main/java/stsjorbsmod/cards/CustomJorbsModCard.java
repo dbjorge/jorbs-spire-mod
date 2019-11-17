@@ -1,14 +1,16 @@
 package stsjorbsmod.cards;
 
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
-import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.patches.EphemeralField;
+
+import java.lang.reflect.Field;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
@@ -149,4 +151,26 @@ public abstract class CustomJorbsModCard extends CustomCard {
     }
 
     public void onMoveToDiscardImpl() { }
+
+    public boolean shouldGlowGold() { return false; }
+
+    /* TODO: once beta branch releases, replace with the following:
+        @Override
+        public void triggerOnGlowCheck() {
+            this.glowColor = shouldGlowGold() ? AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy() : AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        }
+     */
+    private static final Color GOLD_BORDER_GLOW_COLOR = new Color(-2686721);
+    private static final Color BLUE_BORDER_GLOW_COLOR = new Color(0.2F, 0.9F, 1.0F, 0.25F);
+    public void triggerOnGlowCheck() {
+        try {
+            Field glowColorField = AbstractCard.class.getField("glowColor");
+            Color newGlowColor = shouldGlowGold() ? GOLD_BORDER_GLOW_COLOR.cpy() : BLUE_BORDER_GLOW_COLOR.cpy();
+            glowColorField.set(this, newGlowColor);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        } catch (NoSuchFieldException e) {
+            // on stable branch where glowColor isn't implemented; ignore silently.
+        }
+    }
 }

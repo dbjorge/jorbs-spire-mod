@@ -1,12 +1,19 @@
 package stsjorbsmod.cards.wanderer;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.SchoolsOfMagicAction;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.util.UniqueCardUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -32,6 +39,11 @@ public class SchoolsOfMagic extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DrawCardAction(p, magicNumber));
         addToBot(new SchoolsOfMagicAction(p));
+    }
+
+    @Override
+    public boolean shouldGlowGold() {
+        return UniqueCardUtils.countUniqueCards(AbstractDungeon.player.hand) == AbstractDungeon.player.hand.size();
     }
 
     @Override
