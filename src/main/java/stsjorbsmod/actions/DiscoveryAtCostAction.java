@@ -19,6 +19,8 @@ public class DiscoveryAtCostAction extends AbstractGameAction {
 
     public void update() {
         if (duration == Settings.ACTION_DUR_FAST) {
+            // TODO: discoveryOpen is deprecated in the beta branch. Replace this with something like:
+            //     AbstractDungeon.cardRewardScreen.customCombatOpen(generateMaterialComponents(3), UI_TEXT_FOR_CHOOSE_MATERIAL_COMPONENT, true);
             AbstractDungeon.cardRewardScreen.discoveryOpen(cardType);
             tickDuration();
         } else {

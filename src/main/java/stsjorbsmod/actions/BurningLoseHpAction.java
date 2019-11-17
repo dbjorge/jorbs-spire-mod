@@ -39,9 +39,6 @@ public class BurningLoseHpAction extends AbstractGameAction {
             this.isDone = true;
         } else {
             if (this.duration == DURATION && this.target.currentHealth > 0) {
-                logger.info(this.target.name + " HAS " + this.target.currentHealth + " HP.");
-                this.target.damageFlash = true;
-                this.target.damageFlashFrames = 4;
                 AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, this.attackEffect));
             }
 
