@@ -25,23 +25,21 @@ public class BlackTentacles extends CustomJorbsModCard {
 
     private static final int COST = 0;
     private static final int DAMAGE = 4;
-    private static final int EFFECT_TURN_DURATION = 1;
     private static final int DRAW = 0;
     private static final int UPGRADE_DRAW = 1;
 
     public BlackTentacles() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        magicNumber = baseMagicNumber = EFFECT_TURN_DURATION;
-        metaMagicNumber = baseMetaMagicNumber = DRAW;
+        magicNumber = baseMagicNumber = DRAW;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SLASH_HORIZONTAL));
-        addToBot(new ApplyPowerAction(m, p, new BlackTentaclesPower(m, p, this.magicNumber)));
-        if (metaMagicNumber > 0) {
-            addToBot(new DrawCardAction(p, metaMagicNumber));
+        addToBot(new ApplyPowerAction(m, p, new BlackTentaclesPower(m, p)));
+        if (magicNumber > 0) {
+            addToBot(new DrawCardAction(p, magicNumber));
         }
     }
 
@@ -49,7 +47,7 @@ public class BlackTentacles extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMetaMagicNumber(UPGRADE_DRAW);
+            upgradeMagicNumber(UPGRADE_DRAW);
             upgradeDescription();
         }
     }

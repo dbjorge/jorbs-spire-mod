@@ -9,9 +9,7 @@
   "stsjorbsmod:BlackTentaclesPower": {
     "NAME": "Black Tentacles",
     "DESCRIPTIONS": [
-      "Attacks with random targets target this enemy for #b",
-      " turn.",
-      " turns."
+      "This turn, all damage you deal to other enemies is dealt to this enemy instead."
     ]
   },
   "stsjorbsmod:BookOfTonguesPower": {

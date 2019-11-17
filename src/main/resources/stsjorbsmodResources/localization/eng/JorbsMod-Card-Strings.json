@@ -21,8 +21,8 @@
   },
   "stsjorbsmod:BlackTentacles": {
     "NAME": "Black Tentacles",
-    "DESCRIPTION": "Deal !D! damage. NL Attacks with random targets target this enemy for !M! turn.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Attacks with random targets target this enemy for !M! turn. NL Draw !stsjorbsmod:MetaMagic! card."
+    "DESCRIPTION": "Deal !D! damage. NL This turn, all damage you deal to other enemies is dealt to this enemy instead.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL This turn, all damage you deal to other enemies is dealt to this enemy instead. NL Draw !M! card."
   },
   "stsjorbsmod:ArcaneWeapon": {
     "NAME": "Arcane Weapon",
