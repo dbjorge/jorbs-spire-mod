@@ -1,5 +1,5 @@
 package stsjorbsmod.cards;
 
-public interface OnPlayerHpLossSubscriber {
+public interface OnPlayerHpLossCardSubscriber {
     int onPlayerHpLossWhileInHand(int originalHpLoss);
 }

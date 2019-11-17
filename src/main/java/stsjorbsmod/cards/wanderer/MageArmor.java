@@ -8,12 +8,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.BlockedWordEffect;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
-import stsjorbsmod.cards.OnPlayerHpLossSubscriber;
+import stsjorbsmod.cards.OnPlayerHpLossCardSubscriber;
 import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-public class MageArmor extends CustomJorbsModCard implements OnPlayerHpLossSubscriber {
+public class MageArmor extends CustomJorbsModCard implements OnPlayerHpLossCardSubscriber {
     public static final String ID = JorbsMod.makeID(MageArmor.class.getSimpleName());
     public static final String IMG = makeCardPath("Block_Uncommons/mage_armor.png");
 

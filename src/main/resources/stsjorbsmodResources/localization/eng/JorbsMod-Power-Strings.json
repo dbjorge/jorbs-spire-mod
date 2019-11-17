@@ -124,10 +124,10 @@
       "Apply #yBurning #b", " extra time.", " extra times."
     ]
   },
-  "stsjorbsmod:ReduceNextDamagePower": {
-    "NAME": "Reduce Damage",
+  "stsjorbsmod:StrangePendantPower": {
+    "NAME": "Strange Pendant",
     "DESCRIPTIONS": [
-      "Reduce the next damage taken by #b", "."
+      "Ignore the first #b%1$s damage taken each turn."
     ]
   },
   "stsjorbsmod:SnappedPower": {

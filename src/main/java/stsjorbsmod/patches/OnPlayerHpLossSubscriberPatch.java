@@ -4,8 +4,10 @@ import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import javassist.CtBehavior;
-import stsjorbsmod.cards.OnPlayerHpLossSubscriber;
+import stsjorbsmod.cards.OnPlayerHpLossCardSubscriber;
+import stsjorbsmod.powers.OnPlayerHpLossPowerSubscriber;
 
 public class OnPlayerHpLossSubscriberPatch {
     @SpirePatch(
@@ -20,9 +22,16 @@ public class OnPlayerHpLossSubscriberPatch {
         )
         public static void patch(AbstractPlayer __this, DamageInfo info, @ByRef int[] damageAmount)
         {
+            // We order the power first somewhat arbitrarily, because we want Strange Pendant to happen before Mage Armor
+            for (AbstractPower power : __this.powers) {
+                if (power instanceof OnPlayerHpLossPowerSubscriber) {
+                    damageAmount[0] = ((OnPlayerHpLossPowerSubscriber) power).onPlayerHpLoss(damageAmount[0]);
+                }
+            }
+
             for (AbstractCard cardInHand : __this.hand.group) {
-                if (cardInHand instanceof OnPlayerHpLossSubscriber) {
-                    damageAmount[0] = ((OnPlayerHpLossSubscriber) cardInHand).onPlayerHpLossWhileInHand(damageAmount[0]);
+                if (cardInHand instanceof OnPlayerHpLossCardSubscriber) {
+                    damageAmount[0] = ((OnPlayerHpLossCardSubscriber) cardInHand).onPlayerHpLossWhileInHand(damageAmount[0]);
                 }
             }
         }

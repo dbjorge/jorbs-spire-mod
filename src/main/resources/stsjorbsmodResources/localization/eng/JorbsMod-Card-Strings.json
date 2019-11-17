@@ -360,7 +360,7 @@
   },
   "stsjorbsmod:StrangePendant": {
     "NAME": "Strange Pendant",
-    "DESCRIPTION": ""
+    "DESCRIPTION": "Ignore the first !M! damage taken each turn."
   },
   "stsjorbsmod:Chamomile": {
     "NAME": "Chamomile",
