@@ -3,6 +3,7 @@ package stsjorbsmod.cards.wanderer;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.GainPennyEffect;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
@@ -35,7 +36,12 @@ public class OldPocket extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        // Based on HandOfGreed's GreedAction
+        for(int i = 0; i < magicNumber; ++i) {
+            AbstractDungeon.effectList.add(new GainPennyEffect(p, p.hb.cX, p.hb.cY, p.hb.cX, p.hb.cY, true));
+        }
         AbstractDungeon.player.gainGold(magicNumber);
+
         addToBot(new RememberSpecificMemoryAction(p, CharityMemory.STATIC.ID));
         if (upgraded) {
             addToBot(new GainClarityOfCurrentMemoryAction(p));
