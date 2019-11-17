@@ -2,8 +2,11 @@ package stsjorbsmod.memories;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.unique.RetainCardsAction;
+import com.megacrit.cardcrawl.cards.blue.Equilibrium;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.EquilibriumPower;
+import com.megacrit.cardcrawl.relics.RunicPyramid;
 
 // Draw 2 cards on entering, retain 1 card per turn passively
 public class DiligenceMemory extends AbstractMemory {
@@ -24,7 +27,13 @@ public class DiligenceMemory extends AbstractMemory {
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        if (isPassiveEffectActive() && isPlayer) {
+        if (isPassiveEffectActive() &&
+            isPlayer &&
+            // Similar to Well-Laid Plans' RetainCardPower...
+            !AbstractDungeon.player.hand.isEmpty() &&
+            !AbstractDungeon.player.hasRelic(RunicPyramid.ID) &&
+            !AbstractDungeon.player.hasPower(EquilibriumPower.POWER_ID))
+        {
             AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(owner, CARDS_RETAINED));
         }
     }

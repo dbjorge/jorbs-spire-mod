@@ -9,9 +9,7 @@
   "stsjorbsmod:BlackTentaclesPower": {
     "NAME": "Black Tentacles",
     "DESCRIPTIONS": [
-      "Attacks with random targets target this enemy for #b",
-      " turn.",
-      " turns."
+      "This turn, all damage you deal to other enemies is dealt to this enemy instead."
     ]
   },
   "stsjorbsmod:BookOfTonguesPower": {
@@ -223,11 +221,9 @@
   "stsjorbsmod:BurningPower": {
     "NAME": "Burning",
     "DESCRIPTIONS": [
-      "At the start of your turn, lose #b",
-      " HP, then reduce #yBurning by #b",
-      ". ",
-      "At the start of its turn, loses #b",
-      "Reduce healing by 50%."
+      "At the start of your turn, take #b%1$s damage, then reduce #yBurning by #b%2$s. Reduce healing by %3$s%%.",
+      "At the start of its turn, takes #b%1$s damage, then reduce #yBurning by #b%2$s. Reduce healing by %3$s%%.",
+      "Reduce healing by %1$s%%."
     ]
   },
   "stsjorbsmod:MindGlassPower": {

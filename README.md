@@ -2,14 +2,16 @@
 [![GitHub release version badge](https://img.shields.io/github/v/release/dbjorge/jorbs-spire-mod?color=blue&label=latest%20release&sort=semver)](https://github.com/dbjorge/sts-jorbs-mod/releases)
 [![GitHub Release download counter badge](https://img.shields.io/github/downloads/dbjorge/jorbs-spire-mod/total?color=blue)](https://github.com/dbjorge/sts-jorbs-mod/releases)
 
-[Slay the Spire]() mod with character and game design by [Jorbs](https://twitch.tv/jorbs) and Twitch Chat.
+[Slay the Spire](https://www.megacrit.com/) mod with character and game design by [Jorbs](https://twitch.tv/jorbs) and Twitch Chat.
 
-* Design info: [Mod Character Package spreadsheet](https://docs.google.com/spreadsheets/d/1GY0eJsooEp361hWFL2lD-uPVa5-l-7g4f4FtyKs-k7Q/edit#gid=0)
-* Discussion and updates: [Jorbs Discord](https://discord.gg/invite/jorbs) **#jorbs-spire-mod-char**
+* Design info and progress tracking: [Mod Character Package spreadsheet](https://docs.google.com/spreadsheets/d/1GY0eJsooEp361hWFL2lD-uPVa5-l-7g4f4FtyKs-k7Q/edit#gid=0)
+* Discussion and updates: [Jorbs Discord](https://discord.gg/invite/jorbs) channels under "Projects that Fuel Wizardry" group
 
 Many people have contributed code and art for this mod; thanks to all the contributors listed among the [mod authors](./src/main/resources/ModTheSpire.json).
 
 This mod would not have been possible without the excellent documentation and guidance from all of the contributors at [ModTheSpire](https://github.com/kiooeht/ModTheSpire), [BaseMod](https://github.com/daviscook477/BaseMod), [StSLib](), [StS-DefaultModBase](https://github.com/Gremious/StS-DefaultModBase), and [Slay the Spire Discord](https://discordapp.com/invite/SlayTheSpire) **#modding**.
+
+This mod aims to support *both* the stable and beta branches of Slay the Spire, but is primarily developed and tested against the beta branch. If you notice an incompatibility with *either* branch, please [file an issue](https://github.com/dbjorge/jorbs-spire-mod/issues/new)!
 
 ## Table of contents
 
@@ -21,7 +23,8 @@ This mod would not have been possible without the excellent documentation and gu
 
 ## How to install
 
-1. Through Steam, install Slay the Spire (stable branch)
+1. Through Steam, install Slay the Spire
+1. (optional, but recommended) Switch to the Beta branch (right click Slay the Spire in your Steam Library, Properties -> BETAS tab -> select "beta" in dropdown)
 1. From the Steam Workshop, install "Mod the Spire", "BaseMod", and "StSLib"
 1. Download `JorbsMod.jar` from the latest release: [![GitHub release version badge](https://img.shields.io/github/v/release/dbjorge/jorbs-spire-mod?color=blue&label=latest%20release&sort=semver)](https://github.com/dbjorge/sts-jorbs-mod/releases)
 1. Launch Mod the Spire by right clicking on Slay the Spire in your Steam Library "Play with Mods"
@@ -56,6 +59,10 @@ See the [.../images/README.md](./src/main/resources/stsjorbsmodResources/images/
 ## How to contribute sound effects
 
 See the [.../audio/README.md](./src/main/resources/stsjorbsmodResources/audio/README.md) file in the resources folder.
+
+## How to contribute translations to other languages
+
+See the [.../localization/README.md](./src/main/resources/stsjorbsmodResources/localization/README.md) file in the resources folder.
 
 ## How to contribute changes
 

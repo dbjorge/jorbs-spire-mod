@@ -29,6 +29,7 @@ public class TrueStrike extends CustomJorbsModCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         damageType = damageTypeForTurn = DamageInfo.DamageType.HP_LOSS;
+        tags.add(CardTags.STRIKE);
     }
 
     @Override

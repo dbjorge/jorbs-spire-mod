@@ -25,8 +25,8 @@ public class Amnesia extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Amnesia.class.getSimpleName());
     public static final String IMG = makeCardPath("Bad_Rares/amnesia.png");
 
-    private static final CardRarity RARITY = CardRarity.RARE;
-    private static final CardTarget TARGET = CardTarget.SELF;
+    private static final CardRarity RARITY = CardRarity.CURSE;
+    private static final CardTarget TARGET = CardTarget.NONE;
     private static final CardType TYPE = CardType.CURSE;
     public static final CardColor COLOR = CardColor.CURSE;
 

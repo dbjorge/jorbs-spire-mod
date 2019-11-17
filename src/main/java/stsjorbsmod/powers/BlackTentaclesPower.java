@@ -4,18 +4,20 @@ import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.unique.RetainCardsAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.patches.DamageAsBurningPatch;
 import stsjorbsmod.util.TextureLoader;
 
 import java.util.ArrayList;
@@ -24,7 +26,7 @@ import static stsjorbsmod.JorbsMod.makePowerPath;
 
 // attacks with random targets (specifically, uses of the AttackDamageRandomEnemyAction) target this enemy.
 // This is primarily a marker power for applyPossibleActionTargetOverride to look for.
-public class BlackTentaclesPower extends AbstractPower implements CloneablePowerInterface {
+public class BlackTentaclesPower extends AbstractPower implements CloneablePowerInterface, AtEndOfPlayerTurnSubscriber {
     public AbstractCreature source;
 
     public static final String POWER_ID = JorbsMod.makeID(BlackTentaclesPower.class.getSimpleName());
@@ -35,13 +37,13 @@ public class BlackTentaclesPower extends AbstractPower implements CloneablePower
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("black_tentacles_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("black_tentacles_power32.png"));
 
-    public BlackTentaclesPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    public BlackTentaclesPower(final AbstractCreature owner, final AbstractCreature source) {
         ID = POWER_ID;
         this.name = NAME;
 
         this.owner = owner;
         this.source = source;
-        this.amount = amount;
+        this.amount = -1; // non-stackable
 
         this.isTurnBased = true;
 
@@ -52,36 +54,42 @@ public class BlackTentaclesPower extends AbstractPower implements CloneablePower
     }
 
     @Override
-    public void atEndOfRound() {
-        if (this.amount == 0) {
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
-        } else {
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
+    public void onInitialApplication() {
+        // only 1 target can have this power at a time; subsequent uses of the card will overwrite the old effect
+        for(AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
+            for (AbstractPower p : m.powers) {
+                if (p.ID.equals(this.ID) && p != this) {
+                    AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(m, source, p));
+                }
+            }
         }
+    }
+
+    @Override
+    public void atEndOfPlayerTurn() {
+        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
     }
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + this.amount + (this.amount == 1 ? DESCRIPTIONS[1] : DESCRIPTIONS[2]);
+        description = DESCRIPTIONS[0];
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new BlackTentaclesPower(owner, source, amount);
+        return new BlackTentaclesPower(owner, source);
     }
 
-    public static void applyPossibleActionTargetOverride(AbstractGameAction action) {
-        ArrayList<AbstractCreature> candidateTargetsWithBlackTentacles = new ArrayList<>();
-        for (AbstractCreature m : AbstractDungeon.getMonsters().monsters) {
-            if (!m.halfDead && !m.isDying && !m.isEscaping && m.hasPower(BlackTentaclesPower.POWER_ID)) {
-                candidateTargetsWithBlackTentacles.add(m);
-            }
+    public int onAnyMonsterHpLoss(AbstractMonster monster, DamageInfo originalDamageInfo, int originalHpLoss) {
+        if (monster != owner && originalDamageInfo != null && originalDamageInfo.owner == source && originalHpLoss > 0) {
+            this.flash();
+            DamageType newDamageType = originalDamageInfo.type == DamageType.HP_LOSS ? DamageType.HP_LOSS : DamageType.THORNS;
+            DamageInfo newDamageInfo = new DamageInfo(source, originalHpLoss, newDamageType);
+            DamageAsBurningPatch.isBurningField.isBurning.set(newDamageInfo, DamageAsBurningPatch.isBurningField.isBurning.get(originalDamageInfo));
+            AbstractDungeon.actionManager.addToTop(new DamageAction(owner, newDamageInfo, AttackEffect.SLASH_DIAGONAL));
+            return 0;
         }
-        if (!candidateTargetsWithBlackTentacles.isEmpty()) {
-            JorbsMod.logger.info("Black Tentacles overriding AttackDamageRandomEnemyAction target");
-            int blackTentaclesTargetIndex = AbstractDungeon.cardRandomRng.random(0, candidateTargetsWithBlackTentacles.size() - 1);
-            action.target = candidateTargetsWithBlackTentacles.get(blackTentaclesTargetIndex);
-        }
+        return originalHpLoss;
     }
 }
 

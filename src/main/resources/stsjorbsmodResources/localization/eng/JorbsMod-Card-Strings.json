@@ -21,8 +21,8 @@
   },
   "stsjorbsmod:BlackTentacles": {
     "NAME": "Black Tentacles",
-    "DESCRIPTION": "Deal !D! damage. NL Attacks with random targets target this enemy for !M! turn.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Attacks with random targets target this enemy for !M! turn. NL Draw !stsjorbsmod:MetaMagic! card."
+    "DESCRIPTION": "Deal !D! damage. NL This turn, all damage you deal to other enemies is dealt to this enemy instead.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL This turn, all damage you deal to other enemies is dealt to this enemy instead. NL Draw !M! card."
   },
   "stsjorbsmod:ArcaneWeapon": {
     "NAME": "Arcane Weapon",
@@ -208,8 +208,8 @@
   },
   "stsjorbsmod:BookOfTongues": {
     "NAME": "Book of Tongues",
-    "DESCRIPTION": "At the start of each turn, draw !M! random stsjorbsmod:Material_Component.",
-    "UPGRADE_DESCRIPTION": "At the start of each turn, draw !M! random stsjorbsmod:Material_Components."
+    "DESCRIPTION": "At the start of each turn, put !M! stsjorbsmod:Material_Component into your hand.",
+    "UPGRADE_DESCRIPTION": "At the start of each turn, put !M! stsjorbsmod:Material_Components into your hand."
   },
   "stsjorbsmod:MagicMirror": {
     "NAME": "Magic Mirror",

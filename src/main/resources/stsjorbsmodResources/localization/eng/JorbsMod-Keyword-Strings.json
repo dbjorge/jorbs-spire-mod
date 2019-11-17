@@ -1,11 +1,11 @@
 [
   {
     "NAMES": ["burning"],
-    "DESCRIPTION": "Burning creatures lose HP at the start of their turn and have healing reduced by 50%. Each turn, Burning is reduced by half."
+    "DESCRIPTION": "Burning creatures take damage at the start of their turn and have healing reduced by 50%. Each turn, Burning is reduced by half."
   },
   {
     "NAMES": ["clarity", "clarities"],
-    "DESCRIPTION": "Memories you have Clarity of won't be forgotten when remembering a new memory."
+    "DESCRIPTION": "While you have Clarity of a memory, you keep its passive effect even after forgetting the memory."
   },
   {
     "NAMES": ["charity"],

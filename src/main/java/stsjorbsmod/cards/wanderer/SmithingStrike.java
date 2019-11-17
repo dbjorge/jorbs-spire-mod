@@ -34,6 +34,7 @@ public class SmithingStrike extends CustomJorbsModCard {
 
         tags.add(PERSISTENT_POSITIVE_EFFECT);
         tags.add(REMEMBER_MEMORY);
+        tags.add(CardTags.STRIKE);
     }
 
     @Override
