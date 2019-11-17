@@ -16,9 +16,12 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import jdk.nashorn.internal.runtime.regexp.joni.Regex;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.clapper.util.classutil.RegexClassFilter;
 import stsjorbsmod.cards.CardSaveData;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
@@ -26,6 +29,7 @@ import stsjorbsmod.console.MemoryCommand;
 import stsjorbsmod.patches.LegendaryPatch;
 import stsjorbsmod.potions.BurningPotion;
 import stsjorbsmod.potions.DimensionDoorPotion;
+import stsjorbsmod.powers.CustomStackBehaviorPower;
 import stsjorbsmod.relics.AlchemistsFireRelic;
 import stsjorbsmod.relics.FragileMindRelic;
 import stsjorbsmod.relics.MindGlassRelic;
@@ -216,7 +220,31 @@ public class JorbsMod implements
     
     
     // =============== POST-INITIALIZE =================
-    
+
+    @SuppressWarnings("unchecked")
+    private static void registerPowerInDevConsole(Class<? extends AbstractPower> jorbsModPower) {
+        try {
+            String id = (String)jorbsModPower.getField("POWER_ID").get(null);
+            logger.info("Registering power: " + id);
+            BaseMod.addPower(jorbsModPower, id);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void registerPowersInDevConsole() {
+        logger.info("Registering powers in developer console");
+
+        ArrayList<Class<AbstractPower>> powers = ReflectionUtils.findAllConcreteJorbsModClasses(new RegexClassFilter("^stsjorbsmod\\.powers\\.(.+)Power$"));
+        for(Class<AbstractPower> power : powers) {
+            registerPowerInDevConsole(power);
+        }
+
+        logger.info("Done registering powers");
+    }
+
     @Override
     public void receivePostInitialize() {
         logger.info("Loading badge image and mod options");
@@ -269,6 +297,8 @@ public class JorbsMod implements
         
         // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");
+
+        registerPowersInDevConsole();
     }
     
     // =============== / POST-INITIALIZE/ =================
@@ -310,7 +340,7 @@ public class JorbsMod implements
         BaseMod.addDynamicVariable(new UrMagicNumber());
         BaseMod.addDynamicVariable(new MetaMagicNumber());
 
-        ArrayList<Class<CustomJorbsModCard>> cardClasses = ReflectionUtils.findAllConcreteSubclasses(CustomJorbsModCard.class);
+        ArrayList<Class<CustomJorbsModCard>> cardClasses = ReflectionUtils.findAllConcreteJorbsModSubclasses(CustomJorbsModCard.class);
         for (Class<CustomJorbsModCard> cardClass : cardClasses) {
             try {
                 CustomJorbsModCard cardInstance = cardClass.newInstance();

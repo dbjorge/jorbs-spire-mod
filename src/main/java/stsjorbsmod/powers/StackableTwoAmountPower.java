@@ -4,7 +4,7 @@ import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 
-public class StackableTwoAmountPower extends TwoAmountPower implements CustomStackBehaviorPower {
+public abstract class StackableTwoAmountPower extends TwoAmountPower implements CustomStackBehaviorPower {
     public void stackPower(AbstractPower otherPower) {
         this.stackPower(otherPower.amount);
 
