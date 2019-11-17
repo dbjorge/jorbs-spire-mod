@@ -276,7 +276,7 @@
   },
   "stsjorbsmod:CorrodingBarrier": {
     "NAME": "Corroding Barrier",
-    "DESCRIPTION": "Gain !B! Block. Decrease this card's Block by !M! each time it is drawn.",
+    "DESCRIPTION": "Gain !B! Block. Decrease this card's Block this combat by !M! each time it is drawn.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block."
   },
   "stsjorbsmod:Entangle": {
