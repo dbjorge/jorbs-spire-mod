@@ -5,7 +5,7 @@
   },
   {
     "NAMES": ["clarity", "clarities"],
-    "DESCRIPTION": "Memories you have Clarity of won't be forgotten when remembering a new memory."
+    "DESCRIPTION": "While you have Clarity of a memory, you keep its passive effect even after forgetting the memory."
   },
   {
     "NAMES": ["charity"],
