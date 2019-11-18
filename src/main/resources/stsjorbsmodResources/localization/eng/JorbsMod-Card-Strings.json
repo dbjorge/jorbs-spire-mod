@@ -396,6 +396,6 @@
   },
   "stsjorbsmod:PurgeMind": {
     "NAME": "Purge Mind",
-    "DESCRIPTION": "Exhaust all cards which \"remember\". NL Deal !stsjorbsmod:BaseDamage! for each card Exhausted. Exhaust. NL Snap."
+    "DESCRIPTION": "Exhaust ALL cards which \"remember\". Deal !D! damage each, including any already Exhausted. stsjorbsmod:Snap. Exhaust. "
   }
 }
