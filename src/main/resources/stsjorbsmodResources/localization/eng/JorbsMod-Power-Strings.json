@@ -241,7 +241,7 @@
   "stsjorbsmod:RediscoveryPower": {
     "NAME": "Rediscovery",
     "DESCRIPTIONS": [
-      "Whenever you gain #yClarity of a new memory, gain #b%1$s energy."
+      "Whenever you gain #yClarity of a new memory, gain #b%1$s [E]"
     ]
   }
 }

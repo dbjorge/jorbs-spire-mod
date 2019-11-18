@@ -20,8 +20,7 @@ public class Rediscovery extends CustomJorbsModCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
-    private static final int COST = 3;
-    private static final int UPGRADED_COST = 2;
+    private static final int COST = 1;
 
     public Rediscovery() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
@@ -36,7 +35,7 @@ public class Rediscovery extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            isInnate = true;
             upgradeDescription();
         }
     }
