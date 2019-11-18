@@ -14,6 +14,7 @@ import stsjorbsmod.memories.LustMemory;
 import stsjorbsmod.patches.AutoExhumeField;
 import stsjorbsmod.powers.BurningPower;
 
+import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Inferno extends CustomJorbsModCard {
@@ -34,6 +35,7 @@ public class Inferno extends CustomJorbsModCard {
         magicNumber = baseMagicNumber = BURNING_MULTIPLIER;
         exhaust = true;
         AutoExhumeField.autoExhumeBehavior.set(this, AutoExhumeBehavior.EXHUME_ON_SNAP);
+        tags.add(REMEMBER_MEMORY);
     }
 
     @Override

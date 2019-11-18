@@ -393,5 +393,9 @@
   "stsjorbsmod:FlameWard": {
     "NAME": "Flame Ward",
     "DESCRIPTION": "The next time you are attacked, apply !M! stsjorbsmod:Burning to ALL attackers and gain !B! Block. Exhaust."
+  },
+  "stsjorbsmod:PurgeMind": {
+    "NAME": "Purge Mind",
+    "DESCRIPTION": "Exhaust ALL cards which \"remember\". Then, deal !D! damage for each in your Exhaust pile. NL stsjorbsmod:Snap. Exhaust."
   }
 }
