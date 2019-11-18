@@ -40,7 +40,7 @@ public class SnapAction extends AbstractGameAction {
         AbstractDungeon.actionManager.addToTop(
                 new LoseHPAction(target, target, targetDamage, AttackEffect.BLUNT_LIGHT));
         AbstractDungeon.actionManager.addToTop(
-                new DamageAllEnemiesAction((AbstractCreature)null, DamageInfo.createDamageMatrix(enemyDamage, true), DamageInfo.DamageType.THORNS, AttackEffect.BLUNT_LIGHT));
+                new DamageAllEnemiesAction(target, DamageInfo.createDamageMatrix(enemyDamage, true), DamageInfo.DamageType.THORNS, AttackEffect.BLUNT_LIGHT));
 
         MemoryManager.forPlayer(target).snap();
 
