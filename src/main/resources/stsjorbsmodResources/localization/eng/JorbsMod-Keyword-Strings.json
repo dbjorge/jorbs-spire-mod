@@ -65,12 +65,7 @@
   },
   {
     "PROPER_NAME": "Material Component",
-    "NAMES": ["material component", "material components", "material_component", "material_components"],
-    "DESCRIPTION": "Material Components are (mostly) 0-cost cards with a variety of minor effects."
-  },
-  {
-    "PROPER_NAME": "Material Components",
-    "NAMES": ["material components", "material_components"],
+    "NAMES": ["material\u00a0component", "material\u00a0components"],
     "DESCRIPTION": "Material Components are (mostly) 0-cost cards with a variety of minor effects."
   },
   {

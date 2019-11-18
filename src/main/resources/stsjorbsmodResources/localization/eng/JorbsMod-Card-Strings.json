@@ -17,7 +17,7 @@
   },
   "stsjorbsmod:ForbiddenGrimoire": {
     "NAME": "Forbidden Grimoire",
-    "DESCRIPTION": "stsjorbsmod:Entombed until turn 7. NL Choose 1 of 3 stsjorbsmod:Material_Components. NL Exhaust, then stsjorbsmod:Exhume after playing !M! other cards, unless stsjorbsmod:Snapped."
+    "DESCRIPTION": "stsjorbsmod:Entombed until turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL Exhaust, then stsjorbsmod:Exhume after playing !M! other cards, unless stsjorbsmod:Snapped."
   },
   "stsjorbsmod:BlackTentacles": {
     "NAME": "Black Tentacles",
@@ -208,8 +208,8 @@
   },
   "stsjorbsmod:BookOfTongues": {
     "NAME": "Book of Tongues",
-    "DESCRIPTION": "At the start of each turn, put !M! stsjorbsmod:Material_Component into your hand.",
-    "UPGRADE_DESCRIPTION": "At the start of each turn, put !M! stsjorbsmod:Material_Components into your hand."
+    "DESCRIPTION": "At the start of each turn, put !M! stsjorbsmod:Material\u00a0Component into your hand.",
+    "UPGRADE_DESCRIPTION": "At the start of each turn, put !M! stsjorbsmod:Material\u00a0Components into your hand."
   },
   "stsjorbsmod:MagicMirror": {
     "NAME": "Magic Mirror",
