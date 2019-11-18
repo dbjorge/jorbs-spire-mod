@@ -237,5 +237,11 @@
     "DESCRIPTIONS": [
       "When you are next attacked, apply #b%1$s #yBurning to ALL attackers and gain #b%2$s #yBlock."
     ]
+  },
+  "stsjorbsmod:RediscoveryPower": {
+    "NAME": "Rediscovery",
+    "DESCRIPTIONS": [
+      "Whenever you gain #yClarity of a new memory, gain #b%1$s energy."
+    ]
   }
 }
