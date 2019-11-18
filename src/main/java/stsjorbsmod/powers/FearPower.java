@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster.Intent;
+import com.megacrit.cardcrawl.monsters.beyond.Darkling;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.GainSpecificClarityAction;
@@ -51,8 +52,15 @@ public class FearPower extends AbstractPower {
             if (this.amount == 0) {
                 int remainingMonsters = 0;
                 for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                    // We normally consider halfDead things to be remaining, assuming they'll have some condition by
+                    // which they'll come back.
+                    //
+                    // Darklings are a special case where we consider them to be not-remaining when halfDead because
+                    // DarklingEscapePatch will be specifically ending the fight if there are only halfDead ones left.
+                    boolean isFunctionallyDead = m.isDying || m.isDead || m.isEscaping || (m.halfDead && m.id.equals(Darkling.ID));
+
                     // Checking intent is to cover for the "multiple FearPowers triggering on the same turn" case
-                    if (!m.isDeadOrEscaped() && m.intent != Intent.ESCAPE) { ++remainingMonsters; }
+                    if (!isFunctionallyDead && m.intent != Intent.ESCAPE) { ++remainingMonsters; }
                 }
 
                 AbstractDungeon.actionManager.addToBottom(new EscapeAction(monsterOwner));
