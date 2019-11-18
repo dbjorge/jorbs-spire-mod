@@ -2,8 +2,7 @@
   "stsjorbsmod:ArcaneWeaponPower": {
     "NAME": "Arcane Weapon",
     "DESCRIPTIONS": [
-      "At the end of each turn, attack a random enemy for #b",
-      " Damage."
+      "At the end of each turn, attack a random enemy for %1$s%2$s damage."
     ]
   },
   "stsjorbsmod:BlackTentaclesPower": {

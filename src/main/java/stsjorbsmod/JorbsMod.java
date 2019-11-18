@@ -14,9 +14,11 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import jdk.nashorn.internal.runtime.regexp.joni.Regex;
 import org.apache.logging.log4j.LogManager;
@@ -53,7 +55,8 @@ public class JorbsMod implements
         EditKeywordsSubscriber,
         EditCharactersSubscriber,
         PostInitializeSubscriber,
-        PostDungeonInitializeSubscriber {
+        PostDungeonInitializeSubscriber,
+        OnPowersModifiedSubscriber {
     public static final String MOD_ID = "stsjorbsmod";
 
     public static final Logger logger = LogManager.getLogger(JorbsMod.class.getName());
@@ -415,6 +418,18 @@ public class JorbsMod implements
     public void receivePostDungeonInitialize() {
         if (!LegendaryPatch.doesStartingDeckNeedFullPools()) {
             LegendaryPatch.removeLegendaryCardsFromPools();
+        }
+    }
+
+    @Override
+    public void receivePowersModified() {
+        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT &&
+                !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+            for (AbstractPower p : AbstractDungeon.player.powers) {
+                if (p instanceof OnPowersModifiedSubscriber) {
+                    ((OnPowersModifiedSubscriber)p).receivePowersModified();
+                }
+            }
         }
     }
 }
