@@ -4,7 +4,6 @@ import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
 import com.evacipated.cardcrawl.mod.stslib.powers.StunMonsterPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
@@ -21,7 +20,7 @@ import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
-public class BanishedPower extends AbstractPower implements CloneablePowerInterface, IOnApplyPowerToCancelSubscriber, OnHealedBySubscriber {
+public class BanishedPower extends AbstractPower implements CloneablePowerInterface, OnApplyPowerToCancelSubscriber, OnHealedBySubscriber {
     public static final String POWER_ID = JorbsMod.makeID(BanishedPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;

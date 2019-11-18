@@ -1,21 +1,14 @@
 package stsjorbsmod.memories;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import stsjorbsmod.memories.MemoryManager.MemoryEventType;
-import stsjorbsmod.powers.BurningPower;
 
-import java.util.ArrayList;
-
-public class TemperanceMemory extends AbstractMemory implements OnModifyMemoriesListener {
+public class TemperanceMemory extends AbstractMemory implements OnModifyMemoriesSubscriber {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(TemperanceMemory.class);
 
     private static final int WEAK_ON_REMEMBER = 1;

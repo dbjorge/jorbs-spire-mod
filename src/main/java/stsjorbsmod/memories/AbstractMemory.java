@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -25,7 +24,7 @@ import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
 import com.megacrit.cardcrawl.vfx.combat.GainPowerEffect;
 import com.megacrit.cardcrawl.vfx.combat.SilentGainPowerEffect;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.powers.IOnModifyGoldListener;
+import stsjorbsmod.powers.OnModifyGoldSubscriber;
 import stsjorbsmod.util.RenderUtils;
 import stsjorbsmod.util.TextureLoader;
 
@@ -38,7 +37,7 @@ import static stsjorbsmod.JorbsMod.makeMemoryPath;
 
 // In addition to the abstract methods, memories are expected to implement a constructor of form
 //     new SpecificMemory(AbstractCreature owner)
-public abstract class AbstractMemory implements IOnModifyGoldListener {
+public abstract class AbstractMemory implements OnModifyGoldSubscriber {
     private static final float HB_WIDTH = 64F * Settings.scale;
     private static final float HB_HEIGHT = 64F * Settings.scale;
     private static final float TIP_X_THRESHOLD = 1544.0F * Settings.scale;

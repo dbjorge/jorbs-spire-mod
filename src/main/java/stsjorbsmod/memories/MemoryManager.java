@@ -166,8 +166,8 @@ public class MemoryManager {
     }
 
     private void notifyPossibleModifyMemoryListener(Object possibleListener, MemoryEventType type) {
-        if (possibleListener instanceof OnModifyMemoriesListener) {
-            OnModifyMemoriesListener listener = (OnModifyMemoriesListener) possibleListener;
+        if (possibleListener instanceof OnModifyMemoriesSubscriber) {
+            OnModifyMemoriesSubscriber listener = (OnModifyMemoriesSubscriber) possibleListener;
             if (Arrays.asList(listener.getMemoryEventTypes()).contains(type)) {
                 listener.onModifyMemories();
             }

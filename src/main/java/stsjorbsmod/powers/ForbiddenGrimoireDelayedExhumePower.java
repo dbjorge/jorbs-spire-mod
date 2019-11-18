@@ -16,12 +16,12 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.ExhumeCardsAction;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.MemoryManager.MemoryEventType;
-import stsjorbsmod.memories.OnModifyMemoriesListener;
+import stsjorbsmod.memories.OnModifyMemoriesSubscriber;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
-public class ForbiddenGrimoireDelayedExhumePower extends AbstractPower implements CloneablePowerInterface, OnModifyMemoriesListener {
+public class ForbiddenGrimoireDelayedExhumePower extends AbstractPower implements CloneablePowerInterface, OnModifyMemoriesSubscriber {
     public AbstractCreature source;
 
     public static final String POWER_ID = JorbsMod.makeID(ForbiddenGrimoireDelayedExhumePower.class.getSimpleName());

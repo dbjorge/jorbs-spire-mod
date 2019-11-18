@@ -16,16 +16,12 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.memories.MemoryManager;
-import stsjorbsmod.memories.OnModifyMemoriesListener;
+import stsjorbsmod.memories.OnModifyMemoriesSubscriber;
 import stsjorbsmod.util.TextureLoader;
-
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
-public class IntrospectionPower extends TwoAmountPower implements CloneablePowerInterface, OnModifyMemoriesListener, CustomStackBehaviorPower {
+public class IntrospectionPower extends TwoAmountPower implements CloneablePowerInterface, OnModifyMemoriesSubscriber, CustomStackBehaviorPower {
     public int baseDamage;
     public int damagePerClarity;
 

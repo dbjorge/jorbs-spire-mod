@@ -8,14 +8,14 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
-import stsjorbsmod.powers.IOnModifyGoldListener;
+import stsjorbsmod.powers.OnModifyGoldSubscriber;
 
 public class OnModifyGoldPatch {
     private static void notifyModifyGold(AbstractPlayer player) {
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
             for (AbstractPower p : player.powers) {
-                if (p instanceof IOnModifyGoldListener) {
-                    ((IOnModifyGoldListener) p).onModifyGold(player);
+                if (p instanceof OnModifyGoldSubscriber) {
+                    ((OnModifyGoldSubscriber) p).onModifyGold(player);
                 }
             }
             MemoryManager memoryManager = MemoryManager.forPlayer(player);

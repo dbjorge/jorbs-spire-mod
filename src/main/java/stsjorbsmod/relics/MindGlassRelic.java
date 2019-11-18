@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.memories.MemoryManager;
-import stsjorbsmod.memories.OnModifyMemoriesListener;
+import stsjorbsmod.memories.OnModifyMemoriesSubscriber;
 import stsjorbsmod.powers.MindGlassPower;
 import stsjorbsmod.util.TextureLoader;
 
@@ -23,7 +23,7 @@ import static stsjorbsmod.JorbsMod.*;
  * When gaining a unique clarity, deals 5 damage to all enemies.
  * When gain the tenth clarity in a combat, deal 500 damage to all enemies.
  */
-public class MindGlassRelic extends CustomRelic implements OnModifyMemoriesListener, PostUpdateSubscriber {
+public class MindGlassRelic extends CustomRelic implements OnModifyMemoriesSubscriber, PostUpdateSubscriber {
     public static final String ID = JorbsMod.makeID(MindGlassRelic.class.getSimpleName());
 
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("mindglass_relic.png"));
