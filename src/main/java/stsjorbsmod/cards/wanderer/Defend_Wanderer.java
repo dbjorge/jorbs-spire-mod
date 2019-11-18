@@ -28,6 +28,12 @@ public class Defend_Wanderer extends CustomJorbsModCard {
         block = baseBlock = BLOCK;
 
         this.tags.add(BaseModCardTags.BASIC_DEFEND);
+        
+        try {
+            this.tags.add(CardTags.valueOf("STARTER_DEFEND"));
+        } catch(IllegalArgumentException e) {
+            // main branch doesn't have this tag yet; intentionally ignoring
+        }
     }
 
     @Override
