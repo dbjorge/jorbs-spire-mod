@@ -160,17 +160,17 @@ public class Wanderer extends CustomPlayer {
         ((SpriterAnimation)this.animation).myPlayer.setScale(Settings.scale * 1.1F);
 
         initializeClass(
-                null, // required call to load textures and setup energy/loadout.
-                // I left these in DefaultMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they read.)
-                SHOULDER_DARK_TEXTURE, // campfire pose
-                SHOULDER_LIT_TEXTURE, // another campfire pose
-                CORPSE_TEXTURE, // dead corpse
-                getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
+                null,
+                SHOULDER_DARK_TEXTURE,
+                SHOULDER_LIT_TEXTURE,
+                CORPSE_TEXTURE,
+                getLoadout(), 0F, -10.0F, 160.0F, 280.0F, new EnergyManager(ENERGY_PER_TURN));
 
         this.memories = new MemoryManager(this);
 
-        this.dialogX = (drawX + 0.0F * Settings.scale); // set location for text bubbles
-        this.dialogY = (drawY + 220.0F * Settings.scale); // you can just copy these values
+        // Thought bubble position
+        this.dialogX = (drawX + 0.0F * Settings.scale);
+        this.dialogY = (drawY + 220.0F * Settings.scale);
     }
 
     public final MemoryManager memories;
