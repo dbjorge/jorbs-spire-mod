@@ -54,7 +54,7 @@ public class FlameWardPower extends StackableTwoAmountPower {
             for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
                 if (IntentUtils.isAttackIntent(m.intent)) {
                     AbstractDungeon.actionManager.addToTop(
-                            new ApplyPowerAction(m, this.owner, new BurningPower(info.owner, this.owner, this.amount2), 1, AbstractGameAction.AttackEffect.FIRE));
+                            new ApplyPowerAction(m, this.owner, new BurningPower(m, this.owner, this.amount2), this.amount2, AbstractGameAction.AttackEffect.FIRE));
                 }
             }
             this.flash();
