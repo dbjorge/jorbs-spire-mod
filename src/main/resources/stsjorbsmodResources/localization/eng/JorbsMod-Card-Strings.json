@@ -397,5 +397,10 @@
   "stsjorbsmod:PurgeMind": {
     "NAME": "Purge Mind",
     "DESCRIPTION": "Exhaust ALL cards which \"remember\". Then, deal !D! damage for each in your Exhaust pile. NL stsjorbsmod:Snap. Exhaust."
+  },
+  "stsjorbsmod:Rediscovery": {
+    "NAME": "Rediscovery",
+    "DESCRIPTION": "Whenever you gain stsjorbsmod:Clarity of a new memory, gain 1 [E].",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you gain stsjorbsmod:Clarity of a new memory, gain 1 [E]."
   }
 }
