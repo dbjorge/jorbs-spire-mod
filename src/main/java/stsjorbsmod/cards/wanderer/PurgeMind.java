@@ -21,7 +21,7 @@ import static stsjorbsmod.JorbsMod.makeCardPath;
  */
 public class PurgeMind extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(PurgeMind.class.getSimpleName());
-    public static final String IMG = makeCardPath("Scaling_Rares/pyromancy.png");
+    public static final String IMG = makeCardPath("Damage_Rares/purge_mind.png");
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -62,7 +62,7 @@ public class PurgeMind extends CustomJorbsModCard {
         for (AbstractCard card : p.exhaustPile.group) {
             if (card.tags.contains(REMEMBER_MEMORY)) {
                 ++count;
-                AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(card, p.exhaustPile));
+                // no need to exhaust exhausted cards LUL
             }
         }
         for (int i = 0; i < count; i++) {

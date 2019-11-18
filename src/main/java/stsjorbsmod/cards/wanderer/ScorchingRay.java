@@ -9,6 +9,7 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.LustMemory;
 
+import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class ScorchingRay extends CustomJorbsModCard {
@@ -29,6 +30,7 @@ public class ScorchingRay extends CustomJorbsModCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = NUM_ATTACKS;
+        tags.add(REMEMBER_MEMORY);
     }
 
     @Override
