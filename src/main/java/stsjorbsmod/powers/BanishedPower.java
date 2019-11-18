@@ -21,7 +21,7 @@ import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
-public class BanishedPower extends AbstractPower implements CloneablePowerInterface, IOnApplyPowerToCancelSubscriber {
+public class BanishedPower extends AbstractPower implements CloneablePowerInterface, IOnApplyPowerToCancelSubscriber, OnHealedBySubscriber {
     public static final String POWER_ID = JorbsMod.makeID(BanishedPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -66,6 +66,11 @@ public class BanishedPower extends AbstractPower implements CloneablePowerInterf
         } else {
             AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
         }
+    }
+
+    @Override
+    public int onHealedBy(AbstractCreature source, int originalAmount) {
+        return (source != this.owner) ? 0 : originalAmount;
     }
 
     @Override
