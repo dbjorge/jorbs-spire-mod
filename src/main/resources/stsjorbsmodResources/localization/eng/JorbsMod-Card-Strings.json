@@ -373,8 +373,8 @@
   },
   "stsjorbsmod:Rot": {
     "NAME": "Rot",
-    "DESCRIPTION": "Lose a random stsjorbsmod:Clarity. NL When this is initially added to your hand, add !M! additional copy of it to your hand.",
-    "UPGRADE_DESCRIPTION": "Lose a random stsjorbsmod:Clarity. NL When this is initially added to your hand, add !M! additional copies of it to your hand."
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Lose a random stsjorbsmod:Clarity. NL When this is initially added to your hand, add !M! additional copy.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Lose a random stsjorbsmod:Clarity. NL When this is initially added to your hand, add !M! additional copies."
   },
   "stsjorbsmod:Quicksilver": {
     "NAME": "Quicksilver",
