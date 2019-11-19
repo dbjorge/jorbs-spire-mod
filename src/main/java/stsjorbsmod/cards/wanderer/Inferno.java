@@ -3,6 +3,7 @@ package stsjorbsmod.cards.wanderer;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
@@ -47,7 +48,7 @@ public class Inferno extends CustomJorbsModCard {
                 AbstractPower possibleExistingBurningPower = m.getPower(BurningPower.POWER_ID);
                 if (possibleExistingBurningPower != null) {
                     int stacksToAdd = possibleExistingBurningPower.amount * (magicNumber - 1);
-                    addToBot(new ApplyPowerAction(m, p, new BurningPower(m, p, stacksToAdd), stacksToAdd));
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BurningPower(m, p, stacksToAdd), stacksToAdd));
                 }
                 isDone = true;
             }
