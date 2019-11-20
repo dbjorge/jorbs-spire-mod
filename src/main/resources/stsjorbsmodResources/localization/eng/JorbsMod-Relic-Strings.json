@@ -20,9 +20,9 @@
       "Gaining stsjorbsmod:Clarity deals 3 damage to all enemies. NL Gaining 10 stsjorbsmod:Clarity in the same fight deals 100 damage to all enemies."
     ]
   },
-  "stsjorbsmod:WandererStarterRelic": {
-    "NAME": "Wanderer Starter Relic",
-    "FLAVOR": "Ogbomosho to you as well.",
+  "stsjorbsmod:GrimoireRelic": {
+    "NAME": "Grimoire",
+    "FLAVOR": "Is this... familiar?",
     "DESCRIPTIONS": [
       "At the start of each combat, remember stsjorbsmod:Patience. NL At the end of each combat, heal #b1 HP per stsjorbsmod:Clarity."
     ]

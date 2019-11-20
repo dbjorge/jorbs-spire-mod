@@ -28,7 +28,7 @@ import stsjorbsmod.cards.wanderer.*;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.powers.FlameWardPower;
 import stsjorbsmod.relics.FragileMindRelic;
-import stsjorbsmod.relics.WandererStarterRelic;
+import stsjorbsmod.relics.GrimoireRelic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -222,7 +222,7 @@ public class Wanderer extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<>();
 
         // Note: only the first relic gets replaced when selecting the "replace starter relic" Neow boon
-        retVal.add(WandererStarterRelic.ID);
+        retVal.add(GrimoireRelic.ID);
         retVal.add(FragileMindRelic.ID);
 
         return retVal;
