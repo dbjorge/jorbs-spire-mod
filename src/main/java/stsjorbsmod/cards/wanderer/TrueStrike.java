@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.patches.TrueDamagePatch;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -27,14 +28,16 @@ public class TrueStrike extends CustomJorbsModCard {
 
     public TrueStrike() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = DAMAGE;
-        damageType = damageTypeForTurn = DamageInfo.DamageType.HP_LOSS;
+        damage = baseDamage = DAMAGE;
+        TrueDamagePatch.TrueDamageCardField.isTrueDamage.set(this, true);
         tags.add(CardTags.STRIKE);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AttackEffect.SLASH_HEAVY));
+        DamageInfo damageInfo = new DamageInfo(p, damage, damageTypeForTurn);
+        TrueDamagePatch.TrueDamageInfoField.isTrueDamage.set(damageInfo, true);
+        addToBot(new DamageAction(m, damageInfo, AttackEffect.SLASH_HEAVY));
     }
 
     @Override
