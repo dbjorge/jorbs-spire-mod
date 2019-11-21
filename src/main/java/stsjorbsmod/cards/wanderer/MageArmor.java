@@ -43,7 +43,7 @@ public class MageArmor extends CustomJorbsModCard implements OnPlayerHpLossCardS
     // Intended to prevent THORNS/HP_LOSS damage and to take effect after block
     @Override
     public int onPlayerHpLossWhileInHand(int hpLoss) {
-        int newHpLoss = hpLoss - 5;
+        int newHpLoss = hpLoss - magicNumber;
         if (newHpLoss < 0) { newHpLoss = 0; }
         if (hpLoss - newHpLoss > 0) {
             AbstractPlayer p = AbstractDungeon.player;
