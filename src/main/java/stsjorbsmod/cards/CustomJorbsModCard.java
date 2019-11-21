@@ -31,6 +31,8 @@ public abstract class CustomJorbsModCard extends CustomCard {
     public boolean upgradedMetaMagicNumber = false;
     public boolean isMetaMagicNumberModified = false;
 
+    protected String[] EXTENDED_DESCRIPTION;
+
     protected CardStrings cardStrings;
 
     public CustomJorbsModCard(final String id,
@@ -59,6 +61,7 @@ public abstract class CustomJorbsModCard extends CustomCard {
         isDamageModified = false;
         isBlockModified = false;
         isMagicNumberModified = false;
+        EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     }
 
     @Override

@@ -1,16 +1,16 @@
 package stsjorbsmod.cards.wanderer;
 
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
-import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 
@@ -46,14 +46,18 @@ public class Amnesia extends CustomJorbsModCard {
                     .filter(power -> power.type == AbstractPower.PowerType.BUFF)
                     .collect(Collectors.toList());
             if (buffs.size() == 0) {
-                AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"~...~", 2.0f, 2.0f));
+                int index = AbstractDungeon.cardRandomRng.random(EXTENDED_DESCRIPTION.length - 1);
+                AbstractDungeon.actionManager.addToBottom(new TalkAction(true, EXTENDED_DESCRIPTION[index], 2.0f, 2.0f));
             } else if (p.hasPower(ArtifactPower.POWER_ID)) {
-                AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, ArtifactPower.POWER_ID, 1));
+                CardCrawlGame.sound.play("NULLIFY_SFX");
+                p.getPower(ArtifactPower.POWER_ID).flashWithoutSound();
+                p.getPower(ArtifactPower.POWER_ID).onSpecificTrigger();
             } else {
-                int index = AbstractDungeon.miscRng.random(buffs.size());
+                int index = AbstractDungeon.cardRandomRng.random(buffs.size() - 1);
                 AbstractPower powerToRemove = buffs.get(index);
-                AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(p, p, powerToRemove.ID, powerToRemove.amount));
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, powerToRemove.ID));
             }
+            AbstractDungeon.actionManager.addToBottom(new WaitAction(2.0f));
         }
     }
 

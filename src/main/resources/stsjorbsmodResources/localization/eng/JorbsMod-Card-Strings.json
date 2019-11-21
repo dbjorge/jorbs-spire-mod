@@ -286,7 +286,12 @@
   },
   "stsjorbsmod:Amnesia": {
     "NAME": "Amnesia",
-    "DESCRIPTION": "Unplayable. NL At the end of your turn, stsjorbsmod:Snap. NL Remove all buffs and debuffs from self."
+    "DESCRIPTION": "Unplayable. NL At the end of your turn, lose 1 random power.",
+    "EXTENDED_DESCRIPTION": [
+      "~...~",
+      "Did I leave the oven on?",
+      "@Dig@"
+    ]
   },
   "stsjorbsmod:Fear": {
     "NAME": "Fear",
