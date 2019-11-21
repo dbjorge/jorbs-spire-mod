@@ -36,7 +36,7 @@ public class MageArmor extends CustomJorbsModCard implements OnPlayerHpLossCardS
     public void use(AbstractPlayer p, AbstractMonster m) { }
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
+        this.cantUseMessage = EXTENDED_DESCRIPTION[0];
         return false;
     }
 
@@ -47,7 +47,7 @@ public class MageArmor extends CustomJorbsModCard implements OnPlayerHpLossCardS
         if (newHpLoss < 0) { newHpLoss = 0; }
         if (hpLoss - newHpLoss > 0) {
             AbstractPlayer p = AbstractDungeon.player;
-            AbstractDungeon.effectList.add(new BlockedWordEffect(p, p.hb.cX, p.hb.cY, cardStrings.EXTENDED_DESCRIPTION[1]));
+            AbstractDungeon.effectList.add(new BlockedWordEffect(p, p.hb.cX, p.hb.cY, EXTENDED_DESCRIPTION[1]));
             // addToTop is to handle multi-attacks correctly
             addToTop(new DiscardSpecificCardAction(this));
         }
