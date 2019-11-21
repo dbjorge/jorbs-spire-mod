@@ -12,6 +12,10 @@ import javassist.expr.MethodCall;
 // This patch fixes an issue where Wrist Blade is supposed to only apply to attacks, but actually applies to any
 // card which deals direct damage. This causes a mistaken interaction with Wanderer's Snake Oil.
 public class WristBladeShouldOnlyApplyToAttacksPatch {
+    public static boolean shouldSuppressFor(String relicId, AbstractCard c) {
+        return relicId.equals(WristBlade.ID) && c.type != AbstractCard.CardType.ATTACK;
+    }
+
     public static boolean shouldSuppressFor(AbstractRelic r, AbstractCard c) {
         return r.relicId.equals(WristBlade.ID) && c.type != AbstractCard.CardType.ATTACK;
     }
@@ -41,6 +45,7 @@ public class WristBladeShouldOnlyApplyToAttacksPatch {
                         methodCall.replace(String.format(
                                 "{ $_ = ($proceed($$) && !%1$s.shouldSuppressFor($1, this)); }",
                                 WristBladeShouldOnlyApplyToAttacksPatch.class.getName()));
+                        return;
                     }
 
                     // On the beta branch, Wrist Blade instead uses a new hook called atDamageGive.
@@ -54,6 +59,7 @@ public class WristBladeShouldOnlyApplyToAttacksPatch {
                         methodCall.replace(String.format(
                                 "{ $_ = (%1$s.shouldSuppressFor($0, this) ? $1 : $proceed($$)); }",
                                 WristBladeShouldOnlyApplyToAttacksPatch.class.getName()));
+                        return;
                     }
                 }
             };
