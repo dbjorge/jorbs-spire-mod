@@ -15,15 +15,15 @@ import static stsjorbsmod.JorbsMod.makeRelicOutlinePath;
 import static stsjorbsmod.JorbsMod.makeRelicPath;
 
 // Start each fight remembering Patience. At the end of each fight, gain 1hp per Clarity.
-public class WandererStarterRelic extends CustomRelic {
+public class GrimoireRelic extends CustomRelic {
     private static final int HEAL_PER_CLARITY = 1;
 
-    public static final String ID = JorbsMod.makeID(WandererStarterRelic.class.getSimpleName());
+    public static final String ID = JorbsMod.makeID(GrimoireRelic.class.getSimpleName());
 
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("wanderer_starter_relic.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("wanderer_starter_relic.png"));
+    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("grimoire_relic.png"));
+    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("grimoire_relic.png"));
 
-    public WandererStarterRelic() {
+    public GrimoireRelic() {
         super(ID, IMG, OUTLINE, RelicTier.STARTER, LandingSound.MAGICAL);
     }
 

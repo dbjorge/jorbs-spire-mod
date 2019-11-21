@@ -20,7 +20,6 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import jdk.nashorn.internal.runtime.regexp.joni.Regex;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.clapper.util.classutil.RegexClassFilter;
@@ -31,11 +30,10 @@ import stsjorbsmod.console.MemoryCommand;
 import stsjorbsmod.patches.LegendaryPatch;
 import stsjorbsmod.potions.BurningPotion;
 import stsjorbsmod.potions.DimensionDoorPotion;
-import stsjorbsmod.powers.CustomStackBehaviorPower;
 import stsjorbsmod.relics.AlchemistsFireRelic;
 import stsjorbsmod.relics.FragileMindRelic;
 import stsjorbsmod.relics.MindGlassRelic;
-import stsjorbsmod.relics.WandererStarterRelic;
+import stsjorbsmod.relics.GrimoireRelic;
 import stsjorbsmod.util.ReflectionUtils;
 import stsjorbsmod.util.TextureLoader;
 import stsjorbsmod.variables.BaseBlockNumber;
@@ -314,8 +312,8 @@ public class JorbsMod implements
         logger.info("Adding relics");
         
         // Character-specific relics for custom characters use BaseMod.addRelicToCustomPool
-        BaseMod.addRelicToCustomPool(new WandererStarterRelic(), Wanderer.Enums.WANDERER_CARD_COLOR);
-        UnlockTracker.markRelicAsSeen(WandererStarterRelic.ID);
+        BaseMod.addRelicToCustomPool(new GrimoireRelic(), Wanderer.Enums.WANDERER_CARD_COLOR);
+        UnlockTracker.markRelicAsSeen(GrimoireRelic.ID);
         BaseMod.addRelicToCustomPool(new FragileMindRelic(), Wanderer.Enums.WANDERER_CARD_COLOR);
         UnlockTracker.markRelicAsSeen(FragileMindRelic.ID);
         BaseMod.addRelicToCustomPool(new MindGlassRelic(), Wanderer.Enums.WANDERER_CARD_COLOR);

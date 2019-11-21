@@ -1,6 +1,25 @@
 {
   "stsjorbsmod:AbstractMemory": {
-    "TEXT": ["#gClarified. NL ", "#gRemembered. NL ", "#rForgotten. NL "]
+    "TEXT": [
+      "#gClarified. NL ",
+      "#gRemembered. NL ",
+      "#rForgotten. NL "
+    ]
+  },
+  "stsjorbsmod:AlchemistsFireOnClick": {
+    "TEXT": [
+      "GOLASO! GOL! GOL! GOL!"
+    ]
+  },
+  "stsjorbsmod:BossImmuneToFear": {
+    "TEXT": [
+      "Bosses are fearless!"
+    ]
+  },
+  "stsjorbsmod:CallCalipers": {
+    "TEXT": [
+      "Calipers would be good here..."
+    ]
   },
   "stsjorbsmod:CardsToTopOfDeckAction": {
     "TEXT": [
@@ -10,21 +29,18 @@
     ]
   },
   "stsjorbsmod:CounterspellAction": {
-    "TEXT": ["Enemy does not intend to debuff"]
-  },
-  "stsjorbsmod:BossImmuneToFear": {
-    "TEXT": ["Bosses are fearless!"]
-  },
-  "stsjorbsmod:IfEnemyIntendsToAttackAction": {
-    "TEXT": ["Enemy does not intend to attack"]
+    "TEXT": [
+      "Enemy does not intend to debuff"
+    ]
   },
   "stsjorbsmod:DigEmote": {
-    "TEXT": ["jorbsBird Dig! jorbsBird RELIC jorbsBird DIG jorbsBird"]
+    "TEXT": [
+      "jorbsBird Dig! jorbsBird RELIC jorbsBird DIG jorbsBird"
+    ]
   },
-  "stsjorbsmod:CallCalipers": {
-    "TEXT": ["Calipers would be good here..."]
-  },
-  "stsjorbsmod:AlchemistsFireOnClick": {
-    "TEXT": ["GOLASO! GOL! GOL! GOL!"]
+  "stsjorbsmod:IfEnemyIntendsToAttackAction": {
+    "TEXT": [
+      "Enemy does not intend to attack"
+    ]
   }
 }

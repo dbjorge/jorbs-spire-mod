@@ -1,288 +1,8 @@
 {
-  "stsjorbsmod:Strike_Wanderer": {
-    "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! damage."
-  },
-  "stsjorbsmod:Defend_Wanderer": {
-    "NAME": "Defend",
-    "DESCRIPTION": "Gain !B! Block."
-  },
-  "stsjorbsmod:FreshAdventure": {
-    "NAME": "Fresh Adventure",
-    "DESCRIPTION": "Deal !D! damage. NL Remember stsjorbsmod:Diligence."
-  },
-  "stsjorbsmod:EyeOfTheStorm": {
-    "NAME": "Eye of the Storm",
-    "DESCRIPTION": "Gain stsjorbsmod:Clarity of current memory, then remember a random memory you do not have stsjorbsmod:Clarity of. NL Gain !B! Block."
-  },
-  "stsjorbsmod:ForbiddenGrimoire": {
-    "NAME": "Forbidden Grimoire",
-    "DESCRIPTION": "stsjorbsmod:Entombed until turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL Exhaust, then stsjorbsmod:Exhume after playing !M! other cards, unless stsjorbsmod:Snapped."
-  },
-  "stsjorbsmod:BlackTentacles": {
-    "NAME": "Black Tentacles",
-    "DESCRIPTION": "Deal !D! damage. NL This turn, all damage you deal to other enemies is dealt to this enemy instead.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL This turn, all damage you deal to other enemies is dealt to this enemy instead. NL Draw !M! card."
-  },
-  "stsjorbsmod:ArcaneWeapon": {
-    "NAME": "Arcane Weapon",
-    "DESCRIPTION": "At the end of each turn, attack a random enemy for !D! damage."
-  },
-  "stsjorbsmod:Firebolt": {
-    "NAME": "Firebolt",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! stsjorbsmod:Burning for each stsjorbsmod:Clarity."
-  },
-  "stsjorbsmod:ThirstingSword": {
-    "NAME": "Thirsting Sword",
-    "DESCRIPTION": "Apply !M! stsjorbsmod:Burning and heal HP equal to target's stsjorbsmod:Burning. NL Lose !stsjorbsmod:MetaMagic! Max HP. NL Deal !D! damage. NL Exhaust."
-  },
-  "stsjorbsmod:MagicMissiles": {
-    "NAME": "Magic Missiles",
-    "DESCRIPTION": "Deal !D! damage. NL Deal !D! damage again once for each stsjorbsmod:Clarity."
-  },
-  "stsjorbsmod:SnakeOil": {
-    "NAME": "Snake Oil",
-    "DESCRIPTION": "Retain. NL Deal !D! damage to ALL enemies. Deals !M! additional damage per stsjorbsmod:Coil. NL Exhaust."
-  },
-  "stsjorbsmod:TrueStrike": {
-    "NAME": "True Strike",
-    "DESCRIPTION": "Deal !D! damage. NL This damage cannot be prevented or reduced."
-  },
-  "stsjorbsmod:RayOfFrost": {
-    "NAME": "Ray of Frost",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak !stsjorbsmod:MetaMagic! times."
-  },
-  "stsjorbsmod:Counterspell": {
-    "NAME": "Counterspell",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Artifact if enemy intends to apply a negative effect. NL Exhaust."
-  },
-  "stsjorbsmod:MinorIllusion": {
-    "NAME": "Minor Illusion",
-    "DESCRIPTION": "Gain !B! Block."
-  },
-  "stsjorbsmod:DisguiseSelf": {
-    "NAME": "Disguise Self",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !B! Block next turn."
-  },
-  "stsjorbsmod:Loss": {
-    "NAME": "Loss",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Weak."
-  },
-  "stsjorbsmod:DoubleCheck": {
-    "NAME": "Double-check",
-    "DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Diligence.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Diligence. NL At the start of your next turn, if you remember stsjorbsmod:Diligence gain stsjorbsmod:Clarity."
-  },
-  "stsjorbsmod:Channel": {
-    "NAME": "Channel",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! [E] next turn.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !M! [E] next turn. NL Put a card from your discard pile on top of your draw pile."
-  },
-  "stsjorbsmod:ChainLightning": {
-    "NAME": "Chain Lightning",
-    "DESCRIPTION": "Deal !D! damage. NL Chain to ALL enemies, gaining !M! damage per chain."
-  },
-  "stsjorbsmod:WanderingMind": {
-    "NAME": "Wandering Mind",
-    "DESCRIPTION": "Draw !M! cards. NL Remember a random memory you do not have stsjorbsmod:Clarity of."
-  },
-  "stsjorbsmod:WeightOfMemory": {
-    "NAME": "Weight of Memory",
-    "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for ALL cards which \"remember\"."
-  },
-  "stsjorbsmod:Prestidigitation": {
-    "NAME": "Prestidigitation",
-    "DESCRIPTION": "At the start of each turn, apply !M! Weak or !M! Vulnerable to a random enemy."
-  },
-  "stsjorbsmod:Message": {
-    "NAME": "Message",
-    "DESCRIPTION": "Put !M! card from your discard pile into your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Put !M! cards from your discard pile into your hand. NL Exhaust."
-  },
-  "stsjorbsmod:Index": {
-    "NAME": "Index",
-    "DESCRIPTION": "Draw !M! cards, then put !stsjorbsmod:MetaMagic! cards from your hand on top of your draw pile in random order.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards, then put !stsjorbsmod:MetaMagic! card from your hand on top of your draw pile."
-  },
-  "stsjorbsmod:FocusedMind": {
-    "NAME": "Focused Mind",
-    "DESCRIPTION": "stsjorbsmod:Sin: Deal !D! damage. NL stsjorbsmod:Virtue: Gain !B! Block. NL stsjorbsmod:Snapped: Do both."
-  },
-  "stsjorbsmod:UnseenServant": {
-    "NAME": "Unseen Servant",
-    "DESCRIPTION": "Remember stsjorbsmod:Sloth. NL Put !M! cards from your discard pile on top of your draw pile. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Sloth. NL Put !M! cards from your discard pile on top of your draw pile. NL Draw !stsjorbsmod:MetaMagic! card. NL Exhaust."
-  },
   "stsjorbsmod:Aid": {
     "NAME": "Aid",
     "DESCRIPTION": "Heal an enemy for !M! HP. NL Remember stsjorbsmod:Kindness. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Heal an enemy for !M! HP. NL Remember stsjorbsmod:Kindness. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
-  },
-  "stsjorbsmod:Mania": {
-    "NAME": "Mania",
-    "DESCRIPTION": "Deal !D! damage, equal to the number of unique cards in your hand. If they are all unique, gain !stsjorbsmod:MetaMagic! [E] and draw !stsjorbsmod:UrMagic! card.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage, equal to !stsjorbsmod:BaseDamage! + the number of unique cards in your hand. If they are all unique, gain !stsjorbsmod:MetaMagic! [E] and draw !stsjorbsmod:UrMagic! card."
-  },
-  "stsjorbsmod:Mindworm": {
-    "NAME": "Mindworm",
-    "DESCRIPTION": "Deal !D! damage. NL Then, if stsjorbsmod:Snapped, deal !M! damage. NL Add a copy of this card to your discard pile."
-  },
-  "stsjorbsmod:Hurt": {
-    "NAME": "Hurt",
-    "DESCRIPTION": "Deal !D! damage. NL Lose !M! HP per stsjorbsmod:Clarity you have."
-  },
-  "stsjorbsmod:SmithingStrike": {
-    "NAME": "Smithing Strike",
-    "DESCRIPTION": "Remember stsjorbsmod:Wrath. NL Deal !D! damage."
-  },
-  "stsjorbsmod:OldPocket": {
-    "NAME": "Old Pocket",
-    "DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
-  },
-  "stsjorbsmod:TollTheDead": {
-    "NAME": "Toll the Dead",
-    "DESCRIPTION": "Deal !D! damage. NL If the target had already been damaged this turn, deal !D! damage again."
-  },
-  "stsjorbsmod:CorpseExplosion_Wanderer": {
-    "NAME": "Corpse Explosion",
-    "DESCRIPTION": "stsjorbsmod:Entombed. Ethereal. NL stsjorbsmod:Exhume whenever an enemy dies. NL Deal !D! damage. NL Remember stsjorbsmod:Wrath. NL Exhaust."
-  },
-  "stsjorbsmod:Hibernate": {
-    "NAME": "Hibernate",
-    "DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Sloth."
-  },
-  "stsjorbsmod:Mending": {
-    "NAME": "Mending",
-    "DESCRIPTION": "Heal !M! HP for each stsjorbsmod:Clarity. NL Exhaust."
-  },
-  "stsjorbsmod:Rest": {
-    "NAME": "Rest",
-    "DESCRIPTION": "Remember stsjorbsmod:Chastity. NL Gain !B! Block. NL End your turn."
-  },
-  "stsjorbsmod:HedgeWizard": {
-    "NAME": "Hedge Wizard",
-    "DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Humility."
-  },
-  "stsjorbsmod:MistyStep": {
-    "NAME": "Misty Step",
-    "DESCRIPTION": "Gain !B! Block, !stsjorbsmod:MetaMagic! per stsjorbsmod:Clarity. NL Draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block, !stsjorbsmod:MetaMagic! per stsjorbsmod:Clarity + !stsjorbsmod:BaseBlock!. NL Draw !M! card."
-  },
-  "stsjorbsmod:MageArmor": {
-    "NAME": "Mage Armor",
-    "DESCRIPTION": "Unplayable. NL Retain. NL When you would lose HP, lose !M! fewer HP and discard this.",
-    "EXTENDED_DESCRIPTION": ["I can't play this card.", "Mage Armor"]
-  },
-  "stsjorbsmod:Stalwart": {
-    "NAME": "Stalwart",
-    "DESCRIPTION": "Remember stsjorbsmod:Temperance. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Temperance. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
-  },
-  "stsjorbsmod:AnimateObjects": {
-    "NAME": "Animate Objects",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies for each non-exhausted card that didn't start the combat in your deck."
-  },
-  "stsjorbsmod:ColorSpray": {
-    "NAME": "Color Spray",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each. NL Remember stsjorbsmod:Envy."
-  },
-  "stsjorbsmod:TinyHut": {
-    "NAME": "Tiny Hut",
-    "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Gain stsjorbsmod:Clarity of current memory.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Remember stsjorbsmod:Kindness. NL Gain stsjorbsmod:Clarity of current memory."
-  },
-  "stsjorbsmod:FaerieFire": {
-    "NAME": "Faerie Fire",
-    "DESCRIPTION": "stsjorbsmod:Virtue: Apply !M! Weak to ALL enemies. NL stsjorbsmod:Sin: Apply !M! Vulnerable to ALL enemies. NL Exhaust."
-  },
-  "stsjorbsmod:Introspection": {
-    "NAME": "Introspection",
-    "DESCRIPTION": "At the end of each turn, lose !stsjorbsmod:UrMagic! HP and deal !M! damage to ALL enemies. Deal !stsjorbsmod:MetaMagic! additional damage per stsjorbsmod:Clarity."
-  },
-  "stsjorbsmod:Inferno": {
-    "NAME": "Inferno",
-    "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Double target enemy's stsjorbsmod:Burning. NL Exhaust. stsjorbsmod:Exhume when you stsjorbsmod:Snap.",
-    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Lust. NL Triple target enemy's stsjorbsmod:Burning. NL Exhaust. stsjorbsmod:Exhume when you stsjorbsmod:Snap."
-  },
-  "stsjorbsmod:BookOfTongues": {
-    "NAME": "Book of Tongues",
-    "DESCRIPTION": "At the start of each turn, put !M! stsjorbsmod:Material\u00a0Component into your hand.",
-    "UPGRADE_DESCRIPTION": "At the start of each turn, put !M! stsjorbsmod:Material\u00a0Components into your hand."
-  },
-  "stsjorbsmod:MagicMirror": {
-    "NAME": "Magic Mirror",
-    "DESCRIPTION": "Whenever an enemy applies a debuff to you, apply that debuff to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Whenever an enemy applies a debuff to you, apply that debuff to ALL enemies."
-  },
-  "stsjorbsmod:Thorns": {
-    "NAME": "Thorns",
-    "DESCRIPTION": "Remember stsjorbsmod:Humility. NL If an enemy intends to attack, gain stsjorbsmod:Clarity of current memory. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Humility. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
-  },
-  "stsjorbsmod:RefuseToForget": {
-    "NAME": "Refuse to Forget",
-    "DESCRIPTION": "You cannot forget your current memory until you have stsjorbsmod:Clarity of it. NL Scry !M!."
-  },
-  "stsjorbsmod:LocateObject": {
-    "NAME": "Locate Object",
-    "DESCRIPTION": "Remember stsjorbsmod:Greed. NL Draw !M! cards. NL Exhaust."
-  },
-  "stsjorbsmod:SchoolsOfMagic": {
-    "NAME": "Schools of Magic",
-    "DESCRIPTION": "Draw !M! cards. NL If you have no duplicate cards in hand, gain stsjorbsmod:Clarity; otherwise, Exhaust 1 of each duplicate."
-  },
-  "stsjorbsmod:FindFamiliar": {
-    "NAME": "Find Familiar",
-    "DESCRIPTION": "At the end of each turn, gain stsjorbsmod:Clarity of current memory.",
-    "UPGRADE_DESCRIPTION": "At the end of each turn, gain stsjorbsmod:Clarity of current memory. NL If stsjorbsmod:Snapped, deal !M! damage to ALL enemies."
-  },
-  "stsjorbsmod:Trauma": {
-    "NAME": "Trauma",
-    "DESCRIPTION": "stsjorbsmod:Snap. NL Deal !D! damage to ALL enemies. NL Put this card on top of your draw pile."
-  },
-  "stsjorbsmod:GatherPower": {
-    "NAME": "Gather Power",
-    "DESCRIPTION": "Draw !M! cards. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional time.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional times."
-  },
-  "stsjorbsmod:Fireball": {
-    "NAME": "Fireball",
-    "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Deal !D! damage to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Lust. NL Deal !D! damage to ALL enemies. NL Apply !M! stsjorbsmod:Burning to ALL enemies."
-  },
-  "stsjorbsmod:LoseGrip": {
-    "NAME": "Lose Grip",
-    "DESCRIPTION": "Gain !B! Block. NL Exhaust. stsjorbsmod:Exhume when you stsjorbsmod:Snap."
-  },
-  "stsjorbsmod:SiphonEnergy": {
-    "NAME": "Siphon Energy",
-    "DESCRIPTION": "Remove all stsjorbsmod:Burning from target and gain that much Strength until end of turn. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Remove all stsjorbsmod:Burning from target and gain that much Strength until end of turn."
-  },
-  "stsjorbsmod:HoldMonster": {
-    "NAME": "Hold Monster",
-    "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Enemy loses !M! Strength until end of turn. NL Exhaust."
-  },
-  "stsjorbsmod:Withdraw": {
-    "NAME": "Withdraw",
-    "DESCRIPTION": "Gain !M! Artifact. NL Gain !B! Block. NL Exhaust."
-  },
-  "stsjorbsmod:MirrorImage": {
-    "NAME": "Mirror Image",
-    "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL The next enemy attack misses.",
-    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Kindness. NL The next enemy attack misses. NL Retain."
-  },
-  "stsjorbsmod:CorrodingBarrier": {
-    "NAME": "Corroding Barrier",
-    "DESCRIPTION": "Gain !B! Block. Decrease this card's Block this combat by !M! each time it is drawn.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block."
-  },
-  "stsjorbsmod:Entangle": {
-    "NAME": "Entangle",
-    "DESCRIPTION": "Apply stsjorbsmod:Slow to ALL enemies. NL Add !M! stsjorbsmod:Web into your hand.",
-    "UPGRADE_DESCRIPTION": "Apply stsjorbsmod:Slow to ALL enemies. NL Add !M! stsjorbsmod:Webs into your hand."
   },
   "stsjorbsmod:Amnesia": {
     "NAME": "Amnesia",
@@ -293,119 +13,402 @@
       "@Dig@"
     ]
   },
-  "stsjorbsmod:Fear": {
-    "NAME": "Fear",
-    "DESCRIPTION": "Target non-boss enemy will flee in !M! turns. If this ends combat, you gain no rewards but keep Clarities for the next combat."
-  },
-  "stsjorbsmod:Determination": {
-    "NAME": "Determination",
-    "DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of this turn, stsjorbsmod:Snap.",
-    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of your next turn, stsjorbsmod:Snap."
+  "stsjorbsmod:AnimateObjects": {
+    "NAME": "Animate Objects",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies for each non-exhausted card that didn't start the combat in your deck."
   },
   "stsjorbsmod:ArcaneForm": {
     "NAME": "Arcane Form",
     "DESCRIPTION": "Ethereal. NL Gain stsjorbsmod:Clarity of stsjorbsmod:Patience, stsjorbsmod:Lust, stsjorbsmod:Diligence, stsjorbsmod:Kindness, and stsjorbsmod:Chastity.",
     "UPGRADE_DESCRIPTION": "Gain stsjorbsmod:Clarity of stsjorbsmod:Patience, stsjorbsmod:Lust, stsjorbsmod:Diligence, stsjorbsmod:Kindness, and stsjorbsmod:Chastity."
   },
+  "stsjorbsmod:ArcaneWeapon": {
+    "NAME": "Arcane Weapon",
+    "DESCRIPTION": "At the end of each turn, attack a random enemy for !D! damage."
+  },
   "stsjorbsmod:Banish": {
     "NAME": "Banish",
     "DESCRIPTION": "Enemy takes no action and no damage for !M! turns. Exhaust."
-  },
-  "stsjorbsmod:Pyromancy": {
-    "NAME": "Pyromancy",
-    "DESCRIPTION": "Ethereal. NL Apply stsjorbsmod:Burning twice.",
-    "UPGRADE_DESCRIPTION": "Apply stsjorbsmod:Burning twice."
-  },
-  "stsjorbsmod:Feast": {
-    "NAME": "Feast",
-    "DESCRIPTION": "Remember stsjorbsmod:Gluttony. NL Draw !M! cards. NL Exhaust."
-  },
-  "stsjorbsmod:IvoryTower": {
-    "NAME": "Ivory Tower",
-    "DESCRIPTION": "Draw !M! cards. NL Exhaust all Curse and Status cards in your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Exhaust all Curse and Status cards in your hand."
-  },
-  "stsjorbsmod:BurningFlask": {
-    "NAME": "Burning Flask",
-    "DESCRIPTION": "Apply !M! stsjorbsmod:Burning."
-  },
-  "stsjorbsmod:Web": {
-    "NAME": "Web",
-    "DESCRIPTION": "Retain. NL Apply !M! Weak. NL Exhaust."
-  },
-  "stsjorbsmod:Sulfur": {
-    "NAME": "Sulfur",
-    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Apply !M! stsjorbsmod:Burning."
-  },
-  "stsjorbsmod:Eye": {
-    "NAME": "Eye",
-    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Apply !M! Vulnerable."
-  },
-  "stsjorbsmod:Moss": {
-    "NAME": "Moss",
-    "DESCRIPTION": "Retain. NL Gain !M! Dexterity until end of turn. NL Exhaust."
-  },
-  "stsjorbsmod:Steel": {
-    "NAME": "Steel",
-    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Upgrade !M! random card in your hand until the end of combat.",
-    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Upgrade !M! random cards in your hand until the end of combat."
   },
   "stsjorbsmod:Barb": {
     "NAME": "Barb",
     "DESCRIPTION": "Deal !D! damage."
   },
-  "stsjorbsmod:EnergyBulb": {
-    "NAME": "Energy Bulb",
-    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !M! [E]."
+  "stsjorbsmod:BlackTentacles": {
+    "NAME": "Black Tentacles",
+    "DESCRIPTION": "Deal !D! damage. NL This turn, all damage you deal to other enemies is dealt to this enemy instead.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL This turn, all damage you deal to other enemies is dealt to this enemy instead. NL Draw !M! card."
   },
-  "stsjorbsmod:LooseLeaf": {
-    "NAME": "Loose Leaf",
-    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Draw !M! card.",
-    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Draw !M! cards."
+  "stsjorbsmod:BookOfTongues": {
+    "NAME": "Book of Tongues",
+    "DESCRIPTION": "At the start of each turn, put !M! stsjorbsmod:Material\u00a0Component into your hand.",
+    "UPGRADE_DESCRIPTION": "At the start of each turn, put !M! stsjorbsmod:Material\u00a0Components into your hand."
   },
-  "stsjorbsmod:StrangePendant": {
-    "NAME": "Strange Pendant",
-    "DESCRIPTION": "Ignore the first !M! damage taken each turn."
+  "stsjorbsmod:BurningFlask": {
+    "NAME": "Burning Flask",
+    "DESCRIPTION": "Apply !M! stsjorbsmod:Burning."
+  },
+  "stsjorbsmod:ChainLightning": {
+    "NAME": "Chain Lightning",
+    "DESCRIPTION": "Deal !D! damage. NL Chain to ALL enemies, gaining !M! damage per chain."
   },
   "stsjorbsmod:Chamomile": {
     "NAME": "Chamomile",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Remove Frail and Vulnerable from yourself.",
     "UPGRADE_DESCRIPTION": "Retain. NL Remove Frail and Vulnerable from yourself. NL Exhaust."
   },
+  "stsjorbsmod:Channel": {
+    "NAME": "Channel",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! [E] next turn.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !M! [E] next turn. NL Put a card from your discard pile on top of your draw pile."
+  },
+  "stsjorbsmod:ColorSpray": {
+    "NAME": "Color Spray",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each. NL Remember stsjorbsmod:Envy."
+  },
+  "stsjorbsmod:CorpseExplosion_Wanderer": {
+    "NAME": "Corpse Explosion",
+    "DESCRIPTION": "stsjorbsmod:Entombed. Ethereal. NL stsjorbsmod:Exhume whenever an enemy dies. NL Deal !D! damage. NL Remember stsjorbsmod:Wrath. NL Exhaust."
+  },
+  "stsjorbsmod:CorrodingBarrier": {
+    "NAME": "Corroding Barrier",
+    "DESCRIPTION": "Gain !B! Block. Decrease this card's Block this combat by !M! each time it is drawn.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block."
+  },
+  "stsjorbsmod:Counterspell": {
+    "NAME": "Counterspell",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Artifact if enemy intends to apply a negative effect. NL Exhaust."
+  },
+  "stsjorbsmod:Defend_Wanderer": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "stsjorbsmod:Determination": {
+    "NAME": "Determination",
+    "DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of this turn, stsjorbsmod:Snap.",
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of your next turn, stsjorbsmod:Snap."
+  },
+  "stsjorbsmod:DisguiseSelf": {
+    "NAME": "Disguise Self",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !B! Block next turn."
+  },
+  "stsjorbsmod:DoubleCheck": {
+    "NAME": "Double-check",
+    "DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Diligence.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Diligence. NL At the start of your next turn, if you remember stsjorbsmod:Diligence gain stsjorbsmod:Clarity."
+  },
+  "stsjorbsmod:EnergyBulb": {
+    "NAME": "Energy Bulb",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !M! [E]."
+  },
+  "stsjorbsmod:Entangle": {
+    "NAME": "Entangle",
+    "DESCRIPTION": "Apply stsjorbsmod:Slow to ALL enemies. NL Add !M! stsjorbsmod:Web into your hand.",
+    "UPGRADE_DESCRIPTION": "Apply stsjorbsmod:Slow to ALL enemies. NL Add !M! stsjorbsmod:Webs into your hand."
+  },
+  "stsjorbsmod:Eye": {
+    "NAME": "Eye",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Apply !M! Vulnerable."
+  },
+  "stsjorbsmod:EyeOfTheStorm": {
+    "NAME": "Eye of the Storm",
+    "DESCRIPTION": "Gain stsjorbsmod:Clarity of current memory, then remember a random memory you do not have stsjorbsmod:Clarity of. NL Gain !B! Block."
+  },
+  "stsjorbsmod:FaerieFire": {
+    "NAME": "Faerie Fire",
+    "DESCRIPTION": "stsjorbsmod:Virtue: Apply !M! Weak to ALL enemies. NL stsjorbsmod:Sin: Apply !M! Vulnerable to ALL enemies. NL Exhaust."
+  },
+  "stsjorbsmod:Fear": {
+    "NAME": "Fear",
+    "DESCRIPTION": "Target non-boss enemy will flee in !M! turns. If this ends combat, you gain no rewards but keep Clarities for the next combat."
+  },
+  "stsjorbsmod:Feast": {
+    "NAME": "Feast",
+    "DESCRIPTION": "Remember stsjorbsmod:Gluttony. NL Draw !M! cards. NL Exhaust."
+  },
+  "stsjorbsmod:FindFamiliar": {
+    "NAME": "Find Familiar",
+    "DESCRIPTION": "At the end of each turn, gain stsjorbsmod:Clarity of current memory.",
+    "UPGRADE_DESCRIPTION": "At the end of each turn, gain stsjorbsmod:Clarity of current memory. NL If stsjorbsmod:Snapped, deal !M! damage to ALL enemies."
+  },
+  "stsjorbsmod:Fireball": {
+    "NAME": "Fireball",
+    "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Deal !D! damage to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Lust. NL Deal !D! damage to ALL enemies. NL Apply !M! stsjorbsmod:Burning to ALL enemies."
+  },
+  "stsjorbsmod:Firebolt": {
+    "NAME": "Firebolt",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! stsjorbsmod:Burning for each stsjorbsmod:Clarity."
+  },
+  "stsjorbsmod:FlameWard": {
+    "NAME": "Flame Ward",
+    "DESCRIPTION": "The next time you are attacked, apply !M! stsjorbsmod:Burning to ALL attackers and gain !B! Block. Exhaust."
+  },
+  "stsjorbsmod:FocusedMind": {
+    "NAME": "Focused Mind",
+    "DESCRIPTION": "stsjorbsmod:Sin: Deal !D! damage. NL stsjorbsmod:Virtue: Gain !B! Block. NL stsjorbsmod:Snapped: Do both."
+  },
+  "stsjorbsmod:ForbiddenGrimoire": {
+    "NAME": "Forbidden Grimoire",
+    "DESCRIPTION": "stsjorbsmod:Entombed until turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL Exhaust, then stsjorbsmod:Exhume after playing !M! other cards, unless stsjorbsmod:Snapped."
+  },
+  "stsjorbsmod:FreshAdventure": {
+    "NAME": "Fresh Adventure",
+    "DESCRIPTION": "Deal !D! damage. NL Remember stsjorbsmod:Diligence."
+  },
+  "stsjorbsmod:GatherPower": {
+    "NAME": "Gather Power",
+    "DESCRIPTION": "Draw !M! cards. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional time.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional times."
+  },
+  "stsjorbsmod:HedgeWizard": {
+    "NAME": "Hedge Wizard",
+    "DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Humility."
+  },
+  "stsjorbsmod:Hibernate": {
+    "NAME": "Hibernate",
+    "DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Sloth."
+  },
+  "stsjorbsmod:HoldMonster": {
+    "NAME": "Hold Monster",
+    "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Enemy loses !M! Strength until end of turn. NL Exhaust."
+  },
+  "stsjorbsmod:Hurt": {
+    "NAME": "Hurt",
+    "DESCRIPTION": "Deal !D! damage. NL Lose !M! HP per stsjorbsmod:Clarity you have."
+  },
+  "stsjorbsmod:Index": {
+    "NAME": "Index",
+    "DESCRIPTION": "Draw !M! cards, then put !stsjorbsmod:MetaMagic! cards from your hand on top of your draw pile in random order.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards, then put !stsjorbsmod:MetaMagic! card from your hand on top of your draw pile."
+  },
+  "stsjorbsmod:Inferno": {
+    "NAME": "Inferno",
+    "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Double target enemy's stsjorbsmod:Burning. NL Exhaust. stsjorbsmod:Exhume when you stsjorbsmod:Snap.",
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Lust. NL Triple target enemy's stsjorbsmod:Burning. NL Exhaust. stsjorbsmod:Exhume when you stsjorbsmod:Snap."
+  },
+  "stsjorbsmod:Introspection": {
+    "NAME": "Introspection",
+    "DESCRIPTION": "At the end of each turn, lose !stsjorbsmod:UrMagic! HP and deal !M! damage to ALL enemies. Deal !stsjorbsmod:MetaMagic! additional damage per stsjorbsmod:Clarity."
+  },
+  "stsjorbsmod:IvoryTower": {
+    "NAME": "Ivory Tower",
+    "DESCRIPTION": "Draw !M! cards. NL Exhaust all Curse and Status cards in your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Exhaust all Curse and Status cards in your hand."
+  },
+  "stsjorbsmod:LocateObject": {
+    "NAME": "Locate Object",
+    "DESCRIPTION": "Remember stsjorbsmod:Greed. NL Draw !M! cards. NL Exhaust."
+  },
+  "stsjorbsmod:LooseLeaf": {
+    "NAME": "Loose Leaf",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Draw !M! cards."
+  },
+  "stsjorbsmod:LoseGrip": {
+    "NAME": "Lose Grip",
+    "DESCRIPTION": "Gain !B! Block. NL Exhaust. stsjorbsmod:Exhume when you stsjorbsmod:Snap."
+  },
+  "stsjorbsmod:Loss": {
+    "NAME": "Loss",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Weak."
+  },
+  "stsjorbsmod:MageArmor": {
+    "NAME": "Mage Armor",
+    "DESCRIPTION": "Unplayable. NL Retain. NL When you would lose HP, lose !M! fewer HP and discard this.",
+    "EXTENDED_DESCRIPTION": [
+      "I can't play this card.",
+      "Mage Armor"
+    ]
+  },
+  "stsjorbsmod:MagicMirror": {
+    "NAME": "Magic Mirror",
+    "DESCRIPTION": "Whenever an enemy applies a debuff to you, apply that debuff to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever an enemy applies a debuff to you, apply that debuff to ALL enemies."
+  },
+  "stsjorbsmod:MagicMissiles": {
+    "NAME": "Magic Missiles",
+    "DESCRIPTION": "Deal !D! damage. NL Deal !D! damage again once for each stsjorbsmod:Clarity."
+  },
+  "stsjorbsmod:Mania": {
+    "NAME": "Mania",
+    "DESCRIPTION": "Deal !D! damage, equal to the number of unique cards in your hand. If they are all unique, gain !stsjorbsmod:MetaMagic! [E] and draw !stsjorbsmod:UrMagic! card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage, equal to !stsjorbsmod:BaseDamage! + the number of unique cards in your hand. If they are all unique, gain !stsjorbsmod:MetaMagic! [E] and draw !stsjorbsmod:UrMagic! card."
+  },
+  "stsjorbsmod:Mending": {
+    "NAME": "Mending",
+    "DESCRIPTION": "Heal !M! HP for each stsjorbsmod:Clarity. NL Exhaust."
+  },
+  "stsjorbsmod:Message": {
+    "NAME": "Message",
+    "DESCRIPTION": "Put !M! card from your discard pile into your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Put !M! cards from your discard pile into your hand. NL Exhaust."
+  },
+  "stsjorbsmod:Mindworm": {
+    "NAME": "Mindworm",
+    "DESCRIPTION": "Deal !D! damage. NL Then, if stsjorbsmod:Snapped, deal !M! damage. NL Add a copy of this card to your discard pile."
+  },
+  "stsjorbsmod:MinorIllusion": {
+    "NAME": "Minor Illusion",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "stsjorbsmod:MirrorImage": {
+    "NAME": "Mirror Image",
+    "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL The next enemy attack misses.",
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Kindness. NL The next enemy attack misses. NL Retain."
+  },
+  "stsjorbsmod:MistyStep": {
+    "NAME": "Misty Step",
+    "DESCRIPTION": "Gain !B! Block, !stsjorbsmod:MetaMagic! per stsjorbsmod:Clarity. NL Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block, !stsjorbsmod:MetaMagic! per stsjorbsmod:Clarity + !stsjorbsmod:BaseBlock!. NL Draw !M! card."
+  },
+  "stsjorbsmod:Moss": {
+    "NAME": "Moss",
+    "DESCRIPTION": "Retain. NL Gain !M! Dexterity until end of turn. NL Exhaust."
+  },
   "stsjorbsmod:OakLeaf": {
     "NAME": "Oak Leaf",
     "DESCRIPTION": "Gain !M! Dexterity."
   },
-  "stsjorbsmod:Rot": {
-    "NAME": "Rot",
-    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Lose a random stsjorbsmod:Clarity. NL When this is initially added to your hand, add !M! additional copy.",
-    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Lose a random stsjorbsmod:Clarity. NL When this is initially added to your hand, add !M! additional copies."
+  "stsjorbsmod:OldPocket": {
+    "NAME": "Old Pocket",
+    "DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
+  },
+  "stsjorbsmod:Prestidigitation": {
+    "NAME": "Prestidigitation",
+    "DESCRIPTION": "At the start of each turn, apply !M! Weak or !M! Vulnerable to a random enemy."
+  },
+  "stsjorbsmod:PurgeMind": {
+    "NAME": "Purge Mind",
+    "DESCRIPTION": "Exhaust ALL cards which \"remember\". Then, deal !D! damage for each in your Exhaust pile. NL stsjorbsmod:Snap. Exhaust."
+  },
+  "stsjorbsmod:Pyromancy": {
+    "NAME": "Pyromancy",
+    "DESCRIPTION": "Ethereal. NL Apply stsjorbsmod:Burning twice.",
+    "UPGRADE_DESCRIPTION": "Apply stsjorbsmod:Burning twice."
   },
   "stsjorbsmod:Quicksilver": {
     "NAME": "Quicksilver",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance relics !stsjorbsmod:MetaMagic! turn through time. NL This turn, your next attack is played !M! additional time.",
     "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance relics !stsjorbsmod:MetaMagic! turn through time. NL This turn, your next attack is played !M! additional times."
   },
-  "stsjorbsmod:Stone": {
-    "NAME": "Stone",
-    "DESCRIPTION": "Retain. NL Apply stsjorbsmod:Slow to enemy. NL If already stsjorbsmod:Slowed, double its stsjorbsmod:Slow stacks. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Apply stsjorbsmod:Slow to enemy. NL If already stsjorbsmod:Slowed, triple its stsjorbsmod:Slow stacks. NL Exhaust."
-  },
-  "stsjorbsmod:ScorchingRay": {
-    "NAME": "Scorching Ray",
-    "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Apply !D! damage as stsjorbsmod:Burning !M! times."
-  },
-  "stsjorbsmod:FlameWard": {
-    "NAME": "Flame Ward",
-    "DESCRIPTION": "The next time you are attacked, apply !M! stsjorbsmod:Burning to ALL attackers and gain !B! Block. Exhaust."
-  },
-  "stsjorbsmod:PurgeMind": {
-    "NAME": "Purge Mind",
-    "DESCRIPTION": "Exhaust ALL cards which \"remember\". Then, deal !D! damage for each in your Exhaust pile. NL stsjorbsmod:Snap. Exhaust."
+  "stsjorbsmod:RayOfFrost": {
+    "NAME": "Ray of Frost",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak !stsjorbsmod:MetaMagic! times."
   },
   "stsjorbsmod:Rediscovery": {
     "NAME": "Rediscovery",
     "DESCRIPTION": "Whenever you gain stsjorbsmod:Clarity of a new memory, gain 1 [E].",
     "UPGRADE_DESCRIPTION": "Innate. NL Whenever you gain stsjorbsmod:Clarity of a new memory, gain 1 [E]."
+  },
+  "stsjorbsmod:RefuseToForget": {
+    "NAME": "Refuse to Forget",
+    "DESCRIPTION": "You cannot forget your current memory until you have stsjorbsmod:Clarity of it. NL Scry !M!."
+  },
+  "stsjorbsmod:Rest": {
+    "NAME": "Rest",
+    "DESCRIPTION": "Remember stsjorbsmod:Chastity. NL Gain !B! Block. NL End your turn."
+  },
+  "stsjorbsmod:Rot": {
+    "NAME": "Rot",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Lose a random stsjorbsmod:Clarity. NL When this is initially added to your hand, add !M! additional copy.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Lose a random stsjorbsmod:Clarity. NL When this is initially added to your hand, add !M! additional copies."
+  },
+  "stsjorbsmod:SchoolsOfMagic": {
+    "NAME": "Schools of Magic",
+    "DESCRIPTION": "Draw !M! cards. NL If you have no duplicate cards in hand, gain stsjorbsmod:Clarity; otherwise, Exhaust 1 of each duplicate."
+  },
+  "stsjorbsmod:ScorchingRay": {
+    "NAME": "Scorching Ray",
+    "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Apply !D! damage as stsjorbsmod:Burning !M! times."
+  },
+  "stsjorbsmod:SiphonEnergy": {
+    "NAME": "Siphon Energy",
+    "DESCRIPTION": "Remove all stsjorbsmod:Burning from target and gain that much Strength until end of turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Remove all stsjorbsmod:Burning from target and gain that much Strength until end of turn."
+  },
+  "stsjorbsmod:SmithingStrike": {
+    "NAME": "Smithing Strike",
+    "DESCRIPTION": "Remember stsjorbsmod:Wrath. NL Deal !D! damage."
+  },
+  "stsjorbsmod:SnakeOil": {
+    "NAME": "Snake Oil",
+    "DESCRIPTION": "Retain. NL Deal !D! damage to ALL enemies. Deals !M! additional damage per stsjorbsmod:Coil. NL Exhaust."
+  },
+  "stsjorbsmod:Stalwart": {
+    "NAME": "Stalwart",
+    "DESCRIPTION": "Remember stsjorbsmod:Temperance. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Temperance. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
+  },
+  "stsjorbsmod:Steel": {
+    "NAME": "Steel",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Upgrade !M! random card in your hand until the end of combat.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Upgrade !M! random cards in your hand until the end of combat."
+  },
+  "stsjorbsmod:Stone": {
+    "NAME": "Stone",
+    "DESCRIPTION": "Retain. NL Apply stsjorbsmod:Slow to enemy. NL If already stsjorbsmod:Slowed, double its stsjorbsmod:Slow stacks. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Apply stsjorbsmod:Slow to enemy. NL If already stsjorbsmod:Slowed, triple its stsjorbsmod:Slow stacks. NL Exhaust."
+  },
+  "stsjorbsmod:StrangePendant": {
+    "NAME": "Strange Pendant",
+    "DESCRIPTION": "Ignore the first !M! damage taken each turn."
+  },
+  "stsjorbsmod:Strike_Wanderer": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "stsjorbsmod:Sulfur": {
+    "NAME": "Sulfur",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Apply !M! stsjorbsmod:Burning."
+  },
+  "stsjorbsmod:ThirstingSword": {
+    "NAME": "Thirsting Sword",
+    "DESCRIPTION": "Apply !M! stsjorbsmod:Burning and heal HP equal to target's stsjorbsmod:Burning. NL Lose !stsjorbsmod:MetaMagic! Max HP. NL Deal !D! damage. NL Exhaust."
+  },
+  "stsjorbsmod:Thorns": {
+    "NAME": "Thorns",
+    "DESCRIPTION": "Remember stsjorbsmod:Humility. NL If an enemy intends to attack, gain stsjorbsmod:Clarity of current memory. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Humility. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
+  },
+  "stsjorbsmod:TinyHut": {
+    "NAME": "Tiny Hut",
+    "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Gain stsjorbsmod:Clarity of current memory.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Remember stsjorbsmod:Kindness. NL Gain stsjorbsmod:Clarity of current memory."
+  },
+  "stsjorbsmod:TollTheDead": {
+    "NAME": "Toll the Dead",
+    "DESCRIPTION": "Deal !D! damage. NL If the target had already been damaged this turn, deal !D! damage again."
+  },
+  "stsjorbsmod:Trauma": {
+    "NAME": "Trauma",
+    "DESCRIPTION": "stsjorbsmod:Snap. NL Deal !D! damage to ALL enemies. NL Put this card on top of your draw pile."
+  },
+  "stsjorbsmod:TrueStrike": {
+    "NAME": "True Strike",
+    "DESCRIPTION": "Deal !D! damage. NL This damage cannot be prevented or reduced."
+  },
+  "stsjorbsmod:UnseenServant": {
+    "NAME": "Unseen Servant",
+    "DESCRIPTION": "Remember stsjorbsmod:Sloth. NL Put !M! cards from your discard pile on top of your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Sloth. NL Put !M! cards from your discard pile on top of your draw pile. NL Draw !stsjorbsmod:MetaMagic! card. NL Exhaust."
+  },
+  "stsjorbsmod:WanderingMind": {
+    "NAME": "Wandering Mind",
+    "DESCRIPTION": "Draw !M! cards. NL Remember a random memory you do not have stsjorbsmod:Clarity of."
+  },
+  "stsjorbsmod:Web": {
+    "NAME": "Web",
+    "DESCRIPTION": "Retain. NL Apply !M! Weak. NL Exhaust."
+  },
+  "stsjorbsmod:WeightOfMemory": {
+    "NAME": "Weight of Memory",
+    "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for ALL cards which \"remember\"."
+  },
+  "stsjorbsmod:Withdraw": {
+    "NAME": "Withdraw",
+    "DESCRIPTION": "Gain !M! Artifact. NL Gain !B! Block. NL Exhaust."
   }
 }
