@@ -86,7 +86,7 @@
   },
   {
     "NAMES": ["ralenti"],
-    "DESCRIPTION": "Slowed creatures take 10% more damage from attacks per card already played this turn."
+    "DESCRIPTION": "Une créature ralentie prend 10% plus de dégâts par carte jouée ce tour."
   },
   {
     "NAMES": ["craquez", "craqué"],
