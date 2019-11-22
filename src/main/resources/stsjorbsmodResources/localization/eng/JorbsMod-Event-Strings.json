@@ -17,5 +17,12 @@
       "[Leave]",
       "Select card to remove."
     ]
+  },
+  "stsjorbsmod:SensoryStone": {
+    "DESCRIPTIONS": [
+      "#g~FOOTSTEPS.~ NL NL A #ythunder of footsteps splash on water and echo off rock. You look around but see no-one in the cavern other than yourself. More and more join as the pacing #pcrescendos into a #b@cacophony.@ NL NL Your head ~swims~ and you fall unconscious. NL NL When you wake you are alone.",
+      "#b~REMEMBER.~ NL NL A face comes to you as if in a dream. One that looks like your own, but with fewer lines and scars. NL NL It tells you not to ~forget,~ it tells you to #b~remember.~ #bremember #p~remember~ #p@-member@ #r~-ber~ #r@-ber.@ NL NL You scratch the word into the skin of your arm before you lose it. #yRemember. #yRemember. NL NL As you walk on you notice a dull ache on your forearm, as if it has been scratched.",
+      "#r~FEED.~ NL NL The room... accepts you. You stop for a while and feel no pressure to move on. Your #r~hunger~ subsides. If you wished, you could sleep. NL NL It is terrifying. NL NL It is time to move on."
+    ]
   }
 }
