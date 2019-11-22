@@ -1,0 +1,46 @@
+{
+  "stsjorbsmod:AbstractMemory": {
+    "TEXT": [
+      "#gClarifié. NL ",
+      "#gSouvenu. NL ",
+      "#rOublié. NL "
+    ]
+  },
+  "stsjorbsmod:AlchemistsFireOnClick": {
+    "TEXT": [
+      "GOLASO! GOL! GOL! GOL!"
+    ]
+  },
+  "stsjorbsmod:BossImmuneToFear": {
+    "TEXT": [
+      "Un boss n'a pas peur!"
+    ]
+  },
+  "stsjorbsmod:CallCalipers": {
+    "TEXT": [
+      "Un Compas pourrait être utile..."
+    ]
+  },
+  "stsjorbsmod:CardsToTopOfDeckAction": {
+    "TEXT": [
+      "Choisissez %1$s Carte à placer au-dessus de votre pioche.",
+      "Choisissez %1$s Cartes à placer au-dessus de votre pioche.",
+      "placer au-dessus de votre pioche."
+    ]
+  },
+  "stsjorbsmod:CounterspellAction": {
+    "TEXT": [
+      "L'ennemi ne compte pas infliger de debuff"
+    ]
+  },
+  "stsjorbsmod:DigEmote": {
+    "TEXT": [
+      "jorbsBird Dig! jorbsBird RELIC jorbsBird DIG jorbsBird"
+    ]
+  },
+  "stsjorbsmod:IfEnemyIntendsToAttackAction": {
+    "TEXT": [
+      "L'ennemi ne compte pas attaquer"
+    ]
+  }
+}

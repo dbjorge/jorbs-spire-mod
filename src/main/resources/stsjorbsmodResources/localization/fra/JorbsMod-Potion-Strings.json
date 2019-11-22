@@ -1,0 +1,15 @@
+{
+  "stsjorbsmod:BurningPotion": {
+    "NAME": "Potion Brûlante",
+    "DESCRIPTIONS": [
+      "Appliquez #b",
+      " de #yBrûlure."
+    ]
+  },
+  "stsjorbsmod:DimensionDoorPotion": {
+    "NAME": "Parchemin d'entrée dimensionnelle",
+    "DESCRIPTIONS": [
+      "Vous pouvez ignorer les lignes au moment de choisir l'étage suivant."
+    ]
+  }
+}
