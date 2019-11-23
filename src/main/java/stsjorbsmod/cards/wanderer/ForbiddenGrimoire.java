@@ -11,6 +11,7 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.patches.AutoExhumeField;
 import stsjorbsmod.patches.EntombedField;
+import stsjorbsmod.patches.EphemeralField;
 import stsjorbsmod.powers.ForbiddenGrimoireDelayedExhumePower;
 
 import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
@@ -34,7 +35,7 @@ public class ForbiddenGrimoire extends CustomJorbsModCard {
         magicNumber = baseMagicNumber = CARD_PLAYS_TO_EXHUME;
         EntombedField.entombed.set(this, true);
         AutoExhumeField.autoExhumeBehavior.set(this, AutoExhumeBehavior.EXHUME_AT_START_OF_TURN_7);
-        exhaust = true;
+        EphemeralField.ephemeral.set(this, true);
 
         upgrade(); // Always starts upgraded
         tags.add(LEGENDARY);

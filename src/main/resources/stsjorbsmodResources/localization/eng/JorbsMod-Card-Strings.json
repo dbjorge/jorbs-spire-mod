@@ -150,7 +150,7 @@
   },
   "stsjorbsmod:ForbiddenGrimoire": {
     "NAME": "Forbidden Grimoire",
-    "DESCRIPTION": "stsjorbsmod:Entombed until turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL Exhaust, then stsjorbsmod:Exhume after playing !M! other cards, unless stsjorbsmod:Snapped."
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL stsjorbsmod:Exhume after playing this then !M! other cards, unless stsjorbsmod:Snapped."
   },
   "stsjorbsmod:FreshAdventure": {
     "NAME": "Fresh Adventure",
