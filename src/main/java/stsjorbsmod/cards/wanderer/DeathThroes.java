@@ -13,14 +13,15 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.WrathMemory;
 import stsjorbsmod.patches.AutoExhumeField;
 import stsjorbsmod.patches.EntombedField;
+import stsjorbsmod.patches.EphemeralField;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
-public class CorpseExplosion_Wanderer extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(CorpseExplosion_Wanderer.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Rares/corpse_explosion_wanderer.png");
+public class DeathThroes extends CustomJorbsModCard {
+    public static final String ID = JorbsMod.makeID(DeathThroes.class.getSimpleName());
+    public static final String IMG = makeCardPath("Damage_Rares/death_throes.png");
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -31,13 +32,12 @@ public class CorpseExplosion_Wanderer extends CustomJorbsModCard {
     private static final int DAMAGE = 14;
     private static final int UPGRADE_PLUS_DAMAGE = 4;
 
-    public CorpseExplosion_Wanderer() {
+    public DeathThroes() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         EntombedField.entombed.set(this, true);
         AutoExhumeField.autoExhumeBehavior.set(this, AutoExhumeBehavior.EXHUME_ON_KILL);
-        exhaust = true;
-        isEthereal = true;
+        EphemeralField.ephemeral.set(this, true);
 
         tags.add(PERSISTENT_POSITIVE_EFFECT);
         tags.add(REMEMBER_MEMORY);
