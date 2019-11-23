@@ -94,7 +94,7 @@
   },
   {
     "NAMES": ["temperance"],
-    "DESCRIPTION": "Until forgotten, gain 1 #yStrength for every #yClarity you have. Each time remembered, apply #b1 #yWeak to ALL enemies."
+    "DESCRIPTION": "While you remember or have clarity of Temperance, gain 1 #yStrength for every #yClarity you have."
   },
   {
     "NAMES": ["virtue"],

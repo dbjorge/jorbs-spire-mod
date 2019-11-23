@@ -11,7 +11,6 @@ import stsjorbsmod.memories.MemoryManager.MemoryEventType;
 public class TemperanceMemory extends AbstractMemory implements OnModifyMemoriesSubscriber {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(TemperanceMemory.class);
 
-    private static final int WEAK_ON_REMEMBER = 1;
     private static final int STRENGTH_PER_CLARITY = 1;
 
     private int strengthAlreadyApplied;
@@ -20,7 +19,6 @@ public class TemperanceMemory extends AbstractMemory implements OnModifyMemories
         super(STATIC, MemoryType.VIRTUE, owner);
         strengthAlreadyApplied = 0;
 
-        setDescriptionPlaceholder("!W!", WEAK_ON_REMEMBER);
         setDescriptionPlaceholder("!S!", calculateBonusDamage());
     }
 
@@ -46,18 +44,6 @@ public class TemperanceMemory extends AbstractMemory implements OnModifyMemories
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new StrengthPower(owner, strengthDelta), strengthDelta));
             flashWithoutSound();
             strengthAlreadyApplied = newStrength;
-        }
-    }
-
-    @Override
-    public void onRemember() {
-        if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-            for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
-                if (!monster.halfDead && !monster.isDead && !monster.isDying) {
-                    AbstractDungeon.actionManager.addToBottom(
-                            new ApplyPowerAction(monster, owner, new WeakPower(monster, WEAK_ON_REMEMBER, false), WEAK_ON_REMEMBER));
-                }
-            }
         }
     }
 
