@@ -58,8 +58,6 @@ public class ArcaneWeaponPower extends AbstractPower implements CloneablePowerIn
         if (isPlayer) {
             // Deferring the random selection to a separate action is important for preventing multiple Arcane Weapons
             // from picking the same enemy and then having some of them attack a corpse.
-//            AbstractDungeon.actionManager.addToBottom(new AttackDamageRandomEnemyAction(backingCard, AttackEffect.SLASH_DIAGONAL));
-//            AbstractDungeon.actionManager.addToBottom(new VFXAction(new ArcaneWeaponEffect(owner.hb.cX, owner.hb.cY)));
             AbstractDungeon.actionManager.addToBottom(new ArcaneWeaponAction(backingCard));
         }
     }
