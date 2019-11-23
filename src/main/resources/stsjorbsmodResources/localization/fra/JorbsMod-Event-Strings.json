@@ -1,0 +1,28 @@
+{
+  "stsjorbsmod:DeckOfManyThingsEvent": {
+    "NAME": "Deck aux Choses Multiples",
+    "DESCRIPTIONS": [
+      "Alors que vous avancez dans ~La~ ~Ville~ vous vous retrouvez devant un #pMiroir #pViolet. NL Vous le regardez, mais n'y voyez aucun reflet.",
+      "Vous n'êtes personne mais #g~vous~ #g~souhaitez~ #g~devenir~ #g~quelqu'un.~",
+      "#r@VOUS@ #r@EXISTEZ.@ #r@VOUS@ #r@VALEZ@ #r@QUELQUE@ #r@CHOSE!@",
+      "#yVous #yêtes #yen #ypaix #yavec #yvous-même.",
+      "Vous n'avez pas de mains."
+    ],
+    "OPTIONS": [
+      "[Inspiration] #gObtenez #gune #gRelic #gde #gDépart #gAléatoire.",
+      "[Déni] #rPerdez #r",
+      " #rPV #rMax. #gRetirez #gune #gCarte #gde #gvotre #gdeck.",
+      "[Acceptation] #gObtenez #gApothéose.",
+      "[TOUCHER LE MIROIR] TOUCHE TOUCHE TO#C## TOUCHE TO UCHE TOUCHE #rTOUCHE TOUCHE",
+      "[Partir]",
+      "Choisissez une carte à retirer."
+    ]
+  },
+  "stsjorbsmod:SensoryStone": {
+    "DESCRIPTIONS": [
+      "#g~BRUITS~ #g~DE~ #g~PAS.~ NL NL Un #ytonnerre de pas retentit et rebondit sur la roche. Vous jetez un œil mais n'apercevez personne d'autre que vous. Les pas se multiplient tandis que leur rythme #paccélère. Une vraie #b@cacophonie.@ NL NL Votre tête ~nage~ et vous perdez connaissance. NL NL À votre réveil, vous êtes seul.",
+      "#b~SOUVIENS-TOI.~ NL NL Un visage vous apparaît, comme dans un rêve. Il ressemble au vôtre, mais avec moins de rides et de cicatrices . NL NL ~N'oublie~ pas, vous dit-il. #b~Souviens-toi~ #brappelle-toi #p~souviens-toi~ #p@-viens-toi@ #r~-toi-~ #r@-.@ NL NL Vous grattez le mot sur le peau de votre bras avant de perdre la boule. #ySouviens-toi. #ySouviens-toi. NL NL En marchant, vous sentez une douleur à l'avant-bras, comme s'il avait été gratté.",
+      "#r~APPÉTIT.~ NL NL La salle vous... accepte. Vous vous arrêtez un moment et ne voyez aucune raison de continuer. Votre #r~faim~ se calme. Vous pourriez dormir, si vous le vouliez. NL NL C'est terrifiant.. NL NL Il faut partir."
+    ]
+  }
+}

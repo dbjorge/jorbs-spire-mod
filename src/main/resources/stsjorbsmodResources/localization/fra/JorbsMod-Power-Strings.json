@@ -1,0 +1,255 @@
+{
+  "stsjorbsmod:ArcaneWeaponPower": {
+    "NAME": "Épée arcanique",
+    "DESCRIPTIONS": [
+      "À la fin du tour, attaquez un ennemi aléatoire et infligez-lui %1$s%2$s dégât(s)."
+    ]
+  },
+  "stsjorbsmod:BanishedPower": {
+    "NAME": "Banni",
+    "DESCRIPTIONS": [
+      "Ne peut attaquer ou être attaqué. Ne peut infliger ou recevoir d'effets."
+    ]
+  },
+  "stsjorbsmod:BlackTentaclesPower": {
+    "NAME": "Tentacules noires",
+    "DESCRIPTIONS": [
+      "Ce tour, tous les dégât(s) infligés aux autres ennemis sont redirigés sur cet ennemi."
+    ]
+  },
+  "stsjorbsmod:BookOfTonguesPower": {
+    "NAME": "Cahier de langues",
+    "DESCRIPTIONS": [
+      "Au début de votre tour, piochez #b1 Composant Matériel aléatoire.",
+      "Au début de votre tour, piochez #b",
+      " Composants Matériels aléatoires."
+    ]
+  },
+  "stsjorbsmod:BurningPower": {
+    "NAME": "Brûlure",
+    "DESCRIPTIONS": [
+      "Au début de votre tour, recevez #b%1$s dégât(s), puis réduisez cette #yBrûlure de #b%2$s. Réduit les soins de %3$s%%.",
+      "Au début de son tour, reçoit #b%1$s dégât(s), puis réduisez cette #yBrûlure de #b%2$s. Réduit les soins de %3$s%%.",
+      "Réduit les soins de %1$s%%."
+    ]
+  },
+  "stsjorbsmod:CharityMemory": {
+    "NAME": "Charité",
+    "DESCRIPTIONS": [
+      "Conserve #b!S! de #yForce. Conserve 1 de #yForce en plus par tranche de !G! d'or que vous possédez."
+    ]
+  },
+  "stsjorbsmod:ChastityMemory": {
+    "NAME": "Chasteté",
+    "DESCRIPTIONS": [
+      "À la fin du tour, perdez !D! de #yDextérité et gagnez !B! #yd'Armure."
+    ]
+  },
+  "stsjorbsmod:CoilPower": {
+    "NAME": "Bobine",
+    "DESCRIPTIONS": [
+      "Quand vous vous rappelez d'un nouveau Souvenir, infligez #b",
+      " dégât(s) à TOUS les ennemis et perdez vos effets Bobine."
+    ]
+  },
+  "stsjorbsmod:DiligenceMemory": {
+    "NAME": "Diligence",
+    "DESCRIPTIONS": [
+      "À la fin du tour, Conservez !M! carte."
+    ]
+  },
+  "stsjorbsmod:DoubleCheckPower": {
+    "NAME": "Revérifier",
+    "DESCRIPTIONS": [
+      "Au début du prochain tour, si vous vous souvenez de #yDiligence gagnez en #yClarté."
+    ]
+  },
+  "stsjorbsmod:EnergizedCustomPower": {
+    "NAME": "Energisé",
+    "DESCRIPTIONS": [
+      "Au prochain tour, gagnez #b",
+      " [E] supplémentaire(s)."
+    ]
+  },
+  "stsjorbsmod:EnvyMemory": {
+    "NAME": "Envie",
+    "DESCRIPTIONS": [
+      "Chaque fois que vous ciblez un ennemi avec une carte, appliquez-lui !M! de #yVulnérabilité."
+    ]
+  },
+  "stsjorbsmod:FearPower": {
+    "NAME": "Apeuré",
+    "DESCRIPTIONS": [
+      "S'échappe dans #b",
+      " tour.",
+      " tours.",
+      " Si cela conclut le combat, vos Clartés sont maintenues pour le prochain combat."
+    ]
+  },
+  "stsjorbsmod:FindFamiliarPower": {
+    "NAME": "Familiarisation",
+    "DESCRIPTIONS": [
+      "À la fin de votre tour, gagnez en #yClarté. Si #yCraqué, infligez #b",
+      " dégâts à TOUS les ennemis."
+    ]
+  },
+  "stsjorbsmod:FlameWardPower": {
+    "NAME": "Garde de flammes",
+    "DESCRIPTIONS": [
+      "À la prochaine attaque reçue, appliquez #b%1$s de #yBrûlure à TOUS les attaquants et gagnez #b%2$s #yd'Armure."
+    ]
+  },
+  "stsjorbsmod:FocusOnThePainPower": {
+    "NAME": "Focus on the Pain",
+    "DESCRIPTIONS": [
+      "Chaque fois que vous perdez des PV, gagnez en Clarté."
+    ]
+  },
+  "stsjorbsmod:ForbiddenGrimoireDelayedExhumePower": {
+    "NAME": "Exhumation différée",
+    "DESCRIPTIONS": [
+      " sera Exhumée après avoir joué #b",
+      " carte en plus.",
+      " cartes en plus."
+    ]
+  },
+  "stsjorbsmod:FragilePower": {
+    "NAME": "Fragile",
+    "DESCRIPTIONS": [
+      "À la fin de ce tour, Craquez.",
+      "Dans ",
+      " tours, Craquez."
+    ]
+  },
+  "stsjorbsmod:GluttonyMemory": {
+    "NAME": "Gourmandise",
+    "DESCRIPTIONS": [
+      "Quand vous tuez un ennemi (sauf sbire), augmentez vos PV Max de !M!. Au début de votre tour, défaussez une carte."
+    ]
+  },
+  "stsjorbsmod:GreedMemory": {
+    "NAME": "Avarice",
+    "DESCRIPTIONS": [
+      "Quand vous tuez un ennemi (sauf sbire), gagnez !M! d'or."
+    ]
+  },
+  "stsjorbsmod:HumilityMemory": {
+    "NAME": "Humilité",
+    "DESCRIPTIONS": [
+      "Gagnez !M! #yd'Épines."
+    ]
+  },
+  "stsjorbsmod:IntrospectionPower": {
+    "NAME": "Introspection",
+    "DESCRIPTIONS": [
+      "À la fin de chaque tour, perdez #b",
+      " PV et infligez #b",
+      " dégâts à TOUS les ennemis. Inflige ",
+      " dégâts supplémentaire par Clarté."
+    ]
+  },
+  "stsjorbsmod:KindnessMemory": {
+    "NAME": "Bonté",
+    "DESCRIPTIONS": [
+      "Réduit la #yForce de TOUS les ennemis de !M!."
+    ]
+  },
+  "stsjorbsmod:LustMemory": {
+    "NAME": "Luxure",
+    "DESCRIPTIONS": [
+      "Vos attaques infligent !P! de #yBrûlure. Chaque fois que vous vous en souvenez, appliquez !R! de #yBrûlure à TOUS les ennemis. Chaque fois que vous l'oubliez, gagnez !F! de #yFaiblesse."
+    ]
+  },
+  "stsjorbsmod:MagicMirrorPower": {
+    "NAME": "Miroir magique",
+    "DESCRIPTIONS": [
+      "Chaque fois qu'un ennemi vous inflige un debuff, appliquez ce débuff à TOUS les ennemis.",
+      "Chaque fois qu'un ennemi vous inflige un debuff, appliquez ce débuff à TOUS les ennemis #b",
+      " fois."
+    ]
+  },
+  "stsjorbsmod:MindGlassPower": {
+    "NAME": "Verre d'esprit",
+    "DESCRIPTIONS": [
+      "La prochaine fois que vous gagnez en #yClarté, infligez #b%1$s dégâts à TOUS les ennemis."
+    ]
+  },
+  "stsjorbsmod:NextAttackMissesPower": {
+    "NAME": "Image miroir",
+    "DESCRIPTIONS": [
+      "La prochaine attaque ennemie rate."
+    ]
+  },
+  "stsjorbsmod:PatienceMemory": {
+    "NAME": "Patience",
+    "DESCRIPTIONS": [
+      "Gagnez 1 #yBobine chaque fois que vous jouez une carte."
+    ]
+  },
+  "stsjorbsmod:PlayNextAttackThisTurnAdditionalTimesPower": {
+    "NAME": "Pressé",
+    "DESCRIPTIONS": [
+      "Votre prochaine attaque ce tour est jouée une fois supplémentaire.",
+      "Votre prochaine attaque ce tour est jouée #b",
+      " fois supplémentaires."
+    ]
+  },
+  "stsjorbsmod:PrestidigitationPower": {
+    "NAME": "Prestidigitation",
+    "DESCRIPTIONS": [
+      "Au début de votre tour, appliquez #b",
+      " de Faiblesse ou #b",
+      " Vulnérabilité à un ennemi aléatoire."
+    ]
+  },
+  "stsjorbsmod:PrideMemory": {
+    "NAME": "Orgueil",
+    "DESCRIPTIONS": [
+      "À la fin du combat, #yAméliorez définitivement une carte de votre deck. Conserve #b!M! de #yDextérité."
+    ]
+  },
+  "stsjorbsmod:PyromancyPower": {
+    "NAME": "Pyromancie",
+    "DESCRIPTIONS": [
+      "Appliquez #yBrûlure #b",
+      " fois supplémentaire.",
+      " fois supplémentaires."
+    ]
+  },
+  "stsjorbsmod:RediscoveryPower": {
+    "NAME": "Redécouverte",
+    "DESCRIPTIONS": [
+      "Quand un Souvenir gagne en #yClarté, gagnez #b%1$s [E]"
+    ]
+  },
+  "stsjorbsmod:SlothMemory": {
+    "NAME": "Paresse",
+    "DESCRIPTIONS": [
+      "Piochez !M! cartes en moins chaque tour."
+    ]
+  },
+  "stsjorbsmod:SnappedPower": {
+    "NAME": "Craqué",
+    "DESCRIPTIONS": [
+      "Vous ne pouvez pas acquérir de Souvenir ou de Clarté."
+    ]
+  },
+  "stsjorbsmod:StrangePendantPower": {
+    "NAME": "Pendentif étrange",
+    "DESCRIPTIONS": [
+      "Ignorez le(s) #b%1$s premier(s) dégât(s) reçus chaque tour."
+    ]
+  },
+  "stsjorbsmod:TemperanceMemory": {
+    "NAME": "Tempérance",
+    "DESCRIPTIONS": [
+      "Conserve #b!S! de #yForce. Conserve 1 de #yForce en plus pour chaque #yClarté que vous obtenez. Chaque fois que vous vous en souvenez, appliquez !W! de #yFaiblesse de TOUS les ennemis."
+    ]
+  },
+  "stsjorbsmod:WrathMemory": {
+    "NAME": "Colère",
+    "DESCRIPTIONS": [
+      "Quand vous tuez un ennemi (sauf sbire), augmentez définitivement les dégâts de la dernière attaque ayant infligé des dégâts ce combat (actuellement, !C!) de !M!."
+    ]
+  }
+}

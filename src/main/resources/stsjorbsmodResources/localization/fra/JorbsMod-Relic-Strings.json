@@ -1,0 +1,30 @@
+{
+  "stsjorbsmod:AlchemistsFireRelic": {
+    "NAME": "Fougue de l'alchimiste",
+    "FLAVOR": "Forca Messi! Forca Messi! Messi Animal!",
+    "DESCRIPTIONS": [
+      "Réduit la perte de stsjorbsmod:Brûlure à 10% chaque tour."
+    ]
+  },
+  "stsjorbsmod:FragileMindRelic": {
+    "NAME": "Fragile Mind",
+    "FLAVOR": "Veux-tu... creuser?",
+    "DESCRIPTIONS": [
+      "À la fin du #b7e tour, stsjorbsmod:Craquez."
+    ]
+  },
+  "stsjorbsmod:MindGlassRelic": {
+    "NAME": "Verre d'esprit",
+    "FLAVOR": "Appuyez sur e pour e.",
+    "DESCRIPTIONS": [
+      "Gagner en stsjorbsmod:Clarté inflige 3 dégâts à tous les ennemis. NL Gagner 10 stsjorbsmod:Clartés en un combat inflige 100 dégâts à tous les ennemis."
+    ]
+  },
+  "stsjorbsmod:GrimoireRelic": {
+    "NAME": "Grimoire",
+    "FLAVOR": "Il m'est... familier?",
+    "DESCRIPTIONS": [
+      "Au début de chaque combat, souvenez-vous de stsjorbsmod:Patience. NL À la fin de chaque combat, soignez-vous de #b1 PV par stsjorbsmod:Clarté."
+    ]
+  }
+}

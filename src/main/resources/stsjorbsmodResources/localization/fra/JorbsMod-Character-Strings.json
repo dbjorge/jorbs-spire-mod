@@ -1,0 +1,13 @@
+{
+  "stsjorbsmod:WandererCharacter": {
+    "NAMES": [
+      "L'Errant",
+      "l'Errant"
+    ],
+    "TEXT": [
+      "Un magicien dont la mémoire a été gravement fragilisée NL à force d'être ressuscité au sein de la tour.",
+      "NL Vous TOUCHEZ le cœur.",
+      "En passant par une rue non éclairée, vous rencontrez plusieurs silhouettes encapuchonnées au beau milieu d'un rituel maléfique. Tandis que vous vous approchez, elles se tournent vers vous à l'unisson. Inquiétant. La plus grande possède des dents acérées et tend une main aux longs doigts pâles vers vous. NL ~\"creuser~ CREUSER ~pelle CREUSER ~CREUSER~ CREUSER~\"~"
+    ]
+  }
+}
