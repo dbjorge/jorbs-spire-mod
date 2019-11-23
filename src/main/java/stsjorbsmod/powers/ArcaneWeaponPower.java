@@ -1,30 +1,22 @@
 package stsjorbsmod.powers;
 
-import basemod.BaseMod;
 import basemod.interfaces.CloneablePowerInterface;
 import basemod.interfaces.OnPowersModifiedSubscriber;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.cards.wanderer.ArcaneWeapon;
+import stsjorbsmod.actions.ArcaneWeaponAction;
+import stsjorbsmod.effects.ArcaneWeaponEffect;
 import stsjorbsmod.util.TextureLoader;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
@@ -66,7 +58,9 @@ public class ArcaneWeaponPower extends AbstractPower implements CloneablePowerIn
         if (isPlayer) {
             // Deferring the random selection to a separate action is important for preventing multiple Arcane Weapons
             // from picking the same enemy and then having some of them attack a corpse.
-            AbstractDungeon.actionManager.addToBottom(new AttackDamageRandomEnemyAction(backingCard, AttackEffect.SLASH_DIAGONAL));
+//            AbstractDungeon.actionManager.addToBottom(new AttackDamageRandomEnemyAction(backingCard, AttackEffect.SLASH_DIAGONAL));
+//            AbstractDungeon.actionManager.addToBottom(new VFXAction(new ArcaneWeaponEffect(owner.hb.cX, owner.hb.cY)));
+            AbstractDungeon.actionManager.addToBottom(new ArcaneWeaponAction(backingCard));
         }
     }
 
