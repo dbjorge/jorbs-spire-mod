@@ -246,7 +246,7 @@
   },
   "stsjorbsmod:Mindworm": {
     "NAME": "Mindworm",
-    "DESCRIPTION": "Deal !D! damage. NL Then, if stsjorbsmod:Snapped, deal !M! damage. NL Add a copy of this card to your discard pile."
+    "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage if stsjorbsmod:Snapped. NL Add a copy of this card to your discard pile."
   },
   "stsjorbsmod:MinorIllusion": {
     "NAME": "Minor Illusion",

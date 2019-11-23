@@ -37,36 +37,14 @@ public class Mindworm extends CustomJorbsModCard {
     }
 
     @Override
+    public int calculateBonusBaseDamage() {
+        return AbstractDungeon.player.hasPower(SnappedPower.POWER_ID) ? magicNumber : 0;
+    }
+
+    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.FIRE));
-        if (AbstractDungeon.player.hasPower(SnappedPower.POWER_ID)) {
-            addToBot(new DamageAction(m, new DamageInfo(p, magicNumber), AttackEffect.FIRE));
-        }
         addToBot(new MakeTempCardInDiscardAction(this.makeStatEquivalentCopy(), 1));
-    }
-
-    @Override
-    public void calculateCardDamage(AbstractMonster mo) {
-        int realBaseDamage = baseDamage;
-        baseDamage = baseMagicNumber;
-        super.calculateCardDamage(mo);
-        magicNumber = damage;
-        isMagicNumberModified = magicNumber != baseMagicNumber;
-        baseDamage = realBaseDamage;
-
-        super.calculateCardDamage(mo);
-    }
-
-    @Override
-    public void applyPowers() {
-        int realBaseDamage = baseDamage;
-        baseDamage = baseMagicNumber;
-        super.applyPowers();
-        magicNumber = damage;
-        isMagicNumberModified = magicNumber != baseMagicNumber;
-        baseDamage = realBaseDamage;
-
-        super.applyPowers();
     }
 
     @Override
