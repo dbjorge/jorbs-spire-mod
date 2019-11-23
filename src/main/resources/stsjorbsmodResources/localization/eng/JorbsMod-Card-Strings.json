@@ -66,10 +66,6 @@
     "NAME": "Color Spray",
     "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each. NL Remember stsjorbsmod:Envy."
   },
-  "stsjorbsmod:CorpseExplosion_Wanderer": {
-    "NAME": "Corpse Explosion",
-    "DESCRIPTION": "stsjorbsmod:Entombed. Ethereal. NL stsjorbsmod:Exhume whenever an enemy dies. NL Deal !D! damage. NL Remember stsjorbsmod:Wrath. NL Exhaust."
-  },
   "stsjorbsmod:CorrodingBarrier": {
     "NAME": "Corroding Barrier",
     "DESCRIPTION": "Gain !B! Block. Decrease this card's Block this combat by !M! each time it is drawn.",
@@ -78,6 +74,10 @@
   "stsjorbsmod:Counterspell": {
     "NAME": "Counterspell",
     "DESCRIPTION": "Gain !B! Block. NL Gain !M! Artifact if enemy intends to apply a negative effect. NL Exhaust."
+  },
+  "stsjorbsmod:DeathThroes": {
+    "NAME": "Death Throes",
+    "DESCRIPTION": "stsjorbsmod:Entombed. stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume whenever an enemy dies. NL Deal !D! damage. NL Remember stsjorbsmod:Wrath."
   },
   "stsjorbsmod:Defend_Wanderer": {
     "NAME": "Defend",
@@ -150,7 +150,7 @@
   },
   "stsjorbsmod:ForbiddenGrimoire": {
     "NAME": "Forbidden Grimoire",
-    "DESCRIPTION": "stsjorbsmod:Entombed until turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL Exhaust, then stsjorbsmod:Exhume after playing !M! other cards, unless stsjorbsmod:Snapped."
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL stsjorbsmod:Exhume after playing this then !M! other cards, unless stsjorbsmod:Snapped."
   },
   "stsjorbsmod:FreshAdventure": {
     "NAME": "Fresh Adventure",
