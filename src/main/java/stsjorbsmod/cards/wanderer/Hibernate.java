@@ -22,8 +22,8 @@ public class Hibernate extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 2;
-    private static final int BLOCK = 15;
-    private static final int UPGRADE_PLUS_BLOCK = 5;
+    private static final int BLOCK = 16;
+    private static final int UPGRADE_PLUS_BLOCK = 4;
 
     public Hibernate() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
