@@ -7,7 +7,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
+import stsjorbsmod.util.ReflectionUtils;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.function.Consumer;
 
 public class TImeEddyAction extends AbstractGameAction {
@@ -48,11 +51,26 @@ public class TImeEddyAction extends AbstractGameAction {
         }
     }
 
+    // TODO: remove these reflection gymnastics once beta branch releases
+    // This callback is beta-branch only
+    private static final Method AbstractPower_atEndOFTurnPreEndTurnCards = ReflectionUtils.tryGetMethod(AbstractPower.class, "atEndOfTurnPreEndTurnCards", boolean.class);
+    private static void atEndOfTurnPreEndTurnCards(AbstractPower p, boolean isPlayer) {
+        if (AbstractPower_atEndOFTurnPreEndTurnCards != null) {
+            try {
+                AbstractPower_atEndOFTurnPreEndTurnCards.invoke(p, isPlayer);
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+            } catch (InvocationTargetException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
     @Override
     public void update() {
         for (int i = 0; i < this.amount; ++i) {
             // Player turn end
-            forEachApplicablePlayerPower(p -> p.atEndOfTurnPreEndTurnCards(true));
+            forEachApplicablePlayerPower(p -> atEndOfTurnPreEndTurnCards(p, true));
             forEachApplicablePlayerMemory(m -> m.atEndOfTurn(true));
             forEachApplicablePlayerPower(p -> p.atEndOfTurn(true));
 
@@ -61,7 +79,7 @@ public class TImeEddyAction extends AbstractGameAction {
             forEachApplicableMonsterPower(p -> p.atStartOfTurnPostDraw());
 
             // Monster turn end
-            forEachApplicableMonsterPower(p -> p.atEndOfTurnPreEndTurnCards(false));
+            forEachApplicableMonsterPower(p -> atEndOfTurnPreEndTurnCards(p, false));
             forEachApplicableMonsterPower(p -> p.atEndOfTurn(false));
 
             // Round end

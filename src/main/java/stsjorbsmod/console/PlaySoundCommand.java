@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.audio.Sfx;
 import com.megacrit.cardcrawl.audio.SoundMaster;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import stsjorbsmod.patches.OnDrawCardSubscriberPatch;
 import stsjorbsmod.util.ReflectionUtils;
 
 import java.util.ArrayList;
@@ -32,12 +33,12 @@ public class PlaySoundCommand extends ConsoleCommand {
         if (tokens.length > depth + 1) {
             try {
                 float pitchAdjustment = Float.parseFloat(tokens[depth + 1]);
-                AbstractDungeon.actionManager.addToBottom(new SFXAction(requiredSoundId, pitchAdjustment, true));
+                CardCrawlGame.sound.playA(requiredSoundId, pitchAdjustment);
             } catch(Exception e) {
                 return;
             }
         } else {
-            AbstractDungeon.actionManager.addToBottom(new SFXAction(requiredSoundId));
+            CardCrawlGame.sound.play(requiredSoundId);
         }
     }
 

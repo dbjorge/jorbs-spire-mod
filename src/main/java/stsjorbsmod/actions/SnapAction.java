@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.red.Exhume;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import stsjorbsmod.cards.AutoExhumeBehavior;
@@ -48,7 +49,8 @@ public class SnapAction extends AbstractGameAction {
                 new DamageAllEnemiesAction(target, DamageInfo.createDamageMatrix(enemyDamage, true), DamageInfo.DamageType.THORNS, AttackEffect.BLUNT_LIGHT));
 
         AbstractDungeon.actionManager.addToTop(new VFXAction(new BorderFlashEffect(Color.DARK_GRAY.cpy())));
-        AbstractDungeon.actionManager.addToTop(new SFXAction("MONSTER_SNECKO_GLARE", -0.3F, true));
+
+        CardCrawlGame.sound.playA("MONSTER_SNECKO_GLARE", -0.3F);
 
         if (target instanceof Wanderer) {
             Wanderer wanderer = (Wanderer) target;
