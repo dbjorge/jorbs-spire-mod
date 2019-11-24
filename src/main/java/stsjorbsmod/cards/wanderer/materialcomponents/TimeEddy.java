@@ -1,16 +1,12 @@
 package stsjorbsmod.cards.wanderer.materialcomponents;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.AbstractPower.PowerType;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.AdvancePowersThroughTimeAction;
+import stsjorbsmod.actions.TImeEddyAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.EphemeralField;
-import stsjorbsmod.util.ReflectionUtils;
 
 public class TimeEddy extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(TimeEddy.class);
@@ -30,19 +26,9 @@ public class TimeEddy extends CustomJorbsModCard {
         EphemeralField.ephemeral.set(this, true);
     }
 
-    private static boolean shouldAffectPower(AbstractPower power) {
-        return power.type == PowerType.BUFF || power.type == PowerType.DEBUFF;
-    }
-
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new AdvancePowersThroughTimeAction(p, magicNumber, TimeEddy::shouldAffectPower));
-    }
-
-    @Override
-    public boolean shouldGlowGold() {
-        return AbstractDungeon.player.powers.stream().anyMatch(p ->
-                (shouldAffectPower(p) && (Boolean)ReflectionUtils.getPrivateField(p, AbstractPower.class, "isTurnBased")));
+        addToBot(new TImeEddyAction(p, magicNumber));
     }
 
     @Override
