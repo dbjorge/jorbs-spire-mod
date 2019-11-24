@@ -11,20 +11,19 @@ import stsjorbsmod.powers.PrestidigitationPower;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Prestidigitation extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Prestidigitation.class.getSimpleName());
-    public static final String IMG = makeCardPath("Scaling_Commons/prestidigitation.png");
+    public static final String ID = JorbsMod.makeID(Prestidigitation.class);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
-    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 1;
     private static final int EFFECT_MAGNITUDE = 1;
     private static final int UPGRADE_PLUS_EFFECT_MAGNITUDE = 1;
 
     public Prestidigitation() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = EFFECT_MAGNITUDE;
     }
 
@@ -38,7 +37,7 @@ public class Prestidigitation extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_EFFECT_MAGNITUDE);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

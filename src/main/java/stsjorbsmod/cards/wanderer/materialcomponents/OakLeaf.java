@@ -11,20 +11,19 @@ import stsjorbsmod.characters.Wanderer;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class OakLeaf extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(OakLeaf.class.getSimpleName());
-    public static final String IMG = makeCardPath("Material_Components/oak_leaf.png");
+    public static final String ID = JorbsMod.makeID(OakLeaf.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
-    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 0;
     private static final int DEXTERITY = 1;
     private static final int UPGRADE_PLUS_DEXTERITY = 1;
 
     public OakLeaf() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = DEXTERITY;
     }
 
@@ -38,6 +37,7 @@ public class OakLeaf extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_DEXTERITY);
+            upgradeDescription();
         }
     }
 }

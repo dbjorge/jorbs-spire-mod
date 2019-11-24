@@ -1,23 +1,26 @@
 package stsjorbsmod.cards.wanderer;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.CounterspellAction;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.patches.MonsterLastDamagedOnTurnField;
+import stsjorbsmod.util.IntentUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Counterspell extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Counterspell.class.getSimpleName());
-    public static final String IMG = makeCardPath("Block_Uncommons/counterspell.png");
+    public static final String ID = JorbsMod.makeID(Counterspell.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 0;
     private static final int BLOCK = 4;
@@ -25,7 +28,7 @@ public class Counterspell extends CustomJorbsModCard {
     private static final int ARTIFACT = 1;
 
     public Counterspell() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = BLOCK;
         magicNumber = baseMagicNumber = ARTIFACT;
         exhaust = true;
@@ -38,11 +41,16 @@ public class Counterspell extends CustomJorbsModCard {
     }
 
     @Override
+    public boolean shouldGlowGold() {
+        return IntentUtils.playerCanSeeThatAnyEnemyIntentMatches(IntentUtils::isDebuffIntent);
+    }
+
+    @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

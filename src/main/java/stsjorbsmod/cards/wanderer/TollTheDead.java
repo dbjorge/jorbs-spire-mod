@@ -2,6 +2,7 @@ package stsjorbsmod.cards.wanderer;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,23 +12,24 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.MonsterLastDamagedOnTurnField;
 
+import java.util.Iterator;
+
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class TollTheDead extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(TollTheDead.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Uncommons/toll_the_dead.png");
+    public static final String ID = JorbsMod.makeID(TollTheDead.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 1;
     private static final int DAMAGE = 5;
     private static final int UPGRADE_PLUS_DMG = 2;
 
     public TollTheDead() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
     }
 
@@ -42,11 +44,18 @@ public class TollTheDead extends CustomJorbsModCard {
     }
 
     @Override
+    public boolean shouldGlowGold() {
+        return AbstractDungeon.getCurrRoom().monsters.monsters.stream().anyMatch(m ->
+                !m.isDeadOrEscaped() &&
+                MonsterLastDamagedOnTurnField.lastDamagedOnTurn.get(m) == AbstractDungeon.actionManager.turn);
+    }
+
+    @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

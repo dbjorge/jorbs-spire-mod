@@ -1,48 +1,56 @@
 package stsjorbsmod.patches;
 
-import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
+import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import stsjorbsmod.actions.ExhumeEntombedCardsAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import javassist.CannotCompileException;
+import javassist.CtBehavior;
+import javassist.expr.ExprEditor;
+import javassist.expr.MethodCall;
 
-// Entombed: "Starts combat in Exhaust pile. Move from Exhaust pile to hand when an enemy dies."
-// Implementation inspired by StSLib's GraveField
 public class EntombedPatch {
+    public static boolean isEntombed(AbstractCard card) {
+        return EntombedField.entombed.get(card);
+    }
+
+    // Remove Entombed cards from draw pile
     @SpirePatch(
             clz = CardGroup.class,
             method = "initializeDeck"
     )
-    public static class EntombedInitializeDeckPatch {
-        @SpireInsertPatch(
-                rloc = 4,
-                localvars = {"copy"}
-        )
-        public static void Insert(CardGroup __instance, CardGroup masterDeck, CardGroup copy) {
-            for (AbstractCard c : copy.group) {
-                if (EntombedField.entombed.get(c)) {
-                    AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(c, AbstractDungeon.player.drawPile));
+    public static class CardGroup_initializeDeck {
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                @Override
+                public void edit(MethodCall methodCall) throws CannotCompileException {
+                    if (methodCall.getClassName().equals(CardGroup.class.getName()) && methodCall.getMethodName().equals("addToTop")) {
+                        methodCall.replace(String.format("{ if (!%1$s.isEntombed($1)) { $_ = $proceed($$); } }", EntombedPatch.class.getName()));
+                    }
                 }
-            }
+            };
         }
     }
 
-    // Note: it's very important this happen as a prefix to die() rather than as an insert before the die() call in
-    // damage(); this is because isHalfDead gets set by subclasses (Darkling, AwakenedOne) overriding damage().
+    // Add Entombed cards to exhaust pile
     @SpirePatch(
-            clz = AbstractMonster.class,
-            method = "die",
-            paramtypez = { boolean.class }
+            clz = AbstractPlayer.class,
+            method = "preBattlePrep"
     )
-    public static class EntombedOnMonsterDeathPatch {
-        @SpirePrefixPatch
-        public static void Prefix(AbstractMonster __this) {
-            if ((!__this.isDying && __this.currentHealth <= 0) && !__this.halfDead) {
-                AbstractDungeon.actionManager.addToBottom(new ExhumeEntombedCardsAction());
+    public static class AbstractPlayer_preBattlePrep {
+        @SpireInsertPatch(locator = Locator.class)
+        public static void patch(AbstractPlayer __this) {
+            for (AbstractCard c : __this.masterDeck.group) {
+                if (isEntombed(c)) {
+                    __this.exhaustPile.addToTop(c.makeSameInstanceOf());
+                }
+            }
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            public int[] Locate(CtBehavior ctBehavior) throws Exception {
+                Matcher finalMatcher = new Matcher.FieldAccessMatcher(AbstractPlayer.class, "isEndingTurn");
+                return LineFinder.findInOrder(ctBehavior, finalMatcher);
             }
         }
     }

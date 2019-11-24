@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.AbstractMemory;
@@ -18,20 +17,19 @@ import stsjorbsmod.memories.MemoryType;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class FaerieFire extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(FaerieFire.class.getSimpleName());
-    public static final String IMG = makeCardPath("Scaling_Uncommons/faerie_fire.png");
+    public static final String ID = JorbsMod.makeID(FaerieFire.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 1;
     private static final int DEBUFF_DURATION = 3;
     private static final int UPGRADE_PLUS_DEBUFF_DURATION = 2;
 
     public FaerieFire() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = DEBUFF_DURATION;
         exhaust = true;
     }
@@ -55,6 +53,7 @@ public class FaerieFire extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_DEBUFF_DURATION);
+            upgradeDescription();
         }
     }
 }

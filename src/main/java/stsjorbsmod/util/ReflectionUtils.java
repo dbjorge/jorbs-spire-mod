@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class ReflectionUtils {
     @SuppressWarnings("unchecked")
-    public static <T> ArrayList<Class<T>> findAllConcreteSubclasses(Class<T> baseClass)
+    public static <T> ArrayList<Class<T>> findAllConcreteJorbsModClasses(ClassFilter classFilter)
     {
         try {
             ClassFinder finder = new ClassFinder();
@@ -25,7 +25,7 @@ public class ReflectionUtils {
                             new NotClassFilter(new InterfaceOnlyClassFilter()),
                             new NotClassFilter(new AbstractClassFilter()),
                             new ClassModifiersClassFilter(Modifier.PUBLIC),
-                            new SubclassClassFilter(baseClass)
+                            classFilter
                     );
             ArrayList<ClassInfo> foundClassInfos = new ArrayList<>();
             finder.findClasses(foundClassInfos, filter);
@@ -37,8 +37,13 @@ public class ReflectionUtils {
             }
             return foundClasses;
         } catch(Exception e) {
-            throw new RuntimeException("Exception while finding concrete subclasses of " + baseClass.getName(), e);
+            throw new RuntimeException("Exception while finding concrete subclasses", e);
         }
+    }
+
+    // Note: only works for base classes defined within our own jar (limitation of ClassFinder)
+    public static <T> ArrayList<Class<T>> findAllConcreteJorbsModSubclasses(Class<T> baseJorbsModClass) {
+        return findAllConcreteJorbsModClasses(new SubclassClassFilter(baseJorbsModClass));
     }
 
     @SuppressWarnings("unchecked")

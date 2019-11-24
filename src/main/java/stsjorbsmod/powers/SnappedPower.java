@@ -44,6 +44,14 @@ public class SnappedPower extends AbstractPower implements CloneablePowerInterfa
     }
 
     @Override
+    public void onInitialApplication() {
+        // Most of the "on snapped" effects get queued in SnapAction
+
+        // This is for the benefit of Mindworm
+        AbstractDungeon.player.hand.glowCheck();
+    }
+
+    @Override
     public void updateDescription() {
         description = DESCRIPTIONS[0];
     }

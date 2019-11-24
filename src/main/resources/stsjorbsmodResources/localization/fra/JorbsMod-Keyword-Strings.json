@@ -1,0 +1,111 @@
+[
+  {
+    "NAMES": ["brûlure"],
+    "DESCRIPTION": "Les créatures qui brûlent subissent des dégats au début de leur tour et leurs soins sont réduits de moitié. Chaque tour, la Brûlure est diminuée de moitié."
+  },
+  {
+    "NAMES": ["charity"],
+    "DESCRIPTION": "Jusqu'à ce que vous l'oubliiez, gagnez 1 de #yForce pour chaque tranche de 100 d'or."
+  },
+  {
+    "NAMES": ["chasteté"],
+    "DESCRIPTION": "Quand vous vous en rappelez, gagnez #b2 de #yDextérité. À la fin de chaque tour, perdez #b1 de #yDextérité et gagnez #b6 #yd'Armure."
+  },
+  {
+    "NAMES": ["clarté", "clartés"],
+    "DESCRIPTION": "Tant qu'un souvenir est Clarifié, vous gardez son effet passif même après l'avoir oublié."
+  },
+  {
+    "NAMES": ["bobine"],
+    "DESCRIPTION": "Gagnez 1 Bobine pour chaque carte jouée tant que vous vous souvenez de #yPatience."
+  },
+  {
+    "NAMES": ["détruisez"],
+    "DESCRIPTION": "Retirez définitivement cette carte de votre deck (pas juste pour ce combat)."
+  },
+  {
+    "NAMES": ["diligence"],
+    "DESCRIPTION": "Quand vous vous en souvenez, piochez #b2 cartes. À la fin de votre tour, conservez #b1 carte."
+  },
+  {
+    "NAMES": ["enterrée"],
+    "DESCRIPTION": "Cette carte est épuisée dès le début du combat. Elle sera Exhumée et renvoyée dans votre main chaque fois que vous remplirez cette condition."
+  },
+  {
+    "NAMES": ["envie"],
+    "DESCRIPTION": "Quand vous vous en souvenez, gagnez #b1 de #yVulnérabilité. Chaque fois que vous ciblez un ennemi avec une carte, appliquez-lui #b1 de #yVulnérabilité."
+  },
+  {
+    "NAMES": ["éphémère"],
+    "DESCRIPTION": "Épuisée à la fin de votre tour, quand vous la jouez, ou quand vous la défaussez."
+  },
+  {
+    "NAMES": ["exhumée"],
+    "DESCRIPTION": "Déplacée de vos cartes épuisées à votre main."
+  },
+  {
+    "NAMES": ["gourmandise"],
+    "DESCRIPTION": "Quand vous tuez un ennemi (sauf sbire), augmentez vos PV Max de #b2. Au début de votre tour, défaussez 1 carte."
+  },
+  {
+    "NAMES": ["avarice"],
+    "DESCRIPTION": "Quand vous tuez un ennemi (sauf sbire), gagnez #b10 d'or."
+  },
+  {
+    "NAMES": ["humilité"],
+    "DESCRIPTION": "Gagnez #b2 #yd'Épines."
+  },
+  {
+    "NAMES": ["bonté"],
+    "DESCRIPTION": "Tous les ennemis perdent #b3 de #yForce jusqu'à ce que vous l'oubliiez."
+  },
+  {
+    "NAMES": ["luxure"],
+    "DESCRIPTION": "Vos attaques appliquent #b2 de #yBrûlure. Chaque fois que vous vous en souvenez, appliquez #b2 de #yBrûlure à TOUS les ennemis. Chaque fois que vous l'oubliez, gagnez #b2 de #yFaiblesse."
+  },
+  {
+    "PROPER_NAME": "Composant Matériel",
+    "NAMES": ["composant\u00a0matériel", "composants\u00a0matériels"],
+    "DESCRIPTION": "Les Composants Matériels sont des cartes qui possèdent des effets mineurs et variés et coûtent pour la plupart 0."
+  },
+  {
+    "NAMES": ["patience"],
+    "DESCRIPTION": "Gagnez 1 #yBobine chaque fois que vous jouez une carte. Quand vous vous souvenez, infligez 1 dégât à TOUS les ennemis pour chaque #yBobine et perdez toute #yBobine."
+  },
+  {
+    "NAMES": ["orgueil"],
+    "DESCRIPTION": "À la fin du combat, #yaméliorez une carte de votre deck. Jusqu'à ce que vous l'oubliiez, perdez #b2 de Dextérité."
+  },
+  {
+    "NAMES": ["péché"],
+    "DESCRIPTION": "Un souvenir de #yJalousie, #yAvarice, #yGluttony, #yLuxure, #yOrgueil, #yParesse, ou #yColère."
+  },
+  {
+    "NAMES": ["paresse"],
+    "DESCRIPTION": "Lorsque vous vous en souvenez, défaussez #b3 cartes aléatoires. Piochez #b1 carte en moins chaque tour."
+  },
+  {
+    "NAMES": ["ralenti"],
+    "DESCRIPTION": "Une créature ralentie prend 10% plus de dégâts par carte jouée ce tour."
+  },
+  {
+    "NAMES": ["craquez", "craqué"],
+    "DESCRIPTION": "Pour chaque Clarté, infligez 6 dégats à TOUS les ennemis et perdez 3 PV. Jusqu'à la fin du combat, vous ne pouvez vous rappeler ou avoir la #yClarté d'aucun souvenir."
+  },
+  {
+    "NAMES": ["tempérance"],
+    "DESCRIPTION": "Jusqu'à ce que vous l'oubliiez, gagnez 1 de #yForce pour chaque #yClarté. Quand vous vous en souvenez, appliquez #b1 de #yFaiblesse à TOUS les ennemis."
+  },
+  {
+    "NAMES": ["vertu"],
+    "DESCRIPTION": "Un souvenir de #yCharité, #yChasteté, #yDiligence, #yHumilité, #yBonté, #yPatience, ou #yTempérance."
+  },
+  {
+    "NAMES": ["toile", "toiles"],
+    "DESCRIPTION": "Les toiles sont des Compétences qui coûtent 0, sont conservées, appliquent Faiblesse et s'épuisent."
+  },
+  {
+    "NAMES": ["colère"],
+    "DESCRIPTION": "Tuer un ennemi (excepté les sbires) augmente de 1 les dégâts de la dernière attaque ayant infligé des dégâts ce combat, de manière permanente."
+  }
+]

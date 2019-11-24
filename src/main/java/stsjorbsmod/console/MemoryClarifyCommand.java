@@ -30,8 +30,10 @@ public class MemoryClarifyCommand extends ConsoleCommand {
             for (String id : MemoryUtils.allPossibleMemoryIDs()) {
                 AbstractDungeon.actionManager.addToBottom(new GainSpecificClarityAction(AbstractDungeon.player, id));
             }
+        } else if (MemoryUtils.isValidMemoryID(optionalId)) {
+            AbstractDungeon.actionManager.addToBottom(new GainSpecificClarityAction(AbstractDungeon.player, optionalId));
         } else {
-            AbstractDungeon.actionManager.addToBottom(new GainSpecificClarityAction(AbstractDungeon.player, tokens[2]));
+            DevConsole.log("Unrecognized memory id: " + optionalId);
         }
     }
 

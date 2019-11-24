@@ -56,13 +56,17 @@ public class CardsToTopOfDeckAction extends AbstractGameAction {
                 }
 
                 if (sourcePile.size() > this.amount) {
-                    String chooseNCardsToText = TEXT[0] + this.amount + (this.amount == 1 ? TEXT[1] : TEXT[2]);
-                    String actionToTakeText = TEXT[3];
+                    // TEXT:
+                    //      "Choose %1$s Card to move to the top of your draw pile.",
+                    //      "Choose %1$s Cards to move to the top of your draw pile.",
+                    //      "move to the top of your draw pile."
                     if (isSourcePileHand) {
-                        AbstractDungeon.handCardSelectScreen.open(actionToTakeText, this.amount, false);
+                        String titleTextSuffix = TEXT[2];
+                        AbstractDungeon.handCardSelectScreen.open(titleTextSuffix, this.amount, false);
                         sourcePile.applyPowers();
                     } else {
-                        AbstractDungeon.gridSelectScreen.open(sourcePile, this.amount, chooseNCardsToText + actionToTakeText, false, false, false, false);
+                        String titleText = String.format(this.amount == 1 ? TEXT[0] : TEXT[1], this.amount);
+                        AbstractDungeon.gridSelectScreen.open(sourcePile, this.amount, titleText, false, false, false, false);
                     }
                     this.tickDuration();
                     return;

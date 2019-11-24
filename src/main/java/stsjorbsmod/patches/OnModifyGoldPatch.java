@@ -5,24 +5,27 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
-import stsjorbsmod.powers.IOnModifyGoldListener;
+import stsjorbsmod.powers.OnModifyGoldSubscriber;
 
 public class OnModifyGoldPatch {
     private static void notifyModifyGold(AbstractPlayer player) {
-        for (AbstractPower p : player.powers) {
-            if (p instanceof IOnModifyGoldListener) {
-                ((IOnModifyGoldListener) p).onModifyGold(player);
+        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            for (AbstractPower p : player.powers) {
+                if (p instanceof OnModifyGoldSubscriber) {
+                    ((OnModifyGoldSubscriber) p).onModifyGold(player);
+                }
             }
-        }
-        MemoryManager memoryManager = MemoryManager.forPlayer(player);
-        if (memoryManager != null) {
-            for (AbstractMemory m : memoryManager.currentMemories()) {
-                m.onModifyGold(player);
+            MemoryManager memoryManager = MemoryManager.forPlayer(player);
+            if (memoryManager != null) {
+                for (AbstractMemory m : memoryManager.currentMemories()) {
+                    m.onModifyGold(player);
+                }
             }
+            AbstractDungeon.onModifyPower();
         }
-        AbstractDungeon.onModifyPower();
     }
 
     @SpirePatch(

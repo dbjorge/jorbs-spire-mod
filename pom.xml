@@ -4,7 +4,7 @@
     <groupId>stsjorbsmod</groupId>
     <artifactId>JorbsMod</artifactId>
     <name>Jorbs Mod</name>
-    <version>0.32.0</version>
+    <version>0.42.0</version>
     <description>A mod based on Jorbs' spreadsheet.</description>
 
     <properties>
@@ -88,6 +88,8 @@
                 <configuration>
                     <excludes>
                         <exclude>**/*.psd</exclude>
+                        <exclude>**/*.kra</exclude>
+                        <exclude>**/images/cards/originals/**/*.png</exclude>
                     </excludes>
                 </configuration>
             </plugin>

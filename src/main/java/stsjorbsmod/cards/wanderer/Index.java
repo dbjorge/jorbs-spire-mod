@@ -11,13 +11,12 @@ import stsjorbsmod.characters.Wanderer;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Index extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Index.class.getSimpleName());
-    public static final String IMG = makeCardPath("Manipulation_Commons/index.png");
+    public static final String ID = JorbsMod.makeID(Index.class);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 0;
     private static final int CARD_DRAW = 2;
@@ -25,7 +24,7 @@ public class Index extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_TOP_OF_DECK = -1;
 
     public Index() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = CARD_DRAW;
         metaMagicNumber = baseMetaMagicNumber = TOP_OF_DECK;
     }

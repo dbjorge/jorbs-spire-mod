@@ -12,26 +12,28 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.WrathMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
-import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class SmithingStrike extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(SmithingStrike.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Uncommons/smithing_strike.png");
+    public static final String ID = JorbsMod.makeID(SmithingStrike.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 2;
     private static final int DAMAGE = 14;
     private static final int UPGRADE_PLUS_DMG = 4;
 
     public SmithingStrike() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
 
-        this.tags.add(REMEMBER_MEMORY);
+        tags.add(PERSISTENT_POSITIVE_EFFECT);
+        tags.add(REMEMBER_MEMORY);
+        tags.add(CardTags.STRIKE);
     }
 
     @Override
@@ -45,7 +47,7 @@ public class SmithingStrike extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

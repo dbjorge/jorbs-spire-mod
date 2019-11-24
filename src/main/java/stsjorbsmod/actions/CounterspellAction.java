@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.util.IntentUtils;
 
 public class CounterspellAction extends AbstractGameAction {
     private static final String UI_ID = JorbsMod.makeID(CounterspellAction.class.getSimpleName());
@@ -26,16 +27,8 @@ public class CounterspellAction extends AbstractGameAction {
         this.monster = monster;
     }
 
-    private static boolean isDebuffIntent(AbstractMonster.Intent intent) {
-        return
-            intent == AbstractMonster.Intent.STRONG_DEBUFF ||
-            intent == AbstractMonster.Intent.ATTACK_DEBUFF ||
-            intent == AbstractMonster.Intent.DEBUFF ||
-            intent == AbstractMonster.Intent.DEFEND_DEBUFF;
-    }
-
     public void update() {
-        if (this.monster != null && isDebuffIntent(this.monster.intent)) {
+        if (this.monster != null && IntentUtils.isDebuffIntent(this.monster.intent)) {
             AbstractDungeon.actionManager.addToBottom(
                     new ApplyPowerAction(this.owner, this.owner, new ArtifactPower(this.owner, this.amount), this.amount));
         } else {

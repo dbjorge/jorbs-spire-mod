@@ -13,10 +13,8 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.LustMemory;
 import stsjorbsmod.powers.BurningPower;
 
-import java.util.Iterator;
-
 import static stsjorbsmod.JorbsMod.makeCardPath;
-import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 /**
  * Base: Deal 21 damage to all enemies
@@ -24,13 +22,12 @@ import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
  * Upgraded: Apply 3 Burning to all enemies
  */
 public class Fireball extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Fireball.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Rares/fireball.png");
+    public static final String ID = JorbsMod.makeID(Fireball.class);
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 2;
     private static final int DAMAGE = 18;
@@ -38,7 +35,7 @@ public class Fireball extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_BURNING = 4;
 
     public Fireball() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = BURNING;
         isMultiDamage = true;

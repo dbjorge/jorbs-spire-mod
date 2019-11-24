@@ -29,7 +29,8 @@ public class LustMemory extends AbstractMemory {
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
                 if (!monster.halfDead && !monster.isDead && !monster.isDying) {
-                    AbstractDungeon.actionManager.addToBottom(
+                    // addToTop is important for the interaction with Inferno
+                    AbstractDungeon.actionManager.addToTop(
                             new ApplyPowerAction(monster, owner, new BurningPower(monster, owner, BURNING_ON_REMEMBER), BURNING_ON_REMEMBER));
                 }
             }

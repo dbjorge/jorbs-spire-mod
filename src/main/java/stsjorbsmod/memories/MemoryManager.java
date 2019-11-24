@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.SnappedPower;
 
@@ -27,6 +26,10 @@ public class MemoryManager {
         this.memories = MemoryUtils.allPossibleMemories(owner);
     }
 
+    public static MemoryManager forPlayer() {
+        return forPlayer(AbstractDungeon.player);
+    }
+
     public static MemoryManager forPlayer(AbstractCreature target) {
         if (target instanceof Wanderer) {
             return ((Wanderer)target).memories;
@@ -43,8 +46,8 @@ public class MemoryManager {
             forgetCurrentMemoryNoNotify();
 
             this.currentMemory = getMemory(id);
-            this.currentMemory.onRemember();
             this.currentMemory.isRemembered = true;
+            this.currentMemory.onRemember();
             this.currentMemory.updateDescription();
             if (!this.currentMemory.isClarified) {
                 this.currentMemory.onGainPassiveEffect();
@@ -62,11 +65,11 @@ public class MemoryManager {
 
     private void forgetCurrentMemoryNoNotify() {
         if (this.currentMemory != null) {
+            this.currentMemory.isRemembered = false;
             if (!this.currentMemory.isClarified) {
                 this.currentMemory.onLosePassiveEffect();
             }
             this.currentMemory.onForget();
-            this.currentMemory.isRemembered = false;
             this.currentMemory.updateDescription();
             this.currentMemory = null;
         }
@@ -90,13 +93,19 @@ public class MemoryManager {
             return;
         }
 
-        if (!clarity.isPassiveEffectActive()) {
+        clarity.isClarified = true;
+        if (!clarity.isRemembered) {
             clarity.onGainPassiveEffect();
         }
-        clarity.isClarified = true;
         clarity.updateDescription();
         clarity.flash();
-        notifyModifyMemories(MemoryEventType.CLARITY);
+        notifyModifyMemories(MemoryEventType.GAIN_CLARITY);
+    }
+
+    public void loseClarity(AbstractMemory clarity) {
+        clarity.isClarified = false;
+        clarity.onLosePassiveEffect();
+        notifyModifyMemories(MemoryEventType.LOSE_CLARITY);
     }
 
     public boolean hasClarity(String id) {
@@ -137,8 +146,8 @@ public class MemoryManager {
         forgetCurrentMemoryNoNotify();
 
         for (AbstractMemory clarity : this.currentClarities()) {
-            clarity.onLosePassiveEffect();
             clarity.isClarified = false;
+            clarity.onLosePassiveEffect();
         }
 
         notifyModifyMemories(MemoryEventType.SNAP);
@@ -157,8 +166,8 @@ public class MemoryManager {
     }
 
     private void notifyPossibleModifyMemoryListener(Object possibleListener, MemoryEventType type) {
-        if (possibleListener instanceof OnModifyMemoriesListener) {
-            OnModifyMemoriesListener listener = (OnModifyMemoriesListener) possibleListener;
+        if (possibleListener instanceof OnModifyMemoriesSubscriber) {
+            OnModifyMemoriesSubscriber listener = (OnModifyMemoriesSubscriber) possibleListener;
             if (Arrays.asList(listener.getMemoryEventTypes()).contains(type)) {
                 listener.onModifyMemories();
             }
@@ -209,7 +218,8 @@ public class MemoryManager {
     }
 
     public static final MemoryEventType[] ALL_MEMORY_EVENTS = MemoryEventType.values();
+
     public enum MemoryEventType {
-        REMEMBER, CLARITY, FORGET, SNAP
+        REMEMBER, GAIN_CLARITY, LOSE_CLARITY, FORGET, SNAP
     }
 }

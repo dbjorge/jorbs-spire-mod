@@ -1,6 +1,5 @@
 package stsjorbsmod.cards.wanderer;
 
-import basemod.devcommands.draw.Draw;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -16,32 +15,30 @@ import stsjorbsmod.powers.BlackTentaclesPower;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class BlackTentacles extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(BlackTentacles.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Commons/black_tentacles.png");
+    public static final String ID = JorbsMod.makeID(BlackTentacles.class);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 0;
     private static final int DAMAGE = 4;
-    private static final int EFFECT_TURN_DURATION = 1;
+    private static final int DRAW = 0;
     private static final int UPGRADE_DRAW = 1;
 
     public BlackTentacles() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        magicNumber = baseMagicNumber = EFFECT_TURN_DURATION;
-        metaMagicNumber = baseMetaMagicNumber = UPGRADE_DRAW;
+        magicNumber = baseMagicNumber = DRAW;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SLASH_HORIZONTAL));
-        addToBot(new ApplyPowerAction(m, p, new BlackTentaclesPower(m, p, this.magicNumber)));
-        if (upgraded) {
-            addToBot(new DrawCardAction(p, metaMagicNumber));
+        addToBot(new ApplyPowerAction(m, p, new BlackTentaclesPower(m, p)));
+        if (magicNumber > 0) {
+            addToBot(new DrawCardAction(p, magicNumber));
         }
     }
 
@@ -49,6 +46,7 @@ public class BlackTentacles extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeMagicNumber(UPGRADE_DRAW);
             upgradeDescription();
         }
     }

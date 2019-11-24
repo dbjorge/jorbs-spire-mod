@@ -36,12 +36,7 @@ public class MemoryUtils {
         return powers;
     }
 
-    public static AbstractMemory newMemoryByID(String id, AbstractCreature target, boolean isClarified) {
-        for (AbstractMemory memory : allPossibleMemories(target)) {
-            if (memory.ID.equals(id)) {
-                return memory;
-            }
-        }
-        return null;
+    public static boolean isValidMemoryID(String id) {
+        return allPossibleMemoryIDs().stream().anyMatch(candidate -> candidate.equals(id));
     }
 }

@@ -9,30 +9,27 @@ import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
-import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.KindnessMemory;
-import stsjorbsmod.memories.TemperanceMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
-import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class HoldMonster extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(HoldMonster.class.getSimpleName());
-    public static final String IMG = makeCardPath("Block_Rares/hold_monster.png");
+    public static final String ID = JorbsMod.makeID(HoldMonster.class);
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 1;
     private static final int STRENGTH_PENALTY = 6;
     private static final int UPGRADE_PLUS_STRENGTH_PENALTY = 6;
 
     public HoldMonster() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = STRENGTH_PENALTY;
         exhaust = true;
 
@@ -55,7 +52,7 @@ public class HoldMonster extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_STRENGTH_PENALTY);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

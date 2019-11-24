@@ -11,23 +11,28 @@ import stsjorbsmod.characters.Wanderer;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Defend_Wanderer extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Defend_Wanderer.class.getSimpleName());
-    public static final String IMG = makeCardPath("Block_Commons/defend_wanderer.png");
+    public static final String ID = JorbsMod.makeID(Defend_Wanderer.class);
 
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 1;
     private static final int BLOCK = 5;
     private static final int UPGRADE_PLUS_BLOCK = 3;
 
     public Defend_Wanderer() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = BLOCK;
 
         this.tags.add(BaseModCardTags.BASIC_DEFEND);
+
+        try {
+            this.tags.add(CardTags.valueOf("STARTER_DEFEND"));
+        } catch(IllegalArgumentException e) {
+            // main branch doesn't have this tag yet; intentionally ignoring
+        }
     }
 
     @Override
@@ -40,7 +45,7 @@ public class Defend_Wanderer extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

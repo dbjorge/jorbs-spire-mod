@@ -1,23 +1,41 @@
 {
   "stsjorbsmod:AbstractMemory": {
-    "TEXT": ["#gClarified. NL ", "#gRemembered. NL ", "#rForgotten. NL "]
+    "TEXT": [
+      "#gClarified. NL ",
+      "#gRemembered. NL ",
+      "#rForgotten. NL "
+    ]
   },
-  "stsjorbsmod:CardsToTopOfDeckAction": {
-    "TEXT": ["Choose ", "Card to ", "Cards to ", "move to the top of your draw pile."]
-  },
-  "stsjorbsmod:CounterspellAction": {
-    "TEXT": ["Enemy does not intend to debuff"]
-  },
-  "stsjorbsmod:BossImmuneToFear": {
-    "TEXT": ["Bosses are fearless!"]
-  },
-  "stsjorbsmod:IfEnemyIntendsToAttackAction": {
-    "TEXT": ["Enemy does not intend to attack"]
-  },
-  "stsjorbsmod:DigEmote": {
-    "TEXT": ["jorbsBird Dig! jorbsBird RELIC jorbsBird DIG jorbsBird"]
+  "stsjorbsmod:AlchemistsFireOnClick": {
+    "TEXT": [
+      "GOLASO! GOL! GOL! GOL!"
+    ]
   },
   "stsjorbsmod:CallCalipers": {
-    "TEXT": ["Calipers would be good here..."]
+    "TEXT": [
+      "Calipers would be good here..."
+    ]
+  },
+  "stsjorbsmod:CardsToTopOfDeckAction": {
+    "TEXT": [
+      "Choose %1$s Card to move to the top of your draw pile.",
+      "Choose %1$s Cards to move to the top of your draw pile.",
+      "move to the top of your draw pile."
+    ]
+  },
+  "stsjorbsmod:CounterspellAction": {
+    "TEXT": [
+      "Enemy does not intend to debuff"
+    ]
+  },
+  "stsjorbsmod:DigEmote": {
+    "TEXT": [
+      "jorbsBird Dig! jorbsBird RELIC jorbsBird DIG jorbsBird"
+    ]
+  },
+  "stsjorbsmod:IfEnemyIntendsToAttackAction": {
+    "TEXT": [
+      "Enemy does not intend to attack"
+    ]
   }
 }

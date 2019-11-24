@@ -12,24 +12,23 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.DiligenceMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
-import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 // Deal 12(15) damage and remember Diligence
 public class FreshAdventure extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(FreshAdventure.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Commons/fresh_adventure.png");
+    public static final String ID = JorbsMod.makeID(FreshAdventure.class);
 
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 2;
     private static final int DAMAGE = 12;
     private static final int UPGRADE_PLUS_DMG = 3;
 
     public FreshAdventure() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
 
         this.tags.add(REMEMBER_MEMORY);
@@ -46,7 +45,7 @@ public class FreshAdventure extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

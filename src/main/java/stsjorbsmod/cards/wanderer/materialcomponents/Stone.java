@@ -13,20 +13,19 @@ import stsjorbsmod.characters.Wanderer;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Stone extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Stone.class.getSimpleName());
-    public static final String IMG = makeCardPath("Material_Components/stone.png");
+    public static final String ID = JorbsMod.makeID(Stone.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 1;
     private static final int SLOW_MULTIPLIER = 2;
     private static final int UPGRADE_PLUS_SLOW_MULTIPLIER = 1;
 
     public Stone() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = SLOW_MULTIPLIER;
         AlwaysRetainField.alwaysRetain.set(this, true);
         exhaust = true;

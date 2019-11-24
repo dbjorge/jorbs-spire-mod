@@ -1,29 +1,26 @@
 package stsjorbsmod.patches;
 
-import basemod.BaseMod;
-import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.DamageHooks;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.GameActionManager;
+import com.megacrit.cardcrawl.actions.common.SuicideAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.beyond.SnakeDagger;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.MinionPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.powers.SplitPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import javassist.CtBehavior;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import stsjorbsmod.JorbsMod;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
+import stsjorbsmod.util.ReflectionUtils;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.function.Consumer;
 
 public class MemoryHooksPatch {
@@ -118,163 +115,43 @@ public class MemoryHooksPatch {
     }
 
     @SpirePatch(
-            clz = AbstractCard.class,
-            method = "applyPowersToBlock"
+            clz = AbstractMonster.class,
+            method = SpirePatch.CLASS
     )
-    public static class modifyBlockHook_applyPowersToBlock {
-        @SpireInsertPatch(
-                locator = Locator.class,
-                localvars = {"tmp"}
-        )
-        public static void Insert(AbstractCard __this, @ByRef float[] tmp) {
-            MemoryManager memoryManager = MemoryManager.forPlayer(AbstractDungeon.player);
-            if (memoryManager != null) {
-                for (AbstractMemory memory : memoryManager.currentMemories()) {
-                    tmp[0] = memory.modifyBlock(tmp[0]);
-                }
-            }
+    public static class IsMonsterSuicidingField {
+        @SuppressWarnings("unchecked")
+        public static SpireField<Boolean> isSuiciding = new SpireField(() -> false);
+    }
+
+    @SpirePatch(
+            clz = SuicideAction.class,
+            method = "update"
+    )
+    public static class SuicideAction_trackIsMonsterSuiciding {
+        @SpireInsertPatch(locator = Locator.class)
+        public static void patch(SuicideAction __this) {
+            AbstractMonster m = ReflectionUtils.getPrivateField(__this, SuicideAction.class, "m");
+            IsMonsterSuicidingField.isSuiciding.set(m, true);
         }
 
         private static class Locator extends SpireInsertLocator {
             public int[] Locate(CtBehavior ctBehavior) throws Exception {
-                Matcher matcher = new Matcher.FieldAccessMatcher(AbstractPlayer.class, "powers");
-                return LineFinder.findInOrder(ctBehavior, matcher);
+                Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractMonster.class, "die");
+                return LineFinder.findInOrder(ctBehavior, finalMatcher);
             }
         }
     }
 
+    // SnakeDagger is a special case where it suicides without using a SuicideAction
     @SpirePatch(
-            clz = AbstractCard.class,
-            method = "applyPowerOnBlockHelper"
+            clz = SnakeDagger.class,
+            method = "takeTurn"
     )
-    public static class modifyBlockHook_applyPowerOnBlockHelper {
-        @SpireInsertPatch(
-                locator = Locator.class,
-                localvars = {"tmp"}
-        )
-        public static void Insert(int base, @ByRef float[] tmp) {
-            MemoryManager memoryManager = MemoryManager.forPlayer(AbstractDungeon.player);
-            if (memoryManager != null) {
-                for (AbstractMemory memory : memoryManager.currentMemories()) {
-                    tmp[0] = memory.modifyBlock(tmp[0]);
-                }
-            }
-        }
-
-        private static class Locator extends SpireInsertLocator {
-            public int[] Locate(CtBehavior ctBehavior) throws Exception {
-                Matcher matcher = new Matcher.FieldAccessMatcher(AbstractPlayer.class, "powers");
-                return LineFinder.findInOrder(ctBehavior, matcher);
-            }
-        }
-    }
-
-    // This hook is based on basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.DamageHooks.ApplyPowers
-    @SpirePatch(
-            clz = AbstractCard.class,
-            method = "applyPowers"
-    )
-    public static class atDamageGiveHook_ApplyPowersSingle {
-        @SpireInsertPatch(
-                locator = Locator.class,
-                localvars = {"tmp"}
-        )
-        public static void Insert(AbstractCard __this, @ByRef float[] tmp) {
-            MemoryManager memoryManager = MemoryManager.forPlayer(AbstractDungeon.player);
-            if (memoryManager != null) {
-                for (AbstractMemory memory : memoryManager.currentMemories()) {
-                    tmp[0] = memory.atDamageGive(tmp[0], __this.damageTypeForTurn);
-                }
-            }
-        }
-
-        private static class Locator extends SpireInsertLocator {
-            public int[] Locate(CtBehavior ctBehavior) throws Exception {
-                Matcher matcher = new Matcher.FieldAccessMatcher(AbstractPlayer.class, "powers");
-                return LineFinder.findInOrder(ctBehavior, matcher);
-            }
-        }
-    }
-
-    // This hook is based on basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.DamageHooks.ApplyPowersMulti
-    @SpirePatch(
-            clz = AbstractCard.class,
-            method = "applyPowers"
-    )
-    public static class atDamageGiveHook_ApplyPowersMulti {
-        @SpireInsertPatch(
-                locator = Locator.class,
-                localvars = {"tmp", "i"}
-        )
-        public static void Insert(AbstractCard __this, float[] tmp, int i) {
-            MemoryManager memoryManager = MemoryManager.forPlayer(AbstractDungeon.player);
-            if (memoryManager != null) {
-                for (AbstractMemory memory : memoryManager.currentMemories()) {
-                    tmp[i] = memory.atDamageGive(tmp[i], __this.damageTypeForTurn);
-                }
-            }
-        }
-
-        private static class Locator extends SpireInsertLocator {
-            public int[] Locate(CtBehavior ctBehavior) throws Exception {
-                Matcher intermediateMatcher = new Matcher.FieldAccessMatcher(AbstractRoom.class, "monsters");
-                Matcher finalMatcher = new Matcher.FieldAccessMatcher(AbstractPlayer.class, "powers");
-                return LineFinder.findInOrder(ctBehavior, Collections.singletonList(intermediateMatcher), finalMatcher);
-            }
-        }
-    }
-
-    // This hook is based on basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.DamageHooks.CalculateCardDamage
-    @SpirePatch(
-            clz = AbstractCard.class,
-            method = "calculateCardDamage"
-    )
-    public static class atDamageGiveHook_CalculateCardDamageSingle {
-        @SpireInsertPatch(
-                locator = Locator.class,
-                localvars = {"tmp"}
-        )
-        public static void Insert(AbstractCard __this, AbstractMonster _, @ByRef float[] tmp) {
-            MemoryManager memoryManager = MemoryManager.forPlayer(AbstractDungeon.player);
-            if (memoryManager != null) {
-                for (AbstractMemory memory : memoryManager.currentMemories()) {
-                    tmp[0] = memory.atDamageGive(tmp[0], __this.damageTypeForTurn);
-                }
-            }
-        }
-
-        private static class Locator extends SpireInsertLocator {
-            public int[] Locate(CtBehavior ctBehavior) throws Exception {
-                Matcher matcher = new Matcher.FieldAccessMatcher(AbstractPlayer.class, "powers");
-                return LineFinder.findInOrder(ctBehavior, matcher);
-            }
-        }
-    }
-
-    // This hook is based on basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.DamageHooks.CalculateCardDamageMulti
-    @SpirePatch(
-            clz = AbstractCard.class,
-            method = "calculateCardDamage"
-    )
-    public static class atDamageGiveHook_CalculateCardDamageMulti {
-        @SpireInsertPatch(
-                locator = Locator.class,
-                localvars = {"tmp", "i"}
-        )
-        public static void Insert(AbstractCard __this, float[] tmp, int i) {
-            MemoryManager memoryManager = MemoryManager.forPlayer(AbstractDungeon.player);
-            if (memoryManager != null) {
-                for (AbstractMemory memory : memoryManager.currentMemories()) {
-                    tmp[i] = memory.atDamageGive(tmp[i], __this.damageTypeForTurn);
-                }
-            }
-        }
-
-        private static class Locator extends SpireInsertLocator {
-            public int[] Locate(CtBehavior ctBehavior) throws Exception {
-                Matcher intermediateMatcher = new Matcher.FieldAccessMatcher(AbstractRoom.class, "monsters");
-                Matcher finalMatcher = new Matcher.FieldAccessMatcher(AbstractPlayer.class, "powers");
-                return LineFinder.findInOrder(ctBehavior, Collections.singletonList(intermediateMatcher), finalMatcher);
+    public static class SnakeDagger_trackIsMonsterSuiciding {
+        @SpirePostfixPatch
+        public static void patch(SnakeDagger __this) {
+            if (__this.nextMove == 2) {
+                IsMonsterSuicidingField.isSuiciding.set(__this, true);
             }
         }
     }
@@ -286,24 +163,18 @@ public class MemoryHooksPatch {
             method = "die",
             paramtypez = { boolean.class }
     )
-    public static class onMonsterDeathHook {
+    public static class onMonsterKilledHook {
         @SpirePrefixPatch
         public static void Prefix(AbstractMonster __this) {
-            // halfDead is for cases like the black slimes or awakened one; all "on monster death" memory effects
-            // want to ignore those cases.
-            if (!__this.halfDead) {
+            // halfDead is for cases like darklings or awakened one; all "on monster death" memory effects want to ignore those cases.
+            // SplitPower prevents triggering on big slimes splitting into smaller slimes
+            // isSuiciding is for effects like Transient/Exploder/SnakeDagger (the player isn't "killing", so they don't count)
+            if (!__this.halfDead && !__this.hasPower(SplitPower.POWER_ID) && !IsMonsterSuicidingField.isSuiciding.get(__this)) {
                 AbstractPlayer player = AbstractDungeon.player;
                 MemoryManager memoryManager = MemoryManager.forPlayer(player);
                 if (memoryManager != null) {
-                    forEachMemory(player, m -> m.onMonsterDeath(__this));
+                    forEachMemory(player, m -> m.onMonsterKilled(__this));
                 }
-            }
-        }
-
-        private static class Locator extends SpireInsertLocator {
-            public int[] Locate(CtBehavior ctBehavior) throws Exception {
-                Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractMonster.class, "die");
-                return LineFinder.findInOrder(ctBehavior, finalMatcher);
             }
         }
     }

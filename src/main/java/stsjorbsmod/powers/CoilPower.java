@@ -14,15 +14,13 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.memories.MemoryManager;
-import stsjorbsmod.memories.OnModifyMemoriesListener;
+import stsjorbsmod.memories.OnModifyMemoriesSubscriber;
 import stsjorbsmod.util.TextureLoader;
-
-import java.util.Collections;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
 // When you forget Patience, deal 2 damage to all enemies for each coil and lose all coil.
-public class CoilPower extends AbstractPower implements CloneablePowerInterface, OnModifyMemoriesListener {
+public class CoilPower extends AbstractPower implements CloneablePowerInterface, OnModifyMemoriesSubscriber {
     public AbstractCreature source;
 
     public static final String POWER_ID = JorbsMod.makeID(CoilPower.class.getSimpleName());
@@ -33,7 +31,7 @@ public class CoilPower extends AbstractPower implements CloneablePowerInterface,
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
 
-    public static final int DAMAGE_PER_COIL = 2;
+    public static final int DAMAGE_PER_COIL = 1;
 
     public CoilPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
         name = NAME;

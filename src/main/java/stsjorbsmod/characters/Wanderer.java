@@ -6,11 +6,10 @@ import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.MathUtils;
-import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -20,24 +19,22 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.cards.wanderer.Defend_Wanderer;
-import stsjorbsmod.cards.wanderer.EyeOfTheStorm;
-import stsjorbsmod.cards.wanderer.FreshAdventure;
-import stsjorbsmod.cards.wanderer.Strike_Wanderer;
+import stsjorbsmod.cards.wanderer.*;
 import stsjorbsmod.memories.MemoryManager;
+import stsjorbsmod.powers.FlameWardPower;
 import stsjorbsmod.relics.FragileMindRelic;
-import stsjorbsmod.relics.WandererStarterRelic;
+import stsjorbsmod.relics.GrimoireRelic;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static stsjorbsmod.JorbsMod.makeID;
-import static stsjorbsmod.JorbsMod.makeScenePath;
-import static stsjorbsmod.characters.Wanderer.Enums.WANDERER_GRAY_COLOR;
+import static stsjorbsmod.JorbsMod.*;
+import static stsjorbsmod.characters.Wanderer.Enums.WANDERER_CARD_COLOR;
 
 //Wiki-page https://github.com/daviscook477/BaseMod/wiki/Custom-Characters
 //and https://github.com/daviscook477/BaseMod/wiki/Migrating-to-5.0
@@ -57,33 +54,31 @@ public class Wanderer extends CustomPlayer {
         @SpireEnum
         public static AbstractPlayer.PlayerClass WANDERER;
         @SpireEnum(name = "WANDERER_GRAY_COLOR") // These two HAVE to have the same absolutely identical name.
-        public static AbstractCard.CardColor WANDERER_GRAY_COLOR;
+        public static AbstractCard.CardColor WANDERER_CARD_COLOR;
         @SpireEnum(name = "WANDERER_GRAY_COLOR") @SuppressWarnings("unused")
         public static CardLibrary.LibraryType WANDERER_LIBRARY_COLOR;
-        @SpireEnum(name = "REMEMBER_MEMORY")
-        public static AbstractCard.CardTags REMEMBER_MEMORY;
     }
     
     // Note: These have to live in a separate static subclass to ensure the BaseMode.addColor call can happen before the
     // static initializers for the class run, due to temporal coupling between the abstract base class initializers.
     public static class ColorInfo {
         // Character Color
-        public static final Color CHARACTER_COLOR = new Color(64.0f, 70.0f, 70.0f, 1.0f);
+        public static final Color CHARACTER_COLOR = new Color(0.7f, 0.8f, 1.0f, 1.0f);
 
         // Card backgrounds - The actual rectangular card.
-        public static final String CARD_BG_ATTACK_TEXTURE = "stsjorbsmodResources/images/512/bg_attack_default_gray.png";
-        public static final String CARD_BG_SKILL_TEXTURE = "stsjorbsmodResources/images/512/bg_skill_default_gray.png";
-        public static final String CARD_BG_POWER_TEXTURE = "stsjorbsmodResources/images/512/bg_power_default_gray.png";
-        public static final String ENERGY_ORB_TEXTURE = "stsjorbsmodResources/images/512/card_default_gray_orb.png";
-        public static final String CARD_ENERGY_ORB_TEXTURE = "stsjorbsmodResources/images/512/card_small_orb.png";
-        public static final String CARD_BG_ATTACK_PORTRAIT_TEXTURE = "stsjorbsmodResources/images/1024/bg_attack_default_gray.png";
-        public static final String CARD_BG_SKILL_PORTRAIT_TEXTURE = "stsjorbsmodResources/images/1024/bg_skill_default_gray.png";
-        public static final String CARD_BG_POWER_PORTRAIT_TEXTURE = "stsjorbsmodResources/images/1024/bg_power_default_gray.png";
-        public static final String ENERGY_ORB_PORTRAIT_TEXTURE = "stsjorbsmodResources/images/1024/card_default_gray_orb.png";
+        public static final String CARD_BG_ATTACK_TEXTURE = makeCharPath("wanderer/card_bgs/card_bg_attack_512.png");
+        public static final String CARD_BG_ATTACK_PORTRAIT_TEXTURE = makeCharPath("wanderer/card_bgs/card_bg_attack_1024.png");
+        public static final String CARD_BG_SKILL_TEXTURE = makeCharPath("wanderer/card_bgs/card_bg_skill_512.png");
+        public static final String CARD_BG_SKILL_PORTRAIT_TEXTURE = makeCharPath("wanderer/card_bgs/card_bg_skill_1024.png");
+        public static final String CARD_BG_POWER_TEXTURE = makeCharPath("wanderer/card_bgs/card_bg_power_512.png");
+        public static final String CARD_BG_POWER_PORTRAIT_TEXTURE = makeCharPath("wanderer/card_bgs/card_bg_power_1024.png");
+        public static final String CARD_OVERLAY_ENERGY_ORB_TEXTURE = makeCharPath("wanderer/card_bgs/card_overlay_energy_orb_512.png");
+        public static final String CARD_SMALL_ENERGY_ORB_TEXTURE = makeCharPath("wanderer/card_bgs/card_small_energy_orb.png");
+        public static final String CARD_ENERGY_ORB_PORTRAIT_TEXTURE = makeCharPath("wanderer/card_bgs/card_energy_orb.png");
 
         public static void registerColorWithBaseMod() {
             BaseMod.addColor(
-                    Enums.WANDERER_GRAY_COLOR,
+                    Enums.WANDERER_CARD_COLOR,
                     CHARACTER_COLOR,
                     CHARACTER_COLOR,
                     CHARACTER_COLOR,
@@ -94,12 +89,12 @@ public class Wanderer extends CustomPlayer {
                     CARD_BG_ATTACK_TEXTURE,
                     CARD_BG_SKILL_TEXTURE,
                     CARD_BG_POWER_TEXTURE,
-                    ENERGY_ORB_TEXTURE,
+                    CARD_OVERLAY_ENERGY_ORB_TEXTURE,
                     CARD_BG_ATTACK_PORTRAIT_TEXTURE,
                     CARD_BG_SKILL_PORTRAIT_TEXTURE,
                     CARD_BG_POWER_PORTRAIT_TEXTURE,
-                    ENERGY_ORB_PORTRAIT_TEXTURE,
-                    CARD_ENERGY_ORB_TEXTURE);
+                    CARD_ENERGY_ORB_PORTRAIT_TEXTURE,
+                    CARD_SMALL_ENERGY_ORB_TEXTURE);
         }
     }
 
@@ -109,8 +104,8 @@ public class Wanderer extends CustomPlayer {
     // =============== BASE STATS =================
 
     public static final int ENERGY_PER_TURN = 3;
-    public static final int STARTING_HP = 75;
-    public static final int MAX_HP = 75;
+    public static final int STARTING_HP = 60;
+    public static final int MAX_HP = 64;
     public static final int STARTING_GOLD = 99;
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
@@ -131,24 +126,24 @@ public class Wanderer extends CustomPlayer {
     // =============== TEXTURES ===============
     
     // Character assets
-    public static final String CHARACTER_SELECT_BUTTON_TEXTURE = "stsjorbsmodResources/images/charSelect/DefaultCharacterButton.png";
-    public static final String CHARACTER_SELECT_BG_TEXTURE = "stsjorbsmodResources/images/charSelect/WandererPortraitBG.png";
-    public static final String SHOULDER_TEXTURE = "stsjorbsmodResources/images/char/wanderer/shoulder.png";
-    public static final String SHOULDER_2_TEXTURE = "stsjorbsmodResources/images/char/wanderer/shoulder2.png";
-    public static final String CORPSE_TEXTURE = "stsjorbsmodResources/images/char/wanderer/corpse.png";
+    public static final String CHARACTER_SELECT_BUTTON_TEXTURE = makeCharPath("wanderer/char_select_button.png");
+    public static final String CHARACTER_SELECT_BG_TEXTURE = makeCharPath("wanderer/char_select_bg.png");
+    public static final String SHOULDER_DARK_TEXTURE = makeCharPath("wanderer/shoulder_dark.png");
+    public static final String SHOULDER_LIT_TEXTURE = makeCharPath("wanderer/shoulder_lit.png");
+    public static final String CORPSE_TEXTURE = makeCharPath("wanderer/corpse.png");
 
-    public static final String[] ORB_LAYER_TEXTURES = {
-            "stsjorbsmodResources/images/char/wanderer/orb/layer1.png",
-            "stsjorbsmodResources/images/char/wanderer/orb/layer2.png",
-            "stsjorbsmodResources/images/char/wanderer/orb/layer3.png",
-            "stsjorbsmodResources/images/char/wanderer/orb/layer4.png",
-            "stsjorbsmodResources/images/char/wanderer/orb/layer5.png",
-            "stsjorbsmodResources/images/char/wanderer/orb/layer6.png",
-            "stsjorbsmodResources/images/char/wanderer/orb/layer1d.png",
-            "stsjorbsmodResources/images/char/wanderer/orb/layer2d.png",
-            "stsjorbsmodResources/images/char/wanderer/orb/layer3d.png",
-            "stsjorbsmodResources/images/char/wanderer/orb/layer4d.png",
-            "stsjorbsmodResources/images/char/wanderer/orb/layer5d.png",};
+    public static final String[] ENERGY_ORB_LAYER_TEXTURES = {
+            makeCharPath("wanderer/energy_orb/layer1.png"),
+            makeCharPath("wanderer/energy_orb/layer2.png"),
+            makeCharPath("wanderer/energy_orb/layer3.png"),
+            makeCharPath("wanderer/energy_orb/layer4.png"),
+            makeCharPath("wanderer/energy_orb/layer5.png"),
+            makeCharPath("wanderer/energy_orb/layer6.png"),
+            makeCharPath("wanderer/energy_orb/layer1d.png"),
+            makeCharPath("wanderer/energy_orb/layer2d.png"),
+            makeCharPath("wanderer/energy_orb/layer3d.png"),
+            makeCharPath("wanderer/energy_orb/layer4d.png"),
+            makeCharPath("wanderer/energy_orb/layer5d.png"),};
 
     // =============== /TEXTURES/ ===============
 
@@ -157,25 +152,25 @@ public class Wanderer extends CustomPlayer {
         super(
                 name,
                 setClass,
-                ORB_LAYER_TEXTURES,
-                "stsjorbsmodResources/images/char/wanderer/orb/vfx.png",
+                ENERGY_ORB_LAYER_TEXTURES,
+                makeCharPath("wanderer/energy_orb/vfx.png"),
                 null,
-                new SpriterAnimation("stsjorbsmodResources/images/char/wanderer/Spriter/idleanimation/idleanimation.scml"));
+                new SpriterAnimation(makeCharPath("wanderer/idle_animation/idleanimation.scml")));
 
         ((SpriterAnimation)this.animation).myPlayer.setScale(Settings.scale * 1.1F);
 
         initializeClass(
-                null, // required call to load textures and setup energy/loadout.
-                // I left these in DefaultMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they read.)
-                SHOULDER_TEXTURE, // campfire pose
-                SHOULDER_2_TEXTURE, // another campfire pose
-                CORPSE_TEXTURE, // dead corpse
-                getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
+                null,
+                SHOULDER_DARK_TEXTURE,
+                SHOULDER_LIT_TEXTURE,
+                CORPSE_TEXTURE,
+                getLoadout(), 0F, -10.0F, 160.0F, 280.0F, new EnergyManager(ENERGY_PER_TURN));
 
         this.memories = new MemoryManager(this);
 
-        this.dialogX = (drawX + 0.0F * Settings.scale); // set location for text bubbles
-        this.dialogY = (drawY + 220.0F * Settings.scale); // you can just copy these values
+        // Thought bubble position
+        this.dialogX = (drawX + 0.0F * Settings.scale);
+        this.dialogY = (drawY + 220.0F * Settings.scale);
     }
 
     public final MemoryManager memories;
@@ -217,6 +212,7 @@ public class Wanderer extends CustomPlayer {
         retVal.add(Defend_Wanderer.ID);
         retVal.add(FreshAdventure.ID);
         retVal.add(EyeOfTheStorm.ID);
+        retVal.add(ForbiddenGrimoire.ID);
 
         return retVal;
     }
@@ -226,7 +222,7 @@ public class Wanderer extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<>();
 
         // Note: only the first relic gets replaced when selecting the "replace starter relic" Neow boon
-        retVal.add(WandererStarterRelic.ID);
+        retVal.add(GrimoireRelic.ID);
         retVal.add(FragileMindRelic.ID);
 
         return retVal;
@@ -235,15 +231,14 @@ public class Wanderer extends CustomPlayer {
     // character Select screen effect
     @Override
     public void doCharSelectScreenSelectEffect() {
-        CardCrawlGame.sound.playA("ATTACK_DAGGER_1", 1.25f); // Sound Effect
-        CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT,
-                false); // Screen Effect
+        CardCrawlGame.sound.playA("ATTACK_FIRE", 0.8f);
+        CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT, false);
     }
 
     // character Select on-button-press sound effect
     @Override
     public String getCustomModeCharacterButtonSoundKey() {
-        return "ATTACK_DAGGER_1";
+        return "ATTACK_FIRE";
     }
 
     // Should return how much HP your maximum HP reduces by when starting a run at
@@ -256,7 +251,7 @@ public class Wanderer extends CustomPlayer {
     // Should return the card color enum to be associated with your character.
     @Override
     public AbstractCard.CardColor getCardColor() {
-        return WANDERER_GRAY_COLOR;
+        return WANDERER_CARD_COLOR;
     }
 
     // Should return a color object to be used to color the trail of moving cards
@@ -350,5 +345,15 @@ public class Wanderer extends CustomPlayer {
     // @Override (uncomment once released)
     public String getPortraitImageName() {
         return CHARACTER_SELECT_BG_TEXTURE;
+    }
+
+    @Override
+    public void damage(DamageInfo info) {
+        for(AbstractPower power : this.powers) {
+            if(power instanceof FlameWardPower) {
+                ((FlameWardPower) power).preDamage(info);
+            }
+        }
+        super.damage(info);
     }
 }

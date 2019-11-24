@@ -1,0 +1,409 @@
+{
+  "stsjorbsmod:Aid": {
+    "NAME": "Soin",
+    "DESCRIPTION": "Soignez un ennemi à hauteur de !M! PV. NL Souvenez-vous de stsjorbsmod:Bonté. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Soignez un ennemi à hauteur de !M! PV. NL Souvenez-vous de stsjorbsmod:Bonté. NL Votre souvenir actuel gagne en stsjorbsmod:Clarté. NL Épuisement."
+  },
+  "stsjorbsmod:Amnesia": {
+    "NAME": "Amnésie",
+    "DESCRIPTION": "Injouable. NL À la fin de votre tour, stsjorbsmod:Craquez. NL Retirez tous vos buff et vos debuffs."
+  },
+  "stsjorbsmod:AnimateObjects": {
+    "NAME": "Animer Objets",
+    "DESCRIPTION": "Infligez !D! dégât(s) à TOUS les ennemis pour chaque carte non-épuisée qui n'a pas commencé le combat dans votre deck."
+  },
+  "stsjorbsmod:ArcaneForm": {
+    "NAME": "Forme arcanique",
+    "DESCRIPTION": "Éthérée. stsjorbsmod:Patience, stsjorbsmod:Luxure, stsjorbsmod:Diligence, stsjorbsmod:Bonté, et stsjorbsmod:Chasteté gagnent en stsjorbsmod:Clarté.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Patience, stsjorbsmod:Luxure, stsjorbsmod:Diligence, stsjorbsmod:Bonté, et stsjorbsmod:Chasteté gagnent en stsjorbsmod:Clarté."
+  },
+  "stsjorbsmod:ArcaneWeapon": {
+    "NAME": "Arme arcanique",
+    "DESCRIPTION": "À la fin de votre tour, infligez !D! dégât(s) à un ennemi aléatoire."
+  },
+  "stsjorbsmod:Banish": {
+    "NAME": "Bannir",
+    "DESCRIPTION": "L'ennemi ciblé ne peut agir ou être attaqué pendant !M! tours. Épuisement."
+  },
+  "stsjorbsmod:Barb": {
+    "NAME": "Barbillon",
+    "DESCRIPTION": "Infligez !D! dégât(s)."
+  },
+  "stsjorbsmod:BlackTentacles": {
+    "NAME": "Tentacules noires",
+    "DESCRIPTION": "Infligez !D! dégât(s). NL Pendant ce tour, les dégât(s) infligés aux autres ennemis sont redirigés vers cet ennemi.",
+    "UPGRADE_DESCRIPTION": "Infligez !D! dégât(s). NL Pendant ce tour, les dégât(s) infligés aux autres ennemis sont redirigés vers cet ennemi. NL Piochez !M! carte."
+  },
+  "stsjorbsmod:BookOfTongues": {
+    "NAME": "Cahier de langues",
+    "DESCRIPTION": "Au début de chaque tour, ajoutez !M! stsjorbsmod:Composant\u00a0Matériel à votre main.",
+    "UPGRADE_DESCRIPTION": "Au début de chaque tour, ajoutez !M! stsjorbsmod:Composants\u00a0Matériels à votre main."
+  },
+  "stsjorbsmod:BurningFlask": {
+    "NAME": "Flasque brûlante",
+    "DESCRIPTION": "Appliquez !M! de stsjorbsmod:Brûlure."
+  },
+  "stsjorbsmod:ChainLightning": {
+    "NAME": "Éclairs en série",
+    "DESCRIPTION": "Infligez !D! dégât(s). NL L'éclair s'enchaine sur tous les ennemis, et gagne !M! dégât(s) à chaque coup."
+  },
+  "stsjorbsmod:Chamomile": {
+    "NAME": "Camomille",
+    "DESCRIPTION": "stsjorbsmod:Éphémère. NL Perdez vos effets Fragilisé et Vulnérable.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Perdez vos effets Fragilisé et Vulnérable. NL Épuisement."
+  },
+  "stsjorbsmod:Channel": {
+    "NAME": "Canaliser",
+    "DESCRIPTION": "Gagnez !B! d'Armure. NL Au prochain tour, gagnez !M! [E].",
+    "UPGRADE_DESCRIPTION": "Gagnez !B! d'Armure. NL Au prochain tour, gagnez !M! [E]. NL Placez une carte de votre défausse sur le haut de la pioche."
+  },
+  "stsjorbsmod:ColorSpray": {
+    "NAME": "Bombe de peinture",
+    "DESCRIPTION": "Infligez !D! dégât(s) à TOUS les ennemis et appliquez-leur un débuff aléatoire à chacun. NL Souvenez-vous de stsjorbsmod:Envie."
+  },
+  "stsjorbsmod:CorpseExplosion_Wanderer": {
+    "NAME": "Explosion morbide",
+    "DESCRIPTION": "stsjorbsmod:Enterrée. Éthérée. NL Est stsjorbsmod:Exhumée à la mort d'un ennemi. NL Infligez !D! dégât(s). NL Souvenez-vous de stsjorbsmod:Colère. NL Épuisement."
+  },
+  "stsjorbsmod:CorrodingBarrier": {
+    "NAME": "Barrière érodée",
+    "DESCRIPTION": "Gagnez !B! d'Armure. Chaque fois qu'elle est piochée, l'armure de cette carte diminue de !M! pour le combat.",
+    "UPGRADE_DESCRIPTION": "Gagnez !B! d'Armure."
+  },
+  "stsjorbsmod:Counterspell": {
+    "NAME": "Contre-sort",
+    "DESCRIPTION": "Gagnez !B! d'Armure. NL Gagnez !M! d'Artefact si l'ennemi compte vous infliger un effet négatif. NL Épuisement."
+  },
+  "stsjorbsmod:Defend_Wanderer": {
+    "NAME": "Défense",
+    "DESCRIPTION": "Gagnez !B! d'Armure."
+  },
+  "stsjorbsmod:Determination": {
+    "NAME": "Détermination",
+    "DESCRIPTION": "Souvenez-vous de stsjorbsmod:Orgueil. NL À la fin de ce tour, stsjorbsmod:Craquez.",
+    "UPGRADE_DESCRIPTION": "Souvenez-vous de stsjorbsmod:Orgueil. NL À la fin du prochain tour, stsjorbsmod:Craquez."
+  },
+  "stsjorbsmod:DisguiseSelf": {
+    "NAME": "Déguisement",
+    "DESCRIPTION": "Gagnez !B! d'Armure. NL Au prochain tour, gagnez !B! d'Armure."
+  },
+  "stsjorbsmod:DoubleCheck": {
+    "NAME": "Revérifier",
+    "DESCRIPTION": "Gagnez !B! d'Armure. NL Souvenez-vous de stsjorbsmod:Diligence.",
+    "UPGRADE_DESCRIPTION": "Gagnez !B! d'Armure. NL Souvenez-vous de stsjorbsmod:Diligence. NL Au début du prochain tour, si vous vous souvenez de stsjorbsmod:Diligence, gagnez en stsjorbsmod:Clarté."
+  },
+  "stsjorbsmod:EnergyBulb": {
+    "NAME": "Ampoule",
+    "DESCRIPTION": "stsjorbsmod:Éphémère. NL Gagnez !M! [E]."
+  },
+  "stsjorbsmod:Entangle": {
+    "NAME": "Emmêler",
+    "DESCRIPTION": "Appliquez stsjorbsmod:Ralenti à TOUS les ennemis. NL Ajoutez !M! stsjorbsmod:Toile à votre main.",
+    "UPGRADE_DESCRIPTION": "Appliquez stsjorbsmod:Ralenti à TOUS les ennemis. NL Ajoutez !M! stsjorbsmod:Toiles à votre main."
+  },
+  "stsjorbsmod:Eye": {
+    "NAME": "Oeil",
+    "DESCRIPTION": "stsjorbsmod:Éphémère. NL Appliquez !M! de Vulnérabilité."
+  },
+  "stsjorbsmod:EyeOfTheStorm": {
+    "NAME": "Oeil de la tempête",
+    "DESCRIPTION": "Votre souvenir actuel gagne en stsjorbsmod:Clarté. Rappelez-vous d'un souvenir aléatoire dont vous n'avez pas la stsjorbsmod:Clarté. NL Gagnez !B! d'Armure."
+  },
+  "stsjorbsmod:FaerieFire": {
+    "NAME": "Feu de Faerie",
+    "DESCRIPTION": "stsjorbsmod:Vertu: Appliquez !M! de Faiblesse à TOUS les ennemis. NL stsjorbsmod:Péché: Appliquez !M! de Vulnérabilité à TOUS les ennemis. NL Épuisement."
+  },
+  "stsjorbsmod:Fear": {
+    "NAME": "Peur",
+    "DESCRIPTION": "L'ennemi désigné fuira dans !M! tours. Si cela conclut le combat, vous ne gagnez pas de récompenses, mais vos Clartés sont maintenues pour le prochain combat."
+  },
+  "stsjorbsmod:Feast": {
+    "NAME": "Festin",
+    "DESCRIPTION": "Souvenez-vous de stsjorbsmod:Gourmandise. NL Piochez !M! cartes. NL Épuisement."
+  },
+  "stsjorbsmod:FindFamiliar": {
+    "NAME": "Familiariser",
+    "DESCRIPTION": "À la fin de votre tour, votre souvenir actuel gagne en stsjorbsmod:Clarté.",
+    "UPGRADE_DESCRIPTION": "À la fin de votre tour, votre souvenir actuel gagne en stsjorbsmod:Clarté. NL stsjorbsmod:Craqué, infligez !M! dégâts à TOUS les ennemis."
+  },
+  "stsjorbsmod:Fireball": {
+    "NAME": "Boule de feu",
+    "DESCRIPTION": "Souvenez-vous de stsjorbsmod:Luxure. NL Infligez !D! dégât(s) à TOUS les ennemis.",
+    "UPGRADE_DESCRIPTION": "Souvenez-vous de stsjorbsmod:Luxure. NL Infligez !D! dégât(s) à TOUS les ennemis. NL Appliquez !M! de stsjorbsmod:Brûlure à TOUS les ennemis."
+  },
+  "stsjorbsmod:Firebolt": {
+    "NAME": "Boulon enflammé",
+    "DESCRIPTION": "Infligez !D! dégât(s). NL Appliquez !M! de stsjorbsmod:Brûlure pour chaque stsjorbsmod:Clarté."
+  },
+  "stsjorbsmod:FlameWard": {
+    "NAME": "Garde de flammes",
+    "DESCRIPTION": "À la prochaine attaque reçue, appliquez !M! de stsjorbsmod:Brûlure à TOUS les attaquants et gagnez !B! d'Armure. Épuisement."
+  },
+  "stsjorbsmod:FocusedMind": {
+    "NAME": "Esprit concentré",
+    "DESCRIPTION": "stsjorbsmod:Péché: Infligez !D! dégât(s). NL stsjorbsmod:Vertu: Gagnez !B! d'Armure. NL stsjorbsmod:Craqué: Faites les 2."
+  },
+  "stsjorbsmod:ForbiddenGrimoire": {
+    "NAME": "Grimoire interdit",
+    "DESCRIPTION": "stsjorbsmod:Enterrée jusqu'au tour 7. NL Choisissez 1 stsjorbsmod:Composant\u00a0Matériel parmi 3. NL Épuisement, et stsjorbsmod:Exhumée après !M! autres cartes jouées, sauf si stsjorbsmod:Craqué."
+  },
+  "stsjorbsmod:FreshAdventure": {
+    "NAME": "Nouvelle aventure",
+    "DESCRIPTION": "Infligez !D! dégât(s). NL Souvenez-vous de stsjorbsmod:Diligence."
+  },
+  "stsjorbsmod:GatherPower": {
+    "NAME": "Puissance réunie",
+    "DESCRIPTION": "Piochez !M! cartes. NL Votre prochaine attaque ce tour est jouée !stsjorbsmod:MetaMagic! fois supplémentaire.",
+    "UPGRADE_DESCRIPTION": "Piochez !M! cartes. NL Votre prochaine attaque ce tour est jouée !stsjorbsmod:MetaMagic! fois supplémentaires."
+  },
+  "stsjorbsmod:HedgeWizard": {
+    "NAME": "Enchant'haie",
+    "DESCRIPTION": "Gagnez !B! d'Armure. NL Souvenez-vous de stsjorbsmod:Humilité."
+  },
+  "stsjorbsmod:Hibernate": {
+    "NAME": "Hiberner",
+    "DESCRIPTION": "Gagnez !B! d'Armure. NL Souvenez-vous de stsjorbsmod:Paresse."
+  },
+  "stsjorbsmod:HoldMonster": {
+    "NAME": "Monstre en main",
+    "DESCRIPTION": "Souvenez-vous de stsjorbsmod:Bonté. NL L'ennemi perd !M! de Force jusqu'à la fin du tour. NL Épuisement."
+  },
+  "stsjorbsmod:Hurt": {
+    "NAME": "Blesser",
+    "DESCRIPTION": "Infligez !D! dégât(s). NL Perdez !M! PV pour chaque stsjorbsmod:Clarté."
+  },
+  "stsjorbsmod:Index": {
+    "NAME": "Index",
+    "DESCRIPTION": "Piochez !M! cartes, puis placez !stsjorbsmod:MetaMagic! cartes de votre main sur le dessus de la pioche aléatoirement.",
+    "UPGRADE_DESCRIPTION": "Piochez !M! cartes, puis placez !stsjorbsmod:MetaMagic! cartes de votre main sur le dessus de la pioche."
+  },
+  "stsjorbsmod:Inferno": {
+    "NAME": "Inferno",
+    "DESCRIPTION": "Souvenez-vous de stsjorbsmod:Luxure. NL Doublez la stsjorbsmod:Brûlure de l'ennemi ciblé. NL Épuisement. stsjorbsmod:Exhumée quand vous stsjorbsmod:Craquez.",
+    "UPGRADE_DESCRIPTION": "Souvenez-vous de stsjorbsmod:Luxure. NL Triplez la stsjorbsmod:Brûlure de l'ennemi ciblé. NL Épuisement. stsjorbsmod:Exhumée quand vous stsjorbsmod:Craquez."
+  },
+  "stsjorbsmod:Introspection": {
+    "NAME": "Introspection",
+    "DESCRIPTION": "À la fin du tour, perdez !stsjorbsmod:UrMagic! PV et infligez !M! dégât(s) à TOUS les ennemis. Infligez !stsjorbsmod:MetaMagic! dégât(s) pour chaque stsjorbsmod:Clarté."
+  },
+  "stsjorbsmod:IvoryTower": {
+    "NAME": "Tour d'ivoire",
+    "DESCRIPTION": "Piochez !M! cartes. NL Épuisez les cartes Malédiction et Statut en main. NL Épuisement.",
+    "UPGRADE_DESCRIPTION": "Piochez !M! cartes. NL Épuisez les cartes Malédiction et Statut en main."
+  },
+  "stsjorbsmod:LocateObject": {
+    "NAME": "Localiser Objet",
+    "DESCRIPTION": "Souvenez-vous de stsjorbsmod:Avarice. NL Piochez !M! cartes. NL Épuisement."
+  },
+  "stsjorbsmod:LooseLeaf": {
+    "NAME": "Feuille détâchée",
+    "DESCRIPTION": "stsjorbsmod:Éphémère. NL Piochez !M! carte.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Éphémère. NL Piochez !M! cartes."
+  },
+  "stsjorbsmod:LoseGrip": {
+    "NAME": "Lâcher prise",
+    "DESCRIPTION": "Gagnez !B! d'Armure. NL Épuisement. stsjorbsmod:Exhumée quand vous stsjorbsmod:Craquez."
+  },
+  "stsjorbsmod:Loss": {
+    "NAME": "Perte",
+    "DESCRIPTION": "Gagnez !B! d'Armure. NL Gagnez !M! de Faiblesse."
+  },
+  "stsjorbsmod:MageArmor": {
+    "NAME": "Armure de mage",
+    "DESCRIPTION": "Injouable. NL Conservée. NL Si vous alliez perdre des PV, perdez !M! PV en moins et défaussez cette carte.",
+    "EXTENDED_DESCRIPTION": [
+      "Je ne peux pas jouer cette carte.",
+      "Armure de mage"
+    ]
+  },
+  "stsjorbsmod:MagicMirror": {
+    "NAME": "Miroir magique",
+    "DESCRIPTION": "Lorsqu'un ennemi vous inflige un debuff, appliquez-le à TOUS les ennemis.",
+    "UPGRADE_DESCRIPTION": "Inné. NL Lorsqu'un ennemi vous inflige un debuff, appliquez-le à TOUS les ennemis."
+  },
+  "stsjorbsmod:MagicMissiles": {
+    "NAME": "Missiles magiques",
+    "DESCRIPTION": "Infligez !D! dégât(s). NL Infligez !D! dégât(s) à nouveau pour chaque stsjorbsmod:Clarté."
+  },
+  "stsjorbsmod:Mania": {
+    "NAME": "Obsession",
+    "DESCRIPTION": "Infligez !D! dégât(s), égal au nombre de cartes uniques en main. Si elles le sont toutes, gagnez !stsjorbsmod:MetaMagic! [E] et piochez !stsjorbsmod:UrMagic! cartes.",
+    "UPGRADE_DESCRIPTION": "Infligez !D! dégât(s), égal à !stsjorbsmod:BaseDamage! + le nombre de cartes uniques en main. Si elles le sont toutes, gagnez !stsjorbsmod:MetaMagic! [E] et piochez !stsjorbsmod:UrMagic! cartes."
+  },
+  "stsjorbsmod:Mending": {
+    "NAME": "Raccommodage",
+    "DESCRIPTION": "Soignez-vous de !M! PV par stsjorbsmod:Clarté. NL Épuisement."
+  },
+  "stsjorbsmod:Message": {
+    "NAME": "Message",
+    "DESCRIPTION": "Placez !M! carte de votre défausse dans votre main. NL Épuisement.",
+    "UPGRADE_DESCRIPTION": "Placez cartes !M! de votre défausse dans votre main. NL Épuisement."
+  },
+  "stsjorbsmod:Mindworm": {
+    "NAME": "Esprit parasité",
+    "DESCRIPTION": "Infligez !D! dégât(s). NL Ensuite, si stsjorbsmod:Craqué, infligez !M! dégât(s). NL Ajoutez une copie de cette carte à votre défausse."
+  },
+  "stsjorbsmod:MinorIllusion": {
+    "NAME": "Illusion mineure",
+    "DESCRIPTION": "Gagnez !B! d'Armure."
+  },
+  "stsjorbsmod:MirrorImage": {
+    "NAME": "Image miroir",
+    "DESCRIPTION": "Souvenez-vous de stsjorbsmod:Bonté. NL La prochaine attaque ennemie rate.",
+    "UPGRADE_DESCRIPTION": "Souvenez-vous de stsjorbsmod:Bonté. NL La prochaine attaque ennemie rate. NL Conservée."
+  },
+  "stsjorbsmod:MistyStep": {
+    "NAME": "Démarche nuageuse",
+    "DESCRIPTION": "Gagnez !B! d'Armure, !stsjorbsmod:MetaMagic! par stsjorbsmod:Clarté. NL Piochez !M! carte.",
+    "UPGRADE_DESCRIPTION": "Gagnez !B! d'Armure, !stsjorbsmod:MetaMagic! par stsjorbsmod:Clarté + !stsjorbsmod:BaseBlock!. NL Piochez !M! carte."
+  },
+  "stsjorbsmod:Moss": {
+    "NAME": "Mousse",
+    "DESCRIPTION": "Conservée. NL Gagnez !M! de Dextérité jusqu'à la fin du tour. NL Épuisement."
+  },
+  "stsjorbsmod:OakLeaf": {
+    "NAME": "Feuille de chêne",
+    "DESCRIPTION": "Gagnez !M! de Dextérité."
+  },
+  "stsjorbsmod:OldPocket": {
+    "NAME": "Vieille poche",
+    "DESCRIPTION": "Gagnez !M! d'or. NL Souvenez-vous de stsjorbsmod:Charité. NL Épuisement.",
+    "UPGRADE_DESCRIPTION": "Gagnez !M! d'or. NL Souvenez-vous stsjorbsmod:Charité. NL Votre souvenir actuel gagne en stsjorbsmod:Clarté. NL Épuisement."
+  },
+  "stsjorbsmod:Prestidigitation": {
+    "NAME": "Prestidigitation",
+    "DESCRIPTION": "Au début de votre tour, appliquez !M! de Faiblesse ou !M! de Vulnérabilité à un ennemi aléatoire."
+  },
+  "stsjorbsmod:PurgeMind": {
+    "NAME": "Purifier l'esprit",
+    "DESCRIPTION": "Épuisez toutes les cartes qui se \"souviennent\". Infligez !D! dégât(s) pour chacune d'entre elles parmi vos cartes épuisées. NL stsjorbsmod:Craquez. Épuisement."
+  },
+  "stsjorbsmod:Pyromancy": {
+    "NAME": "Pyromancie",
+    "DESCRIPTION": "Éthérée. NL Appliquez stsjorbsmod:Brûlure deux fois.",
+    "UPGRADE_DESCRIPTION": "Appliquez stsjorbsmod:Brûlure deux fois."
+  },
+  "stsjorbsmod:Quicksilver": {
+    "NAME": "Mercure",
+    "DESCRIPTION": "stsjorbsmod:Éphémère. NL Accélérez les reliques de !stsjorbsmod:MetaMagic! tour. NL Votre prochaine attaque ce tour est jouée !M! fois supplémentaire.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Éphémère. NL Accélérez les reliques de !stsjorbsmod:MetaMagic! tour. NL Votre prochaine attaque ce tour est jouée !M! fois supplémentaires."
+  },
+  "stsjorbsmod:RayOfFrost": {
+    "NAME": "Rayon de givre",
+    "DESCRIPTION": "Infligez !D! dégât(s). NL Appliquez !M! de Faiblesse.",
+    "UPGRADE_DESCRIPTION": "Infligez !D! dégât(s). NL Appliquez !M! de Faiblesse !stsjorbsmod:MetaMagic! fois."
+  },
+  "stsjorbsmod:Rediscovery": {
+    "NAME": "Redécouverte",
+    "DESCRIPTION": "Chaque fois qu'un souvenir gagne en stsjorbsmod:Clarté, gagnez 1 [E].",
+    "UPGRADE_DESCRIPTION": "Inné. NL Chaque fois qu'un souvenir gagne en stsjorbsmod:Clarté, gagnez 1 [E]."
+  },
+  "stsjorbsmod:RefuseToForget": {
+    "NAME": "Refus d'oublier",
+    "DESCRIPTION": "Vous ne pouvez pas oublier votre souvenir actuel avant qu'il ait gagné en stsjorbsmod:Clarté. NL Scrutez !M!."
+  },
+  "stsjorbsmod:Rest": {
+    "NAME": "Repos",
+    "DESCRIPTION": "Souvenez-vous de stsjorbsmod:Chasteté. NL Gagnez !B! d'Armure. NL Terminez votre tour."
+  },
+  "stsjorbsmod:Rot": {
+    "NAME": "Rot",
+    "DESCRIPTION": "stsjorbsmod:Éphémère. NL Perdez une stsjorbsmod:Clarté aléatoire. NL Quand vous obtenez cette carte en main, ajoutez !M! copie supplémentaire.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Éphémère. NL Perdez une stsjorbsmod:Clarté aléatoire. NL Quand vous obtenez cette carte en main, ajoutez !M! copies supplémentaires. ."
+  },
+  "stsjorbsmod:SchoolsOfMagic": {
+    "NAME": "Écoles de magie",
+    "DESCRIPTION": "Piochez !M! cartes. NL Si vous n'avez aucun double en main, gagnez en stsjorbsmod:Clarté; sinon, Épuisez en 1 de chaque."
+  },
+  "stsjorbsmod:ScorchingRay": {
+    "NAME": "Rayon brûlant",
+    "DESCRIPTION": "Souvenez-vous de stsjorbsmod:Luxure. NL Appliquez !D! dégât(s) de stsjorbsmod:Brûlure !M! fois."
+  },
+  "stsjorbsmod:SiphonEnergy": {
+    "NAME": "Siphonner l'énergie",
+    "DESCRIPTION": "Retirez toute stsjorbsmod:Brûlure de la cible et gagnez autant de Force jusqu'à la fin du tour. NL Épuisement.",
+    "UPGRADE_DESCRIPTION": "Retirez toute stsjorbsmod:Brûlure de la cible et gagnez autant de Force jusqu'à la fin du tour."
+  },
+  "stsjorbsmod:SmithingStrike": {
+    "NAME": "Frappe de forge",
+    "DESCRIPTION": "Souvenez-vous de stsjorbsmod:Colère. NL Infligez !D! dégât(s)."
+  },
+  "stsjorbsmod:SnakeOil": {
+    "NAME": "Huile de serpent",
+    "DESCRIPTION": "Conservée. NL Infligez !D! dégât(s) à TOUS les ennemis. Inflige !M! dégât(s) supplémentaire(s) par stsjorbsmod:Bobine. NL Épuisement."
+  },
+  "stsjorbsmod:Stalwart": {
+    "NAME": "Fidèle",
+    "DESCRIPTION": "Souvenez-vous de stsjorbsmod:Tempérance. NL Épuisement.",
+    "UPGRADE_DESCRIPTION": "Souvenez-vous de stsjorbsmod:Tempérance. NL Votre souvenir actuel gagne en stsjorbsmod:Clarté. NL Épuisement."
+  },
+  "stsjorbsmod:Steel": {
+    "NAME": "Acier",
+    "DESCRIPTION": "stsjorbsmod:Éphémère. NL Améliorez !M! carte aléatoire de votre main jusqu'à la fin du combat.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Éphémère. NL Améliorez !M! cartes aléatoires de votre main jusqu'à la fin du combat."
+  },
+  "stsjorbsmod:Stone": {
+    "NAME": "Pierre",
+    "DESCRIPTION": "Conservée. NL Appliquez stsjorbsmod:Ralenti. NL Si l'ennemi est déjà stsjorbsmod:Ralenti, doublez ses effets stsjorbsmod:Ralenti. NL Épuisement.",
+    "UPGRADE_DESCRIPTION": "Conservée. NL Appliquez stsjorbsmod:Ralenti. NL Si l'ennemi est déjà stsjorbsmod:Ralenti, triplez ses effets stsjorbsmod:Ralenti. NL Épuisement."
+  },
+  "stsjorbsmod:StrangePendant": {
+    "NAME": "Pendentif étrange",
+    "DESCRIPTION": "Ignorez le(s) !M! premier(s) dégât(s) reçu(s) chaque tour."
+  },
+  "stsjorbsmod:Strike_Wanderer": {
+    "NAME": "Frappe",
+    "DESCRIPTION": "Infligez !D! dégât(s)."
+  },
+  "stsjorbsmod:Sulfur": {
+    "NAME": "Soufre",
+    "DESCRIPTION": "stsjorbsmod:Éphémère. NL Appliquez !M! stsjorbsmod:Brûlure."
+  },
+  "stsjorbsmod:ThirstingSword": {
+    "NAME": "Épée assoifée",
+    "DESCRIPTION": "Appliquez !M! stsjorbsmod:Brûlure et soignez-vous d'un montant égal à la stsjorbsmod:Brûlure de la cible. NL Perdez !stsjorbsmod:MetaMagic! PV Max. NL Infligez !D! dégât(s). NL Épuisement."
+  },
+  "stsjorbsmod:Thorns": {
+    "NAME": "Épines",
+    "DESCRIPTION": "Souvenez-vous de stsjorbsmod:Humilité. NL Si un ennemi compte attaquer, votre souvenir actuel gagne en stsjorbsmod:Clarté. NL Épuisement.",
+    "UPGRADE_DESCRIPTION": "Souvenez-vous de stsjorbsmod:Humilité. NL Votre souvenir actuel gagne en stsjorbsmod:Clarté. NL Épuisement."
+  },
+  "stsjorbsmod:TinyHut": {
+    "NAME": "Petite cabane",
+    "DESCRIPTION": "Souvenez-vous de stsjorbsmod:Bonté. NL Votre souvenir actuel gagne en stsjorbsmod:Clarté.",
+    "UPGRADE_DESCRIPTION": "Inné. NL Souvenez-vous de stsjorbsmod:Bonté. NL Votre souvenir actuel gagne en stsjorbsmod:Clarté."
+  },
+  "stsjorbsmod:TollTheDead": {
+    "NAME": "Taxer les morts",
+    "DESCRIPTION": "Infligez !D! dégât(s). NL Si l'ennemi avait déjà reçu des dégâts, infligez !D! dégât(s) à nouveau.."
+  },
+  "stsjorbsmod:Trauma": {
+    "NAME": "Traumatisme",
+    "DESCRIPTION": "stsjorbsmod:Craquez. NL Infligez !D! dégât(s) à TOUS les ennemis. NL Placez cette carte au-dessus de votre pioche."
+  },
+  "stsjorbsmod:TrueStrike": {
+    "NAME": "Frappe pure",
+    "DESCRIPTION": "Infligez !D! dégât(s). NL Ces dégats ne peuvent être ni empêchés, ni réduits."
+  },
+  "stsjorbsmod:UnseenServant": {
+    "NAME": "Serviteur invisible",
+    "DESCRIPTION": "Souvenez-vous de stsjorbsmod:Paresse. NL Placez !M! cartes de votre défausse au-dessus de votre pioche. NL Épuisement.",
+    "UPGRADE_DESCRIPTION": "Souvenez-vous de stsjorbsmod:Paresse. NL Placez !M! cartes de votre défausse au-dessus de votre pioche. Piochez !stsjorbsmod:MetaMagic! carte. NL Épuisement."
+  },
+  "stsjorbsmod:WanderingMind": {
+    "NAME": "Esprit errant",
+    "DESCRIPTION": "Piochez !M! cartes. NL Rappelez-vous d'un souvenir aléatoire qui n'a pas gagné en stsjorbsmod:Clarté."
+  },
+  "stsjorbsmod:Web": {
+    "NAME": "Toile",
+    "DESCRIPTION": "Conservée. NL Appliquez !M! de Faiblesse. NL Épuisement."
+  },
+  "stsjorbsmod:WeightOfMemory": {
+    "NAME": "Pèse-souvenirs",
+    "DESCRIPTION": "Infligez !D! dégât(s). NL Inflige !M! dégâts supplémentaires pour toutes les cartes qui se \"souviennent\"."
+  },
+  "stsjorbsmod:Withdraw": {
+    "NAME": "Retrait",
+    "DESCRIPTION": "Gagnez !M! d'Artefact. NL Gagnez !B! d'Armure. NL Épuisement."
+  }
+}

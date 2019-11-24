@@ -2,66 +2,7 @@
   "stsjorbsmod:ArcaneWeaponPower": {
     "NAME": "Arcane Weapon",
     "DESCRIPTIONS": [
-      "At the end of each turn, attack a random enemy for #b",
-      " Damage."
-    ]
-  },
-  "stsjorbsmod:BlackTentaclesPower": {
-    "NAME": "Black Tentacles",
-    "DESCRIPTIONS": [
-      "Attacks with random targets target this enemy for #b",
-      " turn.",
-      " turns."
-    ]
-  },
-  "stsjorbsmod:BookOfTonguesPower": {
-    "NAME": "Book of Tongues",
-    "DESCRIPTIONS": [
-      "At the start of your turn, draw #b1 random Material Component.",
-      "At the start of your turn, draw #b", " random Material Components."
-    ]
-  },
-  "stsjorbsmod:CoilPower": {
-    "NAME": "Coil",
-    "DESCRIPTIONS": [
-      "When you remember a new memory, deal #b",
-      " Damage to all enemies and lose all Coil."
-    ]
-  },
-  "stsjorbsmod:EnergizedCustomPower": {
-    "NAME": "Energized",
-    "DESCRIPTIONS": [
-      "Gain #b",
-      " additional [E] next turn."
-    ]
-  },
-  "stsjorbsmod:FearPower": {
-    "NAME": "Afraid",
-    "DESCRIPTIONS": [
-      "Will escape in #b",
-      " turn.",
-      " turns.",
-      " If this ends the fight, keep Clarities for next fight."
-    ]
-  },
-  "stsjorbsmod:FindFamiliarPower": {
-    "NAME": "Find Familiar",
-    "DESCRIPTIONS": [
-      "At the end of each turn, gain #yClarity. If #ySnapped, deal #b", " damage to ALL enemies."
-    ]
-  },
-  "stsjorbsmod:FocusOnThePainPower": {
-    "NAME": "Focus on the Pain",
-    "DESCRIPTIONS": [
-      "Whenever you lose HP, gain Clarity."
-    ]
-  },
-  "stsjorbsmod:FragilePower": {
-    "NAME": "Fragile",
-    "DESCRIPTIONS": [
-      "At the end of this turn, Snap.",
-      "In ",
-      " turns, Snap."
+      "At the end of each turn, attack a random enemy for %1$s%2$s damage."
     ]
   },
   "stsjorbsmod:BanishedPower": {
@@ -70,43 +11,26 @@
       "Cannot give or receive damage. Cannot give or receive conditions."
     ]
   },
-  "stsjorbsmod:IntrospectionPower": {
-    "NAME": "Introspection",
+  "stsjorbsmod:BlackTentaclesPower": {
+    "NAME": "Black Tentacles",
     "DESCRIPTIONS": [
-      "At the end of each turn, lose #b", " HP and deal #b", " damage to ALL enemies. Deal ", " additional damage per Clarity."
+      "This turn, all damage you deal to other enemies is dealt to this enemy instead."
     ]
   },
-  "stsjorbsmod:MagicMirrorPower": {
-    "NAME": "Magic Mirror",
+  "stsjorbsmod:BookOfTonguesPower": {
+    "NAME": "Book of Tongues",
     "DESCRIPTIONS": [
-      "Whenever you receive a debuff, apply that debuff to ALL enemies.",
-      "Whenever you receive a debuff, apply that debuff to ALL enemies #b", " times."
+      "At the start of your turn, draw #b1 random Material Component.",
+      "At the start of your turn, draw #b",
+      " random Material Components."
     ]
   },
-  "stsjorbsmod:NextAttackMissesPower": {
-    "NAME": "Mirror Image",
+  "stsjorbsmod:BurningPower": {
+    "NAME": "Burning",
     "DESCRIPTIONS": [
-      "The next enemy attack misses."
-    ]
-  },
-  "stsjorbsmod:PrestidigitationPower": {
-    "NAME": "Prestidigitation",
-    "DESCRIPTIONS": [
-      "At the start of each turn, apply #b",
-      " Weak or #b",
-      " Vulnerable to a random enemy"
-    ]
-  },
-  "stsjorbsmod:ReduceNextDamagePower": {
-    "NAME": "Reduce Damage",
-    "DESCRIPTIONS": [
-      "Reduce the next damage taken by #b", "."
-    ]
-  },
-  "stsjorbsmod:SnappedPower": {
-    "NAME": "Snapped",
-    "DESCRIPTIONS": [
-      "You cannot remember any memories or clarities."
+      "At the start of your turn, take #b%1$s damage, then reduce #yBurning by #b%2$s. Reduce healing by %3$s%%.",
+      "At the start of its turn, takes #b%1$s damage, then reduce #yBurning by #b%2$s. Reduce healing by %3$s%%.",
+      "Reduce healing by %1$s%%."
     ]
   },
   "stsjorbsmod:CharityMemory": {
@@ -121,10 +45,30 @@
       "At the end of each turn, lose !D! #yDexterity and gain !B! #yBlock."
     ]
   },
+  "stsjorbsmod:CoilPower": {
+    "NAME": "Coil",
+    "DESCRIPTIONS": [
+      "Whenever you remember a new memory, deal #b",
+      " damage to ALL enemies and lose all Coil."
+    ]
+  },
   "stsjorbsmod:DiligenceMemory": {
     "NAME": "Diligence",
     "DESCRIPTIONS": [
       "At the end of your turn, Retain !M!."
+    ]
+  },
+  "stsjorbsmod:DoubleCheckPower": {
+    "NAME": "Double-check",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, if you remember #yDiligence gain #yClarity."
+    ]
+  },
+  "stsjorbsmod:EnergizedCustomPower": {
+    "NAME": "Energized",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " additional [E] next turn."
     ]
   },
   "stsjorbsmod:EnvyMemory": {
@@ -133,10 +77,48 @@
       "Whenever you target an enemy with a card, apply !M! #yVulnerable to that enemy."
     ]
   },
-  "stsjorbsmod:GreedMemory": {
-    "NAME": "Greed",
+  "stsjorbsmod:FearPower": {
+    "NAME": "Afraid",
     "DESCRIPTIONS": [
-      "Whenever you kill a non-minion enemy, gain !M! gold."
+      "Will escape in #b",
+      " turn.",
+      " turns.",
+      " If this ends the fight, keep Clarities for next fight."
+    ]
+  },
+  "stsjorbsmod:FindFamiliarPower": {
+    "NAME": "Find Familiar",
+    "DESCRIPTIONS": [
+      "At the end of each turn, gain #yClarity. If #ySnapped, deal #b",
+      " damage to ALL enemies."
+    ]
+  },
+  "stsjorbsmod:FlameWardPower": {
+    "NAME": "Flame Ward",
+    "DESCRIPTIONS": [
+      "When you are next attacked, apply #b%1$s #yBurning to ALL attackers and gain #b%2$s #yBlock."
+    ]
+  },
+  "stsjorbsmod:FocusOnThePainPower": {
+    "NAME": "Focus on the Pain",
+    "DESCRIPTIONS": [
+      "Whenever you lose HP, gain Clarity."
+    ]
+  },
+  "stsjorbsmod:ForbiddenGrimoireDelayedExhumePower": {
+    "NAME": "Delayed Exhume",
+    "DESCRIPTIONS": [
+      " will be Exhumed after you play #b",
+      " more card.",
+      " more cards."
+    ]
+  },
+  "stsjorbsmod:FragilePower": {
+    "NAME": "Fragile",
+    "DESCRIPTIONS": [
+      "At the end of this turn, Snap.",
+      "In ",
+      " turns, Snap."
     ]
   },
   "stsjorbsmod:GluttonyMemory": {
@@ -145,10 +127,25 @@
       "Whenever you kill a non-minion enemy, raise your Max HP by !M!. At the start of each turn, discard one card."
     ]
   },
+  "stsjorbsmod:GreedMemory": {
+    "NAME": "Greed",
+    "DESCRIPTIONS": [
+      "Whenever you kill a non-minion enemy, gain !M! gold."
+    ]
+  },
   "stsjorbsmod:HumilityMemory": {
     "NAME": "Humility",
     "DESCRIPTIONS": [
       "Gain !M! #yThorns."
+    ]
+  },
+  "stsjorbsmod:IntrospectionPower": {
+    "NAME": "Introspection",
+    "DESCRIPTIONS": [
+      "At the end of each turn, lose #b",
+      " HP and deal #b",
+      " damage to ALL enemies. Deal ",
+      " additional damage per Clarity."
     ]
   },
   "stsjorbsmod:KindnessMemory": {
@@ -163,10 +160,46 @@
       "Your attacks apply !P! #yBurning. Each time remembered, apply !R! #yBurning to ALL enemies. Each time forgotten, gain !F! #yWeak."
     ]
   },
+  "stsjorbsmod:MagicMirrorPower": {
+    "NAME": "Magic Mirror",
+    "DESCRIPTIONS": [
+      "Whenever an enemy applies a debuff to you, apply that debuff to ALL enemies.",
+      "Whenever an enemy applies a debuff to you, apply that debuff to ALL enemies #b",
+      " times."
+    ]
+  },
+  "stsjorbsmod:MindGlassPower": {
+    "NAME": "Mind Glass",
+    "DESCRIPTIONS": [
+      "When you next gain #yClarity, deal #b%1$s damage to ALL enemies."
+    ]
+  },
+  "stsjorbsmod:NextAttackMissesPower": {
+    "NAME": "Mirror Image",
+    "DESCRIPTIONS": [
+      "The next enemy attack misses."
+    ]
+  },
   "stsjorbsmod:PatienceMemory": {
     "NAME": "Patience",
     "DESCRIPTIONS": [
       "Gain 1 #yCoil each time you play a card."
+    ]
+  },
+  "stsjorbsmod:PlayNextAttackThisTurnAdditionalTimesPower": {
+    "NAME": "Hastened",
+    "DESCRIPTIONS": [
+      "The next attack you play this turn is played an additional time.",
+      "The next attack you play this turn is played an additional #b",
+      " times."
+    ]
+  },
+  "stsjorbsmod:PrestidigitationPower": {
+    "NAME": "Prestidigitation",
+    "DESCRIPTIONS": [
+      "At the start of each turn, apply #b",
+      " Weak or #b",
+      " Vulnerable to a random enemy"
     ]
   },
   "stsjorbsmod:PrideMemory": {
@@ -175,38 +208,48 @@
       "At the end of combat, permanently #yUpgrade a card in your deck. Maintains #b!M! #yDexterity."
     ]
   },
+  "stsjorbsmod:PyromancyPower": {
+    "NAME": "Pyromancy",
+    "DESCRIPTIONS": [
+      "Apply #yBurning #b",
+      " extra time.",
+      " extra times."
+    ]
+  },
+  "stsjorbsmod:RediscoveryPower": {
+    "NAME": "Rediscovery",
+    "DESCRIPTIONS": [
+      "Whenever you gain #yClarity of a new memory, gain #b%1$s [E]"
+    ]
+  },
   "stsjorbsmod:SlothMemory": {
     "NAME": "Sloth",
     "DESCRIPTIONS": [
       "Draw !M! fewer cards each turn."
     ]
   },
+  "stsjorbsmod:SnappedPower": {
+    "NAME": "Snapped",
+    "DESCRIPTIONS": [
+      "You cannot remember any memories or clarities."
+    ]
+  },
+  "stsjorbsmod:StrangePendantPower": {
+    "NAME": "Strange Pendant",
+    "DESCRIPTIONS": [
+      "Ignore the first #b%1$s damage taken each turn."
+    ]
+  },
   "stsjorbsmod:TemperanceMemory": {
     "NAME": "Temperance",
     "DESCRIPTIONS": [
-      "Maintains #b!S! #yStrength. Maintains an additional 1 #yStrength for every additional #yClarity you gain. Each time remembered, apply !W! #yWeak to ALL enemies."
+      "Maintains #b!S! #yStrength. Maintains an additional 1 #yStrength for every additional #yClarity you gain."
     ]
   },
   "stsjorbsmod:WrathMemory": {
     "NAME": "Wrath",
     "DESCRIPTIONS": [
       "Whenever you kill a non-minion enemy, permanently increase the damage of the last damage-dealing attack card played this combat (currently, !C!) by !M!."
-    ]
-  },
-  "stsjorbsmod:BurningPower": {
-    "NAME": "Burning",
-    "DESCRIPTIONS": [
-      "At the start of your turn, lose #b",
-      " HP, then reduce #yBurning by #b",
-      ". ",
-      "At the start of its turn, loses #b",
-      "Reduce healing by 50%."
-    ]
-  },
-  "stsjorbsmod:MindGlassPower": {
-    "NAME": "Mind Glass",
-    "DESCRIPTIONS": [
-      "When you next gain #yClarity, deal #b%1$s damage to ALL enemies."
     ]
   }
 }

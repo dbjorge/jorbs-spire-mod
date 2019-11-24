@@ -10,20 +10,19 @@ import stsjorbsmod.characters.Wanderer;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class MinorIllusion extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(MinorIllusion.class.getSimpleName());
-    public static final String IMG = makeCardPath("Block_Commons/minor_illusion.png");
+    public static final String ID = JorbsMod.makeID(MinorIllusion.class);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 0;
     private static final int BLOCK = 5;
     private static final int UPGRADE_PLUS_BLOCK = 2;
 
     public MinorIllusion() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = BLOCK;
     }
 
@@ -37,7 +36,7 @@ public class MinorIllusion extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

@@ -1,11 +1,7 @@
 [
   {
     "NAMES": ["burning"],
-    "DESCRIPTION": "Burning creatures lose HP at the start of their turn and have healing reduced by 50%. Each turn, Burning is reduced by half."
-  },
-  {
-    "NAMES": ["clarity"],
-    "DESCRIPTION": "Memories you have Clarity of won't be forgotten when remembering a new memory."
+    "DESCRIPTION": "Burning creatures take damage at the start of their turn and have healing reduced by 50%. Each turn, Burning is reduced by half."
   },
   {
     "NAMES": ["charity"],
@@ -14,6 +10,10 @@
   {
     "NAMES": ["chastity"],
     "DESCRIPTION": "When you remember Chastity, gain #b2 #yDexterity. At the end of each turn, lose #b1 #yDexterity and gain #b6 #yBlock."
+  },
+  {
+    "NAMES": ["clarity", "clarities"],
+    "DESCRIPTION": "While you have Clarity of a memory, you keep its passive effect even after forgetting the memory."
   },
   {
     "NAMES": ["coil"],
@@ -29,11 +29,19 @@
   },
   {
     "NAMES": ["entombed"],
-    "DESCRIPTION": "Start combat Exhausted. Move from Exhaust pile to hand whenever an enemy dies."
+    "DESCRIPTION": "This card starts each combat in your Exhaust pile. It will be Exhumed from your Exhaust pile into your hand each time its Exhume condition is met."
   },
   {
     "NAMES": ["envy"],
     "DESCRIPTION": "When you remember Envy, gain #b1 #yVulnerable. Whenever you target an enemy with a card, apply #b1 #yVulnerable to that enemy."
+  },
+  {
+    "NAMES": ["ephemeral"],
+    "DESCRIPTION": "Exhausts at the end of your turn, when played, or when discarded."
+  },
+  {
+    "NAMES": ["exhume"],
+    "DESCRIPTION": "Move from your Exhaust pile to your hand."
   },
   {
     "NAMES": ["gluttony"],
@@ -57,12 +65,12 @@
   },
   {
     "PROPER_NAME": "Material Component",
-    "NAMES": ["material_component", "material_components"],
+    "NAMES": ["material\u00a0component", "material\u00a0components"],
     "DESCRIPTION": "Material Components are (mostly) 0-cost cards with a variety of minor effects."
   },
   {
     "NAMES": ["patience"],
-    "DESCRIPTION": "Gain 1 #yCoil each time you play a card. When you remember a new memory, deal 2 damage to ALL enemies for each #yCoil and lose all #yCoil."
+    "DESCRIPTION": "Gain 1 #yCoil each time you play a card. When you remember a new memory, deal 1 damage to ALL enemies for each #yCoil and lose all #yCoil."
   },
   {
     "NAMES": ["pride"],
@@ -86,7 +94,7 @@
   },
   {
     "NAMES": ["temperance"],
-    "DESCRIPTION": "Until forgotten, gain 1 #yStrength for every #yClarity you have. Each time remembered, apply #b1 #yWeak to ALL enemies."
+    "DESCRIPTION": "While you remember or have clarity of Temperance, gain 1 #yStrength for every #yClarity you have."
   },
   {
     "NAMES": ["virtue"],

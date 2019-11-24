@@ -1,10 +1,8 @@
 package stsjorbsmod.cards.wanderer;
 
-import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.ArtifactPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
@@ -13,20 +11,19 @@ import stsjorbsmod.powers.BanishedPower;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Banish extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Banish.class.getSimpleName());
-    public static final String IMG = makeCardPath("Scaling_Rares/banish.png");
+    public static final String ID = JorbsMod.makeID(Banish.class);
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 2;
     private static final int UPGRADED_COST = 1;
     private static final int DURATION = 2;
 
     public Banish() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = DURATION;
         exhaust = true;
     }
@@ -41,7 +38,7 @@ public class Banish extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeBaseCost(UPGRADED_COST);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

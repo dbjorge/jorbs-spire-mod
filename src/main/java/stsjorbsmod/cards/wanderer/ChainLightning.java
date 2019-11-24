@@ -16,19 +16,17 @@ import stsjorbsmod.characters.Wanderer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 import java.util.stream.Collectors;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class ChainLightning extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(ChainLightning.class.getSimpleName());
-    public static final String IMG = makeCardPath("AOE_Commons/chain_lightning.png");
+    public static final String ID = JorbsMod.makeID(ChainLightning.class);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 1;
     private static final int DAMAGE = 7;
@@ -38,7 +36,7 @@ public class ChainLightning extends CustomJorbsModCard {
     private int currentChainHopIndex = 0;
 
     public ChainLightning() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = DAMAGE_PLUS_PER_HOP;
     }
@@ -88,7 +86,7 @@ public class ChainLightning extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_PER_HOP);
-            initializeDescription();
+            upgradeDescription();
         }
     }
 }

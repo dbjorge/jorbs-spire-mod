@@ -10,21 +10,20 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.KindnessMemory;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
-import static stsjorbsmod.characters.Wanderer.Enums.REMEMBER_MEMORY;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class TinyHut extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(TinyHut.class.getSimpleName());
-    public static final String IMG = makeCardPath("Scaling_Uncommons/tiny_hut.png");
+    public static final String ID = JorbsMod.makeID(TinyHut.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.POWER;
-    public static final CardColor COLOR = Wanderer.Enums.WANDERER_GRAY_COLOR;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 1;
 
     public TinyHut() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
 
         this.tags.add(REMEMBER_MEMORY);
     }
