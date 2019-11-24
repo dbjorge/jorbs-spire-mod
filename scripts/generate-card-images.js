@@ -84,8 +84,8 @@ for (originalFullPath of originalFullPaths) {
   const bigOutput = smallOutput.replace(/\.png$/, '_p.png');
 
   console.log(`[${cardType}] ${originalFullPath}`);
-  child_process.execSync(`magick "${originalFullPath}" -resize 500x380 "${bigMask}" -alpha Off -compose CopyOpacity -composite "${bigOutput}"`);
-  child_process.execSync(`magick "${originalFullPath}" -resize 250x190 "${smallMask}" -alpha Off -compose CopyOpacity -composite  "${smallOutput}"`);
+  child_process.execSync(`magick "${originalFullPath}" -resize 500x380 "${bigMask}" -alpha Off -compose CopyOpacity -composite -strip "${bigOutput}"`);
+  child_process.execSync(`magick "${originalFullPath}" -resize 250x190 "${smallMask}" -alpha Off -compose CopyOpacity -composite -strip "${smallOutput}"`);
 }
 
 console.log("Done!")
