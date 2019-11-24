@@ -280,7 +280,7 @@
   },
   "stsjorbsmod:Prepare": {
     "NAME": "Prepare",
-    "DESCRIPTION": "1: Gain 4 Coil. Gain block equal to your Coil."
+    "DESCRIPTION": "Gain !M! stsjorbsmod:Coil. NL Gain Block equal to your stsjorbsmod:Coil."
   },
   "stsjorbsmod:Prestidigitation": {
     "NAME": "Prestidigitation",
