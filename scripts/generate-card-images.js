@@ -10,12 +10,18 @@
 // This requires "magick" be present on your path to run. On Windows, you can get it by installing Chocolatey and
 // then running "choco install imagemagick"
 //
-// Usage:
+// Usage (regenerate all cards):
 //     node update-card-images.js
+//
+// Usage (regenerate only cards whose paths match a given substring):
+//     node update-card-images.js SomeSubstring
 
+const child_process = require('child_process');
 const fs = require('fs');
 const path = require('path');
-const child_process = require('child_process');
+const process = require('process');
+
+const cardFilterSubstring = process.argv.length > 2 ? process.argv[2] : null;
 
 const cardMasksByCardType = {
   'ATTACK': path.join(__dirname, 'card_masks/attack.png'),
@@ -60,8 +66,13 @@ function readCardTypeFromSource(imgBaseName) {
   return matches[1];
 }
 
+skips = 0;
 const originalFullPaths = findFilesRecursiveSync(inputDirectory, /\.png$/);
 for (originalFullPath of originalFullPaths) {
+  if (cardFilterSubstring != null && !originalFullPath.includes(cardFilterSubstring)) {
+    skips += 1
+    continue;
+  }
   const baseName = path.basename(originalFullPath);
   const cardType = readCardTypeFromSource(baseName);
   if (cardType == null) {
@@ -75,4 +86,9 @@ for (originalFullPath of originalFullPaths) {
   console.log(`[${cardType}] ${originalFullPath}`);
   child_process.execSync(`magick "${originalFullPath}" -resize 500x380 "${bigMask}" -alpha Off -compose CopyOpacity -composite "${bigOutput}"`);
   child_process.execSync(`magick "${originalFullPath}" -resize 250x190 "${smallMask}" -alpha Off -compose CopyOpacity -composite  "${smallOutput}"`);
+}
+
+console.log("Done!")
+if (skips > 0) {
+  console.log(`Filter parameter ${cardFilterSubstring} resultsed in skipping ${skips} images`)
 }
