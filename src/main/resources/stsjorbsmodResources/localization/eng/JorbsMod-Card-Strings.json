@@ -62,13 +62,13 @@
     "DESCRIPTION": "Gain !B! Block. NL Gain !M! [E] next turn.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !M! [E] next turn. NL Put a card from your discard pile on top of your draw pile."
   },
+  "stsjorbsmod:Chatter": {
+    "NAME": "Chatter",
+    "DESCRIPTION": "Deal !D! damage. NL Play this card !M! additional time."
+  },
   "stsjorbsmod:ColorSpray": {
     "NAME": "Color Spray",
     "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each. NL Remember stsjorbsmod:Envy."
-  },
-  "stsjorbsmod:CorpseExplosion_Wanderer": {
-    "NAME": "Corpse Explosion",
-    "DESCRIPTION": "stsjorbsmod:Entombed. Ethereal. NL stsjorbsmod:Exhume whenever an enemy dies. NL Deal !D! damage. NL Remember stsjorbsmod:Wrath. NL Exhaust."
   },
   "stsjorbsmod:CorrodingBarrier": {
     "NAME": "Corroding Barrier",
@@ -78,6 +78,10 @@
   "stsjorbsmod:Counterspell": {
     "NAME": "Counterspell",
     "DESCRIPTION": "Gain !B! Block. NL Gain !M! Artifact if enemy intends to apply a negative effect. NL Exhaust."
+  },
+  "stsjorbsmod:DeathThroes": {
+    "NAME": "Death Throes",
+    "DESCRIPTION": "stsjorbsmod:Entombed. stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume whenever an enemy dies. NL Deal !D! damage. NL Remember stsjorbsmod:Wrath."
   },
   "stsjorbsmod:Defend_Wanderer": {
     "NAME": "Defend",
@@ -120,7 +124,10 @@
   },
   "stsjorbsmod:Fear": {
     "NAME": "Fear",
-    "DESCRIPTION": "Target non-boss enemy will flee in !M! turns. If this ends combat, you gain no rewards but keep Clarities for the next combat."
+    "DESCRIPTION": "Target non-boss enemy will flee in !M! turns. If this ends combat, you gain no rewards but keep Clarities for the next combat.",
+    "EXTENDED_DESCRIPTION": [
+      "Bosses are fearless!"
+    ]
   },
   "stsjorbsmod:Feast": {
     "NAME": "Feast",
@@ -150,7 +157,7 @@
   },
   "stsjorbsmod:ForbiddenGrimoire": {
     "NAME": "Forbidden Grimoire",
-    "DESCRIPTION": "stsjorbsmod:Entombed until turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL Exhaust, then stsjorbsmod:Exhume after playing !M! other cards, unless stsjorbsmod:Snapped."
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL stsjorbsmod:Exhume after playing this then !M! other cards, unless stsjorbsmod:Snapped."
   },
   "stsjorbsmod:FreshAdventure": {
     "NAME": "Fresh Adventure",
@@ -246,7 +253,7 @@
   },
   "stsjorbsmod:Mindworm": {
     "NAME": "Mindworm",
-    "DESCRIPTION": "Deal !D! damage. NL Then, if stsjorbsmod:Snapped, deal !M! damage. NL Add a copy of this card to your discard pile."
+    "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage if stsjorbsmod:Snapped. NL Add a copy of this card to your discard pile."
   },
   "stsjorbsmod:MinorIllusion": {
     "NAME": "Minor Illusion",
@@ -274,6 +281,10 @@
     "NAME": "Old Pocket",
     "DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
+  },
+  "stsjorbsmod:Prepare": {
+    "NAME": "Prepare",
+    "DESCRIPTION": "Gain !M! stsjorbsmod:Coil. NL Gain Block equal to your stsjorbsmod:Coil."
   },
   "stsjorbsmod:Prestidigitation": {
     "NAME": "Prestidigitation",
@@ -322,7 +333,7 @@
   },
   "stsjorbsmod:ScorchingRay": {
     "NAME": "Scorching Ray",
-    "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Apply !D! damage as stsjorbsmod:Burning !M! times."
+    "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Apply !stsjorbsmod:MetaMagic! stsjorbsmod:Burning !M! times. This stsjorbsmod:Burning is affected by Strength."
   },
   "stsjorbsmod:SiphonEnergy": {
     "NAME": "Siphon Energy",
@@ -372,6 +383,11 @@
     "NAME": "Thorns",
     "DESCRIPTION": "Remember stsjorbsmod:Humility. NL If an enemy intends to attack, gain stsjorbsmod:Clarity of current memory. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Humility. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
+  },
+  "stsjorbsmod:TimeEddy": {
+    "NAME": "Time Eddy",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance ALL buffs and debuffs !M! turn through time.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance ALL buffs and debuffs !M! turns through time."
   },
   "stsjorbsmod:TinyHut": {
     "NAME": "Tiny Hut",

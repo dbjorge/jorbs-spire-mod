@@ -21,8 +21,7 @@ import stsjorbsmod.powers.BurningPower;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class SiphonEnergy extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(SiphonEnergy.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Rares/siphon_energy.png");
+    public static final String ID = JorbsMod.makeID(SiphonEnergy.class);
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -32,7 +31,7 @@ public class SiphonEnergy extends CustomJorbsModCard {
     private static final int COST = 1;
 
     public SiphonEnergy() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         exhaust = true;
     }
 

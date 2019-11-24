@@ -13,10 +13,8 @@ import stsjorbsmod.characters.Wanderer;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Moss extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Moss.class.getSimpleName());
-    public static final String IMG = makeCardPath("Material_Components/moss.png");
-
-    private static final CardRarity RARITY = CardRarity.SPECIAL;
+    public static final String ID = JorbsMod.makeID(Moss.class);
+private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
@@ -26,7 +24,7 @@ public class Moss extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_DEXTERITY = 1;
 
     public Moss() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = DEXTERITY;
         AlwaysRetainField.alwaysRetain.set(this, true);
         exhaust = true;

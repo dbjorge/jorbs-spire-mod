@@ -17,8 +17,7 @@ import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class HoldMonster extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(HoldMonster.class.getSimpleName());
-    public static final String IMG = makeCardPath("Block_Rares/hold_monster.png");
+    public static final String ID = JorbsMod.makeID(HoldMonster.class);
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -30,7 +29,7 @@ public class HoldMonster extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_STRENGTH_PENALTY = 6;
 
     public HoldMonster() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = STRENGTH_PENALTY;
         exhaust = true;
 

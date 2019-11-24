@@ -27,6 +27,7 @@ import stsjorbsmod.cards.CardSaveData;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.console.MemoryCommand;
+import stsjorbsmod.console.PlaySoundCommand;
 import stsjorbsmod.patches.LegendaryPatch;
 import stsjorbsmod.potions.BurningPotion;
 import stsjorbsmod.potions.DimensionDoorPotion;
@@ -146,7 +147,7 @@ public class JorbsMod implements
 
     public static String makeLocalizedStringsPath(String resourcePath) {
         String languageFolder =
-                // Settings.language == Settings.GameLanguage.FRA ? "fra" :
+                Settings.language == Settings.GameLanguage.FRA ? "fra" :
                 /* default: */ "eng";
 
         return MOD_ID + "Resources/localization/" + languageFolder + "/" + resourcePath;
@@ -251,6 +252,7 @@ public class JorbsMod implements
         logger.info("Loading badge image and mod options");
 
         MemoryCommand.register();
+        PlaySoundCommand.register();
 
         // Load the Mod Badge
         Texture badgeTexture = TextureLoader.getTexture(BADGE_IMAGE);
@@ -408,6 +410,10 @@ public class JorbsMod implements
     // in order to avoid conflicts if any other mod uses the same ID.
     public static String makeID(String idText) {
         return MOD_ID + ":" + idText;
+    }
+
+    public static String makeID(Class idClass) {
+        return makeID(idClass.getSimpleName());
     }
 
     // Removing Legendary cards from the pools of possible cards to generate. They must be given out specifically,

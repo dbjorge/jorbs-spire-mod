@@ -18,8 +18,7 @@ import static stsjorbsmod.JorbsMod.makeCardPath;
  * If attacked, gain 8(10) block and apply 8(10) Burning to all attacking enemies
  */
 public class FlameWard extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(FlameWard.class.getSimpleName());
-    public static final String IMG = makeCardPath("AoE_Uncommons/flame_ward.png");
+    public static final String ID = JorbsMod.makeID(FlameWard.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -33,7 +32,7 @@ public class FlameWard extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_BURNING = 2;
 
     public FlameWard() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
         magicNumber = baseMagicNumber = BURNING;
         this.exhaust = true;

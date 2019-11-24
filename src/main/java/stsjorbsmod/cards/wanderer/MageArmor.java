@@ -14,8 +14,7 @@ import stsjorbsmod.characters.Wanderer;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class MageArmor extends CustomJorbsModCard implements OnPlayerHpLossCardSubscriber {
-    public static final String ID = JorbsMod.makeID(MageArmor.class.getSimpleName());
-    public static final String IMG = makeCardPath("Block_Uncommons/mage_armor.png");
+    public static final String ID = JorbsMod.makeID(MageArmor.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.NONE;
@@ -27,7 +26,7 @@ public class MageArmor extends CustomJorbsModCard implements OnPlayerHpLossCardS
     private static final int UPGRADE_PLUS_DAMAGE_REDUCTION = 2;
 
     public MageArmor() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         AlwaysRetainField.alwaysRetain.set(this, true);
         magicNumber = baseMagicNumber = DAMAGE_REDUCTION;
     }

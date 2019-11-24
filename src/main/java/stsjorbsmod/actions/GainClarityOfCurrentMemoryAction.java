@@ -1,13 +1,8 @@
 package stsjorbsmod.actions;
 
-import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
-import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
-import stsjorbsmod.memories.MemoryUtils;
 
 public class GainClarityOfCurrentMemoryAction extends AbstractGameAction {
     private String specificMemoryID;

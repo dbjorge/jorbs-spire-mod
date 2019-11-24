@@ -13,8 +13,7 @@ import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class HedgeWizard extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(HedgeWizard.class.getSimpleName());
-    public static final String IMG = makeCardPath("Block_Uncommons/hedge_wizard.png");
+    public static final String ID = JorbsMod.makeID(HedgeWizard.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -26,7 +25,7 @@ public class HedgeWizard extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_BLOCK = 3;
 
     public HedgeWizard() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = BLOCK;
 
         this.tags.add(REMEMBER_MEMORY);

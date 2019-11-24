@@ -13,8 +13,7 @@ import stsjorbsmod.memories.MemoryManager;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Hurt extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Hurt.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Commons/hurt.png");
+    public static final String ID = JorbsMod.makeID(Hurt.class);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -27,7 +26,7 @@ public class Hurt extends CustomJorbsModCard {
     private static final int HP_LOSS_PER_CLARITY = 1;
 
     public Hurt() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = HP_LOSS_PER_CLARITY;
     }

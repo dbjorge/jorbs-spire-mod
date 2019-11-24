@@ -15,8 +15,7 @@ import stsjorbsmod.patches.EphemeralField;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Chamomile extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Chamomile.class.getSimpleName());
-    public static final String IMG = makeCardPath("Material_Components/chamomile.png");
+    public static final String ID = JorbsMod.makeID(Chamomile.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -26,7 +25,7 @@ public class Chamomile extends CustomJorbsModCard {
     private static final int COST = 0;
 
     public Chamomile() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         EphemeralField.ephemeral.set(this, true);
     }
 

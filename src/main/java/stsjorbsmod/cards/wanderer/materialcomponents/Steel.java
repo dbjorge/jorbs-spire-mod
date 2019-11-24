@@ -11,8 +11,7 @@ import stsjorbsmod.patches.EphemeralField;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Steel extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Steel.class.getSimpleName());
-    public static final String IMG = makeCardPath("Material_Components/steel.png");
+    public static final String ID = JorbsMod.makeID(Steel.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -24,7 +23,7 @@ public class Steel extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_CARD_UPGRADES = 1;
 
     public Steel() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = CARD_UPGRADES;
         EphemeralField.ephemeral.set(this, true);
     }

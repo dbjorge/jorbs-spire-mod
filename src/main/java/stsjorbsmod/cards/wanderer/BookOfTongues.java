@@ -11,8 +11,7 @@ import stsjorbsmod.powers.BookOfTonguesPower;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class BookOfTongues extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(BookOfTongues.class.getSimpleName());
-    public static final String IMG = makeCardPath("Scaling_Uncommons/book_of_tongues.png");
+    public static final String ID = JorbsMod.makeID(BookOfTongues.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -24,7 +23,7 @@ public class BookOfTongues extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_DRAW_PER_TURN = 1;
 
     public BookOfTongues() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = DRAW_PER_TURN;
     }
 

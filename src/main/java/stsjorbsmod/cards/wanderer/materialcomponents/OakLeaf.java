@@ -11,8 +11,7 @@ import stsjorbsmod.characters.Wanderer;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class OakLeaf extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(OakLeaf.class.getSimpleName());
-    public static final String IMG = makeCardPath("Material_Components/oak_leaf.png");
+    public static final String ID = JorbsMod.makeID(OakLeaf.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -24,7 +23,7 @@ public class OakLeaf extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_DEXTERITY = 1;
 
     public OakLeaf() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = DEXTERITY;
     }
 

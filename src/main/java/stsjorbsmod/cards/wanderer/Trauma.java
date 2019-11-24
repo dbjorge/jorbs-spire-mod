@@ -13,8 +13,7 @@ import stsjorbsmod.patches.CardReboundField;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Trauma extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Trauma.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Rares/trauma.png");
+    public static final String ID = JorbsMod.makeID(Trauma.class);
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
@@ -26,7 +25,7 @@ public class Trauma extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_DAMAGE = 5;
 
     public Trauma() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = DAMAGE;
         isMultiDamage = true;
     }

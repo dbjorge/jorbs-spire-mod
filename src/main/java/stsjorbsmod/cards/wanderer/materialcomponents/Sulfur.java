@@ -12,8 +12,7 @@ import stsjorbsmod.powers.BurningPower;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Sulfur extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Sulfur.class.getSimpleName());
-    public static final String IMG = makeCardPath("Material_Components/Sulfur.png");
+    public static final String ID = JorbsMod.makeID(Sulfur.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -25,7 +24,7 @@ public class Sulfur extends CustomJorbsModCard {
     private static final int BURNING_PLUS_UPGRADE = 2;
 
     public Sulfur() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = BURNING;
         EphemeralField.ephemeral.set(this, true);
     }

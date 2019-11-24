@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import stsjorbsmod.JorbsMod;
 import stsjorbsmod.patches.EphemeralField;
 
 import java.lang.reflect.Field;
@@ -35,14 +36,18 @@ public abstract class CustomJorbsModCard extends CustomCard {
 
     protected CardStrings cardStrings;
 
+    private static String imgFromId(String id) {
+        String unprefixedId = id.replace(JorbsMod.MOD_ID + ":","");
+        return String.format("%1$sResources/images/cards/generated/%2$s.png", JorbsMod.MOD_ID, unprefixedId);
+    }
+
     public CustomJorbsModCard(final String id,
-                              final String img,
                               final int cost,
                               final CardType type,
                               final CardColor color,
                               final CardRarity rarity,
                               final CardTarget target) {
-        this(id, languagePack.getCardStrings(id), img, cost, type, color, rarity, target);
+        this(id, languagePack.getCardStrings(id), imgFromId(id), cost, type, color, rarity, target);
     }
 
     private CustomJorbsModCard(final String id,

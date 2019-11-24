@@ -16,14 +16,8 @@ import stsjorbsmod.powers.BurningPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-/**
- * BASE: Deal 10 damage. Apply 3 Burning. Heal for the amount of Burning on target. Lose 3 Max HP. Exhaust.
- * UPGRADE: Deal 12 damage. Apply 6 Burning. Heal for the amount of Burning on target. Lose 2 Max HP. Exhaust.
- */
-
 public class ThirstingSword extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(ThirstingSword.class.getSimpleName());
-    public static final String IMG = makeCardPath("Manipulation_Rares/thirsting_sword.png");
+    public static final String ID = JorbsMod.makeID(ThirstingSword.class);
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -39,7 +33,7 @@ public class ThirstingSword extends CustomJorbsModCard {
     private static final int UPGRADE_LOSE_MAX_HP = -1;
 
     public ThirstingSword() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = BURNING;
         metaMagicNumber = baseMetaMagicNumber = LOSE_MAX_HP;

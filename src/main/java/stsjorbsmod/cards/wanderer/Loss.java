@@ -12,8 +12,7 @@ import stsjorbsmod.characters.Wanderer;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Loss extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Loss.class.getSimpleName());
-    public static final String IMG = makeCardPath("Block_Commons/loss.png");
+    public static final String ID = JorbsMod.makeID(Loss.class);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -26,7 +25,7 @@ public class Loss extends CustomJorbsModCard {
     private static final int WEAK = 1;
 
     public Loss() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = BLOCK;
         magicNumber = baseMagicNumber = WEAK;
     }

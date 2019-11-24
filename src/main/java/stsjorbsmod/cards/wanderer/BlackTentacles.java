@@ -15,8 +15,7 @@ import stsjorbsmod.powers.BlackTentaclesPower;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class BlackTentacles extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(BlackTentacles.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Commons/black_tentacles.png");
+    public static final String ID = JorbsMod.makeID(BlackTentacles.class);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -29,7 +28,7 @@ public class BlackTentacles extends CustomJorbsModCard {
     private static final int UPGRADE_DRAW = 1;
 
     public BlackTentacles() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = DRAW;
     }

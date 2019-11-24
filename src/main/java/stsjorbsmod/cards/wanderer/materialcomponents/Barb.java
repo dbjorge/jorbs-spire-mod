@@ -12,8 +12,7 @@ import stsjorbsmod.characters.Wanderer;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Barb extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Barb.class.getSimpleName());
-    public static final String IMG = makeCardPath("Material_Components/barb.png");
+    public static final String ID = JorbsMod.makeID(Barb.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -25,7 +24,7 @@ public class Barb extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_DAMAGE = 2;
 
     public Barb() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = DAMAGE;
     }
 

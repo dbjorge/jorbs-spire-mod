@@ -12,8 +12,7 @@ import stsjorbsmod.characters.Wanderer;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class DisguiseSelf extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(DisguiseSelf.class.getSimpleName());
-    public static final String IMG = makeCardPath("Block_Commons/disguise_self.png");
+    public static final String ID = JorbsMod.makeID(DisguiseSelf.class);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -25,7 +24,7 @@ public class DisguiseSelf extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_BLOCK = 2;
 
     public DisguiseSelf() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = BLOCK;
     }
 

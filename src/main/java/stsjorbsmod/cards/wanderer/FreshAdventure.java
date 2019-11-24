@@ -16,8 +16,7 @@ import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 // Deal 12(15) damage and remember Diligence
 public class FreshAdventure extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(FreshAdventure.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Commons/fresh_adventure.png");
+    public static final String ID = JorbsMod.makeID(FreshAdventure.class);
 
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -29,7 +28,7 @@ public class FreshAdventure extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_DMG = 3;
 
     public FreshAdventure() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
 
         this.tags.add(REMEMBER_MEMORY);

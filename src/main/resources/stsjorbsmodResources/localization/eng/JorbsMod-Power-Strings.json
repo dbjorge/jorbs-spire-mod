@@ -243,7 +243,7 @@
   "stsjorbsmod:TemperanceMemory": {
     "NAME": "Temperance",
     "DESCRIPTIONS": [
-      "Maintains #b!S! #yStrength. Maintains an additional 1 #yStrength for every additional #yClarity you gain. Each time remembered, apply !W! #yWeak to ALL enemies."
+      "Maintains #b!S! #yStrength. Maintains an additional 1 #yStrength for every additional #yClarity you gain."
     ]
   },
   "stsjorbsmod:WrathMemory": {

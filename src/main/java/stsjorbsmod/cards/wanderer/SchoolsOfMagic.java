@@ -1,25 +1,17 @@
 package stsjorbsmod.cards.wanderer;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.SchoolsOfMagicAction;
+import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.util.UniqueCardUtils;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class SchoolsOfMagic extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(SchoolsOfMagic.class.getSimpleName());
-    public static final String IMG = makeCardPath("Manipulation_Uncommons/schools_of_magic.png");
+    public static final String ID = JorbsMod.makeID(SchoolsOfMagic.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -31,7 +23,7 @@ public class SchoolsOfMagic extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_DRAW = 1;
 
     public SchoolsOfMagic() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = DRAW;
     }
 

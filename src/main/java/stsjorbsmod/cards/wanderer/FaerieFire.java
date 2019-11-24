@@ -17,8 +17,7 @@ import stsjorbsmod.memories.MemoryType;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class FaerieFire extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(FaerieFire.class.getSimpleName());
-    public static final String IMG = makeCardPath("Scaling_Uncommons/faerie_fire.png");
+    public static final String ID = JorbsMod.makeID(FaerieFire.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
@@ -30,7 +29,7 @@ public class FaerieFire extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_DEBUFF_DURATION = 2;
 
     public FaerieFire() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = DEBUFF_DURATION;
         exhaust = true;
     }

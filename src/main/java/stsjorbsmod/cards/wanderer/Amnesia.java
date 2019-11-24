@@ -19,14 +19,8 @@ import java.util.stream.Collectors;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-/**
- * Curse
- * - Unplayable
- * - At the end of player turn, lose random buff
- */
 public class Amnesia extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Amnesia.class.getSimpleName());
-    public static final String IMG = makeCardPath("Bad_Rares/amnesia.png");
+    public static final String ID = JorbsMod.makeID(Amnesia.class);
 
     private static final CardRarity RARITY = CardRarity.CURSE;
     private static final CardTarget TARGET = CardTarget.NONE;
@@ -36,7 +30,7 @@ public class Amnesia extends CustomJorbsModCard {
     private static final int COST = COST_UNPLAYABLE;
 
     public Amnesia() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
     }
 
     @Override

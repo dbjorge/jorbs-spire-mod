@@ -2,12 +2,14 @@ package stsjorbsmod.util;
 
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import javassist.Modifier;
 import org.clapper.util.classutil.*;
 import stsjorbsmod.JorbsMod;
 
 import java.io.File;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -65,6 +67,14 @@ public class ReflectionUtils {
             field.set(instance, newValue);
         } catch (Exception e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public static Method tryGetMethod(Class<?> clz, String methodName, Class<?>... paramTypes) {
+        try {
+            return clz.getMethod(methodName, paramTypes);
+        } catch (NoSuchMethodException e) {
+            return null;
         }
     }
 }

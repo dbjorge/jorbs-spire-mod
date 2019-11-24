@@ -1,24 +1,20 @@
 package stsjorbsmod.cards.wanderer;
 
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.actions.IfEnemyIntendsToAttackAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
+import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.HumilityMemory;
 import stsjorbsmod.util.IntentUtils;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class Thorns extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Thorns.class.getSimpleName());
-    public static final String IMG = makeCardPath("Scaling_Uncommons/thorns.png");
+    public static final String ID = JorbsMod.makeID(Thorns.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -28,7 +24,7 @@ public class Thorns extends CustomJorbsModCard {
     private static final int COST = 1;
 
     public Thorns() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
 
         this.tags.add(REMEMBER_MEMORY);

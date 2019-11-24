@@ -10,13 +10,8 @@ import stsjorbsmod.powers.BurningPower;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-/**
- * 1 cost skill
- * Apply 6(9) Burning
- */
 public class BurningFlask extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(BurningFlask.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Commons/burning_flask.png");
+    public static final String ID = JorbsMod.makeID(BurningFlask.class);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -28,7 +23,7 @@ public class BurningFlask extends CustomJorbsModCard {
     private static final int BURNING_PLUS_UPGRADE = 3;
 
     public BurningFlask() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = BURNING;
     }
 

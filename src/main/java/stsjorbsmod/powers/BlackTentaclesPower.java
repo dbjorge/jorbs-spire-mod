@@ -3,11 +3,8 @@ package stsjorbsmod.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.*;
-import com.megacrit.cardcrawl.actions.unique.RetainCardsAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -17,10 +14,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.patches.DamageAsBurningPatch;
 import stsjorbsmod.util.TextureLoader;
-
-import java.util.ArrayList;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
@@ -86,7 +80,6 @@ public class BlackTentaclesPower extends AbstractPower implements CloneablePower
             this.flash();
             DamageType newDamageType = originalDamageInfo.type == DamageType.HP_LOSS ? DamageType.HP_LOSS : DamageType.THORNS;
             DamageInfo newDamageInfo = new DamageInfo(source, originalHpLoss, newDamageType);
-            DamageAsBurningPatch.isBurningField.isBurning.set(newDamageInfo, DamageAsBurningPatch.isBurningField.isBurning.get(originalDamageInfo));
             AbstractDungeon.actionManager.addToTop(new DamageAction(owner, newDamageInfo, AttackEffect.SLASH_DIAGONAL));
             return 0;
         }
