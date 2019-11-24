@@ -333,7 +333,7 @@
   },
   "stsjorbsmod:ScorchingRay": {
     "NAME": "Scorching Ray",
-    "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Apply !D! damage as stsjorbsmod:Burning !M! times."
+    "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Apply !stsjorbsmod:MetaMagic! stsjorbsmod:Burning !M! times. This stsjorbsmod:Burning is affected by Strength."
   },
   "stsjorbsmod:SiphonEnergy": {
     "NAME": "Siphon Energy",
