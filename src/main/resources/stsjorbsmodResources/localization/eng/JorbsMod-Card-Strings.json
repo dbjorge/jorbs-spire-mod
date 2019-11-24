@@ -120,7 +120,10 @@
   },
   "stsjorbsmod:Fear": {
     "NAME": "Fear",
-    "DESCRIPTION": "Target non-boss enemy will flee in !M! turns. If this ends combat, you gain no rewards but keep Clarities for the next combat."
+    "DESCRIPTION": "Target non-boss enemy will flee in !M! turns. If this ends combat, you gain no rewards but keep Clarities for the next combat.",
+    "EXTENDED_DESCRIPTION": [
+      "Bosses are fearless!"
+    ]
   },
   "stsjorbsmod:Feast": {
     "NAME": "Feast",
@@ -274,6 +277,10 @@
     "NAME": "Old Pocket",
     "DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
+  },
+  "stsjorbsmod:Prepare": {
+    "NAME": "Prepare",
+    "DESCRIPTION": "1: Gain 4 Coil. Gain block equal to your Coil."
   },
   "stsjorbsmod:Prestidigitation": {
     "NAME": "Prestidigitation",
