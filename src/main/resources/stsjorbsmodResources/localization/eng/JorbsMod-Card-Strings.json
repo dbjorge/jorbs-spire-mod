@@ -62,6 +62,10 @@
     "DESCRIPTION": "Gain !B! Block. NL Gain !M! [E] next turn.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !M! [E] next turn. NL Put a card from your discard pile on top of your draw pile."
   },
+  "stsjorbsmod:Chatter": {
+    "NAME": "Chatter",
+    "DESCRIPTION": "Deal !D! damage. NL Play this card !M! additional time."
+  },
   "stsjorbsmod:ColorSpray": {
     "NAME": "Color Spray",
     "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each. NL Remember stsjorbsmod:Envy."
