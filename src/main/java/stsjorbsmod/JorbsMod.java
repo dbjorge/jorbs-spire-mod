@@ -27,6 +27,7 @@ import stsjorbsmod.cards.CardSaveData;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.console.MemoryCommand;
+import stsjorbsmod.console.PlaySoundCommand;
 import stsjorbsmod.patches.LegendaryPatch;
 import stsjorbsmod.potions.BurningPotion;
 import stsjorbsmod.potions.DimensionDoorPotion;
@@ -251,6 +252,7 @@ public class JorbsMod implements
         logger.info("Loading badge image and mod options");
 
         MemoryCommand.register();
+        PlaySoundCommand.register();
 
         // Load the Mod Badge
         Texture badgeTexture = TextureLoader.getTexture(BADGE_IMAGE);

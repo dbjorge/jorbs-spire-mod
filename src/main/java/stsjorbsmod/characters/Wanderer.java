@@ -147,6 +147,20 @@ public class Wanderer extends CustomPlayer {
 
     // =============== /TEXTURES/ ===============
 
+    private static SpriterAnimation loadIdleAnimation() {
+        SpriterAnimation animation = new SpriterAnimation(makeCharPath("wanderer/idle_animation/idleanimation.scml"));
+        animation.myPlayer.setScale(Settings.scale * 1.1F);
+        return animation;
+    }
+
+    private static SpriterAnimation loadPostSnapAnimation() {
+        SpriterAnimation animation = new SpriterAnimation(makeCharPath("wanderer/post_snap_animation/wanderersnapped.scml"));
+        animation.myPlayer.setScale(Settings.scale * 1.2F);
+        return animation;
+    }
+
+    public SpriterAnimation idleAnimation;
+    public SpriterAnimation postSnapAnimation;
 
     public Wanderer(String name, PlayerClass setClass) {
         super(
@@ -155,9 +169,10 @@ public class Wanderer extends CustomPlayer {
                 ENERGY_ORB_LAYER_TEXTURES,
                 makeCharPath("wanderer/energy_orb/vfx.png"),
                 null,
-                new SpriterAnimation(makeCharPath("wanderer/idle_animation/idleanimation.scml")));
+                loadIdleAnimation());
 
-        ((SpriterAnimation)this.animation).myPlayer.setScale(Settings.scale * 1.1F);
+        idleAnimation = (SpriterAnimation)this.animation;
+        postSnapAnimation = loadPostSnapAnimation();
 
         initializeClass(
                 null,
@@ -171,6 +186,16 @@ public class Wanderer extends CustomPlayer {
         // Thought bubble position
         this.dialogX = (drawX + 0.0F * Settings.scale);
         this.dialogY = (drawY + 220.0F * Settings.scale);
+    }
+
+    @Override
+    public void preBattlePrep() {
+        this.animation = idleAnimation;
+        super.preBattlePrep();
+    }
+
+    public void setAnimation(SpriterAnimation a) {
+        this.animation = a;
     }
 
     public final MemoryManager memories;

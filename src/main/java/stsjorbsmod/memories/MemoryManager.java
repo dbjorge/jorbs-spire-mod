@@ -1,11 +1,15 @@
 package stsjorbsmod.memories;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.SnappedPower;
 
@@ -200,6 +204,10 @@ public class MemoryManager {
     private static final float MEMORY_ARC_Y_OFFSET = 140F * Settings.scale;
 
     public void update(float centerX, float centerY) {
+        if (isSnapped()) {
+            return;
+        }
+
         for (int i = 0; i < memories.size(); ++i) {
             float relativeMemoryAngle = MEMORY_ARC_ANGLE * (((float)i) / (memories.size() - 1));
             float absoluteArcStartAngle = 90.0F - MEMORY_ARC_ANGLE / 2.0F;
@@ -212,6 +220,10 @@ public class MemoryManager {
     }
 
     public void render(SpriteBatch sb) {
+        if (isSnapped()) {
+            return;
+        }
+
         for (AbstractMemory m : memories) {
             m.render(sb);
         }
