@@ -380,6 +380,11 @@
     "DESCRIPTION": "Remember stsjorbsmod:Humility. NL If an enemy intends to attack, gain stsjorbsmod:Clarity of current memory. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Humility. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
   },
+  "stsjorbsmod:TimeEddy": {
+    "NAME": "Time Eddy",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance buffs and debuffs !M! turn through time.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance buffs and debuffs !M! turns through time."
+  },
   "stsjorbsmod:TinyHut": {
     "NAME": "Tiny Hut",
     "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Gain stsjorbsmod:Clarity of current memory.",
