@@ -19,8 +19,7 @@ import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.patches.MaterialComponentsDeckPatch.MATERIAL_COMPONENT;
 
 public class ForbiddenGrimoire extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(ForbiddenGrimoire.class.getSimpleName());
-    public static final String IMG = makeCardPath("Curses/forbidden_grimoire.png");
+    public static final String ID = JorbsMod.makeID(ForbiddenGrimoire.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -31,7 +30,7 @@ public class ForbiddenGrimoire extends CustomJorbsModCard {
     private static final int CARD_PLAYS_TO_EXHUME = 3;
 
     public ForbiddenGrimoire() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = CARD_PLAYS_TO_EXHUME;
         EntombedField.entombed.set(this, true);
         AutoExhumeField.autoExhumeBehavior.set(this, AutoExhumeBehavior.EXHUME_AT_START_OF_TURN_7);

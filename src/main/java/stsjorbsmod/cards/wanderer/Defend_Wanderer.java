@@ -11,8 +11,7 @@ import stsjorbsmod.characters.Wanderer;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Defend_Wanderer extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Defend_Wanderer.class.getSimpleName());
-    public static final String IMG = makeCardPath("Block_Commons/defend_wanderer.png");
+    public static final String ID = JorbsMod.makeID(Defend_Wanderer.class);
 
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -24,7 +23,7 @@ public class Defend_Wanderer extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_BLOCK = 3;
 
     public Defend_Wanderer() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = BLOCK;
 
         this.tags.add(BaseModCardTags.BASIC_DEFEND);

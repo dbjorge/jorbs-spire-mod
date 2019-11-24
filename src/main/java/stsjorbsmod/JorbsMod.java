@@ -410,6 +410,10 @@ public class JorbsMod implements
         return MOD_ID + ":" + idText;
     }
 
+    public static String makeID(Class idClass) {
+        return makeID(idClass.getSimpleName());
+    }
+
     // Removing Legendary cards from the pools of possible cards to generate. They must be given out specifically,
     // not randomly as a reward or transformed card.
     @Override

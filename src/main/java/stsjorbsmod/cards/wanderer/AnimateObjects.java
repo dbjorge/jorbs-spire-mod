@@ -15,8 +15,7 @@ import stsjorbsmod.patches.EntombedField;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class AnimateObjects extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(AnimateObjects.class.getSimpleName());
-    public static final String IMG = makeCardPath("AoE_Uncommons/animate_objects.png");
+    public static final String ID = JorbsMod.makeID(AnimateObjects.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
@@ -28,7 +27,7 @@ public class AnimateObjects extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_PER_MATCHING_CARD = 2;
 
     public AnimateObjects() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE_PER_MATCHING_CARD;
         isMultiDamage = true;
     }

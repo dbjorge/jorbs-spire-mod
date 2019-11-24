@@ -11,8 +11,7 @@ import stsjorbsmod.powers.ArcaneWeaponPower;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class ArcaneWeapon extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(ArcaneWeapon.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Commons/arcane_weapon.png");
+    public static final String ID = JorbsMod.makeID(ArcaneWeapon.class);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -24,7 +23,7 @@ public class ArcaneWeapon extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_DMG = 2;
 
     public ArcaneWeapon() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
     }
 

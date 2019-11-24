@@ -12,8 +12,7 @@ import stsjorbsmod.powers.RediscoveryPower;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Rediscovery extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Rediscovery.class.getSimpleName());
-    public static final String IMG = makeCardPath("Scaling_Rares/rediscovery.png");
+    public static final String ID = JorbsMod.makeID(Rediscovery.class);
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -23,7 +22,7 @@ public class Rediscovery extends CustomJorbsModCard {
     private static final int COST = 1;
 
     public Rediscovery() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
     }
 
     @Override

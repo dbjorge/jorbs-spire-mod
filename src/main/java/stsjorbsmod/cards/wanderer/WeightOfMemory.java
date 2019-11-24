@@ -15,8 +15,7 @@ import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class WeightOfMemory extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(WeightOfMemory.class.getSimpleName());
-    public static final String IMG = makeCardPath("Scaling_Commons/weight_of_memory.png");
+    public static final String ID = JorbsMod.makeID(WeightOfMemory.class);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -29,7 +28,7 @@ public class WeightOfMemory extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_DAMAGE_PER_REMEMBER_CARD = 1;
 
     public WeightOfMemory() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = DAMAGE_PER_REMEMBER_CARD;
     }

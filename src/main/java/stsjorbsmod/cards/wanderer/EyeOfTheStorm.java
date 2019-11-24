@@ -13,8 +13,7 @@ import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class EyeOfTheStorm extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(EyeOfTheStorm.class.getSimpleName());
-    public static final String IMG = makeCardPath("Block_Commons/eyeofthestorm.png");
+    public static final String ID = JorbsMod.makeID(EyeOfTheStorm.class);
 
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -26,7 +25,7 @@ public class EyeOfTheStorm extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_BLOCK = 3;
 
     public EyeOfTheStorm() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
 
         this.tags.add(REMEMBER_MEMORY);

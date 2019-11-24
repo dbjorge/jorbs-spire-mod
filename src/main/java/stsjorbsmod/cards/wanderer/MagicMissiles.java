@@ -14,8 +14,7 @@ import static stsjorbsmod.JorbsMod.makeCardPath;
 
 // Deal 3(4) Damage. Deal 3(4) Damage again once for each Clarity.
 public class MagicMissiles extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(MagicMissiles.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Uncommons/magic_missiles.png");
+    public static final String ID = JorbsMod.makeID(MagicMissiles.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -27,7 +26,7 @@ public class MagicMissiles extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_DMG = 1;
 
     public MagicMissiles() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
     }
 

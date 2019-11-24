@@ -19,8 +19,7 @@ import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Inferno extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Inferno.class.getSimpleName());
-    public static final String IMG = makeCardPath("Scaling_Uncommons/inferno.png");
+    public static final String ID = JorbsMod.makeID(Inferno.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -32,7 +31,7 @@ public class Inferno extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_BURNING_MULTIPLIER = 1;
 
     public Inferno() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = BURNING_MULTIPLIER;
         exhaust = true;
         AutoExhumeField.autoExhumeBehavior.set(this, AutoExhumeBehavior.EXHUME_ON_SNAP);

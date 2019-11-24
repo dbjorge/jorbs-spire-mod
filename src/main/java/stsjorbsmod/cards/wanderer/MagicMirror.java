@@ -11,8 +11,7 @@ import stsjorbsmod.powers.MagicMirrorPower;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class MagicMirror extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(MagicMirror.class.getSimpleName());
-    public static final String IMG = makeCardPath("Scaling_Uncommons/magic_mirror.png");
+    public static final String ID = JorbsMod.makeID(MagicMirror.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -22,7 +21,7 @@ public class MagicMirror extends CustomJorbsModCard {
     private static final int COST = 1;
 
     public MagicMirror() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
     }
 
     @Override

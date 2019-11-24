@@ -10,8 +10,7 @@ import stsjorbsmod.characters.Wanderer;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class MinorIllusion extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(MinorIllusion.class.getSimpleName());
-    public static final String IMG = makeCardPath("Block_Commons/minor_illusion.png");
+    public static final String ID = JorbsMod.makeID(MinorIllusion.class);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -23,7 +22,7 @@ public class MinorIllusion extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_BLOCK = 2;
 
     public MinorIllusion() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = BLOCK;
     }
 

@@ -12,8 +12,7 @@ import stsjorbsmod.characters.Wanderer;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Web extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Web.class.getSimpleName());
-    public static final String IMG = makeCardPath("Material_Components/Web.png");
+    public static final String ID = JorbsMod.makeID(Web.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -25,7 +24,7 @@ public class Web extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_WEAK = 1;
 
     public Web() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = WEAK;
         AlwaysRetainField.alwaysRetain.set(this, true);
         exhaust = true;

@@ -12,8 +12,7 @@ import stsjorbsmod.powers.PlayNextAttackThisTurnAdditionalTimesPower;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class GatherPower extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(GatherPower.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Rares/gather_power.png");
+    public static final String ID = JorbsMod.makeID(GatherPower.class);
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -26,7 +25,7 @@ public class GatherPower extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_NEXT_ATTACK_ADDITIONAL_TIMES = 1;
 
     public GatherPower() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = DRAW;
         metaMagicNumber = baseMetaMagicNumber = NEXT_ATTACK_ADDITIONAL_TIMES;
     }

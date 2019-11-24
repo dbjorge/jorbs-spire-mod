@@ -11,8 +11,7 @@ import stsjorbsmod.powers.BanishedPower;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Banish extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Banish.class.getSimpleName());
-    public static final String IMG = makeCardPath("Scaling_Rares/banish.png");
+    public static final String ID = JorbsMod.makeID(Banish.class);
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -24,7 +23,7 @@ public class Banish extends CustomJorbsModCard {
     private static final int DURATION = 2;
 
     public Banish() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = DURATION;
         exhaust = true;
     }

@@ -19,8 +19,7 @@ import stsjorbsmod.patches.ExtraCopiesToAddWhenGeneratingCardField;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Rot extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Rot.class.getSimpleName());
-    public static final String IMG = makeCardPath("Material_Components/rot.png");
+    public static final String ID = JorbsMod.makeID(Rot.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -32,7 +31,7 @@ public class Rot extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_EXTRA_COPIES_ON_ADD = 1;
 
     public Rot() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = EXTRA_COPIES_ON_ADD;
         ExtraCopiesToAddWhenGeneratingCardField.field.set(this, magicNumber);
         EphemeralField.ephemeral.set(this, true);

@@ -14,8 +14,7 @@ import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class ArcaneForm extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(ArcaneForm.class.getSimpleName());
-    public static final String IMG = makeCardPath("Scaling_Rares/arcane_form.png");
+    public static final String ID = JorbsMod.makeID(ArcaneForm.class);
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -25,7 +24,7 @@ public class ArcaneForm extends CustomJorbsModCard {
     private static final int COST = 3;
 
     public ArcaneForm() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         isEthereal = true;
 
         tags.add(PERSISTENT_POSITIVE_EFFECT);

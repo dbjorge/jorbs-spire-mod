@@ -15,8 +15,7 @@ import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class Determination extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Determination.class.getSimpleName());
-    public static final String IMG = makeCardPath("Scaling_Rares/determination.png");
+    public static final String ID = JorbsMod.makeID(Determination.class);
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -28,7 +27,7 @@ public class Determination extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_TURNS_UNTIL_SNAP = 1;
 
     public Determination() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = TURNS_UNTIL_SNAP;
 
         tags.add(PERSISTENT_POSITIVE_EFFECT);

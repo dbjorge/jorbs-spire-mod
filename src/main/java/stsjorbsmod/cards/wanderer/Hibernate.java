@@ -13,8 +13,7 @@ import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class Hibernate extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Hibernate.class.getSimpleName());
-    public static final String IMG = makeCardPath("Block_Commons/hibernate.png");
+    public static final String ID = JorbsMod.makeID(Hibernate.class);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -26,7 +25,7 @@ public class Hibernate extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_BLOCK = 4;
 
     public Hibernate() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = BLOCK;
 
         this.tags.add(REMEMBER_MEMORY);

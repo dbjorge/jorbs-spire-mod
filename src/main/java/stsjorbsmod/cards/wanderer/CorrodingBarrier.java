@@ -12,8 +12,7 @@ import stsjorbsmod.characters.Wanderer;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class CorrodingBarrier extends CustomJorbsModCard implements OnDrawCardSubscriber {
-    public static final String ID = JorbsMod.makeID(CorrodingBarrier.class.getSimpleName());
-    public static final String IMG = makeCardPath("Block_Rares/corroding_barrier.png");
+    public static final String ID = JorbsMod.makeID(CorrodingBarrier.class);
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -26,7 +25,7 @@ public class CorrodingBarrier extends CustomJorbsModCard implements OnDrawCardSu
     private static final int UPGRADE_PLUS_BLOCK_LOSS_PER_DRAW = -3;
 
     public CorrodingBarrier() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = BLOCK;
         magicNumber = baseMagicNumber = BLOCK_LOSS_PER_DRAW;
     }

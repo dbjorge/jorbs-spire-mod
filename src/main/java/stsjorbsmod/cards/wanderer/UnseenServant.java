@@ -14,8 +14,7 @@ import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class UnseenServant extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(UnseenServant.class.getSimpleName());
-    public static final String IMG = makeCardPath("Manipulation_Commons/unseen_servant.png");
+    public static final String ID = JorbsMod.makeID(UnseenServant.class);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -28,7 +27,7 @@ public class UnseenServant extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_DRAW = 1;
 
     public UnseenServant() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = CARD_MOVE_COUNT;
         metaMagicNumber = baseMetaMagicNumber = DRAW;
         exhaust = true;

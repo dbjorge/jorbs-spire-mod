@@ -3,8 +3,6 @@ package stsjorbsmod.cards.wanderer.materialcomponents;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import stsjorbsmod.cards.wanderer.SnakeOil;
 
 /*
 Material Components Deck:	Contains 7 common, 6 uncommon, 3 rare Material Components cards.

@@ -16,8 +16,7 @@ import stsjorbsmod.memories.MemoryType;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class FocusedMind extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(FocusedMind.class.getSimpleName());
-    public static final String IMG = makeCardPath("Manipulation_Commons/focused_mind.png");
+    public static final String ID = JorbsMod.makeID(FocusedMind.class);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -31,7 +30,7 @@ public class FocusedMind extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_BLOCK = 3;
 
     public FocusedMind() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
         this.baseBlock = BLOCK;
     }

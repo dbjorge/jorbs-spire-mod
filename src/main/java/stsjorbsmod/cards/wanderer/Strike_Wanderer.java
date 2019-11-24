@@ -12,10 +12,8 @@ import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-// Deals 6(9) damage
 public class Strike_Wanderer extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Strike_Wanderer.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Commons/strike_wanderer.png");
+    public static final String ID = JorbsMod.makeID(Strike_Wanderer.class);
 
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -27,7 +25,7 @@ public class Strike_Wanderer extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_DMG = 3;
 
     public Strike_Wanderer() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
 
         this.tags.add(BaseModCardTags.BASIC_STRIKE);

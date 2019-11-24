@@ -20,8 +20,7 @@ import static stsjorbsmod.JorbsMod.makeCardPath;
  * UPGRADE: Deal 8 damage. Apply 2 Burning for each clarity
  */
 public class Firebolt extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Firebolt.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Commons/firebolt.png");
+    public static final String ID = JorbsMod.makeID(Firebolt.class);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -34,7 +33,7 @@ public class Firebolt extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_PER_CLARITY = 1;
 
     public Firebolt() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = AMOUNT_PER_CLARITY;
     }

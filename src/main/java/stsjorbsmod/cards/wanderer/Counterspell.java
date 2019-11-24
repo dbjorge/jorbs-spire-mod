@@ -15,8 +15,7 @@ import stsjorbsmod.util.IntentUtils;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Counterspell extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Counterspell.class.getSimpleName());
-    public static final String IMG = makeCardPath("Block_Uncommons/counterspell.png");
+    public static final String ID = JorbsMod.makeID(Counterspell.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -29,7 +28,7 @@ public class Counterspell extends CustomJorbsModCard {
     private static final int ARTIFACT = 1;
 
     public Counterspell() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = BLOCK;
         magicNumber = baseMagicNumber = ARTIFACT;
         exhaust = true;

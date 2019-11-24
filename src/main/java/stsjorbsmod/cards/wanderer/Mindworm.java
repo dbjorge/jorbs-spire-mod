@@ -16,8 +16,7 @@ import stsjorbsmod.powers.SnappedPower;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Mindworm extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Mindworm.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Uncommons/mindworm.png");
+    public static final String ID = JorbsMod.makeID(Mindworm.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -31,7 +30,7 @@ public class Mindworm extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_BONUS_SNAPPED_DAMAGE = 7;
 
     public Mindworm() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = BONUS_SNAPPED_DAMAGE;
     }

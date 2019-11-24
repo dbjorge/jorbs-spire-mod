@@ -19,8 +19,7 @@ import java.util.Iterator;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Mania extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Mania.class.getSimpleName());
-    public static final String IMG = makeCardPath("Bad_Uncommons/mania.png");
+    public static final String ID = JorbsMod.makeID(Mania.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -35,7 +34,7 @@ public class Mania extends CustomJorbsModCard {
     private static final int ALL_UNIQUE_DRAW = 1;
 
     public Mania() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = BASE_DAMAGE;
         magicNumber = baseMagicNumber = DAMAGE_PER_UNIQUE_CARD;
         metaMagicNumber = baseMetaMagicNumber = ALL_UNIQUE_ENERGY;

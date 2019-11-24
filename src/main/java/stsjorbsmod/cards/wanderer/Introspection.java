@@ -14,8 +14,7 @@ import stsjorbsmod.powers.IntrospectionPower;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Introspection extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Introspection.class.getSimpleName());
-    public static final String IMG = makeCardPath("Scaling_Uncommons/introspection.png");
+    public static final String ID = JorbsMod.makeID(Introspection.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -29,7 +28,7 @@ public class Introspection extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_DAMAGE = 2;
 
     public Introspection() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = DAMAGE;
         metaMagicNumber = baseMetaMagicNumber = DAMAGE_PER_CLARITY;
         urMagicNumber = baseUrMagicNumber = HP_LOSS;

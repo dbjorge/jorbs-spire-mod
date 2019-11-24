@@ -17,8 +17,7 @@ import java.util.Iterator;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class TollTheDead extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(TollTheDead.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Uncommons/toll_the_dead.png");
+    public static final String ID = JorbsMod.makeID(TollTheDead.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -30,7 +29,7 @@ public class TollTheDead extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_DMG = 2;
 
     public TollTheDead() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
     }
 

@@ -14,8 +14,7 @@ import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class LocateObject extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(LocateObject.class.getSimpleName());
-    public static final String IMG = makeCardPath("Manipulation_Uncommons/locate_object.png");
+    public static final String ID = JorbsMod.makeID(LocateObject.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -27,7 +26,7 @@ public class LocateObject extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_DRAW = 1;
 
     public LocateObject() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = DRAW;
         exhaust = true;
 

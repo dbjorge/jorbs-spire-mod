@@ -14,8 +14,7 @@ import stsjorbsmod.characters.Wanderer;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class RayOfFrost extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(RayOfFrost.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Commons/ray_of_frost.png");
+    public static final String ID = JorbsMod.makeID(RayOfFrost.class);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -31,9 +30,8 @@ public class RayOfFrost extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_WEAK = -1;
     private static final int UPGRADE_PLUS_WEAK_APPLICATIONS = 2;
 
-
     public RayOfFrost() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = WEAK;
         metaMagicNumber = baseMetaMagicNumber = WEAK_APPLICATIONS;

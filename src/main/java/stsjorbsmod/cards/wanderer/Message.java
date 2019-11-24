@@ -10,8 +10,7 @@ import stsjorbsmod.characters.Wanderer;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Message extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Message.class.getSimpleName());
-    public static final String IMG = makeCardPath("Manipulation_Commons/message.png");
+    public static final String ID = JorbsMod.makeID(Message.class);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -23,7 +22,7 @@ public class Message extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_CARD_PULL_COUNT = 1;
 
     public Message() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = CARD_PULL_COUNT;
         this.exhaust = true;
     }

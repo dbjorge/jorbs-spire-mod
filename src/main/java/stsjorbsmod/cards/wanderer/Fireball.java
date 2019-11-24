@@ -22,8 +22,7 @@ import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
  * Upgraded: Apply 3 Burning to all enemies
  */
 public class Fireball extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Fireball.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Rares/fireball.png");
+    public static final String ID = JorbsMod.makeID(Fireball.class);
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
@@ -36,7 +35,7 @@ public class Fireball extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_BURNING = 4;
 
     public Fireball() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = BURNING;
         isMultiDamage = true;

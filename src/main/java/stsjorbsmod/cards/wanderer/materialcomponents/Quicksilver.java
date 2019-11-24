@@ -13,8 +13,7 @@ import stsjorbsmod.powers.PlayNextAttackThisTurnAdditionalTimesPower;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Quicksilver extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Quicksilver.class.getSimpleName());
-    public static final String IMG = makeCardPath("Material_Components/quicksilver.png");
+    public static final String ID = JorbsMod.makeID(Quicksilver.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -27,7 +26,7 @@ public class Quicksilver extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_NEXT_ATTACK_ADDITIONAL_TIMES = 1;
 
     public Quicksilver() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = NEXT_ATTACK_ADDITIONAL_TIMES;
         metaMagicNumber = baseMetaMagicNumber = RELIC_COUNTER_INCREMENT;
         EphemeralField.ephemeral.set(this, true);

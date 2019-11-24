@@ -11,8 +11,7 @@ import stsjorbsmod.patches.EphemeralField;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class EnergyBulb extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(EnergyBulb.class.getSimpleName());
-    public static final String IMG = makeCardPath("Material_Components/energy_bulb.png");
+    public static final String ID = JorbsMod.makeID(EnergyBulb.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -24,7 +23,7 @@ public class EnergyBulb extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_ENERGY_GAIN = 1;
 
     public EnergyBulb() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = ENERGY_GAIN;
         EphemeralField.ephemeral.set(this, true);
     }

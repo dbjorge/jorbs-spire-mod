@@ -13,8 +13,7 @@ import stsjorbsmod.powers.EnergizedCustomPower;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Channel extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Channel.class.getSimpleName());
-    public static final String IMG = makeCardPath("Block_Commons/channel.png");
+    public static final String ID = JorbsMod.makeID(Channel.class);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -27,7 +26,7 @@ public class Channel extends CustomJorbsModCard {
     private static final int UPGRADE_CARDS_FROM_DISCARD_TO_DECK = 1;
 
     public Channel() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = BLOCK;
         magicNumber = baseMagicNumber = ENERGY_NEXT_TURN;
         metaMagicNumber = baseMetaMagicNumber = 0;

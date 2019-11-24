@@ -16,12 +16,8 @@ import stsjorbsmod.characters.Wanderer;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
-/**
- * 2: Deal 8 damage for all cards which remember in deck (including exhaust pile). Exhaust all cards which remember. Snap.
- */
 public class PurgeMind extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(PurgeMind.class.getSimpleName());
-    public static final String IMG = makeCardPath("Damage_Rares/purge_mind.png");
+    public static final String ID = JorbsMod.makeID(PurgeMind.class);
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -33,7 +29,7 @@ public class PurgeMind extends CustomJorbsModCard {
     private static final int UPGRADE_DAMAGE = 3;
 
     public PurgeMind() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE_PER_REMEMBER;
         exhaust = true;
     }

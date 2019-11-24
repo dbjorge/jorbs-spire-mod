@@ -11,8 +11,7 @@ import stsjorbsmod.memories.MemoryManager;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Mending extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Mending.class.getSimpleName());
-    public static final String IMG = makeCardPath("Block_Uncommons/mending.png");
+    public static final String ID = JorbsMod.makeID(Mending.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -24,7 +23,7 @@ public class Mending extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_HEAL_PER_CLARITY = 1;
 
     public Mending() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = HEAL_PER_CLARITY;
         exhaust = true;
 

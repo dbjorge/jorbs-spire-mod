@@ -89,6 +89,7 @@
                     <excludes>
                         <exclude>**/*.psd</exclude>
                         <exclude>**/*.kra</exclude>
+                        <exclude>**/images/cards/originals/**/*.png</exclude>
                     </excludes>
                 </configuration>
             </plugin>

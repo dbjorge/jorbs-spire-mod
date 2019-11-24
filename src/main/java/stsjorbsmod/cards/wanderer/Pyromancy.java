@@ -12,8 +12,7 @@ import stsjorbsmod.powers.PyromancyPower;
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Pyromancy extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Pyromancy.class.getSimpleName());
-    public static final String IMG = makeCardPath("Scaling_Rares/pyromancy.png");
+    public static final String ID = JorbsMod.makeID(Pyromancy.class);
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -24,7 +23,7 @@ public class Pyromancy extends CustomJorbsModCard {
     private static final int EXTRA_TIMES_TO_BURN = 1;
 
     public Pyromancy() {
-        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = EXTRA_TIMES_TO_BURN;
         isEthereal = true;
     }
