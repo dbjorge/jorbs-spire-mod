@@ -121,6 +121,6 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
 
     @Override
     public Color getColor() {
-        return Color.ORANGE;
+        return Color.GOLD;
     }
 }
