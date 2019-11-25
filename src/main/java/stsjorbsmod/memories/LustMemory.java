@@ -41,7 +41,7 @@ public class LustMemory extends AbstractMemory {
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
         if (isPassiveEffectActive()) {
             // Similar to EnvenomPower
-            if (damageAmount > 0 && target != this.owner && info.type == DamageInfo.DamageType.NORMAL) {
+            if (target != this.owner && info.type == DamageInfo.DamageType.NORMAL) {
                 this.flash();
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, this.owner, new BurningPower(target, this.owner, this.PASSIVE_BURNING_ON_ATTACK), this.PASSIVE_BURNING_ON_ATTACK, true));
             }
