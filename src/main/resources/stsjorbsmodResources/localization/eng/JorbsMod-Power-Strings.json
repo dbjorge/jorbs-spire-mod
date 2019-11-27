@@ -33,29 +33,11 @@
       "Reduce healing by %1$s%%."
     ]
   },
-  "stsjorbsmod:CharityMemory": {
-    "NAME": "Charity",
-    "DESCRIPTIONS": [
-      "Maintains #b!S! #yStrength. Maintains an additional 1 #yStrength for every additional !G! gold you gain."
-    ]
-  },
-  "stsjorbsmod:ChastityMemory": {
-    "NAME": "Chastity",
-    "DESCRIPTIONS": [
-      "At the end of each turn, lose !D! #yDexterity and gain !B! #yBlock."
-    ]
-  },
   "stsjorbsmod:CoilPower": {
     "NAME": "Coil",
     "DESCRIPTIONS": [
       "Whenever you remember a new memory, deal #b",
       " damage to ALL enemies and lose all Coil."
-    ]
-  },
-  "stsjorbsmod:DiligenceMemory": {
-    "NAME": "Diligence",
-    "DESCRIPTIONS": [
-      "At the end of your turn, Retain !M!."
     ]
   },
   "stsjorbsmod:DoubleCheckPower": {
@@ -69,12 +51,6 @@
     "DESCRIPTIONS": [
       "Gain #b",
       " additional [E] next turn."
-    ]
-  },
-  "stsjorbsmod:EnvyMemory": {
-    "NAME": "Envy",
-    "DESCRIPTIONS": [
-      "Whenever you target an enemy with a card, apply !M! #yVulnerable to that enemy."
     ]
   },
   "stsjorbsmod:FearPower": {
@@ -121,24 +97,6 @@
       " turns, Snap."
     ]
   },
-  "stsjorbsmod:GluttonyMemory": {
-    "NAME": "Gluttony",
-    "DESCRIPTIONS": [
-      "Whenever you kill a non-minion enemy, raise your Max HP by !M!. At the start of each turn, discard one card."
-    ]
-  },
-  "stsjorbsmod:GreedMemory": {
-    "NAME": "Greed",
-    "DESCRIPTIONS": [
-      "Whenever you kill a non-minion enemy, gain !M! gold."
-    ]
-  },
-  "stsjorbsmod:HumilityMemory": {
-    "NAME": "Humility",
-    "DESCRIPTIONS": [
-      "Gain !M! #yThorns."
-    ]
-  },
   "stsjorbsmod:IntrospectionPower": {
     "NAME": "Introspection",
     "DESCRIPTIONS": [
@@ -146,18 +104,6 @@
       " HP and deal #b",
       " damage to ALL enemies. Deal ",
       " additional damage per Clarity."
-    ]
-  },
-  "stsjorbsmod:KindnessMemory": {
-    "NAME": "Kindness",
-    "DESCRIPTIONS": [
-      "Reduce #yStrength of ALL enemies by !M!."
-    ]
-  },
-  "stsjorbsmod:LustMemory": {
-    "NAME": "Lust",
-    "DESCRIPTIONS": [
-      "Your attacks apply !P! #yBurning. Each time remembered, apply !R! #yBurning to ALL enemies. Each time forgotten, gain !F! #yWeak."
     ]
   },
   "stsjorbsmod:MagicMirrorPower": {
@@ -187,12 +133,6 @@
       "The next enemy attack misses."
     ]
   },
-  "stsjorbsmod:PatienceMemory": {
-    "NAME": "Patience",
-    "DESCRIPTIONS": [
-      "Gain 1 #yCoil each time you play a card."
-    ]
-  },
   "stsjorbsmod:PlayNextAttackThisTurnAdditionalTimesPower": {
     "NAME": "Hastened",
     "DESCRIPTIONS": [
@@ -209,12 +149,6 @@
       " Vulnerable to a random enemy"
     ]
   },
-  "stsjorbsmod:PrideMemory": {
-    "NAME": "Pride",
-    "DESCRIPTIONS": [
-      "At the end of combat, permanently #yUpgrade a card in your deck. Maintains #b!M! #yDexterity."
-    ]
-  },
   "stsjorbsmod:PyromancyPower": {
     "NAME": "Pyromancy",
     "DESCRIPTIONS": [
@@ -229,12 +163,6 @@
       "Whenever you gain #yClarity of a new memory, gain #b%1$s [E]"
     ]
   },
-  "stsjorbsmod:SlothMemory": {
-    "NAME": "Sloth",
-    "DESCRIPTIONS": [
-      "Draw !M! fewer cards each turn."
-    ]
-  },
   "stsjorbsmod:SnappedPower": {
     "NAME": "Snapped",
     "DESCRIPTIONS": [
@@ -245,18 +173,6 @@
     "NAME": "Strange Pendant",
     "DESCRIPTIONS": [
       "Ignore the first #b%1$s damage taken each turn."
-    ]
-  },
-  "stsjorbsmod:TemperanceMemory": {
-    "NAME": "Temperance",
-    "DESCRIPTIONS": [
-      "Maintains #b!S! #yStrength. Maintains an additional 1 #yStrength for every additional #yClarity you gain."
-    ]
-  },
-  "stsjorbsmod:WrathMemory": {
-    "NAME": "Wrath",
-    "DESCRIPTIONS": [
-      "Whenever you kill a non-minion enemy, permanently increase the damage of the last damage-dealing attack card played this combat (currently, !C!) by !M!."
     ]
   }
 }
