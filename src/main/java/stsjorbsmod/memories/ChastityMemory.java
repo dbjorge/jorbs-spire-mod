@@ -15,6 +15,7 @@ public class ChastityMemory extends AbstractMemory {
 
     public ChastityMemory(final AbstractCreature owner) {
         super(STATIC, MemoryType.VIRTUE, owner);
+        setDescriptionPlaceholder("!R!", DEXTERITY_ON_REMEMBER);
         setDescriptionPlaceholder("!D!", DEXTERITY_LOSS_PER_TURN);
         setDescriptionPlaceholder("!B!", BLOCK_PER_TURN);
     }

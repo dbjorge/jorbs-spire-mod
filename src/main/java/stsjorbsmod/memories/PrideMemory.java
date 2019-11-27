@@ -15,7 +15,7 @@ public class PrideMemory extends AbstractMemory {
 
     public PrideMemory(final AbstractCreature owner) {
         super(STATIC, MemoryType.SIN, owner);
-        setDescriptionPlaceholder("!M!", PASSIVE_DEXTERITY_MODIFIER);
+        setDescriptionPlaceholder("!D!", -PASSIVE_DEXTERITY_MODIFIER);
     }
 
     @Override

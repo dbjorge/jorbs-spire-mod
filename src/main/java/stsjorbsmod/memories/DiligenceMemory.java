@@ -17,6 +17,7 @@ public class DiligenceMemory extends AbstractMemory {
 
     public DiligenceMemory(final AbstractCreature owner) {
         super(STATIC, MemoryType.VIRTUE, owner);
+        setDescriptionPlaceholder("!D!", CARDS_DRAWN_ON_ENTER);
         setDescriptionPlaceholder("!M!", CARDS_RETAINED);
     }
 
