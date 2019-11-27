@@ -167,9 +167,8 @@ public class MemoryHooksPatch {
         @SpirePrefixPatch
         public static void Prefix(AbstractMonster __this) {
             // halfDead is for cases like darklings or awakened one; all "on monster death" memory effects want to ignore those cases.
-            // SplitPower prevents triggering on big slimes splitting into smaller slimes
-            // isSuiciding is for effects like Transient/Exploder/SnakeDagger (the player isn't "killing", so they don't count)
-            if (!__this.halfDead && !__this.hasPower(SplitPower.POWER_ID) && !IsMonsterSuicidingField.isSuiciding.get(__this)) {
+            // isSuiciding is for effects like Transient/Exploder/SnakeDagger/slime splits (the player isn't "killing", so they don't count)
+            if (!__this.halfDead && !IsMonsterSuicidingField.isSuiciding.get(__this)) {
                 AbstractPlayer player = AbstractDungeon.player;
                 MemoryManager memoryManager = MemoryManager.forPlayer(player);
                 if (memoryManager != null) {
