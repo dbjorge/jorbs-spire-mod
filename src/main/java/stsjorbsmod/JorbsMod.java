@@ -371,7 +371,6 @@ public class JorbsMod implements
     public void receiveEditStrings() {
         logger.info("Beginning to edit strings for mod with ID: " + MOD_ID);
 
-
         BaseMod.loadCustomStringsFile(CardStrings.class, makeLocalizedStringsPath("JorbsMod-Card-Strings.json"));
         BaseMod.loadCustomStringsFile(CharacterStrings.class, makeLocalizedStringsPath("JorbsMod-Character-Strings.json"));
         BaseMod.loadCustomStringsFile(EventStrings.class, makeLocalizedStringsPath("JorbsMod-Event-Strings.json"));
