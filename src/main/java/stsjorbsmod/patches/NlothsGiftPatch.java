@@ -1,5 +1,6 @@
 package stsjorbsmod.patches;
 
+import com.badlogic.gdx.math.Interpolation;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -17,6 +18,16 @@ import java.util.Iterator;
 import java.util.List;
 
 public class NlothsGiftPatch {
+
+    public static class ClonePlayerRelicsWithoutFragileMind extends ExprEditor {
+        @Override
+        public void edit(FieldAccess fieldAccess) throws CannotCompileException {
+            if (fieldAccess.getClassName().equals(AbstractPlayer.class.getName())
+                    && fieldAccess.getFieldName().equals("relics")) {
+                fieldAccess.replace("{ $_ = (" + NlothsGiftPatch.class.getName() + ".clonePlayerRelicsWithoutFragileMind($proceed())); }");
+            }
+        }
+    }
 
     /**
      * Removes FragileMindRelic if found in the iterator
@@ -37,8 +48,8 @@ public class NlothsGiftPatch {
      * @param playerRelics
      * @return
      */
-    public static List<AbstractRelic> clonePlayerRelicsWithoutFragileMind(List<AbstractRelic> playerRelics) {
-        List<AbstractRelic> relics = new ArrayList<>(playerRelics);
+    public static ArrayList<AbstractRelic> clonePlayerRelicsWithoutFragileMind(ArrayList<AbstractRelic> playerRelics) {
+        ArrayList<AbstractRelic> relics = new ArrayList<>(playerRelics.size());
         removeFragileMindRelic(relics.iterator());
         return relics;
     }
@@ -46,15 +57,7 @@ public class NlothsGiftPatch {
     @SpirePatch(clz = AbstractDungeon.class, method = "getShrine")
     public static class AbstractDungeon_getShrine_NlothCheck {
         public static ExprEditor Instrument() {
-            return new ExprEditor() {
-                @Override
-                public void edit(FieldAccess fieldAccess) throws CannotCompileException {
-                    if (fieldAccess.getClassName().equals(AbstractPlayer.class.getName())
-                            && fieldAccess.getFieldName().equals("relic")) {
-                        fieldAccess.replace("{ $_ = " + NlothsGiftPatch.class.getName() + ".clonePlayerRelicsWithoutFragileMind($0)); }");
-                    }
-                }
-            };
+            return new ClonePlayerRelicsWithoutFragileMind();
         }
     }
 
@@ -62,20 +65,20 @@ public class NlothsGiftPatch {
     public static class Nloth_ctor_RemoveFragileMind {
         /**
          * Removes FragileMindRelic from the list of relics for N'loth to request.
-         *
-         * @param _this
-         * @param relics
          */
-        @SpireInsertPatch(locator = Nloth_ctor_RemoveFragileMind.Locator.class, localvars = "relics")
-        public static void patch(Nloth _this, Iterable<AbstractRelic> relics) {
-            removeFragileMindRelic(relics.iterator());
+        public static ExprEditor Instrument() {
+            return new ClonePlayerRelicsWithoutFragileMind();
         }
-
-        private static class Locator extends SpireInsertLocator {
-            public int[] Locate(CtBehavior ctBehavior) throws Exception {
-                Matcher collectionsShuffleMatcher = new Matcher.MethodCallMatcher(Collections.class, "shuffle");
-                return LineFinder.findInOrder(ctBehavior, collectionsShuffleMatcher);
-            }
-        }
+//        @SpireInsertPatch(locator = Nloth_ctor_RemoveFragileMind.Locator.class, localvars = "relics")
+//        public static void patch(Nloth _this, Iterable<AbstractRelic> relics) {
+//            removeFragileMindRelic(relics.iterator());
+//        }
+//
+//        private static class Locator extends SpireInsertLocator {
+//            public int[] Locate(CtBehavior ctBehavior) throws Exception {
+//                Matcher collectionsShuffleMatcher = new Matcher.MethodCallMatcher(Collections.class, "shuffle");
+//                return LineFinder.findInOrder(ctBehavior, collectionsShuffleMatcher);
+//            }
+//        }
     }
 }
