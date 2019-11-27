@@ -129,6 +129,10 @@ public class JorbsMod implements
         return MOD_ID + "Resources/images/memories/" + resourcePath;
     }
 
+    public static String makeMonsterPath(String resourcePath) {
+        return MOD_ID + "Resources/images/monsters/" + resourcePath;
+    }
+
     public static String makeOrbPath(String resourcePath) {
         return MOD_ID + "Resources/orbs/" + resourcePath;
     }
@@ -367,13 +371,15 @@ public class JorbsMod implements
     public void receiveEditStrings() {
         logger.info("Beginning to edit strings for mod with ID: " + MOD_ID);
 
-        BaseMod.loadCustomStringsFile(UIStrings.class, makeLocalizedStringsPath("JorbsMod-UI-Strings.json"));
+
         BaseMod.loadCustomStringsFile(CardStrings.class, makeLocalizedStringsPath("JorbsMod-Card-Strings.json"));
+        BaseMod.loadCustomStringsFile(CharacterStrings.class, makeLocalizedStringsPath("JorbsMod-Character-Strings.json"));
+        BaseMod.loadCustomStringsFile(EventStrings.class, makeLocalizedStringsPath("JorbsMod-Event-Strings.json"));
+        BaseMod.loadCustomStringsFile(MonsterStrings.class, makeLocalizedStringsPath("JorbsMod-Monster-Strings.json"));
+        BaseMod.loadCustomStringsFile(PotionStrings.class, makeLocalizedStringsPath("JorbsMod-Potion-Strings.json"));
         BaseMod.loadCustomStringsFile(PowerStrings.class, makeLocalizedStringsPath("JorbsMod-Power-Strings.json"));
         BaseMod.loadCustomStringsFile(RelicStrings.class, makeLocalizedStringsPath("JorbsMod-Relic-Strings.json"));
-        BaseMod.loadCustomStringsFile(EventStrings.class, makeLocalizedStringsPath("JorbsMod-Event-Strings.json"));
-        BaseMod.loadCustomStringsFile(CharacterStrings.class, makeLocalizedStringsPath("JorbsMod-Character-Strings.json"));
-        BaseMod.loadCustomStringsFile(PotionStrings.class, makeLocalizedStringsPath("JorbsMod-Potion-Strings.json"));
+        BaseMod.loadCustomStringsFile(UIStrings.class, makeLocalizedStringsPath("JorbsMod-UI-Strings.json"));
 
         logger.info("Done editing strings");
     }

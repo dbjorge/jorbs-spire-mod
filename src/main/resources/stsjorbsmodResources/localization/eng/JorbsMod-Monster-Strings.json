@@ -1,0 +1,11 @@
+{
+  "stsjorbsmod:MirrorImageMinion": {
+    "NAME": "Mirror Image",
+    "MOVES": [
+      "Taunt"
+    ],
+    "DIALOG": [
+      "It's me, I'm the real one!"
+    ]
+  }
+}

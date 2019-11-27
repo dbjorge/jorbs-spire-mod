@@ -30,6 +30,6 @@
   "version": "${project.version}",
   "sts_version": "${SlayTheSpire.version}",
   "mts_version": "${ModTheSpire.version}",
-  "dependencies": ["basemod", "stslib"],
+  "dependencies": ["basemod", "stslib", "Friendly_Minions_0987678"],
   "update_json": ""
 }
