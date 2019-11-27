@@ -4,7 +4,6 @@ import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.shrines.Nloth;
-import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
@@ -19,9 +18,9 @@ import java.util.List;
 
 public class NlothsGiftPatch {
 
-
     /**
      * Removes FragileMindRelic if found in the iterator
+     *
      * @param iter
      */
     public static void removeFragileMindRelic(Iterator<AbstractRelic> iter) {
@@ -34,6 +33,7 @@ public class NlothsGiftPatch {
 
     /**
      * This is called only by edited expressions in the main game. See the following SpirePatch.
+     *
      * @param playerRelics
      * @return
      */
