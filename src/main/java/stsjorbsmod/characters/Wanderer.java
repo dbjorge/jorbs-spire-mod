@@ -40,7 +40,7 @@ import static stsjorbsmod.characters.Wanderer.Enums.WANDERER_CARD_COLOR;
 //and https://github.com/daviscook477/BaseMod/wiki/Migrating-to-5.0
 //All text (starting description and loadout, anything labeled TEXT[]) can be found in JorbsMod-Character-Strings.json in the resources
 
-public class Wanderer extends CustomPlayer {
+public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
     public static final Logger logger = LogManager.getLogger(JorbsMod.class.getName());
 
     // =============== CHARACTER ENUMERATORS =================
@@ -190,9 +190,8 @@ public class Wanderer extends CustomPlayer {
     }
 
     @Override
-    public void preBattlePrep() {
+    public void onResetPlayer() {
         this.animation = idleAnimation;
-        super.preBattlePrep();
     }
 
     public void setAnimation(SpriterAnimation a) {
