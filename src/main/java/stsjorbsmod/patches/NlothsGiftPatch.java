@@ -1,23 +1,34 @@
 package stsjorbsmod.patches;
 
-import com.badlogic.gdx.math.Interpolation;
-import com.evacipated.cardcrawl.modthespire.lib.*;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.shrines.Nloth;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import javassist.CannotCompileException;
-import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
 import stsjorbsmod.relics.FragileMindRelic;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
 
 public class NlothsGiftPatch {
+
+    /**
+     * This is called only by edited expressions in the main game. See the following SpirePatch.
+     *
+     * @param playerRelics ArrayList of AbstractRelic. This exactly matches the return type
+     * @return ArrayList of AbstractRelics. This exactly matches the parameter type
+     */
+    public static ArrayList<AbstractRelic> clonePlayerRelicsWithoutFragileMind(ArrayList<AbstractRelic> playerRelics) {
+        ArrayList<AbstractRelic> relics = new ArrayList<>(playerRelics.size());
+        playerRelics.forEach(r -> {
+            if (!FragileMindRelic.ID.equals(r.relicId)) {
+                relics.add(r);
+            }
+        });
+        return relics;
+    }
 
     public static class ClonePlayerRelicsWithoutFragileMind extends ExprEditor {
         @Override
@@ -27,31 +38,6 @@ public class NlothsGiftPatch {
                 fieldAccess.replace("{ $_ = (" + NlothsGiftPatch.class.getName() + ".clonePlayerRelicsWithoutFragileMind($proceed())); }");
             }
         }
-    }
-
-    /**
-     * Removes FragileMindRelic if found in the iterator
-     *
-     * @param iter
-     */
-    public static void removeFragileMindRelic(Iterator<AbstractRelic> iter) {
-        while (iter.hasNext()) {
-            if (FragileMindRelic.ID.equals(iter.next().relicId)) {
-                iter.remove();
-            }
-        }
-    }
-
-    /**
-     * This is called only by edited expressions in the main game. See the following SpirePatch.
-     *
-     * @param playerRelics
-     * @return
-     */
-    public static ArrayList<AbstractRelic> clonePlayerRelicsWithoutFragileMind(ArrayList<AbstractRelic> playerRelics) {
-        ArrayList<AbstractRelic> relics = new ArrayList<>(playerRelics);
-        removeFragileMindRelic(relics.iterator());
-        return relics;
     }
 
     @SpirePatch(clz = AbstractDungeon.class, method = "getShrine")
@@ -69,16 +55,5 @@ public class NlothsGiftPatch {
         public static ExprEditor Instrument() {
             return new ClonePlayerRelicsWithoutFragileMind();
         }
-//        @SpireInsertPatch(locator = Nloth_ctor_RemoveFragileMind.Locator.class, localvars = "relics")
-//        public static void patch(Nloth _this, Iterable<AbstractRelic> relics) {
-//            removeFragileMindRelic(relics.iterator());
-//        }
-//
-//        private static class Locator extends SpireInsertLocator {
-//            public int[] Locate(CtBehavior ctBehavior) throws Exception {
-//                Matcher collectionsShuffleMatcher = new Matcher.MethodCallMatcher(Collections.class, "shuffle");
-//                return LineFinder.findInOrder(ctBehavior, collectionsShuffleMatcher);
-//            }
-//        }
     }
 }
