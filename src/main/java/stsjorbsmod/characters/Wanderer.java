@@ -21,8 +21,6 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import kobting.friendlyminions.characters.AbstractPlayerWithMinions;
-import kobting.friendlyminions.characters.CustomCharSelectInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.JorbsMod;
@@ -42,7 +40,7 @@ import static stsjorbsmod.characters.Wanderer.Enums.WANDERER_CARD_COLOR;
 //and https://github.com/daviscook477/BaseMod/wiki/Migrating-to-5.0
 //All text (starting description and loadout, anything labeled TEXT[]) can be found in JorbsMod-Character-Strings.json in the resources
 
-public class Wanderer extends AbstractPlayerWithMinions {
+public class Wanderer extends CustomPlayer {
     public static final Logger logger = LogManager.getLogger(JorbsMod.class.getName());
 
     // =============== CHARACTER ENUMERATORS =================
@@ -218,18 +216,12 @@ public class Wanderer extends AbstractPlayerWithMinions {
     // Starting description and loadout
     @Override
     public CharSelectInfo getLoadout() {
-        return getInfo();
-    }
-
-    @Override
-    public CustomCharSelectInfo getInfo() {
-        return new CustomCharSelectInfo(
+        return new CharSelectInfo(
                 NAMES[0],
                 TEXT[0],
                 STARTING_HP,
                 MAX_HP,
                 ORB_SLOTS,
-                MAX_MINIONS,
                 STARTING_GOLD,
                 CARD_DRAW,
                 this,

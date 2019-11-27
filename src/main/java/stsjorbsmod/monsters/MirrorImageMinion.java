@@ -1,13 +1,17 @@
 package stsjorbsmod.monsters;
 
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
-import kobting.friendlyminions.monsters.AbstractFriendlyMonster;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.powers.MirrorImagePower;
 
 import static stsjorbsmod.JorbsMod.makeMonsterPath;
 
-public class MirrorImageMinion extends AbstractFriendlyMonster {
+public class MirrorImageMinion extends AbstractMonster {
     public static final String ID = JorbsMod.makeID(MirrorImageMinion.class);
     private static MonsterStrings strings = CardCrawlGame.languagePack.getMonsterStrings(ID);
     private static String IMG = makeMonsterPath("MirrorImageMinion.png");
@@ -17,7 +21,32 @@ public class MirrorImageMinion extends AbstractFriendlyMonster {
 
     private static final int MAX_HP = 1;
 
-    public MirrorImageMinion(float offsetX, float offsetY) {
-        super(strings.NAME, ID, MAX_HP, 0F, 0F, HITBOX_WIDTH, HITBOX_HEIGHT, IMG, offsetX, offsetY);
+    private MirrorImagePower owningPower;
+
+    public MirrorImageMinion(MirrorImagePower owningPower) {
+        super(strings.NAME,
+                ID,
+                MAX_HP,
+                0F,
+                0F,
+                HITBOX_WIDTH,
+                HITBOX_HEIGHT,
+                IMG,
+                (owningPower.owner.drawX / Settings.scale) - 1140F,
+                18);
+
+        this.owningPower = owningPower;
     }
+
+    @Override
+    public void die() {
+        super.die();
+        AbstractDungeon.actionManager.addToTop(new ReducePowerAction(owningPower.owner, this, owningPower, 1));
+    }
+
+    @Override
+    public void takeTurn() { }
+
+    @Override
+    protected void getMove(int i) { }
 }

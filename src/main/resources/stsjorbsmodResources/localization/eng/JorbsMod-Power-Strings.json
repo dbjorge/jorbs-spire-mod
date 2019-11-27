@@ -174,6 +174,13 @@
       "When you next gain #yClarity, deal #b%1$s damage to ALL enemies."
     ]
   },
+  "stsjorbsmod:MirrorImagePower": {
+    "NAME": "Mirror Image",
+    "DESCRIPTIONS": [
+      "%1$s Mirror Image stands ready to intercept damage for you.",
+      "%1$s Mirror Images stand ready to intercept damage for you."
+    ]
+  },
   "stsjorbsmod:NextAttackMissesPower": {
     "NAME": "Mirror Image",
     "DESCRIPTIONS": [

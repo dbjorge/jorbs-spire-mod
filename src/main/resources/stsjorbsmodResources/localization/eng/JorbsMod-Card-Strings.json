@@ -262,11 +262,7 @@
   "stsjorbsmod:MirrorImage": {
     "NAME": "Mirror Image",
     "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Summon !M! Mirror Image with 1 HP. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Summon !M! Mirror Images with 1 HP. NL Exhaust.",
-    "EXTENDED_DESCRIPTION": [
-      "I don't know how to summon minions!",
-      "Can't summon any more minions!"
-    ]
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Summon !M! Mirror Images with 1 HP. NL Exhaust."
   },
   "stsjorbsmod:MistyStep": {
     "NAME": "Misty Step",
