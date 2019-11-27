@@ -49,7 +49,7 @@ public class NlothsGiftPatch {
      * @return
      */
     public static ArrayList<AbstractRelic> clonePlayerRelicsWithoutFragileMind(ArrayList<AbstractRelic> playerRelics) {
-        ArrayList<AbstractRelic> relics = new ArrayList<>(playerRelics.size());
+        ArrayList<AbstractRelic> relics = new ArrayList<>(playerRelics);
         removeFragileMindRelic(relics.iterator());
         return relics;
     }
