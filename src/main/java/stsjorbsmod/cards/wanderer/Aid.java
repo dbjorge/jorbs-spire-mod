@@ -2,13 +2,16 @@ package stsjorbsmod.cards.wanderer;
 
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.KindnessMemory;
+import stsjorbsmod.powers.OnHealedBySubscriber;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
@@ -29,6 +32,28 @@ public class Aid extends CustomJorbsModCard {
         magicNumber = baseMagicNumber = ENEMY_HEAL;
         exhaust = true;
         tags.add(REMEMBER_MEMORY);
+    }
+
+    @Override
+    public void calculateCardDamage(AbstractMonster m) {
+        magicNumber = baseMagicNumber;
+        for (AbstractPower power : m.powers) {
+            if (power instanceof OnHealedBySubscriber) {
+                magicNumber = ((OnHealedBySubscriber)power).onHealedBy(AbstractDungeon.player, magicNumber);
+            }
+        }
+        for (AbstractPower power : m.powers) {
+            magicNumber = power.onHeal(magicNumber);
+        }
+        isMagicNumberModified = magicNumber != baseMagicNumber;
+        super.calculateCardDamage(m);
+    }
+
+    @Override
+    public void applyPowers() {
+        magicNumber = baseMagicNumber;
+        isMagicNumberModified = false;
+        super.applyPowers();
     }
 
     @Override
