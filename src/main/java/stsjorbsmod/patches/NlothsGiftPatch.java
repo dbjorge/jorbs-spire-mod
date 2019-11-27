@@ -59,14 +59,14 @@ public class NlothsGiftPatch {
     }
 
     @SpirePatch(clz = Nloth.class, method = SpirePatch.CONSTRUCTOR)
-    public static class Nloth_RemoveUndesirables {
+    public static class Nloth_ctor_RemoveFragileMind {
         /**
          * Removes FragileMindRelic from the list of relics for N'loth to request.
          *
          * @param _this
          * @param relics
          */
-        @SpireInsertPatch(locator = Nloth_RemoveUndesirables.Locator.class, localvars = "relics")
+        @SpireInsertPatch(locator = Nloth_ctor_RemoveFragileMind.Locator.class, localvars = "relics")
         public static void patch(Nloth _this, Iterable<AbstractRelic> relics) {
             removeFragileMindRelic(relics.iterator());
         }
