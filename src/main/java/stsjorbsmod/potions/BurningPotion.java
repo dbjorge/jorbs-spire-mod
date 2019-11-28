@@ -23,7 +23,7 @@ public class BurningPotion extends AbstractPotion {
     public BurningPotion() {
         super(NAME, POTION_ID, PotionRarity.COMMON, PotionSize.BOTTLE, PotionColor.EXPLOSIVE);
         this.potency = this.getPotency();
-        this.description = DESCRIPTIONS[0] + this.potency + DESCRIPTIONS[1];
+        this.description = String.format(DESCRIPTIONS[0], this.potency);
         this.isThrown = true;
         this.targetRequired = true;
         this.tips.add(new PowerTip(this.name, this.description));

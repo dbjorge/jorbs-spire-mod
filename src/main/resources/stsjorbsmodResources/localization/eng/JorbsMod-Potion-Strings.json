@@ -2,8 +2,7 @@
   "stsjorbsmod:BurningPotion": {
     "NAME": "Burning Potion",
     "DESCRIPTIONS": [
-      "Apply #b",
-      " #yBurning."
+      "Apply #b%1$s #yBurning."
     ]
   },
   "stsjorbsmod:DimensionDoorPotion": {
