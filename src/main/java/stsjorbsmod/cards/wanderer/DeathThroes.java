@@ -8,14 +8,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
-import stsjorbsmod.cards.AutoExhumeBehavior;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.WrathMemory;
-import stsjorbsmod.patches.AutoExhumeField;
 import stsjorbsmod.patches.EntombedField;
 import stsjorbsmod.patches.EphemeralField;
+import stsjorbsmod.patches.SelfExhumeFields;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
@@ -35,7 +33,7 @@ public class DeathThroes extends CustomJorbsModCard {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         EntombedField.entombed.set(this, true);
-        AutoExhumeField.autoExhumeBehavior.set(this, AutoExhumeBehavior.EXHUME_ON_KILL);
+        SelfExhumeFields.selfExhumeOnKill.set(this, true);
         EphemeralField.ephemeral.set(this, true);
 
         tags.add(PERSISTENT_POSITIVE_EFFECT);

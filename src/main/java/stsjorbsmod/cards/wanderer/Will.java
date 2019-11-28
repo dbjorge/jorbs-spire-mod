@@ -4,33 +4,31 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.cards.AutoExhumeBehavior;
+import stsjorbsmod.actions.WillAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.patches.SelfExhumeFields;
 
-public class LoseGrip extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(LoseGrip.class);
+public class Will extends CustomJorbsModCard {
+    public static final String ID = JorbsMod.makeID(Will.class);
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 1;
-    private static final int BLOCK = 10;
-    private static final int UPGRADE_PLUS_BLOCK = 4;
+    private static final int BLOCK = 7;
+    private static final int UPGRADE_PLUS_BLOCK = 2;
 
-    public LoseGrip() {
+    public Will() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = BLOCK;
-        exhaust = true;
-        SelfExhumeFields.selfExhumeOnSnap.set(this, true);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, block));
+        addToBot(new WillAction(upgraded));
     }
 
     @Override

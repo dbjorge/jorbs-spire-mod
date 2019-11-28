@@ -1,7 +1,6 @@
 package stsjorbsmod.actions;
 
 import basemod.BaseMod;
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -12,7 +11,6 @@ import com.megacrit.cardcrawl.powers.CorruptionPower;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import stsjorbsmod.cards.AutoExhumeBehavior;
-import stsjorbsmod.patches.AutoExhumeField;
 
 import java.util.function.Predicate;
 
@@ -28,10 +26,6 @@ public class ExhumeCardsAction extends AbstractGameAction {
 
     public ExhumeCardsAction(AbstractCard specificCard) {
         this(c -> c == specificCard);
-    }
-
-    public ExhumeCardsAction(AutoExhumeBehavior targettedBehavior) {
-        this(c -> AutoExhumeField.autoExhumeBehavior.get(c) == targettedBehavior);
     }
 
     public void update() {

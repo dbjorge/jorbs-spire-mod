@@ -423,6 +423,11 @@
     "NAME": "Weight of Memory",
     "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for ALL cards which \"remember\"."
   },
+  "stsjorbsmod:Will": {
+    "NAME": "Will",
+    "DESCRIPTION": "Gain !B! Block. NL Exhaust a random card in your hand; it stsjorbsmod:Exhumes when you stsjorbsmod:Snap and costs 0 until played.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Exhaust a card in your hand; it stsjorbsmod:Exhumes when you stsjorbsmod:Snap and costs 0 until played."
+  },
   "stsjorbsmod:Withdraw": {
     "NAME": "Withdraw",
     "DESCRIPTION": "Gain !M! Artifact. NL Gain !B! Block. NL Exhaust."

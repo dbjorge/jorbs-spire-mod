@@ -8,15 +8,13 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
-import stsjorbsmod.cards.AutoExhumeBehavior;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.LustMemory;
-import stsjorbsmod.patches.AutoExhumeField;
+import stsjorbsmod.patches.SelfExhumeFields;
 import stsjorbsmod.powers.BurningPower;
 
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
-import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Inferno extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Inferno.class);
@@ -34,7 +32,7 @@ public class Inferno extends CustomJorbsModCard {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = BURNING_MULTIPLIER;
         exhaust = true;
-        AutoExhumeField.autoExhumeBehavior.set(this, AutoExhumeBehavior.EXHUME_ON_SNAP);
+        SelfExhumeFields.selfExhumeOnSnap.set(this, true);
         tags.add(REMEMBER_MEMORY);
     }
 

@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import stsjorbsmod.cards.AutoExhumeBehavior;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.MemoryManager;
+import stsjorbsmod.patches.SelfExhumeFields;
 import stsjorbsmod.powers.SnappedPower;
 
 
@@ -59,7 +60,7 @@ public class SnapAction extends AbstractGameAction {
 
         MemoryManager.forPlayer(target).snap();
 
-        AbstractDungeon.actionManager.addToBottom(new ExhumeCardsAction(AutoExhumeBehavior.EXHUME_ON_SNAP));
+        AbstractDungeon.actionManager.addToBottom(new ExhumeCardsAction(SelfExhumeFields.selfExhumeOnSnap::get));
 
         isDone = true;
     }
