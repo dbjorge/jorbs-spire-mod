@@ -15,25 +15,25 @@ public class MemoryUtils {
     }
 
     public static ArrayList<AbstractMemory> allPossibleMemories(AbstractCreature target) {
-        ArrayList<AbstractMemory> powers = new ArrayList<>();
+        ArrayList<AbstractMemory> memories = new ArrayList<>();
 
-        powers.add(new PatienceMemory(target));
-        powers.add(new DiligenceMemory(target));
-        powers.add(new ChastityMemory(target));
-        powers.add(new KindnessMemory(target));
-        powers.add(new HumilityMemory(target));
-        powers.add(new CharityMemory(target));
-        powers.add(new TemperanceMemory(target));
+        memories.add(new PatienceMemory(target));
+        memories.add(new DiligenceMemory(target));
+        memories.add(new ChastityMemory(target));
+        memories.add(new KindnessMemory(target));
+        memories.add(new HumilityMemory(target));
+        memories.add(new CharityMemory(target));
+        memories.add(new TemperanceMemory(target));
 
-        powers.add(new LustMemory(target));
-        powers.add(new EnvyMemory(target));
-        powers.add(new WrathMemory(target));
-        powers.add(new GreedMemory(target));
-        powers.add(new GluttonyMemory(target));
-        powers.add(new PrideMemory(target));
-        powers.add(new SlothMemory(target));
+        memories.add(new LustMemory(target));
+        memories.add(new EnvyMemory(target));
+        memories.add(new WrathMemory(target));
+        memories.add(new GreedMemory(target));
+        memories.add(new GluttonyMemory(target));
+        memories.add(new PrideMemory(target));
+        memories.add(new SlothMemory(target));
 
-        return powers;
+        return memories;
     }
 
     public static boolean isValidMemoryID(String id) {

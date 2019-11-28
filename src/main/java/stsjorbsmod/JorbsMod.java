@@ -31,6 +31,8 @@ import stsjorbsmod.console.PlaySoundCommand;
 import stsjorbsmod.patches.LegendaryPatch;
 import stsjorbsmod.potions.BurningPotion;
 import stsjorbsmod.potions.DimensionDoorPotion;
+import stsjorbsmod.potions.LiquidClarity;
+import stsjorbsmod.potions.LiquidVirtue;
 import stsjorbsmod.relics.AlchemistsFireRelic;
 import stsjorbsmod.relics.FragileMindRelic;
 import stsjorbsmod.relics.MindGlassRelic;
@@ -291,6 +293,10 @@ public class JorbsMod implements
                 DimensionDoorPotion.POTION_ID, Wanderer.Enums.WANDERER);
         BaseMod.addPotion(BurningPotion.class, Color.ORANGE, null, new Color(-1033371393),
                 BurningPotion.POTION_ID, Wanderer.Enums.WANDERER);
+        BaseMod.addPotion(LiquidClarity.class, Color.BLUE, null, Color.PURPLE,
+                LiquidClarity.POTION_ID, Wanderer.Enums.WANDERER);
+        BaseMod.addPotion(LiquidVirtue.class, Color.BLUE, null, Color.PURPLE,
+                LiquidVirtue.POTION_ID, Wanderer.Enums.WANDERER);
         
         // =============== EVENTS =================
         
