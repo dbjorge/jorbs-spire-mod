@@ -49,7 +49,7 @@ public class WillAction extends AbstractGameAction {
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
             AbstractCard c = AbstractDungeon.handCardSelectScreen.selectedCards.getTopCard();
             exhaustWithBonuses(c, AbstractDungeon.handCardSelectScreen.selectedCards);
-            
+
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
             AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
             this.isDone = true;

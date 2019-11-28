@@ -159,6 +159,11 @@
     "NAME": "Forbidden Grimoire",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL stsjorbsmod:Exhume after playing this then !M! other cards, unless stsjorbsmod:Snapped."
   },
+  "stsjorbsmod:FranticSearch": {
+    "NAME": "Frantic Search",
+    "DESCRIPTION": "Put !M! stsjorbsmod:Material\u00a0Component into your hand for each enemy. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Put !M! stsjorbsmod:Material\u00a0Component into your hand for each enemy. Exhaust."
+  },
   "stsjorbsmod:FreshAdventure": {
     "NAME": "Fresh Adventure",
     "DESCRIPTION": "Deal !D! damage. NL Remember stsjorbsmod:Diligence."
