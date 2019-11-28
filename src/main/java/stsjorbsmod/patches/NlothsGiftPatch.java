@@ -1,13 +1,18 @@
 package stsjorbsmod.patches;
 
-import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.events.AbstractEvent;
 import com.megacrit.cardcrawl.events.shrines.Nloth;
+import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import javassist.CannotCompileException;
+import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
+import javassist.expr.MethodCall;
+import stsjorbsmod.JorbsMod;
 import stsjorbsmod.relics.FragileMindRelic;
 
 import java.util.ArrayList;
@@ -54,6 +59,22 @@ public class NlothsGiftPatch {
          */
         public static ExprEditor Instrument() {
             return new ClonePlayerRelicsWithoutFragileMind();
+        }
+    }
+
+    @SpirePatch(clz = AbstractDungeon.class, method = "getShrine", paramtypez = { Random.class })
+    public static class AbstractDungeon_getShrine_NlothLogger {
+        @SpireInsertPatch(locator = NlothsGiftPatch.AbstractDungeon_getShrine_NlothLogger.Locator.class, localvars = "tmp")
+        public static void patch(Random rng, ArrayList<String> tmp) {
+            JorbsMod.logger.info(tmp);
+        }
+
+        public static class Locator extends SpireInsertLocator {
+            @Override
+            public int[] Locate(CtBehavior ctBehavior) throws Exception {
+                Matcher matcher = new Matcher.MethodCallMatcher(ArrayList.class, "get");
+                return LineFinder.findInOrder(ctBehavior, matcher);
+            }
         }
     }
 }
