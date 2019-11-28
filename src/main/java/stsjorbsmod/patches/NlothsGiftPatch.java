@@ -61,20 +61,4 @@ public class NlothsGiftPatch {
             return new ClonePlayerRelicsWithoutFragileMind();
         }
     }
-
-    @SpirePatch(clz = AbstractDungeon.class, method = "getShrine", paramtypez = { Random.class })
-    public static class AbstractDungeon_getShrine_NlothLogger {
-        @SpireInsertPatch(locator = NlothsGiftPatch.AbstractDungeon_getShrine_NlothLogger.Locator.class, localvars = "tmp")
-        public static void patch(Random rng, ArrayList<String> tmp) {
-            JorbsMod.logger.info(tmp);
-        }
-
-        public static class Locator extends SpireInsertLocator {
-            @Override
-            public int[] Locate(CtBehavior ctBehavior) throws Exception {
-                Matcher matcher = new Matcher.MethodCallMatcher(ArrayList.class, "get");
-                return LineFinder.findInOrder(ctBehavior, matcher);
-            }
-        }
-    }
 }
