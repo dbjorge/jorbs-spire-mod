@@ -3,18 +3,14 @@ package stsjorbsmod.cards.wanderer;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.ThirstingSwordBurningVampireAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.BurningPower;
-
-import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class ThirstingSword extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(ThirstingSword.class);
@@ -45,21 +41,9 @@ public class ThirstingSword extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(m, p, new BurningPower(m, p, magicNumber))); //Apply Burning
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                AbstractPower possibleExistingBurningPower = m.getPower(BurningPower.POWER_ID);  //Get burning amount currently on target
-                if (possibleExistingBurningPower != null) {
-                    int healAmount = possibleExistingBurningPower.amount;
-                    addToTop(new HealAction(p, p, healAmount)); //Heal for total burning on target
-                }
-
-                AbstractDungeon.player.decreaseMaxHealth(metaMagicNumber); //Lose MAX HP
-                isDone = true;
-            }
-        });
-        addToBot(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.FIRE)); //Deal Damage
+        addToBot(new ApplyPowerAction(m, p, new BurningPower(m, p, magicNumber)));
+        addToBot(new ThirstingSwordBurningVampireAction(m, p, metaMagicNumber));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.FIRE));
     }
 
     @Override
@@ -72,4 +56,5 @@ public class ThirstingSword extends CustomJorbsModCard {
             upgradeDescription();
         }
     }
+
 }

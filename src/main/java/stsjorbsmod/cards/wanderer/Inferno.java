@@ -1,18 +1,14 @@
 package stsjorbsmod.cards.wanderer;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.MultiplyBurningAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.LustMemory;
 import stsjorbsmod.patches.SelfExhumeFields;
-import stsjorbsmod.powers.BurningPower;
 
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
@@ -39,17 +35,7 @@ public class Inferno extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new RememberSpecificMemoryAction(p, LustMemory.STATIC.ID));
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                AbstractPower possibleExistingBurningPower = m.getPower(BurningPower.POWER_ID);
-                if (possibleExistingBurningPower != null) {
-                    int stacksToAdd = possibleExistingBurningPower.amount * (magicNumber - 1);
-                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new BurningPower(m, p, stacksToAdd), stacksToAdd));
-                }
-                isDone = true;
-            }
-        });
+        addToBot(new MultiplyBurningAction(m, p, magicNumber));
     }
 
     @Override
@@ -60,4 +46,5 @@ public class Inferno extends CustomJorbsModCard {
             upgradeDescription();
         }
     }
+
 }
