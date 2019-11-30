@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.patches.IsMonsterFriendlyField;
 import stsjorbsmod.powers.MirrorImagePower;
 
 import static stsjorbsmod.JorbsMod.makeMonsterPath;
@@ -36,6 +37,7 @@ public class MirrorImageMinion extends AbstractMonster {
                 18);
 
         this.owningPower = owningPower;
+        IsMonsterFriendlyField.isFriendly.set(this, true);
     }
 
     @Override
