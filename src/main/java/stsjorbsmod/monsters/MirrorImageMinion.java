@@ -17,8 +17,10 @@ public class MirrorImageMinion extends AbstractMonster {
     private static MonsterStrings strings = CardCrawlGame.languagePack.getMonsterStrings(ID);
     private static String IMG = makeMonsterPath("MirrorImageMinion.png");
 
-    public static final float HITBOX_WIDTH = 134F;
-    public static final Float HITBOX_HEIGHT = 280F;
+    public static final float WIDTH = 67F;
+    public static final float HEIGHT = 140F;
+    public static final float OWNER_OFFSET_X = 97F;
+    public static final float OWNER_OFFSET_Y = 103F;
 
     private static final int MAX_HP = 1;
 
@@ -30,14 +32,17 @@ public class MirrorImageMinion extends AbstractMonster {
                 MAX_HP,
                 0F,
                 0F,
-                HITBOX_WIDTH,
-                HITBOX_HEIGHT,
+                WIDTH,
+                HEIGHT,
                 IMG,
-                (owningPower.owner.drawX / Settings.scale) - 1140F,
-                18);
+                0, // overridden below
+                0); // overridden below
 
         this.owningPower = owningPower;
         IsMonsterFriendlyField.isFriendly.set(this, true);
+
+        this.drawX = owningPower.owner.drawX + (OWNER_OFFSET_X * Settings.scale);
+        this.drawY = owningPower.owner.drawY + (OWNER_OFFSET_Y * Settings.scale);
     }
 
     @Override
