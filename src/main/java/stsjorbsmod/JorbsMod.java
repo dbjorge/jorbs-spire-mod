@@ -27,9 +27,12 @@ import stsjorbsmod.cards.CardSaveData;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.console.MemoryCommand;
+import stsjorbsmod.console.PlaySoundCommand;
 import stsjorbsmod.patches.LegendaryPatch;
 import stsjorbsmod.potions.BurningPotion;
 import stsjorbsmod.potions.DimensionDoorPotion;
+import stsjorbsmod.potions.LiquidClarity;
+import stsjorbsmod.potions.LiquidVirtue;
 import stsjorbsmod.relics.AlchemistsFireRelic;
 import stsjorbsmod.relics.FragileMindRelic;
 import stsjorbsmod.relics.MindGlassRelic;
@@ -126,6 +129,10 @@ public class JorbsMod implements
 
     public static String makeMemoryPath(String resourcePath) {
         return MOD_ID + "Resources/images/memories/" + resourcePath;
+    }
+
+    public static String makeMonsterPath(String resourcePath) {
+        return MOD_ID + "Resources/images/monsters/" + resourcePath;
     }
 
     public static String makeOrbPath(String resourcePath) {
@@ -251,6 +258,7 @@ public class JorbsMod implements
         logger.info("Loading badge image and mod options");
 
         MemoryCommand.register();
+        PlaySoundCommand.register();
 
         // Load the Mod Badge
         Texture badgeTexture = TextureLoader.getTexture(BADGE_IMAGE);
@@ -285,6 +293,10 @@ public class JorbsMod implements
                 DimensionDoorPotion.POTION_ID, Wanderer.Enums.WANDERER);
         BaseMod.addPotion(BurningPotion.class, Color.ORANGE, null, new Color(-1033371393),
                 BurningPotion.POTION_ID, Wanderer.Enums.WANDERER);
+        BaseMod.addPotion(LiquidClarity.class, Color.BLUE, null, Color.PURPLE,
+                LiquidClarity.POTION_ID, Wanderer.Enums.WANDERER);
+        BaseMod.addPotion(LiquidVirtue.class, Color.BLUE, null, Color.PURPLE,
+                LiquidVirtue.POTION_ID, Wanderer.Enums.WANDERER);
         
         // =============== EVENTS =================
         
@@ -365,13 +377,15 @@ public class JorbsMod implements
     public void receiveEditStrings() {
         logger.info("Beginning to edit strings for mod with ID: " + MOD_ID);
 
-        BaseMod.loadCustomStringsFile(UIStrings.class, makeLocalizedStringsPath("JorbsMod-UI-Strings.json"));
         BaseMod.loadCustomStringsFile(CardStrings.class, makeLocalizedStringsPath("JorbsMod-Card-Strings.json"));
+        BaseMod.loadCustomStringsFile(CharacterStrings.class, makeLocalizedStringsPath("JorbsMod-Character-Strings.json"));
+        BaseMod.loadCustomStringsFile(EventStrings.class, makeLocalizedStringsPath("JorbsMod-Event-Strings.json"));
+        BaseMod.loadCustomStringsFile(PowerStrings.class, makeLocalizedStringsPath("JorbsMod-Memory-Strings.json"));
+        BaseMod.loadCustomStringsFile(MonsterStrings.class, makeLocalizedStringsPath("JorbsMod-Monster-Strings.json"));
+        BaseMod.loadCustomStringsFile(PotionStrings.class, makeLocalizedStringsPath("JorbsMod-Potion-Strings.json"));
         BaseMod.loadCustomStringsFile(PowerStrings.class, makeLocalizedStringsPath("JorbsMod-Power-Strings.json"));
         BaseMod.loadCustomStringsFile(RelicStrings.class, makeLocalizedStringsPath("JorbsMod-Relic-Strings.json"));
-        BaseMod.loadCustomStringsFile(EventStrings.class, makeLocalizedStringsPath("JorbsMod-Event-Strings.json"));
-        BaseMod.loadCustomStringsFile(CharacterStrings.class, makeLocalizedStringsPath("JorbsMod-Character-Strings.json"));
-        BaseMod.loadCustomStringsFile(PotionStrings.class, makeLocalizedStringsPath("JorbsMod-Potion-Strings.json"));
+        BaseMod.loadCustomStringsFile(UIStrings.class, makeLocalizedStringsPath("JorbsMod-UI-Strings.json"));
 
         logger.info("Done editing strings");
     }

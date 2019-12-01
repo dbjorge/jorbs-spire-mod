@@ -25,6 +25,7 @@ public class SlothMemory extends AbstractMemory {
 
     public SlothMemory(final AbstractCreature owner) {
         super(STATIC, MemoryType.SIN, owner);
+        setDescriptionPlaceholder("!D!", DISCARD_ON_REMEMBER);
         setDescriptionPlaceholder("!M!", DRAW_REDUCTION);
     }
 

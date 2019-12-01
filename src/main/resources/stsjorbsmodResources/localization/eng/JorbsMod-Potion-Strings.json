@@ -2,14 +2,25 @@
   "stsjorbsmod:BurningPotion": {
     "NAME": "Burning Potion",
     "DESCRIPTIONS": [
-      "Apply #b",
-      " #yBurning."
+      "Apply #b%1$s #yBurning."
     ]
   },
   "stsjorbsmod:DimensionDoorPotion": {
     "NAME": "Scroll of Dimension Door",
     "DESCRIPTIONS": [
       "Ignore paths when choosing the next room to travel to."
+    ]
+  },
+  "stsjorbsmod:LiquidClarity": {
+    "NAME": "Liquid Clarity",
+    "DESCRIPTIONS": [
+      "Gain #yClarity of current memory."
+    ]
+  },
+  "stsjorbsmod:LiquidVirtue": {
+    "NAME": "Liquid Virtue",
+    "DESCRIPTIONS": [
+      "Gain #yClarity of two random #yVirtues you don't already have #yClarity of."
     ]
   }
 }

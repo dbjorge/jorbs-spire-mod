@@ -62,6 +62,10 @@
     "DESCRIPTION": "Gain !B! Block. NL Gain !M! [E] next turn.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !M! [E] next turn. NL Put a card from your discard pile on top of your draw pile."
   },
+  "stsjorbsmod:Chatter": {
+    "NAME": "Chatter",
+    "DESCRIPTION": "Deal !D! damage. NL Play this card !M! additional time."
+  },
   "stsjorbsmod:ColorSpray": {
     "NAME": "Color Spray",
     "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each. NL Remember stsjorbsmod:Envy."
@@ -154,6 +158,11 @@
   "stsjorbsmod:ForbiddenGrimoire": {
     "NAME": "Forbidden Grimoire",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL stsjorbsmod:Exhume after playing this then !M! other cards, unless stsjorbsmod:Snapped."
+  },
+  "stsjorbsmod:FranticSearch": {
+    "NAME": "Frantic Search",
+    "DESCRIPTION": "Put !M! stsjorbsmod:Material\u00a0Component into your hand for each enemy. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Put !M! stsjorbsmod:Material\u00a0Component into your hand for each enemy. Exhaust."
   },
   "stsjorbsmod:FreshAdventure": {
     "NAME": "Fresh Adventure",
@@ -257,8 +266,8 @@
   },
   "stsjorbsmod:MirrorImage": {
     "NAME": "Mirror Image",
-    "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL The next enemy attack misses.",
-    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Kindness. NL The next enemy attack misses. NL Retain."
+    "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Summon !M! Mirror Image with 1 HP. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Summon !M! Mirror Images with 1 HP. NL Exhaust."
   },
   "stsjorbsmod:MistyStep": {
     "NAME": "Misty Step",
@@ -280,7 +289,7 @@
   },
   "stsjorbsmod:Prepare": {
     "NAME": "Prepare",
-    "DESCRIPTION": "1: Gain 4 Coil. Gain block equal to your Coil."
+    "DESCRIPTION": "Gain !M! stsjorbsmod:Coil. NL Gain Block equal to your stsjorbsmod:Coil."
   },
   "stsjorbsmod:Prestidigitation": {
     "NAME": "Prestidigitation",
@@ -329,7 +338,7 @@
   },
   "stsjorbsmod:ScorchingRay": {
     "NAME": "Scorching Ray",
-    "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Apply !D! damage as stsjorbsmod:Burning !M! times."
+    "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Apply !stsjorbsmod:MetaMagic! stsjorbsmod:Burning !M! times. This stsjorbsmod:Burning is affected by Strength."
   },
   "stsjorbsmod:SiphonEnergy": {
     "NAME": "Siphon Energy",
@@ -380,6 +389,11 @@
     "DESCRIPTION": "Remember stsjorbsmod:Humility. NL If an enemy intends to attack, gain stsjorbsmod:Clarity of current memory. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Humility. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
   },
+  "stsjorbsmod:TimeEddy": {
+    "NAME": "Time Eddy",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance ALL buffs and debuffs !M! turn through time.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance ALL buffs and debuffs !M! turns through time."
+  },
   "stsjorbsmod:TinyHut": {
     "NAME": "Tiny Hut",
     "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Gain stsjorbsmod:Clarity of current memory.",
@@ -413,6 +427,11 @@
   "stsjorbsmod:WeightOfMemory": {
     "NAME": "Weight of Memory",
     "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for ALL cards which \"remember\"."
+  },
+  "stsjorbsmod:Will": {
+    "NAME": "Will",
+    "DESCRIPTION": "Gain !B! Block. NL Exhaust a random card in your hand; it stsjorbsmod:Exhumes when you stsjorbsmod:Snap and costs 0 until played.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Exhaust a card in your hand; it stsjorbsmod:Exhumes when you stsjorbsmod:Snap and costs 0 until played."
   },
   "stsjorbsmod:Withdraw": {
     "NAME": "Withdraw",

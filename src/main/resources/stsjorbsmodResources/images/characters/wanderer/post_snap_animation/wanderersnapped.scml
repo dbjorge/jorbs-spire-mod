@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r11">
+    <folder id="0">
+        <file id="0" name="Torso.png" width="344" height="374" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="legsextras.png" width="1379" height="417" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="rightarm.png" width="237" height="590" pivot_x="0" pivot_y="1"/>
+        <file id="3" name="head.png" width="226" height="335" pivot_x="0" pivot_y="1"/>
+        <file id="4" name="leftarm.png" width="277" height="399" pivot_x="0" pivot_y="1"/>
+        <file id="5" name="shadow.png" width="1132" height="233" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <entity id="0" name="entity_000">
+        <animation id="0" name="NewAnimation" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="5" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                    <object_ref id="2" timeline="0" key="0" z_index="2"/>
+                    <object_ref id="3" timeline="2" key="0" z_index="3"/>
+                    <object_ref id="4" timeline="4" key="0" z_index="4"/>
+                    <object_ref id="5" timeline="3" key="0" z_index="5"/>
+                </key>
+                <key id="1" time="499">
+                    <object_ref id="0" timeline="5" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                    <object_ref id="2" timeline="0" key="1" z_index="2"/>
+                    <object_ref id="3" timeline="2" key="1" z_index="3"/>
+                    <object_ref id="4" timeline="4" key="1" z_index="4"/>
+                    <object_ref id="5" timeline="3" key="1" z_index="5"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="Torso">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="-25.756123" y="101.320625" scale_x="0.144463" scale_y="0.144463"/>
+                </key>
+                <key id="1" time="499" spin="0">
+                    <object folder="0" file="0" x="-25.63889" y="99.909376" scale_x="0.144463" scale_y="0.142132"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="legsextras">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" x="-83.637005" y="57.586804" scale_x="0.144463" scale_y="0.144463"/>
+                </key>
+            </timeline>
+            <timeline id="2" name="rightarm">
+                <key id="0">
+                    <object folder="0" file="2" x="-40.51395" y="87.610272" scale_x="0.144463" scale_y="0.144463"/>
+                </key>
+                <key id="1" time="499" spin="-1">
+                    <object folder="0" file="2" x="-40.652454" y="86.363735" angle="0.72348" scale_x="0.144463" scale_y="0.144463"/>
+                </key>
+            </timeline>
+            <timeline id="3" name="head">
+                <key id="0">
+                    <object folder="0" file="3" x="-13.02616" y="122.060922" scale_x="0.144463" scale_y="0.144463"/>
+                </key>
+                <key id="1" time="499" spin="-1">
+                    <object folder="0" file="3" x="-13.02616" y="120.67396" angle="0.723447" scale_x="0.144463" scale_y="0.144463"/>
+                </key>
+            </timeline>
+            <timeline id="4" name="leftarm">
+                <key id="0">
+                    <object folder="0" file="4" x="10.260949" y="121.365019" scale_x="0.144463" scale_y="0.144463"/>
+                </key>
+                <key id="1" time="499" spin="-1">
+                    <object folder="0" file="4" x="9.55236" y="120.583452" angle="1.080779" scale_x="0.144463" scale_y="0.144463"/>
+                </key>
+            </timeline>
+            <timeline id="5" name="shadow">
+                <key id="0" spin="0">
+                    <object folder="0" file="5" x="-88.182036" y="24.427505" scale_x="0.144463" scale_y="0.144463"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>

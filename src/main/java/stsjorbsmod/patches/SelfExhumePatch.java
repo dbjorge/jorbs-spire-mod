@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.actions.ExhumeCardsAction;
 import stsjorbsmod.cards.AutoExhumeBehavior;
 
-public class AutoExhumePatch {
+public class SelfExhumePatch {
     // Note: it's very important this happen as a prefix to die() rather than as an insert before the die() call in
     // damage(); this is because isHalfDead gets set by subclasses (Darkling, AwakenedOne) overriding damage().
     @SpirePatch(
@@ -20,8 +20,13 @@ public class AutoExhumePatch {
     public static class ExhumeOnKillPatch {
         @SpirePrefixPatch
         public static void Prefix(AbstractMonster __this) {
-            if ((!__this.isDying && __this.currentHealth <= 0) && !__this.halfDead) {
-                AbstractDungeon.actionManager.addToBottom(new ExhumeCardsAction(AutoExhumeBehavior.EXHUME_ON_KILL));
+            if (!__this.halfDead &&
+                !__this.isDying &&
+                __this.currentHealth <= 0 &&
+                !MonsterSuicideTrackingPatch.IsMonsterSuicidingField.isSuiciding.get(__this) &&
+                !IsMonsterFriendlyField.isFriendly.get(__this)
+            ) {
+                AbstractDungeon.actionManager.addToBottom(new ExhumeCardsAction(SelfExhumeFields.selfExhumeOnKill::get));
             }
         }
     }
@@ -37,7 +42,7 @@ public class AutoExhumePatch {
         public static void patch(AbstractCreature __this) {
             // Note, the turn counter appears off by one because it isn't incremented til after start-of-turn powers are applied
             if (__this.isPlayer && AbstractDungeon.actionManager.turn == TURN_TO_EXHUME_ON - 1) {
-                AbstractDungeon.actionManager.addToBottom(new ExhumeCardsAction(AutoExhumeBehavior.EXHUME_AT_START_OF_TURN_7));
+                AbstractDungeon.actionManager.addToBottom(new ExhumeCardsAction(SelfExhumeFields.selfExhumeAtStartOfTurn7::get));
             }
         }
     }

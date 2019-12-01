@@ -45,7 +45,7 @@ public class MaterialComponentsDeck {
     private static void resetRarePool() {
         rarePool.clear();
         rarePool.addToTop(new Quicksilver());
-        // rarePool.addToTop(new TimeEddy());
+        rarePool.addToTop(new TimeEddy());
         rarePool.addToTop(new Stone());
         rarePool.shuffle();
     }

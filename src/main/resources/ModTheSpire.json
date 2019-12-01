@@ -10,6 +10,7 @@
     "Forceful Storm",
     "Fr33ly",
     "Frenoss",
+    "GDami",
     "Gremious",
     "GinFizzes",
     "JoeKage",
@@ -30,5 +31,5 @@
   "sts_version": "${SlayTheSpire.version}",
   "mts_version": "${ModTheSpire.version}",
   "dependencies": ["basemod", "stslib"],
-  "update_json": ""
+  "update_json": "https://api.github.com/repos/dbjorge/jorbs-spire-mod/releases/latest"
 }

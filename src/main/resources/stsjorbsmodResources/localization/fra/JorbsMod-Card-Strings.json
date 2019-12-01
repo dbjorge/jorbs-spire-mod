@@ -6,7 +6,7 @@
   },
   "stsjorbsmod:Amnesia": {
     "NAME": "Amnésie",
-    "DESCRIPTION": "Injouable. NL À la fin de votre tour, stsjorbsmod:Craquez. NL Retirez tous vos buff et vos debuffs."
+    "DESCRIPTION": "Injouable. NL À la fin de votre tour, stsjorbsmod:Craquez. NL Retirez tous vos buffs et vos débuffs."
   },
   "stsjorbsmod:AnimateObjects": {
     "NAME": "Animer Objets",
@@ -56,6 +56,10 @@
     "NAME": "Canaliser",
     "DESCRIPTION": "Gagnez !B! d'Armure. NL Au prochain tour, gagnez !M! [E].",
     "UPGRADE_DESCRIPTION": "Gagnez !B! d'Armure. NL Au prochain tour, gagnez !M! [E]. NL Placez une carte de votre défausse sur le haut de la pioche."
+  },
+  "stsjorbsmod:Chatter": {
+    "NAME": "Papotage",
+    "DESCRIPTION": "Infligez !D! dégât(s). NL Jouez cette carte !M! fois de plus."
   },
   "stsjorbsmod:ColorSpray": {
     "NAME": "Bombe de peinture",
@@ -218,8 +222,8 @@
   },
   "stsjorbsmod:MagicMirror": {
     "NAME": "Miroir magique",
-    "DESCRIPTION": "Lorsqu'un ennemi vous inflige un debuff, appliquez-le à TOUS les ennemis.",
-    "UPGRADE_DESCRIPTION": "Inné. NL Lorsqu'un ennemi vous inflige un debuff, appliquez-le à TOUS les ennemis."
+    "DESCRIPTION": "Lorsqu'un ennemi vous inflige un débuff, appliquez-le à TOUS les ennemis.",
+    "UPGRADE_DESCRIPTION": "Inné. NL Lorsqu'un ennemi vous inflige un débuff, appliquez-le à TOUS les ennemis."
   },
   "stsjorbsmod:MagicMissiles": {
     "NAME": "Missiles magiques",
@@ -317,7 +321,7 @@
   },
   "stsjorbsmod:ScorchingRay": {
     "NAME": "Rayon brûlant",
-    "DESCRIPTION": "Souvenez-vous de stsjorbsmod:Luxure. NL Appliquez !D! dégât(s) de stsjorbsmod:Brûlure !M! fois."
+    "DESCRIPTION": "Souvenez-vous de stsjorbsmod:Luxure. NL Appliquez !stsjorbsmod:MetaMagic! de stsjorbsmod:Brûlure !M! fois. Cette stsjorbsmod:Brûlure est modifiée par votre Force."
   },
   "stsjorbsmod:SiphonEnergy": {
     "NAME": "Siphonner l'énergie",
@@ -367,6 +371,11 @@
     "NAME": "Épines",
     "DESCRIPTION": "Souvenez-vous de stsjorbsmod:Humilité. NL Si un ennemi compte attaquer, votre souvenir actuel gagne en stsjorbsmod:Clarté. NL Épuisement.",
     "UPGRADE_DESCRIPTION": "Souvenez-vous de stsjorbsmod:Humilité. NL Votre souvenir actuel gagne en stsjorbsmod:Clarté. NL Épuisement."
+  },
+  "stsjorbsmod:TimeEddy": {
+    "NAME": "Distortion temporelle",
+    "DESCRIPTION": "stsjorbsmod:Éphémère. NL Tous vos buffs et débuffs avancent d'!M! tour.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Éphémère. NL Tous vos buffs et débuffs avancent de !M! tours."
   },
   "stsjorbsmod:TinyHut": {
     "NAME": "Petite cabane",

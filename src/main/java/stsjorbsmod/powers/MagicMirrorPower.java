@@ -1,6 +1,7 @@
 package stsjorbsmod.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
+import basemod.patches.com.megacrit.cardcrawl.powers.CloneablePowersPatch;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
@@ -45,7 +46,20 @@ public class MagicMirrorPower extends AbstractPower implements CloneablePowerInt
         updateDescription();
     }
 
+    // Generally, stuff that interacts with cards will be incompatible
+    private boolean isPowerIncompatibleWithMonsters(String id) {
+        return
+                // EntangledPower is updated in MagicMirrorPatch to be compatible
+                HexPower.POWER_ID.equals(id) ||
+                DrawReductionPower.POWER_ID.equals(id) ||
+                ConfusionPower.POWER_ID.equals(id);
+    }
+
     private AbstractPower tryCreateReflectedPower(AbstractCreature newTarget, AbstractCreature originalTarget, AbstractPower originalPower) {
+        if (isPowerIncompatibleWithMonsters(originalPower.ID)) {
+            return null;
+        }
+
         try {
             Class<? extends AbstractPower> originalClass = originalPower.getClass();
             try {
@@ -59,6 +73,10 @@ public class MagicMirrorPower extends AbstractPower implements CloneablePowerInt
             try {
                 return originalClass.getConstructor(AbstractCreature.class)
                         .newInstance(newTarget);
+            } catch (NoSuchMethodException e) {}
+            try {
+                return originalClass.getConstructor(AbstractCreature.class, AbstractCreature.class, int.class)
+                        .newInstance(newTarget, originalTarget, originalPower.amount);
             } catch (NoSuchMethodException e) {}
         } catch (Exception e) {
             JorbsMod.logger.error("Unable to createReflectedPower of " + originalPower, e);

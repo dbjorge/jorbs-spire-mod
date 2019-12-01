@@ -40,7 +40,7 @@
     "DESCRIPTION": "Exhausts at the end of your turn, when played, or when discarded."
   },
   {
-    "NAMES": ["exhume"],
+    "NAMES": ["exhume", "exhumes"],
     "DESCRIPTION": "Move from your Exhaust pile to your hand."
   },
   {

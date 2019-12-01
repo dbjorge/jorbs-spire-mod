@@ -40,7 +40,7 @@ import static stsjorbsmod.characters.Wanderer.Enums.WANDERER_CARD_COLOR;
 //and https://github.com/daviscook477/BaseMod/wiki/Migrating-to-5.0
 //All text (starting description and loadout, anything labeled TEXT[]) can be found in JorbsMod-Character-Strings.json in the resources
 
-public class Wanderer extends CustomPlayer {
+public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
     public static final Logger logger = LogManager.getLogger(JorbsMod.class.getName());
 
     // =============== CHARACTER ENUMERATORS =================
@@ -109,6 +109,7 @@ public class Wanderer extends CustomPlayer {
     public static final int STARTING_GOLD = 99;
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
+    public static final int MAX_MINIONS = 2; // see MirrorImage
 
     // =============== /BASE STATS/ =================
 
@@ -147,6 +148,20 @@ public class Wanderer extends CustomPlayer {
 
     // =============== /TEXTURES/ ===============
 
+    private static SpriterAnimation loadIdleAnimation() {
+        SpriterAnimation animation = new SpriterAnimation(makeCharPath("wanderer/idle_animation/idleanimation.scml"));
+        animation.myPlayer.setScale(Settings.scale * 1.1F);
+        return animation;
+    }
+
+    private static SpriterAnimation loadPostSnapAnimation() {
+        SpriterAnimation animation = new SpriterAnimation(makeCharPath("wanderer/post_snap_animation/wanderersnapped.scml"));
+        animation.myPlayer.setScale(Settings.scale * 1.2F);
+        return animation;
+    }
+
+    public SpriterAnimation idleAnimation;
+    public SpriterAnimation postSnapAnimation;
 
     public Wanderer(String name, PlayerClass setClass) {
         super(
@@ -155,9 +170,10 @@ public class Wanderer extends CustomPlayer {
                 ENERGY_ORB_LAYER_TEXTURES,
                 makeCharPath("wanderer/energy_orb/vfx.png"),
                 null,
-                new SpriterAnimation(makeCharPath("wanderer/idle_animation/idleanimation.scml")));
+                loadIdleAnimation());
 
-        ((SpriterAnimation)this.animation).myPlayer.setScale(Settings.scale * 1.1F);
+        idleAnimation = (SpriterAnimation)this.animation;
+        postSnapAnimation = loadPostSnapAnimation();
 
         initializeClass(
                 null,
@@ -171,6 +187,15 @@ public class Wanderer extends CustomPlayer {
         // Thought bubble position
         this.dialogX = (drawX + 0.0F * Settings.scale);
         this.dialogY = (drawY + 220.0F * Settings.scale);
+    }
+
+    @Override
+    public void onResetPlayer() {
+        this.animation = idleAnimation;
+    }
+
+    public void setAnimation(SpriterAnimation a) {
+        this.animation = a;
     }
 
     public final MemoryManager memories;
@@ -190,9 +215,18 @@ public class Wanderer extends CustomPlayer {
     // Starting description and loadout
     @Override
     public CharSelectInfo getLoadout() {
-        return new CharSelectInfo(NAMES[0], TEXT[0],
-                STARTING_HP, MAX_HP, ORB_SLOTS, STARTING_GOLD, CARD_DRAW, this, getStartingRelics(),
-                getStartingDeck(), false);
+        return new CharSelectInfo(
+                NAMES[0],
+                TEXT[0],
+                STARTING_HP,
+                MAX_HP,
+                ORB_SLOTS,
+                STARTING_GOLD,
+                CARD_DRAW,
+                this,
+                getStartingRelics(),
+                getStartingDeck(),
+                false);
     }
 
     // Starting Deck

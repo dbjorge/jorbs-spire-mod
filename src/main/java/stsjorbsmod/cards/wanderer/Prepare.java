@@ -1,5 +1,6 @@
 package stsjorbsmod.cards.wanderer;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -31,18 +32,30 @@ public class Prepare extends CustomJorbsModCard {
         magicNumber = baseMagicNumber = COIL;
     }
 
+    // Note: because this is dependent on Coil and Coil amount changes during use(), this won't be
+    // accurate if used as part of the card description. So don't.
     @Override
     protected int calculateBonusBaseBlock() {
         AbstractPower possibleCoilPower = AbstractDungeon.player.getPower(CoilPower.POWER_ID);
         int existingCoil = (possibleCoilPower == null ? 0 : possibleCoilPower.amount);
-        // We calculate magicNumber into bonusBaseBlock to ensure it respects dex/frail
-        return magicNumber + existingCoil;
+        return existingCoil;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p, new CoilPower(p, p, magicNumber)));
-        addToBot(new GainBlockAction(p, p, block));
+
+        // We can't use a GainBlockAction directly because we need to recalculate block in applyPowers in between the
+        // new Coil stacks applying, this card being played (and possibly adding a new coil stack for that), and the
+        // GainBlockAction being scheduled.
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                Prepare.this.applyPowers();
+                AbstractDungeon.actionManager.addToTop(new GainBlockAction(p, p, Prepare.this.block));
+                isDone = true;
+            }
+        });
     }
 
     @Override

@@ -1,0 +1,86 @@
+{
+  "stsjorbsmod:CharityMemory": {
+    "NAME": "Charity",
+    "DESCRIPTIONS": [
+      "#bPassive: Gain 1 #yStrength for every !G! gold you have. (Gain #g!S! Strength.)"
+    ]
+  },
+  "stsjorbsmod:ChastityMemory": {
+    "NAME": "Chastity",
+    "DESCRIPTIONS": [
+      "#bRemember: Gain !R! #yDexterity. NL #bPassive: At the end of each turn, lose !D! #yDexterity and gain !B! #yBlock."
+    ]
+  },
+  "stsjorbsmod:DiligenceMemory": {
+    "NAME": "Diligence",
+    "DESCRIPTIONS": [
+      "#bRemember: Draw !D! cards. NL #bPassive: At the end of your turn, #yRetain !M!."
+    ]
+  },
+  "stsjorbsmod:EnvyMemory": {
+    "NAME": "Envy",
+    "DESCRIPTIONS": [
+      "#bRemember: Gain !V! #yVulnerable. #bPassive: Whenever you target an enemy with a card, apply !M! #yVulnerable to that enemy."
+    ]
+  },
+  "stsjorbsmod:GluttonyMemory": {
+    "NAME": "Gluttony",
+    "DESCRIPTIONS": [
+      "#bPassive: Whenever you kill a non-minion enemy, raise your Max HP by !M!. At the start of each turn, discard one card."
+    ]
+  },
+  "stsjorbsmod:GreedMemory": {
+    "NAME": "Greed",
+    "DESCRIPTIONS": [
+      "#bPassive: Whenever you kill a non-minion enemy, gain !M! gold."
+    ]
+  },
+  "stsjorbsmod:HumilityMemory": {
+    "NAME": "Humility",
+    "DESCRIPTIONS": [
+      "#bPassive: Gain !M! #yThorns."
+    ]
+  },
+  "stsjorbsmod:KindnessMemory": {
+    "NAME": "Kindness",
+    "DESCRIPTIONS": [
+      "#bPassive: Reduce #yStrength of ALL enemies by !M!."
+    ]
+  },
+  "stsjorbsmod:LustMemory": {
+    "NAME": "Lust",
+    "DESCRIPTIONS": [
+      "#bRemember: Apply !R! #yBurning to ALL enemies. NL #bPassive: Your attacks apply !P! #yBurning. NL #bForget: Gain !F! #yWeak."
+    ]
+  },
+  "stsjorbsmod:PatienceMemory": {
+    "NAME": "Patience",
+    "DESCRIPTIONS": [
+      "#bPassive: Gain 1 #yCoil each time you play a card."
+    ]
+  },
+  "stsjorbsmod:PrideMemory": {
+    "NAME": "Pride",
+    "DESCRIPTIONS": [
+      "#bPassive: Lose !D! #yDexterity. At the end of combat, permanently #yUpgrade a card in your deck."
+    ]
+  },
+  "stsjorbsmod:SlothMemory": {
+    "NAME": "Sloth",
+    "DESCRIPTIONS": [
+      "#bRemember: Discard !D! cards at random. NL #bPassive: Draw !M! less card each turn."
+    ]
+  },
+  "stsjorbsmod:TemperanceMemory": {
+    "NAME": "Temperance",
+    "DESCRIPTIONS": [
+      "#bPassive: Gain #yStrength equal to the number of #yClarities you have. (Gain #g!S! Strength.)"
+    ]
+  },
+  "stsjorbsmod:WrathMemory": {
+    "NAME": "Wrath",
+    "DESCRIPTIONS": [
+      "#bPassive: Whenever you kill a non-minion enemy, permanently increase the damage of the last damage-dealing attack card played this combat (currently, !C!) by !M!."
+    ]
+  }
+}

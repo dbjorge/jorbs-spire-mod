@@ -37,5 +37,15 @@
     "TEXT": [
       "Enemy does not intend to attack"
     ]
+  },
+  "stsjorbsmod:MagicMirrorPatch": {
+    "TEXT": [
+      "Entangled!"
+    ]
+  },
+  "stsjorbsmod:WillAction": {
+    "TEXT": [
+      "Exhaust"
+    ]
   }
 }

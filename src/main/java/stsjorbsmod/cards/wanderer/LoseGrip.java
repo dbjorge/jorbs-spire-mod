@@ -7,9 +7,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.AutoExhumeBehavior;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.patches.AutoExhumeField;
-
-import static stsjorbsmod.JorbsMod.makeCardPath;
+import stsjorbsmod.patches.SelfExhumeFields;
 
 public class LoseGrip extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(LoseGrip.class);
@@ -27,7 +25,7 @@ public class LoseGrip extends CustomJorbsModCard {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = BLOCK;
         exhaust = true;
-        AutoExhumeField.autoExhumeBehavior.set(this, AutoExhumeBehavior.EXHUME_ON_SNAP);
+        SelfExhumeFields.selfExhumeOnSnap.set(this, true);
     }
 
     @Override
