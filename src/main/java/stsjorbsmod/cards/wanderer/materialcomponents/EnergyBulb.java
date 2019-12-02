@@ -24,6 +24,7 @@ public class EnergyBulb extends CustomJorbsModCard {
 
     public EnergyBulb() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
+        bannerImageRarity = CardRarity.UNCOMMON;
         magicNumber = baseMagicNumber = ENERGY_GAIN;
         EphemeralField.ephemeral.set(this, true);
     }

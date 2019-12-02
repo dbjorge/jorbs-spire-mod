@@ -24,6 +24,7 @@ public class OakLeaf extends CustomJorbsModCard {
 
     public OakLeaf() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
+        bannerImageRarity = CardRarity.UNCOMMON;
         magicNumber = baseMagicNumber = DEXTERITY;
     }
 

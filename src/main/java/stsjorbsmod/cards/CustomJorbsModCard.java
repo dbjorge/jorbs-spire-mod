@@ -32,6 +32,10 @@ public abstract class CustomJorbsModCard extends CustomCard {
     public boolean upgradedMetaMagicNumber = false;
     public boolean isMetaMagicNumberModified = false;
 
+    // This enables us to use separate rarities for card generation vs the title banner graphic
+    // (primarily for SPECIAL cards that we want displayed at a non-common rarity)
+    public CardRarity bannerImageRarity;
+
     protected String[] EXTENDED_DESCRIPTION;
 
     protected CardStrings cardStrings;
@@ -61,6 +65,7 @@ public abstract class CustomJorbsModCard extends CustomCard {
         super(id, cardStrings.NAME, img, cost, cardStrings.DESCRIPTION, type, color, rarity, target);
 
         this.cardStrings = cardStrings;
+        bannerImageRarity = rarity;
         isCostModified = false;
         isCostModifiedForTurn = false;
         isDamageModified = false;

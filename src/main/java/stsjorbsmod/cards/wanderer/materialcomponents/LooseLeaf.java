@@ -24,6 +24,7 @@ public class LooseLeaf extends CustomJorbsModCard {
 
     public LooseLeaf() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
+        bannerImageRarity = CardRarity.UNCOMMON;
         magicNumber = baseMagicNumber = DRAW;
         EphemeralField.ephemeral.set(this, true);
     }
