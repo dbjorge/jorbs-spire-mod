@@ -60,18 +60,13 @@ public class CoilPower extends AbstractPower implements CloneablePowerInterface,
     }
 
     @Override
-    public void onModifyMemories() {
+    public void onRememberMemory(String id) {
         this.flash();
 
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAllEnemiesAction(owner, DamageInfo.createDamageMatrix(calculateDamage(), true), DamageInfo.DamageType.THORNS, AttackEffect.SLASH_HORIZONTAL));
         AbstractDungeon.actionManager.addToBottom(
                 new RemoveSpecificPowerAction(owner, owner, CoilPower.POWER_ID));
-    }
-
-    @Override
-    public MemoryManager.MemoryEventType[] getMemoryEventTypes() {
-        return new MemoryManager.MemoryEventType[]{MemoryManager.MemoryEventType.REMEMBER};
     }
 
     @Override

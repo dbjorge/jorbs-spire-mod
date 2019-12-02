@@ -321,7 +321,8 @@
   },
   "stsjorbsmod:RefuseToForget": {
     "NAME": "Refuse to Forget",
-    "DESCRIPTION": "You cannot forget your current memory until you have stsjorbsmod:Clarity of it. NL Scry !M!."
+    "DESCRIPTION": "You cannot forget your current memory until you have stsjorbsmod:Clarity of it. NL Draw !M! card. NL You cannot draw more cards this turn.",
+    "UPGRADE_DESCRIPTION": "You cannot forget your current memory until you have stsjorbsmod:Clarity of it. NL Draw !M! cards. NL You cannot draw more cards this turn."
   },
   "stsjorbsmod:Rest": {
     "NAME": "Rest",

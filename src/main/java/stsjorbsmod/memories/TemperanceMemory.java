@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
-import stsjorbsmod.memories.MemoryManager.MemoryEventType;
 
 public class TemperanceMemory extends AbstractMemory implements OnModifyMemoriesSubscriber {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(TemperanceMemory.class);
@@ -58,12 +57,12 @@ public class TemperanceMemory extends AbstractMemory implements OnModifyMemories
     }
 
     @Override
-    public void onModifyMemories() {
+    public void onGainClarity(String id) {
         updateAppliedStrength();
     }
 
     @Override
-    public MemoryEventType[] getMemoryEventTypes() {
-        return MemoryManager.ALL_MEMORY_EVENTS;
+    public void onLoseClarity(String id) {
+        updateAppliedStrength();
     }
 }

@@ -85,6 +85,7 @@ public class MirrorImagePower extends AbstractPower implements OnDamageToRedirec
         topMinion = null;
     }
 
+    @Override
     public void updateDescription() {
         this.description = String.format(amount == 1 ? DESCRIPTIONS[0] : DESCRIPTIONS[1], amount);
     }

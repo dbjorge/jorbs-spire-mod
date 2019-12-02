@@ -42,7 +42,7 @@ public class MindGlassPower extends AbstractPower implements OnModifyMemoriesSub
     }
 
     @Override
-    public void onModifyMemories() {
+    public void onGainClarity(String id) {
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAllEnemiesAction(
                         (AbstractCreature) null,
@@ -53,11 +53,6 @@ public class MindGlassPower extends AbstractPower implements OnModifyMemoriesSub
                         AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         AbstractDungeon.actionManager.addToBottom(
                 new RemoveSpecificPowerAction(this.owner, this.owner, MindGlassPower.POWER_ID));
-    }
-
-    @Override
-    public MemoryManager.MemoryEventType[] getMemoryEventTypes() {
-        return new MemoryManager.MemoryEventType[]{MemoryManager.MemoryEventType.GAIN_CLARITY};
     }
 
     @Override

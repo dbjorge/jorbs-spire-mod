@@ -46,12 +46,12 @@ public class IntrospectionPower extends TwoAmountPower implements CloneablePower
         this.baseDamage = baseDamage;
         this.damagePerClarity = damagePerClarity;
 
-        recalculateAmount();
-        updateDescription();
+        recalculate();
     }
 
-    private void recalculateAmount() {
+    private void recalculate() {
         amount = baseDamage + damagePerClarity * MemoryManager.forPlayer(owner).countCurrentClarities();
+        updateDescription();
     }
 
     @Override
@@ -64,14 +64,18 @@ public class IntrospectionPower extends TwoAmountPower implements CloneablePower
     }
 
     @Override
-    public void onModifyMemories() {
-        recalculateAmount();
-        updateDescription();
+    public void onGainClarity(String id) {
+        recalculate();
     }
 
     @Override
-    public MemoryManager.MemoryEventType[] getMemoryEventTypes() {
-        return MemoryManager.MemoryEventType.values();
+    public void onLoseClarity(String id) {
+        recalculate();
+    }
+
+    @Override
+    public void onSnap() {
+        recalculate();
     }
 
     @Override
@@ -81,8 +85,7 @@ public class IntrospectionPower extends TwoAmountPower implements CloneablePower
         this.baseDamage += other.baseDamage;
         this.damagePerClarity += other.damagePerClarity;
 
-        recalculateAmount();
-        updateDescription();
+        recalculate();
     }
 
     @Override

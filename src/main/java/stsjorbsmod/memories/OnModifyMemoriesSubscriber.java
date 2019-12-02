@@ -1,10 +1,14 @@
 package stsjorbsmod.memories;
 
-import java.util.Set;
-
-// For use by powers; implement this and the MemoryManager will call it appropriately.
+// For use by powers/relics/memories; implement this and the MemoryManager will call it appropriately.
 public interface OnModifyMemoriesSubscriber {
-    void onModifyMemories();
+    default void onRememberMemory(String memoryID) { }
+    default void onGainClarity(String memoryID) { }
+    default void onLoseClarity(String memoryID) { }
+    default void onForgetMemory() { }
+    default void onSnap() { }
 
-    MemoryManager.MemoryEventType[] getMemoryEventTypes();
+    default boolean onRememberMemoryToCancel(String memoryIDBeingRemembered) {
+        return false;
+    }
 }
