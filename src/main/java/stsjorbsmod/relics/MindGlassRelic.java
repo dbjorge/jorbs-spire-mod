@@ -47,7 +47,7 @@ public class MindGlassRelic extends CustomRelic implements OnModifyMemoriesSubsc
     }
 
     @Override
-    public void onModifyMemories() {
+    public void onGainClarity(String id) {
         ++this.counter;
         this.flash();
         if (this.counter == 10) {
@@ -70,11 +70,6 @@ public class MindGlassRelic extends CustomRelic implements OnModifyMemoriesSubsc
                         // TODO: More impactful and relevant FX. See FlashAtkImgEffect.loadImage() and
                         //  FlashAtkImgEffect.playSound() for usage of AttackEffect in base game.
                         AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-    }
-
-    @Override
-    public MemoryManager.MemoryEventType[] getMemoryEventTypes() {
-        return new MemoryManager.MemoryEventType[]{MemoryManager.MemoryEventType.GAIN_CLARITY};
     }
 
     @Override

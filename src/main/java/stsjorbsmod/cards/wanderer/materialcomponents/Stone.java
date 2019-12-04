@@ -26,6 +26,7 @@ public class Stone extends CustomJorbsModCard {
 
     public Stone() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
+        bannerImageRarity = CardRarity.RARE;
         magicNumber = baseMagicNumber = SLOW_MULTIPLIER;
         AlwaysRetainField.alwaysRetain.set(this, true);
         exhaust = true;

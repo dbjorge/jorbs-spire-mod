@@ -32,6 +32,7 @@ public class Rot extends CustomJorbsModCard {
 
     public Rot() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
+        bannerImageRarity = CardRarity.UNCOMMON;
         magicNumber = baseMagicNumber = EXTRA_COPIES_ON_ADD;
         ExtraCopiesToAddWhenGeneratingCardField.field.set(this, magicNumber);
         EphemeralField.ephemeral.set(this, true);

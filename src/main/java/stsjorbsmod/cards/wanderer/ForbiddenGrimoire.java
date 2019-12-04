@@ -29,6 +29,7 @@ public class ForbiddenGrimoire extends CustomJorbsModCard {
 
     public ForbiddenGrimoire() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
+        bannerImageRarity = CardRarity.RARE;
         magicNumber = baseMagicNumber = CARD_PLAYS_TO_EXHUME;
         EntombedField.entombed.set(this, true);
         SelfExhumeFields.selfExhumeAtStartOfTurn7.set(this, true);

@@ -157,7 +157,7 @@
   },
   "stsjorbsmod:ForbiddenGrimoire": {
     "NAME": "Forbidden Grimoire",
-    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL stsjorbsmod:Exhume after playing this then !M! other cards, unless stsjorbsmod:Snapped."
+    "DESCRIPTION": "stsjorbsmod:Legendary. stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL stsjorbsmod:Exhume after playing this then !M! other cards, unless stsjorbsmod:Snapped."
   },
   "stsjorbsmod:FranticSearch": {
     "NAME": "Frantic Search",
@@ -321,7 +321,8 @@
   },
   "stsjorbsmod:RefuseToForget": {
     "NAME": "Refuse to Forget",
-    "DESCRIPTION": "You cannot forget your current memory until you have stsjorbsmod:Clarity of it. NL Scry !M!."
+    "DESCRIPTION": "You cannot forget your current memory until you have stsjorbsmod:Clarity of it. NL Draw !M! card. NL You cannot draw more cards this turn.",
+    "UPGRADE_DESCRIPTION": "You cannot forget your current memory until you have stsjorbsmod:Clarity of it. NL Draw !M! cards. NL You cannot draw more cards this turn."
   },
   "stsjorbsmod:Rest": {
     "NAME": "Rest",

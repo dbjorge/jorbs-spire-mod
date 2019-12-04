@@ -27,6 +27,7 @@ public class Quicksilver extends CustomJorbsModCard {
 
     public Quicksilver() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
+        bannerImageRarity = CardRarity.RARE;
         magicNumber = baseMagicNumber = NEXT_ATTACK_ADDITIONAL_TIMES;
         metaMagicNumber = baseMetaMagicNumber = RELIC_COUNTER_INCREMENT;
         EphemeralField.ephemeral.set(this, true);

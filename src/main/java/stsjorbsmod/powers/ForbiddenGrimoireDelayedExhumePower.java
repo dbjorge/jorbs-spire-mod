@@ -15,7 +15,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.ExhumeCardsAction;
 import stsjorbsmod.memories.MemoryManager;
-import stsjorbsmod.memories.MemoryManager.MemoryEventType;
 import stsjorbsmod.memories.OnModifyMemoriesSubscriber;
 import stsjorbsmod.util.TextureLoader;
 
@@ -78,13 +77,8 @@ public class ForbiddenGrimoireDelayedExhumePower extends AbstractPower implement
 
 
     @Override
-    public void onModifyMemories() {
+    public void onSnap() {
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(owner, owner, this));
-    }
-
-    @Override
-    public MemoryEventType[] getMemoryEventTypes() {
-        return new MemoryEventType[] { MemoryEventType.SNAP };
     }
 
     @Override

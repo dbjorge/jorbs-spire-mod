@@ -26,6 +26,7 @@ public class Chamomile extends CustomJorbsModCard {
 
     public Chamomile() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
+        bannerImageRarity = CardRarity.UNCOMMON;
         EphemeralField.ephemeral.set(this, true);
     }
 

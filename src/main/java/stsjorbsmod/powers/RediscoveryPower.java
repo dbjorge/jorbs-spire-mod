@@ -39,14 +39,9 @@ public class RediscoveryPower extends AbstractPower implements OnModifyMemoriesS
     }
 
     @Override
-    public void onModifyMemories() {
+    public void onGainClarity(String id) {
         flash();
         AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(amount));
-    }
-
-    @Override
-    public MemoryManager.MemoryEventType[] getMemoryEventTypes() {
-        return new MemoryManager.MemoryEventType[]{MemoryManager.MemoryEventType.GAIN_CLARITY};
     }
 
     @Override

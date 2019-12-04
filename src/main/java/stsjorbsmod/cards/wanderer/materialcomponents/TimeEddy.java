@@ -22,6 +22,7 @@ public class TimeEddy extends CustomJorbsModCard {
 
     public TimeEddy() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
+        bannerImageRarity = CardRarity.RARE;
         magicNumber = baseMagicNumber = POWER_COUNTER_INCREMENT;
         EphemeralField.ephemeral.set(this, true);
     }

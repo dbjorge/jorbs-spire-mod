@@ -24,6 +24,7 @@ public class StrangePendant extends CustomJorbsModCard {
 
     public StrangePendant() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
+        bannerImageRarity = CardRarity.UNCOMMON;
         magicNumber = baseMagicNumber = DAMAGE_RESISTANCE;
     }
 

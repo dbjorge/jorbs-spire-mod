@@ -1,21 +1,18 @@
 package stsjorbsmod.memories;
 
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.SnappedPower;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class MemoryManager {
@@ -46,6 +43,8 @@ public class MemoryManager {
             flashSnap();
         } else if (currentMemory != null && currentMemory.ID.equals(id)) {
             currentMemory.flashWithoutSound();
+        } else if (checkOnRememberMemoryToCancelSubscribers(id)) {
+            currentMemory.flashWithoutSound();
         } else {
             forgetCurrentMemoryNoNotify();
 
@@ -58,13 +57,13 @@ public class MemoryManager {
             }
 
             this.currentMemory.flash();
-            notifyModifyMemories(MemoryEventType.REMEMBER);
+            notifyModifyMemories(subscriber -> subscriber.onRememberMemory(id));
         }
     }
 
     public void forgetCurrentMemory() {
         forgetCurrentMemoryNoNotify();
-        notifyModifyMemories(MemoryEventType.FORGET);
+        notifyModifyMemories(subscriber -> subscriber.onForgetMemory());
     }
 
     private void forgetCurrentMemoryNoNotify() {
@@ -103,13 +102,13 @@ public class MemoryManager {
         }
         clarity.updateDescription();
         clarity.flash();
-        notifyModifyMemories(MemoryEventType.GAIN_CLARITY);
+        notifyModifyMemories(subscriber -> subscriber.onGainClarity(id));
     }
 
     public void loseClarity(AbstractMemory clarity) {
         clarity.isClarified = false;
         clarity.onLosePassiveEffect();
-        notifyModifyMemories(MemoryEventType.LOSE_CLARITY);
+        notifyModifyMemories(subscriber -> subscriber.onLoseClarity(clarity.ID));
     }
 
     public boolean hasClarity(String id) {
@@ -154,7 +153,7 @@ public class MemoryManager {
             clarity.onLosePassiveEffect();
         }
 
-        notifyModifyMemories(MemoryEventType.SNAP);
+        notifyModifyMemories(subscriber -> subscriber.onSnap());
     }
 
 
@@ -169,19 +168,32 @@ public class MemoryManager {
         return owner.hasPower(SnappedPower.POWER_ID);
     }
 
-    private void notifyPossibleModifyMemoryListener(Object possibleListener, MemoryEventType type) {
+    private boolean onRememberMemoryToCancel(Object possibleListener, String memoryIDBeingRemembered) {
         if (possibleListener instanceof OnModifyMemoriesSubscriber) {
-            OnModifyMemoriesSubscriber listener = (OnModifyMemoriesSubscriber) possibleListener;
-            if (Arrays.asList(listener.getMemoryEventTypes()).contains(type)) {
-                listener.onModifyMemories();
-            }
+            return ((OnModifyMemoriesSubscriber) possibleListener).onRememberMemoryToCancel(memoryIDBeingRemembered);
+        } else {
+            return false;
         }
     }
 
-    public void notifyModifyMemories(MemoryEventType type) {
-        owner.relics.forEach(possibleListener -> notifyPossibleModifyMemoryListener(possibleListener, type));
-        owner.powers.forEach(possibleListener -> notifyPossibleModifyMemoryListener(possibleListener, type));
-        this.memories.forEach(possibleListener -> notifyPossibleModifyMemoryListener(possibleListener, type));
+    private boolean checkOnRememberMemoryToCancelSubscribers(String id) {
+        return
+                owner.relics.stream().anyMatch(possibleListener -> onRememberMemoryToCancel(possibleListener, id)) ||
+                owner.powers.stream().anyMatch(possibleListener -> onRememberMemoryToCancel(possibleListener, id)) ||
+                this.memories.stream().anyMatch(possibleListener -> onRememberMemoryToCancel(possibleListener, id));
+    }
+
+    private void notifyPossibleModifyMemorySubscriber(Object possibleListener, Consumer<OnModifyMemoriesSubscriber> callback) {
+        if (possibleListener instanceof OnModifyMemoriesSubscriber) {
+            OnModifyMemoriesSubscriber listener = (OnModifyMemoriesSubscriber) possibleListener;
+            callback.accept(listener);
+        }
+    }
+
+    public void notifyModifyMemories(Consumer<OnModifyMemoriesSubscriber> callback) {
+        owner.relics.forEach(possibleListener -> notifyPossibleModifyMemorySubscriber(possibleListener, callback));
+        owner.powers.forEach(possibleListener -> notifyPossibleModifyMemorySubscriber(possibleListener, callback));
+        this.memories.forEach(possibleListener -> notifyPossibleModifyMemorySubscriber(possibleListener, callback));
 
         AbstractDungeon.onModifyPower();
     }
@@ -227,11 +239,5 @@ public class MemoryManager {
         for (AbstractMemory m : memories) {
             m.render(sb);
         }
-    }
-
-    public static final MemoryEventType[] ALL_MEMORY_EVENTS = MemoryEventType.values();
-
-    public enum MemoryEventType {
-        REMEMBER, GAIN_CLARITY, LOSE_CLARITY, FORGET, SNAP
     }
 }
