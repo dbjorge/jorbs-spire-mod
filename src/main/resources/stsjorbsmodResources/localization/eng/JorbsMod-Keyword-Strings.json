@@ -60,6 +60,10 @@
     "DESCRIPTION": "Until forgotten, ALL enemies lose #b3 #yStrength."
   },
   {
+    "NAMES": ["legendary"],
+    "DESCRIPTION": "This card cannot be duplicated, removed, or transformed."
+  },
+  {
     "NAMES": ["lust"],
     "DESCRIPTION": "Your attacks apply #b2 #yBurning. Each time remembered, apply #b2 #yBurning to ALL enemies. Each time forgotten, gain #b2 #yWeak."
   },
