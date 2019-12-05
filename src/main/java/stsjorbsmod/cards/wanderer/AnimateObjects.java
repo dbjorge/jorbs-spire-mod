@@ -29,6 +29,7 @@ public class AnimateObjects extends CustomJorbsModCard {
     public AnimateObjects() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE_PER_MATCHING_CARD;
+        baseMagicNumber = 0;
         isMultiDamage = true;
     }
 
@@ -40,8 +41,8 @@ public class AnimateObjects extends CustomJorbsModCard {
 
     private int calculateDamageInstanceCount() {
         return countCardsThatDidNotStartCombatInDeck(AbstractDungeon.player.discardPile) +
-               countCardsThatDidNotStartCombatInDeck(AbstractDungeon.player.drawPile) +
-               countCardsThatDidNotStartCombatInDeck(AbstractDungeon.player.hand);
+                countCardsThatDidNotStartCombatInDeck(AbstractDungeon.player.drawPile) +
+                countCardsThatDidNotStartCombatInDeck(AbstractDungeon.player.hand);
     }
 
     @Override
@@ -49,6 +50,31 @@ public class AnimateObjects extends CustomJorbsModCard {
         for (int i = 0; i < calculateDamageInstanceCount(); ++i) {
             addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.FIRE));
         }
+    }
+
+    @Override
+    public void applyPowers() {
+        int count = calculateDamageInstanceCount();
+        baseMagicNumber = count;
+        if(count>0) {
+            super.applyPowers();
+            this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+            initializeDescription();
+        }
+    }
+
+    @Override
+    public void onMoveToDiscardImpl() {
+        this.rawDescription = cardStrings.DESCRIPTION;
+        initializeDescription();
+    }
+
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        super.calculateCardDamage(mo);
+        this.rawDescription = cardStrings.DESCRIPTION;
+        this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[0];
+        initializeDescription();
     }
 
     @Override

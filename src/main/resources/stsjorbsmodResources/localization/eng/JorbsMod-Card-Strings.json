@@ -15,7 +15,10 @@
   },
   "stsjorbsmod:AnimateObjects": {
     "NAME": "Animate Objects",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies for each non-exhausted card that didn't start the combat in your deck."
+    "DESCRIPTION": "Deal !D! damage for each non-exhausted card added to your deck this combat to ALL enemies.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage !M! times.)"
+    ]
   },
   "stsjorbsmod:ArcaneForm": {
     "NAME": "Arcane Form",
