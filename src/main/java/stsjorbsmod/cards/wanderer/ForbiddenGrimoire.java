@@ -7,6 +7,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.DiscoveryAtCostAction;
 import stsjorbsmod.cards.AutoExhumeBehavior;
 import stsjorbsmod.cards.CustomJorbsModCard;
+import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.patches.EntombedField;
 import stsjorbsmod.patches.EphemeralField;
@@ -21,22 +22,21 @@ public class ForbiddenGrimoire extends CustomJorbsModCard {
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.CURSE;
-    public static final CardColor COLOR = CardColor.CURSE;
+    private static final CardType TYPE = CardType.SKILL;
+    public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 0;
     private static final int CARD_PLAYS_TO_EXHUME = 3;
 
     public ForbiddenGrimoire() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
-        bannerImageRarity = CardRarity.RARE;
         magicNumber = baseMagicNumber = CARD_PLAYS_TO_EXHUME;
         EntombedField.entombed.set(this, true);
         SelfExhumeFields.selfExhumeAtStartOfTurn7.set(this, true);
         EphemeralField.ephemeral.set(this, true);
-
-        upgrade(); // Always starts upgraded
         tags.add(LEGENDARY);
+
+        upgrade();
     }
 
     @Override

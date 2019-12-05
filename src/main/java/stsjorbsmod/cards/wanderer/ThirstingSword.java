@@ -12,6 +12,8 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.BurningPower;
 
+import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
+
 public class ThirstingSword extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(ThirstingSword.class);
 
@@ -37,6 +39,7 @@ public class ThirstingSword extends CustomJorbsModCard {
         exhaust = true;
 
         tags.add(CardTags.HEALING);
+        tags.add(LEGENDARY);
     }
 
     @Override
