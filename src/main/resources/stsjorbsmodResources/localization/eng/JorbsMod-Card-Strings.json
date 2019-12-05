@@ -247,8 +247,11 @@
   },
   "stsjorbsmod:Mania": {
     "NAME": "Mania",
-    "DESCRIPTION": "Deal !D! damage, equal to the number of unique cards in your hand. If they are all unique, gain !stsjorbsmod:MetaMagic! [E] and draw !stsjorbsmod:UrMagic! card.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage, equal to !stsjorbsmod:BaseDamage! + the number of unique cards in your hand. If they are all unique, gain !stsjorbsmod:MetaMagic! [E] and draw !stsjorbsmod:UrMagic! card."
+    "DESCRIPTION": "Deal damage equal to the number of unique cards in your hand. If they are all unique, gain !stsjorbsmod:MetaMagic! [E] and draw !stsjorbsmod:UrMagic! card.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to !stsjorbsmod:BaseDamage! + the number of unique cards in your hand. If they are all unique, gain !stsjorbsmod:MetaMagic! [E] and draw !stsjorbsmod:UrMagic! card.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
   },
   "stsjorbsmod:Mending": {
     "NAME": "Mending",
