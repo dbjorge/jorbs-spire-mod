@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
@@ -28,14 +29,45 @@ public class MagicMissiles extends CustomJorbsModCard {
     public MagicMissiles() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
+        baseMagicNumber = 0;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int numMissiles = 1 + MemoryManager.forPlayer(p).countCurrentClarities();
 
-        for (int i=0; i<numMissiles; ++i) {
+        for (int i = 0; i < numMissiles; ++i) {
             addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SMASH));
+        }
+    }
+
+    @Override
+    public void applyPowers() {
+        int numMissiles = 1 + MemoryManager.forPlayer(AbstractDungeon.player).countCurrentClarities();
+        baseMagicNumber = numMissiles;
+        if(numMissiles>1) {
+            this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+            initializeDescription();
+        }
+        super.applyPowers();
+    }
+
+    @Override
+    public void onMoveToDiscardImpl() {
+        this.rawDescription = cardStrings.DESCRIPTION;
+        initializeDescription();
+    }
+
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        super.calculateCardDamage(mo);
+        this.rawDescription = cardStrings.DESCRIPTION;
+        if(baseMagicNumber>1) {
+            this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[0];
+            initializeDescription();
+        }
+        else {
+            initializeDescription();
         }
     }
 
