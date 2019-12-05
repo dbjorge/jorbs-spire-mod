@@ -28,6 +28,10 @@
     "DESCRIPTION": "When you remember Diligence, draw #b2 cards. At the end of your turn, retain #b1."
   },
   {
+    "NAMES": ["downgrade", "downgraded"],
+    "DESCRIPTION": "Downgrading cards weakens them permanently."
+  },
+  {
     "NAMES": ["entombed"],
     "DESCRIPTION": "This card starts each combat in your Exhaust pile. It will be Exhumed from your Exhaust pile into your hand each time its Exhume condition is met."
   },
