@@ -16,7 +16,6 @@ public class DestroyCardAction extends AbstractGameAction {
 
     public DestroyCardAction(AbstractCard card) {
         this.card = card;
-        duration = startDuration = 0.5F;
     }
 
     @Override
@@ -31,7 +30,9 @@ public class DestroyCardAction extends AbstractGameAction {
         if (masterCard != null) {
             JorbsMod.logger.info("DestroyCardAction purging " + masterCard.toString());
             CardCrawlGame.sound.play("CARD_EXHAUST");
-            AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(masterCard, (float) (Settings.WIDTH / 2), (float) (Settings.HEIGHT / 2)));
+            PurgeCardEffect purgeCardEffect = new PurgeCardEffect(masterCard, (float) (Settings.WIDTH / 2), (float) (Settings.HEIGHT / 2));
+            purgeCardEffect.duration = purgeCardEffect.startingDuration = 0.7f;
+            AbstractDungeon.topLevelEffects.add(purgeCardEffect);
             AbstractDungeon.player.masterDeck.removeCard(masterCard);
         } else {
             JorbsMod.logger.info("Failed to purge a card we didn't have. Perhaps Duplication Potion or Attack Potion or similar effect occurred. " + card.cardID);
