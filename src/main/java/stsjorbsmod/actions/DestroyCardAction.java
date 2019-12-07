@@ -21,10 +21,17 @@ public class DestroyCardAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        JorbsMod.logger.info("DestroyCardAction purging " + card.toString());
-        CardCrawlGame.sound.play("CARD_EXHAUST");
-        AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(card, (float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2)));
-        AbstractDungeon.player.masterDeck.removeCard(card);
+        // In the highly unlikely event that UUIDs clash and the found card isn't actually the specific card... oops
+        Optional<AbstractCard> cardOp = AbstractDungeon.player.masterDeck.group.stream().filter(c -> c.uuid == card.uuid).findAny();
+        if(cardOp.isPresent()) {
+            AbstractCard masterCard = cardOp.get();
+            JorbsMod.logger.info("DestroyCardAction purging " + masterCard.toString());
+            CardCrawlGame.sound.play("CARD_EXHAUST");
+            AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(masterCard, (float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2)));
+            AbstractDungeon.player.masterDeck.removeCard(masterCard);
+        } else {
+            JorbsMod.logger.info("Failed to purge a card we didn't have. Perhaps Duplication Potion or Attack Potion or similar effect occurred.");
+        }
         isDone = true;
     }
 }

@@ -36,24 +36,17 @@ public class Patron extends CustomJorbsModCard implements DowngradeableCard {
         baseDamage = DAMAGE;
         EphemeralField.ephemeral.set(this, true);
         SelfExhumeFields.selfExhumeOnSnap.set(this, true);
-        purgeOnUse = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage)));
 
-        Optional<AbstractCard> cardOp = AbstractDungeon.player.masterDeck.group.stream().filter(c -> c.uuid == uuid).findAny();
-        if(!cardOp.isPresent()) {
-            JorbsMod.logger.info("Failed to purge a card we didn't have. Perhaps Duplication Potion or Attack Potion or similar effect occurred.");
-            return;
-        }
-        // In the highly unlikely event that UUIDs clash and the found card isn't actually the specific Patron card... oops
-        AbstractCard masterCard = cardOp.get();
         if (upgraded) {
-            addToTop(new DowngradeCardAction((Patron) masterCard));
+            addToTop(new DowngradeCardAction(this));
         } else {
-            addToBot(new DestroyCardAction(masterCard));
+            purgeOnUse = true;
+            addToBot(new DestroyCardAction(this));
         }
     }
 
@@ -63,7 +56,6 @@ public class Patron extends CustomJorbsModCard implements DowngradeableCard {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DAMAGE);
             upgradeDescription();
-            purgeOnUse = false;
         }
     }
 
@@ -78,7 +70,6 @@ public class Patron extends CustomJorbsModCard implements DowngradeableCard {
             upgradedDamage = false;
             rawDescription = languagePack.getCardStrings(cardID).DESCRIPTION;
             initializeDescription();
-            purgeOnUse = true;
         }
     }
 }
