@@ -45,7 +45,6 @@ public class Patron extends CustomJorbsModCard implements DowngradeableCard {
         if (upgraded) {
             addToTop(new DowngradeCardAction(this));
         } else {
-            purgeOnUse = true;
             addToBot(new DestroyCardAction(this));
         }
     }
