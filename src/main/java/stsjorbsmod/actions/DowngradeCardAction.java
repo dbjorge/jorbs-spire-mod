@@ -3,6 +3,9 @@ package stsjorbsmod.actions;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.vfx.UpgradeHammerImprintEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.DowngradeableCard;
 
@@ -22,9 +25,10 @@ public class DowngradeCardAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        if ((card instanceof DowngradeableCard) && card.upgraded) {
+        if (!card.purgeOnUse && (card instanceof DowngradeableCard) && card.upgraded) {
             JorbsMod.logger.info("DowngradeCardAction downgrading " + card.toString());
             ((DowngradeableCard) card).downgrade();
+            AbstractDungeon.effectsQueue.add(new ShowCardBrieflyEffect(card.makeStatEquivalentCopy()));
 
             AbstractCard masterCard = StSLib.getMasterDeckEquivalent(card);
             if (masterCard != null) {
