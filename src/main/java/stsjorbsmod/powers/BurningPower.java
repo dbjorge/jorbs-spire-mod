@@ -116,7 +116,8 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
 
     @Override
     public int getHealthBarAmount() {
-        return this.amount;
+        int amount = this.amount - owner.currentBlock;
+        return amount < 0 ? 0 : amount;
     }
 
     @Override
