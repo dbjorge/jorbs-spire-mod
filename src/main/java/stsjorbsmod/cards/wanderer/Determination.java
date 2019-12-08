@@ -29,6 +29,7 @@ public class Determination extends CustomJorbsModCard {
     public Determination() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = TURNS_UNTIL_SNAP;
+        exhaust = true;
 
         tags.add(PERSISTENT_POSITIVE_EFFECT);
         tags.add(REMEMBER_MEMORY);

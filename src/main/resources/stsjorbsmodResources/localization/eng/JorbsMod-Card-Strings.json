@@ -89,8 +89,8 @@
   },
   "stsjorbsmod:Determination": {
     "NAME": "Determination",
-    "DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of this turn, stsjorbsmod:Snap.",
-    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of your next turn, stsjorbsmod:Snap."
+    "DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of this turn, stsjorbsmod:Snap. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of your next turn, stsjorbsmod:Snap. NL Exhaust."
   },
   "stsjorbsmod:DisguiseSelf": {
     "NAME": "Disguise Self",
@@ -289,8 +289,8 @@
   },
   "stsjorbsmod:Patron": {
     "NAME": "Patron",
-    "DESCRIPTION": "Ephemeral. NL Exhume when you stsjorbsmod:Snap. NL Deal !D! damage. NL stsjorbsmod:Destroy.",
-    "UPGRADE_DESCRIPTION": "Ephemeral. NL Exhume when you stsjorbsmod:Snap. NL Deal !D! damage. NL stsjorbsmod:Downgrade."
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume when you stsjorbsmod:Snap. NL Deal !D! damage. NL stsjorbsmod:Destroy.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume when you stsjorbsmod:Snap. NL Deal !D! damage. NL stsjorbsmod:Downgrade."
   },
   "stsjorbsmod:Prepare": {
     "NAME": "Prepare",

@@ -27,7 +27,8 @@ public class KindnessMemory extends AbstractMemory {
         this.restoreStrengthActions = new ArrayList<>();
 
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            AbstractDungeon.actionManager.addToBottom(
+            // add to top for the purposes of hold monster ordering.
+            AbstractDungeon.actionManager.addToTop(
                     new ApplyPowerAction(mo, owner, new StrengthPower(mo, -ENEMY_STRENGTH_REDUCTION), -ENEMY_STRENGTH_REDUCTION, true, AbstractGameAction.AttackEffect.NONE));
 
             if (!mo.hasPower(ArtifactPower.POWER_ID)) {
