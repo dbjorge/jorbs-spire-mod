@@ -289,8 +289,8 @@
   },
   "stsjorbsmod:Patron": {
     "NAME": "Patron",
-    "DESCRIPTION": "Ephemeral. NL Exhume when you stsjorbsmod:Snap. NL Deal !D! damage. NL stsjorbsmod:Destroy.",
-    "UPGRADE_DESCRIPTION": "Ephemeral. NL Exhume when you stsjorbsmod:Snap. NL Deal !D! damage. NL stsjorbsmod:Downgrade."
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume when you stsjorbsmod:Snap. NL Deal !D! damage. NL stsjorbsmod:Destroy.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume when you stsjorbsmod:Snap. NL Deal !D! damage. NL stsjorbsmod:Downgrade."
   },
   "stsjorbsmod:Prepare": {
     "NAME": "Prepare",
