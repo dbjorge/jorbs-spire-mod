@@ -20,7 +20,7 @@ public class WrathMemory extends AbstractMemory {
     private static final int DAMAGE_INCREASE_PER_KILL = 1;
 
     private static boolean isUpgradeCandidate(AbstractCard c) {
-        return c.type == CardType.ATTACK && c.baseDamage > 0;
+        return c.type == CardType.ATTACK && c.baseDamage >= 0;
     }
 
     public static void reapplyToLoadedCard(AbstractCard card, int effectCount) {
@@ -88,8 +88,9 @@ public class WrathMemory extends AbstractMemory {
             return;
         }
 
-        if (card.baseDamage <= 0) {
-            JorbsMod.logger.warn(logPrefix + "Ignoring card with <=0 baseDamage");
+        // We ignore -1 baseDamage (the AbstractCard default), but allow 0 baseDamage (for cards like Mania)
+        if (card.baseDamage < 0) {
+            JorbsMod.logger.warn(logPrefix + "Ignoring card with negative baseDamage");
             return;
         }
 
