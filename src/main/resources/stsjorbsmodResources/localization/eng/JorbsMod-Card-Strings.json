@@ -287,6 +287,11 @@
     "DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
   },
+  "stsjorbsmod:Patron": {
+    "NAME": "Patron",
+    "DESCRIPTION": "Ephemeral. NL Exhume when you stsjorbsmod:Snap. NL Deal !D! damage. NL stsjorbsmod:Destroy.",
+    "UPGRADE_DESCRIPTION": "Ephemeral. NL Exhume when you stsjorbsmod:Snap. NL Deal !D! damage. NL stsjorbsmod:Downgrade."
+  },
   "stsjorbsmod:Prepare": {
     "NAME": "Prepare",
     "DESCRIPTION": "Gain !M! stsjorbsmod:Coil. NL Gain Block equal to your stsjorbsmod:Coil."
