@@ -1,21 +1,17 @@
 package stsjorbsmod.cards.wanderer;
 
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.DowngradeCardAction;
+import stsjorbsmod.actions.DowngradeCardPermanentlyAction;
 import stsjorbsmod.actions.DestroyCardAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.cards.DowngradeableCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.EphemeralField;
 import stsjorbsmod.patches.SelfExhumeFields;
-
-import java.util.Optional;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
@@ -43,7 +39,7 @@ public class Patron extends CustomJorbsModCard implements DowngradeableCard {
         addToBot(new DamageAction(m, new DamageInfo(p, damage)));
 
         if (upgraded) {
-            addToTop(new DowngradeCardAction(this));
+            addToBot(new DowngradeCardPermanentlyAction(this));
         } else {
             addToBot(new DestroyCardAction(this));
         }

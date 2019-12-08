@@ -4,7 +4,6 @@ import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.vfx.UpgradeHammerImprintEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.DowngradeableCard;
@@ -16,16 +15,18 @@ import stsjorbsmod.cards.DowngradeableCard;
  * Nice to have: handle downgrading cards from other mods with unknown effects.
  * Downgrade implementation also assumes that we can't downgrade beyond base card (see Dicey Dungeons card downgrades).
  */
-public class DowngradeCardAction extends AbstractGameAction {
+public class DowngradeCardPermanentlyAction extends AbstractGameAction {
     private AbstractCard card;
 
-    public DowngradeCardAction(AbstractCard card) {
-        this.card = card;
+    public DowngradeCardPermanentlyAction(AbstractCard downgradeableCard) {
+        this.card = downgradeableCard;
+        this.actionType = ActionType.CARD_MANIPULATION;
+        this.startDuration = this.duration = 0.25F;
     }
 
     @Override
     public void update() {
-        if (!card.purgeOnUse && (card instanceof DowngradeableCard) && card.upgraded) {
+        if (duration == startDuration && !card.purgeOnUse && (card instanceof DowngradeableCard) && card.upgraded) {
             JorbsMod.logger.info("DowngradeCardAction downgrading " + card.toString());
             ((DowngradeableCard) card).downgrade();
             AbstractDungeon.effectsQueue.add(new ShowCardBrieflyEffect(card.makeStatEquivalentCopy()));
@@ -38,6 +39,6 @@ public class DowngradeCardAction extends AbstractGameAction {
                 JorbsMod.logger.info("Card to downgrade is not in the deck: " + card.cardID);
             }
         }
-        isDone = true;
+        tickDuration();
     }
 }
