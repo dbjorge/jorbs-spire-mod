@@ -30,6 +30,7 @@ public class Prepare extends CustomJorbsModCard {
     public Prepare() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = COIL;
+        baseBlock = 0;
     }
 
     // Note: because this is dependent on Coil and Coil amount changes during use(), this won't be
