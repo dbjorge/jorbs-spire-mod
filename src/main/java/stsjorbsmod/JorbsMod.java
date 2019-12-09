@@ -56,7 +56,6 @@ public class JorbsMod implements
         EditKeywordsSubscriber,
         EditCharactersSubscriber,
         PostInitializeSubscriber,
-        PostDungeonInitializeSubscriber,
         OnPowersModifiedSubscriber {
     public static final String MOD_ID = "stsjorbsmod";
 
@@ -79,8 +78,11 @@ public class JorbsMod implements
         @SpireEnum(name = "PERSISTENT_POSITIVE_EFFECT")
         public static AbstractCard.CardTags PERSISTENT_POSITIVE_EFFECT;
 
-        // Use on a card that can only ever enter the deck by special means, and cannot be removed or transformed once
-        // present. The card can exhaust but still counts as present.
+        // Legendary cards (cards with the LEGENDARY tag) have the following special qualities:
+        // - Cannot be duplicated, removed, or transformed
+        // - Can only be obtained once per run (are removed from pools after being obtained the first time)
+        // - (not implemented yet) Explorer Legendaries can only be found after the Act 2 boss
+        //
         // Interaction notes:
         // - Any red, green, or blue cards that duplicate a card could pick a Legendary card. These behaviors remain
         //   because this mod is not designed to interact with colored cards from the main game.
@@ -426,15 +428,6 @@ public class JorbsMod implements
 
     public static String makeID(Class idClass) {
         return makeID(idClass.getSimpleName());
-    }
-
-    // Removing Legendary cards from the pools of possible cards to generate. They must be given out specifically,
-    // not randomly as a reward or transformed card.
-    @Override
-    public void receivePostDungeonInitialize() {
-        if (!LegendaryPatch.doesStartingDeckNeedFullPools()) {
-            LegendaryPatch.removeLegendaryCardsFromPools();
-        }
     }
 
     @Override
