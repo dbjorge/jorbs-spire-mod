@@ -193,7 +193,10 @@
   },
   "stsjorbsmod:Hurt": {
     "NAME": "Hurt",
-    "DESCRIPTION": "Deal !D! damage. NL Lose !M! HP per stsjorbsmod:Clarity you have."
+    "DESCRIPTION": "Deal !D! damage. NL Lose HP equal to the number of stsjorbsmod:Clarities you have.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Lose !M! HP.)"
+    ]
   },
   "stsjorbsmod:Index": {
     "NAME": "Index",
