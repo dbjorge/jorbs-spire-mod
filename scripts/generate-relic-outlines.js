@@ -30,7 +30,7 @@ const inputFileNames = fs.readdirSync(inputDirectory).filter(f => /\.png/.test(f
 
 skips = 0;
 for (const inputFileName of inputFileNames) {
-  if (relicFilterSubstring != null && !originalFullPath.includes(relicFilterSubstring)) {
+  if (relicFilterSubstring != null && !inputFileName.includes(relicFilterSubstring)) {
     skips += 1
     continue;
   }
