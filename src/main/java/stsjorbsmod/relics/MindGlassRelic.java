@@ -23,17 +23,14 @@ import static stsjorbsmod.JorbsMod.*;
  * When gaining a unique clarity, deals 5 damage to all enemies.
  * When gain the tenth clarity in a combat, deal 500 damage to all enemies.
  */
-public class MindGlassRelic extends CustomRelic implements OnModifyMemoriesSubscriber, PostUpdateSubscriber {
-    public static final String ID = JorbsMod.makeID(MindGlassRelic.class.getSimpleName());
-
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("mindglass_relic.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("mindglass_relic.png"));
+public class MindGlassRelic extends CustomJorbsModRelic implements OnModifyMemoriesSubscriber, PostUpdateSubscriber {
+    public static final String ID = JorbsMod.makeID(MindGlassRelic.class);
 
     private static final int ONE_CLARITY_DAMAGE = 3;
     private static final int TEN_CLARITY_DAMAGE = 100;
 
     public MindGlassRelic() {
-        super(ID, IMG, OUTLINE, RelicTier.UNCOMMON, LandingSound.CLINK);
+        super(ID, RelicTier.UNCOMMON, LandingSound.CLINK);
     }
 
     @Override

@@ -11,10 +11,10 @@
 // then running "choco install imagemagick"
 //
 // Usage (regenerate all cards):
-//     node update-card-images.js
+//     node generate-card-images.js
 //
 // Usage (regenerate only cards whose paths match a given substring):
-//     node update-card-images.js SomeSubstring
+//     node generate-card-images.js SomeSubstring
 
 const child_process = require('child_process');
 const fs = require('fs');
@@ -90,5 +90,5 @@ for (originalFullPath of originalFullPaths) {
 
 console.log("Done!")
 if (skips > 0) {
-  console.log(`Filter parameter ${cardFilterSubstring} resultsed in skipping ${skips} images`)
+  console.log(`Filter parameter ${cardFilterSubstring} resulted in skipping ${skips} images`)
 }

@@ -1,24 +1,15 @@
 package stsjorbsmod.relics;
 
-import basemod.abstracts.CustomRelic;
-import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.SnapAction;
-import stsjorbsmod.util.TextureLoader;
-
-import static stsjorbsmod.JorbsMod.makeRelicOutlinePath;
-import static stsjorbsmod.JorbsMod.makeRelicPath;
 
 // At the end of turn 7, Snap. Also act as a turn counter for QoL.
-public class FragileMindRelic extends CustomRelic {
-    public static final String ID = JorbsMod.makeID(FragileMindRelic.class.getSimpleName());
-
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("fragile_mind.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("fragile_mind.png"));
+public class FragileMindRelic extends CustomJorbsModRelic {
+    public static final String ID = JorbsMod.makeID(FragileMindRelic.class);
 
     public FragileMindRelic() {
-        super(ID, IMG, OUTLINE, RelicTier.STARTER, LandingSound.MAGICAL);
+        super(ID, RelicTier.STARTER, LandingSound.MAGICAL);
     }
 
     @Override
