@@ -285,8 +285,11 @@
   },
   "stsjorbsmod:MistyStep": {
     "NAME": "Misty Step",
-    "DESCRIPTION": "Gain !B! Block, !stsjorbsmod:MetaMagic! per stsjorbsmod:Clarity. NL Draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block, !stsjorbsmod:MetaMagic! per stsjorbsmod:Clarity + !stsjorbsmod:BaseBlock!. NL Draw !M! card."
+    "DESCRIPTION": "Gain Block equal to !stsjorbsmod:MetaMagic! per stsjorbsmod:Clarity. NL Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Gain Block equal to !stsjorbsmod:MetaMagic! per stsjorbsmod:Clarity plus !stsjorbsmod:BaseBlock!. NL Draw !M! card.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Gain !B! Block.)"
+    ]
   },
   "stsjorbsmod:Moss": {
     "NAME": "Moss",

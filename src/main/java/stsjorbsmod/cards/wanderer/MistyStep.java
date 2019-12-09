@@ -44,6 +44,11 @@ public class MistyStep extends CustomJorbsModCard {
     }
 
     @Override
+    public String getRawDynamicDescriptionSuffix() {
+        return EXTENDED_DESCRIPTION[0];
+    }
+
+    @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
