@@ -308,7 +308,10 @@
   },
   "stsjorbsmod:Prepare": {
     "NAME": "Prepare",
-    "DESCRIPTION": "Gain !M! stsjorbsmod:Coil. NL Gain Block equal to your stsjorbsmod:Coil."
+    "DESCRIPTION": "Gain !stsjorbsmod:MetaMagic! stsjorbsmod:Coil. NL Gain Block equal to your stsjorbsmod:Coil.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (You have !M! Coil.)"
+    ]
   },
   "stsjorbsmod:Prestidigitation": {
     "NAME": "Prestidigitation",

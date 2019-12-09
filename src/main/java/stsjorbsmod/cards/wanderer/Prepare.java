@@ -12,6 +12,7 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.powers.CoilPower;
+import stsjorbsmod.util.PowerUtils;
 
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
@@ -29,7 +30,8 @@ public class Prepare extends CustomJorbsModCard {
 
     public Prepare() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = COIL;
+        metaMagicNumber = baseMetaMagicNumber = COIL;
+        magicNumber = baseMagicNumber = 0; // Represents current amount of Coil in card description
         baseBlock = 0;
     }
 
@@ -37,14 +39,23 @@ public class Prepare extends CustomJorbsModCard {
     // accurate if used as part of the card description. So don't.
     @Override
     protected int calculateBonusBaseBlock() {
-        AbstractPower possibleCoilPower = AbstractDungeon.player.getPower(CoilPower.POWER_ID);
-        int existingCoil = (possibleCoilPower == null ? 0 : possibleCoilPower.amount);
-        return existingCoil;
+        return PowerUtils.getPowerAmount(AbstractDungeon.player, CoilPower.POWER_ID);
+    }
+
+    // This is used for the card description to display current amount of coil, unmodified by Frail/Dexterity/etc
+    @Override
+    protected int calculateBonusMagicNumber() {
+        return PowerUtils.getPowerAmount(AbstractDungeon.player, CoilPower.POWER_ID);
+    }
+
+    @Override
+    public String getRawDynamicDescriptionSuffix() {
+        return EXTENDED_DESCRIPTION[0];
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new CoilPower(p, p, magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new CoilPower(p, p, metaMagicNumber)));
 
         // We can't use a GainBlockAction directly because we need to recalculate block in applyPowers in between the
         // new Coil stacks applying, this card being played (and possibly adding a new coil stack for that), and the
@@ -63,7 +74,7 @@ public class Prepare extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_COIL);
+            upgradeMetaMagicNumber(UPGRADE_PLUS_COIL);
             upgradeDescription();
         }
     }
