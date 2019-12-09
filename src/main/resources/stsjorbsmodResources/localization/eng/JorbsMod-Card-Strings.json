@@ -328,7 +328,11 @@
   },
   "stsjorbsmod:PurgeMind": {
     "NAME": "Purge Mind",
-    "DESCRIPTION": "Exhaust ALL cards which \"remember\". Then, deal !D! damage for each in your Exhaust pile. NL stsjorbsmod:Snap. Exhaust."
+    "DESCRIPTION": "Exhaust ALL cards which \"remember\". Then, deal !D! damage once per such card in your Exhaust pile. NL stsjorbsmod:Snap. Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Will hit !M! time.)",
+      " NL (Will hit !M! times.)"
+    ]
   },
   "stsjorbsmod:Pyromancy": {
     "NAME": "Pyromancy",
