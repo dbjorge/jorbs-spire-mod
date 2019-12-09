@@ -387,7 +387,11 @@
   },
   "stsjorbsmod:SnakeOil": {
     "NAME": "Snake Oil",
-    "DESCRIPTION": "Retain. NL Deal !D! damage to ALL enemies. Deals !M! additional damage per stsjorbsmod:Coil. NL Exhaust."
+    "DESCRIPTION": "Retain. NL Deal damage equal to the amount of stsjorbsmod:Coil you have. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Deal damage equal to twice the amount of stsjorbsmod:Coil you have. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
   },
   "stsjorbsmod:Stalwart": {
     "NAME": "Stalwart",
