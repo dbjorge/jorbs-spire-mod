@@ -25,50 +25,29 @@ public class MagicMissiles extends CustomJorbsModCard {
     private static final int COST = 1;
     private static final int DAMAGE = 3;
     private static final int UPGRADE_PLUS_DMG = 1;
+    private static final int BASE_NUMBER_HITS = 1;
 
     public MagicMissiles() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        baseMagicNumber = 0;
+        baseMagicNumber = BASE_NUMBER_HITS;
+    }
+
+    @Override
+    public int calculateBonusMagicNumber() {
+        return MemoryManager.forPlayer(AbstractDungeon.player).countCurrentClarities();
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int numMissiles = 1 + MemoryManager.forPlayer(p).countCurrentClarities();
-
-        for (int i = 0; i < numMissiles; ++i) {
+        for (int i = 0; i < magicNumber; ++i) {
             addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SMASH));
         }
     }
 
     @Override
-    public void applyPowers() {
-        int numMissiles = 1 + MemoryManager.forPlayer(AbstractDungeon.player).countCurrentClarities();
-        baseMagicNumber = numMissiles;
-        if(numMissiles>1) {
-            this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
-            initializeDescription();
-        }
-        super.applyPowers();
-    }
-
-    @Override
-    public void onMoveToDiscardImpl() {
-        this.rawDescription = cardStrings.DESCRIPTION;
-        initializeDescription();
-    }
-
-    @Override
-    public void calculateCardDamage(AbstractMonster mo) {
-        super.calculateCardDamage(mo);
-        this.rawDescription = cardStrings.DESCRIPTION;
-        if(baseMagicNumber>1) {
-            this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[0];
-            initializeDescription();
-        }
-        else {
-            initializeDescription();
-        }
+    public String getRawDynamicDescriptionSuffix() {
+        return magicNumber == 1 ? cardStrings.EXTENDED_DESCRIPTION[0] : cardStrings.EXTENDED_DESCRIPTION[1];
     }
 
     @Override

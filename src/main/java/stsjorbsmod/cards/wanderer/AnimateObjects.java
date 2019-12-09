@@ -12,6 +12,8 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.EntombedField;
 
+import java.util.Optional;
+
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class AnimateObjects extends CustomJorbsModCard {
@@ -39,7 +41,8 @@ public class AnimateObjects extends CustomJorbsModCard {
                 .count();
     }
 
-    private int calculateDamageInstanceCount() {
+    @Override
+    protected int calculateBonusMagicNumber() {
         return countCardsThatDidNotStartCombatInDeck(AbstractDungeon.player.discardPile) +
                 countCardsThatDidNotStartCombatInDeck(AbstractDungeon.player.drawPile) +
                 countCardsThatDidNotStartCombatInDeck(AbstractDungeon.player.hand);
@@ -47,34 +50,14 @@ public class AnimateObjects extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster monster) {
-        for (int i = 0; i < calculateDamageInstanceCount(); ++i) {
+        for (int i = 0; i < magicNumber; ++i) {
             addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.FIRE));
         }
     }
 
     @Override
-    public void applyPowers() {
-        int count = calculateDamageInstanceCount();
-        baseMagicNumber = count;
-        if(count>0) {
-            super.applyPowers();
-            this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
-            initializeDescription();
-        }
-    }
-
-    @Override
-    public void onMoveToDiscardImpl() {
-        this.rawDescription = cardStrings.DESCRIPTION;
-        initializeDescription();
-    }
-
-    @Override
-    public void calculateCardDamage(AbstractMonster mo) {
-        super.calculateCardDamage(mo);
-        this.rawDescription = cardStrings.DESCRIPTION;
-        this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[0];
-        initializeDescription();
+    public String getRawDynamicDescriptionSuffix() {
+        return cardStrings.EXTENDED_DESCRIPTION[0];
     }
 
     @Override

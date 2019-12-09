@@ -15,9 +15,9 @@
   },
   "stsjorbsmod:AnimateObjects": {
     "NAME": "Animate Objects",
-    "DESCRIPTION": "Deal !D! damage for each non-exhausted card added to your deck this combat to ALL enemies.",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies once per non-exhausted card added to your deck this combat.",
     "EXTENDED_DESCRIPTION": [
-      " NL (Deals !D! damage !M! times.)"
+      " NL (Hits !M! times.)"
     ]
   },
   "stsjorbsmod:ArcaneForm": {
@@ -243,9 +243,10 @@
   },
   "stsjorbsmod:MagicMissiles": {
     "NAME": "Magic Missiles",
-    "DESCRIPTION": "Deal !D! damage. NL Deal !D! damage for each stsjorbsmod:Clarity.",
+    "DESCRIPTION": "Deal !D! damage. NL Deals !D! damage once per stsjorbsmod:Clarity you have.",
     "EXTENDED_DESCRIPTION": [
-      " NL (Deals !D! damage !M! times.)"
+      " NL (Hits !M! time.)",
+      " NL (Hits !M! times.)"
     ]
   },
   "stsjorbsmod:Mania": {

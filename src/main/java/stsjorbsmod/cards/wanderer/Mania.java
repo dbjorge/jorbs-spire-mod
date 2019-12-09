@@ -4,7 +4,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -13,10 +12,6 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.util.UniqueCardUtils;
-
-import java.util.Iterator;
-
-import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Mania extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Mania.class);
@@ -51,42 +46,6 @@ public class Mania extends CustomJorbsModCard {
     }
 
     @Override
-    public void applyPowers() {
-        int count = calculateBonusBaseDamage();
-        if(count>0) {
-            super.applyPowers();
-            if(this.upgraded) {
-                this.rawDescription = cardStrings.UPGRADE_DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
-            }
-            else
-                this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
-            initializeDescription();
-        }
-    }
-
-    @Override
-    public void onMoveToDiscardImpl() {
-        if(this.upgraded) {
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-        }
-        else
-            this.rawDescription = cardStrings.DESCRIPTION;
-        initializeDescription();
-    }
-
-    @Override
-    public void calculateCardDamage(AbstractMonster mo) {
-        super.calculateCardDamage(mo);
-        if(this.upgraded) {
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-        }
-        else
-            this.rawDescription = cardStrings.DESCRIPTION;
-        this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[0];
-        initializeDescription();
-    }
-
-    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SLASH_VERTICAL));
 
@@ -99,6 +58,11 @@ public class Mania extends CustomJorbsModCard {
     @Override
     public boolean shouldGlowGold() {
         return isEligibleForExtraEffect();
+    }
+
+    @Override
+    public String getRawDynamicDescriptionSuffix() {
+        return cardStrings.EXTENDED_DESCRIPTION[0];
     }
 
     @Override
