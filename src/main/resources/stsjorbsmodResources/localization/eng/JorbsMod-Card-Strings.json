@@ -15,7 +15,10 @@
   },
   "stsjorbsmod:AnimateObjects": {
     "NAME": "Animate Objects",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies for each non-exhausted card that didn't start the combat in your deck."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies once per non-exhausted card added to your deck this combat.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Hits !M! times.)"
+    ]
   },
   "stsjorbsmod:ArcaneForm": {
     "NAME": "Arcane Form",
@@ -240,12 +243,19 @@
   },
   "stsjorbsmod:MagicMissiles": {
     "NAME": "Magic Missiles",
-    "DESCRIPTION": "Deal !D! damage. NL Deal !D! damage again once for each stsjorbsmod:Clarity."
+    "DESCRIPTION": "Deal !D! damage. NL Deals !D! damage once per stsjorbsmod:Clarity you have.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Hits !M! time.)",
+      " NL (Hits !M! times.)"
+    ]
   },
   "stsjorbsmod:Mania": {
     "NAME": "Mania",
-    "DESCRIPTION": "Deal !D! damage, equal to the number of unique cards in your hand. If they are all unique, gain !stsjorbsmod:MetaMagic! [E] and draw !stsjorbsmod:UrMagic! card.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage, equal to !stsjorbsmod:BaseDamage! + the number of unique cards in your hand. If they are all unique, gain !stsjorbsmod:MetaMagic! [E] and draw !stsjorbsmod:UrMagic! card."
+    "DESCRIPTION": "Deal damage equal to the number of unique cards in your hand. If they are all unique, gain !stsjorbsmod:MetaMagic! [E] and draw !stsjorbsmod:UrMagic! card.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to !stsjorbsmod:BaseDamage! + the number of unique cards in your hand. If they are all unique, gain !stsjorbsmod:MetaMagic! [E] and draw !stsjorbsmod:UrMagic! card.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
   },
   "stsjorbsmod:Mending": {
     "NAME": "Mending",

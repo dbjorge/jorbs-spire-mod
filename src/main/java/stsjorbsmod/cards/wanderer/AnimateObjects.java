@@ -12,6 +12,8 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.EntombedField;
 
+import java.util.Optional;
+
 import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class AnimateObjects extends CustomJorbsModCard {
@@ -29,6 +31,7 @@ public class AnimateObjects extends CustomJorbsModCard {
     public AnimateObjects() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE_PER_MATCHING_CARD;
+        baseMagicNumber = 0;
         isMultiDamage = true;
     }
 
@@ -38,17 +41,23 @@ public class AnimateObjects extends CustomJorbsModCard {
                 .count();
     }
 
-    private int calculateDamageInstanceCount() {
+    @Override
+    protected int calculateBonusMagicNumber() {
         return countCardsThatDidNotStartCombatInDeck(AbstractDungeon.player.discardPile) +
-               countCardsThatDidNotStartCombatInDeck(AbstractDungeon.player.drawPile) +
-               countCardsThatDidNotStartCombatInDeck(AbstractDungeon.player.hand);
+                countCardsThatDidNotStartCombatInDeck(AbstractDungeon.player.drawPile) +
+                countCardsThatDidNotStartCombatInDeck(AbstractDungeon.player.hand);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster monster) {
-        for (int i = 0; i < calculateDamageInstanceCount(); ++i) {
+        for (int i = 0; i < magicNumber; ++i) {
             addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.FIRE));
         }
+    }
+
+    @Override
+    public String getRawDynamicDescriptionSuffix() {
+        return cardStrings.EXTENDED_DESCRIPTION[0];
     }
 
     @Override
