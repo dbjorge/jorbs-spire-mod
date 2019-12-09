@@ -30,10 +30,6 @@
     "NAME": "Banish",
     "DESCRIPTION": "Enemy takes no action and no damage for !M! turns. Exhaust."
   },
-  "stsjorbsmod:Barb": {
-    "NAME": "Barb",
-    "DESCRIPTION": "Deal !D! damage."
-  },
   "stsjorbsmod:BlackTentacles": {
     "NAME": "Black Tentacles",
     "DESCRIPTION": "Deal !D! damage. NL This turn, all damage you deal to other enemies is dealt to this enemy instead.",
@@ -43,6 +39,10 @@
     "NAME": "Book of Tongues",
     "DESCRIPTION": "At the start of each turn, put !M! stsjorbsmod:Material\u00a0Component into your hand.",
     "UPGRADE_DESCRIPTION": "At the start of each turn, put !M! stsjorbsmod:Material\u00a0Components into your hand."
+  },
+  "stsjorbsmod:Brambles": {
+    "NAME": "Brambles",
+    "DESCRIPTION": "Deal !D! damage."
   },
   "stsjorbsmod:BurningFlask": {
     "NAME": "Burning Flask",

@@ -25,10 +25,6 @@
     "NAME": "Bannir",
     "DESCRIPTION": "L'ennemi ciblé ne peut agir ou être attaqué pendant !M! tours. Épuisement."
   },
-  "stsjorbsmod:Barb": {
-    "NAME": "Barbillon",
-    "DESCRIPTION": "Infligez !D! dégât(s)."
-  },
   "stsjorbsmod:BlackTentacles": {
     "NAME": "Tentacules noires",
     "DESCRIPTION": "Infligez !D! dégât(s). NL Pendant ce tour, les dégât(s) infligés aux autres ennemis sont redirigés vers cet ennemi.",
@@ -38,6 +34,10 @@
     "NAME": "Cahier de langues",
     "DESCRIPTION": "Au début de chaque tour, ajoutez !M! stsjorbsmod:Composant\u00a0Matériel à votre main.",
     "UPGRADE_DESCRIPTION": "Au début de chaque tour, ajoutez !M! stsjorbsmod:Composants\u00a0Matériels à votre main."
+  },
+  "stsjorbsmod:Brambles": {
+    "NAME": "Barbillon",
+    "DESCRIPTION": "Infligez !D! dégât(s)."
   },
   "stsjorbsmod:BurningFlask": {
     "NAME": "Flasque brûlante",

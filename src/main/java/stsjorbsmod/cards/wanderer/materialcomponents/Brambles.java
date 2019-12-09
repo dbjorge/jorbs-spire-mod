@@ -9,10 +9,8 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
-public class Barb extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Barb.class);
+public class Brambles extends CustomJorbsModCard {
+    public static final String ID = JorbsMod.makeID(Brambles.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -23,7 +21,7 @@ public class Barb extends CustomJorbsModCard {
     private static final int DAMAGE = 3;
     private static final int UPGRADE_PLUS_DAMAGE = 2;
 
-    public Barb() {
+    public Brambles() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = DAMAGE;
     }
