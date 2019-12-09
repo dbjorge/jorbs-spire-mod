@@ -2,13 +2,12 @@ package stsjorbsmod.relics;
 
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.util.TextureLoader;
 
-import static stsjorbsmod.JorbsMod.makeRelicOutlinePath;
-import static stsjorbsmod.JorbsMod.makeRelicPath;
-
 public abstract class CustomJorbsModRelic extends CustomRelic {
+    public final CardColor relicColor;
 
     private static Texture relicTextureFromId(String id) {
         String unprefixedId = id.replace(JorbsMod.MOD_ID + ":","");
@@ -22,7 +21,21 @@ public abstract class CustomJorbsModRelic extends CustomRelic {
         return TextureLoader.getTexture(path);
     }
 
-    public CustomJorbsModRelic(final String id, final RelicTier relicTier, final LandingSound landingSound) {
+    public CustomJorbsModRelic(final String id, final CardColor relicColor, final RelicTier relicTier, final LandingSound landingSound) {
         super(id, relicTextureFromId(id), relicOutlineTextureFromId(id), relicTier, landingSound);
+        this.relicColor = relicColor;
+    }
+
+
+    @Override
+    public void initializeTips() {
+        this.description = DESCRIPTIONS[0];
+        super.initializeTips();
+        this.description = getUpdatedDescription();
+    }
+
+    @Override
+    public String getUpdatedDescription() {
+        return DESCRIPTIONS[0].replaceAll(JorbsMod.MOD_ID + ":", "#y");
     }
 }

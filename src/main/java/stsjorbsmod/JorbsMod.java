@@ -3,6 +3,7 @@ package stsjorbsmod;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
+import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -33,10 +34,7 @@ import stsjorbsmod.potions.BurningPotion;
 import stsjorbsmod.potions.DimensionDoorPotion;
 import stsjorbsmod.potions.LiquidClarity;
 import stsjorbsmod.potions.LiquidVirtue;
-import stsjorbsmod.relics.AlchemistsFireRelic;
-import stsjorbsmod.relics.FragileMindRelic;
-import stsjorbsmod.relics.MindGlassRelic;
-import stsjorbsmod.relics.GrimoireRelic;
+import stsjorbsmod.relics.*;
 import stsjorbsmod.util.ReflectionUtils;
 import stsjorbsmod.util.TextureLoader;
 import stsjorbsmod.variables.BaseBlockNumber;
@@ -46,6 +44,7 @@ import stsjorbsmod.variables.UrMagicNumber;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 @SpireInitializer
@@ -324,19 +323,17 @@ public class JorbsMod implements
     @Override
     public void receiveEditRelics() {
         logger.info("Adding relics");
-        
-        // Character-specific relics for custom characters use BaseMod.addRelicToCustomPool
-        BaseMod.addRelicToCustomPool(new GrimoireRelic(), Wanderer.Enums.WANDERER_CARD_COLOR);
-        UnlockTracker.markRelicAsSeen(GrimoireRelic.ID);
-        BaseMod.addRelicToCustomPool(new FragileMindRelic(), Wanderer.Enums.WANDERER_CARD_COLOR);
-        UnlockTracker.markRelicAsSeen(FragileMindRelic.ID);
-        BaseMod.addRelicToCustomPool(new MindGlassRelic(), Wanderer.Enums.WANDERER_CARD_COLOR);
-        UnlockTracker.markRelicAsSeen(MindGlassRelic.ID);
-        BaseMod.addRelicToCustomPool(new AlchemistsFireRelic(), Wanderer.Enums.WANDERER_CARD_COLOR);
-        UnlockTracker.markRelicAsSeen(AlchemistsFireRelic.ID);
 
-        // Shared (non-character-specific) relics would instead use this:
-        // BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
+        List<CustomJorbsModRelic> relics = ReflectionUtils.instantiateAllConcreteJorbsModSubclasses(CustomJorbsModRelic.class);
+        for (CustomJorbsModRelic relicInstance : relics) {
+            logger.info("Adding relic: " + relicInstance.relicId);
+            if (relicInstance.relicColor.equals(AbstractCard.CardColor.COLORLESS)) {
+                BaseMod.addRelic(relicInstance, RelicType.SHARED);
+            } else {
+                BaseMod.addRelicToCustomPool(relicInstance, relicInstance.relicColor);
+            }
+            UnlockTracker.markRelicAsSeen(relicInstance.relicId);
+        }
 
         logger.info("Done adding relics!");
     }
@@ -355,16 +352,11 @@ public class JorbsMod implements
         BaseMod.addDynamicVariable(new UrMagicNumber());
         BaseMod.addDynamicVariable(new MetaMagicNumber());
 
-        ArrayList<Class<CustomJorbsModCard>> cardClasses = ReflectionUtils.findAllConcreteJorbsModSubclasses(CustomJorbsModCard.class);
-        for (Class<CustomJorbsModCard> cardClass : cardClasses) {
-            try {
-                CustomJorbsModCard cardInstance = cardClass.newInstance();
-                logger.info("Adding card: " + cardInstance.cardID);
-                BaseMod.addCard(cardInstance);
-                UnlockTracker.unlockCard(cardInstance.cardID);
-            } catch(Exception e) {
-                throw new RuntimeException("Exception while instantiating CustomJorbsModCard " + cardClass.getName(), e);
-            }
+        List<CustomJorbsModCard> cards = ReflectionUtils.instantiateAllConcreteJorbsModSubclasses(CustomJorbsModCard.class);
+        for (CustomJorbsModCard cardInstance : cards) {
+            logger.info("Adding card: " + cardInstance.cardID);
+            BaseMod.addCard(cardInstance);
+            UnlockTracker.unlockCard(cardInstance.cardID);
         }
 
         logger.info("Done adding cards!");
@@ -413,7 +405,6 @@ public class JorbsMod implements
         if (keywords != null) {
             for (Keyword keyword : keywords) {
                 BaseMod.addKeyword(MOD_ID.toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
-                //  getModID().toLowerCase() makes your keyword mod specific (it won't show up in other cards that use that word)
             }
         }
     }

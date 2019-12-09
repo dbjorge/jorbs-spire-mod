@@ -6,12 +6,15 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import javassist.Modifier;
 import org.clapper.util.classutil.*;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.relics.CustomJorbsModRelic;
 
 import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ReflectionUtils {
     @SuppressWarnings("unchecked")
@@ -46,6 +49,19 @@ public class ReflectionUtils {
     // Note: only works for base classes defined within our own jar (limitation of ClassFinder)
     public static <T> ArrayList<Class<T>> findAllConcreteJorbsModSubclasses(Class<T> baseJorbsModClass) {
         return findAllConcreteJorbsModClasses(new SubclassClassFilter(baseJorbsModClass));
+    }
+
+    // Note: only works for base classes defined within our own jar (limitation of ClassFinder)
+    // Requires each class have a no-arg constructor
+    public static <T> List<T> instantiateAllConcreteJorbsModSubclasses(Class<T> baseJorbsModClass) {
+        ArrayList<Class<T>> classes = findAllConcreteJorbsModClasses(new SubclassClassFilter(baseJorbsModClass));
+        return classes.stream().map(clazz -> {
+            try {
+                return clazz.newInstance();
+            } catch (Exception e) {
+                throw new RuntimeException("Exception while instantiating " + clazz.getName() + " (no default ctor?)", e);
+            }
+        }).collect(Collectors.toList());
     }
 
     @SuppressWarnings("unchecked")

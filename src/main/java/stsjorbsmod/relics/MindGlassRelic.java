@@ -18,6 +18,7 @@ import stsjorbsmod.powers.MindGlassPower;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.*;
+import static stsjorbsmod.characters.Wanderer.Enums.WANDERER_CARD_COLOR;
 
 /**
  * When gaining a unique clarity, deals 5 damage to all enemies.
@@ -30,7 +31,7 @@ public class MindGlassRelic extends CustomJorbsModRelic implements OnModifyMemor
     private static final int TEN_CLARITY_DAMAGE = 100;
 
     public MindGlassRelic() {
-        super(ID, RelicTier.UNCOMMON, LandingSound.CLINK);
+        super(ID, WANDERER_CARD_COLOR, RelicTier.UNCOMMON, LandingSound.CLINK);
     }
 
     @Override
@@ -74,18 +75,6 @@ public class MindGlassRelic extends CustomJorbsModRelic implements OnModifyMemor
         this.counter = -1;
         this.stopPulse();
         BaseMod.unsubscribe(this);
-    }
-
-    @Override
-    public void initializeTips() {
-        this.description = DESCRIPTIONS[0];
-        super.initializeTips();
-        this.description = getUpdatedDescription();
-    }
-
-    @Override
-    public String getUpdatedDescription() {
-        return DESCRIPTIONS[0].replaceAll(JorbsMod.MOD_ID + ":", "#y");
     }
 
     /**

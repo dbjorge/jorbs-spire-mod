@@ -10,6 +10,7 @@ import stsjorbsmod.JorbsMod;
 import java.util.function.Function;
 
 import static stsjorbsmod.JorbsMod.makeID;
+import static stsjorbsmod.characters.Wanderer.Enums.WANDERER_CARD_COLOR;
 
 /**
  * Reduces Burning's falloff rate to 10%
@@ -23,24 +24,12 @@ public class AlchemistsFireRelic extends CustomJorbsModRelic implements Clickabl
     public static final Function<Integer, Integer> CALCULATE_BURNING_AMOUNT = a -> (a * (100 - BURNING_FALLOFF_RATE)) / 100;
 
     public AlchemistsFireRelic() {
-        super(ID, RelicTier.UNCOMMON, LandingSound.MAGICAL);
+        super(ID, WANDERER_CARD_COLOR, RelicTier.UNCOMMON, LandingSound.MAGICAL);
     }
 
     @Override
     public void atBattleStart() {
         this.flash();
-    }
-
-    @Override
-    public void initializeTips() {
-        this.description = DESCRIPTIONS[0];
-        super.initializeTips();
-        this.description = getUpdatedDescription();
-    }
-
-    @Override
-    public String getUpdatedDescription() {
-        return DESCRIPTIONS[0].replaceAll(JorbsMod.MOD_ID + ":", "#y");
     }
 
     @Override

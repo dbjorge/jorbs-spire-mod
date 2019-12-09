@@ -13,6 +13,13 @@
       "At the end of turn #b7, stsjorbsmod:Snap."
     ]
   },
+  "stsjorbsmod:GrimoireRelic": {
+    "NAME": "Grimoire",
+    "FLAVOR": "Is this... familiar?",
+    "DESCRIPTIONS": [
+      "At the start of each combat, remember stsjorbsmod:Patience. NL At the end of each combat, heal #b1 HP per stsjorbsmod:Clarity."
+    ]
+  },
   "stsjorbsmod:MindGlassRelic": {
     "NAME": "Mind Glass",
     "FLAVOR": "Press e to e.",
@@ -20,11 +27,11 @@
       "Gaining stsjorbsmod:Clarity deals 3 damage to all enemies. NL Gaining 10 stsjorbsmod:Clarity in the same fight deals 100 damage to all enemies."
     ]
   },
-  "stsjorbsmod:GrimoireRelic": {
-    "NAME": "Grimoire",
-    "FLAVOR": "Is this... familiar?",
+  "stsjorbsmod:MindPalaceRelic": {
+    "NAME": "Mind Palace",
+    "FLAVOR": "Is this a fortress or a prison?",
     "DESCRIPTIONS": [
-      "At the start of each combat, remember stsjorbsmod:Patience. NL At the end of each combat, heal #b1 HP per stsjorbsmod:Clarity."
+      "Start each combat with stsjorbsmod:Clarity of the memory you ended the last combat remembering, if any."
     ]
   }
 }
