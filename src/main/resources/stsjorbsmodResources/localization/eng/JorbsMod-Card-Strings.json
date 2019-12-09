@@ -259,7 +259,11 @@
   },
   "stsjorbsmod:Mending": {
     "NAME": "Mending",
-    "DESCRIPTION": "Heal !M! HP for each stsjorbsmod:Clarity. NL Exhaust."
+    "DESCRIPTION": "Heal HP equal to the number of stsjorbsmod:Clarities you have. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Heal HP equal to twice the number of stsjorbsmod:Clarities you have. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Heals !M! HP.)"
+    ]
   },
   "stsjorbsmod:Message": {
     "NAME": "Message",
