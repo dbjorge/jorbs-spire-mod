@@ -1,6 +1,7 @@
 package stsjorbsmod.memories;
 
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.colorless.RitualDagger;
@@ -117,6 +118,6 @@ public class WrathMemory extends AbstractMemory {
             instance.applyPowers();
         }
 
-        EffectUtils.addPermanentCardUpgradeEffect(cardToShowForVfx);
+        EffectUtils.addWrathCardUpgradeEffect(cardToShowForVfx);
     }
 }

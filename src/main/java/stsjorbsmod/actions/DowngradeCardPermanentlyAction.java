@@ -1,15 +1,19 @@
 package stsjorbsmod.actions;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.vfx.UpgradeShineParticleEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.DowngradeableCard;
 import stsjorbsmod.effects.GradeChangeShineEffect;
+import stsjorbsmod.util.EffectUtils;
 
 /**
  * Downgrade implementation assumes that we are planning on downgrading only Jorbs mod game cards. If this assumption is
@@ -32,13 +36,7 @@ public class DowngradeCardPermanentlyAction extends AbstractGameAction {
         if (duration == startDuration && !card.purgeOnUse && (card instanceof DowngradeableCard) && card.upgraded) {
             JorbsMod.logger.info("DowngradeCardAction downgrading " + card.toString());
             ((DowngradeableCard) card).downgrade();
-            AbstractDungeon.effectsQueue.add(new ShowCardBrieflyEffect(card.makeStatEquivalentCopy()));
-            AbstractDungeon.effectsQueue.add(new GradeChangeShineEffect(
-                    (float) Settings.WIDTH / 2.0F,
-                    (float) Settings.HEIGHT / 2.0F,
-                    duration,
-                    () -> CardCrawlGame.sound.playAV("SCENE_TORCH_EXTINGUISH", -0.5F, 7.0F)
-            ));
+            EffectUtils.addDowngradeEffect(card, duration);
 
             AbstractCard masterCard = StSLib.getMasterDeckEquivalent(card);
             if (masterCard != null) {
