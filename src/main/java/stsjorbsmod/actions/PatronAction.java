@@ -30,11 +30,13 @@ public class PatronAction extends AbstractGameAction {
     public void update() {
         if (this.duration == Settings.ACTION_DUR_MED && this.target != null) {
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.NONE));
-            this.target.damage(this.info);
+            // order here matters. We want to downgrade after damage happens, but remove before damage to tag with purgeOnUse for Wrath
             if (card.upgraded) {
+                this.target.damage(this.info);
                 downgradePermanently(card, 0.25F);
             } else {
                 removeCard(card);
+                this.target.damage(this.info);
             }
             if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
                 AbstractDungeon.actionManager.clearPostCombatActions();

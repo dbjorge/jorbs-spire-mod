@@ -1,13 +1,11 @@
 package stsjorbsmod.memories;
 
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
-import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.colorless.RitualDagger;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -96,6 +94,12 @@ public class WrathMemory extends AbstractMemory {
             return;
         }
 
+        // ignore cards that are being removed from the deck
+        if (card.purgeOnUse) {
+            JorbsMod.logger.warn(logPrefix + "Ignoring card to be purged");
+            return;
+        }
+
         JorbsMod.logger.info(logPrefix + "Increasing baseDamage by " + DAMAGE_INCREASE_PER_KILL + " from " + card.baseDamage);
 
         AbstractCard cardToShowForVfx = card;
@@ -120,6 +124,5 @@ public class WrathMemory extends AbstractMemory {
         }
 
         EffectUtils.addWrathCardUpgradeEffect(cardToShowForVfx);
-        AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
     }
 }
