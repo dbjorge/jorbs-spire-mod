@@ -36,9 +36,11 @@ public abstract class CustomJorbsModCard extends CustomCard {
     // (primarily for SPECIAL cards that we want displayed at a non-common rarity)
     public CardRarity bannerImageRarity;
 
+    protected CardStrings cardStrings;
+
     protected String[] EXTENDED_DESCRIPTION;
 
-    protected CardStrings cardStrings;
+    private String rawDynamicDescriptionSuffix = "";
 
     private static String imgFromId(String id) {
         String unprefixedId = id.replace(JorbsMod.MOD_ID + ":","");
@@ -109,6 +111,21 @@ public abstract class CustomJorbsModCard extends CustomCard {
         }
     }
 
+    @Override
+    public void initializeDescription() {
+        String originalRawDynamicDescriptionSuffix = this.rawDynamicDescriptionSuffix;
+        String originalRawDescription = this.rawDescription;
+        if (this.rawDynamicDescriptionSuffix != null) {
+            this.rawDescription += this.rawDynamicDescriptionSuffix;
+            this.rawDynamicDescriptionSuffix = null; // required to handle initializeDescription reentrancy via patches
+        }
+
+        super.initializeDescription();
+
+        this.rawDescription = originalRawDescription;
+        this.rawDynamicDescriptionSuffix = originalRawDynamicDescriptionSuffix;
+    }
+
     protected void removeFromMasterDeck() {
         final AbstractCard masterDeckCard = StSLib.getMasterDeckEquivalent(this);
         if (masterDeckCard != null) {
@@ -123,6 +140,15 @@ public abstract class CustomJorbsModCard extends CustomCard {
     protected int calculateBonusBaseBlock() {
         return 0;
     }
+    protected int calculateBonusMagicNumber() { return 0; }
+
+    /**
+     * This is intended for use with cards that work like Blizzard/Flechettes/etc, adding a parenthetical suffix
+     * for dynamically calculated damage/block/etc values that summarizes the calculated total amount.
+     *
+     * This will be applied after applyPowers/calculateCardDamage and reset after onMoveToDiscard.
+     */
+    protected /* @NotNull */ String getRawDynamicDescriptionSuffix() { return ""; }
 
     // Note: this base game method is misleadingly named, it's also used when calculating card block
     @Override
@@ -132,12 +158,17 @@ public abstract class CustomJorbsModCard extends CustomCard {
         int realBaseDamage = baseDamage;
         baseDamage += calculateBonusBaseDamage();
 
+        magicNumber = baseMagicNumber + calculateBonusMagicNumber();
+        isMagicNumberModified = magicNumber != baseMagicNumber;
+
         super.calculateCardDamage(mo);
 
         baseDamage = realBaseDamage;
         isDamageModified = damage != baseDamage;
         baseBlock = realBaseBlock;
         isBlockModified = block != baseBlock;
+
+        setRawDynamicDescriptionSuffix(getRawDynamicDescriptionSuffix());
     }
 
     @Override
@@ -147,12 +178,24 @@ public abstract class CustomJorbsModCard extends CustomCard {
         int realBaseDamage = baseDamage;
         baseDamage += calculateBonusBaseDamage();
 
+        magicNumber = baseMagicNumber + calculateBonusMagicNumber();
+        isMagicNumberModified = magicNumber != baseMagicNumber;
+
         super.applyPowers();
 
         baseDamage = realBaseDamage;
         isDamageModified = damage != baseDamage;
         baseBlock = realBaseBlock;
         isBlockModified = block != baseBlock;
+
+        setRawDynamicDescriptionSuffix(getRawDynamicDescriptionSuffix());
+    }
+
+    private void setRawDynamicDescriptionSuffix(String newSuffix) {
+        if (!this.rawDynamicDescriptionSuffix.equals(newSuffix)) {
+            this.rawDynamicDescriptionSuffix = newSuffix;
+            initializeDescription();
+        }
     }
 
     @Override
@@ -160,7 +203,10 @@ public abstract class CustomJorbsModCard extends CustomCard {
         if (EphemeralField.ephemeral.get(this)) {
             AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(this, AbstractDungeon.player.discardPile, true));
         }
+
         this.onMoveToDiscardImpl();
+
+        setRawDynamicDescriptionSuffix("");
     }
 
     public void onMoveToDiscardImpl() { }
