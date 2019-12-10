@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.colorless.RitualDagger;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -119,5 +120,6 @@ public class WrathMemory extends AbstractMemory {
         }
 
         EffectUtils.addWrathCardUpgradeEffect(cardToShowForVfx);
+        AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
     }
 }

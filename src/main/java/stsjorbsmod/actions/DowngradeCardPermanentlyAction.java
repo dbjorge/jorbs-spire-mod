@@ -15,13 +15,6 @@ import stsjorbsmod.cards.DowngradeableCard;
 import stsjorbsmod.effects.GradeChangeShineEffect;
 import stsjorbsmod.util.EffectUtils;
 
-/**
- * Downgrade implementation assumes that we are planning on downgrading only Jorbs mod game cards. If this assumption is
- * wrong, potentially find the card from the various cardgroups and create an unupgraded instance of the card using the
- * same uuid. For this mod at the moment, Wrath stacks would likely need to carry over properly.
- * Nice to have: handle downgrading cards from other mods with unknown effects.
- * Downgrade implementation also assumes that we can't downgrade beyond base card (see Dicey Dungeons card downgrades).
- */
 public class DowngradeCardPermanentlyAction extends AbstractGameAction {
     private AbstractCard card;
 
@@ -36,7 +29,6 @@ public class DowngradeCardPermanentlyAction extends AbstractGameAction {
         if (duration == startDuration && !card.purgeOnUse && (card instanceof DowngradeableCard) && card.upgraded) {
             JorbsMod.logger.info("DowngradeCardAction downgrading " + card.toString());
             ((DowngradeableCard) card).downgrade();
-            EffectUtils.addDowngradeEffect(card, duration);
 
             AbstractCard masterCard = StSLib.getMasterDeckEquivalent(card);
             if (masterCard != null) {
@@ -46,6 +38,12 @@ public class DowngradeCardPermanentlyAction extends AbstractGameAction {
                 JorbsMod.logger.info("Card to downgrade is not in the deck: " + card.cardID);
             }
         }
+
         tickDuration();
+
+        if(this.isDone) {
+            EffectUtils.showDowngradeEffect(card, duration);
+            AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
+        }
     }
 }
