@@ -1,12 +1,9 @@
 package stsjorbsmod.cards.wanderer;
 
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.DestroyCardAction;
-import stsjorbsmod.actions.DowngradeCardPermanentlyAction;
 import stsjorbsmod.actions.PatronAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.cards.DowngradeableCard;

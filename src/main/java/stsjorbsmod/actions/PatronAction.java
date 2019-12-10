@@ -17,21 +17,24 @@ import static stsjorbsmod.util.EffectUtils.showDowngradeEffect;
 public class PatronAction extends AbstractGameAction {
     private DamageInfo info;
     private AbstractCard card;
+    private float baseDuration;
 
     public PatronAction(AbstractCreature target, DamageInfo info, AbstractCard card) {
         this.info = info;
         this.setValues(target, info);
         this.actionType = ActionType.DAMAGE;
-        this.duration = Settings.ACTION_DUR_MED;
+        this.duration = baseDuration = Settings.ACTION_DUR_MED;
         this.card = card;
     }
 
     @Override
     public void update() {
-        if (this.duration == Settings.ACTION_DUR_MED && this.target != null) {
+        boolean isUpgraded = card.upgraded;
+        if (duration == baseDuration && this.target != null) {
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.NONE));
             // order here matters. We want to downgrade after damage happens, but remove before damage to tag with purgeOnUse for Wrath
-            if (card.upgraded) {
+
+            if (isUpgraded) {
                 this.target.damage(this.info);
                 downgradePermanently(card, 0.25F);
             } else {
@@ -45,7 +48,7 @@ public class PatronAction extends AbstractGameAction {
 
         tickDuration();
         if (isDone) {
-            if (card.upgraded) {
+            if (isUpgraded) {
                 showDowngradeEffect(card, duration);
             } else {
                 showDestroyEffect(card);
