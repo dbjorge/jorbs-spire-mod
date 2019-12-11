@@ -21,7 +21,7 @@ import stsjorbsmod.util.TextureLoader;
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
 public class BurningPower extends AbstractPower implements CloneablePowerInterface, HealthBarRenderPower {
-    private static final int HEAL_REDUCTION_PERCENTAGE = 50;
+    private static final int HEAL_REDUCTION_PERCENTAGE = 100;
 
     public static final String POWER_ID = JorbsMod.makeID(BurningPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -74,11 +74,11 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
         } else {
             int amountToReduceBy = amount - BurningUtils.calculateNextBurningAmount(this.source, this.amount);
             if (this.owner != null && !this.owner.isPlayer) {
-                // "At the start of its turn, takes #b%1$s damage, then reduce #yBurning by #b%2$s. Reduce healing by %3$s%."
-                this.description = String.format(DESCRIPTIONS[1], this.amount, amountToReduceBy, HEAL_REDUCTION_PERCENTAGE);
+                // "At the start of its turn, takes #b%1$s damage, then reduce #yBurning by #b%2$s. You cannot heal."
+                this.description = String.format(DESCRIPTIONS[1], this.amount, amountToReduceBy);
             } else {
-                // "At the start of your turn, take #b%1$s damage, then reduce #yBurning by #b%2$s. Reduce healing by %3$s%."
-                this.description = String.format(DESCRIPTIONS[0], this.amount, amountToReduceBy, HEAL_REDUCTION_PERCENTAGE);
+                // "At the start of your turn, take #b%1$s damage, then reduce #yBurning by #b%2$s. It cannot heal."
+                this.description = String.format(DESCRIPTIONS[0], this.amount, amountToReduceBy);
             }
         }
     }

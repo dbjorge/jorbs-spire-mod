@@ -28,8 +28,8 @@
   "stsjorbsmod:BurningPower": {
     "NAME": "Burning",
     "DESCRIPTIONS": [
-      "At the start of your turn, take #b%1$s damage, then reduce #yBurning by #b%2$s. Reduce healing by %3$s%%.",
-      "At the start of its turn, takes #b%1$s damage, then reduce #yBurning by #b%2$s. Reduce healing by %3$s%%.",
+      "At the start of your turn, take #b%1$s damage, then reduce #yBurning by #b%2$s. You cannot heal.",
+      "At the start of its turn, takes #b%1$s damage, then reduce #yBurning by #b%2$s. It cannot heal.",
       "Reduce healing by %1$s%%."
     ]
   },
