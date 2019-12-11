@@ -1,6 +1,7 @@
 package stsjorbsmod.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.unique.RemoveDebuffsAction;
@@ -42,8 +43,14 @@ public class BurningTimeEaterPatch {
     public static void burningTimeEater(AbstractCreature c, Object p) {
         if (c instanceof TimeEater && p instanceof BurningPower) {
             // This should happen after burning gets removed, but before the healing action.
-            AbstractDungeon.actionManager.actions.removeIf(action -> action instanceof HealAction && action.target == c && action.source == c);
+            AbstractDungeon.actionManager.actions.forEach(a -> updateHealing(a, c));
             AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, TEXT[0], true));
+        }
+    }
+
+    private static void updateHealing(AbstractGameAction action, AbstractCreature c) {
+        if (action instanceof HealAction && action.target == c && action.source == c) {
+            action.amount = 0;
         }
     }
 }

@@ -106,7 +106,7 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
 
     @Override
     public int onHeal(int healAmount) {
-        return healAmount / 2;
+        return 0;
     }
 
     @Override
