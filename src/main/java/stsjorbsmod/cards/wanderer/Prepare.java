@@ -6,15 +6,11 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.powers.CoilPower;
 import stsjorbsmod.util.PowerUtils;
-
-import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Prepare extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Prepare.class);
@@ -55,7 +51,7 @@ public class Prepare extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new CoilPower(p, p, metaMagicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new CoilPower(p, metaMagicNumber)));
 
         // We can't use a GainBlockAction directly because we need to recalculate block in applyPowers in between the
         // new Coil stacks applying, this card being played (and possibly adding a new coil stack for that), and the
