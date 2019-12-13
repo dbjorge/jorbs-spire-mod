@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r11">
     <folder id="0">
-        <file id="0" name="Layer 12 copy 2.png" width="1792" height="2388" pivot_x="0" pivot_y="1"/>
-        <file id="1" name="Layer 14.png" width="1816" height="341" pivot_x="0" pivot_y="1"/>
-        <file id="2" name="Layer 15.png" width="1410" height="474" pivot_x="0" pivot_y="1"/>
-        <file id="3" name="Layer 16.png" width="837" height="562" pivot_x="0" pivot_y="1"/>
-        <file id="4" name="Layer 17.png" width="872" height="918" pivot_x="0" pivot_y="1"/>
-        <file id="5" name="Layer 18.png" width="237" height="228" pivot_x="0" pivot_y="1"/>
+        <file id="0" name="body.png" width="896" height="1194" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="shadow.png" width="908" height="171" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="sword.png" width="705" height="237" pivot_x="0" pivot_y="1"/>
+        <file id="3" name="ribbon_1.png" width="419" height="281" pivot_x="0" pivot_y="1"/>
+        <file id="4" name="ribbon_2.png" width="436" height="459" pivot_x="0" pivot_y="1"/>
+        <file id="5" name="robe_patch.png" width="119" height="114" pivot_x="0" pivot_y="1"/>
     </folder>
     <entity id="0" name="entity_000">
         <animation id="0" name="NewAnimation" length="1000" interval="100">
@@ -30,47 +30,47 @@
             </mainline>
             <timeline id="0" name="Layer 12 copy 2">
                 <key id="0" spin="0">
-                    <object folder="0" file="0" x="-95.80394" y="288.000168" angle="0" scale_x="0.11" scale_y="0.11"/>
+                    <object folder="0" file="0" x="-95.80394" y="288.000168" angle="0" scale_x="0.22" scale_y="0.22"/>
                 </key>
                 <key id="1" time="500" spin="0">
-                    <object folder="0" file="0" x="-96.002352" y="282.314454" angle="0" scale_x="0.11" scale_y="0.11"/>
+                    <object folder="0" file="0" x="-96.002352" y="282.314454" angle="0" scale_x="0.22" scale_y="0.22"/>
                 </key>
             </timeline>
             <timeline id="1" name="Layer 14">
                 <key id="0" spin="0">
-                    <object folder="0" file="1" x="-108.333186" y="25.395077" angle="0" scale_x="0.11" scale_y="0.11"/>
+                    <object folder="0" file="1" x="-108.333186" y="25.395077" angle="0" scale_x="0.22" scale_y="0.21935672514619883"/>
                 </key>
             </timeline>
             <timeline id="2" name="Layer 15">
                 <key id="0" spin="-1">
-                    <object folder="0" file="2" x="-101.615403" y="180.864108" angle="0" scale_x="0.11" scale_y="0.11"/>
+                    <object folder="0" file="2" x="-101.615403" y="180.864108" angle="0" scale_x="0.22" scale_y="0.22"/>
                 </key>
                 <key id="1" time="500">
-                    <object folder="0" file="2" x="-102.386612" y="180.00561" angle="358.042432" scale_x="0.11" scale_y="0.11"/>
+                    <object folder="0" file="2" x="-102.386612" y="180.00561" angle="358.042432" scale_x="0.22" scale_y="0.22"/>
                 </key>
             </timeline>
             <timeline id="3" name="Layer 16">
                 <key id="0">
-                    <object folder="0" file="3" x="13.853447" y="154.451688" angle="0" scale_x="0.11" scale_y="0.11"/>
+                    <object folder="0" file="3" x="13.853447" y="154.451688" angle="0" scale_x="0.21973747016706444" scale_y="0.22"/>
                 </key>
                 <key id="1" time="500" spin="-1">
-                    <object folder="0" file="3" x="12.535179" y="151.438506" angle="1.866412" scale_x="0.11" scale_y="0.11"/>
+                    <object folder="0" file="3" x="12.535179" y="151.438506" angle="1.866412" scale_x="0.21973747016706444" scale_y="0.22"/>
                 </key>
             </timeline>
             <timeline id="4" name="Layer 17">
                 <key id="0">
-                    <object folder="0" file="4" x="10.593221" y="208.429709" angle="0" scale_x="0.11" scale_y="0.11"/>
+                    <object folder="0" file="4" x="10.593221" y="208.429709" angle="0" scale_x="0.22" scale_y="0.22"/>
                 </key>
                 <key id="1" time="500" spin="-1">
-                    <object folder="0" file="4" x="11.013389" y="203.387692" angle="0.831745" scale_x="0.11" scale_y="0.11"/>
+                    <object folder="0" file="4" x="11.013389" y="203.387692" angle="0.831745" scale_x="0.22" scale_y="0.22"/>
                 </key>
             </timeline>
             <timeline id="5" name="Layer 18">
                 <key id="0">
-                    <object folder="0" file="5" x="-39.876268" y="159.46745" angle="348.274932" scale_x="0.11" scale_y="0.196886"/>
+                    <object folder="0" file="5" x="-39.876268" y="159.46745" angle="348.274932" scale_x="0.21907563025210083" scale_y="0.393772"/>
                 </key>
                 <key id="1" time="500" spin="-1">
-                    <object folder="0" file="5" x="-42.181107" y="147.959217" angle="350.162277" scale_x="0.11" scale_y="0.11"/>
+                    <object folder="0" file="5" x="-42.181107" y="147.959217" angle="350.162277" scale_x="0.21907563025210083" scale_y="0.22"/>
                 </key>
             </timeline>
         </animation>
