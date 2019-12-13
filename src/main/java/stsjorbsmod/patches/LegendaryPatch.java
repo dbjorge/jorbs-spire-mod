@@ -59,7 +59,7 @@ public class LegendaryPatch {
         if(card.rarity == AbstractCard.CardRarity.COMMON) {
             AbstractDungeon.commonCardPool.group.removeIf(isMatch);
             AbstractDungeon.srcCommonCardPool.group.removeIf(isMatch);
-        } else if (card.rarity == AbstractCard.CardRarity.RARE) {
+        } else if (card.rarity == AbstractCard.CardRarity.UNCOMMON) {
             AbstractDungeon.uncommonCardPool.group.removeIf(isMatch);
             AbstractDungeon.srcUncommonCardPool.group.removeIf(isMatch);
         } else if (card.rarity == AbstractCard.CardRarity.RARE) {
