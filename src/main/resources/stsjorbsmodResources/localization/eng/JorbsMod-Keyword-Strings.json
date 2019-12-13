@@ -1,7 +1,7 @@
 [
   {
     "NAMES": ["burning"],
-    "DESCRIPTION": "Burning creatures take damage at the start of their turn and have healing prevented. Each turn, Burning is reduced by a third."
+    "DESCRIPTION": "Burning creatures take damage at the start of their turn and cannot be healed. Each turn, Burning is reduced by a third."
   },
   {
     "NAMES": ["charity"],

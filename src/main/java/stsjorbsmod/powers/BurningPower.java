@@ -5,14 +5,17 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.HealthBarRenderPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.beyond.TimeEater;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.BurningLoseHpAction;
 import stsjorbsmod.util.BurningUtils;
@@ -27,6 +30,7 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    private static final String[] TEXT = CardCrawlGame.languagePack.getUIString(POWER_ID).TEXT;
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("burning_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("burning_power32.png"));
@@ -107,6 +111,21 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
     @Override
     public int onHeal(int healAmount) {
         return 0;
+    }
+
+    @Override
+    public void onRemove() {
+        if (owner instanceof TimeEater) {
+            // This should happen after burning gets removed, but before the healing action.
+            AbstractDungeon.actionManager.actions.forEach(a -> updateHealing(a, owner));
+            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, TEXT[0], true));
+        }
+    }
+
+    private static void updateHealing(AbstractGameAction action, AbstractCreature c) {
+        if (action instanceof HealAction && action.target == c && action.source == c) {
+            action.amount = 0;
+        }
     }
 
     @Override
