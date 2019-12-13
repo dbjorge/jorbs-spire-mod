@@ -8,8 +8,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.ArcaneWeaponPower;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class ArcaneWeapon extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(ArcaneWeapon.class);
 

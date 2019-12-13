@@ -14,7 +14,6 @@ import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
 import javassist.expr.MethodCall;
-import stsjorbsmod.JorbsMod;
 
 public class TrueDamagePatch {
     public static final String TrueDamagePatchName = TrueDamagePatch.class.getName();

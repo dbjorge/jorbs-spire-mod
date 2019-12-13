@@ -1,9 +1,7 @@
 package stsjorbsmod.relics;
 
 import basemod.BaseMod;
-import basemod.abstracts.CustomRelic;
 import basemod.interfaces.PostUpdateSubscriber;
-import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -12,12 +10,9 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.OnModifyMemoriesSubscriber;
 import stsjorbsmod.powers.MindGlassPower;
-import stsjorbsmod.util.TextureLoader;
 
-import static stsjorbsmod.JorbsMod.*;
 import static stsjorbsmod.characters.Wanderer.Enums.WANDERER_CARD_COLOR;
 
 /**

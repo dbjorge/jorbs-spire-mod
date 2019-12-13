@@ -11,8 +11,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.FlameWardPower;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 /**
  * 2 Cost
  * If attacked, gain 8(10) block and apply 8(10) Burning to all attacking enemies

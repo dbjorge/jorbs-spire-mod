@@ -8,8 +8,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.PrestidigitationPower;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class Prestidigitation extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Prestidigitation.class);
 

@@ -11,8 +11,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.MemoryManager;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 // Deal 3(4) Damage. Deal 3(4) Damage again once for each Clarity.
 public class MagicMissiles extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(MagicMissiles.class);

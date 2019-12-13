@@ -12,10 +12,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.EntombedField;
 
-import java.util.Optional;
-
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class AnimateObjects extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(AnimateObjects.class);
 

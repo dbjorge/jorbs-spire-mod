@@ -11,8 +11,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.cards.OnPlayerHpLossCardSubscriber;
 import stsjorbsmod.characters.Wanderer;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class MageArmor extends CustomJorbsModCard implements OnPlayerHpLossCardSubscriber {
     public static final String ID = JorbsMod.makeID(MageArmor.class);
 

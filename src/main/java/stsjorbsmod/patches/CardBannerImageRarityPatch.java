@@ -1,17 +1,12 @@
 package stsjorbsmod.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
-import javassist.expr.MethodCall;
 import stsjorbsmod.cards.CustomJorbsModCard;
-import stsjorbsmod.util.ReflectionUtils;
 
 public class CardBannerImageRarityPatch {
     public static AbstractCard.CardRarity getBannerRarity(AbstractCard c) {

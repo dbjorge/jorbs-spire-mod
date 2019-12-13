@@ -10,8 +10,6 @@ import stsjorbsmod.actions.SnapAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.CardReboundField;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class Trauma extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Trauma.class);
 

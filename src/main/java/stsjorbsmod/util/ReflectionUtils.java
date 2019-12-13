@@ -1,12 +1,9 @@
 package stsjorbsmod.util;
 
 import com.evacipated.cardcrawl.modthespire.Loader;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import javassist.Modifier;
 import org.clapper.util.classutil.*;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.relics.CustomJorbsModRelic;
 
 import java.io.File;
 import java.lang.reflect.Field;

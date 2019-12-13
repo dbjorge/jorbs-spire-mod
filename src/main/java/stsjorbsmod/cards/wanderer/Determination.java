@@ -10,7 +10,6 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.PrideMemory;
 import stsjorbsmod.powers.FragilePower;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 

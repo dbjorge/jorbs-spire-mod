@@ -11,8 +11,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.cards.wanderer.materialcomponents.Web;
 import stsjorbsmod.characters.Wanderer;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class Entangle extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Entangle.class);
 

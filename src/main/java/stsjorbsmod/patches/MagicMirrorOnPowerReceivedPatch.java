@@ -9,8 +9,6 @@ import org.apache.logging.log4j.Logger;
 import stsjorbsmod.powers.MagicMirrorPower;
 import stsjorbsmod.util.ReflectionUtils;
 
-import java.lang.reflect.Field;
-
 @SpirePatch(
         clz = ApplyPowerAction.class,
         method = "update"

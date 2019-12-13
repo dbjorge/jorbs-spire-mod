@@ -1,12 +1,9 @@
 package stsjorbsmod.console;
 
 import basemod.devcommands.ConsoleCommand;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.audio.Sfx;
 import com.megacrit.cardcrawl.audio.SoundMaster;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import stsjorbsmod.patches.OnDrawCardSubscriberPatch;
 import stsjorbsmod.util.ReflectionUtils;
 
 import java.util.ArrayList;

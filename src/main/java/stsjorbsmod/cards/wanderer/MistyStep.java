@@ -10,8 +10,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.MemoryManager;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class MistyStep extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(MistyStep.class);
 

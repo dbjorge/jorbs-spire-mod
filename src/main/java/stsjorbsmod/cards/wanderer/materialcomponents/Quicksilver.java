@@ -10,8 +10,6 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.EphemeralField;
 import stsjorbsmod.powers.PlayNextAttackThisTurnAdditionalTimesPower;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class Quicksilver extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Quicksilver.class);
 

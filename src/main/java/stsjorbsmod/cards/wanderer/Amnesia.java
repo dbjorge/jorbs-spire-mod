@@ -17,8 +17,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class Amnesia extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Amnesia.class);
 

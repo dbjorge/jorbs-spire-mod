@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.actions.ExhumeCardsAction;
-import stsjorbsmod.cards.AutoExhumeBehavior;
 
 public class SelfExhumePatch {
     // Note: it's very important this happen as a prefix to die() rather than as an insert before the die() call in

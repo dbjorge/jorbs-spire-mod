@@ -8,8 +8,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.ExhaustCardsMatchingPredicateAction;
 import stsjorbsmod.characters.Wanderer;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class IvoryTower extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(IvoryTower.class);
 

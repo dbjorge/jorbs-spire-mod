@@ -1,18 +1,10 @@
 package stsjorbsmod.patches;
 
-import basemod.devcommands.unlock.Unlock;
-import com.evacipated.cardcrawl.mod.stslib.patches.HitboxRightClick;
 import com.evacipated.cardcrawl.modthespire.lib.*;
-import com.evacipated.cardcrawl.modthespire.lib.Matcher.MethodCallMatcher;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.OverlayMenu;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.relics.Shovel;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
-import javassist.CtBehavior;
 import stsjorbsmod.JorbsMod;
 
 @SpirePatch(

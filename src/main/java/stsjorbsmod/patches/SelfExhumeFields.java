@@ -3,9 +3,6 @@ package stsjorbsmod.patches;
 import com.evacipated.cardcrawl.modthespire.lib.SpireField;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import stsjorbsmod.cards.AutoExhumeBehavior;
-
-import java.util.EnumSet;
 
 @SpirePatch(
         clz = AbstractCard.class,

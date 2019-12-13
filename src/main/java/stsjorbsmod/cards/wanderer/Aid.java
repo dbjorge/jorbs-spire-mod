@@ -13,7 +13,6 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.KindnessMemory;
 import stsjorbsmod.powers.OnHealedBySubscriber;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class Aid extends CustomJorbsModCard {

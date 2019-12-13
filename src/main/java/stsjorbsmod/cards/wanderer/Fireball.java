@@ -13,7 +13,6 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.LustMemory;
 import stsjorbsmod.powers.BurningPower;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 /**

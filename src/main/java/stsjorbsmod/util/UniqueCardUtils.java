@@ -2,7 +2,6 @@ package stsjorbsmod.util;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.cards.colorless.RitualDagger;
 import stsjorbsmod.patches.WrathField;
 
 import java.util.HashSet;

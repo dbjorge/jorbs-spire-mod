@@ -13,8 +13,6 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.powers.BurningPower;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 /**
  * BASE: Deal 8 damage + 2 damage for each clarity
  * UPGRADE: Deal 8 damage. Apply 2 Burning for each clarity

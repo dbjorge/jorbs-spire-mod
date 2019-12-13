@@ -10,8 +10,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.EnergizedCustomPower;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class Channel extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Channel.class);
 

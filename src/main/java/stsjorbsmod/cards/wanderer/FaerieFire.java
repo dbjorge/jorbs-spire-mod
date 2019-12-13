@@ -14,8 +14,6 @@ import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.MemoryType;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class FaerieFire extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(FaerieFire.class);
 

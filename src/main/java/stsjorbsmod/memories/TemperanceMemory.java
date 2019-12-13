@@ -3,9 +3,7 @@ package stsjorbsmod.memories;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 
 public class TemperanceMemory extends AbstractMemory implements OnModifyMemoriesSubscriber {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(TemperanceMemory.class);

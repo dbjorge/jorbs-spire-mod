@@ -8,8 +8,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.BookOfTonguesPower;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class BookOfTongues extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(BookOfTongues.class);
 

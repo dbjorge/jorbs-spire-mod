@@ -15,7 +15,6 @@ import stsjorbsmod.memories.EnvyMemory;
 import stsjorbsmod.powers.BanishedPower;
 import stsjorbsmod.powers.BurningPower;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class ColorSpray extends CustomJorbsModCard {

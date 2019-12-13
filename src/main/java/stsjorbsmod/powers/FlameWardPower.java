@@ -16,9 +16,6 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.util.IntentUtils;
 import stsjorbsmod.util.TextureLoader;
 
-import java.util.Arrays;
-import java.util.List;
-
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
 public class FlameWardPower extends StackableTwoAmountPower {

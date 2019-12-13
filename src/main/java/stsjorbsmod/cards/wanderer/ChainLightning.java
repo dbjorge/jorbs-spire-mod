@@ -18,8 +18,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.stream.Collectors;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class ChainLightning extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(ChainLightning.class);
 
