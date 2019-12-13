@@ -46,8 +46,8 @@ public class MirrorImageMinion extends AbstractMonster {
     }
 
     @Override
-    public void die() {
-        super.die();
+    public void die(boolean triggerRelics) {
+        super.die(false); // minion death shouldn't trigger relics' onMonsterDeath()
         AbstractDungeon.actionManager.addToTop(new ReducePowerAction(owningPower.owner, this, owningPower, 1));
     }
 
