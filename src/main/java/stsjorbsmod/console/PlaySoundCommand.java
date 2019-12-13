@@ -42,6 +42,6 @@ public class PlaySoundCommand extends ConsoleCommand {
     @Override
     public ArrayList<String> extraOptions(String[] tokens, int depth) {
         HashMap<String, Sfx> map = ReflectionUtils.getPrivateField(CardCrawlGame.sound, SoundMaster.class, "map");
-        return new ArrayList<>(map.keySet().stream().sorted().collect(Collectors.toList()));
+        return map.keySet().stream().sorted().collect(Collectors.toCollection(ArrayList::new));
     }
 }

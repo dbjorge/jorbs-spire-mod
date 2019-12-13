@@ -32,7 +32,7 @@ public class Amnesia extends CustomJorbsModCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster _) {
+    public void use(AbstractPlayer p, AbstractMonster m) {
         if (dontTriggerOnUseCard) {
             List<AbstractPower> buffs = p.powers.stream()
                     .filter(power -> power.type == AbstractPower.PowerType.BUFF)

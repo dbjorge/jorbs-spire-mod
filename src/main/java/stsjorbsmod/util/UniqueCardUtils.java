@@ -13,7 +13,7 @@ public class UniqueCardUtils {
     }
 
     public static int countUniqueCards(CardGroup group) {
-        Set<String> uniqueCardIDs = new HashSet<String>();
+        Set<String> uniqueCardIDs = new HashSet<>();
         group.group.forEach(c -> uniqueCardIDs.add(getUpgradeInclusiveCardID(c)));
         return uniqueCardIDs.size();
     }

@@ -33,7 +33,7 @@ public class FaerieFire extends CustomJorbsModCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster _) {
+    public void use(AbstractPlayer p, AbstractMonster mo) {
         AbstractMemory currentMemory = MemoryManager.forPlayer(p).currentMemory;
         if (currentMemory == null) { return; }
 

@@ -19,8 +19,8 @@ import stsjorbsmod.powers.SnappedPower;
 
 // At the end of turn 7 deal 5 damage to all enemies and 2 damage to yourself for every clarity bonus you have. You cannot be affected by memories or clarities for the remainder of the fight.
 public class SnapAction extends AbstractGameAction {
-    private final int ENEMY_DAMAGE_PER_CLARITY = 6;
-    private final int PLAYER_DAMAGE_PER_CLARITY = 3;
+    private static final int ENEMY_DAMAGE_PER_CLARITY = 6;
+    private static final int PLAYER_DAMAGE_PER_CLARITY = 3;
 
     public SnapAction(AbstractCreature target) {
         this.target = target;
@@ -39,7 +39,7 @@ public class SnapAction extends AbstractGameAction {
         // addToTop is important for Trauma effect ordering
         // Note that the group of addToTops actually executes in reverse order
         AbstractDungeon.actionManager.addToTop(
-                new ApplyPowerAction(target, (AbstractCreature)null, new SnappedPower(target)));
+                new ApplyPowerAction(target, null, new SnappedPower(target)));
         AbstractDungeon.actionManager.addToTop(
                 new LoseHPAction(target, target, targetDamage, AttackEffect.BLUNT_LIGHT));
         AbstractDungeon.actionManager.addToTop(

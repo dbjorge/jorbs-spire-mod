@@ -21,7 +21,8 @@ public class CardSaveData implements CustomSavableRaw {
         CardData(Integer wrathEffectCount) {
             this.wrathEffectCount = wrathEffectCount;
         }
-    };
+    }
+
     private ArrayList<CardData> cardData = null;
     private Gson saveFileGson = new Gson();
 

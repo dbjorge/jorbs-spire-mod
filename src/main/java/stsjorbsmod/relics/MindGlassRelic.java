@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.memories.OnModifyMemoriesSubscriber;
@@ -57,7 +56,7 @@ public class MindGlassRelic extends CustomJorbsModRelic implements OnModifyMemor
         }
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAllEnemiesAction(
-                        (AbstractCreature) null,
+                        null,
                         DamageInfo.createDamageMatrix(ONE_CLARITY_DAMAGE, true),
                         DamageInfo.DamageType.NORMAL,
                         // TODO: More impactful and relevant FX. See FlashAtkImgEffect.loadImage() and

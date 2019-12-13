@@ -246,9 +246,7 @@ public class JorbsMod implements
             String id = (String)jorbsModPower.getField("POWER_ID").get(null);
             logger.info("Registering power: " + id);
             BaseMod.addPower(jorbsModPower, id);
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        } catch (NoSuchFieldException e) {
+        } catch (IllegalAccessException | NoSuchFieldException e) {
             throw new RuntimeException(e);
         }
     }

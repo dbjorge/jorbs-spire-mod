@@ -30,7 +30,7 @@ public class ExhaustCardsMatchingPredicateAction extends AbstractGameAction {
     @Override
     public void update() {
         if (startingDuration == duration) {
-            ArrayList<AbstractCard> toExhaust = new ArrayList<AbstractCard>();
+            ArrayList<AbstractCard> toExhaust = new ArrayList<>();
             for (AbstractCard c : pile.group) {
                 if (filter.test(c)) {
                     toExhaust.add(c);

@@ -41,7 +41,7 @@ public class LustMemory extends AbstractMemory {
             // Similar to EnvenomPower
             if (target != this.owner && info.type == DamageInfo.DamageType.NORMAL) {
                 this.flash();
-                AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, this.owner, new BurningPower(target, this.owner, this.PASSIVE_BURNING_ON_ATTACK), this.PASSIVE_BURNING_ON_ATTACK, true));
+                AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, this.owner, new BurningPower(target, this.owner, PASSIVE_BURNING_ON_ATTACK), PASSIVE_BURNING_ON_ATTACK, true));
             }
         }
     }

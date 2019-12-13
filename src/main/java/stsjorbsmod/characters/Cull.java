@@ -308,7 +308,7 @@ public class Cull extends CustomPlayer {
     // When you defeat the heart, this happens
     @Override
     public List<CutscenePanel> getCutscenePanels() {
-        List<CutscenePanel> panels = new ArrayList<CutscenePanel>();
+        List<CutscenePanel> panels = new ArrayList<>();
         panels.add(new CutscenePanel(makeScenePath("cull_heart_kill_1.png")));
         panels.add(new CutscenePanel(makeScenePath("cull_heart_kill_2.png"), "SHOVEL"));
         panels.add(new CutscenePanel(makeScenePath("cull_heart_kill_3.png")));

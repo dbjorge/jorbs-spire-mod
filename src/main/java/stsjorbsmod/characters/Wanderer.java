@@ -368,7 +368,7 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
     // When you defeat the heart, this happens
     @Override
     public List<CutscenePanel> getCutscenePanels() {
-        List<CutscenePanel> panels = new ArrayList<CutscenePanel>();
+        List<CutscenePanel> panels = new ArrayList<>();
         panels.add(new CutscenePanel(makeScenePath("wanderer_heart_kill_1.png"), "ATTACK_DEFECT_BEAM"));
         panels.add(new CutscenePanel(makeScenePath("wanderer_heart_kill_2.png")));
         panels.add(new CutscenePanel(makeScenePath("wanderer_heart_kill_3.png")));

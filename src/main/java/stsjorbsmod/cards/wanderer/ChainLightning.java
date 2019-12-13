@@ -63,7 +63,8 @@ public class ChainLightning extends CustomJorbsModCard {
     }
 
     private ArrayList<AbstractMonster> getRandomOrderMonsters(ArrayList<AbstractMonster> targets, AbstractMonster initialTarget) {
-        ArrayList<AbstractMonster> finalTargets = new ArrayList<>(Arrays.asList(initialTarget));
+        ArrayList<AbstractMonster> finalTargets = new ArrayList<>();
+        finalTargets.add(initialTarget);
         ArrayList<AbstractMonster> chainCandidates = targets.stream()
                 .filter(t -> !(t.halfDead || t.isDying || t.isEscaping || t == initialTarget))
                 .collect(Collectors.toCollection(ArrayList::new));
