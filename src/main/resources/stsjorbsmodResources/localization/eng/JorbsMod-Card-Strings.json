@@ -20,6 +20,11 @@
       " NL (Hits !M! times.)"
     ]
   },
+  "stsjorbsmod:Apparition_Cull": {
+    "NAME": "Apparition",
+    "DESCRIPTION": "Ethereal. NL Gain !M! Intangible. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Intangible. NL Exhaust."
+  },
   "stsjorbsmod:ArcaneForm": {
     "NAME": "Arcane Form",
     "DESCRIPTION": "Ethereal. NL Gain stsjorbsmod:Clarity of stsjorbsmod:Patience, stsjorbsmod:Lust, stsjorbsmod:Diligence, stsjorbsmod:Kindness, and stsjorbsmod:Chastity.",

@@ -26,15 +26,15 @@ import org.apache.logging.log4j.Logger;
 import org.clapper.util.classutil.RegexClassFilter;
 import stsjorbsmod.cards.CardSaveData;
 import stsjorbsmod.cards.CustomJorbsModCard;
+import stsjorbsmod.characters.Cull;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.console.MemoryCommand;
 import stsjorbsmod.console.PlaySoundCommand;
-import stsjorbsmod.patches.LegendaryPatch;
 import stsjorbsmod.potions.BurningPotion;
 import stsjorbsmod.potions.DimensionDoorPotion;
 import stsjorbsmod.potions.LiquidClarity;
 import stsjorbsmod.potions.LiquidVirtue;
-import stsjorbsmod.relics.*;
+import stsjorbsmod.relics.CustomJorbsModRelic;
 import stsjorbsmod.util.ReflectionUtils;
 import stsjorbsmod.util.TextureLoader;
 import stsjorbsmod.variables.BaseBlockNumber;
@@ -174,8 +174,9 @@ public class JorbsMod implements
 
         logger.info("Done subscribing");
         
-        logger.info("Creating new card colors..." + Wanderer.Enums.WANDERER_CARD_COLOR.toString());
+        logger.info("Creating new card colors...");
 
+        Cull.ColorInfo.registerColorWithBaseMod();
         Wanderer.ColorInfo.registerColorWithBaseMod();
         
         logger.info("Done creating colors");
@@ -214,15 +215,25 @@ public class JorbsMod implements
     
     @Override
     public void receiveEditCharacters() {
-        logger.info("Beginning to edit characters. " + "Add " + Wanderer.Enums.WANDERER.toString());
-        
+        logger.info("Beginning to edit characters.");
+
+        // order matters; this will be the order they appear in the char select screen
+
+        logger.info("Adding Wanderer...");
         BaseMod.addCharacter(
                 new Wanderer("The Wanderer", Wanderer.Enums.WANDERER),
                 Wanderer.CHARACTER_SELECT_BUTTON_TEXTURE,
                 Wanderer.CHARACTER_SELECT_BG_TEXTURE,
                 Wanderer.Enums.WANDERER);
 
-        logger.info("Added " + Wanderer.Enums.WANDERER.toString());
+        logger.info("Adding Cull...");
+        BaseMod.addCharacter(
+                new Cull("The Cull", Cull.Enums.CULL),
+                Cull.CHARACTER_SELECT_BUTTON_TEXTURE,
+                Cull.CHARACTER_SELECT_BG_TEXTURE,
+                Cull.Enums.CULL);
+
+        logger.info("Added characters");
     }
     
     // =============== /LOAD THE CHARACTER/ =================
