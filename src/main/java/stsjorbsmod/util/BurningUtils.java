@@ -9,7 +9,7 @@ public class BurningUtils {
         if(source != null && source.isPlayer && ((AbstractPlayer) source).hasRelic(AlchemistsFireRelic.ID)) {
             return AlchemistsFireRelic.CALCULATE_BURNING_AMOUNT.apply(baseAmount);
         } else {
-            return baseAmount / 2;
+            return 2 * baseAmount / 3;
         }
     }
 }
