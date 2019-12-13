@@ -25,7 +25,6 @@ public class FilterRandomCardGenerationPatch {
                 locator = ArrayList_get_Locator.class,
                 localvars = "list"
         )
-        @SuppressWarnings("unchecked")
         public static void patch(ArrayList<AbstractCard> list) {
             RemovePersistentPositiveEffects(list);
         }
@@ -41,7 +40,6 @@ public class FilterRandomCardGenerationPatch {
                 locator = ArrayList_get_Locator.class,
                 localvars = "list"
         )
-        @SuppressWarnings("unchecked")
         public static void patch(AbstractCard.CardType type, ArrayList<AbstractCard> list) {
             RemovePersistentPositiveEffects(list);
         }
@@ -57,7 +55,6 @@ public class FilterRandomCardGenerationPatch {
                 locator = ArrayList_get_Locator.class,
                 localvars = "list"
         )
-        @SuppressWarnings("unchecked")
         public static void patch(Random rng, ArrayList<AbstractCard> list) {
             RemovePersistentPositiveEffects(list);
         }

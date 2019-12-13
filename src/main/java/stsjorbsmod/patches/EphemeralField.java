@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
         method = SpirePatch.CLASS
 )
 public class EphemeralField {
-    @SuppressWarnings("unchecked")
     public static SpireField<Boolean> ephemeral = new EphemeralSpireField(() -> false);
 
     private static class EphemeralSpireField extends SpireField<Boolean> {

@@ -241,7 +241,6 @@ public class JorbsMod implements
     
     // =============== POST-INITIALIZE =================
 
-    @SuppressWarnings("unchecked")
     private static void registerPowerInDevConsole(Class<? extends AbstractPower> jorbsModPower) {
         try {
             String id = (String)jorbsModPower.getField("POWER_ID").get(null);
