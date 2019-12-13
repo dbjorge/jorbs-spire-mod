@@ -23,8 +23,8 @@ public class MindPalaceRelic extends CustomJorbsModRelic implements OnModifyMemo
     public void atBattleStart() {
         if (trackedMemoryID != null) {
             this.flash();
-            addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-            addToBot(new GainSpecificClarityAction(AbstractDungeon.player, trackedMemoryID));
+            AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+            AbstractDungeon.actionManager.addToBottom(new GainSpecificClarityAction(AbstractDungeon.player, trackedMemoryID));
             trackedMemoryID = null;
         }
     }
