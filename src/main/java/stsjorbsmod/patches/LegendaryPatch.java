@@ -53,7 +53,7 @@ public class LegendaryPatch {
 
     public static void removeCardFromPools(AbstractCard card) {
         logger.info(String.format("Removing card %1$s (%2$s/%3$s/%4$s) from applicable pools", card.cardID, card.rarity, card.color, card.type));
-        Predicate<AbstractCard> isMatch = c -> c.cardID.equals(card);
+        Predicate<AbstractCard> isMatch = c -> c.cardID.equals(card.cardID);
 
         // AbstractDungeon has many returnRandom*, returnTrulyRandom*, and *transformCard methods that use these pools.
         if(card.rarity == AbstractCard.CardRarity.COMMON) {

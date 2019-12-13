@@ -43,7 +43,7 @@ public class PyromancyPower extends AbstractPower implements CloneablePowerInter
 
     @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if (source == owner && power.ID == BurningPower.POWER_ID && !((BurningPower)power).generatedByPyromancy) {
+        if (source == owner && power.ID.equals(BurningPower.POWER_ID) && !((BurningPower)power).generatedByPyromancy) {
             for (int i = 0; i < amount; ++i) {
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, source, new BurningPower(target, source, power.amount, true)));
             }

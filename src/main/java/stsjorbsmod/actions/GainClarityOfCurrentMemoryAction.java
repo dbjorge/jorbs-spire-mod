@@ -18,7 +18,7 @@ public class GainClarityOfCurrentMemoryAction extends AbstractGameAction {
 
     public void update() {
         MemoryManager m = MemoryManager.forPlayer(target);
-        if (specificMemoryID == null || (m.currentMemory != null && m.currentMemory.ID == specificMemoryID)) {
+        if (specificMemoryID == null || (m.currentMemory != null && m.currentMemory.ID.equals(specificMemoryID))) {
             MemoryManager.forPlayer(target).gainClarityOfCurrentMemory();
         }
 
