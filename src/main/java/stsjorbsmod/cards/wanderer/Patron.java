@@ -54,7 +54,7 @@ public class Patron extends CustomJorbsModCard implements DowngradeableCard {
             upgraded = false;
             name = originalName;
             initializeTitle();
-            baseDamage = DAMAGE + WrathField.wrathEffectCount.get(this);
+            baseDamage -= UPGRADE_PLUS_DAMAGE;
             upgradedDamage = false;
             rawDescription = languagePack.getCardStrings(cardID).DESCRIPTION;
             initializeDescription();
