@@ -9,38 +9,31 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 
-import static stsjorbsmod.util.CardMetaUtils.downgradePermanently;
-import static stsjorbsmod.util.CardMetaUtils.removeCard;
-import static stsjorbsmod.util.EffectUtils.showDestroyEffect;
-import static stsjorbsmod.util.EffectUtils.showDowngradeEffect;
+import java.util.function.Consumer;
 
 public class PatronAction extends AbstractGameAction {
     private DamageInfo info;
     private AbstractCard card;
     private float baseDuration;
+    private Consumer<AbstractCard> updateCard;
+    private Consumer<AbstractCard> showEffect;
 
-    public PatronAction(AbstractCreature target, DamageInfo info, AbstractCard card) {
+    public PatronAction(AbstractCreature target, DamageInfo info, AbstractCard card, Consumer<AbstractCard> updateCard, Consumer<AbstractCard> showEffect) {
         this.info = info;
         this.setValues(target, info);
         this.actionType = ActionType.DAMAGE;
         this.duration = baseDuration = Settings.ACTION_DUR_MED;
         this.card = card;
+        this.updateCard = updateCard;
+        this.showEffect = showEffect;
     }
 
     @Override
     public void update() {
-        boolean isUpgraded = card.upgraded;
         if (duration == baseDuration && this.target != null) {
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.NONE));
-            // order here matters. We want to downgrade after damage happens, but remove before damage to tag with purgeOnUse for Wrath
-
-            if (isUpgraded) {
-                this.target.damage(this.info);
-                downgradePermanently(card, 0.25F);
-            } else {
-                removeCard(card);
-                this.target.damage(this.info);
-            }
+            this.target.damage(this.info);
+            updateCard.accept(card); // perform downgrade/destroy
             if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
                 AbstractDungeon.actionManager.clearPostCombatActions();
             }
@@ -48,12 +41,7 @@ public class PatronAction extends AbstractGameAction {
 
         tickDuration();
         if (isDone) {
-            if (isUpgraded) {
-                showDowngradeEffect(card, duration);
-            } else {
-                showDestroyEffect(card);
-            }
-            AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
+            AbstractDungeon.actionManager.addToBottom(new ConsumerGameAction(showEffect, card));
         }
     }
 }

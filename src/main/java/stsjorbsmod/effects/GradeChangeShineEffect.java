@@ -25,14 +25,16 @@ public class GradeChangeShineEffect extends AbstractGameEffect {
     private float baseDuration;
     private Supplier<AbstractGameEffect> effectSupplier;
     private Color color;
+    private boolean playSoundEachClang;
 
-    public GradeChangeShineEffect(float x, float y, float duration, Supplier<Long> playSound, Supplier<AbstractGameEffect> effectSupplier, Color color) {
+    public GradeChangeShineEffect(float x, float y, float duration, Supplier<Long> playSound, Supplier<AbstractGameEffect> effectSupplier, Color color, boolean playSoundEachClang) {
         this.x = x;
         this.y = y;
         baseDuration = this.duration = duration;
         this.playSound = playSound;
         this.effectSupplier = effectSupplier;
         this.color = color;
+        this.playSoundEachClang = playSoundEachClang;
     }
 
     public void update() {
@@ -44,6 +46,9 @@ public class GradeChangeShineEffect extends AbstractGameEffect {
         }
 
         if (duration / baseDuration < 0.2F && !clang2) {
+            if(playSoundEachClang) {
+                playSound.get();
+            }
             clang2 = true;
             clank(x + 90.0F * Settings.scale, y - 110.0F * Settings.scale);
             CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.HIGH, ScreenShake.ShakeDur.SHORT, false);
@@ -51,6 +56,9 @@ public class GradeChangeShineEffect extends AbstractGameEffect {
 
         duration -= Gdx.graphics.getDeltaTime();
         if (duration < 0.0F) {
+            if(playSoundEachClang) {
+                playSound.get();
+            }
             clank(this.x + 30.0F * Settings.scale, y + 120.0F * Settings.scale);
             isDone = true;
             CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.HIGH, ScreenShake.ShakeDur.SHORT, false);

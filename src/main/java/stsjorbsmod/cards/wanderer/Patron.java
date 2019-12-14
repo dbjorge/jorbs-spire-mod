@@ -10,7 +10,8 @@ import stsjorbsmod.cards.DowngradeableCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.EphemeralField;
 import stsjorbsmod.patches.SelfExhumeFields;
-import stsjorbsmod.patches.WrathField;
+import stsjorbsmod.util.CardMetaUtils;
+import stsjorbsmod.util.EffectUtils;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
@@ -35,7 +36,11 @@ public class Patron extends CustomJorbsModCard implements DowngradeableCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new PatronAction(m, new DamageInfo(p, damage), this));
+        if (upgraded) {
+            addToBot(new PatronAction(m, new DamageInfo(p, damage), this, CardMetaUtils::downgradePermanently, EffectUtils::showDowngradeEffect));
+        } else {
+            addToBot(new PatronAction(m, new DamageInfo(p, damage), this, CardMetaUtils::removeCard, EffectUtils::showDestroyEffect));
+        }
     }
 
     @Override
