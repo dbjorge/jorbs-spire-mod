@@ -94,12 +94,6 @@ public class WrathMemory extends AbstractMemory {
             return;
         }
 
-        // ignore cards that are being removed from the deck
-        if (card.purgeOnUse) {
-            JorbsMod.logger.warn(logPrefix + "Ignoring card to be purged");
-            return;
-        }
-
         JorbsMod.logger.info(logPrefix + "Increasing baseDamage by " + DAMAGE_INCREASE_PER_KILL + " from " + card.baseDamage);
 
         AbstractCard cardToShowForVfx = card;
