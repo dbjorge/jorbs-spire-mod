@@ -154,6 +154,7 @@
   "stsjorbsmod:Firebolt": {
     "NAME": "Firebolt",
     "DESCRIPTION": "Deal !D! damage. NL Apply stsjorbsmod:Burning equal to the number of stsjorbsmod:Clarities you have.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply stsjorbsmod:Burning equal to twice the number of stsjorbsmod:Clarities you have.",
     "EXTENDED_DESCRIPTION": [
       " NL (Applies !M! Burning.)"
     ]
