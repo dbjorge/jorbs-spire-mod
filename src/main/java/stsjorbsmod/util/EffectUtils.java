@@ -25,22 +25,20 @@ public class EffectUtils {
     }
 
     public static void addWrathCardUpgradeEffect(AbstractCard cardToShowForVfx) {
-        if (!cardToShowForVfx.purgeOnUse) {
-            AbstractCard card = cardToShowForVfx.makeStatEquivalentCopy();
-            ShowCardBrieflyEffect showCardBrieflyEffect = new ShowCardBrieflyEffect(card);
-            float duration = Settings.FAST_MODE ? Settings.ACTION_DUR_XLONG : showCardBrieflyEffect.startingDuration;
-            showCardBrieflyEffect.duration = showCardBrieflyEffect.startingDuration = duration;
-            AbstractDungeon.topLevelEffects.add(showCardBrieflyEffect);
-            AbstractDungeon.topLevelEffects.add(new GradeChangeShineEffect(
-                    (float) Settings.WIDTH / 2.0F,
-                    (float) Settings.HEIGHT / 2.0F,
-                    Settings.ACTION_DUR_MED,
-                    () -> CardCrawlGame.sound.playAV("CARD_BURN", -0.5F, 2.0F),
-                    () -> getWrathEffect(card),
-                    null,
-                    false));
-            AbstractDungeon.actionManager.addToTop(new WaitAction(duration));
-        }
+        AbstractCard card = cardToShowForVfx.makeStatEquivalentCopy();
+        ShowCardBrieflyEffect showCardBrieflyEffect = new ShowCardBrieflyEffect(card);
+        float duration = Settings.FAST_MODE ? Settings.ACTION_DUR_XLONG : showCardBrieflyEffect.startingDuration;
+        showCardBrieflyEffect.duration = showCardBrieflyEffect.startingDuration = duration;
+        AbstractDungeon.topLevelEffects.add(showCardBrieflyEffect);
+        AbstractDungeon.topLevelEffects.add(new GradeChangeShineEffect(
+                (float) Settings.WIDTH / 2.0F,
+                (float) Settings.HEIGHT / 2.0F,
+                Settings.ACTION_DUR_MED,
+                () -> CardCrawlGame.sound.playAV("CARD_BURN", -0.5F, 2.0F),
+                () -> getWrathEffect(card),
+                null,
+                false));
+        AbstractDungeon.actionManager.addToTop(new WaitAction(duration));
     }
 
     public static AbstractGameEffect getWrathEffect(AbstractCard card) {
