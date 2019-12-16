@@ -209,6 +209,10 @@ public class MemoryManager {
         return memories.stream().filter(m -> m.isClarified || m.isRemembered).collect(Collectors.toList());
     }
 
+    public List<AbstractMemory> allMemoriesIncludingInactive() {
+        return memories;
+    }
+
     private static final float MEMORY_ARC_X_RADIUS = 185F * Settings.scale;
     private static final float MEMORY_ARC_Y_RADIUS = 195F * Settings.scale;
     private static final float MEMORY_ARC_ANGLE = 230F;

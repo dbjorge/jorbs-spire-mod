@@ -20,7 +20,7 @@ public class OnModifyGoldPatch {
             }
             MemoryManager memoryManager = MemoryManager.forPlayer(player);
             if (memoryManager != null) {
-                for (AbstractMemory m : memoryManager.currentMemories()) {
+                for (AbstractMemory m : memoryManager.allMemoriesIncludingInactive()) {
                     m.onModifyGold(player);
                 }
             }

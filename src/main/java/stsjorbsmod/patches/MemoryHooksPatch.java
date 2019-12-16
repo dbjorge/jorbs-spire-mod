@@ -23,7 +23,7 @@ public class MemoryHooksPatch {
     private static void forEachMemory(AbstractCreature owner, Consumer<AbstractMemory> callback) {
         MemoryManager memoryManager = MemoryManager.forPlayer(owner);
         if (memoryManager != null) {
-            for (AbstractMemory memory : memoryManager.currentMemories()) {
+            for (AbstractMemory memory : memoryManager.allMemoriesIncludingInactive()) {
                 callback.accept(memory);
             }
         }
