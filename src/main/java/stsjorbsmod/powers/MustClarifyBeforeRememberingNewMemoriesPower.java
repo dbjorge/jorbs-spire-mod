@@ -50,7 +50,8 @@ public class MustClarifyBeforeRememberingNewMemoriesPower extends AbstractPower 
     @Override
     public void onGainClarity(String id) {
         if (id.equals(memoryIDThatMustBeClarified)) {
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(owner, owner, POWER_ID));
+            // addToTop is required for cards that gain clarity and then remember something else, like EyeOfTheStorm
+            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(owner, owner, POWER_ID));
         }
     }
 
