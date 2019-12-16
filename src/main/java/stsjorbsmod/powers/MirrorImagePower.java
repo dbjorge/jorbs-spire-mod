@@ -4,6 +4,8 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -91,9 +93,9 @@ public class MirrorImagePower extends AbstractPower implements OnDamageToRedirec
     }
 
     @Override
-    public boolean onDamageToRedirect(AbstractPlayer player, DamageInfo info) {
+    public boolean onDamageToRedirect(AbstractPlayer player, DamageInfo info, AttackEffect effect) {
         if (info.owner != null && info.owner != player && this.topMinion != null && !this.topMinion.isDead) {
-            AbstractDungeon.actionManager.addToTop(new DamageAction(this.topMinion, info));
+            AbstractDungeon.actionManager.addToTop(new DamageAction(this.topMinion, info, effect));
             return true;
         }
         return false;
