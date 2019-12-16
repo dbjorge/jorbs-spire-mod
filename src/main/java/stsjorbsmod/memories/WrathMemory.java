@@ -117,6 +117,6 @@ public class WrathMemory extends AbstractMemory {
             instance.applyPowers();
         }
 
-        EffectUtils.addPermanentCardUpgradeEffect(cardToShowForVfx);
+        EffectUtils.addWrathCardUpgradeEffect(cardToShowForVfx);
     }
 }

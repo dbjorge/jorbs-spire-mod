@@ -1,17 +1,17 @@
 package stsjorbsmod.cards.wanderer;
 
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.DowngradeCardPermanentlyAction;
-import stsjorbsmod.actions.DestroyCardAction;
+import stsjorbsmod.actions.PatronAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.cards.DowngradeableCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.EphemeralField;
 import stsjorbsmod.patches.SelfExhumeFields;
+import stsjorbsmod.util.CardMetaUtils;
+import stsjorbsmod.util.EffectUtils;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
@@ -36,12 +36,10 @@ public class Patron extends CustomJorbsModCard implements DowngradeableCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage)));
-
         if (upgraded) {
-            addToBot(new DowngradeCardPermanentlyAction(this));
+            addToBot(new PatronAction(m, new DamageInfo(p, damage), this, CardMetaUtils::downgradePermanently, EffectUtils::showDowngradeEffect));
         } else {
-            addToBot(new DestroyCardAction(this));
+            addToBot(new PatronAction(m, new DamageInfo(p, damage), this, CardMetaUtils::removeCard, EffectUtils::showDestroyEffect));
         }
     }
 
@@ -61,7 +59,7 @@ public class Patron extends CustomJorbsModCard implements DowngradeableCard {
             upgraded = false;
             name = originalName;
             initializeTitle();
-            baseDamage = DAMAGE;
+            baseDamage -= UPGRADE_PLUS_DAMAGE;
             upgradedDamage = false;
             rawDescription = languagePack.getCardStrings(cardID).DESCRIPTION;
             initializeDescription();
