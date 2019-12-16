@@ -137,6 +137,9 @@ public class Cull extends CustomPlayer {
             makeCharPath("cull/energy_orb/layer4d.png"),
             makeCharPath("cull/energy_orb/layer5d.png"),};
 
+    private static final float DIALOG_OFFSET_X = 0.0F * Settings.scale;
+    private static final float DIALOG_OFFSET_Y = 180.0F * Settings.scale;
+
     // =============== /TEXTURES/ ===============
 
     private static SpriterAnimation loadIdleAnimation() {
@@ -161,9 +164,15 @@ public class Cull extends CustomPlayer {
                 CORPSE_TEXTURE,
                 getLoadout(), 0F, -10.0F, 160.0F, 280.0F, new EnergyManager(ENERGY_PER_TURN));
 
-        // Thought bubble position
-        this.dialogX = (drawX + 0.0F * Settings.scale);
-        this.dialogY = (drawY + 170.0F * Settings.scale);
+        this.dialogX = drawX + DIALOG_OFFSET_X;;
+        this.dialogY = drawY + DIALOG_OFFSET_Y;
+    }
+
+    @Override
+    public void movePosition(float x, float y) {
+        super.movePosition(x, y);
+        this.dialogX = x + DIALOG_OFFSET_X;
+        this.dialogY = y + DIALOG_OFFSET_Y;
     }
 
     // Starting description and loadout

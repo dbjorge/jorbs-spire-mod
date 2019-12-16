@@ -146,6 +146,9 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
             makeCharPath("wanderer/energy_orb/layer4d.png"),
             makeCharPath("wanderer/energy_orb/layer5d.png"),};
 
+    private static final float DIALOG_OFFSET_X = 0.0F * Settings.scale;
+    private static final float DIALOG_OFFSET_Y = 200.0F * Settings.scale;
+
     // =============== /TEXTURES/ ===============
 
     private static SpriterAnimation loadIdleAnimation() {
@@ -184,9 +187,15 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
 
         this.memories = new MemoryManager(this);
 
-        // Thought bubble position
-        this.dialogX = (drawX + 0.0F * Settings.scale);
-        this.dialogY = (drawY + 220.0F * Settings.scale);
+        this.dialogX = drawX + DIALOG_OFFSET_X;;
+        this.dialogY = drawY + DIALOG_OFFSET_Y;
+    }
+
+    @Override
+    public void movePosition(float x, float y) {
+        super.movePosition(x, y);
+        this.dialogX = x + DIALOG_OFFSET_X;
+        this.dialogY = y + DIALOG_OFFSET_Y;
     }
 
     @Override
