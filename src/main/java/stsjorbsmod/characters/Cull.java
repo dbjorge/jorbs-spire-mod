@@ -331,7 +331,7 @@ public class Cull extends CustomPlayer {
     public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
         return new AbstractGameAction.AttackEffect[]{
                 AbstractGameAction.AttackEffect.BLUNT_HEAVY,
-                AbstractGameAction.AttackEffect.LIGHTNING,
+                AbstractGameAction.AttackEffect.FIRE,
                 AbstractGameAction.AttackEffect.FIRE};
     }
 

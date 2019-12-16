@@ -41,7 +41,7 @@ public class PatronAction extends AbstractGameAction {
 
         tickDuration();
         if (isDone) {
-            AbstractDungeon.actionManager.addToBottom(new ConsumerGameAction(showEffect, card));
+            AbstractDungeon.actionManager.addToBottom(new ConsumerGameAction<>(showEffect, card));
         }
     }
 }
