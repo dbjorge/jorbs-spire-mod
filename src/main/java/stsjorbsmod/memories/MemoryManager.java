@@ -235,7 +235,7 @@ public class MemoryManager {
     }
 
     public void render(SpriteBatch sb) {
-        if (isSnapped()) {
+        if (isSnapped() || owner.isEscaping) {
             return;
         }
 
