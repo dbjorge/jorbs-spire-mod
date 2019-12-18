@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -14,7 +15,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
-import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class PurgeMind extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(PurgeMind.class);
@@ -31,40 +31,47 @@ public class PurgeMind extends CustomJorbsModCard {
     public PurgeMind() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE_PER_REMEMBER;
+        baseMagicNumber = 0;
         exhaust = true;
     }
 
     @Override
+    public int calculateBonusMagicNumber() {
+        AbstractPlayer p = AbstractDungeon.player;
+        return countRememberCardsInGroup(p.hand) +
+                countRememberCardsInGroup(p.drawPile) +
+                countRememberCardsInGroup(p.discardPile) +
+                countRememberCardsInGroup(p.exhaustPile);
+    }
+
+    private int countRememberCardsInGroup(CardGroup group) {
+        return (int) group.group.stream().filter(c -> c.hasTag(REMEMBER_MEMORY)).count();
+    }
+
+    private void exhaustRememberCardsInGroup(CardGroup group) {
+        for (AbstractCard card : group.group) {
+            if (card.hasTag(REMEMBER_MEMORY)) {
+                AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(card, group));
+            }
+        }
+    }
+
+    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int count = 0;
-        for (AbstractCard card : p.hand.group) {
-            if (card.tags.contains(REMEMBER_MEMORY)) {
-                ++count;
-                AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(card, p.hand));
-            }
-        }
-        for (AbstractCard card : p.drawPile.group) {
-            if (card.tags.contains(REMEMBER_MEMORY)) {
-                ++count;
-                AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(card, p.drawPile));
-            }
-        }
-        for (AbstractCard card : p.discardPile.group) {
-            if (card.tags.contains(REMEMBER_MEMORY)) {
-                ++count;
-                AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(card, p.discardPile));
-            }
-        }
-        for (AbstractCard card : p.exhaustPile.group) {
-            if (card.tags.contains(REMEMBER_MEMORY)) {
-                ++count;
-                // no need to exhaust exhausted cards LUL
-            }
-        }
-        for (int i = 0; i < count; i++) {
+        exhaustRememberCardsInGroup(p.hand);
+        exhaustRememberCardsInGroup(p.drawPile);
+        exhaustRememberCardsInGroup(p.discardPile);
+
+        for (int i = 0; i < magicNumber; i++) {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.BLUNT_HEAVY, false));
         }
+
         AbstractDungeon.actionManager.addToBottom(new SnapAction(p));
+    }
+
+    @Override
+    public String getRawDynamicDescriptionSuffix() {
+        return magicNumber == 1 ? EXTENDED_DESCRIPTION[0] : EXTENDED_DESCRIPTION[1];
     }
 
     @Override

@@ -1,12 +1,9 @@
 package stsjorbsmod.console;
 
 import basemod.devcommands.ConsoleCommand;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.audio.Sfx;
 import com.megacrit.cardcrawl.audio.SoundMaster;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import stsjorbsmod.patches.OnDrawCardSubscriberPatch;
 import stsjorbsmod.util.ReflectionUtils;
 
 import java.util.ArrayList;
@@ -45,6 +42,6 @@ public class PlaySoundCommand extends ConsoleCommand {
     @Override
     public ArrayList<String> extraOptions(String[] tokens, int depth) {
         HashMap<String, Sfx> map = ReflectionUtils.getPrivateField(CardCrawlGame.sound, SoundMaster.class, "map");
-        return new ArrayList<>(map.keySet().stream().sorted().collect(Collectors.toList()));
+        return map.keySet().stream().sorted().collect(Collectors.toCollection(ArrayList::new));
     }
 }

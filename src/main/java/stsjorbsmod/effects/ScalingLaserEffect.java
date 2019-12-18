@@ -14,8 +14,6 @@ import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 public class ScalingLaserEffect extends AbstractGameEffect {
     private float sourceX;
     private float sourceY;
-    private float targetX;
-    private float targetY;
     private float distance;
     private static final float DUR = 0.5F;
     private static TextureAtlas.AtlasRegion img;
@@ -29,9 +27,7 @@ public class ScalingLaserEffect extends AbstractGameEffect {
 
         this.sourceX = sourceX;
         this.sourceY = sourceY;
-        this.targetX = targetX;
-        this.targetY = targetY;
-        this.distance = Vector2.dst(this.sourceX, this.sourceY, this.targetX, this.targetY) / Settings.scale;
+        this.distance = Vector2.dst(this.sourceX, this.sourceY, targetX, targetY) / Settings.scale;
         this.color = color1;
         this.color2 = color2;
         this.duration = DUR;

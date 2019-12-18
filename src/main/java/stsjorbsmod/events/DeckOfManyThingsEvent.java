@@ -129,7 +129,7 @@ public class DeckOfManyThingsEvent extends AbstractImageEvent {
     public void update() { // We need the update() when we use grid screens (such as, in this case, the screen for selecting a card to remove)
         super.update(); // Do everything the original update()
         if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) { // Once the grid screen isn't empty (we selected a card for removal)
-            AbstractCard c = (AbstractCard)AbstractDungeon.gridSelectScreen.selectedCards.get(0); // Get the card
+            AbstractCard c = AbstractDungeon.gridSelectScreen.selectedCards.get(0); // Get the card
             AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(c, (float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2))); // Create the card removal effect
             AbstractDungeon.player.masterDeck.removeCard(c); // Remove it from the deck
             AbstractDungeon.gridSelectScreen.selectedCards.clear(); // Or you can .remove(c) instead of clear,

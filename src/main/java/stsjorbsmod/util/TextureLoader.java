@@ -15,7 +15,7 @@ import java.util.HashMap;
 
 
 public class TextureLoader {
-    private static HashMap<String, Texture> textures = new HashMap<String, Texture>();
+    private static HashMap<String, Texture> textures = new HashMap<>();
     public static final Logger logger = LogManager.getLogger(TextureLoader.class.getName());
 
     /**

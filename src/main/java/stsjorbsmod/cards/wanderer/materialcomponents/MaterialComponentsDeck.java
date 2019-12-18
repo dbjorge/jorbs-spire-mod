@@ -27,7 +27,7 @@ public class MaterialComponentsDeck {
         commonPool.addToTop(new Eye());
         commonPool.addToTop(new Moss());
         commonPool.addToTop(new Steel());
-        commonPool.addToTop(new Barb());
+        commonPool.addToTop(new Brambles());
         commonPool.shuffle();
     }
 

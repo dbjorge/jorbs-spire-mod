@@ -10,7 +10,7 @@ import stsjorbsmod.patches.ExtraCopiesToAddWhenGeneratingCardField;
 
 public class DiscoveryAtCostAction extends AbstractGameAction {
     private boolean retrieveCard = false;
-    private AbstractCard.CardType cardType = null;
+    private AbstractCard.CardType cardType;
 
     public DiscoveryAtCostAction(AbstractCard.CardType type) {
         actionType = ActionType.CARD_MANIPULATION;

@@ -5,14 +5,16 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.HealthBarRenderPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.beyond.TimeEater;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.BurningLoseHpAction;
 import stsjorbsmod.util.BurningUtils;
@@ -21,12 +23,13 @@ import stsjorbsmod.util.TextureLoader;
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
 public class BurningPower extends AbstractPower implements CloneablePowerInterface, HealthBarRenderPower {
-    private static final int HEAL_REDUCTION_PERCENTAGE = 50;
+    private static final int HEAL_REDUCTION_PERCENTAGE = 100;
 
     public static final String POWER_ID = JorbsMod.makeID(BurningPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    private static final String[] TEXT = CardCrawlGame.languagePack.getUIString(POWER_ID).TEXT;
 
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("burning_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("burning_power32.png"));
@@ -74,11 +77,11 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
         } else {
             int amountToReduceBy = amount - BurningUtils.calculateNextBurningAmount(this.source, this.amount);
             if (this.owner != null && !this.owner.isPlayer) {
-                // "At the start of its turn, takes #b%1$s damage, then reduce #yBurning by #b%2$s. Reduce healing by %3$s%."
-                this.description = String.format(DESCRIPTIONS[1], this.amount, amountToReduceBy, HEAL_REDUCTION_PERCENTAGE);
+                // "At the start of its turn, takes #b%1$s damage, then reduce #yBurning by #b%2$s. You cannot heal."
+                this.description = String.format(DESCRIPTIONS[1], this.amount, amountToReduceBy);
             } else {
-                // "At the start of your turn, take #b%1$s damage, then reduce #yBurning by #b%2$s. Reduce healing by %3$s%."
-                this.description = String.format(DESCRIPTIONS[0], this.amount, amountToReduceBy, HEAL_REDUCTION_PERCENTAGE);
+                // "At the start of your turn, take #b%1$s damage, then reduce #yBurning by #b%2$s. It cannot heal."
+                this.description = String.format(DESCRIPTIONS[0], this.amount, amountToReduceBy);
             }
         }
     }
@@ -106,7 +109,22 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
 
     @Override
     public int onHeal(int healAmount) {
-        return healAmount / 2;
+        return 0;
+    }
+
+    @Override
+    public void onRemove() {
+        if (owner instanceof TimeEater) {
+            // This should happen after burning gets removed, but before the healing action.
+            AbstractDungeon.actionManager.actions.forEach(a -> updateHealing(a, owner));
+            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, TEXT[0], true));
+        }
+    }
+
+    private static void updateHealing(AbstractGameAction action, AbstractCreature c) {
+        if (action instanceof HealAction && action.target == c && action.source == c) {
+            action.amount = 0;
+        }
     }
 
     @Override
@@ -116,7 +134,8 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
 
     @Override
     public int getHealthBarAmount() {
-        return this.amount;
+        int amount = this.amount - owner.currentBlock;
+        return Math.max(amount, 0);
     }
 
     @Override

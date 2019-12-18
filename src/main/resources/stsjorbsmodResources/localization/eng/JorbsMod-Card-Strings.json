@@ -15,7 +15,15 @@
   },
   "stsjorbsmod:AnimateObjects": {
     "NAME": "Animate Objects",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies for each non-exhausted card that didn't start the combat in your deck."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies once per non-exhausted card added to your deck this combat.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Hits !M! times.)"
+    ]
+  },
+  "stsjorbsmod:Apparition_Cull": {
+    "NAME": "Apparition",
+    "DESCRIPTION": "Ethereal. NL Gain !M! Intangible. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Intangible. NL Exhaust."
   },
   "stsjorbsmod:ArcaneForm": {
     "NAME": "Arcane Form",
@@ -30,10 +38,6 @@
     "NAME": "Banish",
     "DESCRIPTION": "Enemy takes no action and no damage for !M! turns. Exhaust."
   },
-  "stsjorbsmod:Barb": {
-    "NAME": "Barb",
-    "DESCRIPTION": "Deal !D! damage."
-  },
   "stsjorbsmod:BlackTentacles": {
     "NAME": "Black Tentacles",
     "DESCRIPTION": "Deal !D! damage. NL This turn, all damage you deal to other enemies is dealt to this enemy instead.",
@@ -43,6 +47,10 @@
     "NAME": "Book of Tongues",
     "DESCRIPTION": "At the start of each turn, put !M! stsjorbsmod:Material\u00a0Component into your hand.",
     "UPGRADE_DESCRIPTION": "At the start of each turn, put !M! stsjorbsmod:Material\u00a0Components into your hand."
+  },
+  "stsjorbsmod:Brambles": {
+    "NAME": "Brambles",
+    "DESCRIPTION": "Deal !D! damage."
   },
   "stsjorbsmod:BurningFlask": {
     "NAME": "Burning Flask",
@@ -89,8 +97,8 @@
   },
   "stsjorbsmod:Determination": {
     "NAME": "Determination",
-    "DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of this turn, stsjorbsmod:Snap.",
-    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of your next turn, stsjorbsmod:Snap."
+    "DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of this turn, stsjorbsmod:Snap. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of your next turn, stsjorbsmod:Snap. NL Exhaust."
   },
   "stsjorbsmod:DisguiseSelf": {
     "NAME": "Disguise Self",
@@ -145,7 +153,11 @@
   },
   "stsjorbsmod:Firebolt": {
     "NAME": "Firebolt",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! stsjorbsmod:Burning for each stsjorbsmod:Clarity."
+    "DESCRIPTION": "Deal !D! damage. NL Apply stsjorbsmod:Burning equal to the number of stsjorbsmod:Clarities you have.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply stsjorbsmod:Burning equal to twice the number of stsjorbsmod:Clarities you have.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Applies !M! Burning.)"
+    ]
   },
   "stsjorbsmod:FlameWard": {
     "NAME": "Flame Ward",
@@ -156,8 +168,8 @@
     "DESCRIPTION": "stsjorbsmod:Sin: Deal !D! damage. NL stsjorbsmod:Virtue: Gain !B! Block. NL stsjorbsmod:Snapped: Do both."
   },
   "stsjorbsmod:ForbiddenGrimoire": {
-    "NAME": "Forbidden Grimoire",
-    "DESCRIPTION": "stsjorbsmod:Legendary. stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL stsjorbsmod:Exhume after playing this then !M! other cards, unless stsjorbsmod:Snapped."
+    "NAME": "The Grimoire",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL stsjorbsmod:Exhume after playing this then !M! other cards, unless stsjorbsmod:Snapped."
   },
   "stsjorbsmod:FranticSearch": {
     "NAME": "Frantic Search",
@@ -187,7 +199,10 @@
   },
   "stsjorbsmod:Hurt": {
     "NAME": "Hurt",
-    "DESCRIPTION": "Deal !D! damage. NL Lose !M! HP per stsjorbsmod:Clarity you have."
+    "DESCRIPTION": "Deal !D! damage. NL Lose HP equal to the number of stsjorbsmod:Clarities you have.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Lose !M! HP.)"
+    ]
   },
   "stsjorbsmod:Index": {
     "NAME": "Index",
@@ -240,16 +255,27 @@
   },
   "stsjorbsmod:MagicMissiles": {
     "NAME": "Magic Missiles",
-    "DESCRIPTION": "Deal !D! damage. NL Deal !D! damage again once for each stsjorbsmod:Clarity."
+    "DESCRIPTION": "Deal !D! damage. NL Deals !D! damage once per stsjorbsmod:Clarity you have.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Hits !M! time.)",
+      " NL (Hits !M! times.)"
+    ]
   },
   "stsjorbsmod:Mania": {
     "NAME": "Mania",
-    "DESCRIPTION": "Deal !D! damage, equal to the number of unique cards in your hand. If they are all unique, gain !stsjorbsmod:MetaMagic! [E] and draw !stsjorbsmod:UrMagic! card.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage, equal to !stsjorbsmod:BaseDamage! + the number of unique cards in your hand. If they are all unique, gain !stsjorbsmod:MetaMagic! [E] and draw !stsjorbsmod:UrMagic! card."
+    "DESCRIPTION": "Deal damage equal to the number of unique cards in your hand. If they are all unique, gain !stsjorbsmod:MetaMagic! [E] and draw !stsjorbsmod:UrMagic! card.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to !stsjorbsmod:BaseDamage! + the number of unique cards in your hand. If they are all unique, gain !stsjorbsmod:MetaMagic! [E] and draw !stsjorbsmod:UrMagic! card.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
   },
   "stsjorbsmod:Mending": {
     "NAME": "Mending",
-    "DESCRIPTION": "Heal !M! HP for each stsjorbsmod:Clarity. NL Exhaust."
+    "DESCRIPTION": "Heal HP equal to the number of stsjorbsmod:Clarities you have. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Heal HP equal to twice the number of stsjorbsmod:Clarities you have. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Heals !M! HP.)"
+    ]
   },
   "stsjorbsmod:Message": {
     "NAME": "Message",
@@ -271,8 +297,11 @@
   },
   "stsjorbsmod:MistyStep": {
     "NAME": "Misty Step",
-    "DESCRIPTION": "Gain !B! Block, !stsjorbsmod:MetaMagic! per stsjorbsmod:Clarity. NL Draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block, !stsjorbsmod:MetaMagic! per stsjorbsmod:Clarity + !stsjorbsmod:BaseBlock!. NL Draw !M! card."
+    "DESCRIPTION": "Gain Block equal to !stsjorbsmod:MetaMagic! per stsjorbsmod:Clarity. NL Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Gain Block equal to !stsjorbsmod:MetaMagic! per stsjorbsmod:Clarity plus !stsjorbsmod:BaseBlock!. NL Draw !M! card.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Gain !B! Block.)"
+    ]
   },
   "stsjorbsmod:Moss": {
     "NAME": "Moss",
@@ -287,9 +316,17 @@
     "DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
   },
+  "stsjorbsmod:Patron": {
+    "NAME": "Patron",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume when you stsjorbsmod:Snap. NL Deal !D! damage. NL stsjorbsmod:Destroy.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume when you stsjorbsmod:Snap. NL Deal !D! damage. NL stsjorbsmod:Downgrade."
+  },
   "stsjorbsmod:Prepare": {
     "NAME": "Prepare",
-    "DESCRIPTION": "Gain !M! stsjorbsmod:Coil. NL Gain Block equal to your stsjorbsmod:Coil."
+    "DESCRIPTION": "Gain !stsjorbsmod:MetaMagic! stsjorbsmod:Coil. NL Gain Block equal to your stsjorbsmod:Coil.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (You have !M! Coil.)"
+    ]
   },
   "stsjorbsmod:Prestidigitation": {
     "NAME": "Prestidigitation",
@@ -297,7 +334,11 @@
   },
   "stsjorbsmod:PurgeMind": {
     "NAME": "Purge Mind",
-    "DESCRIPTION": "Exhaust ALL cards which \"remember\". Then, deal !D! damage for each in your Exhaust pile. NL stsjorbsmod:Snap. Exhaust."
+    "DESCRIPTION": "Exhaust ALL cards which \"remember\". Then, deal !D! damage once per such card in your Exhaust pile. NL stsjorbsmod:Snap. Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Will hit !M! time.)",
+      " NL (Will hit !M! times.)"
+    ]
   },
   "stsjorbsmod:Pyromancy": {
     "NAME": "Pyromancy",
@@ -352,7 +393,11 @@
   },
   "stsjorbsmod:SnakeOil": {
     "NAME": "Snake Oil",
-    "DESCRIPTION": "Retain. NL Deal !D! damage to ALL enemies. Deals !M! additional damage per stsjorbsmod:Coil. NL Exhaust."
+    "DESCRIPTION": "Retain. NL Deal damage equal to the amount of stsjorbsmod:Coil you have. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Deal damage equal to twice the amount of stsjorbsmod:Coil you have. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
   },
   "stsjorbsmod:Stalwart": {
     "NAME": "Stalwart",

@@ -11,7 +11,6 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.DiligenceMemory;
 import stsjorbsmod.powers.DoubleCheckPower;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class DoubleCheck extends CustomJorbsModCard {

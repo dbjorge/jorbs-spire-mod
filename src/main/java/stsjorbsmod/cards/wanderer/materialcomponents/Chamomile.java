@@ -1,7 +1,6 @@
 package stsjorbsmod.cards.wanderer.materialcomponents;
 
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -11,8 +10,6 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.EphemeralField;
-
-import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Chamomile extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Chamomile.class);

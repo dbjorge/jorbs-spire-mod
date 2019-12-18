@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.OnModifyMemoriesSubscriber;
 import stsjorbsmod.util.TextureLoader;
 
@@ -45,7 +44,7 @@ public class MindGlassPower extends AbstractPower implements OnModifyMemoriesSub
     public void onGainClarity(String id) {
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAllEnemiesAction(
-                        (AbstractCreature) null,
+                        null,
                         DamageInfo.createDamageMatrix(damage, true),
                         DamageInfo.DamageType.NORMAL,
                         // TODO: More impactful and relevant FX. See FlashAtkImgEffect.loadImage() and

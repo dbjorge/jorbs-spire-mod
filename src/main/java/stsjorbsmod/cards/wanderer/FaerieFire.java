@@ -14,8 +14,6 @@ import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.MemoryType;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class FaerieFire extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(FaerieFire.class);
 
@@ -35,7 +33,7 @@ public class FaerieFire extends CustomJorbsModCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster _) {
+    public void use(AbstractPlayer p, AbstractMonster mo) {
         AbstractMemory currentMemory = MemoryManager.forPlayer(p).currentMemory;
         if (currentMemory == null) { return; }
 

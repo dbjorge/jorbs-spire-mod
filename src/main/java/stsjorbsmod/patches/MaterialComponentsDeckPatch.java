@@ -7,7 +7,6 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.wanderer.materialcomponents.MaterialComponentsDeck;
 
 public class MaterialComponentsDeckPatch {

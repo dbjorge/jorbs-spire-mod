@@ -3,6 +3,7 @@ package stsjorbsmod.patches;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.Soul;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.shrines.Duplicator;
@@ -11,17 +12,16 @@ import com.megacrit.cardcrawl.events.shrines.WeMeetAgain;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.ModHelper;
-import com.megacrit.cardcrawl.neow.NeowEvent;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.Astrolabe;
 import com.megacrit.cardcrawl.relics.DollysMirror;
 import com.megacrit.cardcrawl.relics.EmptyCage;
-import com.megacrit.cardcrawl.screens.CardRewardScreen;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
-import stsjorbsmod.JorbsMod;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import stsjorbsmod.util.ReflectionUtils;
 
 import java.util.ArrayList;
@@ -31,7 +31,13 @@ import java.util.stream.Collectors;
 
 import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 
+// Legendary cards (cards with the LEGENDARY tag) have the following special qualities:
+// * Cannot be duplicated, removed, or transformed
+// * Can only be obtained once per run (are removed from pools after being obtained the first time)
+// * (not implemented yet) Explorer Legendaries can only be found after the Act 2 boss
 public class LegendaryPatch {
+    public static final Logger logger = LogManager.getLogger(LegendaryPatch.class.getName());
+
     private static final String LEGENDARY_QUALIFIED_NAME = "stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY";
     private static final String DraftMod = "Draft";
     private static final String SealedMod = "SealedDeck";
@@ -44,30 +50,43 @@ public class LegendaryPatch {
         return ModHelper.isModEnabled(DraftMod) || ModHelper.isModEnabled(SealedMod);
     }
 
-    public static void removeLegendaryCardsFromPools() {
-        Predicate<AbstractCard> isLegendary = c -> c.hasTag(JorbsMod.JorbsCardTags.LEGENDARY);
+    public static void removeCardFromPools(AbstractCard card) {
+        logger.info(String.format("Removing card %1$s (%2$s/%3$s/%4$s) from applicable pools", card.cardID, card.rarity, card.color, card.type));
+        Predicate<AbstractCard> isMatch = c -> c.cardID.equals(card.cardID);
 
-        // AbstractDungeon has many returnRandam*, returnTrulyRandom*, and *transformCard methods that use these pools.
-        AbstractDungeon.colorlessCardPool.group.removeIf(isLegendary);
-        AbstractDungeon.srcColorlessCardPool.group.removeIf(isLegendary);
-        AbstractDungeon.commonCardPool.group.removeIf(isLegendary);
-        AbstractDungeon.srcCommonCardPool.group.removeIf(isLegendary);
-        AbstractDungeon.uncommonCardPool.group.removeIf(isLegendary);
-        AbstractDungeon.srcUncommonCardPool.group.removeIf(isLegendary);
-        AbstractDungeon.rareCardPool.group.removeIf(isLegendary);
-        AbstractDungeon.srcRareCardPool.group.removeIf(isLegendary);
-        AbstractDungeon.curseCardPool.group.removeIf(isLegendary);
-        AbstractDungeon.srcCurseCardPool.group.removeIf(isLegendary);
+        // AbstractDungeon has many returnRandom*, returnTrulyRandom*, and *transformCard methods that use these pools.
+        if(card.rarity == AbstractCard.CardRarity.COMMON) {
+            AbstractDungeon.commonCardPool.group.removeIf(isMatch);
+            AbstractDungeon.srcCommonCardPool.group.removeIf(isMatch);
+        } else if (card.rarity == AbstractCard.CardRarity.UNCOMMON) {
+            AbstractDungeon.uncommonCardPool.group.removeIf(isMatch);
+            AbstractDungeon.srcUncommonCardPool.group.removeIf(isMatch);
+        } else if (card.rarity == AbstractCard.CardRarity.RARE) {
+            AbstractDungeon.rareCardPool.group.removeIf(isMatch);
+            AbstractDungeon.srcRareCardPool.group.removeIf(isMatch);
+        }
 
-        // AbstractDungeon.transformCard can call getCurse to generate a replacement curse.
-        HashMap<String, AbstractCard> curses = ReflectionUtils.getPrivateField(null, CardLibrary.class, "curses");
-        ArrayList<String> removals = new ArrayList<>();
-        curses.forEach((s, c) -> {
-            if (isLegendary.test(c)) {
-                removals.add(s);
-            };
-        });
-        removals.forEach(s -> curses.remove(s));
+        // Note: color pools can overlap with rarity pools
+        if (card.color == AbstractCard.CardColor.COLORLESS) {
+            AbstractDungeon.colorlessCardPool.group.removeIf(isMatch);
+            AbstractDungeon.srcColorlessCardPool.group.removeIf(isMatch);
+        }
+        if (card.color == AbstractCard.CardColor.CURSE || card.rarity == AbstractCard.CardRarity.CURSE) {
+            AbstractDungeon.curseCardPool.group.removeIf(isMatch);
+            AbstractDungeon.srcCurseCardPool.group.removeIf(isMatch);
+
+            // AbstractDungeon.transformCard can call getCurse directly to generate a replacement curse.
+            HashMap<String, AbstractCard> curses = ReflectionUtils.getPrivateField(null, CardLibrary.class, "curses");
+            curses.remove(card.cardID);
+        }
+    }
+
+    public static void removeObtainedLegendaryCardsFromPools() {
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+            if (c.hasTag(LEGENDARY)) {
+                removeCardFromPools(c);
+            }
+        }
     }
 
     // Note: this is called only by edited expressions in the main game. See the derived ExprEditor that follows.
@@ -85,6 +104,27 @@ public class LegendaryPatch {
             if (fieldAccess.getClassName().equals(AbstractPlayer.class.getName()) && fieldAccess.getFieldName().equals("masterDeck")) {
                 fieldAccess.replace("{ $_ = " + LegendaryPatch.class.getName() + ".cloneCardGroupWithoutLegendaryCards($proceed()); }");
             }
+        }
+    }
+
+    // This handles removing legendary cards from the pool after they are obtained the first time
+    @SpirePatch(clz = Soul.class, method = "obtain")
+    public static class Soul_obtain {
+        @SpirePostfixPatch
+        public static void patch(Soul __this, AbstractCard card) {
+            if (card.hasTag(LEGENDARY)) {
+                removeCardFromPools(card);
+            }
+        }
+    }
+
+    // Card pools get reinitialized when loading saves and when moving between floors; this handles both
+    // Note that this *cannot* use BaseMod.receivePostDungeonInitialize (it's patched in prior to initializeCardPools)
+    @SpirePatch(clz = AbstractDungeon.class, method = "initializeCardPools")
+    public static class AbstractDungeon_initializeCardPools {
+        @SpirePostfixPatch
+        public static void patch(AbstractDungeon __this) {
+            LegendaryPatch.removeObtainedLegendaryCardsFromPools();
         }
     }
 
@@ -212,7 +252,7 @@ public class LegendaryPatch {
         @SpirePrefixPatch
         public static void patch(CardGroup instance, AbstractCard c) {
             if (instance.type == CardGroup.CardGroupType.MASTER_DECK && c.hasTag(LEGENDARY)) {
-                JorbsMod.logger.error("Legendary card removed from Master Deck.");
+                logger.error("Legendary card removed from Master Deck.");
             }
         }
     }
@@ -224,7 +264,7 @@ public class LegendaryPatch {
         public static void patch(CardGroup instance, String targetID) {
             if (instance.type == CardGroup.CardGroupType.MASTER_DECK) {
                 if (instance.group.stream().anyMatch(c -> c.cardID.equals(targetID) && c.hasTag(LEGENDARY))) {
-                    JorbsMod.logger.error("Legendary card removed by cardID from Master Deck.");
+                    logger.error("Legendary card removed by cardID from Master Deck.");
                 }
             }
         }
@@ -237,7 +277,7 @@ public class LegendaryPatch {
         public static void patch(AbstractCard c, boolean autoUpgrade, Random rng) {
             // Because the transformed card is replaced, this can incorrectly mark cards as seen in the UnlockTracker.
             if (c.hasTag(LEGENDARY)) {
-                JorbsMod.logger.error(
+                logger.error(
                         "AbstractDungeon.transformCard invoked on Legendary card. "
                                 + "Setting original card as the transform.");
                 AbstractDungeon.transformedCard = c;
@@ -250,33 +290,10 @@ public class LegendaryPatch {
         @SpirePostfixPatch
         public static void patch(AbstractCard c) {
             if (c.hasTag(LEGENDARY)) {
-                JorbsMod.logger.error(
+                logger.error(
                         "AbstractDungeon.srcTransformCard invoked on Legendary card. "
                                 + "Setting original card as the transform.");
                 AbstractDungeon.transformedCard = c;
-            }
-        }
-    }
-
-    // Mod support for Draft. After the player picks cards, remove Legendary cards from the reward pools.
-    @SpirePatch(clz = CardRewardScreen.class, method = "onClose")
-    public static class CardRewardScreen_onClose {
-        @SpirePostfixPatch
-        public static void patch(CardRewardScreen instance) {
-            boolean isDrafting = ReflectionUtils.getPrivateField(instance, CardRewardScreen.class, "draft");
-            if (isDrafting) {
-                removeLegendaryCardsFromPools();
-            }
-        }
-    }
-
-    // Mod support for SealedDeck. After the starting deck is created, remove Legendary cards from the reward pools.
-    @SpirePatch(clz = NeowEvent.class, method = "dailyBlessing")
-    public static class NeowEvent_dailyBlessing {
-        @SpirePostfixPatch
-        public static void patch(NeowEvent instance) {
-            if (ModHelper.isModEnabled(SealedMod)) {
-                removeLegendaryCardsFromPools();
             }
         }
     }

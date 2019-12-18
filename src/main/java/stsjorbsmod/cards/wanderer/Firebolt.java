@@ -13,8 +13,6 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.powers.BurningPower;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 /**
  * BASE: Deal 8 damage + 2 damage for each clarity
  * UPGRADE: Deal 8 damage. Apply 2 Burning for each clarity
@@ -35,23 +33,33 @@ public class Firebolt extends CustomJorbsModCard {
     public Firebolt() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = DAMAGE;
-        magicNumber = baseMagicNumber = AMOUNT_PER_CLARITY;
+        magicNumber = baseMagicNumber = 0;
+        metaMagicNumber = baseMetaMagicNumber = AMOUNT_PER_CLARITY;
+    }
+
+    @Override
+    public int calculateBonusMagicNumber() {
+        return baseMetaMagicNumber * MemoryManager.forPlayer(AbstractDungeon.player).countCurrentClarities();
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.FIRE));
-        int burningAmt = baseMagicNumber * MemoryManager.forPlayer(AbstractDungeon.player).countCurrentClarities();
-        if (burningAmt > 0) {
-            addToBot(new ApplyPowerAction(m, p, new BurningPower(m, p, burningAmt)));
+        if (magicNumber > 0) {
+            addToBot(new ApplyPowerAction(m, p, new BurningPower(m, p, magicNumber)));
         }
+    }
+
+    @Override
+    public String getRawDynamicDescriptionSuffix() {
+        return EXTENDED_DESCRIPTION[0];
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_PER_CLARITY);
+            upgradeMetaMagicNumber(UPGRADE_PLUS_PER_CLARITY);
             upgradeDescription();
         }
     }

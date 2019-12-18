@@ -9,8 +9,6 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.EphemeralField;
 import stsjorbsmod.powers.BurningPower;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class Sulfur extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Sulfur.class);
 

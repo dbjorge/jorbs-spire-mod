@@ -2,12 +2,6 @@ package stsjorbsmod.variables;
 
 import basemod.abstracts.DynamicVariable;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import stsjorbsmod.cards.CustomJorbsModCard;
-
-import java.util.ArrayList;
-import java.util.StringTokenizer;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import static stsjorbsmod.JorbsMod.makeID;
 

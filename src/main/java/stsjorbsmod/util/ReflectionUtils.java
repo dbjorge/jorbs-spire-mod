@@ -1,8 +1,6 @@
 package stsjorbsmod.util;
 
 import com.evacipated.cardcrawl.modthespire.Loader;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import javassist.Modifier;
 import org.clapper.util.classutil.*;
 import stsjorbsmod.JorbsMod;
@@ -12,6 +10,8 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ReflectionUtils {
     @SuppressWarnings("unchecked")
@@ -48,6 +48,19 @@ public class ReflectionUtils {
         return findAllConcreteJorbsModClasses(new SubclassClassFilter(baseJorbsModClass));
     }
 
+    // Note: only works for base classes defined within our own jar (limitation of ClassFinder)
+    // Requires each class have a no-arg constructor
+    public static <T> List<T> instantiateAllConcreteJorbsModSubclasses(Class<T> baseJorbsModClass) {
+        ArrayList<Class<T>> classes = findAllConcreteJorbsModClasses(new SubclassClassFilter(baseJorbsModClass));
+        return classes.stream().map(clazz -> {
+            try {
+                return clazz.newInstance();
+            } catch (Exception e) {
+                throw new RuntimeException("Exception while instantiating " + clazz.getName() + " (no default ctor?)", e);
+            }
+        }).collect(Collectors.toList());
+    }
+
     @SuppressWarnings("unchecked")
     public static <FieldT, InstanceT> FieldT getPrivateField(InstanceT instance, Class<? super InstanceT> clz, String fieldName) {
         try {
@@ -59,7 +72,6 @@ public class ReflectionUtils {
         }
     }
 
-    @SuppressWarnings("unchecked")
     public static <FieldT, InstanceT> void setPrivateField(InstanceT instance, Class<? super InstanceT> clz, String fieldName, FieldT newValue) {
         try {
             Field field = clz.getDeclaredField(fieldName);

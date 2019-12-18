@@ -1,19 +1,17 @@
 package stsjorbsmod.cards.wanderer;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.ApplyTemporaryDebuffAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.KindnessMemory;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class HoldMonster extends CustomJorbsModCard {
@@ -40,11 +38,9 @@ public class HoldMonster extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new RememberSpecificMemoryAction(p, KindnessMemory.STATIC.ID));
 
-        AbstractGameAction action = new ApplyPowerAction(m, p, new StrengthPower(m, -this.magicNumber), -this.magicNumber);
-        addToBot(action);
-        if (m != null && !m.hasPower(ArtifactPower.POWER_ID)) {
-            addToBot(new ApplyPowerAction(m, p, new GainStrengthPower(m, this.magicNumber), this.magicNumber));
-        }
+        ApplyPowerAction applyStrengthDownAction = new ApplyPowerAction(m, p, new StrengthPower(m, -this.magicNumber), -this.magicNumber);
+        Runnable setupStrengthToBeRestoredAtEndOfTurn = () -> addToBot(new ApplyPowerAction(m, p, new GainStrengthPower(m, this.magicNumber), this.magicNumber));
+        addToBot(new ApplyTemporaryDebuffAction(applyStrengthDownAction, setupStrengthToBeRestoredAtEndOfTurn));
     }
 
     @Override

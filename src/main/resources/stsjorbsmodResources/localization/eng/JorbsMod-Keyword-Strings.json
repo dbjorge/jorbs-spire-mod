@@ -1,7 +1,7 @@
 [
   {
     "NAMES": ["burning"],
-    "DESCRIPTION": "Burning creatures take damage at the start of their turn and have healing reduced by 50%. Each turn, Burning is reduced by half."
+    "DESCRIPTION": "Burning creatures take damage at the start of their turn and cannot be healed. Each turn, Burning is reduced by a third."
   },
   {
     "NAMES": ["charity"],
@@ -26,6 +26,10 @@
   {
     "NAMES": ["diligence"],
     "DESCRIPTION": "When you remember Diligence, draw #b2 cards. At the end of your turn, retain #b1."
+  },
+  {
+    "NAMES": ["downgrade", "downgraded"],
+    "DESCRIPTION": "Downgrading cards weakens them permanently."
   },
   {
     "NAMES": ["entombed"],

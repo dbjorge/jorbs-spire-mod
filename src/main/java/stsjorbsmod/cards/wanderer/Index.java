@@ -8,8 +8,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.CardsToTopOfDeckAction;
 import stsjorbsmod.characters.Wanderer;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class Index extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Index.class);
 

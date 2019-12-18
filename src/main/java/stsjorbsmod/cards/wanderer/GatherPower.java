@@ -9,8 +9,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.PlayNextAttackThisTurnAdditionalTimesPower;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class GatherPower extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(GatherPower.class);
 

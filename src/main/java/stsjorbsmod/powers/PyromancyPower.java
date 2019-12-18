@@ -3,12 +3,7 @@ package stsjorbsmod.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.BetterOnApplyPowerPower;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -43,7 +38,7 @@ public class PyromancyPower extends AbstractPower implements CloneablePowerInter
 
     @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if (source == owner && power.ID == BurningPower.POWER_ID && !((BurningPower)power).generatedByPyromancy) {
+        if (source == owner && power.ID.equals(BurningPower.POWER_ID) && !((BurningPower)power).generatedByPyromancy) {
             for (int i = 0; i < amount; ++i) {
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, source, new BurningPower(target, source, power.amount, true)));
             }

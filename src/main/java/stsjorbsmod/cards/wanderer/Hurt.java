@@ -4,13 +4,12 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.MemoryManager;
-
-import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Hurt extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Hurt.class);
@@ -28,17 +27,27 @@ public class Hurt extends CustomJorbsModCard {
     public Hurt() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        magicNumber = baseMagicNumber = HP_LOSS_PER_CLARITY;
+        metaMagicNumber = baseMetaMagicNumber = HP_LOSS_PER_CLARITY;
+        magicNumber = baseMagicNumber = 0;
+    }
+
+    @Override
+    public int calculateBonusMagicNumber() {
+        return MemoryManager.forPlayer(AbstractDungeon.player).countCurrentClarities() * metaMagicNumber;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SLASH_HEAVY));
 
-        int hpLoss = MemoryManager.forPlayer(p).countCurrentClarities() * magicNumber;
-        if (hpLoss > 0) {
-            addToBot(new DamageAction(p, new DamageInfo(p, hpLoss, DamageInfo.DamageType.HP_LOSS), AttackEffect.SHIELD));
+        if (magicNumber > 0) {
+            addToBot(new DamageAction(p, new DamageInfo(p, magicNumber, DamageInfo.DamageType.HP_LOSS), AttackEffect.SHIELD));
         }
+    }
+
+    @Override
+    public String getRawDynamicDescriptionSuffix() {
+        return EXTENDED_DESCRIPTION[0];
     }
 
     @Override

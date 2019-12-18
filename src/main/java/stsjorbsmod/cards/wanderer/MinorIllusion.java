@@ -7,8 +7,6 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class MinorIllusion extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(MinorIllusion.class);
 

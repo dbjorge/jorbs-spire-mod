@@ -8,8 +8,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.EphemeralField;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class LooseLeaf extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(LooseLeaf.class);
 

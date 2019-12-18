@@ -1,26 +1,18 @@
 package stsjorbsmod.patches;
 
-import basemod.patches.com.megacrit.cardcrawl.powers.CloneablePowersPatch;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.actions.utility.TextAboveCreatureAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.monsters.beyond.Darkling;
 import com.megacrit.cardcrawl.powers.EntanglePower;
-import com.megacrit.cardcrawl.powers.HexPower;
 import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
 import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.IfEnemyIntendsToAttackAction;
-import stsjorbsmod.cards.wanderer.MagicMirror;
 import stsjorbsmod.util.IntentUtils;
 
 // This addresses issue #171, where some base game debuffs assume they'll only ever be applied to the player and have

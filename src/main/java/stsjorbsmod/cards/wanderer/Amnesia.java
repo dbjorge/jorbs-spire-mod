@@ -17,8 +17,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class Amnesia extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Amnesia.class);
 
@@ -34,7 +32,7 @@ public class Amnesia extends CustomJorbsModCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster _) {
+    public void use(AbstractPlayer p, AbstractMonster m) {
         if (dontTriggerOnUseCard) {
             List<AbstractPower> buffs = p.powers.stream()
                     .filter(power -> power.type == AbstractPower.PowerType.BUFF)

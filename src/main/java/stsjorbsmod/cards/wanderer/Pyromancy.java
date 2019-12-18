@@ -6,10 +6,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.BookOfTonguesPower;
 import stsjorbsmod.powers.PyromancyPower;
-
-import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Pyromancy extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Pyromancy.class);

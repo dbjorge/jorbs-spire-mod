@@ -5,8 +5,6 @@ import basemod.devcommands.ConsoleCommand;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.actions.GainSpecificClarityAction;
-import stsjorbsmod.actions.RememberSpecificMemoryAction;
-import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryUtils;
 
 import java.util.ArrayList;

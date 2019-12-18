@@ -21,7 +21,7 @@ public class PatienceMemory extends AbstractMemory {
         if (isPassiveEffectActive()) {
             this.flash();
             AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(owner, owner, new CoilPower(owner, owner, COIL_PER_CARD)));
+                    new ApplyPowerAction(owner, owner, new CoilPower(owner, COIL_PER_CARD)));
         }
     }
 }

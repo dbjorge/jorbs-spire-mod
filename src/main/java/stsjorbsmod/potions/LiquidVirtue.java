@@ -7,17 +7,10 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.actions.GainRandomNewClarityAction;
-import stsjorbsmod.actions.RememberRandomNewMemoryAction;
-import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.MemoryType;
 import stsjorbsmod.memories.MemoryUtils;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class LiquidVirtue extends AbstractPotion {
     public static final String POTION_ID = JorbsMod.makeID(LiquidVirtue.class);

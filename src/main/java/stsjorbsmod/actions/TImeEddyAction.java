@@ -58,9 +58,7 @@ public class TImeEddyAction extends AbstractGameAction {
         if (AbstractPower_atEndOFTurnPreEndTurnCards != null) {
             try {
                 AbstractPower_atEndOFTurnPreEndTurnCards.invoke(p, isPlayer);
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
-            } catch (InvocationTargetException e) {
+            } catch (IllegalAccessException | InvocationTargetException e) {
                 throw new RuntimeException(e);
             }
         }

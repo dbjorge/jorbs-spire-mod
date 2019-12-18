@@ -3,6 +3,7 @@ package stsjorbsmod;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
+import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -25,18 +26,15 @@ import org.apache.logging.log4j.Logger;
 import org.clapper.util.classutil.RegexClassFilter;
 import stsjorbsmod.cards.CardSaveData;
 import stsjorbsmod.cards.CustomJorbsModCard;
+import stsjorbsmod.characters.Cull;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.console.MemoryCommand;
 import stsjorbsmod.console.PlaySoundCommand;
-import stsjorbsmod.patches.LegendaryPatch;
 import stsjorbsmod.potions.BurningPotion;
 import stsjorbsmod.potions.DimensionDoorPotion;
 import stsjorbsmod.potions.LiquidClarity;
 import stsjorbsmod.potions.LiquidVirtue;
-import stsjorbsmod.relics.AlchemistsFireRelic;
-import stsjorbsmod.relics.FragileMindRelic;
-import stsjorbsmod.relics.MindGlassRelic;
-import stsjorbsmod.relics.GrimoireRelic;
+import stsjorbsmod.relics.CustomJorbsModRelic;
 import stsjorbsmod.util.ReflectionUtils;
 import stsjorbsmod.util.TextureLoader;
 import stsjorbsmod.variables.BaseBlockNumber;
@@ -46,6 +44,7 @@ import stsjorbsmod.variables.UrMagicNumber;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 @SpireInitializer
@@ -56,7 +55,6 @@ public class JorbsMod implements
         EditKeywordsSubscriber,
         EditCharactersSubscriber,
         PostInitializeSubscriber,
-        PostDungeonInitializeSubscriber,
         OnPowersModifiedSubscriber {
     public static final String MOD_ID = "stsjorbsmod";
 
@@ -79,8 +77,11 @@ public class JorbsMod implements
         @SpireEnum(name = "PERSISTENT_POSITIVE_EFFECT")
         public static AbstractCard.CardTags PERSISTENT_POSITIVE_EFFECT;
 
-        // Use on a card that can only ever enter the deck by special means, and cannot be removed or transformed once
-        // present. The card can exhaust but still counts as present.
+        // Legendary cards (cards with the LEGENDARY tag) have the following special qualities:
+        // - Cannot be duplicated, removed, or transformed
+        // - Can only be obtained once per run (are removed from pools after being obtained the first time)
+        // - (not implemented yet) Explorer Legendaries can only be found after the Act 2 boss
+        //
         // Interaction notes:
         // - Any red, green, or blue cards that duplicate a card could pick a Legendary card. These behaviors remain
         //   because this mod is not designed to interact with colored cards from the main game.
@@ -173,8 +174,9 @@ public class JorbsMod implements
 
         logger.info("Done subscribing");
         
-        logger.info("Creating new card colors..." + Wanderer.Enums.WANDERER_CARD_COLOR.toString());
+        logger.info("Creating new card colors...");
 
+        Cull.ColorInfo.registerColorWithBaseMod();
         Wanderer.ColorInfo.registerColorWithBaseMod();
         
         logger.info("Done creating colors");
@@ -213,15 +215,25 @@ public class JorbsMod implements
     
     @Override
     public void receiveEditCharacters() {
-        logger.info("Beginning to edit characters. " + "Add " + Wanderer.Enums.WANDERER.toString());
-        
+        logger.info("Beginning to edit characters.");
+
+        // order matters; this will be the order they appear in the char select screen
+
+        logger.info("Adding Wanderer...");
         BaseMod.addCharacter(
                 new Wanderer("The Wanderer", Wanderer.Enums.WANDERER),
                 Wanderer.CHARACTER_SELECT_BUTTON_TEXTURE,
                 Wanderer.CHARACTER_SELECT_BG_TEXTURE,
                 Wanderer.Enums.WANDERER);
 
-        logger.info("Added " + Wanderer.Enums.WANDERER.toString());
+        logger.info("Adding Cull...");
+        BaseMod.addCharacter(
+                new Cull("The Cull", Cull.Enums.CULL),
+                Cull.CHARACTER_SELECT_BUTTON_TEXTURE,
+                Cull.CHARACTER_SELECT_BG_TEXTURE,
+                Cull.Enums.CULL);
+
+        logger.info("Added characters");
     }
     
     // =============== /LOAD THE CHARACTER/ =================
@@ -229,15 +241,12 @@ public class JorbsMod implements
     
     // =============== POST-INITIALIZE =================
 
-    @SuppressWarnings("unchecked")
     private static void registerPowerInDevConsole(Class<? extends AbstractPower> jorbsModPower) {
         try {
             String id = (String)jorbsModPower.getField("POWER_ID").get(null);
             logger.info("Registering power: " + id);
             BaseMod.addPower(jorbsModPower, id);
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        } catch (NoSuchFieldException e) {
+        } catch (IllegalAccessException | NoSuchFieldException e) {
             throw new RuntimeException(e);
         }
     }
@@ -322,19 +331,17 @@ public class JorbsMod implements
     @Override
     public void receiveEditRelics() {
         logger.info("Adding relics");
-        
-        // Character-specific relics for custom characters use BaseMod.addRelicToCustomPool
-        BaseMod.addRelicToCustomPool(new GrimoireRelic(), Wanderer.Enums.WANDERER_CARD_COLOR);
-        UnlockTracker.markRelicAsSeen(GrimoireRelic.ID);
-        BaseMod.addRelicToCustomPool(new FragileMindRelic(), Wanderer.Enums.WANDERER_CARD_COLOR);
-        UnlockTracker.markRelicAsSeen(FragileMindRelic.ID);
-        BaseMod.addRelicToCustomPool(new MindGlassRelic(), Wanderer.Enums.WANDERER_CARD_COLOR);
-        UnlockTracker.markRelicAsSeen(MindGlassRelic.ID);
-        BaseMod.addRelicToCustomPool(new AlchemistsFireRelic(), Wanderer.Enums.WANDERER_CARD_COLOR);
-        UnlockTracker.markRelicAsSeen(AlchemistsFireRelic.ID);
 
-        // Shared (non-character-specific) relics would instead use this:
-        // BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
+        List<CustomJorbsModRelic> relics = ReflectionUtils.instantiateAllConcreteJorbsModSubclasses(CustomJorbsModRelic.class);
+        for (CustomJorbsModRelic relicInstance : relics) {
+            logger.info("Adding relic: " + relicInstance.relicId);
+            if (relicInstance.relicColor.equals(AbstractCard.CardColor.COLORLESS)) {
+                BaseMod.addRelic(relicInstance, RelicType.SHARED);
+            } else {
+                BaseMod.addRelicToCustomPool(relicInstance, relicInstance.relicColor);
+            }
+            UnlockTracker.markRelicAsSeen(relicInstance.relicId);
+        }
 
         logger.info("Done adding relics!");
     }
@@ -353,16 +360,11 @@ public class JorbsMod implements
         BaseMod.addDynamicVariable(new UrMagicNumber());
         BaseMod.addDynamicVariable(new MetaMagicNumber());
 
-        ArrayList<Class<CustomJorbsModCard>> cardClasses = ReflectionUtils.findAllConcreteJorbsModSubclasses(CustomJorbsModCard.class);
-        for (Class<CustomJorbsModCard> cardClass : cardClasses) {
-            try {
-                CustomJorbsModCard cardInstance = cardClass.newInstance();
-                logger.info("Adding card: " + cardInstance.cardID);
-                BaseMod.addCard(cardInstance);
-                UnlockTracker.unlockCard(cardInstance.cardID);
-            } catch(Exception e) {
-                throw new RuntimeException("Exception while instantiating CustomJorbsModCard " + cardClass.getName(), e);
-            }
+        List<CustomJorbsModCard> cards = ReflectionUtils.instantiateAllConcreteJorbsModSubclasses(CustomJorbsModCard.class);
+        for (CustomJorbsModCard cardInstance : cards) {
+            logger.info("Adding card: " + cardInstance.cardID);
+            BaseMod.addCard(cardInstance);
+            UnlockTracker.unlockCard(cardInstance.cardID);
         }
 
         logger.info("Done adding cards!");
@@ -411,7 +413,6 @@ public class JorbsMod implements
         if (keywords != null) {
             for (Keyword keyword : keywords) {
                 BaseMod.addKeyword(MOD_ID.toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
-                //  getModID().toLowerCase() makes your keyword mod specific (it won't show up in other cards that use that word)
             }
         }
     }
@@ -426,15 +427,6 @@ public class JorbsMod implements
 
     public static String makeID(Class idClass) {
         return makeID(idClass.getSimpleName());
-    }
-
-    // Removing Legendary cards from the pools of possible cards to generate. They must be given out specifically,
-    // not randomly as a reward or transformed card.
-    @Override
-    public void receivePostDungeonInitialize() {
-        if (!LegendaryPatch.doesStartingDeckNeedFullPools()) {
-            LegendaryPatch.removeLegendaryCardsFromPools();
-        }
     }
 
     @Override

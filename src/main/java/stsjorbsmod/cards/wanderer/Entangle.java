@@ -11,8 +11,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.cards.wanderer.materialcomponents.Web;
 import stsjorbsmod.characters.Wanderer;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class Entangle extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Entangle.class);
 
@@ -31,7 +29,7 @@ public class Entangle extends CustomJorbsModCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster _) {
+    public void use(AbstractPlayer p, AbstractMonster mo) {
         for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (!m.hasPower(SlowPower.POWER_ID)) {
                 addToBot(new ApplyPowerAction(m, p, new SlowPower(m, 0)));

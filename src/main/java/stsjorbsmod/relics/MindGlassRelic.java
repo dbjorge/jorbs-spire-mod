@@ -1,39 +1,31 @@
 package stsjorbsmod.relics;
 
 import basemod.BaseMod;
-import basemod.abstracts.CustomRelic;
 import basemod.interfaces.PostUpdateSubscriber;
-import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.OnModifyMemoriesSubscriber;
 import stsjorbsmod.powers.MindGlassPower;
-import stsjorbsmod.util.TextureLoader;
 
-import static stsjorbsmod.JorbsMod.*;
+import static stsjorbsmod.characters.Wanderer.Enums.WANDERER_CARD_COLOR;
 
 /**
  * When gaining a unique clarity, deals 5 damage to all enemies.
  * When gain the tenth clarity in a combat, deal 500 damage to all enemies.
  */
-public class MindGlassRelic extends CustomRelic implements OnModifyMemoriesSubscriber, PostUpdateSubscriber {
-    public static final String ID = JorbsMod.makeID(MindGlassRelic.class.getSimpleName());
-
-    private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("mindglass_relic.png"));
-    private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("mindglass_relic.png"));
+public class MindGlassRelic extends CustomJorbsModRelic implements OnModifyMemoriesSubscriber, PostUpdateSubscriber {
+    public static final String ID = JorbsMod.makeID(MindGlassRelic.class);
 
     private static final int ONE_CLARITY_DAMAGE = 3;
     private static final int TEN_CLARITY_DAMAGE = 100;
 
     public MindGlassRelic() {
-        super(ID, IMG, OUTLINE, RelicTier.UNCOMMON, LandingSound.CLINK);
+        super(ID, WANDERER_CARD_COLOR, RelicTier.UNCOMMON, LandingSound.CLINK);
     }
 
     @Override
@@ -64,7 +56,7 @@ public class MindGlassRelic extends CustomRelic implements OnModifyMemoriesSubsc
         }
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAllEnemiesAction(
-                        (AbstractCreature) null,
+                        null,
                         DamageInfo.createDamageMatrix(ONE_CLARITY_DAMAGE, true),
                         DamageInfo.DamageType.NORMAL,
                         // TODO: More impactful and relevant FX. See FlashAtkImgEffect.loadImage() and
@@ -77,18 +69,6 @@ public class MindGlassRelic extends CustomRelic implements OnModifyMemoriesSubsc
         this.counter = -1;
         this.stopPulse();
         BaseMod.unsubscribe(this);
-    }
-
-    @Override
-    public void initializeTips() {
-        this.description = DESCRIPTIONS[0];
-        super.initializeTips();
-        this.description = getUpdatedDescription();
-    }
-
-    @Override
-    public String getUpdatedDescription() {
-        return DESCRIPTIONS[0].replaceAll(JorbsMod.MOD_ID + ":", "#y");
     }
 
     /**

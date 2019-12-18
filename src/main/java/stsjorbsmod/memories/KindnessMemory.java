@@ -5,8 +5,8 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import stsjorbsmod.actions.ApplyTemporaryDebuffAction;
 
 import java.util.ArrayList;
 
@@ -27,13 +27,12 @@ public class KindnessMemory extends AbstractMemory {
         this.restoreStrengthActions = new ArrayList<>();
 
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(mo, owner, new StrengthPower(mo, -ENEMY_STRENGTH_REDUCTION), -ENEMY_STRENGTH_REDUCTION, true, AbstractGameAction.AttackEffect.NONE));
+            ApplyPowerAction applyStrengthDownAction = new ApplyPowerAction(mo, owner, new StrengthPower(mo, -ENEMY_STRENGTH_REDUCTION), -ENEMY_STRENGTH_REDUCTION, true, AbstractGameAction.AttackEffect.NONE);
+            Runnable setupStrengthToBeRestoredOnForget = () -> this.restoreStrengthActions.add(
+                    new ApplyPowerAction(mo, owner, new StrengthPower(mo, +ENEMY_STRENGTH_REDUCTION), +ENEMY_STRENGTH_REDUCTION, true, AbstractGameAction.AttackEffect.NONE));
 
-            if (!mo.hasPower(ArtifactPower.POWER_ID)) {
-                this.restoreStrengthActions.add(
-                        new ApplyPowerAction(mo, owner, new StrengthPower(mo, +ENEMY_STRENGTH_REDUCTION), +ENEMY_STRENGTH_REDUCTION, true, AbstractGameAction.AttackEffect.NONE));
-            }
+            // addToTop is required for correct ordering with Hold Monster against enemies with 1 Artifact
+            AbstractDungeon.actionManager.addToTop(new ApplyTemporaryDebuffAction(applyStrengthDownAction, setupStrengthToBeRestoredOnForget));
         }
     }
 

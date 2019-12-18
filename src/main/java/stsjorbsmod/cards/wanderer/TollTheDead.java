@@ -1,8 +1,8 @@
 package stsjorbsmod.cards.wanderer;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,10 +11,6 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.MonsterLastDamagedOnTurnField;
-
-import java.util.Iterator;
-
-import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class TollTheDead extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(TollTheDead.class);
@@ -37,7 +33,7 @@ public class TollTheDead extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SMASH));
 
-        final boolean monsterWasDamagedThisTurn = MonsterLastDamagedOnTurnField.lastDamagedOnTurn.get(m) == AbstractDungeon.actionManager.turn;
+        final boolean monsterWasDamagedThisTurn = MonsterLastDamagedOnTurnField.lastDamagedOnTurn.get(m) == GameActionManager.turn;
         if (monsterWasDamagedThisTurn) {
             addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SMASH));
         }
@@ -47,7 +43,7 @@ public class TollTheDead extends CustomJorbsModCard {
     public boolean shouldGlowGold() {
         return AbstractDungeon.getCurrRoom().monsters.monsters.stream().anyMatch(m ->
                 !m.isDeadOrEscaped() &&
-                MonsterLastDamagedOnTurnField.lastDamagedOnTurn.get(m) == AbstractDungeon.actionManager.turn);
+                MonsterLastDamagedOnTurnField.lastDamagedOnTurn.get(m) == GameActionManager.turn);
     }
 
     @Override

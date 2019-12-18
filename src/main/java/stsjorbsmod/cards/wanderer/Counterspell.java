@@ -1,18 +1,13 @@
 package stsjorbsmod.cards.wanderer;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.CounterspellAction;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.patches.MonsterLastDamagedOnTurnField;
 import stsjorbsmod.util.IntentUtils;
-
-import static stsjorbsmod.JorbsMod.makeCardPath;
 
 public class Counterspell extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Counterspell.class);

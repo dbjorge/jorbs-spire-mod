@@ -5,11 +5,11 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import stsjorbsmod.relics.AlchemistsFireRelic;
 
 public class BurningUtils {
-    public static final int calculateNextBurningAmount(AbstractCreature source, int baseAmount) {
+    public static int calculateNextBurningAmount(AbstractCreature source, int baseAmount) {
         if(source != null && source.isPlayer && ((AbstractPlayer) source).hasRelic(AlchemistsFireRelic.ID)) {
             return AlchemistsFireRelic.CALCULATE_BURNING_AMOUNT.apply(baseAmount);
         } else {
-            return baseAmount / 2;
+            return 2 * baseAmount / 3;
         }
     }
 }

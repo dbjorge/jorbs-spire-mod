@@ -18,8 +18,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.stream.Collectors;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class ChainLightning extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(ChainLightning.class);
 
@@ -65,7 +63,8 @@ public class ChainLightning extends CustomJorbsModCard {
     }
 
     private ArrayList<AbstractMonster> getRandomOrderMonsters(ArrayList<AbstractMonster> targets, AbstractMonster initialTarget) {
-        ArrayList<AbstractMonster> finalTargets = new ArrayList<>(Arrays.asList(initialTarget));
+        ArrayList<AbstractMonster> finalTargets = new ArrayList<>();
+        finalTargets.add(initialTarget);
         ArrayList<AbstractMonster> chainCandidates = targets.stream()
                 .filter(t -> !(t.halfDead || t.isDying || t.isEscaping || t == initialTarget))
                 .collect(Collectors.toCollection(ArrayList::new));

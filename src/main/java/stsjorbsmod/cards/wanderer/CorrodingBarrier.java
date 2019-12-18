@@ -9,8 +9,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.cards.OnDrawCardSubscriber;
 import stsjorbsmod.characters.Wanderer;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class CorrodingBarrier extends CustomJorbsModCard implements OnDrawCardSubscriber {
     public static final String ID = JorbsMod.makeID(CorrodingBarrier.class);
 

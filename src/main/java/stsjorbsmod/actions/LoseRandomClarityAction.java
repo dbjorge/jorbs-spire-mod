@@ -5,9 +5,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
-import stsjorbsmod.memories.MemoryUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class LoseRandomClarityAction extends AbstractGameAction {

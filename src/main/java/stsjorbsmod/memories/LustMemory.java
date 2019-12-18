@@ -5,8 +5,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.PoisonPower;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import stsjorbsmod.powers.BurningPower;
 
@@ -43,7 +41,7 @@ public class LustMemory extends AbstractMemory {
             // Similar to EnvenomPower
             if (target != this.owner && info.type == DamageInfo.DamageType.NORMAL) {
                 this.flash();
-                AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, this.owner, new BurningPower(target, this.owner, this.PASSIVE_BURNING_ON_ATTACK), this.PASSIVE_BURNING_ON_ATTACK, true));
+                AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, this.owner, new BurningPower(target, this.owner, PASSIVE_BURNING_ON_ATTACK), PASSIVE_BURNING_ON_ATTACK, true));
             }
         }
     }

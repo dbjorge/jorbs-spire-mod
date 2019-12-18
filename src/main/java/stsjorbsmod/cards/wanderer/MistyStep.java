@@ -10,8 +10,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.MemoryManager;
 
-import static stsjorbsmod.JorbsMod.makeCardPath;
-
 public class MistyStep extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(MistyStep.class);
 
@@ -41,6 +39,11 @@ public class MistyStep extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, block));
         addToBot(new DrawCardAction(p, magicNumber));
+    }
+
+    @Override
+    public String getRawDynamicDescriptionSuffix() {
+        return EXTENDED_DESCRIPTION[0];
     }
 
     @Override

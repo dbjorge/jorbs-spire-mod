@@ -1,14 +1,8 @@
 package stsjorbsmod.console;
 
-import basemod.DevConsole;
 import basemod.devcommands.ConsoleCommand;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
-import stsjorbsmod.memories.MemoryUtils;
-
-import java.util.ArrayList;
 
 public class MemoryForgetCommand extends ConsoleCommand {
     public MemoryForgetCommand() {

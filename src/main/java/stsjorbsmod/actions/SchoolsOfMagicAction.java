@@ -19,7 +19,7 @@ public class SchoolsOfMagicAction extends AbstractGameAction {
     }
 
     public void update() {
-        Map<String, Integer> countsByUpgradeInclusiveCardID = new HashMap<String, Integer>();
+        Map<String, Integer> countsByUpgradeInclusiveCardID = new HashMap<>();
         boolean noDuplicates = true;
         for (AbstractCard card : owner.hand.group) {
             String id = UniqueCardUtils.getUpgradeInclusiveCardID(card);
