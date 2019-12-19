@@ -57,7 +57,7 @@
   },
   {
     "NAMES": ["humility"],
-    "DESCRIPTION": "Gain #b2 #yThorns."
+    "DESCRIPTION": "Each time remembered, gain #b1 #yThorns. Until forgotten, double your #yThorns."
   },
   {
     "NAMES": ["kindness"],

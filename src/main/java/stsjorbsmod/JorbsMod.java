@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import com.sun.jna.Memory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.clapper.util.classutil.RegexClassFilter;
@@ -30,6 +31,8 @@ import stsjorbsmod.characters.Cull;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.console.MemoryCommand;
 import stsjorbsmod.console.PlaySoundCommand;
+import stsjorbsmod.memories.AbstractMemory;
+import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.potions.BurningPotion;
 import stsjorbsmod.potions.DimensionDoorPotion;
 import stsjorbsmod.potions.LiquidClarity;
@@ -436,6 +439,14 @@ public class JorbsMod implements
             for (AbstractPower p : AbstractDungeon.player.powers) {
                 if (p instanceof OnPowersModifiedSubscriber) {
                     ((OnPowersModifiedSubscriber)p).receivePowersModified();
+                }
+            }
+            MemoryManager mm = MemoryManager.forPlayer();
+            if (mm != null) {
+                for (AbstractMemory m : mm.allMemoriesIncludingInactive()) {
+                    if (m instanceof OnPowersModifiedSubscriber) {
+                        ((OnPowersModifiedSubscriber)m).receivePowersModified();
+                    }
                 }
             }
         }
