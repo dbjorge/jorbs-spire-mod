@@ -53,6 +53,12 @@
       " additional [E] next turn."
     ]
   },
+  "stsjorbsmod:ExhumeAtStartOfTurnPower": {
+    "NAME": "Exhume",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, you will Exhume some cards."
+    ]
+  },
   "stsjorbsmod:FearPower": {
     "NAME": "Afraid",
     "DESCRIPTIONS": [

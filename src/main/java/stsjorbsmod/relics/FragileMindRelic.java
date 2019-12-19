@@ -31,7 +31,7 @@ public class FragileMindRelic extends CustomJorbsModRelic {
     public void onPlayerEndTurn() {
         if (this.counter == 7) {
             this.flash();
-            AbstractDungeon.actionManager.addToBottom(new SnapAction(AbstractDungeon.player));
+            AbstractDungeon.actionManager.addToBottom(new SnapAction(AbstractDungeon.player, true));
             this.stopPulse();
         }
     }
