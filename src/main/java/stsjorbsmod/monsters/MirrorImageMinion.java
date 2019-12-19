@@ -47,16 +47,16 @@ public class MirrorImageMinion extends AbstractMonster {
     @Override
     public void update() {
         super.update();
-        // The desired effect is for the minion to turn with the player in the shield and spear fight, but
-        // stay behind when the player smoke bombs.
-        if (!owningPower.owner.isEscaping) {
-            setPositionFromOwner(owningPower.owner);
-        }
+        setPositionFromOwner(owningPower.owner);
     }
 
     public void setPositionFromOwner(AbstractCreature owner) {
         this.flipHorizontal = owner.flipHorizontal;
-        int flipMultiplier = owner.flipHorizontal ? -1 : 1;
+        int flipMultiplier = this.flipHorizontal ? -1 : 1;
+        if (owner.isEscaping) {
+            // The intended effect is for the image to chase after the player
+            flipMultiplier *= -1;
+        }
         this.drawX = owner.drawX + flipMultiplier * (OWNER_OFFSET_X * Settings.scale);
         this.drawY = owner.drawY + (OWNER_OFFSET_Y * Settings.scale);
     }
