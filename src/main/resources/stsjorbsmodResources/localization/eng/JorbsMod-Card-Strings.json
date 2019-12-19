@@ -292,8 +292,7 @@
   },
   "stsjorbsmod:MirrorImage": {
     "NAME": "Mirror Image",
-    "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Summon !M! Mirror Image with 1 HP. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Summon !M! Mirror Images with 1 HP. NL Exhaust."
+    "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Summon an Intangible Mirror Image with !M! HP. NL Exhaust."
   },
   "stsjorbsmod:MistyStep": {
     "NAME": "Misty Step",

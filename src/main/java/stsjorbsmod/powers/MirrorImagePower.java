@@ -4,8 +4,9 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
@@ -15,6 +16,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.monsters.MirrorImageMinion;
 import stsjorbsmod.util.TextureLoader;
@@ -30,7 +32,7 @@ public class MirrorImagePower extends AbstractPower implements OnDamageToRedirec
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("next_attack_misses_84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("next_attack_misses_32.png"));
 
-    private MirrorImageMinion topMinion; // We only render/track the topmost minion, new ones are generated as the top one dies
+    private MirrorImageMinion minion; // The power only maintains 1 minion; we change its max health along with our stacks
 
     public MirrorImagePower(AbstractCreature owner, int amountOfImages) {
         this.name = NAME;
@@ -45,47 +47,48 @@ public class MirrorImagePower extends AbstractPower implements OnDamageToRedirec
     }
 
     private MirrorImageMinion initializeMinion() {
-        MirrorImageMinion minion = new MirrorImageMinion(this);
+        MirrorImageMinion minion = new MirrorImageMinion(this, this.amount);
+        // -1 turns prevents it from displaying a turn duration. We don't worry about it expiring because we
+        // intentionally don't set the minion up to receive onEndRound events.
+        addToBot(new ApplyPowerAction(minion, minion, new IntangiblePlayerPower(minion, -1)));
         minion.init();
         minion.showHealthBar();
         return minion;
     }
 
     @Override
-    public void reducePower(int reduction) {
-        super.reducePower(reduction);
-        if (topMinion.isDying || topMinion.isDead) {
-             topMinion = amount == 0 ? null : initializeMinion();
-        }
+    public void stackPower(int increase) {
+        super.stackPower(increase);
+        minion.increaseMaxHp(increase, true);
     }
 
     @Override
     public void onInitialApplication() {
-        topMinion = initializeMinion();
+        minion = initializeMinion();
     }
 
     @Override
     public void update(int slot) {
         super.update(slot);
-        if (this.topMinion != null) {
-            this.topMinion.update();
-            this.topMinion.hb.update();
-            this.topMinion.healthHb.update();
+        if (this.minion != null) {
+            this.minion.update();
+            this.minion.hb.update();
+            this.minion.healthHb.update();
         }
     }
 
     @Override
     public void renderIcons(SpriteBatch sb, float x, float y, Color c) {
         super.renderIcons(sb, x, y, c);
-        if (this.topMinion != null) {
-            this.topMinion.render(sb);
+        if (this.minion != null) {
+            this.minion.render(sb);
         }
     }
 
     @Override
     public void onRemove() {
-        topMinion.die();
-        topMinion = null;
+        minion.die();
+        minion = null;
     }
 
     @Override
@@ -98,10 +101,10 @@ public class MirrorImagePower extends AbstractPower implements OnDamageToRedirec
         if (info.type == DamageType.NORMAL &&
             info.owner != null &&
             info.owner != player &&
-            this.topMinion != null &&
-            !this.topMinion.isDead)
+            this.minion != null &&
+            !this.minion.isDead)
         {
-            AbstractDungeon.actionManager.addToTop(new DamageAction(this.topMinion, info, effect));
+            AbstractDungeon.actionManager.addToTop(new DamageAction(this.minion, info, effect));
             return true;
         }
         return false;
