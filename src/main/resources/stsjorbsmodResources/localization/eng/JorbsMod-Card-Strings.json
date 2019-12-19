@@ -15,9 +15,9 @@
   },
   "stsjorbsmod:AnimateObjects": {
     "NAME": "Animate Objects",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies once per non-exhausted card added to your deck this combat.",
+    "DESCRIPTION": "Gain Thorns equal to the number of non-exhausted cards that didn't start the combat in your deck. Exhaust.",
     "EXTENDED_DESCRIPTION": [
-      " NL (Hits !M! times.)"
+      " NL (Gain !M! Thorns.)"
     ]
   },
   "stsjorbsmod:Apparition_Cull": {

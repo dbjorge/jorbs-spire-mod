@@ -1,12 +1,12 @@
 package stsjorbsmod.cards.wanderer;
 
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.ThornsPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
@@ -16,19 +16,19 @@ public class AnimateObjects extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(AnimateObjects.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
-    private static final CardType TYPE = CardType.ATTACK;
+    private static final CardTarget TARGET = CardTarget.SELF;
+    private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 2;
-    private static final int DAMAGE_PER_MATCHING_CARD = 3;
-    private static final int UPGRADE_PLUS_PER_MATCHING_CARD = 2;
+    private static final int UPGRADED_COST = 1;
+    private static final int THORNS_PER_MATCHING_CARD = 1;
 
     public AnimateObjects() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = DAMAGE_PER_MATCHING_CARD;
         baseMagicNumber = 0;
-        isMultiDamage = true;
+        baseMetaMagicNumber = metaMagicNumber = THORNS_PER_MATCHING_CARD;
+        this.exhaust = true;
     }
 
     private int countCardsThatDidNotStartCombatInDeck(CardGroup group) {
@@ -46,9 +46,7 @@ public class AnimateObjects extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster monster) {
-        for (int i = 0; i < magicNumber; ++i) {
-            addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.FIRE));
-        }
+        addToBot(new ApplyPowerAction(p, p, new ThornsPower(p, magicNumber)));
     }
 
     @Override
@@ -60,7 +58,7 @@ public class AnimateObjects extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_PER_MATCHING_CARD);
+            upgradeBaseCost(UPGRADED_COST);
             upgradeDescription();
         }
     }
