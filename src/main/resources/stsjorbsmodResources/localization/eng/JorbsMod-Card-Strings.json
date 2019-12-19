@@ -97,7 +97,7 @@
   "stsjorbsmod:Determination": {
     "NAME": "Determination",
     "DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of this turn, stsjorbsmod:Snap. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of your next turn, stsjorbsmod:Snap. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Pride. NL Exhaust."
   },
   "stsjorbsmod:DisguiseSelf": {
     "NAME": "Disguise Self",

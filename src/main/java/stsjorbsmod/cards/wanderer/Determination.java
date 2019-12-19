@@ -23,7 +23,6 @@ public class Determination extends CustomJorbsModCard {
 
     private static final int COST = 2;
     private static final int TURNS_UNTIL_SNAP = 1;
-    private static final int UPGRADE_PLUS_TURNS_UNTIL_SNAP = 1;
 
     public Determination() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
@@ -37,14 +36,15 @@ public class Determination extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new RememberSpecificMemoryAction(p, PrideMemory.STATIC.ID));
-        addToBot(new ApplyPowerAction(p, p, new FragilePower(p, magicNumber), magicNumber));
+        if (!upgraded) {
+            addToBot(new ApplyPowerAction(p, p, new FragilePower(p, magicNumber), magicNumber));
+        }
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_TURNS_UNTIL_SNAP);
             upgradeDescription();
         }
     }
