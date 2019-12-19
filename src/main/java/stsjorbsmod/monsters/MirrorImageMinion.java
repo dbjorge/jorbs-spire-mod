@@ -1,15 +1,13 @@
 package stsjorbsmod.monsters;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.patches.IsMonsterFriendlyField;
 import stsjorbsmod.powers.MirrorImagePower;
@@ -43,8 +41,24 @@ public class MirrorImageMinion extends AbstractMonster {
         this.owningPower = owningPower;
         IsMonsterFriendlyField.isFriendly.set(this, true);
 
-        this.drawX = owningPower.owner.drawX + (OWNER_OFFSET_X * Settings.scale);
-        this.drawY = owningPower.owner.drawY + (OWNER_OFFSET_Y * Settings.scale);
+        setPositionFromOwner(owningPower.owner);
+    }
+
+    @Override
+    public void update() {
+        super.update();
+        // The desired effect is for the minion to turn with the player in the shield and spear fight, but
+        // stay behind when the player smoke bombs.
+        if (!owningPower.owner.isEscaping) {
+            setPositionFromOwner(owningPower.owner);
+        }
+    }
+
+    public void setPositionFromOwner(AbstractCreature owner) {
+        this.flipHorizontal = owner.flipHorizontal;
+        int flipMultiplier = owner.flipHorizontal ? -1 : 1;
+        this.drawX = owner.drawX + flipMultiplier * (OWNER_OFFSET_X * Settings.scale);
+        this.drawY = owner.drawY + (OWNER_OFFSET_Y * Settings.scale);
     }
 
     @Override
