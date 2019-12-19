@@ -50,7 +50,7 @@ public class MirrorImagePower extends AbstractPower implements OnDamageToRedirec
         MirrorImageMinion minion = new MirrorImageMinion(this, this.amount);
         // -1 turns prevents it from displaying a turn duration. We don't worry about it expiring because we
         // intentionally don't set the minion up to receive onEndRound events.
-        addToBot(new ApplyPowerAction(minion, minion, new IntangiblePlayerPower(minion, -1)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(minion, minion, new IntangiblePlayerPower(minion, -1)));
         minion.init();
         minion.showHealthBar();
         return minion;
