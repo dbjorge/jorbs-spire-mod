@@ -245,6 +245,7 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
 
         ArrayList<String> retVal = new ArrayList<>();
 
+        retVal.add(ForbiddenGrimoire.ID);
         retVal.add(Strike_Wanderer.ID);
         retVal.add(Strike_Wanderer.ID);
         retVal.add(Strike_Wanderer.ID);
@@ -255,7 +256,6 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
         retVal.add(Defend_Wanderer.ID);
         retVal.add(FreshAdventure.ID);
         retVal.add(EyeOfTheStorm.ID);
-        retVal.add(ForbiddenGrimoire.ID);
 
         return retVal;
     }
