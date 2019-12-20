@@ -20,6 +20,10 @@
       " NL (Gain !M! Thorns.)"
     ]
   },
+  "stsjorbsmod:Apparate": {
+    "NAME": "Apparate",
+    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Vulnerable. Deal !D! damage and apply !M! vulnerable to all enemies."
+  },
   "stsjorbsmod:Apparition_Cull": {
     "NAME": "Apparition",
     "DESCRIPTION": "Ethereal. NL Gain !M! Intangible. NL Exhaust.",
