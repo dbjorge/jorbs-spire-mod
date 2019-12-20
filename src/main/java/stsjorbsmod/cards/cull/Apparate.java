@@ -26,9 +26,9 @@ public class Apparate extends CustomJorbsModCard {
     private static final int DAMAGE = 10;
     private static final int SELF_VULNERABLE = 3;
     private static final int ENEMY_VULNERABLE = 3;
-    private static final int UPGRADE_PLUS_DAMAGE = 2;
+    private static final int UPGRADE_PLUS_DAMAGE = 3;
 
-    public Apparate(){
+    public Apparate() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = ENEMY_VULNERABLE;
@@ -40,14 +40,14 @@ public class Apparate extends CustomJorbsModCard {
         addToBot(new ApplyPowerAction(p, p, new VulnerablePower(p, urMagicNumber, false)));
         addToBot(new VFXAction(new CleaveEffect()));
         addToBot(new DamageAllEnemiesAction(p, DamageInfo.createDamageMatrix(damage), DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE));
-        for(AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
+        for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
             addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false)));
         }
     }
 
     @Override
     public void upgrade() {
-        if(!upgraded) {
+        if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DAMAGE);
             upgradeDescription();
