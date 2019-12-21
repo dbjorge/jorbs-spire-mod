@@ -86,6 +86,10 @@
     "NAME": "Counterspell",
     "DESCRIPTION": "Gain !B! Block. NL Gain !M! Artifact if enemy intends to apply a negative effect. NL Exhaust."
   },
+  "stsjorbsmod:CULLCard": {
+    "NAME": "CULL",
+    "DESCRIPTION": "Permanently decrease this card's damage by !stsjorbsmod:UrMagic! each time it is drawn. NL Deal !D! damage twice. NL If Fatal, permanently increase this card's damage by !M!. NL Exhaust."
+  },
   "stsjorbsmod:DeathThroes": {
     "NAME": "Death Throes",
     "DESCRIPTION": "stsjorbsmod:Entombed. stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume whenever an enemy dies. NL Deal !D! damage. NL Remember stsjorbsmod:Wrath."

@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.cards.cull.Apparition_Cull;
+import stsjorbsmod.cards.cull.CULLCard;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -199,7 +200,7 @@ public class Cull extends CustomPlayer {
 
         ArrayList<String> retVal = new ArrayList<>();
 
-        // retVal.add(CULL.ID);
+        retVal.add(CULLCard.ID);
         retVal.add(Apparition_Cull.ID);
         // retVal.add(Frostbite.ID);
         // retVal.add(Apparate.ID);
