@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.PermanentlyModifyDamageAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.cards.OnDrawCardSubscriber;
 import stsjorbsmod.characters.Cull;
@@ -17,7 +18,7 @@ import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 public class CULLCard extends CustomJorbsModCard implements OnDrawCardSubscriber {
     public static final String ID = JorbsMod.makeID(CULLCard.class);
 
-    private static final CardRarity RARITY = CardRarity.SPECIAL;
+    private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = Cull.Enums.CULL_CARD_COLOR;
@@ -46,14 +47,13 @@ public class CULLCard extends CustomJorbsModCard implements OnDrawCardSubscriber
 
     @Override
     public void applyPowers() {
-        baseBlock = misc;
         super.applyPowers();
         initializeDescription();
     }
 
     @Override
     public void onDraw() {
-        addToBot(new ModifyDamageAction(uuid, -urMagicNumber));
+        addToBot(new PermanentlyModifyDamageAction(uuid, -urMagicNumber));
     }
 
     @Override

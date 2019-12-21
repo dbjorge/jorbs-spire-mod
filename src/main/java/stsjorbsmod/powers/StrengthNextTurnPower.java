@@ -16,18 +16,12 @@ import stsjorbsmod.util.TextureLoader;
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
 public class StrengthNextTurnPower extends CustomJorbsModPower {
-    public static final String POWER_ID = JorbsMod.makeID(StrengthNextTurnPower.class.getSimpleName());
-    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
-    public static final String NAME = powerStrings.NAME;
-    public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("strength_next_turn_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("strength_next_turn_power32.png"));
-
-    private int damageAbsorbedThisTurn = 0;
+    public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(StrengthNextTurnPower.class);
+    public static final String POWER_ID = STATIC.ID;
 
     public StrengthNextTurnPower(AbstractCreature owner, int amount) {
-        super(StaticPowerInfo.Load(StrengthNextTurnPower.class));
+        super(STATIC);
+
         this.owner = owner;
         this.amount = amount;
 
