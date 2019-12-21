@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.CullCardAction;
 import stsjorbsmod.actions.PermanentlyModifyDamageAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.cards.OnDrawCardSubscriber;
@@ -41,8 +42,7 @@ public class CULLCard extends CustomJorbsModCard implements OnDrawCardSubscriber
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new RitualDaggerAction(m, new DamageInfo(p, damage, damageTypeForTurn), magicNumber, uuid));
-        this.addToBot(new RitualDaggerAction(m, new DamageInfo(p, damage, damageTypeForTurn), magicNumber, uuid));
+        this.addToBot(new CullCardAction(m, new DamageInfo(p, damage, damageTypeForTurn), magicNumber, uuid));
     }
 
     @Override
@@ -54,6 +54,11 @@ public class CULLCard extends CustomJorbsModCard implements OnDrawCardSubscriber
     @Override
     public void onDraw() {
         addToBot(new PermanentlyModifyDamageAction(uuid, -urMagicNumber));
+    }
+
+    @Override
+    public void applyLoadedMiscValue(int misc) {
+        baseDamage = this.misc = misc;
     }
 
     @Override
