@@ -7,13 +7,16 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.MemoryManager;
+import stsjorbsmod.patches.LegendaryPatch;
 import stsjorbsmod.patches.SelfExhumeFields;
+import stsjorbsmod.powers.ExhumeAtStartOfTurnPower;
 import stsjorbsmod.powers.SnappedPower;
 
 
@@ -22,8 +25,15 @@ public class SnapAction extends AbstractGameAction {
     private static final int ENEMY_DAMAGE_PER_CLARITY = 6;
     private static final int PLAYER_DAMAGE_PER_CLARITY = 3;
 
-    public SnapAction(AbstractCreature target) {
+    private final boolean isEndOfTurn;
+
+    public SnapAction(AbstractCreature target, boolean isEndOfTurn) {
         this.target = target;
+        this.isEndOfTurn = isEndOfTurn;
+    }
+
+    public SnapAction(AbstractCreature target) {
+        this(target, false);
     }
 
     public void update() {
@@ -56,7 +66,12 @@ public class SnapAction extends AbstractGameAction {
 
         MemoryManager.forPlayer(target).snap();
 
-        AbstractDungeon.actionManager.addToBottom(new ExhumeCardsAction(SelfExhumeFields.selfExhumeOnSnap::get));
+        if (isEndOfTurn) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, target,
+                    new ExhumeAtStartOfTurnPower(target, SelfExhumeFields.selfExhumeOnSnap::get)));
+        } else {
+            AbstractDungeon.actionManager.addToBottom(new ExhumeCardsAction(SelfExhumeFields.selfExhumeOnSnap::get));
+        }
 
         isDone = true;
     }

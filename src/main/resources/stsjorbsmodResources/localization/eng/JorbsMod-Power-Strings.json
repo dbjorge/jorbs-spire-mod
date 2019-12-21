@@ -53,6 +53,12 @@
       " additional [E] next turn."
     ]
   },
+  "stsjorbsmod:ExhumeAtStartOfTurnPower": {
+    "NAME": "Exhume",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, you will Exhume some cards."
+    ]
+  },
   "stsjorbsmod:FearPower": {
     "NAME": "Afraid",
     "DESCRIPTIONS": [
@@ -123,8 +129,8 @@
   "stsjorbsmod:MirrorImagePower": {
     "NAME": "Mirror Image",
     "DESCRIPTIONS": [
-      "%1$s Mirror Image stands ready to intercept damage for you.",
-      "%1$s Mirror Images stand ready to intercept damage for you."
+      "A Mirror Image stands ready to intercept %1$s attack for you.",
+      "A Mirror Image stands ready to intercept %1$s attacks for you."
     ]
   },
   "stsjorbsmod:MustClarifyBeforeRememberingNewMemoriesPower": {

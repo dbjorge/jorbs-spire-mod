@@ -8,6 +8,7 @@ import stsjorbsmod.actions.PatronAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.cards.DowngradeableCard;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.patches.EntombedField;
 import stsjorbsmod.patches.EphemeralField;
 import stsjorbsmod.patches.SelfExhumeFields;
 import stsjorbsmod.util.CardMetaUtils;
@@ -30,6 +31,7 @@ public class Patron extends CustomJorbsModCard implements DowngradeableCard {
     public Patron() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
+        EntombedField.entombed.set(this, true);
         EphemeralField.ephemeral.set(this, true);
         SelfExhumeFields.selfExhumeOnSnap.set(this, true);
     }

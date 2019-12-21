@@ -15,10 +15,14 @@
   },
   "stsjorbsmod:AnimateObjects": {
     "NAME": "Animate Objects",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies once per non-exhausted card added to your deck this combat.",
+    "DESCRIPTION": "Gain Thorns equal to the number of non-exhausted cards that didn't start the combat in your deck. Exhaust.",
     "EXTENDED_DESCRIPTION": [
-      " NL (Hits !M! times.)"
+      " NL (Gain !M! Thorns.)"
     ]
+  },
+  "stsjorbsmod:Apparate": {
+    "NAME": "Apparate",
+    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Vulnerable. NL Deal !D! damage and apply !M! Vulnerable to ALL enemies."
   },
   "stsjorbsmod:Apparition_Cull": {
     "NAME": "Apparition",
@@ -40,8 +44,7 @@
   },
   "stsjorbsmod:BlackTentacles": {
     "NAME": "Black Tentacles",
-    "DESCRIPTION": "Deal !D! damage. NL This turn, all damage you deal to other enemies is dealt to this enemy instead.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL This turn, all damage you deal to other enemies is dealt to this enemy instead. NL Draw !M! card."
+    "DESCRIPTION": "Deal !D! damage. NL This turn, all damage you deal to other enemies is dealt to this enemy instead."
   },
   "stsjorbsmod:BookOfTongues": {
     "NAME": "Book of Tongues",
@@ -98,7 +101,7 @@
   "stsjorbsmod:Determination": {
     "NAME": "Determination",
     "DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of this turn, stsjorbsmod:Snap. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of your next turn, stsjorbsmod:Snap. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Pride. NL Exhaust."
   },
   "stsjorbsmod:DisguiseSelf": {
     "NAME": "Disguise Self",
@@ -292,8 +295,7 @@
   },
   "stsjorbsmod:MirrorImage": {
     "NAME": "Mirror Image",
-    "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Summon !M! Mirror Image with 1 HP. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Summon !M! Mirror Images with 1 HP. NL Exhaust."
+    "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Summon an Intangible Mirror Image with !M! HP. NL Exhaust."
   },
   "stsjorbsmod:MistyStep": {
     "NAME": "Misty Step",
@@ -318,8 +320,8 @@
   },
   "stsjorbsmod:Patron": {
     "NAME": "Patron",
-    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume when you stsjorbsmod:Snap. NL Deal !D! damage. NL stsjorbsmod:Destroy.",
-    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume when you stsjorbsmod:Snap. NL Deal !D! damage. NL stsjorbsmod:Downgrade."
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until you stsjorbsmod:Snap. NL Deal !D! damage. NL stsjorbsmod:Destroy.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until you stsjorbsmod:Snap. NL Deal !D! damage. NL stsjorbsmod:Downgrade."
   },
   "stsjorbsmod:Prepare": {
     "NAME": "Prepare",
