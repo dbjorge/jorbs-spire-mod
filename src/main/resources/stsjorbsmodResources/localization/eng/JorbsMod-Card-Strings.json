@@ -22,7 +22,7 @@
   },
   "stsjorbsmod:Apparate": {
     "NAME": "Apparate",
-    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Vulnerable. Deal !D! damage and apply !M! vulnerable to all enemies."
+    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Vulnerable. Deal !D! damage and apply !M! Vulnerable to ALL enemies."
   },
   "stsjorbsmod:Apparition_Cull": {
     "NAME": "Apparition",

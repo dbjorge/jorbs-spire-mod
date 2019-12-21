@@ -4,7 +4,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -33,13 +32,14 @@ public class Apparate extends CustomJorbsModCard {
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = ENEMY_VULNERABLE;
         urMagicNumber = baseUrMagicNumber = SELF_VULNERABLE;
+        this.isMultiDamage = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
         addToBot(new ApplyPowerAction(p, p, new VulnerablePower(p, urMagicNumber, false)));
         addToBot(new VFXAction(new CleaveEffect()));
-        addToBot(new DamageAllEnemiesAction(p, DamageInfo.createDamageMatrix(damage), DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE));
+        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
         for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
             addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false)));
         }
