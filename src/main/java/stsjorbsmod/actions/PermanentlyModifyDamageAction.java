@@ -28,12 +28,6 @@ public class PermanentlyModifyDamageAction extends ModifyDamageAction {
                 c.isDamageModified = false;
             }
         }
-
-        for(var1 = GetAllInBattleInstances.get(uuid).iterator(); var1.hasNext(); c.baseDamage = c.misc) {
-            c = (AbstractCard)var1.next();
-            c.misc += this.amount;
-            c.applyPowers();
-        }
         super.update();
     }
 }

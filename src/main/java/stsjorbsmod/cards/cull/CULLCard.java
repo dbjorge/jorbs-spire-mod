@@ -6,7 +6,9 @@ import com.megacrit.cardcrawl.actions.common.ModifyDamageAction;
 import com.megacrit.cardcrawl.actions.unique.RitualDaggerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.CullCardAction;
 import stsjorbsmod.actions.PermanentlyModifyDamageAction;
@@ -42,7 +44,8 @@ public class CULLCard extends CustomJorbsModCard implements OnDrawCardSubscriber
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new CullCardAction(m, new DamageInfo(p, damage, damageTypeForTurn), magicNumber, uuid));
+        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        this.addToBot(new RitualDaggerAction(m, new DamageInfo(p, damage, damageTypeForTurn), magicNumber, uuid));
     }
 
     @Override
