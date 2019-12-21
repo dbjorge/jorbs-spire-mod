@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.relics.SpiritPoop;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import stsjorbsmod.cards.cull.Apparate;
 import stsjorbsmod.cards.cull.Apparition_Cull;
 import stsjorbsmod.cards.cull.CULLCard;
 import stsjorbsmod.cards.cull.Inhale;
@@ -204,7 +205,7 @@ public class Cull extends CustomPlayer {
         retVal.add(CULLCard.ID);
         retVal.add(Apparition_Cull.ID);
         // retVal.add(Frostbite.ID);
-        // retVal.add(Apparate.ID);
+        retVal.add(Apparate.ID);
         retVal.add(Inhale.ID);
         // retVal.add(SpiritShield_Cull.ID);
         // retVal.add(Siphon.ID);
