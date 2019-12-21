@@ -23,6 +23,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.cards.cull.Apparate;
 import stsjorbsmod.cards.cull.Apparition_Cull;
+import stsjorbsmod.cards.cull.CULLCard;
+import stsjorbsmod.cards.cull.Inhale;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -200,11 +202,11 @@ public class Cull extends CustomPlayer {
 
         ArrayList<String> retVal = new ArrayList<>();
 
-        // retVal.add(CULL.ID);
+        retVal.add(CULLCard.ID);
         retVal.add(Apparition_Cull.ID);
         // retVal.add(Frostbite.ID);
         retVal.add(Apparate.ID);
-        // retVal.add(Inhale.ID);
+        retVal.add(Inhale.ID);
         // retVal.add(SpiritShield_Cull.ID);
         // retVal.add(Siphon.ID);
         // retVal.add(SplinterSoul.ID);

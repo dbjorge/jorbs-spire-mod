@@ -186,5 +186,11 @@
     "DESCRIPTIONS": [
       "Ignore the first #b%1$s damage taken each turn."
     ]
+  },
+  "stsjorbsmod:StrengthNextTurnPower": {
+    "NAME": "Strength Next Turn",
+    "DESCRIPTIONS": [
+      "At the start of next turn, gain #b%1$s Strength."
+    ]
   }
 }
