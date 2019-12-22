@@ -36,7 +36,7 @@ public class CullCardAction extends AbstractGameAction {
             second = true;
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(target.hb.cX, target.hb.cY, AttackEffect.SLASH_VERTICAL));
             target.damage(info);
-            if ((target.isDying || target.currentHealth <= 0) && !target.halfDead && !target.hasPower("Minion")) {
+            if ((target.isDying || target.currentHealth <= 0) && !target.halfDead) {
                 for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
                     if (c.uuid.equals(uuid)) {
                         c.misc += this.increaseAmount;
