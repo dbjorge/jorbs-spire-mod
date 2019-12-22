@@ -44,8 +44,7 @@ public class CULLCard extends CustomJorbsModCard implements OnDrawCardSubscriber
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-        this.addToBot(new RitualDaggerAction(m, new DamageInfo(p, damage, damageTypeForTurn), magicNumber, uuid));
+        this.addToBot(new CullCardAction(m, new DamageInfo(p, damage, damageTypeForTurn), magicNumber, uuid));
     }
 
     @Override

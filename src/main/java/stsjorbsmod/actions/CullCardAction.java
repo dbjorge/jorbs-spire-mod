@@ -15,29 +15,30 @@ public class CullCardAction extends AbstractGameAction {
     private int increaseAmount;
     private DamageInfo info;
     private UUID uuid;
+    private boolean first = false;
+    private boolean second = false;
 
     public CullCardAction(AbstractCreature target, DamageInfo info, int incAmount, UUID targetUUID) {
         this.info = info;
-        this.setValues(target, info);
-        this.increaseAmount = incAmount;
-        this.actionType = ActionType.DAMAGE;
-        this.duration = 0.1F;
-        this.uuid = targetUUID;
+        setValues(target, info);
+        increaseAmount = incAmount;
+        actionType = ActionType.DAMAGE;
+        duration = startDuration = 0.2F;
+        uuid = targetUUID;
     }
 
     public void update() {
-        if (this.duration == 0.1F && this.target != null) {
-            AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.SLASH_HORIZONTAL));
-            this.target.damage(this.info);
-            AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.SLASH_VERTICAL));
-            this.target.damage(this.info);
-            if ((this.target.isDying || this.target.currentHealth <= 0) && !this.target.halfDead && !this.target.hasPower("Minion")) {
-                Iterator var1 = AbstractDungeon.player.masterDeck.group.iterator();
-
-                AbstractCard c;
-                while(var1.hasNext()) {
-                    c = (AbstractCard)var1.next();
-                    if (c.uuid.equals(this.uuid)) {
+        if (!first && duration == startDuration && target != null) {
+            first = true;
+            AbstractDungeon.effectList.add(new FlashAtkImgEffect(target.hb.cX, target.hb.cY, AttackEffect.SLASH_HORIZONTAL));
+            target.damage(this.info);
+        } else if (!second && duration <= 0.1F && target != null) {
+            second = true;
+            AbstractDungeon.effectList.add(new FlashAtkImgEffect(target.hb.cX, target.hb.cY, AttackEffect.SLASH_VERTICAL));
+            target.damage(info);
+            if ((target.isDying || target.currentHealth <= 0) && !target.halfDead && !target.hasPower("Minion")) {
+                for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+                    if (c.uuid.equals(uuid)) {
                         c.misc += this.increaseAmount;
                         c.applyPowers();
                         c.baseDamage = c.misc;
@@ -45,10 +46,10 @@ public class CullCardAction extends AbstractGameAction {
                     }
                 }
 
-                for(var1 = GetAllInBattleInstances.get(this.uuid).iterator(); var1.hasNext(); c.baseDamage = c.misc) {
-                    c = (AbstractCard)var1.next();
+                for (AbstractCard c : GetAllInBattleInstances.get(uuid)) {
                     c.misc += this.increaseAmount;
                     c.applyPowers();
+                    c.baseDamage = c.misc;
                 }
             }
 
