@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class ToilAction extends AbstractGameAction {
     private DamageInfo info;
@@ -27,7 +26,7 @@ public class ToilAction extends AbstractGameAction {
 
     public void update() {
         if (duration == Settings.ACTION_DUR_MED && target != null) {
-            AbstractDungeon.effectList.add(new FlashAtkImgEffect(target.hb.cX, target.hb.cY, AbstractGameAction.AttackEffect.NONE));
+            AbstractDungeon.effectList.add(new FlashAtkImgEffect(target.hb.cX, target.hb.cY, AttackEffect.BLUNT_HEAVY));
             target.damage(info);
             if ((target.isDying || target.currentHealth <= 0) && !target.halfDead) {
                 ArrayList<AbstractCard> possibleCards = new ArrayList<>();

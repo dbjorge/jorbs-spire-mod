@@ -104,10 +104,6 @@ public class JorbsMod implements
         // Use on a card that remembers a memory, which is mechanic specific to the Wanderer character.
         @SpireEnum(name = "REMEMBER_MEMORY")
         public static AbstractCard.CardTags REMEMBER_MEMORY;
-
-        // Use on a card that performs metaupgrades, like Toil.
-        @SpireEnum(name = "METAUPGRADE")
-        public static AbstractCard.CardTags METAUPGRADE;
     }
 
     // =============== INPUT TEXTURE LOCATION =================

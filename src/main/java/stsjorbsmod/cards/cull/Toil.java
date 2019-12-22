@@ -1,6 +1,5 @@
 package stsjorbsmod.cards.cull;
 
-import com.megacrit.cardcrawl.actions.watcher.LessonLearnedAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -9,7 +8,7 @@ import stsjorbsmod.actions.ToilAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 
-import static stsjorbsmod.JorbsMod.JorbsCardTags.METAUPGRADE;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
 
 public class Toil extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Toil.class);
@@ -27,7 +26,7 @@ public class Toil extends CustomJorbsModCard {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         exhaust = true;
-        tags.add(METAUPGRADE);
+        tags.add(PERSISTENT_POSITIVE_EFFECT);
     }
 
     @Override
