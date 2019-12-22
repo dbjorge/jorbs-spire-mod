@@ -192,6 +192,10 @@
     "DESCRIPTION": "Draw !M! cards. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional time.",
     "UPGRADE_DESCRIPTION": "Draw !M! cards. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional times."
   },
+  "stsjorbsmod:Haunt": {
+    "NAME": "Haunt",
+    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Next turn, draw !M! additional cards. NL Exhaust."
+  },
   "stsjorbsmod:HedgeWizard": {
     "NAME": "Hedge Wizard",
     "DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Humility."
@@ -436,6 +440,10 @@
     "NAME": "Sulfur",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Apply !M! stsjorbsmod:Burning."
   },
+  "stsjorbsmod:Taunt": {
+    "NAME": "Taunt",
+    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Apply 3 Vulnerable to ALL enemies. NL Exhaust."
+  },
   "stsjorbsmod:ThirstingSword": {
     "NAME": "Thirsting Sword",
     "DESCRIPTION": "Apply !M! stsjorbsmod:Burning and heal HP equal to target's stsjorbsmod:Burning. NL Lose !stsjorbsmod:MetaMagic! Max HP. NL Deal !D! damage. NL Exhaust."
@@ -454,6 +462,10 @@
     "NAME": "Tiny Hut",
     "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Gain stsjorbsmod:Clarity of current memory.",
     "UPGRADE_DESCRIPTION": "Innate. NL Remember stsjorbsmod:Kindness. NL Gain stsjorbsmod:Clarity of current memory."
+  },
+  "stsjorbsmod:Toil": {
+    "NAME": "Toil",
+    "DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, permanently upgrade a random card. NL Exhaust."
   },
   "stsjorbsmod:TollTheDead": {
     "NAME": "Toll the Dead",

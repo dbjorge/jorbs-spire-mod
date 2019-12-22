@@ -211,6 +211,9 @@ public abstract class CustomJorbsModCard extends CustomCard {
 
     public void onMoveToDiscardImpl() { }
 
+    public void applyLoadedMiscValue(int misc) {
+    }
+
     public boolean shouldGlowGold() { return false; }
 
     /* TODO: once beta branch releases, replace with the following:
