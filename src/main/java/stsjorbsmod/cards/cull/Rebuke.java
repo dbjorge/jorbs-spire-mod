@@ -5,7 +5,9 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 import stsjorbsmod.JorbsMod;
@@ -21,36 +23,42 @@ public class Rebuke extends CustomJorbsModCard {
     public static final CardColor COLOR = Cull.Enums.CULL_CARD_COLOR;
 
     private static final int COST = 2;
-    private static final int DAMAGE = 10;
+    private static final int DAMAGE_PER_INTANGIBLE = 10;
     private static final int UPGRADE_PLUS_DAMAGE = 3;
     private static final int SELF_INTANGIBLE = 1;
 
     public Rebuke() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = DAMAGE;
-        magicNumber = baseMagicNumber = SELF_INTANGIBLE;
+        damage = baseDamage = 0;
+        magicNumber = baseMagicNumber = DAMAGE_PER_INTANGIBLE;
+        urMagicNumber = baseUrMagicNumber = SELF_INTANGIBLE;
         this.isMultiDamage = true;
         this.exhaust = true;
     }
 
     @Override
+    public int calculateBonusBaseDamage() {
+        AbstractPower possibleIntangiblePower = AbstractDungeon.player.getPower(IntangiblePlayerPower.POWER_ID);
+        return possibleIntangiblePower == null ? magicNumber : (possibleIntangiblePower.amount + SELF_INTANGIBLE) * magicNumber;
+    }
+
+    @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
-        addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, magicNumber)));
-        int intangibleAmount = magicNumber;
-        if (p.hasPower("IntangiblePlayer")) {
-            intangibleAmount += p.getPower("IntangiblePlayer").amount;
-        }
-        this.baseDamage *= intangibleAmount;
-        this.calculateCardDamage(abstractMonster);
+        addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, urMagicNumber)));
         addToBot(new VFXAction(new CleaveEffect()));
         this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
+    }
+
+    @Override
+    public String getRawDynamicDescriptionSuffix() {
+        return EXTENDED_DESCRIPTION[0];
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DAMAGE);
+            upgradeMagicNumber(UPGRADE_PLUS_DAMAGE);
             upgradeDescription();
         }
     }

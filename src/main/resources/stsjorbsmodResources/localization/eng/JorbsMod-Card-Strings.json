@@ -371,7 +371,10 @@
   },
   "stsjorbsmod:Rebuke": {
     "NAME": "Rebuke",
-    "DESCRIPTION": "Gain !M! Intangible. NL Deal !D! Damage to ALL enemies for each Intangible you have. NL Exhaust."
+    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Deal !M! damage to ALL enemies for each Intangible you have. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
   },
   "stsjorbsmod:Rediscovery": {
     "NAME": "Rediscovery",
