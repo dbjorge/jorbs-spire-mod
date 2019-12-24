@@ -369,6 +369,10 @@
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak !stsjorbsmod:MetaMagic! times."
   },
+  "stsjorbsmod:Rebuke": {
+    "NAME": "Rebuke",
+    "DESCRIPTION": "Gain !M! Intangible. NL Deal !D! Damage to ALL enemies for each Intangible you have. NL Exhaust."
+  },
   "stsjorbsmod:Rediscovery": {
     "NAME": "Rediscovery",
     "DESCRIPTION": "Whenever you gain stsjorbsmod:Clarity of a new memory, gain 1 [E].",
