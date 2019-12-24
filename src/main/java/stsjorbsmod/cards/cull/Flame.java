@@ -28,7 +28,6 @@ public class Flame extends CustomJorbsModCard {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = BURNING_AMOUNT;
         urMagicNumber = baseUrMagicNumber = ENEMY_VULNERABLE;
-        this.isMultiDamage = true;
     }
 
     @Override

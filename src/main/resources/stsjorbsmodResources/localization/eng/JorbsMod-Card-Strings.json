@@ -168,7 +168,7 @@
   },
   "stsjorbsmod:Flame": {
     "NAME": "Flame",
-    "DESCRIPTION": "Apply !M! burning. NL Apply !stsjorbsmod:UrMagic! Vulnerable."
+    "DESCRIPTION": "Apply !M! stsjorbsmod:Burning. NL Apply !stsjorbsmod:UrMagic! Vulnerable."
   },
   "stsjorbsmod:FlameWard": {
     "NAME": "Flame Ward",
