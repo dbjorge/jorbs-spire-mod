@@ -170,6 +170,10 @@
       " NL (Applies !M! Burning.)"
     ]
   },
+  "stsjorbsmod:Flame": {
+    "NAME": "Flame",
+    "DESCRIPTION": "Apply !M! stsjorbsmod:Burning. NL Apply !stsjorbsmod:UrMagic! Vulnerable."
+  },
   "stsjorbsmod:FlameWard": {
     "NAME": "Flame Ward",
     "DESCRIPTION": "The next time you are attacked, apply !M! stsjorbsmod:Burning to ALL attackers and gain !B! Block. Exhaust."
