@@ -343,6 +343,10 @@
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until you stsjorbsmod:Snap. NL Deal !D! damage. NL stsjorbsmod:Destroy.",
     "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until you stsjorbsmod:Snap. NL Deal !D! damage. NL stsjorbsmod:Downgrade."
   },
+  "stsjorbsmod:Poultergeist": {
+    "NAME": "Poultergeist",
+    "DESCRIPTION": "Deal !D! damage."
+  },
   "stsjorbsmod:Prepare": {
     "NAME": "Prepare",
     "DESCRIPTION": "Gain !stsjorbsmod:MetaMagic! stsjorbsmod:Coil. NL Gain Block equal to your stsjorbsmod:Coil.",
