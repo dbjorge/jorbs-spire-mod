@@ -55,6 +55,10 @@
     "NAME": "Brambles",
     "DESCRIPTION": "Deal !D! damage."
   },
+  "stsjorbsmod:Brooding": {
+    "NAME": "Brooding",
+    "DESCRIPTION": "Draw !M! cards. NL Add a random curse to your discard pile."
+  },
   "stsjorbsmod:BurningFlask": {
     "NAME": "Burning Flask",
     "DESCRIPTION": "Apply !M! stsjorbsmod:Burning."
