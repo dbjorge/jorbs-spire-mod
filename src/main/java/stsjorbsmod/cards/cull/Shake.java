@@ -3,6 +3,7 @@ package stsjorbsmod.cards.cull;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import stsjorbsmod.JorbsMod;
@@ -30,11 +31,27 @@ public class Shake extends CustomJorbsModCard {
     }
 
     @Override
+    public boolean shouldGlowGold() {
+        return isEligibleForExtraEffect();
+    }
+
+
+    private boolean isEligibleForExtraEffect() {
+
+        for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (!m.isDeadOrEscaped() && m.hasPower(VulnerablePower.POWER_ID)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
-        if (abstractMonster.hasPower("Vulnerable")) {
+        if (abstractMonster.hasPower(VulnerablePower.POWER_ID)) {
             addToBot(new DrawCardAction(magicNumber));
         }
-        addToBot(new ApplyPowerAction(abstractMonster, p, new VulnerablePower(p, urMagicNumber, false)));
+        addToBot(new ApplyPowerAction(abstractMonster, p, new VulnerablePower(abstractMonster, urMagicNumber, false)));
     }
 
     @Override
@@ -42,6 +59,7 @@ public class Shake extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_CARDS);
+            upgradeDescription();
         }
     }
 }

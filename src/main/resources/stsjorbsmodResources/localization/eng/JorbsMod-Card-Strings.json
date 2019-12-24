@@ -398,7 +398,7 @@
   },
   "stsjorbsmod:Shake": {
     "NAME": "Shake",
-    "DESCRIPTION": "If enemy is Vulnerable, draw !M! cards. NL Apply 1 Vulnerable. NL Exhaust."
+    "DESCRIPTION": "If enemy is Vulnerable, draw !M! cards. NL Apply !stsjorbsmod:UrMagic! Vulnerable. NL Exhaust."
   },
   "stsjorbsmod:SiphonEnergy": {
     "NAME": "Siphon Energy",
