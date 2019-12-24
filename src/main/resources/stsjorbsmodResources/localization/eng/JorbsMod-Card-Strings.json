@@ -400,6 +400,10 @@
     "NAME": "Scorching Ray",
     "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Apply !stsjorbsmod:MetaMagic! stsjorbsmod:Burning !M! times. This stsjorbsmod:Burning is affected by Strength."
   },
+  "stsjorbsmod:Shake": {
+    "NAME": "Shake",
+    "DESCRIPTION": "If enemy is Vulnerable, draw !M! cards. NL Apply !stsjorbsmod:UrMagic! Vulnerable. NL Exhaust."
+  },
   "stsjorbsmod:SiphonEnergy": {
     "NAME": "Siphon Energy",
     "DESCRIPTION": "Remove all stsjorbsmod:Burning from target and gain that much Strength until end of turn. NL Exhaust.",
