@@ -436,6 +436,10 @@
       " NL (Deals !D! damage.)"
     ]
   },
+  "stsjorbsmod:SpiritShield_Cull": {
+    "NAME": "Spirit Shield",
+    "DESCRIPTION": "Reduce all damage taken by !M! until next turn."
+  },
   "stsjorbsmod:Stalwart": {
     "NAME": "Stalwart",
     "DESCRIPTION": "Remember stsjorbsmod:Temperance. NL Exhaust.",
