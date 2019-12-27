@@ -184,8 +184,8 @@
   "stsjorbsmod:SpiritShieldPower": {
     "NAME": "Spirit Shield",
     "DESCRIPTIONS": [
-      "Reduce all damage by #b",
-      " for ",
+      "Reduce all damage by ",
+      " for #b",
       " turn.",
       " turns."
     ]
