@@ -195,6 +195,10 @@
     "NAME": "Fresh Adventure",
     "DESCRIPTION": "Deal !D! damage. NL Remember stsjorbsmod:Diligence."
   },
+  "stsjorbsmod:Frostbite": {
+    "NAME": "Frostbite",
+    "DESCRIPTION": "Deal !D! damage. NL If Fatal, stsjorbsmod:Consume this."
+  },
   "stsjorbsmod:GatherPower": {
     "NAME": "Gather Power",
     "DESCRIPTION": "Draw !M! cards. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional time.",
