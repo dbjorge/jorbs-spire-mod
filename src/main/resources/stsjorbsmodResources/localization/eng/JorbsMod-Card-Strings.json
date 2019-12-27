@@ -419,6 +419,10 @@
     "NAME": "Shake",
     "DESCRIPTION": "If enemy is Vulnerable, draw !M! cards. NL Apply !stsjorbsmod:UrMagic! Vulnerable. NL Exhaust."
   },
+  "stsjorbsmod:Siphon": {
+    "NAME": "Siphon",
+    "DESCRIPTION": "Deal !D! damage. NL If Fatal, heal !M! HP."
+  },
   "stsjorbsmod:SiphonEnergy": {
     "NAME": "Siphon Energy",
     "DESCRIPTION": "Remove all stsjorbsmod:Burning from target and gain that much Strength until end of turn. NL Exhaust.",
