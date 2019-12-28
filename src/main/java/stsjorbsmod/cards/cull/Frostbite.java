@@ -4,7 +4,8 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.ConsumeCardIfFatalAction;
+import stsjorbsmod.actions.ConsumeCardAction;
+import stsjorbsmod.actions.DamageWithOnKillEffectAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 
@@ -30,7 +31,8 @@ public class Frostbite extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ConsumeCardIfFatalAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), this));
+        Runnable onKillEffect = () -> addToBot(new ConsumeCardAction(this));
+        this.addToBot(new DamageWithOnKillEffectAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), onKillEffect, true));
     }
 
     @Override
