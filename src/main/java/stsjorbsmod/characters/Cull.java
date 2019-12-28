@@ -107,7 +107,7 @@ public class Cull extends CustomPlayer {
 
     // =============== STRINGS =================
 
-    private static final String ID = makeID("CullCharacter");
+    public static final String ID = makeID("CullCharacter");
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     private static final String[] NAMES = characterStrings.NAMES;
     private static final String[] TEXT = characterStrings.TEXT;
