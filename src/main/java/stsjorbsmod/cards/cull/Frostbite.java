@@ -8,6 +8,8 @@ import stsjorbsmod.actions.ConsumeCardIfFatalAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 
+import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
+
 public class Frostbite extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Frostbite.class);
 
@@ -23,6 +25,7 @@ public class Frostbite extends CustomJorbsModCard {
     public Frostbite() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
+        tags.add(PERSISTENT_POSITIVE_EFFECT);
     }
 
     @Override
