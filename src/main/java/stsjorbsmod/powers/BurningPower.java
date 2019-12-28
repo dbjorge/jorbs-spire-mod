@@ -1,8 +1,6 @@
 package stsjorbsmod.powers;
 
-import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.HealthBarRenderPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
@@ -10,29 +8,18 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.beyond.TimeEater;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
-import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.BurningLoseHpAction;
 import stsjorbsmod.util.BurningUtils;
-import stsjorbsmod.util.TextureLoader;
 
-import static stsjorbsmod.JorbsMod.makePowerPath;
+public class BurningPower extends CustomJorbsModPower implements HealthBarRenderPower {
+    public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(BurningPower.class);
+    public static final String POWER_ID = STATIC.ID;
 
-public class BurningPower extends AbstractPower implements CloneablePowerInterface, HealthBarRenderPower {
     private static final int HEAL_REDUCTION_PERCENTAGE = 100;
-
-    public static final String POWER_ID = JorbsMod.makeID(BurningPower.class.getSimpleName());
-    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
-    public static final String NAME = powerStrings.NAME;
-    public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    private static final String[] TEXT = CardCrawlGame.languagePack.getUIString(POWER_ID).TEXT;
-
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("burning_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("burning_power32.png"));
 
     private AbstractCreature source;
     private boolean justApplied = false;
@@ -43,8 +30,11 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
     }
 
     public BurningPower(AbstractCreature owner, AbstractCreature source, int burningAmt, boolean generatedByPyromancy) {
-        this.name = NAME;
-        this.ID = POWER_ID;
+        super(STATIC);
+
+        this.type = PowerType.DEBUFF;
+        this.isTurnBased = true;
+
         this.owner = owner;
         this.source = source;
         this.amount = burningAmt;
@@ -56,12 +46,9 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
             this.justApplied = true;
         }
 
+        this.loadRegion("attackBurn"); // TODO remove this once we have a unique icon
+
         this.updateDescription();
-        this.loadRegion("attackBurn"); // TODO use community art
-        // this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        // this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
-        this.type = PowerType.DEBUFF;
-        this.isTurnBased = true;
     }
 
     @Override
@@ -117,7 +104,7 @@ public class BurningPower extends AbstractPower implements CloneablePowerInterfa
         if (owner instanceof TimeEater) {
             // This should happen after burning gets removed, but before the healing action.
             AbstractDungeon.actionManager.actions.forEach(a -> updateHealing(a, owner));
-            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, TEXT[0], true));
+            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, DESCRIPTIONS[3], true));
         }
     }
 

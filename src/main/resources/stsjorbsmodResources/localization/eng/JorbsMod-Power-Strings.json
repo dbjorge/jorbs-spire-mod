@@ -30,7 +30,8 @@
     "DESCRIPTIONS": [
       "At the start of your turn, take #b%1$s damage, then reduce #yBurning by #b%2$s. You cannot heal.",
       "At the start of its turn, takes #b%1$s damage, then reduce #yBurning by #b%2$s. It cannot heal.",
-      "Reduce healing by %1$s%%."
+      "Reduce healing by %1$s%%.",
+      "Mmmm... Escargot"
     ]
   },
   "stsjorbsmod:CoilPower": {
@@ -56,8 +57,7 @@
   "stsjorbsmod:EnergizedCustomPower": {
     "NAME": "Energized",
     "DESCRIPTIONS": [
-      "Gain #b",
-      " additional [E] next turn."
+      "Gain #b%1$s additional [E] next turn."
     ]
   },
   "stsjorbsmod:ExhumeAtStartOfTurnPower": {
@@ -69,17 +69,14 @@
   "stsjorbsmod:FearPower": {
     "NAME": "Afraid",
     "DESCRIPTIONS": [
-      "Will escape in #b",
-      " turn.",
-      " turns.",
-      " If this ends the fight, keep Clarities for next fight."
+      "Will escape in #b%1$s turn. If this ends the fight, keep Clarities for next fight.",
+      "Will escape in #b%1$s turns. If this ends the fight, keep Clarities for next fight."
     ]
   },
   "stsjorbsmod:FindFamiliarPower": {
     "NAME": "Find Familiar",
     "DESCRIPTIONS": [
-      "At the end of each turn, gain #yClarity. If #ySnapped, deal #b",
-      " damage to ALL enemies."
+      "At the end of each turn, gain #yClarity. If #ySnapped, deal #b%1$s damage to ALL enemies."
     ]
   },
   "stsjorbsmod:FlameWardPower": {
@@ -97,9 +94,8 @@
   "stsjorbsmod:ForbiddenGrimoireDelayedExhumePower": {
     "NAME": "Delayed Exhume",
     "DESCRIPTIONS": [
-      " will be Exhumed after you play #b",
-      " more card.",
-      " more cards."
+      "%1$s will be Exhumed after you play #b%2$s more card.",
+      "%1$s will be Exhumed after you play #b%2$s more cards."
     ]
   },
   "stsjorbsmod:FragilePower": {

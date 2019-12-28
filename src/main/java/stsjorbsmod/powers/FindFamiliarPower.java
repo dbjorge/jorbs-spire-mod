@@ -18,24 +18,15 @@ import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
-public class FindFamiliarPower extends AbstractPower implements CloneablePowerInterface {
-    public static final String POWER_ID = JorbsMod.makeID(FindFamiliarPower.class.getSimpleName());
-    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
-    public static final String NAME = powerStrings.NAME;
-    public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("find_familiar_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("find_familiar_power32.png"));
+public class FindFamiliarPower extends CustomJorbsModPower {
+    public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(FindFamiliarPower.class);
+    public static final String POWER_ID = STATIC.ID;
 
     public FindFamiliarPower(final AbstractCreature owner, final int damageIfSnapped) {
-        ID = POWER_ID;
-        this.name = NAME;
+        super(STATIC);
 
         this.owner = owner;
         this.amount = damageIfSnapped;
-
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
@@ -55,7 +46,7 @@ public class FindFamiliarPower extends AbstractPower implements CloneablePowerIn
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        description = String.format(DESCRIPTIONS[0], amount);
     }
 
     @Override
