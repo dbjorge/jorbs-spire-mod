@@ -1,5 +1,6 @@
 package stsjorbsmod.cards.cull;
 
+import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -26,6 +27,8 @@ public class WastingEssence extends CustomJorbsModCard {
 
         magicNumber = baseMagicNumber = DAMAGE_PER_CURSE;
         metaMagicNumber = baseMetaMagicNumber = NUMBER_OF_CURSES;
+
+        tags.add(BaseModCardTags.FORM);
     }
 
     @Override

@@ -25,6 +25,7 @@ public class WastingEssencePower extends CustomJorbsModPower {
         this.updateDescription();
     }
 
+    @Override
     public void updateDescription() {
         this.description = String.format(DESCRIPTIONS[0], this.amount);
     }
@@ -33,7 +34,7 @@ public class WastingEssencePower extends CustomJorbsModPower {
     public void onCardDraw(AbstractCard card) {
         if (card.type == AbstractCard.CardType.CURSE) {
             this.flash();
-            addToBot(new DamageAllEnemiesAction(this.owner, DamageInfo.createDamageMatrix(this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE, true));
+            addToBot(new DamageAllEnemiesAction(this.owner, DamageInfo.createDamageMatrix(this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.POISON, true));
         }
     }
 

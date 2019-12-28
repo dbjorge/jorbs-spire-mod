@@ -518,7 +518,7 @@
   },
   "stsjorbsmod:WastingEssence": {
     "NAME": "Wasting Essence",
-    "DESCRIPTION": "Add !stsjorbsmod:MetaMagic! random Curses to your discard pile. NL Whenever you draw a Curse, deal !M! damage to all enemies."
+    "DESCRIPTION": "Add !stsjorbsmod:MetaMagic! random Curses to your discard pile. NL Whenever you draw a Curse, deal !M! damage to ALL enemies."
   },
   "stsjorbsmod:Web": {
     "NAME": "Web",
