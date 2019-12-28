@@ -115,6 +115,11 @@
     "NAME": "Disguise Self",
     "DESCRIPTION": "Gain !B! Block. NL Gain !B! Block next turn."
   },
+  "stsjorbsmod:Double": {
+  "NAME": "Double",
+  "DESCRIPTION": "This turn, your next card that Exhausts is played twice.",
+  "UPGRADE_DESCRIPTION": "This turn, your next !M! cards that Exhaust are played twice."
+},
   "stsjorbsmod:DoubleCheck": {
     "NAME": "Double-check",
     "DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Diligence.",
@@ -418,6 +423,10 @@
   "stsjorbsmod:Shake": {
     "NAME": "Shake",
     "DESCRIPTION": "If enemy is Vulnerable, draw !M! cards. NL Apply !stsjorbsmod:UrMagic! Vulnerable. NL Exhaust."
+  },
+  "stsjorbsmod:Siphon": {
+    "NAME": "Siphon",
+    "DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, heal !M! HP."
   },
   "stsjorbsmod:SiphonEnergy": {
     "NAME": "Siphon Energy",

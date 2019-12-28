@@ -30,7 +30,7 @@ public class CoilPower extends CustomJorbsModPower implements OnModifyMemoriesSu
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + calculateDamage() + DESCRIPTIONS[1];
+        description = String.format(DESCRIPTIONS[0], calculateDamage());
     }
 
     @Override

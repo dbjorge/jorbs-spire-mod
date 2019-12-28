@@ -2,7 +2,10 @@ package stsjorbsmod.util;
 
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardQueueItem;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.DowngradeableCard;
 
@@ -14,7 +17,7 @@ public class CardMetaUtils {
      * Nice to have: handle downgrading cards from other mods with unknown effects.
      * Downgrade implementation also assumes that we can't downgrade beyond base card (see Dicey Dungeons card downgrades).
      */
-    public static void downgradePermanently(AbstractCard card) {
+    public static void downgradeCardPermanently(AbstractCard card) {
         if (!card.purgeOnUse && (card instanceof DowngradeableCard) && card.upgraded) {
             JorbsMod.logger.info("Downgrading " + card.toString());
             ((DowngradeableCard) card).downgrade();
@@ -29,7 +32,7 @@ public class CardMetaUtils {
         }
     }
 
-    public static void removeCard(AbstractCard card) {
+    public static void destroyCardPermanently(AbstractCard card) {
         card.purgeOnUse = true; // handles destroying the copy that's in the middle of being played
         AbstractDungeon.player.discardPile.group.removeIf(abstractCard -> abstractCard.uuid.equals(card.uuid));
         AbstractDungeon.player.drawPile.group.removeIf(abstractCard -> abstractCard.uuid.equals(card.uuid));
@@ -43,5 +46,25 @@ public class CardMetaUtils {
         } else {
             JorbsMod.logger.info("Failed to purge a card we didn't have. Perhaps Duplication Potion or Attack Potion or similar effect occurred. " + card.cardID);
         }
+    }
+
+    // Based on Burst/DoubleTap
+    public static void playCardAdditionalTime(AbstractCard card, AbstractMonster target) {
+        AbstractCard tmp = card.makeSameInstanceOf();
+        AbstractDungeon.player.limbo.addToBottom(tmp);
+        tmp.current_x = card.current_x;
+        tmp.current_y = card.current_y;
+        tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
+        tmp.target_y = (float)Settings.HEIGHT / 2.0F;
+        if (tmp.cost > 0) {
+            tmp.freeToPlayOnce = true;
+        }
+
+        if (target != null) {
+            tmp.calculateCardDamage(target);
+        }
+
+        tmp.purgeOnUse = true;
+        AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, target, card.energyOnUse, true, true), true);
     }
 }
