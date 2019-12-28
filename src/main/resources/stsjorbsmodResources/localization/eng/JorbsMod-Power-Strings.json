@@ -40,18 +40,17 @@
       " damage to ALL enemies and lose all Coil."
     ]
   },
-  "stsjorbsmod:DoubleExhaustPower": {
-    "NAME": "Double",
-    "DESCRIPTIONS": [
-      "Your next card that #yExhausts is played twice this turn.",
-      "Your next ",
-      " cards that #yExhaust are played twice this turn."
-    ]
-  },
   "stsjorbsmod:DoubleCheckPower": {
     "NAME": "Double-check",
     "DESCRIPTIONS": [
       "At the start of your next turn, if you remember #yDiligence gain #yClarity."
+    ]
+  },
+  "stsjorbsmod:DoubleExhaustPower": {
+    "NAME": "Double",
+    "DESCRIPTIONS": [
+      "This turn, your next card that #yExhausts is played twice.",
+      "This turn, your next %1$s cards that #yExhaust are played twice."
     ]
   },
   "stsjorbsmod:EnergizedCustomPower": {
