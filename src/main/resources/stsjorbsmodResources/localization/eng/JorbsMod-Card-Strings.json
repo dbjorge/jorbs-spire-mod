@@ -125,6 +125,14 @@
     "DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Diligence.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Diligence. NL At the start of your next turn, if you remember stsjorbsmod:Diligence gain stsjorbsmod:Clarity."
   },
+  "stsjorbsmod:DrainLife": {
+    "NAME": "Drain Life",
+    "DESCRIPTION": "Deal X damage. NL Gain Max HP equal to the damage dealt. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal X+1 damage. NL Gain Max HP equal to the damage dealt. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deal !D! damage.)"
+    ]
+  },
   "stsjorbsmod:EnergyBulb": {
     "NAME": "Energy Bulb",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !M! [E]."
