@@ -207,7 +207,7 @@ public class Cull extends CustomPlayer {
         // retVal.add(SpiritShield_Cull.ID);
         retVal.add(Siphon.ID);
         // retVal.add(SplinterSoul.ID);
-        // retVal.add(Wail.ID);
+        retVal.add(Wail.ID);
         // retVal.add(WakingDream.ID);
 
         return retVal;

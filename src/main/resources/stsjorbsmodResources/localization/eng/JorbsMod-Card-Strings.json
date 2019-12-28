@@ -524,6 +524,10 @@
     "DESCRIPTION": "Remember stsjorbsmod:Sloth. NL Put !M! cards from your discard pile on top of your draw pile. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Sloth. NL Put !M! cards from your discard pile on top of your draw pile. NL Draw !stsjorbsmod:MetaMagic! card. NL Exhaust."
   },
+  "stsjorbsmod:Wail": {
+    "NAME": "Wail",
+    "DESCRIPTION": "Apply !stsjorbsmod:UrMagic! Vulnerable. NL Draw !M! card."
+  },
   "stsjorbsmod:WanderingMind": {
     "NAME": "Wandering Mind",
     "DESCRIPTION": "Draw !M! cards. NL Remember a random memory you do not have stsjorbsmod:Clarity of."
