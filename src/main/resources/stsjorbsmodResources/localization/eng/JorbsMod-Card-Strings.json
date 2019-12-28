@@ -516,6 +516,10 @@
     "NAME": "Wandering Mind",
     "DESCRIPTION": "Draw !M! cards. NL Remember a random memory you do not have stsjorbsmod:Clarity of."
   },
+  "stsjorbsmod:WastingEssence": {
+    "NAME": "Wasting Essence",
+    "DESCRIPTION": "Add !stsjorbsmod:MetaMagic! random Curses to your discard pile. NL Whenever you draw a Curse, deal !M! damage to all enemies."
+  },
   "stsjorbsmod:Web": {
     "NAME": "Web",
     "DESCRIPTION": "Retain. NL Apply !M! Weak. NL Exhaust."
