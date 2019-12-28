@@ -164,6 +164,13 @@
       "You cannot remember any memories or clarities."
     ]
   },
+  "stsjorbsmod:SpiritShieldPower": {
+    "NAME": "Spirit Shield",
+    "DESCRIPTIONS": [
+      "Reduce all damage by #b%2$s for #b%1$s turn.",
+      "Reduce all damage by #b%2$s for #b%1$s turns."
+    ]
+  },
   "stsjorbsmod:StrangePendantPower": {
     "NAME": "Strange Pendant",
     "DESCRIPTIONS": [

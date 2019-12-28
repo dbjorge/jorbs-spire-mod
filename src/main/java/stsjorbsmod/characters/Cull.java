@@ -204,7 +204,7 @@ public class Cull extends CustomPlayer {
         // retVal.add(Frostbite.ID);
         retVal.add(Apparate.ID);
         retVal.add(Inhale.ID);
-        // retVal.add(SpiritShield_Cull.ID);
+        retVal.add(SpiritShield_Cull.ID);
         retVal.add(Siphon.ID);
         // retVal.add(SplinterSoul.ID);
         retVal.add(Wail.ID);
