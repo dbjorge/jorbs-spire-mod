@@ -30,8 +30,8 @@ public class PartingBlow extends CustomJorbsModCard {
 
     @Override
     public int calculateBonusBaseDamage() {
-        int maxHP = AbstractDungeon.player.maxHealth;
-        return magicNumber - maxHP;
+        int possibleDamage = magicNumber - AbstractDungeon.player.maxHealth;
+        return possibleDamage < 0 ? 0 : possibleDamage;
     }
 
     @Override
