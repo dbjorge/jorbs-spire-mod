@@ -39,9 +39,9 @@ public class Patron extends CustomJorbsModCard implements DowngradeableCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (upgraded) {
-            addToBot(new PatronAction(m, new DamageInfo(p, damage), this, CardMetaUtils::downgradePermanently, EffectUtils::showDowngradeEffect));
+            addToBot(new PatronAction(m, new DamageInfo(p, damage), this, CardMetaUtils::downgradeCardPermanently, EffectUtils::showDowngradeEffect));
         } else {
-            addToBot(new PatronAction(m, new DamageInfo(p, damage), this, CardMetaUtils::removeCard, EffectUtils::showDestroyEffect));
+            addToBot(new PatronAction(m, new DamageInfo(p, damage), this, CardMetaUtils::destroyCardPermanently, EffectUtils::showDestroyEffect));
         }
     }
 

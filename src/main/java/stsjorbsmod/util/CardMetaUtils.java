@@ -14,7 +14,7 @@ public class CardMetaUtils {
      * Nice to have: handle downgrading cards from other mods with unknown effects.
      * Downgrade implementation also assumes that we can't downgrade beyond base card (see Dicey Dungeons card downgrades).
      */
-    public static void downgradePermanently(AbstractCard card) {
+    public static void downgradeCardPermanently(AbstractCard card) {
         if (!card.purgeOnUse && (card instanceof DowngradeableCard) && card.upgraded) {
             JorbsMod.logger.info("Downgrading " + card.toString());
             ((DowngradeableCard) card).downgrade();
@@ -29,7 +29,7 @@ public class CardMetaUtils {
         }
     }
 
-    public static void removeCard(AbstractCard card) {
+    public static void destroyCardPermanently(AbstractCard card) {
         card.purgeOnUse = true; // handles destroying the copy that's in the middle of being played
         AbstractDungeon.player.discardPile.group.removeIf(abstractCard -> abstractCard.uuid.equals(card.uuid));
         AbstractDungeon.player.drawPile.group.removeIf(abstractCard -> abstractCard.uuid.equals(card.uuid));
