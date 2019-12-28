@@ -343,6 +343,13 @@
     "DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
   },
+  "stsjorbsmod:PartingBlow": {
+    "NAME": "Parting Blow",
+    "DESCRIPTION": "Deal damage equal to NL !M! minus your Max HP.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
+  },
   "stsjorbsmod:Patron": {
     "NAME": "Patron",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until you stsjorbsmod:Snap. NL Deal !D! damage. NL stsjorbsmod:Destroy.",
