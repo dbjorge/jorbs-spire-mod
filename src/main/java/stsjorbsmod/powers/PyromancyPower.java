@@ -29,7 +29,7 @@ public class PyromancyPower extends CustomJorbsModPower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount + (amount == 1 ? DESCRIPTIONS[1] : DESCRIPTIONS[2]);
+        description = String.format(this.amount == 1 ? DESCRIPTIONS[0] : DESCRIPTIONS[1], this.amount);
     }
 
     @Override

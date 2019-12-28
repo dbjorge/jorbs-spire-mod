@@ -38,7 +38,7 @@ public class PrestidigitationPower extends CustomJorbsModPower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
+        description = String.format(DESCRIPTIONS[0], this.amount, this.amount);
     }
 
     @Override

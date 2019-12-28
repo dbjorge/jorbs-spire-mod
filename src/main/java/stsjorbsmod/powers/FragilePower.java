@@ -32,9 +32,7 @@ public class FragilePower extends CustomJorbsModPower {
 
     @Override
     public void updateDescription() {
-        description = this.amount <= 1 ?
-                DESCRIPTIONS[0] :
-                (DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2]);
+        description = String.format(this.amount == 1 ? DESCRIPTIONS[0] : DESCRIPTIONS[1], this.amount);
     }
 
     @Override

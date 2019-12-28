@@ -81,7 +81,7 @@ public class MagicMirrorPower extends CustomJorbsModPower {
         if (amount == 1) {
             description = DESCRIPTIONS[0];
         } else {
-            description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
+            description = String.format(DESCRIPTIONS[1], this.amount);
         }
 
     }

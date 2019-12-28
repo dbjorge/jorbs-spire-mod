@@ -46,7 +46,7 @@ public class PlayNextAttackThisTurnAdditionalTimesPower extends CustomJorbsModPo
 
     @Override
     public void updateDescription() {
-        description = amount == 1 ? DESCRIPTIONS[0] : DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
+        description = amount == 1 ? DESCRIPTIONS[0] : String.format(DESCRIPTIONS[1], amount);;
     }
 
     @Override
