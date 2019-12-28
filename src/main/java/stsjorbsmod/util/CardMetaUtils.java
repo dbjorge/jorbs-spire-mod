@@ -2,7 +2,10 @@ package stsjorbsmod.util;
 
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardQueueItem;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.DowngradeableCard;
 
@@ -43,5 +46,25 @@ public class CardMetaUtils {
         } else {
             JorbsMod.logger.info("Failed to purge a card we didn't have. Perhaps Duplication Potion or Attack Potion or similar effect occurred. " + card.cardID);
         }
+    }
+
+    // Based on Burst/DoubleTap
+    public static void playCardAdditionalTime(AbstractCard card, AbstractMonster target) {
+        AbstractCard tmp = card.makeSameInstanceOf();
+        AbstractDungeon.player.limbo.addToBottom(tmp);
+        tmp.current_x = card.current_x;
+        tmp.current_y = card.current_y;
+        tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
+        tmp.target_y = (float)Settings.HEIGHT / 2.0F;
+        if (tmp.cost > 0) {
+            tmp.freeToPlayOnce = true;
+        }
+
+        if (target != null) {
+            tmp.calculateCardDamage(target);
+        }
+
+        tmp.purgeOnUse = true;
+        AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, target, card.energyOnUse, true, true), true);
     }
 }

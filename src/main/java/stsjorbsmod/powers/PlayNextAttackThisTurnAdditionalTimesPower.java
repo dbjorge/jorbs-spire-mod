@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.util.CardMetaUtils;
 import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
@@ -42,25 +43,6 @@ public class PlayNextAttackThisTurnAdditionalTimesPower extends AbstractPower im
         updateDescription();
     }
 
-    public static void playCardAdditionalTime(AbstractCard card, AbstractMonster m) {
-        AbstractCard tmp = card.makeSameInstanceOf();
-        AbstractDungeon.player.limbo.addToBottom(tmp);
-        tmp.current_x = card.current_x;
-        tmp.current_y = card.current_y;
-        tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
-        tmp.target_y = (float)Settings.HEIGHT / 2.0F;
-        if (tmp.cost > 0) {
-            tmp.freeToPlayOnce = true;
-        }
-
-        if (m != null) {
-            tmp.calculateCardDamage(m);
-        }
-
-        tmp.purgeOnUse = true;
-        AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(tmp, m, card.energyOnUse, true));
-    }
-
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (!card.purgeOnUse && card.type == AbstractCard.CardType.ATTACK && this.amount > 0) {
             this.flash();
@@ -68,7 +50,7 @@ public class PlayNextAttackThisTurnAdditionalTimesPower extends AbstractPower im
             AbstractMonster m = (AbstractMonster)action.target;
 
             for (int i = 0; i < amount; ++i) {
-                playCardAdditionalTime(card, m);
+                CardMetaUtils.playCardAdditionalTime(card, m);
             }
 
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
