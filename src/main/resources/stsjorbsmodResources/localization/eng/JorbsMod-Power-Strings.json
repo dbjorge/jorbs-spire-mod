@@ -83,12 +83,6 @@
       "When you are next attacked, apply #b%1$s #yBurning to ALL attackers and gain #b%2$s #yBlock."
     ]
   },
-  "stsjorbsmod:FocusOnThePainPower": {
-    "NAME": "Focus on the Pain",
-    "DESCRIPTIONS": [
-      "Whenever you lose HP, gain Clarity."
-    ]
-  },
   "stsjorbsmod:ForbiddenGrimoireDelayedExhumePower": {
     "NAME": "Delayed Exhume",
     "DESCRIPTIONS": [
@@ -136,12 +130,6 @@
     "NAME": "Refuse to Forget",
     "DESCRIPTIONS": [
       "You cannot remember other memories until you have #yClarity of your current memory."
-    ]
-  },
-  "stsjorbsmod:NextAttackMissesPower": {
-    "NAME": "Mirror Image",
-    "DESCRIPTIONS": [
-      "The next enemy attack misses."
     ]
   },
   "stsjorbsmod:PlayNextAttackThisTurnAdditionalTimesPower": {
