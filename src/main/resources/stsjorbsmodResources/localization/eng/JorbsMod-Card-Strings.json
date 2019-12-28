@@ -81,14 +81,6 @@
     "NAME": "Color Spray",
     "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each. NL Remember stsjorbsmod:Envy."
   },
-  "stsjorbsmod:Consumption": {
-    "NAME": "Consumption",
-    "DESCRIPTION": "Deal X damage. NL Gain Max HP equal to the damage dealt. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal X+1 damage. NL Gain Max HP equal to the damage dealt. NL Exhaust.",
-    "EXTENDED_DESCRIPTION": [
-      " NL (Deal !D! damage.)"
-    ]
-  },
   "stsjorbsmod:CorrodingBarrier": {
     "NAME": "Corroding Barrier",
     "DESCRIPTION": "Gain !B! Block. Decrease this card's Block this combat by !M! each time it is drawn.",
@@ -123,6 +115,14 @@
     "NAME": "Double-check",
     "DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Diligence.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Diligence. NL At the start of your next turn, if you remember stsjorbsmod:Diligence gain stsjorbsmod:Clarity."
+  },
+  "stsjorbsmod:DrainLife": {
+    "NAME": "Drain Life",
+    "DESCRIPTION": "Deal X damage. NL Gain Max HP equal to the damage dealt. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal X+1 damage. NL Gain Max HP equal to the damage dealt. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deal !D! damage.)"
+    ]
   },
   "stsjorbsmod:EnergyBulb": {
     "NAME": "Energy Bulb",

@@ -74,6 +74,7 @@ public abstract class CustomJorbsModCard extends CustomCard {
         isBlockModified = false;
         isMagicNumberModified = false;
         EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
+        energyOnUse = -1;
     }
 
     @Override
@@ -206,6 +207,7 @@ public abstract class CustomJorbsModCard extends CustomCard {
 
         this.onMoveToDiscardImpl();
 
+        energyOnUse = -1;
         setRawDynamicDescriptionSuffix("");
     }
 
