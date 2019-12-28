@@ -9,6 +9,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.PlayNextAttackThisTurnAdditionalTimesPower;
+import stsjorbsmod.util.CardMetaUtils;
 
 public class Chatter extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Chatter.class);
@@ -37,7 +38,7 @@ public class Chatter extends CustomJorbsModCard {
         // Power or Quicksilver generating additional extra copies (they're intended to only do one copy per stack)
         if (!this.purgeOnUse) {
             for (int i = 0; i < magicNumber; ++i) {
-                PlayNextAttackThisTurnAdditionalTimesPower.playCardAdditionalTime(this, m);
+                CardMetaUtils.playCardAdditionalTime(this, m);
             }
         }
     }
