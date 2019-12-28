@@ -1,46 +1,31 @@
 package stsjorbsmod.powers;
 
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.EscapeAction;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster.Intent;
 import com.megacrit.cardcrawl.monsters.beyond.Darkling;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.GainSpecificClarityAction;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
-import stsjorbsmod.util.TextureLoader;
 
-import static stsjorbsmod.JorbsMod.makePowerPath;
-
-public class FearPower extends AbstractPower {
-    public static final String POWER_ID = JorbsMod.makeID(FearPower.class.getSimpleName());
-    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
-    public static final String NAME = powerStrings.NAME;
-    public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("fear_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("fear_power32.png"));
+public class FearPower extends CustomJorbsModPower {
+    public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(FearPower.class);
+    public static final String POWER_ID = STATIC.ID;
 
     public FearPower(AbstractMonster owner, int turnsBeforeFleeing) {
-        this.name = NAME;
-        this.ID = POWER_ID;
+        super(STATIC);
+
         this.type = PowerType.DEBUFF;
         this.isTurnBased = true;
 
         this.owner = owner;
         this.amount = turnsBeforeFleeing;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
-
         this.updateDescription();
     }
+
     @Override
     public void atStartOfTurn() { // note: monster's turn, not player's
         AbstractMonster monsterOwner = (AbstractMonster)owner;
@@ -85,6 +70,11 @@ public class FearPower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + (this.amount == 1 ? DESCRIPTIONS[1] : DESCRIPTIONS[2]) + DESCRIPTIONS[3];
+        this.description = String.format((this.amount == 1 ? DESCRIPTIONS[0] : DESCRIPTIONS[1]), this.amount);
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new FearPower((AbstractMonster) owner, amount);
     }
 }
