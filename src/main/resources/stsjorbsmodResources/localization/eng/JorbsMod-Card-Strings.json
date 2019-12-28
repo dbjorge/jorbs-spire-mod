@@ -421,7 +421,7 @@
   },
   "stsjorbsmod:Siphon": {
     "NAME": "Siphon",
-    "DESCRIPTION": "Deal !D! damage. NL If Fatal, heal !M! HP."
+    "DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, heal !M! HP."
   },
   "stsjorbsmod:SiphonEnergy": {
     "NAME": "Siphon Energy",

@@ -4,7 +4,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.HealOnFatalAttackAction;
+import stsjorbsmod.actions.HealOnFatalDamageAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 
@@ -30,7 +30,7 @@ public class Siphon extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new HealOnFatalAttackAction(m, new DamageInfo(p, damage), magicNumber));
+        addToBot(new HealOnFatalDamageAction(m, new DamageInfo(p, damage), magicNumber, true));
     }
 
     @Override
