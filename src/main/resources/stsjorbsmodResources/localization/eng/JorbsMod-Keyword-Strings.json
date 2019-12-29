@@ -20,6 +20,10 @@
     "DESCRIPTION": "Gain 1 Coil each time you play a card while remembering #yPatience."
   },
   {
+    "NAMES": ["consume", "consumed"],
+    "DESCRIPTION": "Consumed cards are permanently removed from your deck. Gain a reward based on the card's rarity."
+  },
+  {
     "NAMES": ["destroy"],
     "DESCRIPTION": "Permanently remove this card from your deck (not just this combat)."
   },

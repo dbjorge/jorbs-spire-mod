@@ -164,7 +164,7 @@ public class Cull extends CustomPlayer {
                 CORPSE_TEXTURE,
                 getLoadout(), 0F, -10.0F, 160.0F, 280.0F, new EnergyManager(ENERGY_PER_TURN));
 
-        this.dialogX = drawX + DIALOG_OFFSET_X;;
+        this.dialogX = drawX + DIALOG_OFFSET_X;
         this.dialogY = drawY + DIALOG_OFFSET_Y;
     }
 
@@ -201,7 +201,7 @@ public class Cull extends CustomPlayer {
 
         retVal.add(CULLCard.ID);
         retVal.add(Apparition_Cull.ID);
-        // retVal.add(Frostbite.ID);
+        retVal.add(Frostbite.ID);
         retVal.add(Apparate.ID);
         retVal.add(Inhale.ID);
         retVal.add(SpiritShield_Cull.ID);
