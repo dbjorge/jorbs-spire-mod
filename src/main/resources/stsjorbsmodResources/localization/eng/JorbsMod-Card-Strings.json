@@ -547,6 +547,10 @@
     "NAME": "Wail",
     "DESCRIPTION": "Apply !stsjorbsmod:UrMagic! Vulnerable. NL Draw !M! card."
   },
+  "stsjorbsmod:WakingDream": {
+    "NAME": "Waking Dream",
+    "DESCRIPTION": "Retain. NL Gain !M! Intangible. NL When Retained, increase its cost by !stsjorbsmod:MetaMagic! this combat."
+  },
   "stsjorbsmod:WanderingMind": {
     "NAME": "Wandering Mind",
     "DESCRIPTION": "Draw !M! cards. NL Remember a random memory you do not have stsjorbsmod:Clarity of."
