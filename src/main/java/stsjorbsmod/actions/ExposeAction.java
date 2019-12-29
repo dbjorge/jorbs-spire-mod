@@ -43,7 +43,8 @@ public class ExposeAction extends AbstractGameAction {
             if (nonMinionsLeft) {
                 AbstractPlayer p = AbstractDungeon.player;
                 addToBot(new LoseHPAction(p, p, hpLoss));
-            } else {
+            }
+            if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
                 AbstractDungeon.actionManager.clearPostCombatActions();
             }
         }
