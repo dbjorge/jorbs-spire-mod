@@ -430,6 +430,11 @@
     "NAME": "Rest",
     "DESCRIPTION": "Remember stsjorbsmod:Chastity. NL Gain !B! Block. NL End your turn."
   },
+  "stsjorbsmod:Ritual": {
+    "NAME": "Ritual",
+    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Retain up to !M! card until next turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Retain up to !M! cards until next turn. NL Exhaust."
+  },
   "stsjorbsmod:Rot": {
     "NAME": "Rot",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Lose a random stsjorbsmod:Clarity. NL When this is initially added to your hand, add !M! additional copy.",
