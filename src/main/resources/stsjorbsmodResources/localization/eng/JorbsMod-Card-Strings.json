@@ -472,6 +472,10 @@
     "NAME": "Spirit Shield",
     "DESCRIPTION": "Reduce all damage taken by !M! until next turn."
   },
+  "stsjorbsmod:SplinterSoul": {
+    "NAME": "Splinter Soul",
+    "DESCRIPTION": "Deal !D! damage. NL stsjorbsmod:Consume a random card in your draw pile."
+  },
   "stsjorbsmod:Stalwart": {
     "NAME": "Stalwart",
     "DESCRIPTION": "Remember stsjorbsmod:Temperance. NL Exhaust.",
