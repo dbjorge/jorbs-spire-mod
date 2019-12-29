@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.MinionPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 
 public class ExposeAction extends AbstractGameAction {
@@ -31,11 +33,18 @@ public class ExposeAction extends AbstractGameAction {
         tickDuration();
         if (isDone) {
             this.target.damage(this.info);
-            if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
-                AbstractDungeon.actionManager.clearPostCombatActions();
-            } else {
+
+            boolean nonMinionsLeft = false;
+            for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                if (!m.isDeadOrEscaped() && !m.hasPower(MinionPower.POWER_ID)) {
+                    nonMinionsLeft = true;
+                }
+            }
+            if (nonMinionsLeft) {
                 AbstractPlayer p = AbstractDungeon.player;
                 addToBot(new LoseHPAction(p, p, hpLoss));
+            } else {
+                AbstractDungeon.actionManager.clearPostCombatActions();
             }
         }
     }

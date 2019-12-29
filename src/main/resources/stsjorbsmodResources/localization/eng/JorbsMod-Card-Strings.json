@@ -136,7 +136,7 @@
   },
   "stsjorbsmod:Expose": {
     "NAME": "Expose",
-    "DESCRIPTION": "Deal !D! damage. NL If there are enemies still alive, lose !M! HP."
+    "DESCRIPTION": "Deal !D! damage. NL If this does not end the fight, lose !M! HP."
   },
   "stsjorbsmod:Eye": {
     "NAME": "Eye",
