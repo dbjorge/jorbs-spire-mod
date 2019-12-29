@@ -41,7 +41,7 @@ public class HealOnFatalDamageAction extends AbstractGameAction {
             if ((this.target.isDying || this.target.currentHealth <= 0) && !this.target.halfDead) {
                 if (worksOnMinions || !this.target.hasPower(MinionPower.POWER_ID)) {
                     AbstractPlayer p = AbstractDungeon.player;
-                    addToBot(new HealAction(p, p, heal));
+                    AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, heal));
                 }
             }
             if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {

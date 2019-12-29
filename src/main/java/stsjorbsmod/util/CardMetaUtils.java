@@ -1,6 +1,7 @@
 package stsjorbsmod.util;
 
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.core.Settings;
@@ -8,6 +9,9 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.DowngradeableCard;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class CardMetaUtils {
     /**
@@ -65,6 +69,22 @@ public class CardMetaUtils {
         }
 
         tmp.purgeOnUse = true;
-        AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, target, card.energyOnUse, true, true), true);
+
+        // TODO: Replace the entire following block with the following line once beta branch releases...
+        // AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, target, card.energyOnUse, true, true), true);
+        CardQueueItem cardQueueItem = new CardQueueItem(tmp, target, card.energyOnUse, true);
+        Method possibleAddCardQueueItemMethod = ReflectionUtils.tryGetMethod(GameActionManager.class, "addCardQueueItem", CardQueueItem.class, boolean.class);
+        if (possibleAddCardQueueItemMethod != null) {
+            // beta branch
+            try {
+                ReflectionUtils.setPrivateField(cardQueueItem, CardQueueItem.class, "autoplayCard", true);
+                possibleAddCardQueueItemMethod.invoke(AbstractDungeon.actionManager, cardQueueItem, true);
+            } catch (IllegalAccessException|InvocationTargetException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            // main branch
+            AbstractDungeon.actionManager.cardQueue.add(cardQueueItem);
+        }
     }
 }

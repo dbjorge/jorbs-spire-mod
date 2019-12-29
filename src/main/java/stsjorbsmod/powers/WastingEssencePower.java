@@ -34,7 +34,7 @@ public class WastingEssencePower extends CustomJorbsModPower {
     public void onCardDraw(AbstractCard card) {
         if (card.type == AbstractCard.CardType.CURSE) {
             this.flash();
-            addToBot(new DamageAllEnemiesAction(this.owner, DamageInfo.createDamageMatrix(this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.POISON, true));
+            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(this.owner, DamageInfo.createDamageMatrix(this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.POISON, true));
         }
     }
 
@@ -42,7 +42,7 @@ public class WastingEssencePower extends CustomJorbsModPower {
     public void onInitialApplication() {
         for (int i = 0; i < numberOfCurses; i++) {
             AbstractCard c = AbstractDungeon.returnRandomCurse();
-            addToBot(new MakeTempCardInDiscardAction(c, 1));
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(c, 1));
         }
     }
 

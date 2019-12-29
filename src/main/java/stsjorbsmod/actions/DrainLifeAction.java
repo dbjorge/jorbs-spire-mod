@@ -34,7 +34,7 @@ public class DrainLifeAction extends AbstractGameAction {
                 if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
                     AbstractDungeon.actionManager.clearPostCombatActions();
                 } else {
-                    this.addToTop(new WaitAction(0.1F));
+                    AbstractDungeon.actionManager.addToTop(new WaitAction(0.1F));
                 }
             }
 

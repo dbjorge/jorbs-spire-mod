@@ -31,7 +31,7 @@ public class Wail extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
         addToBot(new ApplyPowerAction(abstractMonster, p, new VulnerablePower(abstractMonster, urMagicNumber, false)));
-        addToBot(new DrawCardAction(magicNumber));
+        addToBot(new DrawCardAction(p, magicNumber));
     }
 
     @Override

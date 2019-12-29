@@ -1,5 +1,6 @@
 package stsjorbsmod.cards.cull;
 
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -23,7 +24,7 @@ public class WakingDream extends CustomJorbsModCard {
 
     public WakingDream() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
-        selfRetain = true;
+        AlwaysRetainField.alwaysRetain.set(this, true);
         exhaust = true;
         magicNumber = baseMagicNumber = INTANGIBLE;
         metaMagicNumber = baseMetaMagicNumber = EXTRA_COST_PER_RETAIN;
@@ -34,7 +35,7 @@ public class WakingDream extends CustomJorbsModCard {
         addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, magicNumber)));
     }
 
-    @Override
+    // @Override - TODO, uncomment once beta branch releases
     public void onRetained() {
         ++this.cost;
         ++this.costForTurn;
