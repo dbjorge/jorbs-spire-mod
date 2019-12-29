@@ -359,6 +359,10 @@
     "DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
   },
+  "stsjorbsmod:Panic": {
+    "NAME": "Panic",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !M! Intangible. NL Lose !stsjorbsmod:UrMagic! Max HP."
+  },
   "stsjorbsmod:PartingBlow": {
     "NAME": "Parting Blow",
     "DESCRIPTION": "Deal damage equal to NL !M! minus your Max HP.",
