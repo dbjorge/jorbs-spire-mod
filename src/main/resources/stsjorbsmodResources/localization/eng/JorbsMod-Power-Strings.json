@@ -148,8 +148,8 @@
   "stsjorbsmod:PyromancyPower": {
     "NAME": "Pyromancy",
     "DESCRIPTIONS": [
-      "Apply #yBurning #b%1$s extra time.",
-      "Apply #yBurning #b%1$s extra times."
+      "Whenever you apply #yBurning, apply that much #yBurning #b%1$s extra time.",
+      "Whenever you apply #yBurning, apply that much #yBurning #b%1$s extra times."
     ]
   },
   "stsjorbsmod:RediscoveryPower": {

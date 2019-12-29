@@ -36,7 +36,7 @@
     "DESCRIPTION": "Downgrading cards weakens them permanently."
   },
   {
-    "NAMES": ["entombed"],
+    "NAMES": ["entombed", "entomb"],
     "DESCRIPTION": "This card starts each combat in your Exhaust pile. It will be Exhumed from your Exhaust pile into your hand each time its Exhume condition is met."
   },
   {

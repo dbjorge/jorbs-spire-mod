@@ -396,8 +396,8 @@
   },
   "stsjorbsmod:Pyromancy": {
     "NAME": "Pyromancy",
-    "DESCRIPTION": "Ethereal. NL Apply stsjorbsmod:Burning twice.",
-    "UPGRADE_DESCRIPTION": "Apply stsjorbsmod:Burning twice."
+    "DESCRIPTION": "Ethereal. NL Whenever you apply stsjorbsmod:Burning, apply that much stsjorbsmod:Burning again.",
+    "UPGRADE_DESCRIPTION": "Whenever you apply stsjorbsmod:Burning, apply that much stsjorbsmod:Burning again."
   },
   "stsjorbsmod:Quicksilver": {
     "NAME": "Quicksilver",
@@ -573,8 +573,8 @@
   },
   "stsjorbsmod:Will": {
     "NAME": "Will",
-    "DESCRIPTION": "Gain !B! Block. NL Exhaust a random card in your hand; it stsjorbsmod:Exhumes when you stsjorbsmod:Snap and costs 0 until played.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Exhaust a card in your hand; it stsjorbsmod:Exhumes when you stsjorbsmod:Snap and costs 0 until played."
+    "DESCRIPTION": "Gain !B! Block. NL stsjorbsmod:Entomb a random card in your hand until you snap; it costs 0 until played.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL stsjorbsmod:Entomb a card in your hand until you snap; it costs 0 until played."
   },
   "stsjorbsmod:Withdraw": {
     "NAME": "Withdraw",
