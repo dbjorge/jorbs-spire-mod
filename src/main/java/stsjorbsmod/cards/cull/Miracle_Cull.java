@@ -32,7 +32,9 @@ public class Miracle_Cull extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
         addToBot(new GainEnergyAction(magicNumber));
-        ((Cull) AbstractDungeon.player).manifest += metaMagicNumber;
+        if (p instanceof Cull) {
+            ((Cull) AbstractDungeon.player).manifest += metaMagicNumber;
+        }
     }
 
     @Override
