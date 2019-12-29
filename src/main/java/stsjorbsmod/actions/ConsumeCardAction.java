@@ -19,6 +19,7 @@ public class ConsumeCardAction extends AbstractGameAction {
 
     public ConsumeCardAction(AbstractCard c) {
         this.card = c;
+        actionType = ActionType.DAMAGE;
     }
 
     public void update() {
