@@ -340,4 +340,11 @@ public class Cull extends CustomPlayer {
     public String getPortraitImageName() {
         return CHARACTER_SELECT_BG_TEXTURE;
     }
+
+    public int manifest = 0;
+    @Override
+    public void applyEndOfTurnTriggers() {
+        super.applyEndOfTurnTriggers();
+        ++manifest;
+    }
 }
