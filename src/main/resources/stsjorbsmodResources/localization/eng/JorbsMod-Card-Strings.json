@@ -334,6 +334,10 @@
     "NAME": "Minor Illusion",
     "DESCRIPTION": "Gain !B! Block."
   },
+  "stsjorbsmod:Miracle_Cull": {
+    "NAME": "Miracle",
+    "DESCRIPTION": "Retain. NL Gain !M! [E] . NL Add !stsjorbsmod:MetaMagic! stsjorbsmod:Manifest."
+  },
   "stsjorbsmod:MirrorImage": {
     "NAME": "Mirror Image",
     "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Summon an Intangible Mirror Image with !M! HP. NL Exhaust."
