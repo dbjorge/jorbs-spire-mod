@@ -142,6 +142,10 @@
     "DESCRIPTION": "Apply stsjorbsmod:Slow to ALL enemies. NL Add !M! stsjorbsmod:Web into your hand.",
     "UPGRADE_DESCRIPTION": "Apply stsjorbsmod:Slow to ALL enemies. NL Add !M! stsjorbsmod:Webs into your hand."
   },
+  "stsjorbsmod:Expose": {
+    "NAME": "Expose",
+    "DESCRIPTION": "Deal !D! damage. NL If this does not end the combat, lose !M! HP."
+  },
   "stsjorbsmod:Eye": {
     "NAME": "Eye",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Apply !M! Vulnerable."
