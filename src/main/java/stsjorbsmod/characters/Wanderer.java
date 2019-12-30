@@ -185,10 +185,10 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
                 CORPSE_TEXTURE,
                 getLoadout(), 0F, -10.0F, 160.0F, 280.0F, new EnergyManager(ENERGY_PER_TURN));
 
-        this.memories = new MemoryManager(this);
-
         this.dialogX = drawX + DIALOG_OFFSET_X;;
         this.dialogY = drawY + DIALOG_OFFSET_Y;
+
+        MemoryManager.forPlayer(this).renderForgottenMemories = true;
     }
 
     @Override
@@ -205,20 +205,6 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
 
     public void setAnimation(SpriterAnimation a) {
         this.animation = a;
-    }
-
-    public final MemoryManager memories;
-
-    @Override
-    public void renderHealth(SpriteBatch sb) {
-        super.renderHealth(sb);
-        memories.render(sb);
-    }
-
-    @Override
-    public void updatePowers() {
-        super.updatePowers();
-        memories.update(drawX, drawY);
     }
 
     // Starting description and loadout

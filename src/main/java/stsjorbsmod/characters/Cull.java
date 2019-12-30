@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
@@ -21,7 +22,10 @@ import com.megacrit.cardcrawl.relics.SpiritPoop;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.cards.cull.*;
+import stsjorbsmod.memories.MemoryManager;
+import stsjorbsmod.memories.WrathMemory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -346,5 +350,11 @@ public class Cull extends CustomPlayer {
     public void applyEndOfTurnTriggers() {
         super.applyEndOfTurnTriggers();
         ++manifest;
+    }
+
+    @Override
+    public void applyStartOfCombatLogic() {
+        super.applyStartOfCombatLogic();
+        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(this, WrathMemory.STATIC.ID));
     }
 }
