@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.RetainCardsOnUseAction;
+import stsjorbsmod.actions.RetainCardsPolitelyAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 
@@ -32,7 +32,7 @@ public class Ritual extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, urMagicNumber)));
-        addToBot(new RetainCardsOnUseAction(p, magicNumber, this));
+        addToBot(new RetainCardsPolitelyAction(p, magicNumber));
     }
 
     @Override
