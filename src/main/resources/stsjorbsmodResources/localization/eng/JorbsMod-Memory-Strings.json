@@ -68,7 +68,7 @@
   "stsjorbsmod:SlothMemory": {
     "NAME": "Sloth",
     "DESCRIPTIONS": [
-      "#bRemember: Discard !D! cards at random. NL #bPassive: Draw !M! less card each turn."
+      "#bRemember: Discard !D! cards at random. NL #bPassive: Draw !M! less card each turn. Energy is conserved between turns."
     ]
   },
   "stsjorbsmod:TemperanceMemory": {
