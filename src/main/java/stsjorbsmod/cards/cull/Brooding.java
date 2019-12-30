@@ -30,7 +30,7 @@ public class Brooding extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
-        addToBot(new DrawCardAction(magicNumber));
+        addToBot(new DrawCardAction(p, magicNumber));
         AbstractCard c = AbstractDungeon.returnRandomCurse();
         addToBot(new MakeTempCardInDiscardAction(c, CURSE_AMOUNT));
     }

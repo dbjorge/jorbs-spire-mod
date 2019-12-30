@@ -7,24 +7,30 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.relics.SpiritPoop;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import com.megacrit.cardcrawl.screens.DeathScreen;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import stsjorbsmod.cards.cull.Apparate;
-import stsjorbsmod.cards.cull.Apparition_Cull;
-import stsjorbsmod.cards.cull.CULLCard;
-import stsjorbsmod.cards.cull.Inhale;
+import stsjorbsmod.actions.DecreaseMaxHpAction;
+import stsjorbsmod.actions.IncreaseManifestAction;
+import stsjorbsmod.actions.RememberSpecificMemoryAction;
+import stsjorbsmod.cards.cull.*;
+import stsjorbsmod.memories.MemoryManager;
+import stsjorbsmod.memories.WrathMemory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +41,7 @@ import static stsjorbsmod.JorbsMod.*;
 //and https://github.com/daviscook477/BaseMod/wiki/Migrating-to-5.0
 //All text (starting description and loadout, anything labeled TEXT[]) can be found in JorbsMod-Character-Strings.json in the resources
 
-public class Cull extends CustomPlayer {
+public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber {
     public static final Logger logger = LogManager.getLogger(Cull.class.getName());
 
     // =============== CHARACTER ENUMERATORS =================
@@ -105,12 +111,16 @@ public class Cull extends CustomPlayer {
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
 
+    public static final int MANIFEST_PER_TURN = 1;
+    public static final int MAX_HP_LOSS_PER_TURN = 1;
+    public static final int MAX_HP_LOSS_ON_DAMAGED = 1;
+
     // =============== /BASE STATS/ =================
 
 
     // =============== STRINGS =================
 
-    private static final String ID = makeID("CullCharacter");
+    public static final String ID = makeID("CullCharacter");
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     private static final String[] NAMES = characterStrings.NAMES;
     private static final String[] TEXT = characterStrings.TEXT;
@@ -167,7 +177,7 @@ public class Cull extends CustomPlayer {
                 CORPSE_TEXTURE,
                 getLoadout(), 0F, -10.0F, 160.0F, 280.0F, new EnergyManager(ENERGY_PER_TURN));
 
-        this.dialogX = drawX + DIALOG_OFFSET_X;;
+        this.dialogX = drawX + DIALOG_OFFSET_X;
         this.dialogY = drawY + DIALOG_OFFSET_Y;
     }
 
@@ -204,14 +214,14 @@ public class Cull extends CustomPlayer {
 
         retVal.add(CULLCard.ID);
         retVal.add(Apparition_Cull.ID);
-        // retVal.add(Frostbite.ID);
+        retVal.add(Frostbite.ID);
         retVal.add(Apparate.ID);
         retVal.add(Inhale.ID);
-        // retVal.add(SpiritShield_Cull.ID);
-        // retVal.add(Siphon.ID);
-        // retVal.add(SplinterSoul.ID);
-        // retVal.add(Wail.ID);
-        // retVal.add(WakingDream.ID);
+        retVal.add(SpiritShield_Cull.ID);
+        retVal.add(Siphon.ID);
+        retVal.add(SplinterSoul.ID);
+        retVal.add(Wail.ID);
+        retVal.add(WakingDream.ID);
 
         return retVal;
     }
@@ -331,16 +341,51 @@ public class Cull extends CustomPlayer {
     // will be played in sequence as your character's finishing combo on the heart.
     // Attack effects are the same as used in DamageAction and the like.
     @Override
-    public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
-        return new AbstractGameAction.AttackEffect[]{
-                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
-                AbstractGameAction.AttackEffect.FIRE,
-                AbstractGameAction.AttackEffect.FIRE};
+    public AttackEffect[] getSpireHeartSlashEffect() {
+        return new AttackEffect[]{
+                AttackEffect.BLUNT_HEAVY,
+                AttackEffect.FIRE,
+                AttackEffect.FIRE};
     }
 
     // Required for beta branch support
     // @Override (uncomment once released)
     public String getPortraitImageName() {
         return CHARACTER_SELECT_BG_TEXTURE;
+    }
+
+    public int manifest = 0;
+    @Override
+    public void applyEndOfTurnTriggers() {
+        super.applyEndOfTurnTriggers();
+
+        AbstractDungeon.actionManager.addToBottom(
+                new IncreaseManifestAction(MANIFEST_PER_TURN));
+        AbstractDungeon.actionManager.addToBottom(
+                new DecreaseMaxHpAction(this, this, MAX_HP_LOSS_PER_TURN, AttackEffect.POISON));
+    }
+
+    @Override
+    public void onAfterPlayerHpLoss(int damageAmount) {
+        AbstractDungeon.actionManager.addToBottom(
+                new DecreaseMaxHpAction(this, this, MAX_HP_LOSS_ON_DAMAGED, AttackEffect.POISON));
+    }
+
+    @Override
+    public void applyStartOfCombatLogic() {
+        super.applyStartOfCombatLogic();
+        AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(this, WrathMemory.STATIC.ID));
+    }
+
+    @Override
+    public void decreaseMaxHealth(int amount) {
+        boolean isFatal = amount >= maxHealth;
+        super.decreaseMaxHealth(amount);
+        if (isFatal) {
+            currentHealth = 0;
+            maxHealth = 0;
+            isDead = true;
+            AbstractDungeon.deathScreen = new DeathScreen(AbstractDungeon.getMonsters());
+        }
     }
 }

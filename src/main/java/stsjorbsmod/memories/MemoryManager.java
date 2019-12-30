@@ -2,11 +2,13 @@ package stsjorbsmod.memories;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.patches.PlayerMemoryManagerPatch;
 import stsjorbsmod.powers.SnappedPower;
 
 import java.util.ArrayList;
@@ -15,12 +17,13 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class MemoryManager {
-    private final Wanderer owner;
+    private final AbstractPlayer owner;
 
     public AbstractMemory currentMemory;
     private ArrayList<AbstractMemory> memories;
+    public boolean renderForgottenMemories = false;
 
-    public MemoryManager(Wanderer owner) {
+    public MemoryManager(AbstractPlayer owner) {
         this.owner = owner;
         this.currentMemory = null;
         this.memories = MemoryUtils.allPossibleMemories(owner);
@@ -31,8 +34,8 @@ public class MemoryManager {
     }
 
     public static MemoryManager forPlayer(AbstractCreature target) {
-        if (target instanceof Wanderer) {
-            return ((Wanderer)target).memories;
+        if (target instanceof AbstractPlayer) {
+            return PlayerMemoryManagerPatch.MemoryManagerField.memoryManager.get(target);
         }
         return null;
     }
@@ -240,7 +243,9 @@ public class MemoryManager {
         }
 
         for (AbstractMemory m : memories) {
-            m.render(sb);
+            if (renderForgottenMemories || m.isRemembered || m.isClarified) {
+                m.render(sb);
+            }
         }
     }
 }

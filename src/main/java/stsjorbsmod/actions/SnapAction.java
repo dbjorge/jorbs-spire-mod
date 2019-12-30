@@ -36,7 +36,7 @@ public class SnapAction extends AbstractGameAction {
     }
 
     public void update() {
-        if (target.hasPower(SnappedPower.POWER_ID)) {
+        if (MemoryManager.forPlayer(target) == null || target.hasPower(SnappedPower.POWER_ID)) {
             isDone = true;
             return;
         }

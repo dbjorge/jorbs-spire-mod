@@ -49,7 +49,7 @@ public class Shake extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
         if (abstractMonster.hasPower(VulnerablePower.POWER_ID)) {
-            addToBot(new DrawCardAction(magicNumber));
+            addToBot(new DrawCardAction(p, magicNumber));
         }
         addToBot(new ApplyPowerAction(abstractMonster, p, new VulnerablePower(abstractMonster, urMagicNumber, false)));
     }

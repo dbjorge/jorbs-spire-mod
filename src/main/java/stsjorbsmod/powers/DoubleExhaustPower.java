@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.util.CardMetaUtils;
@@ -30,7 +31,7 @@ public class DoubleExhaustPower extends CustomJorbsModPower {
 
             --this.amount;
             if (this.amount == 0) {
-                this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
             } else {
                 updateDescription();
             }
@@ -40,7 +41,7 @@ public class DoubleExhaustPower extends CustomJorbsModPower {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         if (isPlayer) {
-            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         }
 
     }

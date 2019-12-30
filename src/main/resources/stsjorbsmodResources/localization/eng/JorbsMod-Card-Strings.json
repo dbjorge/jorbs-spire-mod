@@ -125,6 +125,14 @@
     "DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Diligence.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Diligence. NL At the start of your next turn, if you remember stsjorbsmod:Diligence gain stsjorbsmod:Clarity."
   },
+  "stsjorbsmod:DrainLife": {
+    "NAME": "Drain Life",
+    "DESCRIPTION": "Deal X damage. NL Gain Max HP equal to the damage dealt. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal X+1 damage. NL Gain Max HP equal to the damage dealt. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deal !D! damage.)"
+    ]
+  },
   "stsjorbsmod:EnergyBulb": {
     "NAME": "Energy Bulb",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !M! [E]."
@@ -133,6 +141,10 @@
     "NAME": "Entangle",
     "DESCRIPTION": "Apply stsjorbsmod:Slow to ALL enemies. NL Add !M! stsjorbsmod:Web into your hand.",
     "UPGRADE_DESCRIPTION": "Apply stsjorbsmod:Slow to ALL enemies. NL Add !M! stsjorbsmod:Webs into your hand."
+  },
+  "stsjorbsmod:Expose": {
+    "NAME": "Expose",
+    "DESCRIPTION": "Deal !D! damage. NL If this does not end the combat, lose !M! HP."
   },
   "stsjorbsmod:Eye": {
     "NAME": "Eye",
@@ -199,6 +211,10 @@
   "stsjorbsmod:FreshAdventure": {
     "NAME": "Fresh Adventure",
     "DESCRIPTION": "Deal !D! damage. NL Remember stsjorbsmod:Diligence."
+  },
+  "stsjorbsmod:Frostbite": {
+    "NAME": "Frostbite",
+    "DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, stsjorbsmod:Consume this."
   },
   "stsjorbsmod:GatherPower": {
     "NAME": "Gather Power",
@@ -318,6 +334,10 @@
     "NAME": "Minor Illusion",
     "DESCRIPTION": "Gain !B! Block."
   },
+  "stsjorbsmod:Miracle_Cull": {
+    "NAME": "Miracle",
+    "DESCRIPTION": "Retain. NL Gain !M! [E] . NL Add !stsjorbsmod:MetaMagic! stsjorbsmod:Manifest."
+  },
   "stsjorbsmod:MirrorImage": {
     "NAME": "Mirror Image",
     "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Summon an Intangible Mirror Image with !M! HP. NL Exhaust."
@@ -343,9 +363,12 @@
     "DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
   },
-  "stsjorbsmod:Pathos": {
-    "NAME": "Pathos",
-    "DESCRIPTION": "Cards in your hand cost 0 this turn. NL Add a Curse to your discard pile for each card played."
+  "stsjorbsmod:PartingBlow": {
+    "NAME": "Parting Blow",
+    "DESCRIPTION": "Deal damage equal to NL !M! minus your Max HP.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
   },
   "stsjorbsmod:Patron": {
     "NAME": "Patron",
@@ -377,8 +400,8 @@
   },
   "stsjorbsmod:Pyromancy": {
     "NAME": "Pyromancy",
-    "DESCRIPTION": "Ethereal. NL Apply stsjorbsmod:Burning twice.",
-    "UPGRADE_DESCRIPTION": "Apply stsjorbsmod:Burning twice."
+    "DESCRIPTION": "Ethereal. NL Whenever you apply stsjorbsmod:Burning, apply that much stsjorbsmod:Burning again.",
+    "UPGRADE_DESCRIPTION": "Whenever you apply stsjorbsmod:Burning, apply that much stsjorbsmod:Burning again."
   },
   "stsjorbsmod:Quicksilver": {
     "NAME": "Quicksilver",
@@ -428,6 +451,10 @@
     "NAME": "Shake",
     "DESCRIPTION": "If enemy is Vulnerable, draw !M! cards. NL Apply !stsjorbsmod:UrMagic! Vulnerable. NL Exhaust."
   },
+  "stsjorbsmod:Siphon": {
+    "NAME": "Siphon",
+    "DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, heal !M! HP."
+  },
   "stsjorbsmod:SiphonEnergy": {
     "NAME": "Siphon Energy",
     "DESCRIPTION": "Remove all stsjorbsmod:Burning from target and gain that much Strength until end of turn. NL Exhaust.",
@@ -439,11 +466,19 @@
   },
   "stsjorbsmod:SnakeOil": {
     "NAME": "Snake Oil",
-    "DESCRIPTION": "Retain. NL Deal damage equal to the amount of stsjorbsmod:Coil you have. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Deal damage equal to twice the amount of stsjorbsmod:Coil you have. NL Exhaust.",
+    "DESCRIPTION": "Retain. NL Deal damage to ALL enemies equal to the amount of stsjorbsmod:Coil you have. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Deal damage to ALL enemies equal to twice the amount of stsjorbsmod:Coil you have. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
+  },
+  "stsjorbsmod:SpiritShield_Cull": {
+    "NAME": "Spirit Shield",
+    "DESCRIPTION": "Reduce all damage taken by !M! until next turn."
+  },
+  "stsjorbsmod:SplinterSoul": {
+    "NAME": "Splinter Soul",
+    "DESCRIPTION": "Deal !D! damage. NL stsjorbsmod:Consume a random card in your draw pile."
   },
   "stsjorbsmod:Stalwart": {
     "NAME": "Stalwart",
@@ -516,9 +551,21 @@
     "DESCRIPTION": "Remember stsjorbsmod:Sloth. NL Put !M! cards from your discard pile on top of your draw pile. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Sloth. NL Put !M! cards from your discard pile on top of your draw pile. NL Draw !stsjorbsmod:MetaMagic! card. NL Exhaust."
   },
+  "stsjorbsmod:Wail": {
+    "NAME": "Wail",
+    "DESCRIPTION": "Apply !stsjorbsmod:UrMagic! Vulnerable. NL Draw !M! card."
+  },
+  "stsjorbsmod:WakingDream": {
+    "NAME": "Waking Dream",
+    "DESCRIPTION": "Retain. NL Gain !M! Intangible. NL When Retained, increase its cost by !stsjorbsmod:MetaMagic! this combat."
+  },
   "stsjorbsmod:WanderingMind": {
     "NAME": "Wandering Mind",
     "DESCRIPTION": "Draw !M! cards. NL Remember a random memory you do not have stsjorbsmod:Clarity of."
+  },
+  "stsjorbsmod:WastingEssence": {
+    "NAME": "Wasting Essence",
+    "DESCRIPTION": "Add !stsjorbsmod:MetaMagic! random Curses to your discard pile. NL Whenever you draw a Curse, deal !M! damage to ALL enemies."
   },
   "stsjorbsmod:Web": {
     "NAME": "Web",
@@ -530,8 +577,8 @@
   },
   "stsjorbsmod:Will": {
     "NAME": "Will",
-    "DESCRIPTION": "Gain !B! Block. NL Exhaust a random card in your hand; it stsjorbsmod:Exhumes when you stsjorbsmod:Snap and costs 0 until played.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Exhaust a card in your hand; it stsjorbsmod:Exhumes when you stsjorbsmod:Snap and costs 0 until played."
+    "DESCRIPTION": "Gain !B! Block. NL stsjorbsmod:Entomb a random card in your hand until you snap; it costs 0 until played.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL stsjorbsmod:Entomb a card in your hand until you snap; it costs 0 until played."
   },
   "stsjorbsmod:Withdraw": {
     "NAME": "Withdraw",
