@@ -98,7 +98,7 @@
   },
   {
     "NAMES": ["sloth"],
-    "DESCRIPTION": "When you remember Sloth, discard #b3 random cards. Draw #b1 fewer cards each turn."
+    "DESCRIPTION": "When you remember Sloth, discard #b3 random cards. Draw #b1 fewer cards each turn. Energy is conserved between turns."
   },
   {
     "NAMES": ["slow", "slowed"],
