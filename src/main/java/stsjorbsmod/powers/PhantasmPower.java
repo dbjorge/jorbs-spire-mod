@@ -11,7 +11,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.JorbsMod;
 
-public class PhantasmPower extends CustomJorbsModPower {
+public class PhantasmPower extends CustomJorbsModPower implements OnApplyPowerToCancelSubscriber {
     public static final Logger logger = LogManager.getLogger(JorbsMod.class.getName());
 
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(PhantasmPower.class);
@@ -32,13 +32,12 @@ public class PhantasmPower extends CustomJorbsModPower {
     }
 
     @Override
-    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        logger.info("Intangible applied: ID: " + power.ID + " target: " + target + " source: " + source + "owner: " + power.owner);
+    public boolean onReceivePowerToCancel(AbstractPower power, AbstractCreature source) {
         if (power.ID.equals(IntangiblePlayerPower.POWER_ID) && power.owner == AbstractDungeon.player) {
-            logger.info("Phantasm triggered");
             this.flash();
             AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(this.owner, DamageInfo.createDamageMatrix(this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.POISON, true));
         }
+        return false;
     }
 
     @Override
