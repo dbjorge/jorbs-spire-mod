@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.IncreaseManifestAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 
@@ -32,9 +33,7 @@ public class Miracle_Cull extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
         addToBot(new GainEnergyAction(magicNumber));
-        if (p instanceof Cull) {
-            ((Cull) AbstractDungeon.player).manifest += metaMagicNumber;
-        }
+        addToBot(new IncreaseManifestAction(metaMagicNumber));
     }
 
     @Override
