@@ -80,6 +80,10 @@
     "DESCRIPTION": "Your attacks apply #b2 #yBurning. Each time remembered, apply #b2 #yBurning to ALL enemies. Each time forgotten, gain #b2 #yWeak."
   },
   {
+    "NAMES": ["manifest"],
+    "DESCRIPTION": "For each turn spent in combat, gain #b1 #yManifest. When choosing your path, skip a floor for each #yManifest. Resets to #b0 when entering a floor."
+  },
+  {
     "PROPER_NAME": "Material Component",
     "NAMES": ["material\u00a0component", "material\u00a0components"],
     "DESCRIPTION": "Material Components are (mostly) 0-cost cards with a variety of minor effects."
@@ -98,7 +102,7 @@
   },
   {
     "NAMES": ["sloth"],
-    "DESCRIPTION": "When you remember Sloth, discard #b3 random cards. Draw #b1 fewer cards each turn."
+    "DESCRIPTION": "When you remember Sloth, discard #b3 random cards. Draw #b1 fewer cards each turn. Energy is conserved between turns."
   },
   {
     "NAMES": ["slow", "slowed"],

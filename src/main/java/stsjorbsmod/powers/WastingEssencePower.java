@@ -2,7 +2,6 @@ package stsjorbsmod.powers;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -35,14 +34,6 @@ public class WastingEssencePower extends CustomJorbsModPower {
         if (card.type == AbstractCard.CardType.CURSE) {
             this.flash();
             AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(this.owner, DamageInfo.createDamageMatrix(this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.POISON, true));
-        }
-    }
-
-    @Override
-    public void onInitialApplication() {
-        for (int i = 0; i < numberOfCurses; i++) {
-            AbstractCard c = AbstractDungeon.returnRandomCurse();
-            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(c, 1));
         }
     }
 

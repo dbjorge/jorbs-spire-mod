@@ -28,6 +28,11 @@
       "Enemy does not intend to debuff"
     ]
   },
+  "stsjorbsmod:DecreaseMaxHpAction": {
+    "TEXT": [
+      "Max HP -%1$s"
+    ]
+  },
   "stsjorbsmod:DigEmote": {
     "TEXT": [
       "jorbsBird Dig! jorbsBird RELIC jorbsBird DIG jorbsBird"
@@ -36,6 +41,11 @@
   "stsjorbsmod:IfEnemyIntendsToAttackAction": {
     "TEXT": [
       "Enemy does not intend to attack"
+    ]
+  },
+  "stsjorbsmod:IncreaseManifestAction": {
+    "TEXT": [
+      "Manifest +%1$s"
     ]
   },
   "stsjorbsmod:MagicMirrorPatch": {
