@@ -25,6 +25,7 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.actions.DecreaseMaxHpAction;
+import stsjorbsmod.actions.IncreaseManifestAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.cards.cull.*;
 import stsjorbsmod.memories.MemoryManager;
@@ -109,6 +110,7 @@ public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber 
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
 
+    public static final int MANIFEST_PER_TURN = 1;
     public static final int MAX_HP_LOSS_PER_TURN = 1;
     public static final int MAX_HP_LOSS_ON_DAMAGED = 1;
 
@@ -356,9 +358,8 @@ public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber 
     public void applyEndOfTurnTriggers() {
         super.applyEndOfTurnTriggers();
 
-
-        ++manifest;
-
+        AbstractDungeon.actionManager.addToBottom(
+                new IncreaseManifestAction(MANIFEST_PER_TURN));
         AbstractDungeon.actionManager.addToBottom(
                 new DecreaseMaxHpAction(this, this, MAX_HP_LOSS_PER_TURN, AttackEffect.POISON));
     }
