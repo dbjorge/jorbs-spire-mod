@@ -1,4 +1,9 @@
 {
+  "stsjorbsmod:Abjure": {
+    "NAME": "Abjure",
+    "DESCRIPTION": "Draw all Spirit Shields from your draw pile, discard pile and exhaust pile.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Draw all Spirit Shields from your draw pile, discard pile and exhaust pile."
+  },
   "stsjorbsmod:Aid": {
     "NAME": "Aid",
     "DESCRIPTION": "Heal an enemy for !M! HP. NL Remember stsjorbsmod:Kindness. NL Exhaust.",
