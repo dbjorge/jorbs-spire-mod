@@ -3,11 +3,10 @@ package stsjorbsmod.cards.cull;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
-import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.DecreaseMaxHpAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.patches.EphemeralField;
@@ -35,8 +34,7 @@ public class Panic extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
         addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, magicNumber)));
-        AbstractDungeon.effectList.add(new FlashAtkImgEffect(p.hb.cX,p.hb.cY, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        AbstractDungeon.player.decreaseMaxHealth(urMagicNumber);
+        addToBot(new DecreaseMaxHpAction(p, p, urMagicNumber, AbstractGameAction.AttackEffect.SLASH_HEAVY));
     }
 
     @Override
