@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.beyond.Nemesis;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import javassist.CannotCompileException;
@@ -73,10 +74,8 @@ public class TrueDamagePatch {
         }
     }
 
-    @SpirePatch(
-            clz = AbstractMonster.class,
-            method = "damage"
-    )
+    @SpirePatch(clz = AbstractMonster.class, method = "damage")
+    @SpirePatch(clz = Nemesis.class, method = "damage") // Nemesis has a special damage() that sets damage to 1 based on the non-player "Intangible" power
     public static class AbstractMonster_damage {
         public static ExprEditor Instrument() {
             return new ExprEditor() {
