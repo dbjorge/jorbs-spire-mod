@@ -9,8 +9,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-import java.util.Iterator;
-
 public class PathosPower extends CustomJorbsModPower {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(PathosPower.class);
     public static final String POWER_ID = STATIC.ID;
@@ -34,17 +32,10 @@ public class PathosPower extends CustomJorbsModPower {
 
     @Override
     public void onInitialApplication() {
-        Iterator var1 = AbstractDungeon.player.hand.group.iterator();
 
-        while(var1.hasNext()) {
-            AbstractCard c = (AbstractCard)var1.next();
+        for (AbstractCard c : AbstractDungeon.player.hand.group) {
             c.setCostForTurn(-9);
         }
-    }
-
-    @Override
-    public void onCardDraw(AbstractCard card) {
-            card.setCostForTurn(-9);
     }
 
     @Override

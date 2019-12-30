@@ -132,6 +132,13 @@
       "You cannot remember other memories until you have #yClarity of your current memory."
     ]
   },
+  "stsjorbsmod:PathosPower": {
+    "NAME": "Pathos",
+    "DESCRIPTIONS": [
+      "This turn, cards in your hand cost 0. Add a curse to your discard pile for each card played.",
+      "For #b%1$s turns, cards in your hand cost 0. Add a curse to your discard pile for each card played."
+    ]
+  },
   "stsjorbsmod:PlayNextAttackThisTurnAdditionalTimesPower": {
     "NAME": "Hastened",
     "DESCRIPTIONS": [
