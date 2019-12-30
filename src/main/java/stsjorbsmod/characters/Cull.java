@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.relics.SpiritPoop;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import com.megacrit.cardcrawl.screens.DeathScreen;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.actions.DecreaseMaxHpAction;
@@ -374,5 +375,17 @@ public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber 
     public void applyStartOfCombatLogic() {
         super.applyStartOfCombatLogic();
         AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(this, WrathMemory.STATIC.ID));
+    }
+
+    @Override
+    public void decreaseMaxHealth(int amount) {
+        boolean isFatal = amount >= maxHealth;
+        super.decreaseMaxHealth(amount);
+        if (isFatal) {
+            currentHealth = 0;
+            maxHealth = 0;
+            isDead = true;
+            AbstractDungeon.deathScreen = new DeathScreen(AbstractDungeon.getMonsters());
+        }
     }
 }
