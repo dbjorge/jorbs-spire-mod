@@ -542,6 +542,11 @@
     "NAME": "Trauma",
     "DESCRIPTION": "stsjorbsmod:Snap. NL Deal !D! damage to ALL enemies. NL Put this card on top of your draw pile."
   },
+  "stsjorbsmod:Trouble": {
+    "NAME": "Trouble",
+    "DESCRIPTION": "Whenever you draw a Curse, draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Whenever you draw a Curse, draw !M! cards."
+  },
   "stsjorbsmod:TrueStrike": {
     "NAME": "True Strike",
     "DESCRIPTION": "Deal !D! damage. NL This damage cannot be prevented or reduced."

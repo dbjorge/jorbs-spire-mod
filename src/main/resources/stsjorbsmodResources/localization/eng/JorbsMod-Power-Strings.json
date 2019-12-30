@@ -183,6 +183,13 @@
       "At the start of next turn, gain #b%1$s Strength."
     ]
   },
+  "stsjorbsmod:TroublePower": {
+    "NAME": "Trouble",
+    "DESCRIPTIONS": [
+      "Whenever you draw a Curse, draw #b%1$s card.",
+      "Whenever you draw a Curse, draw #b%1$s cards."
+    ]
+  },
   "stsjorbsmod:WastingEssencePower": {
     "NAME": "Wasting Essence",
     "DESCRIPTIONS": [
