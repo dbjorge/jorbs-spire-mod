@@ -21,7 +21,7 @@ public class ScorchingRayAction extends AbstractGameAction {
     @Override
     public void update() {
         AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_MAGIC_BEAM_SHORT", 0.5F));
-        AbstractDungeon.actionManager.addToBottom(new VFXAction(new BorderFlashEffect(Color.GOLDENROD)));
+        AbstractDungeon.actionManager.addToBottom(new VFXAction(new BorderFlashEffect(Color.GOLDENROD.cpy())));
         AbstractDungeon.actionManager.addToBottom(new VFXAction(
                 new ScalingLaserEffect(source.hb.cX, source.hb.cY, target.hb.cX, target.hb.cY, Color.ORANGE.cpy(), Color.RED.cpy(), amount), 0.1F));
 

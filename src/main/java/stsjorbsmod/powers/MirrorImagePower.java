@@ -23,25 +23,17 @@ import stsjorbsmod.util.TextureLoader;
 
 import static stsjorbsmod.JorbsMod.makePowerPath;
 
-public class MirrorImagePower extends AbstractPower implements OnDamageToRedirectSubscriber {
-    public static final String POWER_ID = JorbsMod.makeID(MirrorImagePower.class.getSimpleName());
-    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
-    public static final String NAME = powerStrings.NAME;
-    public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("next_attack_misses_84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("next_attack_misses_32.png"));
+public class MirrorImagePower extends CustomJorbsModPower implements OnDamageToRedirectSubscriber {
+    public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(MirrorImagePower.class);
+    public static final String POWER_ID = STATIC.ID;
 
     private MirrorImageMinion minion; // The power only maintains 1 minion; we change its max health along with our stacks
 
     public MirrorImagePower(AbstractCreature owner, int amountOfImages) {
-        this.name = NAME;
-        this.ID = POWER_ID;
+        super(STATIC);
+
         this.owner = owner;
         this.amount = amountOfImages;
-
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         this.updateDescription();
     }
@@ -108,5 +100,10 @@ public class MirrorImagePower extends AbstractPower implements OnDamageToRedirec
             return true;
         }
         return false;
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new MirrorImagePower(owner, amount);
     }
 }

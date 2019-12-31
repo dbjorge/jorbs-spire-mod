@@ -7,17 +7,16 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.MemoryManager;
-import stsjorbsmod.patches.LegendaryPatch;
 import stsjorbsmod.patches.SelfExhumeFields;
 import stsjorbsmod.powers.ExhumeAtStartOfTurnPower;
 import stsjorbsmod.powers.SnappedPower;
+import stsjorbsmod.util.CombatUtils;
 
 
 // At the end of turn 7 deal 5 damage to all enemies and 2 damage to yourself for every clarity bonus you have. You cannot be affected by memories or clarities for the remainder of the fight.
@@ -37,7 +36,11 @@ public class SnapAction extends AbstractGameAction {
     }
 
     public void update() {
-        if (target.hasPower(SnappedPower.POWER_ID)) {
+        if (MemoryManager.forPlayer(target) == null || target.hasPower(SnappedPower.POWER_ID)) {
+            isDone = true;
+            return;
+        }
+        if (CombatUtils.isCombatBasicallyVictory()) {
             isDone = true;
             return;
         }

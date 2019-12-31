@@ -20,9 +20,8 @@
   "stsjorbsmod:BookOfTonguesPower": {
     "NAME": "Book of Tongues",
     "DESCRIPTIONS": [
-      "At the start of your turn, draw #b1 random Material Component.",
-      "At the start of your turn, draw #b",
-      " random Material Components."
+      "At the start of your turn, draw #b%1$s random Material Component.",
+      "At the start of your turn, draw #b%1$s random Material Components."
     ]
   },
   "stsjorbsmod:BurningPower": {
@@ -30,14 +29,14 @@
     "DESCRIPTIONS": [
       "At the start of your turn, take #b%1$s damage, then reduce #yBurning by #b%2$s. You cannot heal.",
       "At the start of its turn, takes #b%1$s damage, then reduce #yBurning by #b%2$s. It cannot heal.",
-      "Reduce healing by %1$s%%."
+      "Reduce healing by %1$s%%.",
+      "Mmmm... Escargot"
     ]
   },
   "stsjorbsmod:CoilPower": {
     "NAME": "Coil",
     "DESCRIPTIONS": [
-      "Whenever you remember a new memory, deal #b",
-      " damage to ALL enemies and lose all Coil."
+      "Whenever you remember a new memory, deal #b%1$s damage to ALL enemies and lose all Coil."
     ]
   },
   "stsjorbsmod:DoubleCheckPower": {
@@ -46,11 +45,17 @@
       "At the start of your next turn, if you remember #yDiligence gain #yClarity."
     ]
   },
+  "stsjorbsmod:DoubleExhaustPower": {
+    "NAME": "Double",
+    "DESCRIPTIONS": [
+      "This turn, your next card that #yExhausts is played twice.",
+      "This turn, your next %1$s cards that #yExhaust are played twice."
+    ]
+  },
   "stsjorbsmod:EnergizedCustomPower": {
     "NAME": "Energized",
     "DESCRIPTIONS": [
-      "Gain #b",
-      " additional [E] next turn."
+      "Gain #b%1$s additional [E] next turn."
     ]
   },
   "stsjorbsmod:ExhumeAtStartOfTurnPower": {
@@ -62,17 +67,14 @@
   "stsjorbsmod:FearPower": {
     "NAME": "Afraid",
     "DESCRIPTIONS": [
-      "Will escape in #b",
-      " turn.",
-      " turns.",
-      " If this ends the fight, keep Clarities for next fight."
+      "Will escape in #b%1$s turn. If this ends the fight, keep Clarities for next fight.",
+      "Will escape in #b%1$s turns. If this ends the fight, keep Clarities for next fight."
     ]
   },
   "stsjorbsmod:FindFamiliarPower": {
     "NAME": "Find Familiar",
     "DESCRIPTIONS": [
-      "At the end of each turn, gain #yClarity. If #ySnapped, deal #b",
-      " damage to ALL enemies."
+      "At the end of each turn, gain #yClarity. If #ySnapped, deal #b%1$s damage to ALL enemies."
     ]
   },
   "stsjorbsmod:FlameWardPower": {
@@ -81,26 +83,18 @@
       "When you are next attacked, apply #b%1$s #yBurning to ALL attackers and gain #b%2$s #yBlock."
     ]
   },
-  "stsjorbsmod:FocusOnThePainPower": {
-    "NAME": "Focus on the Pain",
-    "DESCRIPTIONS": [
-      "Whenever you lose HP, gain Clarity."
-    ]
-  },
   "stsjorbsmod:ForbiddenGrimoireDelayedExhumePower": {
     "NAME": "Delayed Exhume",
     "DESCRIPTIONS": [
-      " will be Exhumed after you play #b",
-      " more card.",
-      " more cards."
+      "%1$s will be Exhumed after you play #b%2$s more card.",
+      "%1$s will be Exhumed after you play #b%2$s more cards."
     ]
   },
   "stsjorbsmod:FragilePower": {
     "NAME": "Fragile",
     "DESCRIPTIONS": [
       "At the end of this turn, Snap.",
-      "In ",
-      " turns, Snap."
+      "In %1$s turns, Snap."
     ]
   },
   "stsjorbsmod:IntrospectionPower": {
@@ -116,8 +110,7 @@
     "NAME": "Magic Mirror",
     "DESCRIPTIONS": [
       "Whenever an enemy applies a debuff to you, apply that debuff to ALL enemies.",
-      "Whenever an enemy applies a debuff to you, apply that debuff to ALL enemies #b",
-      " times."
+      "Whenever an enemy applies a debuff to you, apply that debuff to ALL enemies #b%1$s times."
     ]
   },
   "stsjorbsmod:MindGlassPower": {
@@ -139,34 +132,24 @@
       "You cannot remember other memories until you have #yClarity of your current memory."
     ]
   },
-  "stsjorbsmod:NextAttackMissesPower": {
-    "NAME": "Mirror Image",
-    "DESCRIPTIONS": [
-      "The next enemy attack misses."
-    ]
-  },
   "stsjorbsmod:PlayNextAttackThisTurnAdditionalTimesPower": {
     "NAME": "Hastened",
     "DESCRIPTIONS": [
       "The next attack you play this turn is played an additional time.",
-      "The next attack you play this turn is played an additional #b",
-      " times."
+      "The next attack you play this turn is played an additional #b%1$s times."
     ]
   },
   "stsjorbsmod:PrestidigitationPower": {
     "NAME": "Prestidigitation",
     "DESCRIPTIONS": [
-      "At the start of each turn, apply #b",
-      " Weak or #b",
-      " Vulnerable to a random enemy"
+      "At the start of each turn, apply #b%1$s Weak or #b%2$s Vulnerable to a random enemy."
     ]
   },
   "stsjorbsmod:PyromancyPower": {
     "NAME": "Pyromancy",
     "DESCRIPTIONS": [
-      "Apply #yBurning #b",
-      " extra time.",
-      " extra times."
+      "Whenever you apply #yBurning, apply that much #yBurning #b%1$s extra time.",
+      "Whenever you apply #yBurning, apply that much #yBurning #b%1$s extra times."
     ]
   },
   "stsjorbsmod:RediscoveryPower": {
@@ -181,10 +164,29 @@
       "You cannot remember any memories or clarities."
     ]
   },
+  "stsjorbsmod:SpiritShieldPower": {
+    "NAME": "Spirit Shield",
+    "DESCRIPTIONS": [
+      "Reduce all damage by #b%2$s for #b%1$s turn.",
+      "Reduce all damage by #b%2$s for #b%1$s turns."
+    ]
+  },
   "stsjorbsmod:StrangePendantPower": {
     "NAME": "Strange Pendant",
     "DESCRIPTIONS": [
       "Ignore the first #b%1$s damage taken each turn."
+    ]
+  },
+  "stsjorbsmod:StrengthNextTurnPower": {
+    "NAME": "Strength Next Turn",
+    "DESCRIPTIONS": [
+      "At the start of next turn, gain #b%1$s Strength."
+    ]
+  },
+  "stsjorbsmod:WastingEssencePower": {
+    "NAME": "Wasting Essence",
+    "DESCRIPTIONS": [
+      "Whenever you draw a Curse, deal #b%1$s damage to ALL enemies."
     ]
   }
 }

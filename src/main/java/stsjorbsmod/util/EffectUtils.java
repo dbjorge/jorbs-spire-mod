@@ -44,7 +44,7 @@ public class EffectUtils {
     public static AbstractGameEffect getWrathEffect(AbstractCard card) {
         AbstractGameEffect effect = new FireBurstParticleEffect(card.current_x + (WRATH_TEXT_OFFSET_X + MathUtils.random(-10.0F, 10.0F)) * card.drawScale * Settings.scale,
                 card.current_y + (WRATH_TEXT_OFFSET_Y + MathUtils.random(-10.0F, 10.0F)) * card.drawScale * Settings.scale);
-        ReflectionUtils.setPrivateField(effect, AbstractGameEffect.class, "color", Color.ORANGE);
+        ReflectionUtils.setPrivateField(effect, AbstractGameEffect.class, "color", Color.ORANGE.cpy());
         return effect;
     }
 
@@ -60,7 +60,7 @@ public class EffectUtils {
                 // TODO: this effect needs to change to something more negative, but figuring out this many particles is a bit out of my brain capacity ATM.
                 // TODO: somehow include the hammer effect too.
                 () -> new UpgradeShineParticleEffect(x + MathUtils.random(-10.0F, 10.0F) * Settings.scale, y + MathUtils.random(-10.0F, 10.0F) * Settings.scale),
-                Color.FIREBRICK,
+                Color.FIREBRICK.cpy(),
                 true));
         AbstractDungeon.actionManager.addToTop(new WaitAction(Settings.ACTION_DUR_LONG));
     }

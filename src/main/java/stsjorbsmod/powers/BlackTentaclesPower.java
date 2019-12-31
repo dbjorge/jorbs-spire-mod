@@ -1,39 +1,26 @@
 package stsjorbsmod.powers;
 
-import basemod.interfaces.CloneablePowerInterface;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
-import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import stsjorbsmod.JorbsMod;
-import stsjorbsmod.util.TextureLoader;
-
-import static stsjorbsmod.JorbsMod.makePowerPath;
 
 // attacks with random targets (specifically, uses of the AttackDamageRandomEnemyAction) target this enemy.
 // This is primarily a marker power for applyPossibleActionTargetOverride to look for.
-public class BlackTentaclesPower extends AbstractPower implements CloneablePowerInterface, AtEndOfPlayerTurnSubscriber {
+public class BlackTentaclesPower extends CustomJorbsModPower implements AtEndOfPlayerTurnSubscriber {
+    public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(BlackTentaclesPower.class);
+    public static final String POWER_ID = STATIC.ID;
+
     public AbstractCreature source;
 
-    public static final String POWER_ID = JorbsMod.makeID(BlackTentaclesPower.class.getSimpleName());
-    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
-    public static final String NAME = powerStrings.NAME;
-    public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("black_tentacles_power84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("black_tentacles_power32.png"));
-
     public BlackTentaclesPower(final AbstractCreature owner, final AbstractCreature source) {
-        ID = POWER_ID;
-        this.name = NAME;
+        super(STATIC);
+
         this.type = PowerType.DEBUFF;
 
         this.owner = owner;
@@ -41,11 +28,6 @@ public class BlackTentaclesPower extends AbstractPower implements CloneablePower
         this.amount = -1; // non-stackable
 
         this.isTurnBased = true;
-
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
-
-        updateDescription();
     }
 
     @Override
@@ -63,11 +45,6 @@ public class BlackTentaclesPower extends AbstractPower implements CloneablePower
     @Override
     public void atEndOfPlayerTurn() {
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
-    }
-
-    @Override
-    public void updateDescription() {
-        description = DESCRIPTIONS[0];
     }
 
     @Override

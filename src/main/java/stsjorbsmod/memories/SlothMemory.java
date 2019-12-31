@@ -4,7 +4,7 @@ import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-public class SlothMemory extends AbstractMemory {
+public class SlothMemory extends AbstractMemory implements OnEnergyRechargeToConserveSubscriber {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(SlothMemory.class);
 
     private static final int DISCARD_ON_REMEMBER = 3;
@@ -33,5 +33,14 @@ public class SlothMemory extends AbstractMemory {
     @Override
     public void onLosePassiveEffect() {
         ++AbstractDungeon.player.gameHandSize;
+    }
+
+    @Override
+    public boolean onEnergyRechargeToConserve() {
+        if (isPassiveEffectActive()) {
+            this.flashWithoutSound();
+            return true;
+        }
+        return false;
     }
 }

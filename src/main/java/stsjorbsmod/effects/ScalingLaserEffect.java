@@ -28,8 +28,8 @@ public class ScalingLaserEffect extends AbstractGameEffect {
         this.sourceX = sourceX;
         this.sourceY = sourceY;
         this.distance = Vector2.dst(this.sourceX, this.sourceY, targetX, targetY) / Settings.scale;
-        this.color = color1;
-        this.color2 = color2;
+        this.color = color1.cpy();
+        this.color2 = color2.cpy();
         this.duration = DUR;
         this.startingDuration = DUR;
         this.rotation = MathUtils.atan2(targetX - sourceX, targetY - sourceY);
