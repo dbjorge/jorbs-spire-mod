@@ -566,7 +566,7 @@
   },
   "stsjorbsmod:WakingDream": {
     "NAME": "Waking Dream",
-    "DESCRIPTION": "Retain. NL Gain !M! Intangible. NL When Retained, increase its cost by !stsjorbsmod:MetaMagic! this combat."
+    "DESCRIPTION": "Retain. NL Gain !M! Intangible. NL When Retained, increase its cost by !stsjorbsmod:MetaMagic! this combat. NL Exhaust."
   },
   "stsjorbsmod:WanderingMind": {
     "NAME": "Wandering Mind",
