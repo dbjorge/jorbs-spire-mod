@@ -133,6 +133,10 @@
       " NL (Deal !D! damage.)"
     ]
   },
+  "stsjorbsmod:Ectoplasm_Cull": {
+    "NAME": "Ectoplasm",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! gold for each stsjorbsmod:Manifest. NL Exhaust."
+  },
   "stsjorbsmod:EnergyBulb": {
     "NAME": "Energy Bulb",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !M! [E]."
