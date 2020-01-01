@@ -374,6 +374,10 @@
       " NL (Deals !D! damage.)"
     ]
   },
+  "stsjorbsmod:Pathos": {
+    "NAME": "Pathos",
+    "DESCRIPTION": "Cards in your hand cost 0 this turn. NL Add a curse to your discard pile for each card played."
+  },
   "stsjorbsmod:Patron": {
     "NAME": "Patron",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until you stsjorbsmod:Snap. NL Deal !D! damage. NL stsjorbsmod:Destroy.",
