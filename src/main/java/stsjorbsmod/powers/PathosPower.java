@@ -23,6 +23,9 @@ public class PathosPower extends CustomJorbsModPower {
         updateDescription();
     }
 
+    // We intentionally don't use onDrawCard because it doesn't cover "create duplicate card" effects.
+    // Instead, see PathosPatch.
+
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         this.flash();
