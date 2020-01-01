@@ -508,6 +508,10 @@
     "NAME": "Strange Pendant",
     "DESCRIPTION": "Ignore the first !M! damage taken each turn."
   },
+  "stsjorbsmod:Strife": {
+    "NAME": "Strife",
+    "DESCRIPTION": "Add a random Curse to your discard pile. NL Gain !M! Strength for each Curse in your hand, draw pile and discard pile."
+  },
   "stsjorbsmod:Strike_Wanderer": {
     "NAME": "Strike",
     "DESCRIPTION": "Deal !D! damage."
