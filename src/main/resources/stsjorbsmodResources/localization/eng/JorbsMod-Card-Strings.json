@@ -98,6 +98,10 @@
     "NAME": "CULL",
     "DESCRIPTION": "Permanently decrease this card's damage by !stsjorbsmod:UrMagic! each time it is drawn. NL Deal !D! damage twice. NL If Fatal, permanently increase this card's damage by !M!. NL Exhaust."
   },
+  "stsjorbsmod:Cyclone": {
+    "NAME": "Cyclone",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain [E] for each enemy killed."
+  },
   "stsjorbsmod:DeathThroes": {
     "NAME": "Death Throes",
     "DESCRIPTION": "stsjorbsmod:Entombed. stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume whenever an enemy dies. NL Deal !D! damage. NL Remember stsjorbsmod:Wrath."
