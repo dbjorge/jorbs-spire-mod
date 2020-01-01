@@ -456,6 +456,10 @@
     "NAME": "Scorching Ray",
     "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Apply !stsjorbsmod:MetaMagic! stsjorbsmod:Burning !M! times. This stsjorbsmod:Burning is affected by Strength."
   },
+  "stsjorbsmod:Sentinel_Cull": {
+    "NAME": "Sentinel",
+    "DESCRIPTION": "Deal !D! damage. NL Lower your stsjorbsmod:Manifest by !M!. NL Exhaust."
+  },
   "stsjorbsmod:Shake": {
     "NAME": "Shake",
     "DESCRIPTION": "If enemy is Vulnerable, draw !M! cards. NL Apply !stsjorbsmod:UrMagic! Vulnerable. NL Exhaust."

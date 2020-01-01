@@ -45,7 +45,9 @@
   },
   "stsjorbsmod:IncreaseManifestAction": {
     "TEXT": [
-      "Manifest +%1$s"
+      "Manifest +%1$s",
+      "Manifest %1$s"
+
     ]
   },
   "stsjorbsmod:MagicMirrorPatch": {
