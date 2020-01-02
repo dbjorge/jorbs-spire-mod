@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.characters.Cull;
+import stsjorbsmod.patches.ManifestPatch;
 
 public class IncreaseManifestAction extends AbstractGameAction {
     private static final String UI_ID = JorbsMod.makeID(IncreaseManifestAction.class);
@@ -24,14 +24,6 @@ public class IncreaseManifestAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        if (!(target instanceof Cull)) {
-            JorbsMod.logger.warn("Ignoring attempt to add manifest to non-Cull character!");
-            isDone = true;
-            return;
-        }
-
-        Cull player = (Cull) target;
-
         if (this.duration == this.startDuration) {
             String msg = amount < 0 ?  String.format(TEXT[1], amount) : String.format(TEXT[0], amount);
             Color msgColor = amount < 0 ? Settings.GREEN_TEXT_COLOR : Settings.RED_TEXT_COLOR;
@@ -41,10 +33,9 @@ public class IncreaseManifestAction extends AbstractGameAction {
         this.tickDuration();
 
         if (isDone) {
-            ((Cull) target).manifest+= amount;
-            if (((Cull) target).manifest < 0) {
-                ((Cull) target).manifest = 0;
-            }
+            int originalManifest = ManifestPatch.PlayerManifestField.manifestField.get(target);
+            int newManifest = Math.max(0, originalManifest + amount);
+            ManifestPatch.PlayerManifestField.manifestField.set(target, newManifest);
         }
     }
 }

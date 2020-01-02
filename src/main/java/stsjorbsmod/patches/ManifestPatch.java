@@ -1,14 +1,22 @@
 package stsjorbsmod.patches;
 
+import com.evacipated.cardcrawl.modthespire.lib.SpireField;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.scenes.AbstractScene;
 import stsjorbsmod.characters.Cull;
 
-public class CullManifestPatch {
+public class ManifestPatch {
+    @SpirePatch(clz = AbstractPlayer.class, method = SpirePatch.CLASS)
+    public static class PlayerManifestField {
+        public static SpireField<Integer> manifestField = new SpireField<>(() -> 0);
+    }
+
     // CULL has a permanent Wing Boots effect, and also skips floors based on manifest
     // built up during combat. This patch combines those effects by using manifest to
     // determine which floor ("Y") we'll be going to and then allowing CULL to treat any
@@ -19,13 +27,14 @@ public class CullManifestPatch {
         @SpirePostfixPatch
         public static boolean patch(boolean originalResult, MapRoomNode __this, MapRoomNode __node)
         {
-            if (!(AbstractDungeon.player instanceof Cull)) {
+            int manifest = PlayerManifestField.manifestField.get(AbstractDungeon.player);
+
+            if (manifest == 0 && !(AbstractDungeon.player instanceof Cull)) {
                 return originalResult;
             }
 
-            Cull player = (Cull) AbstractDungeon.player;
             int startingY = __this.y;
-            int targetY = startingY + 1 + player.manifest;
+            int targetY = startingY + 1 + manifest;
             // Mapping has special handling for the first floor of each act that breaks if they're ever considered connected-to
             if (__node.y == 0) {
                 return false;
@@ -53,8 +62,8 @@ public class CullManifestPatch {
     {
         @SpirePostfixPatch
         public static void patch(AbstractScene __this, AbstractRoom __room) {
-            if (AbstractDungeon.player instanceof Cull) {
-                ((Cull) AbstractDungeon.player).manifest = 0;
+            if (!CardCrawlGame.loadingSave) {
+                PlayerManifestField.manifestField.set(AbstractDungeon.player, 0);
             }
         }
     }
