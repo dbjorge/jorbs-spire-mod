@@ -24,10 +24,8 @@ public class ExhumeAndMakeEtherealAction extends AbstractGameAction {
     private static final String UI_ID = JorbsMod.makeID(ExhumeAndMakeEtherealAction.class.getSimpleName());
     private static final UIStrings prependUiStrings = CardCrawlGame.languagePack.getUIString(UI_ID);
     private static final String PrependText = prependUiStrings.TEXT[0];
-
-
+    
     private ArrayList<AbstractCard> exhumes = new ArrayList<>();
-
 
     public ExhumeAndMakeEtherealAction() {
         this.p = AbstractDungeon.player;
@@ -35,7 +33,6 @@ public class ExhumeAndMakeEtherealAction extends AbstractGameAction {
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FAST;
     }
-
 
     public void update() {
         if (this.duration == Settings.ACTION_DUR_FAST) {
