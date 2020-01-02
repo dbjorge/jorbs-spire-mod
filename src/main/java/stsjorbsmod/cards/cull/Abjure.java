@@ -30,9 +30,9 @@ public class Abjure extends CustomJorbsModCard {
     @Override
     public void upgrade() {
         if (!upgraded) {
-            //until beta releases, replace the following line with the commented line
+            // TODO: Replace with selfRetain on beta release
             AlwaysRetainField.alwaysRetain.set(this, true);
-//            this.selfRetain = true;
+
             upgradeName();
             upgradeDescription();
         }
