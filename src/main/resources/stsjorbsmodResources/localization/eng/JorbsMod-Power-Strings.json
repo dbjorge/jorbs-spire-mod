@@ -132,6 +132,13 @@
       "You cannot remember other memories until you have #yClarity of your current memory."
     ]
   },
+  "stsjorbsmod:PathosPower": {
+    "NAME": "Pathos",
+    "DESCRIPTIONS": [
+      "This turn, cards in your hand cost 0. Add a curse to your discard pile for each card played.",
+      "For #b%1$s turns, cards in your hand cost 0. Add a curse to your discard pile for each card played."
+    ]
+  },
   "stsjorbsmod:PhantasmPower": {
     "NAME": "Phantasm",
     "DESCRIPTIONS": [
@@ -187,6 +194,13 @@
     "NAME": "Strength Next Turn",
     "DESCRIPTIONS": [
       "At the start of next turn, gain #b%1$s Strength."
+    ]
+  },
+  "stsjorbsmod:TroublePower": {
+    "NAME": "Trouble",
+    "DESCRIPTIONS": [
+      "Whenever you draw a Curse, draw #b%1$s card.",
+      "Whenever you draw a Curse, draw #b%1$s cards."
     ]
   },
   "stsjorbsmod:WastingEssencePower": {

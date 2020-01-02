@@ -363,12 +363,20 @@
     "DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
   },
+  "stsjorbsmod:Panic": {
+    "NAME": "Panic",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !M! Intangible. NL Lose !stsjorbsmod:UrMagic! Max HP."
+  },
   "stsjorbsmod:PartingBlow": {
     "NAME": "Parting Blow",
     "DESCRIPTION": "Deal damage equal to NL !M! minus your Max HP.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
+  },
+  "stsjorbsmod:Pathos": {
+    "NAME": "Pathos",
+    "DESCRIPTION": "Cards in your hand cost 0 this turn. NL Add a curse to your discard pile for each card played."
   },
   "stsjorbsmod:Patron": {
     "NAME": "Patron",
@@ -419,9 +427,9 @@
   },
   "stsjorbsmod:Rebuke": {
     "NAME": "Rebuke",
-    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Deal !M! damage to ALL enemies for each Intangible you have. NL Exhaust.",
+    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Deal damage to ALL enemies equal to !D! times your Intangible. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
-      " NL (Deals !D! damage.)"
+      " NL (Deals !M! damage.)"
     ]
   },
   "stsjorbsmod:Rediscovery": {
@@ -437,6 +445,11 @@
   "stsjorbsmod:Rest": {
     "NAME": "Rest",
     "DESCRIPTION": "Remember stsjorbsmod:Chastity. NL Gain !B! Block. NL End your turn."
+  },
+  "stsjorbsmod:Ritual": {
+    "NAME": "Ritual",
+    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Retain up to !M! card until next turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Retain up to !M! cards until next turn. NL Exhaust."
   },
   "stsjorbsmod:Rot": {
     "NAME": "Rot",
@@ -546,6 +559,11 @@
     "NAME": "Trauma",
     "DESCRIPTION": "stsjorbsmod:Snap. NL Deal !D! damage to ALL enemies. NL Put this card on top of your draw pile."
   },
+  "stsjorbsmod:Trouble": {
+    "NAME": "Trouble",
+    "DESCRIPTION": "Whenever you draw a Curse, draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Whenever you draw a Curse, draw !M! cards."
+  },
   "stsjorbsmod:TrueStrike": {
     "NAME": "True Strike",
     "DESCRIPTION": "Deal !D! damage. NL This damage cannot be prevented or reduced."
@@ -561,7 +579,7 @@
   },
   "stsjorbsmod:WakingDream": {
     "NAME": "Waking Dream",
-    "DESCRIPTION": "Retain. NL Gain !M! Intangible. NL When Retained, increase its cost by !stsjorbsmod:MetaMagic! this combat."
+    "DESCRIPTION": "Retain. NL Gain !M! Intangible. NL When Retained, increase its cost by !stsjorbsmod:MetaMagic! this combat. NL Exhaust."
   },
   "stsjorbsmod:WanderingMind": {
     "NAME": "Wandering Mind",
