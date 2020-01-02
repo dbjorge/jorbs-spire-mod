@@ -484,6 +484,10 @@
     "NAME": "Scorching Ray",
     "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Apply !stsjorbsmod:MetaMagic! stsjorbsmod:Burning !M! times. This stsjorbsmod:Burning is affected by Strength."
   },
+  "stsjorbsmod:Seance": {
+    "NAME": "Séance",
+    "DESCRIPTION": "stsjorbsmod:Exhume a card. NL It gains Ethereal. NL Exhaust."
+  },
   "stsjorbsmod:Shake": {
     "NAME": "Shake",
     "DESCRIPTION": "If enemy is Vulnerable, draw !M! cards. NL Apply !stsjorbsmod:UrMagic! Vulnerable. NL Exhaust."
