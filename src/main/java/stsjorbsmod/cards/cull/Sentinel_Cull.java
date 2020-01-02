@@ -33,6 +33,7 @@ public class Sentinel_Cull extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        // IncreaseManifestAction is added to queue first, otherwise it would get cleared by clearPostCombatActions if this card would end combat.
         addToBot(new IncreaseManifestAction(-magicNumber));
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.SLASH_HEAVY));
     }

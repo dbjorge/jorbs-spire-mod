@@ -1,5 +1,6 @@
 package stsjorbsmod.actions;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -32,9 +33,9 @@ public class IncreaseManifestAction extends AbstractGameAction {
         Cull player = (Cull) target;
 
         if (this.duration == this.startDuration) {
-
             String msg = amount < 0 ?  String.format(TEXT[1], amount) : String.format(TEXT[0], amount);
-            AbstractDungeon.effectsQueue.add(new TextAboveCreatureEffect(target.hb.cX - target.animX, target.hb.cY, msg, Settings.RED_TEXT_COLOR));
+            Color msgColor = amount < 0 ? Settings.GREEN_TEXT_COLOR : Settings.RED_TEXT_COLOR;
+            AbstractDungeon.effectsQueue.add(new TextAboveCreatureEffect(target.hb.cX - target.animX, target.hb.cY, msg, msgColor));
         }
 
         this.tickDuration();
