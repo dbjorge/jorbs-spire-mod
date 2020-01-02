@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.vfx.GainPennyEffect;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
+import stsjorbsmod.patches.ManifestPatch;
 
 public class Ectoplasm_Cull extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Ectoplasm_Cull.class);
@@ -35,8 +36,7 @@ public class Ectoplasm_Cull extends CustomJorbsModCard {
 
     @Override
     public int calculateBonusMagicNumber() {
-        AbstractPlayer p = AbstractDungeon.player;
-       return p instanceof Cull ? ((Cull) p).manifest * metaMagicNumber : 0;
+       return metaMagicNumber * ManifestPatch.PlayerManifestField.manifestField.get(AbstractDungeon.player);
     }
 
     @Override

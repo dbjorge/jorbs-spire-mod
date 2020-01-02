@@ -354,7 +354,6 @@ public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber 
         return CHARACTER_SELECT_BG_TEXTURE;
     }
 
-    public int manifest = 0;
     @Override
     public void applyEndOfTurnTriggers() {
         super.applyEndOfTurnTriggers();
