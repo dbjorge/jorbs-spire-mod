@@ -510,7 +510,10 @@
   },
   "stsjorbsmod:Strife": {
     "NAME": "Strife",
-    "DESCRIPTION": "Add a random Curse to your discard pile. NL Gain !M! Strength for each Curse in your hand, draw pile and discard pile."
+    "DESCRIPTION": "Add a random Curse to your discard pile. NL Gain !stsjorbsmod:MetaMagic! Strength for each Curse in your hand, draw pile and discard pile.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Gains !M! Strength.)"
+    ]
   },
   "stsjorbsmod:Strike_Wanderer": {
     "NAME": "Strike",

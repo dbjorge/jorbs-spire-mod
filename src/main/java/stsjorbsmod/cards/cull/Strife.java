@@ -26,44 +26,51 @@ public class Strife extends CustomJorbsModCard {
 
     public Strife() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = STRENGTH_PER_CURSE;
+        magicNumber = baseMagicNumber = 0;
+        metaMagicNumber = baseMetaMagicNumber = STRENGTH_PER_CURSE;
     }
 
-    private void calculateCurseAmount() {
+    @Override
+    public int calculateBonusMagicNumber() {
         int nbCurses = CURSE_AMOUNT;
         AbstractPlayer p = AbstractDungeon.player;
         for (AbstractCard card : p.drawPile.group) {
-            if (card.rarity.equals(CardRarity.CURSE)) {
+            if (card.type.equals(CardType.CURSE)) {
                 ++nbCurses;
             }
         }
         for (AbstractCard card : p.discardPile.group) {
-            if (card.rarity.equals(CardRarity.CURSE)) {
+            if (card.type.equals(CardType.CURSE)) {
                 ++nbCurses;
             }
         }
         for (AbstractCard card : p.hand.group) {
-            if (card.rarity.equals(CardRarity.CURSE)) {
+            if (card.type.equals(CardType.CURSE)) {
                 ++nbCurses;
             }
         }
-        urMagicNumber = nbCurses * magicNumber;
+        return nbCurses * metaMagicNumber;
     }
 
-        @Override
+    @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
         AbstractCard c = AbstractDungeon.returnRandomCurse();
         addToBot(new MakeTempCardInDiscardAction(c, CURSE_AMOUNT));
-        calculateCurseAmount();
-        addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, urMagicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
     }
+
+    @Override
+    public String getRawDynamicDescriptionSuffix() {
+        return EXTENDED_DESCRIPTION[0];
+    }
+
 
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_STRENGTH_PER_CURSE);
+            upgradeMetaMagicNumber(UPGRADE_STRENGTH_PER_CURSE);
             upgradeDescription();
         }
     }
