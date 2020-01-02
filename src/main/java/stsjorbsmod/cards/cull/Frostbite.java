@@ -39,6 +39,8 @@ public class Frostbite extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            this.rarity = CardRarity.RARE;
+            this.bannerImageRarity = CardRarity.RARE;
             upgradeDamage(UPGRADE_DAMAGE);
             upgradeDescription();
         }
