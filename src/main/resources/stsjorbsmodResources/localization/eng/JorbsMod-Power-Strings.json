@@ -139,6 +139,12 @@
       "For #b%1$s turns, cards in your hand cost 0. Add a curse to your discard pile for each card played."
     ]
   },
+  "stsjorbsmod:PhantasmPower": {
+    "NAME": "Phantasm",
+    "DESCRIPTIONS": [
+      "Whenever you gain #yIntangible, deal #b%1$s damage to ALL enemies."
+    ]
+  },
   "stsjorbsmod:PlayNextAttackThisTurnAdditionalTimesPower": {
     "NAME": "Hastened",
     "DESCRIPTIONS": [
