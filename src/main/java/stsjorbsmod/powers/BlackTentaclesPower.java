@@ -53,7 +53,10 @@ public class BlackTentaclesPower extends CustomJorbsModPower implements AtEndOfP
     }
 
     public int onAnyMonsterHpLoss(AbstractMonster monster, DamageInfo originalDamageInfo, int originalHpLoss) {
-        if (monster != owner && originalDamageInfo != null && originalDamageInfo.owner == source && originalHpLoss > 0) {
+        // We accept null owner primarily for the sake of ExplosivePotion, see #299.
+        boolean isDamageFromApplicableSource = originalDamageInfo != null && (originalDamageInfo.owner == null || originalDamageInfo.owner == this.source);
+
+        if (monster != owner && isDamageFromApplicableSource && originalHpLoss > 0) {
             this.flash();
             DamageType newDamageType = originalDamageInfo.type == DamageType.HP_LOSS ? DamageType.HP_LOSS : DamageType.THORNS;
             DamageInfo newDamageInfo = new DamageInfo(source, originalHpLoss, newDamageType);
