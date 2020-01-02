@@ -25,7 +25,7 @@ public class Seance extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
-        addToBot(new ExhumeAndMakeEtherealAction(EXTENDED_DESCRIPTION[0]));
+        addToBot(new ExhumeAndMakeEtherealAction());
     }
 
     @Override

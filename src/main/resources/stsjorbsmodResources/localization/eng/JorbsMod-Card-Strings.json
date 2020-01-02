@@ -448,11 +448,8 @@
     "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Apply !stsjorbsmod:MetaMagic! stsjorbsmod:Burning !M! times. This stsjorbsmod:Burning is affected by Strength."
   },
   "stsjorbsmod:Seance": {
-    "NAME": "Seance",
-    "DESCRIPTION": "Put a card from your exhaust pile into your hand. It gains Ethereal. NL Exhaust",
-    "EXTENDED_DESCRIPTION": [
-      " Ethereal. NL "
-    ]
+    "NAME": "Séance",
+    "DESCRIPTION": "stsjorbsmod:Exhume a card. NL It gains Ethereal. NL Exhaust."
   },
   "stsjorbsmod:Shake": {
     "NAME": "Shake",

@@ -38,6 +38,11 @@
       "jorbsBird Dig! jorbsBird RELIC jorbsBird DIG jorbsBird"
     ]
   },
+  "stsjorbsmod:ExhumeAndMakeEtherealAction": {
+    "TEXT": [
+      "Ethereal. NL "
+    ]
+  },
   "stsjorbsmod:IfEnemyIntendsToAttackAction": {
     "TEXT": [
       "Enemy does not intend to attack"
