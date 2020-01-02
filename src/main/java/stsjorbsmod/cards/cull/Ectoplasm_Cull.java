@@ -28,27 +28,39 @@ public class Ectoplasm_Cull extends CustomJorbsModCard {
     public Ectoplasm_Cull() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        magicNumber = baseMagicNumber = GOLD_PER_MANIFEST;
+        magicNumber = baseMagicNumber = 0;
+        metaMagicNumber = baseMetaMagicNumber = GOLD_PER_MANIFEST;
         this.exhaust = true;
+    }
+
+    @Override
+    public int calculateBonusMagicNumber() {
+        AbstractPlayer p = AbstractDungeon.player;
+       return p instanceof Cull ? ((Cull) p).manifest * metaMagicNumber : 0;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.POISON));
-        int goldGained = p instanceof Cull ? ((Cull) p).manifest * magicNumber : 0;
 
-        for(int i = 0; i < goldGained; ++i) {
+        for(int i = 0; i < magicNumber; ++i) {
             AbstractDungeon.effectList.add(new GainPennyEffect(p, p.hb.cX, p.hb.cY, p.hb.cX, p.hb.cY, true));
         }
-        AbstractDungeon.player.gainGold(goldGained);
+        AbstractDungeon.player.gainGold(magicNumber);
     }
+
+    @Override
+    public String getRawDynamicDescriptionSuffix() {
+        return EXTENDED_DESCRIPTION[0];
+    }
+
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DAMAGE);
-            upgradeMagicNumber(UPGRADE_GOLD_PER_MANIFEST);
+            upgradeMetaMagicNumber(UPGRADE_GOLD_PER_MANIFEST);
             upgradeDescription();
         }
     }

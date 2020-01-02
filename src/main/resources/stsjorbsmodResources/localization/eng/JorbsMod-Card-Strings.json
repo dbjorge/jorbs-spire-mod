@@ -135,7 +135,10 @@
   },
   "stsjorbsmod:Ectoplasm_Cull": {
     "NAME": "Ectoplasm",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !M! gold for each stsjorbsmod:Manifest. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL Gain !stsjorbsmod:MetaMagic! gold for each stsjorbsmod:Manifest. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Gains !M! gold.)"
+    ]
   },
   "stsjorbsmod:EnergyBulb": {
     "NAME": "Energy Bulb",
