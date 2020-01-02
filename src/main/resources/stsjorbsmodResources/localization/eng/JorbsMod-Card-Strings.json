@@ -274,6 +274,10 @@
     "NAME": "Inhale",
     "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Gain !M! Strength at the start of next turn. NL Exhaust."
   },
+  "stsjorbsmod:Intervention": {
+    "NAME": "Intervention",
+    "DESCRIPTION": "Deal !D! damage. NL stsjorbsmod:Consume this card and add Regret to your deck."
+  },
   "stsjorbsmod:Introspection": {
     "NAME": "Introspection",
     "DESCRIPTION": "At the end of each turn, lose !stsjorbsmod:UrMagic! HP and deal !M! damage to ALL enemies. Deal !stsjorbsmod:MetaMagic! additional damage per stsjorbsmod:Clarity."
