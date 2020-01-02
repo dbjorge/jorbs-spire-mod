@@ -488,6 +488,10 @@
     "NAME": "Séance",
     "DESCRIPTION": "stsjorbsmod:Exhume a card. NL It gains Ethereal. NL Exhaust."
   },
+  "stsjorbsmod:Sentinel_Cull": {
+    "NAME": "Sentinel",
+    "DESCRIPTION": "Deal !D! damage. NL Lower your stsjorbsmod:Manifest by !M!. NL Exhaust."
+  },
   "stsjorbsmod:Shake": {
     "NAME": "Shake",
     "DESCRIPTION": "If enemy is Vulnerable, draw !M! cards. NL Apply !stsjorbsmod:UrMagic! Vulnerable. NL Exhaust."
