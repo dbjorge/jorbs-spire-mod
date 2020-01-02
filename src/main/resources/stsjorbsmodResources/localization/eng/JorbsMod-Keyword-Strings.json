@@ -21,7 +21,7 @@
   },
   {
     "NAMES": ["consume", "consumed"],
-    "DESCRIPTION": "Consumed cards are permanently removed from your deck. Gain a reward based on the card's rarity."
+    "DESCRIPTION": "Consumed cards are permanently removed from your deck. Gain a reward based on the card's rarity: NL #yStarter: Heal for #b5. NL #yCommon: #b+3 Max HP. NL #yUncommon: #b+3 Max HP and heal fully. NL #yRare or #yLegendary: #b+5 Max HP and heal fully. NL #yCurse: #b-1 Max HP."
   },
   {
     "NAMES": ["destroy"],
