@@ -1,12 +1,10 @@
 package stsjorbsmod.cards.cull;
 
-import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
-import com.megacrit.cardcrawl.actions.utility.ExhaustToHandAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.GetCardFromDrawPileAction;
+import stsjorbsmod.actions.AbjureAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 
@@ -26,28 +24,15 @@ public class Abjure extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
-
-        for (AbstractCard c : p.drawPile.group) {
-            if (c instanceof SpiritShield_Cull) {
-                addToBot(new GetCardFromDrawPileAction(c));
-            }
-        }
-        for (AbstractCard c : p.discardPile.group) {
-            if (c instanceof SpiritShield_Cull) {
-                addToBot(new DiscardToHandAction(c));
-            }
-        }
-        for (AbstractCard c : p.exhaustPile.group) {
-            if (c instanceof SpiritShield_Cull) {
-                addToBot(new ExhaustToHandAction(c));
-            }
-        }
+        addToBot(new AbjureAction());
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
-            this.selfRetain = true;
+            //until beta releases, replace the following line with the commented line
+            AlwaysRetainField.alwaysRetain.set(this, true);
+//            this.selfRetain = true;
             upgradeName();
             upgradeDescription();
         }

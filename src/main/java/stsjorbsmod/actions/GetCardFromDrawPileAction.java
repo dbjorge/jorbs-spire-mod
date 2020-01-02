@@ -1,5 +1,6 @@
 package stsjorbsmod.actions;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
@@ -15,8 +16,7 @@ public class GetCardFromDrawPileAction extends AbstractGameAction {
     }
 
     public void update() {
-        if (this.duration == Settings.ACTION_DUR_FAST) {
-            if (AbstractDungeon.player.drawPile.contains(this.card) && AbstractDungeon.player.hand.size() < 10) {
+            if (AbstractDungeon.player.drawPile.contains(this.card) && AbstractDungeon.player.hand.size() < BaseMod.MAX_HAND_SIZE) {
                 AbstractDungeon.player.hand.addToHand(this.card);
                 this.card.unhover();
                 this.card.setAngle(0.0F, true);
@@ -25,13 +25,10 @@ public class GetCardFromDrawPileAction extends AbstractGameAction {
                 this.card.targetDrawScale = 0.75F;
                 this.card.applyPowers();
                 AbstractDungeon.player.drawPile.removeCard(this.card);
-            }
 
             AbstractDungeon.player.hand.refreshHandLayout();
             AbstractDungeon.player.hand.glowCheck();
         }
-
-        this.tickDuration();
         this.isDone = true;
     }
 }
