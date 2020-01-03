@@ -105,7 +105,7 @@
   },
   "stsjorbsmod:Cyclone": {
     "NAME": "Cyclone",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain [E] for each enemy killed."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies X times. NL Gain [E] for each enemy killed."
   },
   "stsjorbsmod:DeathThroes": {
     "NAME": "Death Throes",
