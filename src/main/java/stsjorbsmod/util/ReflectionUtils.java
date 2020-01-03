@@ -82,6 +82,18 @@ public class ReflectionUtils {
         }
     }
 
+    public static <FieldT, InstanceT> void setFieldIfExists(InstanceT instance, Class<? super InstanceT> clz, String fieldName, FieldT newValue) {
+        try {
+            Field field = clz.getDeclaredField(fieldName);
+            field.setAccessible(true);
+            field.set(instance, newValue);
+        } catch(NoSuchFieldException e) {
+            return; // Intentional no-op
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static Method tryGetMethod(Class<?> clz, String methodName, Class<?>... paramTypes) {
         try {
             return clz.getMethod(methodName, paramTypes);

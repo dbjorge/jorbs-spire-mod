@@ -111,7 +111,7 @@ public class DamageAllEnemiesWithOnKillEffectAction extends AbstractGameAction {
             }
 
             if (!Settings.FAST_MODE) {
-                this.addToTop(new WaitAction(0.1F));
+                AbstractDungeon.actionManager.addToTop(new WaitAction(0.1F));
             }
         }
 

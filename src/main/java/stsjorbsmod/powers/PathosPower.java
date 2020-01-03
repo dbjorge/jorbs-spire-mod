@@ -30,7 +30,7 @@ public class PathosPower extends CustomJorbsModPower {
     public void onUseCard(AbstractCard card, UseCardAction action) {
         this.flash();
         AbstractCard c = AbstractDungeon.returnRandomCurse();
-        addToBot(new MakeTempCardInDiscardAction(c, 1));
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(c, 1));
     }
 
     @Override
@@ -44,9 +44,9 @@ public class PathosPower extends CustomJorbsModPower {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         if (this.amount == 0) {
-            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         } else {
-            this.addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
+            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
         }
     }
 

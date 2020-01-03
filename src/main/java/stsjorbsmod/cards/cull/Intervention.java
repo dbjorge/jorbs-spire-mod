@@ -3,6 +3,7 @@ package stsjorbsmod.cards.cull;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.unique.AddCardToDeckAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.curses.Regret;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -11,6 +12,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.ConsumeCardAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
+import stsjorbsmod.util.ReflectionUtils;
 
 import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
 
@@ -29,7 +31,8 @@ public class Intervention extends CustomJorbsModCard {
     public Intervention() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = DAMAGE;
-        this.cardsToPreview = new Regret();
+        // TODO: replace with "this.cardsToPreview = new Regret();" once beta branch releases
+        ReflectionUtils.setFieldIfExists(this, AbstractCard.class, "cardsToPreview", new Regret());
         tags.add(PERSISTENT_POSITIVE_EFFECT);
     }
 
