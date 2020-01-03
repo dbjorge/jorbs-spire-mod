@@ -86,6 +86,10 @@
     "NAME": "Chatter",
     "DESCRIPTION": "Deal !D! damage. NL Play this card !M! additional time."
   },
+  "stsjorbsmod:ChillTouch": {
+    "NAME": "Chill Touch",
+    "DESCRIPTION": "Deal !D! damage to an enemy. NL It can no longer heal."
+  },
   "stsjorbsmod:ColorSpray": {
     "NAME": "Color Spray",
     "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each. NL Remember stsjorbsmod:Envy."
