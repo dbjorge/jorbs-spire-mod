@@ -28,7 +28,7 @@ public class TroublePower extends CustomJorbsModPower {
     public void onCardDraw(AbstractCard card) {
         if (card.type == AbstractCard.CardType.CURSE) {
             this.flash();
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(amount));
+            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(owner, amount));
         }
     }
 

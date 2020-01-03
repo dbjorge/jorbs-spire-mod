@@ -2,16 +2,14 @@ package stsjorbsmod.actions;
 
 import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
-import com.megacrit.cardcrawl.actions.utility.ExhaustToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import stsjorbsmod.cards.cull.SpiritShield_Cull;
 
 public class AbjureAction extends AbstractGameAction {
-    private int SpiritShieldCount = 0;
     private boolean showHandFull = false;
 
     public AbjureAction() {
@@ -23,32 +21,32 @@ public class AbjureAction extends AbstractGameAction {
         this.duration = this.startDuration;
     }
 
+    private int moveSpiritShieldsToHand(CardGroup originalPile) {
+        int movedCards = 0;
+        for (AbstractCard c : originalPile.group) {
+            if (c instanceof SpiritShield_Cull) {
+                ++movedCards;
+                AbstractDungeon.actionManager.addToBottom(new PileToHandAction(originalPile, c));
+            }
+        }
+        return movedCards;
+    }
+
     @Override
     public void update() {
+        int movedCards = 0;
         AbstractPlayer p = AbstractDungeon.player;
+
         if (this.duration == this.startDuration) {
-            for (AbstractCard c : p.drawPile.group) {
-                if (c instanceof SpiritShield_Cull) {
-                    ++SpiritShieldCount;
-                    addToBot(new GetCardFromDrawPileAction(c));
-                }
-            }
-            for (AbstractCard c : p.discardPile.group) {
-                if (c instanceof SpiritShield_Cull) {
-                    ++SpiritShieldCount;
-                    addToBot(new DiscardToHandAction(c));
-                }
-            }
-            for (AbstractCard c : p.exhaustPile.group) {
-                if (c instanceof SpiritShield_Cull) {
-                    ++SpiritShieldCount;
-                    addToBot(new ExhaustToHandAction(c));
-                }
-            }
-            if (SpiritShieldCount + p.hand.size() > BaseMod.MAX_HAND_SIZE) {
+            movedCards += moveSpiritShieldsToHand(p.drawPile);
+            movedCards += moveSpiritShieldsToHand(p.discardPile);
+            movedCards += moveSpiritShieldsToHand(p.exhaustPile);
+
+            if (movedCards + p.hand.size() > BaseMod.MAX_HAND_SIZE) {
                 showHandFull = true;
             }
         }
+
         this.tickDuration();
 
         if (isDone) {
