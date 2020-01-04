@@ -8,6 +8,8 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.powers.SpiritShieldPower;
 
+import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
+
 public class SpiritShield_Cull extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(SpiritShield_Cull.class);
 
@@ -25,6 +27,8 @@ public class SpiritShield_Cull extends CustomJorbsModCard {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = DAMAGE_REDUCTION;
         urMagicNumber = baseUrMagicNumber = NUMBER_OF_TURNS;
+
+        tags.add(LEGENDARY);
     }
 
     @Override
