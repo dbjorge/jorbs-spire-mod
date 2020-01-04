@@ -171,6 +171,12 @@
       "Whenever you gain #yClarity of a new memory, gain #b%1$s [E]"
     ]
   },
+  "stsjorbsmod:ReducedHealingPower": {
+    "NAME": "Cannot heal",
+    "DESCRIPTIONS": [
+      "Reduce healing by %1$s%%."
+    ]
+  },
   "stsjorbsmod:SnappedPower": {
     "NAME": "Snapped",
     "DESCRIPTIONS": [
