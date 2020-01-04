@@ -594,6 +594,14 @@
     "NAME": "Toll the Dead",
     "DESCRIPTION": "Deal !D! damage. NL If the target had already been damaged this turn, deal !D! damage again."
   },
+  "stsjorbsmod:Tragedy": {
+    "NAME": "Tragedy",
+    "DESCRIPTION": "Exhaust ALL Curses. NL Deal !D! damage for each Curse exhausted. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Exhausts !M! Curse.)",
+      " NL (Exhausts !M! Curses.)"
+    ]
+  },
   "stsjorbsmod:Trauma": {
     "NAME": "Trauma",
     "DESCRIPTION": "stsjorbsmod:Snap. NL Deal !D! damage to ALL enemies. NL Put this card on top of your draw pile."
