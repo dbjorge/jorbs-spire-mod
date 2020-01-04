@@ -39,7 +39,6 @@ public class DrainLife extends CustomJorbsModCard {
 
         if (AbstractDungeon.player.hasRelic(ChemicalX.ID)) {
             effect += 2;
-            AbstractDungeon.player.getRelic(ChemicalX.ID).flash();
         }
 
         if (this.upgraded) {
@@ -56,6 +55,10 @@ public class DrainLife extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
+        if (AbstractDungeon.player.hasRelic(ChemicalX.ID)) {
+            AbstractDungeon.player.getRelic(ChemicalX.ID).flash();
+        }
+
         this.addToBot(new DrainLifeAction(abstractMonster, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
 
         if (!this.freeToPlayOnce) {
