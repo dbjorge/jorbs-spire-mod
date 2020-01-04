@@ -42,6 +42,11 @@ public class PathosPower extends CustomJorbsModPower {
     }
 
     @Override
+    public void onCardDraw(AbstractCard card) {
+        card.setCostForTurn(-9);
+    }
+
+    @Override
     public void atEndOfTurn(boolean isPlayer) {
         if (this.amount == 0) {
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
