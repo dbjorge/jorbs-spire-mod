@@ -33,6 +33,13 @@
       "Mmmm... Escargot"
     ]
   },
+  "stsjorbsmod:CatharsisPower": {
+    "NAME": "Catharsis",
+    "DESCRIPTIONS": [
+      "You can play Curses. Whenever you do, lose #b%3$s HP and deal #b%1$s damage to ALL enemies for each Curse played this combat ( #b%2$s Curses played).",
+      "You can play Curses. Whenever you do, lose #b%3$s HP and deal #b%1$s damage to ALL enemies for each Curse played this combat ( #b%2$s Curse played)."
+    ]
+  },
   "stsjorbsmod:CoilPower": {
     "NAME": "Coil",
     "DESCRIPTIONS": [
