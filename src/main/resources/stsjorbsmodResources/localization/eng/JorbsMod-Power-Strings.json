@@ -58,6 +58,13 @@
       "Gain #b%1$s additional [E] next turn."
     ]
   },
+  "stsjorbsmod:MirrorPower": {
+    "NAME": "Mirror",
+    "DESCRIPTIONS": [
+      "For #b%1$s turn, take no damage. All enemies attack themselves.",
+      "For #b%1$s turns, take no damage. All enemies attack themselves."
+    ]
+  },
   "stsjorbsmod:ExhumeAtStartOfTurnPower": {
     "NAME": "Exhume",
     "DESCRIPTIONS": [
