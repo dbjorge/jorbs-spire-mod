@@ -33,10 +33,7 @@ import stsjorbsmod.console.MemoryCommand;
 import stsjorbsmod.console.PlaySoundCommand;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
-import stsjorbsmod.potions.BurningPotion;
-import stsjorbsmod.potions.DimensionDoorPotion;
-import stsjorbsmod.potions.LiquidClarity;
-import stsjorbsmod.potions.LiquidVirtue;
+import stsjorbsmod.potions.*;
 import stsjorbsmod.relics.CustomJorbsModRelic;
 import stsjorbsmod.util.ReflectionUtils;
 import stsjorbsmod.util.TextureLoader;
@@ -310,7 +307,10 @@ public class JorbsMod implements
                 LiquidClarity.POTION_ID, Wanderer.Enums.WANDERER);
         BaseMod.addPotion(LiquidVirtue.class, Color.BLUE, null, Color.PURPLE,
                 LiquidVirtue.POTION_ID, Wanderer.Enums.WANDERER);
-        
+        BaseMod.addPotion(GhostPoisonPotion.class, Color.LIME, Color.BLACK, Color.LIME,
+                GhostPoisonPotion.POTION_ID, Cull.Enums.CULL);
+
+
         // =============== EVENTS =================
         
         // This event will be exclusive to the City (act 2). If you want an event that's present at any
