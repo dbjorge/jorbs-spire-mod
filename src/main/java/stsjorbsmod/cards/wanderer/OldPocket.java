@@ -11,6 +11,7 @@ import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.CharityMemory;
 
+import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 public class OldPocket extends CustomJorbsModCard {
@@ -29,7 +30,8 @@ public class OldPocket extends CustomJorbsModCard {
         magicNumber = baseMagicNumber = GOLD_GAIN;
         exhaust = true;
 
-        this.tags.add(REMEMBER_MEMORY);
+        tags.add(REMEMBER_MEMORY);
+        tags.add(PERSISTENT_POSITIVE_EFFECT);
     }
 
     @Override
