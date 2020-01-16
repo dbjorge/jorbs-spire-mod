@@ -74,11 +74,11 @@ public class BurningPower extends CustomJorbsModPower implements HealthBarRender
     }
 
     @Override
-    public void atStartOfTurn() {
+    public void onSpecificTrigger() {
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT &&
                 !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             this.flashWithoutSound();
-            AbstractDungeon.actionManager.addToBottom(
+            AbstractDungeon.actionManager.addToTop(
                     new BurningLoseHpAction(this.owner, this.source, this.amount, AbstractGameAction.AttackEffect.FIRE));
         }
     }
