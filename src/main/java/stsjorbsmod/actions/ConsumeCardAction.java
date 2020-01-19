@@ -26,33 +26,33 @@ public class ConsumeCardAction extends AbstractGameAction {
         if (card.hasTag(JorbsMod.JorbsCardTags.LEGENDARY)) {
             AbstractDungeon.player.increaseMaxHp(LEGENDARY_HP_GAIN, false);
             AbstractDungeon.player.heal(AbstractDungeon.player.maxHealth);
-        } else {
-            switch (card.rarity) {
-                case CURSE:
-                    AbstractDungeon.player.decreaseMaxHealth(CURSE_HP_LOSS);
-                    break;
-                case BASIC:
-                    AbstractDungeon.player.heal(BASIC_HEAL);
-                    break;
-                case COMMON:
-                    AbstractDungeon.player.increaseMaxHp(COMMON_HP_GAIN, false);
-                    break;
+        } else if (card.type != AbstractCard.CardType.STATUS) {
+                switch (card.rarity) {
+                    case CURSE:
+                        AbstractDungeon.player.decreaseMaxHealth(CURSE_HP_LOSS);
+                        break;
+                    case BASIC:
+                        AbstractDungeon.player.heal(BASIC_HEAL);
+                        break;
+                    case COMMON:
+                        AbstractDungeon.player.increaseMaxHp(COMMON_HP_GAIN, false);
+                        break;
 
-                case SPECIAL:
-                    break;
+                    case SPECIAL:
+                        break;
 
-                case UNCOMMON:
-                    AbstractDungeon.player.increaseMaxHp(UNCOMMON_HP_GAIN, false);
-                    AbstractDungeon.player.heal(AbstractDungeon.player.maxHealth);
-                    break;
+                    case UNCOMMON:
+                        AbstractDungeon.player.increaseMaxHp(UNCOMMON_HP_GAIN, false);
+                        AbstractDungeon.player.heal(AbstractDungeon.player.maxHealth);
+                        break;
 
-                case RARE:
-                    AbstractDungeon.player.increaseMaxHp(RARE_HP_GAIN, false);
-                    AbstractDungeon.player.heal(AbstractDungeon.player.maxHealth);
-                    break;
+                    case RARE:
+                        AbstractDungeon.player.increaseMaxHp(RARE_HP_GAIN, false);
+                        AbstractDungeon.player.heal(AbstractDungeon.player.maxHealth);
+                        break;
 
+                }
             }
-        }
         AbstractDungeon.actionManager.addToBottom(new ConsumerGameAction<>(CardMetaUtils::destroyCardPermanently, card));
         AbstractDungeon.actionManager.addToBottom(new ConsumerGameAction<>(EffectUtils::showDestroyEffect, card));
         isDone = true;
