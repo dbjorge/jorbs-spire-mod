@@ -72,19 +72,6 @@ public class BurningPatch {
 
         public static ExprEditor Instrument() {
             return new ExprEditor() {
-//                @Override
-//                public void edit(MethodCall m) throws CannotCompileException {
-//                    if (m.getClassName().contains(SpriteBatch.class.getName()) && m.getMethodName().equals("draw")) {
-//                        m.replace(String.format("{ $_ = $proceed($$); " +
-//                                        "if (this.hasPower(\"%1$s\")) {" +
-//                                        "%2$s.renderFireOnBlock(sb, x, y, %3$s#BLOCK_ICON_X, %3$s#BLOCK_ICON_Y, this.blockOffset);" +
-//                                        "} }",
-//                                JorbsMod.makeID(BurningPower.class.getSimpleName()),
-//                                RenderBurningBlockPatch.class.getName(),
-//                                AbstractCreature.class.getName()));
-//                    }
-//                }
-
                 @Override
                 public void edit(FieldAccess f) throws CannotCompileException {
                     if (f.getClassName().contains(AbstractCreature.class.getName()) && f.getFieldName().equals("blockColor")) {
@@ -94,10 +81,6 @@ public class BurningPatch {
                 }
             };
         }
-    }
-
-    public static void renderFireOnBlock(SpriteBatch sb, float x, float y, float BLOCK_ICON_X, float BLOCK_ICON_Y, float blockOffset) {
-        sb.draw(BURNING_TEXTURE, x + BLOCK_ICON_X - 32.0F, y + BLOCK_ICON_Y - 28.0F + blockOffset, 32.0F, 32.0F, 64.0F, 64.0F, Settings.scale, Settings.scale, 0.0F);
     }
 
     public static Color renderBurningBlock(AbstractCreature creature, Color blockColor) {
