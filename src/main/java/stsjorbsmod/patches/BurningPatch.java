@@ -4,18 +4,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.modthespire.lib.SpireField;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.megacrit.cardcrawl.actions.common.EndTurnAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import javassist.CannotCompileException;
-import javassist.expr.ExprEditor;
-import javassist.expr.FieldAccess;
-import stsjorbsmod.JorbsMod;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
@@ -47,10 +42,13 @@ public class BurningPatch {
         }
     }
 
-
-
     static TextureAtlas.AtlasRegion BURNING_TEXTURE = new TextureAtlas(Gdx.files.internal("powers/powers.atlas")).findRegion("128/attackBurn");
-    static float burningRotation = 0.0F;
+    static float ROTATION_DURATION = 60.0F;
+
+    @SpirePatch(clz = AbstractCreature.class, method = SpirePatch.CLASS)
+    public static class AbstractCreatureBurningFields {
+        public static SpireField<Float> burningRotation = new SpireField<>(() -> 0.0F);
+    }
 
     @SpirePatch(clz = AbstractCreature.class, method = "renderBlockIconAndValue")
     public static class AbstractCreature_renderBlockIconAndValue_showFire {
@@ -58,6 +56,7 @@ public class BurningPatch {
         public static void patch(AbstractCreature __this, SpriteBatch sb, float x, float y) {
             if (__this.hasPower(BurningPower.POWER_ID)) {
                 sb.setColor(Color.WHITE.cpy());
+                float burningRotation = AbstractCreatureBurningFields.burningRotation.get(__this) / ROTATION_DURATION * 360.0F;
                 sb.draw(BURNING_TEXTURE,
                         x + (Float) ReflectionUtils.getPrivateField(__this, AbstractCreature.class, "BLOCK_ICON_X") - 32.0F,
                         y + (Float) ReflectionUtils.getPrivateField(__this, AbstractCreature.class, "BLOCK_ICON_Y") - 32.0F + (Float) ReflectionUtils.getPrivateField(__this, AbstractCreature.class, "blockOffset"),
@@ -68,7 +67,6 @@ public class BurningPatch {
                         Settings.scale,
                         Settings.scale,
                         burningRotation);
-                burningRotation += 0.1;
             }
         }
 
@@ -91,7 +89,7 @@ public class BurningPatch {
                 public void edit(FieldAccess f) throws CannotCompileException {
                     if (f.getClassName().contains(AbstractCreature.class.getName()) && f.getFieldName().equals("blockColor")) {
                         f.replace(String.format("{ $_ = %1$s.renderBurningBlock(this, $proceed()); }",
-                                RenderBurningBlockPatch.class.getName()));
+                                BurningPatch.class.getName()));
                     }
                 }
             };
@@ -108,6 +106,19 @@ public class BurningPatch {
             return blockColor.cpy().lerp(Color.RED.cpy(), lerpCoefficient);
         } else {
             return blockColor;
+        }
+    }
+
+    @SpirePatch(clz = AbstractCreature.class, method = "updateAnimations")
+    public static class AbstractCreature_updateBurningRotationTimer {
+        @SpirePrefixPatch
+        public static void patch(AbstractCreature __this) {
+            if (__this.hasPower(BurningPower.POWER_ID)) {
+                AbstractCreatureBurningFields.burningRotation.set(__this, AbstractCreatureBurningFields.burningRotation.get(__this) - Gdx.graphics.getDeltaTime());
+                if (AbstractCreatureBurningFields.burningRotation.get(__this) < 0.0F) {
+                    AbstractCreatureBurningFields.burningRotation.set(__this, ROTATION_DURATION);
+                }
+            }
         }
     }
 }
