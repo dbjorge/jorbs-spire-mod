@@ -364,7 +364,7 @@
   },
   "stsjorbsmod:Mirror": {
     "NAME": "Mirror",
-    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Until your next turn, take no damage. NL All enemies attack themselves."
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Until your next turn, take no damage. NL All enemies deal damage to themselves."
   },
   "stsjorbsmod:MirrorImage": {
     "NAME": "Mirror Image",
