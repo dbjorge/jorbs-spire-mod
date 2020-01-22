@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
+import stsjorbsmod.util.IntentUtils;
 
 public class Channeling extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Channeling.class);
@@ -25,19 +26,12 @@ public class Channeling extends CustomJorbsModCard {
         baseMagicNumber = 0;
     }
 
-    private boolean isMonsterAttacking(AbstractMonster m) {
-        return m.intent.equals(AbstractMonster.Intent.ATTACK) ||
-                m.intent.equals(AbstractMonster.Intent.ATTACK_BUFF) ||
-                m.intent.equals(AbstractMonster.Intent.ATTACK_DEBUFF) ||
-                m.intent.equals(AbstractMonster.Intent.ATTACK_DEFEND);
-    }
-
     @Override
     public int calculateBonusMagicNumber() {
         int channelCount = 0;
         for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (!m.isDying && m.currentHealth > 0 && !m.isEscaping) {
-                if (isMonsterAttacking(m)) {
+                if (IntentUtils.isAttackIntent(m.intent)) {
                     if ((boolean)ReflectionHacks.getPrivate(m, AbstractMonster.class, "isMultiDmg")) {
                         channelCount += (int)ReflectionHacks.getPrivate(m, AbstractMonster.class, "intentMultiAmt");
                     } else {
@@ -50,6 +44,11 @@ public class Channeling extends CustomJorbsModCard {
     }
 
     @Override
+    public boolean shouldGlowGold() {
+        return IntentUtils.playerCanSeeThatAnyEnemyIntentMatches(IntentUtils::isAttackIntent);
+    }
+
+    @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
         for (int i = 0; i < magicNumber; ++i) {
             this.addToBot(new PlayTopCardAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false));
@@ -58,7 +57,10 @@ public class Channeling extends CustomJorbsModCard {
 
     @Override
     public String getRawDynamicDescriptionSuffix() {
-        return magicNumber == 1 ? EXTENDED_DESCRIPTION[0] : EXTENDED_DESCRIPTION[1];
+        if (!IntentUtils.areIntentsHidden()) {
+            return magicNumber == 1 ? EXTENDED_DESCRIPTION[0] : EXTENDED_DESCRIPTION[1];
+        }
+        return "";
     }
 
     @Override

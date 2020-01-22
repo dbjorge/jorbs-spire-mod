@@ -87,8 +87,8 @@
     "DESCRIPTION": "Play the top card of your draw pile for each incoming attack. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Play the top card of your draw pile for each incoming attack.",
     "EXTENDED_DESCRIPTION": [
-      " NL ( !M! attack incoming.)",
-      " NL ( !M! attacks incoming.)"
+      " NL (Play !M! card.)",
+      " NL (Play !M! cards.)"
     ]
   },
   "stsjorbsmod:Chatter": {
