@@ -53,8 +53,7 @@ public class Tragedy extends CustomJorbsModCard {
         AbstractPlayer p = AbstractDungeon.player;
         return countCursesInGroup(p.hand) +
                 countCursesInGroup(p.drawPile) +
-                countCursesInGroup(p.discardPile) +
-                countCursesInGroup(p.exhaustPile);
+                countCursesInGroup(p.discardPile);
     }
 
     @Override
