@@ -37,10 +37,9 @@ public class SplinterSoul extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SLASH_VERTICAL));
 
-        CardGroup drawPileWithoutLegendary = p.drawPile.getPurgeableCards();
-
-        if (!drawPileWithoutLegendary.isEmpty()) {
-            AbstractCard randomCardInDrawPile = drawPileWithoutLegendary.getRandomCard(AbstractDungeon.cardRandomRng);
+        CardGroup drawPileWithoutUnconsumable = CardGroup.getGroupWithoutBottledCards(p.drawPile.getPurgeableCards());
+        if (!drawPileWithoutUnconsumable.isEmpty()) {
+            AbstractCard randomCardInDrawPile = drawPileWithoutUnconsumable.getRandomCard(AbstractDungeon.cardRandomRng);
             addToBot(new ConsumeCardAction(randomCardInDrawPile));
         }
     }
