@@ -1,6 +1,5 @@
 package stsjorbsmod.cards.wanderer.materialcomponents;
 
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -26,7 +25,7 @@ public class Stone extends CustomJorbsModCard {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         bannerImageRarity = CardRarity.RARE;
         magicNumber = baseMagicNumber = SLOW_MULTIPLIER;
-        AlwaysRetainField.alwaysRetain.set(this, true);
+        selfRetain = true;
         exhaust = true;
     }
 
