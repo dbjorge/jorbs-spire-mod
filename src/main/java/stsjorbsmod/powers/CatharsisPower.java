@@ -23,11 +23,17 @@ public class CatharsisPower extends CustomJorbsModPower {
         this.owner = owner;
         this.amount = damagePerCurse;
         this.amount2 = 0;
-
         updateDescription();
     }
 
     // Curses are made playable in PlayableCursesPatch
+
+    public void onInitialApplication(){
+        this.amount2 = (int)AbstractDungeon.actionManager.cardsPlayedThisCombat
+                .stream()
+                .filter(c -> c.type.equals(AbstractCard.CardType.CURSE))
+                .count();
+    }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {

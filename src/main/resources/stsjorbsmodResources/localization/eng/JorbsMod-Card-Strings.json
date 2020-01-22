@@ -70,7 +70,7 @@
   },
   "stsjorbsmod:Catharsis": {
     "NAME": "Catharsis",
-    "DESCRIPTION": "You can play Curses. NL Whenever you do, deal !M! damage to ALL enemies for each Curse played this combat."
+    "DESCRIPTION": "Unplayable Curse cards can now be played. NL Whenever you do, deal !M! damage to a random enemy for each Curse played this combat and lose 1 HP."
   },
   "stsjorbsmod:ChainLightning": {
     "NAME": "Chain Lightning",
