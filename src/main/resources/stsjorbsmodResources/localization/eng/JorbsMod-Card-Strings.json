@@ -527,7 +527,7 @@
   },
   "stsjorbsmod:SplinterSoul": {
     "NAME": "Splinter Soul",
-    "DESCRIPTION": "Deal !D! damage. NL stsjorbsmod:Consume a random card in your draw pile."
+    "DESCRIPTION": "Deal !D! damage. NL stsjorbsmod:Consume a random non-Legendary card in your draw pile."
   },
   "stsjorbsmod:Stalwart": {
     "NAME": "Stalwart",
