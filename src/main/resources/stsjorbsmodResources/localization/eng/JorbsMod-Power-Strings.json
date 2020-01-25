@@ -33,6 +33,13 @@
       "Mmmm... Escargot"
     ]
   },
+  "stsjorbsmod:CatharsisPower": {
+    "NAME": "Catharsis",
+    "DESCRIPTIONS": [
+      "#yUnplayable #rCurse cards can now be played. Whenever you do, lose #b%3$s HP and deal #b%1$s damage to a random enemy for each Curse played this combat ( #b%2$s #rCurse played).",
+      "#yUnplayable #rCurse cards can now be played. Whenever you do, lose #b%3$s HP and deal #b%1$s damage to a random enemy for each Curse played this combat ( #b%2$s #rCurses played)."
+    ]
+  },
   "stsjorbsmod:CoilPower": {
     "NAME": "Coil",
     "DESCRIPTIONS": [

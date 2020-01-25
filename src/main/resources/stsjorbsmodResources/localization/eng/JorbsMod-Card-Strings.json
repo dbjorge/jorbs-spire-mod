@@ -68,6 +68,10 @@
     "NAME": "Burning Flask",
     "DESCRIPTION": "Apply !M! stsjorbsmod:Burning."
   },
+  "stsjorbsmod:Catharsis": {
+    "NAME": "Catharsis",
+    "DESCRIPTION": "Unplayable Curse cards can now be played. NL Whenever you do, deal !M! damage to a random enemy for each Curse played this combat and lose 1 HP."
+  },
   "stsjorbsmod:ChainLightning": {
     "NAME": "Chain Lightning",
     "DESCRIPTION": "Deal !D! damage. NL Chain to ALL enemies, gaining !M! damage per chain."
