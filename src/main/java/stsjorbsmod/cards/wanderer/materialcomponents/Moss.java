@@ -1,6 +1,5 @@
 package stsjorbsmod.cards.wanderer.materialcomponents;
 
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -12,7 +11,7 @@ import stsjorbsmod.characters.Wanderer;
 
 public class Moss extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Moss.class);
-private static final CardRarity RARITY = CardRarity.SPECIAL;
+    private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
@@ -24,7 +23,7 @@ private static final CardRarity RARITY = CardRarity.SPECIAL;
     public Moss() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = DEXTERITY;
-        AlwaysRetainField.alwaysRetain.set(this, true);
+        selfRetain = true;
         exhaust = true;
     }
 

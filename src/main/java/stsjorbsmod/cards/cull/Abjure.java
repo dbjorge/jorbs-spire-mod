@@ -1,6 +1,5 @@
 package stsjorbsmod.cards.cull;
 
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
@@ -30,8 +29,7 @@ public class Abjure extends CustomJorbsModCard {
     @Override
     public void upgrade() {
         if (!upgraded) {
-            // TODO: Replace with selfRetain on beta release
-            AlwaysRetainField.alwaysRetain.set(this, true);
+            selfRetain = true;
 
             upgradeName();
             upgradeDescription();
