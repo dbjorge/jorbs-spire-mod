@@ -82,6 +82,15 @@
     "DESCRIPTION": "Gain !B! Block. NL Gain !M! [E] next turn.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Gain !M! [E] next turn. NL Put a card from your discard pile on top of your draw pile."
   },
+  "stsjorbsmod:Channeling": {
+    "NAME": "Channeling",
+    "DESCRIPTION": "Play the top card of your draw pile for each incoming attack. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Play the top card of your draw pile for each incoming attack.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Play !M! card.)",
+      " NL (Play !M! cards.)"
+    ]
+  },
   "stsjorbsmod:Chatter": {
     "NAME": "Chatter",
     "DESCRIPTION": "Deal !D! damage. NL Play this card !M! additional time."
