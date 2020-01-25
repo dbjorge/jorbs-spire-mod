@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.ConsumeCardAction;
+import stsjorbsmod.actions.ConsumeRandomCardAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 
@@ -36,12 +37,7 @@ public class SplinterSoul extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SLASH_VERTICAL));
-
-        CardGroup drawPileWithoutUnconsumable = CardGroup.getGroupWithoutBottledCards(p.drawPile.getPurgeableCards());
-        if (!drawPileWithoutUnconsumable.isEmpty()) {
-            AbstractCard randomCardInDrawPile = drawPileWithoutUnconsumable.getRandomCard(AbstractDungeon.cardRandomRng);
-            addToBot(new ConsumeCardAction(randomCardInDrawPile));
-        }
+        addToBot(new ConsumeRandomCardAction(p.drawPile));
     }
 
     @Override
