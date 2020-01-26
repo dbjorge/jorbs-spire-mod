@@ -26,14 +26,8 @@ public class Strike_Wanderer extends CustomJorbsModCard {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
 
-        this.tags.add(BaseModCardTags.BASIC_STRIKE);
+        this.tags.add(CardTags.STARTER_STRIKE);
         this.tags.add(CardTags.STRIKE);
-
-        try {
-            this.tags.add(CardTags.valueOf("STARTER_STRIKE"));
-        } catch(IllegalArgumentException e) {
-            // main branch doesn't have this tag yet; intentionally ignoring
-        }
     }
 
     @Override

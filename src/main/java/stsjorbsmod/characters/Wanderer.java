@@ -370,8 +370,7 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
         return panels;
     }
 
-    // Required for beta branch support
-    // @Override (uncomment once released)
+    @Override
     public String getPortraitImageName() {
         return CHARACTER_SELECT_BG_TEXTURE;
     }

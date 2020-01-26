@@ -348,8 +348,7 @@ public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber 
                 AttackEffect.FIRE};
     }
 
-    // Required for beta branch support
-    // @Override (uncomment once released)
+    @Override
     public String getPortraitImageName() {
         return CHARACTER_SELECT_BG_TEXTURE;
     }

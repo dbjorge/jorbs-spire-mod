@@ -31,8 +31,7 @@ public class Intervention extends CustomJorbsModCard {
     public Intervention() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = DAMAGE;
-        // TODO: replace with "this.cardsToPreview = new Regret();" once beta branch releases
-        ReflectionUtils.setFieldIfExists(this, AbstractCard.class, "cardsToPreview", new Regret());
+        cardsToPreview = new Regret();
         tags.add(PERSISTENT_POSITIVE_EFFECT);
     }
 

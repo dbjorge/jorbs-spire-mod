@@ -34,7 +34,7 @@ public class WakingDream extends CustomJorbsModCard {
         addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, magicNumber)));
     }
 
-    // @Override - TODO, uncomment once beta branch releases
+    @Override
     public void onRetained() {
         ++this.cost;
         ++this.costForTurn;
