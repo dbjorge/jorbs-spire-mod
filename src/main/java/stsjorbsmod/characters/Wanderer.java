@@ -9,7 +9,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -19,15 +18,13 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.wanderer.*;
 import stsjorbsmod.memories.MemoryManager;
-import stsjorbsmod.powers.FlameWardPower;
-import stsjorbsmod.relics.FragileMindRelic;
+import stsjorbsmod.memories.SnapCounter;
 import stsjorbsmod.relics.GrimoireRelic;
 
 import java.util.ArrayList;
@@ -252,7 +249,6 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
 
         // Note: only the first relic gets replaced when selecting the "replace starter relic" Neow boon
         retVal.add(GrimoireRelic.ID);
-        retVal.add(FragileMindRelic.ID);
 
         return retVal;
     }
@@ -373,5 +369,54 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
     @Override
     public String getPortraitImageName() {
         return CHARACTER_SELECT_BG_TEXTURE;
+    }
+
+    private static final float SNAP_COUNTER_OFFSET_X = 42.0F * Settings.scale;
+    private static final float SNAP_COUNTER_OFFSET_Y = 180.0F * Settings.scale;
+    private final SnapCounter snapCounter = new SnapCounter(this);
+
+    @Override
+    public void onVictory() {
+        super.onVictory();
+        snapCounter.reset();
+    }
+
+    @Override
+    public void preBattlePrep() {
+        super.preBattlePrep();
+        snapCounter.reset();
+    }
+
+    @Override
+    public void applyStartOfTurnRelics() {
+        super.applyStartOfTurnRelics();
+        snapCounter.atStartOfTurn();
+    }
+
+    @Override
+    public void applyEndOfTurnTriggers() {
+        super.applyEndOfTurnTriggers();
+        snapCounter.atEndOfTurn();
+    }
+
+    @Override
+    public void update() {
+        super.update();
+        snapCounter.update(drawX + SNAP_COUNTER_OFFSET_X, drawY + SNAP_COUNTER_OFFSET_Y);
+    }
+
+    @Override
+    public void renderPlayerImage(SpriteBatch sb) {
+        super.renderPlayerImage(sb);
+        snapCounter.render(sb);
+    }
+
+    @Override
+    public void renderPowerTips(SpriteBatch sb) {
+        if (snapCounter.isHovered()) {
+            snapCounter.renderTips(sb);
+        } else {
+            super.renderPowerTips(sb);
+        }
     }
 }
