@@ -68,8 +68,8 @@
   "stsjorbsmod:MirrorPower": {
     "NAME": "Mirror",
     "DESCRIPTIONS": [
-      "For #b%1$s turn, take no damage. All enemies deal damage to themselves.",
-      "For #b%1$s turns, take no damage. All enemies deal damage to themselves."
+      "For #b%1$s turn, take no damage and reflect attack damage enemies deal to you.",
+      "For #b%1$s turns, take no damage and reflect attack damage enemies deal to you."
     ]
   },
   "stsjorbsmod:ExhumeAtStartOfTurnPower": {
