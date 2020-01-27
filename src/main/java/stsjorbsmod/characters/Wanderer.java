@@ -374,14 +374,4 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
     public String getPortraitImageName() {
         return CHARACTER_SELECT_BG_TEXTURE;
     }
-
-    @Override
-    public void damage(DamageInfo info) {
-        for(AbstractPower power : this.powers) {
-            if(power instanceof FlameWardPower) {
-                ((FlameWardPower) power).preDamage(info);
-            }
-        }
-        super.damage(info);
-    }
 }
