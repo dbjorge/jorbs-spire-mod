@@ -121,18 +121,12 @@ public class BottledMemoryRelic extends CustomJorbsModRelic implements CustomBot
 
     @Override
     public boolean canSpawn() {
-        Iterator var1 = AbstractDungeon.player.masterDeck.group.iterator();
-
-        AbstractCard c;
-        do {
-            if (!var1.hasNext()) {
-                return false;
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+            if (c.hasTag(REMEMBER_MEMORY)) {
+                return true;
             }
-
-            c = (AbstractCard) var1.next();
-        } while (c.hasTag(REMEMBER_MEMORY) || c.rarity == AbstractCard.CardRarity.BASIC);
-
-        return true;
+        }
+        return false;
     }
 
     @Override
