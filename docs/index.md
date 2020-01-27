@@ -1,4 +1,4 @@
-# Play it now!
+## Play it now!
 
 1. Get [Slay the Spire](https://store.steampowered.com/app/646570/Slay_the_Spire/) through Steam
 1. Subscribe to [StSLib](https://steamcommunity.com/sharedfiles/filedetails/?id=1609158507) in the Slay the Spire Steam Workshop.
