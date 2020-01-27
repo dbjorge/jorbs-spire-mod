@@ -1,4 +1,6 @@
-# Jorbs Mod
+---
+title: Jorbs Mod
+---
 
 ## How to install
 
