@@ -1,5 +1,6 @@
 package stsjorbsmod.powers;
 
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -9,7 +10,7 @@ import stsjorbsmod.actions.ExhumeCardsAction;
 
 import java.util.function.Predicate;
 
-public class ExhumeAtStartOfTurnPower extends CustomJorbsModPower {
+public class ExhumeAtStartOfTurnPower extends CustomJorbsModPower implements InvisiblePower {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(ExhumeAtStartOfTurnPower.class);
     public static final String POWER_ID = STATIC.ID;
 
@@ -17,6 +18,9 @@ public class ExhumeAtStartOfTurnPower extends CustomJorbsModPower {
 
     public ExhumeAtStartOfTurnPower(AbstractCreature owner, Predicate<AbstractCard> shouldApplyToCardPredicate) {
         super(STATIC);
+        this.name = "";
+        this.description = "";
+        
         this.shouldApplyToCardPredicate = shouldApplyToCardPredicate;
         this.owner = owner;
     }
