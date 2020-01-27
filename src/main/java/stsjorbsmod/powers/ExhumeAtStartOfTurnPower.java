@@ -20,7 +20,7 @@ public class ExhumeAtStartOfTurnPower extends CustomJorbsModPower implements Inv
         super(STATIC);
         this.name = "";
         this.description = "";
-        
+
         this.shouldApplyToCardPredicate = shouldApplyToCardPredicate;
         this.owner = owner;
     }
