@@ -29,9 +29,9 @@ public class SnapCounter {
     private static final float TIP_OFFSET_R_X = 20.0F * Settings.scale;
     private static final float TIP_OFFSET_L_X = -380.0F * Settings.scale;
 
-    private static final float INDICATOR_CIRCLE_X_RADIUS = 40F * Settings.scale;
-    private static final float INDICATOR_CIRCLE_Y_RADIUS = 30F * Settings.scale;
-    private static final float INDICATOR_CIRCLE_ROTATION_DURATION = 30F;
+    private static final float INDICATOR_CIRCLE_X_RADIUS = 30F * Settings.scale;
+    private static final float INDICATOR_CIRCLE_Y_RADIUS = 24F * Settings.scale;
+    private static final float INDICATOR_CIRCLE_ROTATION_DURATION = 20F;
     private static final float INDICATOR_PARTICLE_DURATION = .06F;
 
     private static final String UI_ID = JorbsMod.makeID(SnapCounter.class);
@@ -47,11 +47,14 @@ public class SnapCounter {
     private float indicatorCircleRotationTimer;
     private float indicatorParticleTimer;
 
-    private static final Color startColor = new Color(0.0F, 1.0F, 1.0F, 0.5F);
-    private static final Color endColor = new Color(0.5F, 0.05F, 0.05F, 1.0F);
+    //private static final Color startColor = new Color(0.0F, 1.0F, 1.0F, 0.5F);
+    private static final Color startColor = new Color(0.353F, 0.678F, 0.937F, 0.5F);
+    //private static final Color endColor = new Color(0.5F, 0.05F, 0.05F, 1.0F);
+    private static final Color endColor = new Color(0.353F, 0.678F, 0.937F, 1.0F);
     private Color color;
 
     private int currentTurn; // we track this separately from the game manager to avoid ordering issues with start-of-turn triggers
+    public boolean isActive;
 
     public SnapCounter(AbstractPlayer owner) {
         this.owner = owner;
@@ -85,7 +88,8 @@ public class SnapCounter {
     }
 
     private boolean isVisible() {
-        return (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT || AbstractDungeon.getCurrRoom() instanceof MonsterRoom)
+        return isActive
+                && (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT || AbstractDungeon.getCurrRoom() instanceof MonsterRoom)
                 && !owner.isDead
                 && !owner.isEscaping
                 && !MemoryManager.forPlayer(owner).isSnapped();
@@ -97,6 +101,7 @@ public class SnapCounter {
 
     public void reset() {
         currentTurn = 0;
+        isActive = true;
         color.set(startColor);
         updateDescription();
     }
@@ -123,7 +128,7 @@ public class SnapCounter {
                 float x = INDICATOR_CIRCLE_X_RADIUS * MathUtils.cosDeg(indicatorAngle) + centerX;
                 float y = INDICATOR_CIRCLE_Y_RADIUS * MathUtils.sinDeg(indicatorAngle) + centerY;
 
-                float scaleModifier = currentTurn == 7 ? 2.0F : 1.0F;
+                float scaleModifier = currentTurn == 7 ? 1.6F : 1.0F;
                 AbstractDungeon.effectList.add(new SnapTurnCounterEffect(x, y, color, scaleModifier));
             }
         }

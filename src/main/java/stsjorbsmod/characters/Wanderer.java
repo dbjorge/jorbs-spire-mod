@@ -371,8 +371,13 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
         return CHARACTER_SELECT_BG_TEXTURE;
     }
 
-    private static final float SNAP_COUNTER_OFFSET_X = 42.0F * Settings.scale;
-    private static final float SNAP_COUNTER_OFFSET_Y = 180.0F * Settings.scale;
+    public void startSnapAnimation() {
+        setAnimation(postSnapAnimation);
+        snapCounter.isActive = false;
+    }
+
+    private static final float SNAP_COUNTER_OFFSET_X = 39.0F * Settings.scale;
+    private static final float SNAP_COUNTER_OFFSET_Y = 178.0F * Settings.scale;
     private final SnapCounter snapCounter = new SnapCounter(this);
 
     @Override
