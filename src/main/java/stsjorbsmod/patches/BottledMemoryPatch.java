@@ -77,7 +77,7 @@ public class BottledMemoryPatch {
     @SpirePatch(clz = BottledLightning.class, method = "onEquip")
     public static class BottledLightning_onEquip {
         public static ExprEditor Instrument() {
-            return new BottledGetCardsExprEditor("getAttacks");
+            return new BottledGetCardsExprEditor("getSkills");
         }
     }
 
