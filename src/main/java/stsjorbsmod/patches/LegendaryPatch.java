@@ -13,9 +13,7 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.random.Random;
-import com.megacrit.cardcrawl.relics.Astrolabe;
-import com.megacrit.cardcrawl.relics.DollysMirror;
-import com.megacrit.cardcrawl.relics.EmptyCage;
+import com.megacrit.cardcrawl.relics.*;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
@@ -55,7 +53,7 @@ public class LegendaryPatch {
         Predicate<AbstractCard> isMatch = c -> c.cardID.equals(card.cardID);
 
         // AbstractDungeon has many returnRandom*, returnTrulyRandom*, and *transformCard methods that use these pools.
-        if(card.rarity == AbstractCard.CardRarity.COMMON) {
+        if (card.rarity == AbstractCard.CardRarity.COMMON) {
             AbstractDungeon.commonCardPool.group.removeIf(isMatch);
             AbstractDungeon.srcCommonCardPool.group.removeIf(isMatch);
         } else if (card.rarity == AbstractCard.CardRarity.UNCOMMON) {
@@ -128,13 +126,61 @@ public class LegendaryPatch {
         }
     }
 
+    // Allow for CardGroup::getPurgeableCards to contain Legendary cards occasionally. Since the bottle relics use
+    // CardGroup::getPurgeableCards, we want to keep them in the group if being called via one of the bottle relics.
+    @SpirePatch(clz = CardGroup.class, method = SpirePatch.CLASS)
+    public static class CardGroupFields {
+        public static SpireField<Boolean> isContainsLegendaryCards = new SpireField<>(() -> false);
+    }
+
+    @SpirePatch(clz = BottledFlame.class, method = "onEquip")
+    public static class BottledFlame_onEquip {
+        @SpirePrefixPatch
+        public static void Prefix(BottledFlame __instance) {
+            CardGroupFields.isContainsLegendaryCards.set(AbstractDungeon.player.masterDeck, true);
+        }
+
+        @SpirePostfixPatch
+        public static void Postfix(BottledFlame __instance) {
+            CardGroupFields.isContainsLegendaryCards.set(AbstractDungeon.player.masterDeck, false);
+        }
+    }
+
+    @SpirePatch(clz = BottledLightning.class, method = "onEquip")
+    public static class BottledLightning_onEquip {
+        @SpirePrefixPatch
+        public static void Prefix(BottledLightning __instance) {
+            CardGroupFields.isContainsLegendaryCards.set(AbstractDungeon.player.masterDeck, true);
+        }
+
+        @SpirePostfixPatch
+        public static void Postfix(BottledLightning __instance) {
+            CardGroupFields.isContainsLegendaryCards.set(AbstractDungeon.player.masterDeck, false);
+        }
+    }
+
+    @SpirePatch(clz = BottledTornado.class, method = "onEquip")
+    public static class BottledTornado_onEquip {
+        @SpirePrefixPatch
+        public static void Prefix(BottledTornado __instance) {
+            CardGroupFields.isContainsLegendaryCards.set(AbstractDungeon.player.masterDeck, true);
+        }
+
+        @SpirePostfixPatch
+        public static void Postfix(BottledTornado __instance) {
+            CardGroupFields.isContainsLegendaryCards.set(AbstractDungeon.player.masterDeck, false);
+        }
+    }
+
     // Legendary cards aren't purgeable. By removing them from choices to purge, we sidestep them even being picked
     // by the player to remove or transform.
     @SpirePatch(clz = CardGroup.class, method = "getPurgeableCards")
     public static class CardGroup_getPurgeableCards {
         @SpirePostfixPatch
         public static CardGroup patch(CardGroup result, CardGroup instance) {
-            removeLegendaryCards(result.group);
+            if (!CardGroupFields.isContainsLegendaryCards.get(instance)) {
+                removeLegendaryCards(result.group);
+            }
             return result;
         }
     }
@@ -143,7 +189,7 @@ public class LegendaryPatch {
     // player has the Prismatic Shard relic, this particular method is also used in AbstractDungeon.getRewardCards.
     // We don't want to modify the overall list of cards that the CardLibrary draws from, hence this patch.
     @SpirePatch(clz = CardLibrary.class, method = "getAnyColorCard",
-            paramtypez = { AbstractCard.CardRarity.class })
+            paramtypez = {AbstractCard.CardRarity.class})
     public static class CardLibrary_getAnyColorCard {
         @SpireInsertPatch(locator = CardGroup_shuffle_Locator.class, localvars = "anyCard")
         public static void patch(AbstractCard.CardRarity rarity, CardGroup anyCard) {
@@ -247,7 +293,7 @@ public class LegendaryPatch {
     // We expect to have patched all situations in the main game. These four routines are almost universally invoked
     // to do the disallowed work of removing or transforming a Legendary card. Log any such instances encountered.
     @SpirePatch(clz = CardGroup.class, method = "removeCard",
-            paramtypez = { AbstractCard.class })
+            paramtypez = {AbstractCard.class})
     public static class CardGroup_removeCard_1 {
         @SpirePrefixPatch
         public static void patch(CardGroup instance, AbstractCard c) {
@@ -258,7 +304,7 @@ public class LegendaryPatch {
     }
 
     @SpirePatch(clz = CardGroup.class, method = "removeCard",
-            paramtypez = { String.class })
+            paramtypez = {String.class})
     public static class CardGroup_removeCard_2 {
         @SpirePrefixPatch
         public static void patch(CardGroup instance, String targetID) {
@@ -271,7 +317,7 @@ public class LegendaryPatch {
     }
 
     @SpirePatch(clz = AbstractDungeon.class, method = "transformCard",
-            paramtypez = { AbstractCard.class, boolean.class, Random.class })
+            paramtypez = {AbstractCard.class, boolean.class, Random.class})
     public static class AbstractDungeon_transformCard {
         @SpirePostfixPatch
         public static void patch(AbstractCard c, boolean autoUpgrade, Random rng) {
