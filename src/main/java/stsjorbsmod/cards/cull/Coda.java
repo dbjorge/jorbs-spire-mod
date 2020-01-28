@@ -33,7 +33,7 @@ public class Coda extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         DamageInfo info = new DamageInfo(p, damage);
         CodaPatch.hpRetained.set(info, magicNumber);
-        addToBot(new DamageAction(m, info, magicNumber));
+        addToBot(new DamageAction(m, info));
     }
 
     @Override
