@@ -4,6 +4,7 @@ import basemod.BaseMod;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -16,6 +17,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
@@ -25,6 +27,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.wanderer.*;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.SnapCounter;
+import stsjorbsmod.patches.CutsceneMultiScreenPatch;
 import stsjorbsmod.relics.GrimoireRelic;
 
 import java.util.ArrayList;
@@ -360,10 +363,19 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
     @Override
     public List<CutscenePanel> getCutscenePanels() {
         List<CutscenePanel> panels = new ArrayList<>();
-        panels.add(new CutscenePanel(makeScenePath("wanderer_heart_kill_1.png"), "ATTACK_DEFECT_BEAM"));
-        panels.add(new CutscenePanel(makeScenePath("wanderer_heart_kill_2.png")));
-        panels.add(new CutscenePanel(makeScenePath("wanderer_heart_kill_3.png")));
+        panels.add(new CutscenePanel(makeCharPath("wanderer/victory_scene/panel_1.png"), "ORB_LIGHTNING_EVOKE"));
+        panels.add(new CutscenePanel(makeCharPath("wanderer/victory_scene/panel_2.png")));
+        panels.add(new CutscenePanel(makeCharPath("wanderer/victory_scene/panel_3.png")));
+        panels.add(new CutscenePanel(makeCharPath("wanderer/victory_scene/panel_4.png")));
+        panels.add(new CutscenePanel(makeCharPath("wanderer/victory_scene/panel_5.png")));
+
+        CutsceneMultiScreenPatch.CutscenePanelNewScreenField.startsNewScreen.set(panels.get(2), true);
         return panels;
+    }
+
+    @Override
+    public Texture getCutsceneBg() {
+        return ImageMaster.loadImage(makeCharPath("wanderer/victory_scene/background.png"));
     }
 
     @Override

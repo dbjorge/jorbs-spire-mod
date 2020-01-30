@@ -332,9 +332,9 @@ public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber 
     @Override
     public List<CutscenePanel> getCutscenePanels() {
         List<CutscenePanel> panels = new ArrayList<>();
-        panels.add(new CutscenePanel(makeScenePath("cull_heart_kill_1.png")));
-        panels.add(new CutscenePanel(makeScenePath("cull_heart_kill_2.png"), "SHOVEL"));
-        panels.add(new CutscenePanel(makeScenePath("cull_heart_kill_3.png")));
+        panels.add(new CutscenePanel(makeCharPath("cull/victory_scene/panel_1.png")));
+        panels.add(new CutscenePanel(makeCharPath("cull/victory_scene/panel_2.png"), "SHOVEL"));
+        panels.add(new CutscenePanel(makeCharPath("cull/victory_scene/panel_3.png")));
         return panels;
     }
 
