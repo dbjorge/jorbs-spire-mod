@@ -124,6 +124,11 @@
     "NAME": "Cyclone",
     "DESCRIPTION": "Deal !D! damage to ALL enemies X times. NL Gain [E] for each enemy killed."
   },
+  "stsjorbsmod:Damnation": {
+    "NAME": "Damnation",
+    "DESCRIPTION": "Draw !M! cards. NL Permanently Transform the next card played this combat.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Permanently Transform the next card played this combat, then upgrade it."
+  },
   "stsjorbsmod:DeathThroes": {
     "NAME": "Death Throes",
     "DESCRIPTION": "stsjorbsmod:Entombed. stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume whenever an enemy dies. NL Deal !D! damage. NL Remember stsjorbsmod:Wrath."
