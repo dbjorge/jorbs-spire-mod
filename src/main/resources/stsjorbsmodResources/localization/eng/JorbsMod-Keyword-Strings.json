@@ -1,7 +1,7 @@
 [
   {
     "NAMES": ["burning"],
-    "DESCRIPTION": "Burning creatures take damage at the start of their turn and cannot be healed. Each turn, Burning is reduced by a third."
+    "DESCRIPTION": "Burning creatures take damage at the start of their turn and cannot be healed. Burning damage will hit #yBlock. Each turn, Burning is reduced by a third."
   },
   {
     "NAMES": ["charity"],
@@ -21,7 +21,7 @@
   },
   {
     "NAMES": ["consume", "consumed"],
-    "DESCRIPTION": "Consumed cards are permanently removed from your deck. Gain a reward based on the card's rarity."
+    "DESCRIPTION": "Consumed cards are permanently removed from your deck. Gain a reward based on the card's rarity: NL #yStarter: Heal for #b5. NL #yCommon: #b+3 Max HP. NL #yUncommon: #b+3 Max HP and heal fully. NL #yRare or #yLegendary: #b+5 Max HP and heal fully. NL #yCurse: #b-1 Max HP."
   },
   {
     "NAMES": ["destroy"],

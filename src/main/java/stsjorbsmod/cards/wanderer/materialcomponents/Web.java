@@ -1,6 +1,5 @@
 package stsjorbsmod.cards.wanderer.materialcomponents;
 
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -24,7 +23,7 @@ public class Web extends CustomJorbsModCard {
     public Web() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = WEAK;
-        AlwaysRetainField.alwaysRetain.set(this, true);
+        selfRetain = true;
         exhaust = true;
     }
 

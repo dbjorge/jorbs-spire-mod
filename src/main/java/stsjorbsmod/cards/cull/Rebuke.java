@@ -29,17 +29,44 @@ public class Rebuke extends CustomJorbsModCard {
 
     public Rebuke() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
-        damage = baseDamage = 0;
-        magicNumber = baseMagicNumber = DAMAGE_PER_INTANGIBLE;
+        damage = baseDamage = DAMAGE_PER_INTANGIBLE;
         urMagicNumber = baseUrMagicNumber = SELF_INTANGIBLE;
         this.isMultiDamage = true;
         this.exhaust = true;
     }
 
-    @Override
-    public int calculateBonusBaseDamage() {
+    // After calling this:
+    //     * damage will still be the non-multiplied damage (for use with card description)
+    //     * magicNumber will be multiplied damage (for use with card description dynamic suffix)
+    //     * multiDamage will contain multiplied damage (for application to monsters)
+    //
+    // We aren't using calculateBonusBaseDamage because the most intuitive way for the card to display
+    // is for the "per intangible" damage to actually be the "base damage" for purposes of order of operations
+    // with strength/wrath/etc.
+    private void recalculateTotalDamage() {
         AbstractPower possibleIntangiblePower = AbstractDungeon.player.getPower(IntangiblePlayerPower.POWER_ID);
-        return possibleIntangiblePower == null ? magicNumber : (possibleIntangiblePower.amount + SELF_INTANGIBLE) * magicNumber;
+        int intangibleStacks = possibleIntangiblePower == null ? 0 : possibleIntangiblePower.amount;
+        intangibleStacks += urMagicNumber; // Account for the one we'll be adding
+
+        baseMagicNumber = baseDamage * intangibleStacks;
+        magicNumber = damage * intangibleStacks;
+        isMagicNumberModified = isDamageModified || intangibleStacks > urMagicNumber;
+
+        for(int i = 0; i < multiDamage.length; ++i) {
+            multiDamage[i] = multiDamage[i] * intangibleStacks;
+        }
+    }
+
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        recalculateTotalDamage();
+    }
+
+    @Override
+    public void calculateCardDamage(AbstractMonster m) {
+        super.calculateCardDamage(m);
+        recalculateTotalDamage();
     }
 
     @Override
@@ -58,7 +85,7 @@ public class Rebuke extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_DAMAGE);
+            upgradeDamage(UPGRADE_PLUS_DAMAGE);
             upgradeDescription();
         }
     }

@@ -70,21 +70,6 @@ public class CardMetaUtils {
 
         tmp.purgeOnUse = true;
 
-        // TODO: Replace the entire following block with the following line once beta branch releases...
-        // AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, target, card.energyOnUse, true, true), true);
-        CardQueueItem cardQueueItem = new CardQueueItem(tmp, target, card.energyOnUse, true);
-        Method possibleAddCardQueueItemMethod = ReflectionUtils.tryGetMethod(GameActionManager.class, "addCardQueueItem", CardQueueItem.class, boolean.class);
-        if (possibleAddCardQueueItemMethod != null) {
-            // beta branch
-            try {
-                ReflectionUtils.setPrivateField(cardQueueItem, CardQueueItem.class, "autoplayCard", true);
-                possibleAddCardQueueItemMethod.invoke(AbstractDungeon.actionManager, cardQueueItem, true);
-            } catch (IllegalAccessException|InvocationTargetException e) {
-                throw new RuntimeException(e);
-            }
-        } else {
-            // main branch
-            AbstractDungeon.actionManager.cardQueue.add(cardQueueItem);
-        }
+        AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, target, card.energyOnUse, true, true), true);
     }
 }

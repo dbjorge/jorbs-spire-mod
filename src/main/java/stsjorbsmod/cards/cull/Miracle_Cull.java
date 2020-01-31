@@ -1,9 +1,7 @@
 package stsjorbsmod.cards.cull;
 
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.IncreaseManifestAction;
@@ -25,7 +23,7 @@ public class Miracle_Cull extends CustomJorbsModCard {
 
     public Miracle_Cull() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
-        AlwaysRetainField.alwaysRetain.set(this, true);
+        selfRetain = true;
         magicNumber = baseMagicNumber = ENERGY_GAIN;
         metaMagicNumber = baseMetaMagicNumber = MANIFEST_INCREASE;
     }

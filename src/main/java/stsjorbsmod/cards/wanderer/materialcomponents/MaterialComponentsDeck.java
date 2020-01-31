@@ -4,6 +4,9 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 /*
 Material Components Deck:	Contains 7 common, 6 uncommon, 3 rare Material Components cards.
 	At start of fight create deck of 7 commons, 2 uncommons, 1 rare drawn w/o replacement.
@@ -82,5 +85,13 @@ public class MaterialComponentsDeck {
         AbstractCard c = deck.getTopCard(); // drawNewDeck shuffled already, don't need to getRandomCard here
         deck.removeTopCard();
         return c;
+    }
+
+    public static ArrayList<AbstractCard> drawRandomCards(int numCards) {
+        ArrayList<AbstractCard> retVal = new ArrayList<>();
+        for (int i = 0; i < numCards; ++i) {
+            retVal.add(drawRandomCard());
+        }
+        return retVal;
     }
 }

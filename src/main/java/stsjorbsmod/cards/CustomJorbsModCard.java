@@ -218,23 +218,8 @@ public abstract class CustomJorbsModCard extends CustomCard {
 
     public boolean shouldGlowGold() { return false; }
 
-    /* TODO: once beta branch releases, replace with the following:
-        @Override
-        public void triggerOnGlowCheck() {
-            this.glowColor = shouldGlowGold() ? AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy() : AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        }
-     */
-    private static final Color GOLD_BORDER_GLOW_COLOR = new Color(-2686721);
-    private static final Color BLUE_BORDER_GLOW_COLOR = new Color(0.2F, 0.9F, 1.0F, 0.25F);
+    @Override
     public void triggerOnGlowCheck() {
-        try {
-            Field glowColorField = AbstractCard.class.getField("glowColor");
-            Color newGlowColor = shouldGlowGold() ? GOLD_BORDER_GLOW_COLOR.cpy() : BLUE_BORDER_GLOW_COLOR.cpy();
-            glowColorField.set(this, newGlowColor);
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        } catch (NoSuchFieldException e) {
-            // on stable branch where glowColor isn't implemented; ignore silently.
-        }
+        this.glowColor = shouldGlowGold() ? AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy() : AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
     }
 }

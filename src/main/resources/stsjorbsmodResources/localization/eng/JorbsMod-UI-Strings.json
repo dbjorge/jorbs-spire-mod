@@ -38,6 +38,11 @@
       "jorbsBird Dig! jorbsBird RELIC jorbsBird DIG jorbsBird"
     ]
   },
+  "stsjorbsmod:ExhumeAndMakeEtherealAction": {
+    "TEXT": [
+      "Ethereal. NL "
+    ]
+  },
   "stsjorbsmod:IfEnemyIntendsToAttackAction": {
     "TEXT": [
       "Enemy does not intend to attack"
@@ -45,12 +50,20 @@
   },
   "stsjorbsmod:IncreaseManifestAction": {
     "TEXT": [
-      "Manifest +%1$s"
+      "Manifest +%1$s",
+      "Manifest %1$s"
+
     ]
   },
   "stsjorbsmod:MagicMirrorPatch": {
     "TEXT": [
       "Entangled!"
+    ]
+  },
+  "stsjorbsmod:SnapCounter": {
+    "TEXT": [
+      "Fragile Mind",
+      "At the end of turn 7, #ySnap. NL (It is turn #b%1$s now.)"
     ]
   },
   "stsjorbsmod:WillAction": {

@@ -1,6 +1,5 @@
 package stsjorbsmod.cards.wanderer.materialcomponents;
 
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -38,7 +37,7 @@ public class Chamomile extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             EphemeralField.ephemeral.set(this, false);
-            AlwaysRetainField.alwaysRetain.set(this, true);
+            selfRetain = true;
             exhaust = true;
             upgradeDescription();
         }

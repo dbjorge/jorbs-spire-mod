@@ -1,6 +1,5 @@
 package stsjorbsmod.cards.wanderer.materialcomponents;
 
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AlwaysRetainField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -31,7 +30,7 @@ public class SnakeOil extends CustomJorbsModCard {
         magicNumber = baseMagicNumber = DAMAGE_PER_COIL;
         damageType = damageTypeForTurn = DamageInfo.DamageType.THORNS;
         isMultiDamage = true;
-        AlwaysRetainField.alwaysRetain.set(this, true);
+        selfRetain = true;
         exhaust = true;
     }
 

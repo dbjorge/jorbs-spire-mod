@@ -15,7 +15,7 @@ This mod aims to support *both* the stable and beta branches of Slay the Spire, 
 
 ## Table of contents
 
-* [How to Install](#how-to-install)
+* [How to install](#how-to-install)
 * [How to build from source](#how-to-build-from-source)
 * [How to contribute art](#how-to-contribute-art)
 * [How to contribute sound effects](#how-to-contribute-sound-effects)
@@ -24,14 +24,13 @@ This mod aims to support *both* the stable and beta branches of Slay the Spire, 
 ## How to install
 
 1. Through Steam, install Slay the Spire
-1. (optional, but recommended) Switch to the Beta branch (right click Slay the Spire in your Steam Library, Properties -> BETAS tab -> select "beta" in dropdown)
 1. From the Steam Workshop, install "Mod the Spire", "BaseMod", and "StSLib"
 1. Download `JorbsMod.jar` from the latest release: [![GitHub release version badge](https://img.shields.io/github/v/release/dbjorge/jorbs-spire-mod?color=blue&label=latest%20release&sort=semver)](https://github.com/dbjorge/sts-jorbs-mod/releases)
 1. Launch Mod the Spire by right clicking on Slay the Spire in your Steam Library "Play with Mods"
 1. In the Mod the Spire launcher, select the "open mods folder" button
 1. Copy `JorbsMod.jar` into this mods folder
 1. Close and relaunch Mod the Spire
-1. Make sure "BaseMod", "StSLib", and "JorbsMod" are all checked
+1. Make sure "BaseMod", "StSLib", and "JorbsMod" are all checked and in that order
 1. Play!
 
 ## How to build from source

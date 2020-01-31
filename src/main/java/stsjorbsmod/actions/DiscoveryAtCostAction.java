@@ -4,26 +4,29 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.screens.CardRewardScreen;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import stsjorbsmod.patches.ExtraCopiesToAddWhenGeneratingCardField;
 
+import java.util.ArrayList;
+
 public class DiscoveryAtCostAction extends AbstractGameAction {
     private boolean retrieveCard = false;
     private AbstractCard.CardType cardType;
+    private ArrayList<AbstractCard> cardChoices;
+    private boolean isSkippable;
 
-    public DiscoveryAtCostAction(AbstractCard.CardType type) {
+    public DiscoveryAtCostAction(ArrayList<AbstractCard> cardChoices, boolean isSkippable) {
+        this.cardChoices = cardChoices;
+        this.isSkippable = isSkippable;
         actionType = ActionType.CARD_MANIPULATION;
         duration = Settings.ACTION_DUR_FAST;
-        cardType = type;
     }
 
     public void update() {
         if (duration == Settings.ACTION_DUR_FAST) {
-            // TODO: discoveryOpen is deprecated in the beta branch. Replace this with something like:
-            //     AbstractDungeon.cardRewardScreen.customCombatOpen(generateMaterialComponents(3), UI_TEXT_FOR_CHOOSE_MATERIAL_COMPONENT, true);
-            AbstractDungeon.cardRewardScreen.discoveryOpen(cardType);
-            tickDuration();
+            AbstractDungeon.cardRewardScreen.customCombatOpen(cardChoices, CardRewardScreen.TEXT[1], isSkippable);
         } else {
             if (!retrieveCard) {
                 if (AbstractDungeon.cardRewardScreen.discoveryCard != null) {
@@ -43,7 +46,7 @@ public class DiscoveryAtCostAction extends AbstractGameAction {
                 }
                 retrieveCard = true;
             }
-            tickDuration();
         }
+        tickDuration();
     }
 }

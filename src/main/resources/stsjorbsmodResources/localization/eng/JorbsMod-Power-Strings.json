@@ -33,6 +33,13 @@
       "Mmmm... Escargot"
     ]
   },
+  "stsjorbsmod:CatharsisPower": {
+    "NAME": "Catharsis",
+    "DESCRIPTIONS": [
+      "#yUnplayable #rCurse cards can now be played. Whenever you do, lose #b%3$s HP and deal #b%1$s damage to a random enemy for each Curse played this combat ( #b%2$s #rCurse played).",
+      "#yUnplayable #rCurse cards can now be played. Whenever you do, lose #b%3$s HP and deal #b%1$s damage to a random enemy for each Curse played this combat ( #b%2$s #rCurses played)."
+    ]
+  },
   "stsjorbsmod:CoilPower": {
     "NAME": "Coil",
     "DESCRIPTIONS": [
@@ -56,6 +63,13 @@
     "NAME": "Energized",
     "DESCRIPTIONS": [
       "Gain #b%1$s additional [E] next turn."
+    ]
+  },
+  "stsjorbsmod:MirrorPower": {
+    "NAME": "Mirror",
+    "DESCRIPTIONS": [
+      "For #b%1$s turn, take no damage and reflect attack damage enemies deal to you.",
+      "For #b%1$s turns, take no damage and reflect attack damage enemies deal to you."
     ]
   },
   "stsjorbsmod:ExhumeAtStartOfTurnPower": {
@@ -132,6 +146,19 @@
       "You cannot remember other memories until you have #yClarity of your current memory."
     ]
   },
+  "stsjorbsmod:PathosPower": {
+    "NAME": "Pathos",
+    "DESCRIPTIONS": [
+      "This turn, cards in your hand cost 0. Add a curse to your discard pile for each card played.",
+      "For #b%1$s turns, cards in your hand cost 0. Add a curse to your discard pile for each card played."
+    ]
+  },
+  "stsjorbsmod:PhantasmPower": {
+    "NAME": "Phantasm",
+    "DESCRIPTIONS": [
+      "Whenever you gain #yIntangible, deal #b%1$s damage to ALL enemies."
+    ]
+  },
   "stsjorbsmod:PlayNextAttackThisTurnAdditionalTimesPower": {
     "NAME": "Hastened",
     "DESCRIPTIONS": [
@@ -158,6 +185,12 @@
       "Whenever you gain #yClarity of a new memory, gain #b%1$s [E]"
     ]
   },
+  "stsjorbsmod:ReducedHealingPower": {
+    "NAME": "Cannot heal",
+    "DESCRIPTIONS": [
+      "Reduce healing by %1$s%%."
+    ]
+  },
   "stsjorbsmod:SnappedPower": {
     "NAME": "Snapped",
     "DESCRIPTIONS": [
@@ -181,6 +214,13 @@
     "NAME": "Strength Next Turn",
     "DESCRIPTIONS": [
       "At the start of next turn, gain #b%1$s Strength."
+    ]
+  },
+  "stsjorbsmod:TroublePower": {
+    "NAME": "Trouble",
+    "DESCRIPTIONS": [
+      "Whenever you draw a Curse, draw #b%1$s card.",
+      "Whenever you draw a Curse, draw #b%1$s cards."
     ]
   },
   "stsjorbsmod:WastingEssencePower": {

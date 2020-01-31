@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.beyond.Nemesis;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.stances.AbstractStance;
 import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
@@ -127,8 +128,7 @@ public class TrueDamagePatch {
                     if ((
                             cls.equals(AbstractRelic.class.getName()) ||
                             cls.equals(AbstractPower.class.getName()) ||
-                            // TODO: once beta branch releases, replace with AbstractStance.class.getName()
-                            cls.equals("com.megacrit.cardcrawl.stances.AbstractStance")
+                            cls.equals(AbstractStance.class.getName())
                         ) && (
                             method.equals("atDamageModify") ||
                             method.equals("atDamageGive") ||
