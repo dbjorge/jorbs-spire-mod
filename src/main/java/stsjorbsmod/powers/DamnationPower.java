@@ -1,5 +1,6 @@
 package stsjorbsmod.powers;
 
+import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -27,7 +28,7 @@ public class DamnationPower extends CustomJorbsModPower implements NonStackableP
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (!card.purgeOnUse) {
+        if (!card.purgeOnUse && StSLib.getMasterDeckEquivalent(card) != null) {
             CardMetaUtils.destroyCardPermanently(card);
             AbstractDungeon.transformCard(card, isAutoUpgrade, AbstractDungeon.miscRng);
             AbstractDungeon.topLevelEffectsQueue.add(new ShowCardAndObtainEffect(AbstractDungeon.getTransformedCard(), Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F, false));
