@@ -38,7 +38,7 @@ public class DamnationPower extends CustomJorbsModPower implements NonStackableP
 
     @Override
     public void updateDescription() {
-        description = isAutoUpgrade ? DESCRIPTIONS[0] : DESCRIPTIONS[1];
+        description = isAutoUpgrade ? DESCRIPTIONS[1] : DESCRIPTIONS[0];
     }
 
     @Override
