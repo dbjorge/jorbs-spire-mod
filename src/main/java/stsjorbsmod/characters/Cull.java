@@ -26,6 +26,7 @@ import com.megacrit.cardcrawl.screens.DeathScreen;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.actions.DecreaseMaxHpAction;
+import stsjorbsmod.actions.GainSpecificClarityAction;
 import stsjorbsmod.actions.IncreaseManifestAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.cards.cull.*;
@@ -331,9 +332,9 @@ public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber 
     @Override
     public List<CutscenePanel> getCutscenePanels() {
         List<CutscenePanel> panels = new ArrayList<>();
-        panels.add(new CutscenePanel(makeScenePath("cull_heart_kill_1.png")));
-        panels.add(new CutscenePanel(makeScenePath("cull_heart_kill_2.png"), "SHOVEL"));
-        panels.add(new CutscenePanel(makeScenePath("cull_heart_kill_3.png")));
+        panels.add(new CutscenePanel(makeCharPath("cull/victory_scene/panel_1.png")));
+        panels.add(new CutscenePanel(makeCharPath("cull/victory_scene/panel_2.png"), "SHOVEL"));
+        panels.add(new CutscenePanel(makeCharPath("cull/victory_scene/panel_3.png")));
         return panels;
     }
 
@@ -373,6 +374,7 @@ public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber 
     public void applyStartOfCombatLogic() {
         super.applyStartOfCombatLogic();
         AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(this, WrathMemory.STATIC.ID));
+        AbstractDungeon.actionManager.addToBottom(new GainSpecificClarityAction(this, WrathMemory.STATIC.ID));
     }
 
     @Override

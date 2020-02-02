@@ -4,12 +4,12 @@ import basemod.BaseMod;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -17,17 +17,17 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.wanderer.*;
 import stsjorbsmod.memories.MemoryManager;
-import stsjorbsmod.powers.FlameWardPower;
-import stsjorbsmod.relics.FragileMindRelic;
+import stsjorbsmod.memories.SnapCounter;
+import stsjorbsmod.patches.CutsceneMultiScreenPatch;
 import stsjorbsmod.relics.GrimoireRelic;
 
 import java.util.ArrayList;
@@ -252,7 +252,6 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
 
         // Note: only the first relic gets replaced when selecting the "replace starter relic" Neow boon
         retVal.add(GrimoireRelic.ID);
-        retVal.add(FragileMindRelic.ID);
 
         return retVal;
     }
@@ -364,10 +363,19 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
     @Override
     public List<CutscenePanel> getCutscenePanels() {
         List<CutscenePanel> panels = new ArrayList<>();
-        panels.add(new CutscenePanel(makeScenePath("wanderer_heart_kill_1.png"), "ATTACK_DEFECT_BEAM"));
-        panels.add(new CutscenePanel(makeScenePath("wanderer_heart_kill_2.png")));
-        panels.add(new CutscenePanel(makeScenePath("wanderer_heart_kill_3.png")));
+        panels.add(new CutscenePanel(makeCharPath("wanderer/victory_scene/panel_1.png"), "ORB_LIGHTNING_EVOKE"));
+        panels.add(new CutscenePanel(makeCharPath("wanderer/victory_scene/panel_2.png")));
+        panels.add(new CutscenePanel(makeCharPath("wanderer/victory_scene/panel_3.png")));
+        panels.add(new CutscenePanel(makeCharPath("wanderer/victory_scene/panel_4.png")));
+        panels.add(new CutscenePanel(makeCharPath("wanderer/victory_scene/panel_5.png")));
+
+        CutsceneMultiScreenPatch.CutscenePanelNewScreenField.startsNewScreen.set(panels.get(2), true);
         return panels;
+    }
+
+    @Override
+    public Texture getCutsceneBg() {
+        return ImageMaster.loadImage(makeCharPath("wanderer/victory_scene/background.png"));
     }
 
     @Override
@@ -375,13 +383,57 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
         return CHARACTER_SELECT_BG_TEXTURE;
     }
 
+    public void startSnapAnimation() {
+        setAnimation(postSnapAnimation);
+        snapCounter.isActive = false;
+    }
+
+    private static final float SNAP_COUNTER_OFFSET_X = 39.0F * Settings.scale;
+    private static final float SNAP_COUNTER_OFFSET_Y = 178.0F * Settings.scale;
+    private final SnapCounter snapCounter = new SnapCounter(this);
+
     @Override
-    public void damage(DamageInfo info) {
-        for(AbstractPower power : this.powers) {
-            if(power instanceof FlameWardPower) {
-                ((FlameWardPower) power).preDamage(info);
-            }
+    public void onVictory() {
+        super.onVictory();
+        snapCounter.reset();
+    }
+
+    @Override
+    public void preBattlePrep() {
+        super.preBattlePrep();
+        snapCounter.reset();
+    }
+
+    @Override
+    public void applyStartOfTurnRelics() {
+        super.applyStartOfTurnRelics();
+        snapCounter.atStartOfTurn();
+    }
+
+    @Override
+    public void applyEndOfTurnTriggers() {
+        super.applyEndOfTurnTriggers();
+        snapCounter.atEndOfTurn();
+    }
+
+    @Override
+    public void update() {
+        super.update();
+        snapCounter.update(drawX + SNAP_COUNTER_OFFSET_X, drawY + SNAP_COUNTER_OFFSET_Y);
+    }
+
+    @Override
+    public void renderPlayerImage(SpriteBatch sb) {
+        super.renderPlayerImage(sb);
+        snapCounter.render(sb);
+    }
+
+    @Override
+    public void renderPowerTips(SpriteBatch sb) {
+        if (snapCounter.isHovered()) {
+            snapCounter.renderTips(sb);
+        } else {
+            super.renderPowerTips(sb);
         }
-        super.damage(info);
     }
 }

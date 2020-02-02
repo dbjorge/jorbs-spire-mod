@@ -63,8 +63,7 @@ public class SnapAction extends AbstractGameAction {
         CardCrawlGame.sound.playA("MONSTER_SNECKO_GLARE", -0.3F);
 
         if (target instanceof Wanderer) {
-            Wanderer wanderer = (Wanderer) target;
-            wanderer.setAnimation(wanderer.postSnapAnimation);
+            ((Wanderer) target).startSnapAnimation();
         }
 
         MemoryManager.forPlayer(target).snap();

@@ -16,13 +16,6 @@
       " in your hand."
     ]
   },
-  "stsjorbsmod:FragileMindRelic": {
-    "NAME": "Fragile Mind",
-    "FLAVOR": "Offer... shovel?",
-    "DESCRIPTIONS": [
-      "At the end of turn #b7, stsjorbsmod:Snap."
-    ]
-  },
   "stsjorbsmod:GrimoireRelic": {
     "NAME": "Grimoire",
     "FLAVOR": "Is this... familiar?",

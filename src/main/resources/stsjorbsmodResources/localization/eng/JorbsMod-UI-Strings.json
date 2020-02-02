@@ -60,6 +60,12 @@
       "Entangled!"
     ]
   },
+  "stsjorbsmod:SnapCounter": {
+    "TEXT": [
+      "Fragile Mind",
+      "At the end of turn 7, #ySnap. NL (It is turn #b%1$s now.)"
+    ]
+  },
   "stsjorbsmod:WillAction": {
     "TEXT": [
       "Exhaust"

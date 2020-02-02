@@ -4,15 +4,15 @@
     <groupId>stsjorbsmod</groupId>
     <artifactId>JorbsMod</artifactId>
     <name>Jorbs Mod</name>
-    <version>0.56.0</version>
+    <version>0.57.0</version>
     <description>A mod based on Jorbs' spreadsheet.</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <SlayTheSpire.version>11-12-2019</SlayTheSpire.version>
-        <ModTheSpire.version>3.8.0</ModTheSpire.version>
+        <SlayTheSpire.version>01-21-2020</SlayTheSpire.version>
+        <ModTheSpire.version>3.15.0</ModTheSpire.version>
 
         <!--
             You need to set a STEAMAPPS_PATH environment variable to enable Maven to find the dependencies.
