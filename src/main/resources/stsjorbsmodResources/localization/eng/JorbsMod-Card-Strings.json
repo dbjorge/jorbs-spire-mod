@@ -103,6 +103,10 @@
     "NAME": "Chill Touch",
     "DESCRIPTION": "Deal !D! damage to an enemy. NL It can no longer heal."
   },
+  "stsjorbsmod:Coda": {
+    "NAME" : "Coda",
+    "DESCRIPTION": "Deal !D! damage. NL If this would kill an enemy, instead leave the enemy at 1 HP."
+  },
   "stsjorbsmod:ColorSpray": {
     "NAME": "Color Spray",
     "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each. NL Remember stsjorbsmod:Envy."
