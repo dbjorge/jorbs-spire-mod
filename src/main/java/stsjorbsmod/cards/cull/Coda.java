@@ -5,10 +5,9 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.ExposeAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
-import stsjorbsmod.patches.CodaPatch;
+import stsjorbsmod.patches.RetainHpPatch;
 
 public class Coda extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Coda.class);
@@ -32,7 +31,7 @@ public class Coda extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         DamageInfo info = new DamageInfo(p, damage);
-        CodaPatch.hpRetained.set(info, magicNumber);
+        RetainHpPatch.hpRetained.set(info, magicNumber);
         addToBot(new DamageAction(m, info));
     }
 
