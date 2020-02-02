@@ -18,6 +18,7 @@ import javassist.CannotCompileException;
 import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
+import javassist.expr.MethodCall;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.util.ReflectionUtils;
@@ -126,49 +127,32 @@ public class LegendaryPatch {
         }
     }
 
-    // Allow for CardGroup::getPurgeableCards to contain Legendary cards occasionally. Since the bottle relics use
-    // CardGroup::getPurgeableCards, we want to keep them in the group if being called via one of the bottle relics.
-    @SpirePatch(clz = CardGroup.class, method = SpirePatch.CLASS)
-    public static class CardGroupFields {
-        public static SpireField<Boolean> isContainsLegendaryCards = new SpireField<>(() -> false);
+    // This should act like the original, unpatched version of CardGroup::getPurgeableCards
+    public static CardGroup getPurgeableOrLegendaryCards(CardGroup originalCards) {
+        CardGroup result = originalCards.getPurgeableCards(); // without legendaries
+        for (AbstractCard c : originalCards.group) {
+            if (c.hasTag(LEGENDARY)) {
+                result.group.add(c);
+            }
+        }
+        return result;
     }
 
+    // Bottle relics are exceptional in that they use getPurgeableCards to determine candidates but we don't want to
+    // exclude Legendary cards from them
     @SpirePatch(clz = BottledFlame.class, method = "onEquip")
-    public static class BottledFlame_onEquip {
-        @SpirePrefixPatch
-        public static void Prefix(BottledFlame __instance) {
-            CardGroupFields.isContainsLegendaryCards.set(AbstractDungeon.player.masterDeck, true);
-        }
-
-        @SpirePostfixPatch
-        public static void Postfix(BottledFlame __instance) {
-            CardGroupFields.isContainsLegendaryCards.set(AbstractDungeon.player.masterDeck, false);
-        }
-    }
-
     @SpirePatch(clz = BottledLightning.class, method = "onEquip")
-    public static class BottledLightning_onEquip {
-        @SpirePrefixPatch
-        public static void Prefix(BottledLightning __instance) {
-            CardGroupFields.isContainsLegendaryCards.set(AbstractDungeon.player.masterDeck, true);
-        }
-
-        @SpirePostfixPatch
-        public static void Postfix(BottledLightning __instance) {
-            CardGroupFields.isContainsLegendaryCards.set(AbstractDungeon.player.masterDeck, false);
-        }
-    }
-
     @SpirePatch(clz = BottledTornado.class, method = "onEquip")
-    public static class BottledTornado_onEquip {
-        @SpirePrefixPatch
-        public static void Prefix(BottledTornado __instance) {
-            CardGroupFields.isContainsLegendaryCards.set(AbstractDungeon.player.masterDeck, true);
-        }
-
-        @SpirePostfixPatch
-        public static void Postfix(BottledTornado __instance) {
-            CardGroupFields.isContainsLegendaryCards.set(AbstractDungeon.player.masterDeck, false);
+    public static class BottledRelic_onEquip {
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                @Override
+                public void edit(MethodCall m) throws CannotCompileException {
+                    if (m.getClassName().equals(CardGroup.class.getName()) && m.getMethodName().equals("getPurgeableCards")) {
+                        m.replace(String.format("{ $_ = %1$s.getPurgeableOrLegendaryCards($0); }", LegendaryPatch.class.getName()));
+                    }
+                }
+            };
         }
     }
 
@@ -178,9 +162,7 @@ public class LegendaryPatch {
     public static class CardGroup_getPurgeableCards {
         @SpirePostfixPatch
         public static CardGroup patch(CardGroup result, CardGroup instance) {
-            if (!CardGroupFields.isContainsLegendaryCards.get(instance)) {
-                removeLegendaryCards(result.group);
-            }
+            removeLegendaryCards(result.group);
             return result;
         }
     }
