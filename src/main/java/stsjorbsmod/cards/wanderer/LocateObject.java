@@ -21,7 +21,7 @@ public class LocateObject extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 1;
-    private static final int DRAW = 2;
+    private static final int DRAW = 3;
     private static final int UPGRADE_PLUS_DRAW = 1;
 
     public LocateObject() {

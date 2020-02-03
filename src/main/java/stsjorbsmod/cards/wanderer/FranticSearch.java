@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.actions.MakeMaterialComponentsInHandAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
@@ -29,6 +30,7 @@ public class FranticSearch extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster monster) {
         int componentCount = (int) AbstractDungeon.getCurrRoom().monsters.monsters.stream().filter(m -> !m.isDeadOrEscaped()).count();
         addToBot(new MakeMaterialComponentsInHandAction(componentCount));
+        addToBot(new GainClarityOfCurrentMemoryAction(p));
     }
 
     @Override

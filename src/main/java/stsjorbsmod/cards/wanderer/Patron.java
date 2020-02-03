@@ -24,7 +24,7 @@ public class Patron extends CustomJorbsModCard implements DowngradeableCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
-    private static final int COST = 2;
+    private static final int COST = 0;
     private static final int DAMAGE = 40;
     private static final int UPGRADE_PLUS_DAMAGE = 10;
 

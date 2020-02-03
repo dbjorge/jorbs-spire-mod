@@ -17,7 +17,7 @@ public class Web extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 0;
-    private static final int WEAK = 1;
+    private static final int WEAK = 2;
     private static final int UPGRADE_PLUS_WEAK = 1;
 
     public Web() {

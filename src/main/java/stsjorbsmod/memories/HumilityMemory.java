@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class HumilityMemory extends AbstractMemory implements OnPowersModifiedSubscriber {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(HumilityMemory.class);
 
-    private static final int THORNS_ON_REMEMBER = 1;
+    private static final int THORNS_ON_REMEMBER = 2;
 
     private int thornsAlreadyApplied;
 

@@ -61,11 +61,11 @@
   },
   {
     "NAMES": ["greed"],
-    "DESCRIPTION": "Whenever you kill a non-minion enemy, gain #b10 gold."
+    "DESCRIPTION": "Whenever you kill a non-minion enemy, gain #b20 gold."
   },
   {
     "NAMES": ["humility"],
-    "DESCRIPTION": "Each time remembered, gain #b1 #yThorns. Until forgotten, double your #yThorns."
+    "DESCRIPTION": "Each time remembered, gain #b2 #yThorns. Until forgotten, double your #yThorns."
   },
   {
     "NAMES": ["kindness"],
@@ -77,7 +77,7 @@
   },
   {
     "NAMES": ["lust"],
-    "DESCRIPTION": "Your attacks apply #b2 #yBurning. Each time remembered, apply #b2 #yBurning to ALL enemies. Each time forgotten, gain #b2 #yWeak."
+    "DESCRIPTION": "Your attacks apply #b2 #yBurning. Each time remembered, apply #b2 #yBurning to ALL enemies."
   },
   {
     "NAMES": ["manifest"],

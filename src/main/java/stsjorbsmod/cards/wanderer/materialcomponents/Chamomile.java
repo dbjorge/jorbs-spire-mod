@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
@@ -30,6 +31,7 @@ public class Chamomile extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new RemoveSpecificPowerAction(p, p, FrailPower.POWER_ID));
         addToBot(new RemoveSpecificPowerAction(p, p, VulnerablePower.POWER_ID));
+        addToBot(new RemoveSpecificPowerAction(p, p, WeakPower.POWER_ID));
     }
 
     @Override

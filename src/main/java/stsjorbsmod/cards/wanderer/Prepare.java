@@ -21,7 +21,7 @@ public class Prepare extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 1;
-    private static final int COIL = 4;
+    private static final int COIL = 5;
     private static final int UPGRADE_PLUS_COIL = 2;
 
     public Prepare() {

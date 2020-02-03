@@ -18,7 +18,7 @@ public class Sulfur extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 0;
-    private static final int BURNING = 3;
+    private static final int BURNING = 5;
     private static final int BURNING_PLUS_UPGRADE = 2;
 
     public Sulfur() {

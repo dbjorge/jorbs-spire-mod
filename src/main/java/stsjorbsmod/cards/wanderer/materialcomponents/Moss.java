@@ -17,7 +17,7 @@ public class Moss extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 0;
-    private static final int DEXTERITY = 2;
+    private static final int DEXTERITY = 3;
     private static final int UPGRADE_PLUS_DEXTERITY = 1;
 
     public Moss() {

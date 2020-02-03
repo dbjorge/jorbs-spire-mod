@@ -8,11 +8,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.PlayNextAttackThisTurnAdditionalTimesPower;
 import stsjorbsmod.util.CardMetaUtils;
 
-public class Chatter extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(Chatter.class);
+public class ChatteringStrike extends CustomJorbsModCard {
+    public static final String ID = JorbsMod.makeID(ChatteringStrike.class);
 
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
@@ -20,14 +19,15 @@ public class Chatter extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 4;
+    private static final int DAMAGE = 5;
     private static final int UPGRADE_PLUS_DAMAGE = 2;
     private static final int ADDITIONAL_PLAYS = 1;
 
-    public Chatter() {
+    public ChatteringStrike() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = ADDITIONAL_PLAYS;
+        tags.add(CardTags.STRIKE);
     }
 
     @Override

@@ -95,13 +95,13 @@
   "stsjorbsmod:FindFamiliarPower": {
     "NAME": "Find Familiar",
     "DESCRIPTIONS": [
-      "At the end of each turn, gain #yClarity. If #ySnapped, deal #b%1$s damage to ALL enemies."
+      "At the end of each turn, gain #yClarity."
     ]
   },
   "stsjorbsmod:FlameWardPower": {
     "NAME": "Flame Ward",
     "DESCRIPTIONS": [
-      "When you are next attacked, apply #b%1$s #yBurning to ALL attackers and gain #b%2$s #yBlock."
+      "When you are next attacked, apply #b%1$s #yBurning to ALL enemies and gain #b%2$s #yBlock."
     ]
   },
   "stsjorbsmod:ForbiddenGrimoireDelayedExhumePower": {
@@ -214,7 +214,7 @@
   "stsjorbsmod:StrangePendantPower": {
     "NAME": "Strange Pendant",
     "DESCRIPTIONS": [
-      "Ignore the first #b%1$s damage taken each turn."
+      "Prevent the first #b%1$s damage taken each turn."
     ]
   },
   "stsjorbsmod:StrengthNextTurnPower": {
