@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import stsjorbsmod.util.IntentUtils;
 
-public class FlameWardPower extends CustomJorbsModPower {
+public class FlameWardPower extends CustomJorbsModPower implements OnDamagedPreBlockSubscriber {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(FlameWardPower.class);
     public static final String POWER_ID = STATIC.ID;
 
@@ -28,7 +28,8 @@ public class FlameWardPower extends CustomJorbsModPower {
         this.updateDescription();
     }
 
-    public void preDamage(DamageInfo info) {
+    @Override
+    public void onDamagedPreBlock(DamageInfo info) {
         if (info != null && this.owner != info.owner && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS) {
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.owner.hb.cX, this.owner.hb.cY, AbstractGameAction.AttackEffect.SHIELD));
             this.owner.addBlock(this.amount);

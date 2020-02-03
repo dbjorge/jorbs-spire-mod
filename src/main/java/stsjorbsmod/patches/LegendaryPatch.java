@@ -13,13 +13,12 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.random.Random;
-import com.megacrit.cardcrawl.relics.Astrolabe;
-import com.megacrit.cardcrawl.relics.DollysMirror;
-import com.megacrit.cardcrawl.relics.EmptyCage;
+import com.megacrit.cardcrawl.relics.*;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
+import javassist.expr.MethodCall;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.util.ReflectionUtils;
@@ -55,7 +54,7 @@ public class LegendaryPatch {
         Predicate<AbstractCard> isMatch = c -> c.cardID.equals(card.cardID);
 
         // AbstractDungeon has many returnRandom*, returnTrulyRandom*, and *transformCard methods that use these pools.
-        if(card.rarity == AbstractCard.CardRarity.COMMON) {
+        if (card.rarity == AbstractCard.CardRarity.COMMON) {
             AbstractDungeon.commonCardPool.group.removeIf(isMatch);
             AbstractDungeon.srcCommonCardPool.group.removeIf(isMatch);
         } else if (card.rarity == AbstractCard.CardRarity.UNCOMMON) {
@@ -128,6 +127,35 @@ public class LegendaryPatch {
         }
     }
 
+    // This should act like the original, unpatched version of CardGroup::getPurgeableCards
+    public static CardGroup getPurgeableOrLegendaryCards(CardGroup originalCards) {
+        CardGroup result = originalCards.getPurgeableCards(); // without legendaries
+        for (AbstractCard c : originalCards.group) {
+            if (c.hasTag(LEGENDARY)) {
+                result.group.add(c);
+            }
+        }
+        return result;
+    }
+
+    // Bottle relics are exceptional in that they use getPurgeableCards to determine candidates but we don't want to
+    // exclude Legendary cards from them
+    @SpirePatch(clz = BottledFlame.class, method = "onEquip")
+    @SpirePatch(clz = BottledLightning.class, method = "onEquip")
+    @SpirePatch(clz = BottledTornado.class, method = "onEquip")
+    public static class BottledRelic_onEquip {
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                @Override
+                public void edit(MethodCall m) throws CannotCompileException {
+                    if (m.getClassName().equals(CardGroup.class.getName()) && m.getMethodName().equals("getPurgeableCards")) {
+                        m.replace(String.format("{ $_ = %1$s.getPurgeableOrLegendaryCards($0); }", LegendaryPatch.class.getName()));
+                    }
+                }
+            };
+        }
+    }
+
     // Legendary cards aren't purgeable. By removing them from choices to purge, we sidestep them even being picked
     // by the player to remove or transform.
     @SpirePatch(clz = CardGroup.class, method = "getPurgeableCards")
@@ -143,7 +171,7 @@ public class LegendaryPatch {
     // player has the Prismatic Shard relic, this particular method is also used in AbstractDungeon.getRewardCards.
     // We don't want to modify the overall list of cards that the CardLibrary draws from, hence this patch.
     @SpirePatch(clz = CardLibrary.class, method = "getAnyColorCard",
-            paramtypez = { AbstractCard.CardRarity.class })
+            paramtypez = {AbstractCard.CardRarity.class})
     public static class CardLibrary_getAnyColorCard {
         @SpireInsertPatch(locator = CardGroup_shuffle_Locator.class, localvars = "anyCard")
         public static void patch(AbstractCard.CardRarity rarity, CardGroup anyCard) {
@@ -247,7 +275,7 @@ public class LegendaryPatch {
     // We expect to have patched all situations in the main game. These four routines are almost universally invoked
     // to do the disallowed work of removing or transforming a Legendary card. Log any such instances encountered.
     @SpirePatch(clz = CardGroup.class, method = "removeCard",
-            paramtypez = { AbstractCard.class })
+            paramtypez = {AbstractCard.class})
     public static class CardGroup_removeCard_1 {
         @SpirePrefixPatch
         public static void patch(CardGroup instance, AbstractCard c) {
@@ -258,7 +286,7 @@ public class LegendaryPatch {
     }
 
     @SpirePatch(clz = CardGroup.class, method = "removeCard",
-            paramtypez = { String.class })
+            paramtypez = {String.class})
     public static class CardGroup_removeCard_2 {
         @SpirePrefixPatch
         public static void patch(CardGroup instance, String targetID) {
@@ -271,7 +299,7 @@ public class LegendaryPatch {
     }
 
     @SpirePatch(clz = AbstractDungeon.class, method = "transformCard",
-            paramtypez = { AbstractCard.class, boolean.class, Random.class })
+            paramtypez = {AbstractCard.class, boolean.class, Random.class})
     public static class AbstractDungeon_transformCard {
         @SpirePostfixPatch
         public static void patch(AbstractCard c, boolean autoUpgrade, Random rng) {
