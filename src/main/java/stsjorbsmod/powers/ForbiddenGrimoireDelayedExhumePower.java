@@ -44,10 +44,6 @@ public class ForbiddenGrimoireDelayedExhumePower extends CustomJorbsModPower imp
 
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster target) {
-        if (MemoryManager.forPlayer().isSnapped()) {
-            return; // should already be getting removed by a different action in the queue
-        }
-
         if (amount <= 1) {
             this.flash();
             AbstractDungeon.actionManager.addToBottom(new ExhumeCardsAction(cardToExhume));
@@ -55,12 +51,6 @@ public class ForbiddenGrimoireDelayedExhumePower extends CustomJorbsModPower imp
         } else {
             AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(owner, owner, this, 1));
         }
-    }
-
-
-    @Override
-    public void onSnap() {
-        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(owner, owner, this));
     }
 
     @Override

@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.DiscoveryAtCostAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
+import stsjorbsmod.cards.OnCardExhumedSubscriber;
 import stsjorbsmod.cards.wanderer.materialcomponents.MaterialComponentsDeck;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.MemoryManager;
@@ -16,7 +17,7 @@ import stsjorbsmod.powers.ForbiddenGrimoireDelayedExhumePower;
 
 import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 
-public class ForbiddenGrimoire extends CustomJorbsModCard {
+public class ForbiddenGrimoire extends CustomJorbsModCard implements OnCardExhumedSubscriber {
     public static final String ID = JorbsMod.makeID(ForbiddenGrimoire.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
@@ -32,6 +33,7 @@ public class ForbiddenGrimoire extends CustomJorbsModCard {
         magicNumber = baseMagicNumber = CARD_PLAYS_TO_EXHUME;
         EntombedField.entombed.set(this, true);
         SelfExhumeFields.selfExhumeAtStartOfTurn7.set(this, true);
+        SelfExhumeFields.selfExhumeOnSnap.set(this, true);
         EphemeralField.ephemeral.set(this, true);
         tags.add(LEGENDARY);
 
@@ -41,10 +43,13 @@ public class ForbiddenGrimoire extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DiscoveryAtCostAction(MaterialComponentsDeck.drawRandomCards(3), true));
+        addToBot(new ApplyPowerAction(p, p, new ForbiddenGrimoireDelayedExhumePower(p, this, magicNumber)));
+    }
 
-        if (!MemoryManager.forPlayer(p).isSnapped()) {
-            addToBot(new ApplyPowerAction(p, p, new ForbiddenGrimoireDelayedExhumePower(p, this, magicNumber)));
-        }
+    @Override
+    public void onCardExhumed() {
+        SelfExhumeFields.selfExhumeAtStartOfTurn7.set(this, false);
+        SelfExhumeFields.selfExhumeOnSnap.set(this, false);
     }
 
     @Override
