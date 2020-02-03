@@ -6,6 +6,12 @@ $header-bg-color-secondary: #000099;
 
 @import "{{ site.theme }}";
 
+.page-header {
+  background-image: url("/assets/header_bg.png") linear-gradient(120deg, #222, #533);
+  background-repeat: no-repeat;
+  background-position: left bottom;
+}
+
 #skip-to-content {
   height: 1px;
   width: 1px;
