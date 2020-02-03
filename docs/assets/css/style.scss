@@ -1,13 +1,12 @@
 ---
 ---
 
-$header-bg-color: #000066;
-$header-bg-color-secondary: #000099;
+$header-bg-color: #333;
 
 @import "{{ site.theme }}";
 
 .page-header {
-  background-image: url("/assets/header_bg.png") linear-gradient(120deg, #222, #533);
+  background-image: url("/assets/header_bg.png");
   background-repeat: no-repeat;
   background-position: left bottom;
 }
