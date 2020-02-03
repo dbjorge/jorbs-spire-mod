@@ -459,8 +459,8 @@
   },
   "stsjorbsmod:Quicksilver": {
     "NAME": "Quicksilver",
-    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance relics !stsjorbsmod:MetaMagic! turn through time. NL This turn, your next attack is played !M! additional time.",
-    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance relics !stsjorbsmod:MetaMagic! turn through time. NL This turn, your next attack is played !M! additional times."
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance relics !stsjorbsmod:MetaMagic! turn through time. NL This turn, your next card is played !M! additional time.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance relics !stsjorbsmod:MetaMagic! turn through time. NL This turn, your next card is played !M! additional times."
   },
   "stsjorbsmod:RayOfFrost": {
     "NAME": "Ray of Frost",

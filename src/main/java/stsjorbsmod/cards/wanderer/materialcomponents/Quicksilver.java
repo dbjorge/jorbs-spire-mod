@@ -4,11 +4,11 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.AdvanceRelicsThroughTimeAction;
+import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.EphemeralField;
-import stsjorbsmod.powers.PlayNextAttackThisTurnAdditionalTimesPower;
+import stsjorbsmod.powers.PlayNextCardThisTurnAdditionalTimesPower;
 
 public class Quicksilver extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Quicksilver.class);
@@ -34,7 +34,7 @@ public class Quicksilver extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new AdvanceRelicsThroughTimeAction(p, metaMagicNumber));
-        addToBot(new ApplyPowerAction(p, p, new PlayNextAttackThisTurnAdditionalTimesPower(p, magicNumber), magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new PlayNextCardThisTurnAdditionalTimesPower(p, magicNumber), magicNumber));
     }
 
     @Override
