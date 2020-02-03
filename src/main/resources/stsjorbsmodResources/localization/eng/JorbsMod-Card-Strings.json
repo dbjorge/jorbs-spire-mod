@@ -151,10 +151,10 @@
     "DESCRIPTION": "Gain !B! Block. NL Gain !B! Block next turn."
   },
   "stsjorbsmod:Double": {
-  "NAME": "Double",
-  "DESCRIPTION": "This turn, your next card that Exhausts is played twice.",
-  "UPGRADE_DESCRIPTION": "This turn, your next !M! cards that Exhaust are played twice."
-},
+    "NAME": "Double",
+    "DESCRIPTION": "This turn, your next card that Exhausts is played twice.",
+    "UPGRADE_DESCRIPTION": "This turn, your next !M! cards that Exhaust are played twice."
+  },
   "stsjorbsmod:DoubleCheck": {
     "NAME": "Double-check",
     "DESCRIPTION": "Gain !B! Block. NL Remember stsjorbsmod:Diligence.",
@@ -354,6 +354,10 @@
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
+  },
+  "stsjorbsmod:Materialize": {
+    "NAME": "Materialize",
+    "DESCRIPTION": "Gain !B! Block. NL Choose 1 of 3 stsjorbsmod:Material Components."
   },
   "stsjorbsmod:Mending": {
     "NAME": "Mending",
