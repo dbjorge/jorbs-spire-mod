@@ -1,30 +1,26 @@
----
-title: Credits
----
-
-# Credits
+## Credits
 
 *If you have contributed to the mod in any form and are missing from this page, or if you would like to change how you are attributed/add social links/etc, ping @brosmike on [Discord](https://discord.gg/N8mETek)!*
 
-## Concept & Design
+### Concept & Design
 
 * Jorbs ([Twitch](https://twitch.tv/jorbs), [YouTube](https://youtube.com/joinrbs), [Twitter](https://twitter.com/joinrbs), [Discord](https://discord.gg/jorbs), [Patreon](https://www.patreon.com/jorbs))
 
-## Technical Director
+### Technical Director
 
 * brosmike ([GitHub](https://github.com/dbjorge), [Twitch](https://twitch.tv/brosmike))
 
-## Producer & Community Organizer
+### Producer & Community Organizer
 
 * Neablis ([GitHub](https://github.com/neablis-7))
 
-## Lead Developers
+### Lead Developers
 
 * Cartopol ([GitHub](https://github.com/Cartopol))
 * Frenoss ([GitHub](https://github.com/Frenoss))
 * wang429 ([GitHub](https://github.com/wang429))
 
-## Developers
+### Developers
 
 * evan_tor ([GitHub](https://github.com/evantor))
 * mderb4 ([GitHub](https://github.com/mderb4))
@@ -33,13 +29,13 @@ title: Credits
 * mikeynap ([GitHub](https://github.com/mikeynap))
 * Sanity Dance ([GitHub](https://github.com/sanity-dance))
 
-## Lead Artists
+### Lead Artists
 
 * chevy28360 ([Twitch](https://twitch.tv/chevy28360))
 * Fr33ly
 * Zyalin
 
-## Artists
+### Artists
 
 * Crocketeer
 * DietTonicWater
@@ -52,11 +48,11 @@ title: Credits
 * Newigeg
 * SLG95
 
-## Localization
+### Localization
 
 * GDami (French) ([GitHub](https://github.com/GDami))
 
-## Playtesting, Feedback, Bug Reports
+### Playtesting, Feedback, Bug Reports
 
 * Armitroner
 * blahz
@@ -112,7 +108,7 @@ title: Credits
 * Zint
 * Zyalin
 
-## Special Thanks
+### Special Thanks
 
 * blahz, for encouraging us to take breaks
 * Gremious, for [StS-DefaultModBase](https://github.com/Gremious/StS-DefaultModBase)
