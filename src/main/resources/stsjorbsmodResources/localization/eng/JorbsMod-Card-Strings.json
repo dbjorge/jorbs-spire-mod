@@ -554,8 +554,8 @@
   },
   "stsjorbsmod:Steel": {
     "NAME": "Steel",
-    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Upgrade !M! random card in your hand until the end of combat.",
-    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Upgrade !M! random cards in your hand until the end of combat."
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Upgrade !M! card in your hand until the end of combat.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Upgrade !M! cards in your hand until the end of combat."
   },
   "stsjorbsmod:Stone": {
     "NAME": "Stone",
