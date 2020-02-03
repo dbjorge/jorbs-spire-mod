@@ -11,6 +11,21 @@ $header-bg-color: #333;
   background-position: left bottom;
 }
 
+.page-tagline {
+  margin: 0;
+}
+
+nav {
+  margin-top: 20px;
+}
+
+.btn {
+  background-color: rgba(100,100,100,0.4);
+  @include medium  {
+    padding: 0.3rem 0.3rem;
+  }
+}
+
 #skip-to-content {
   height: 1px;
   width: 1px;
