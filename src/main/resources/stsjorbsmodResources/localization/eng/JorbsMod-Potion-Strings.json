@@ -14,7 +14,7 @@
   "stsjorbsmod:GhostPoisonPotion": {
     "NAME": "Ghost Poison",
     "DESCRIPTIONS": [
-      "Gain %1$s #yManifest for each enemy, then win the combat. NL Does not work on Boss and Elite enemies."
+      "Gain #b%1$s #yManifest for each enemy, then win the combat. NL Does not work on Boss and Elite enemies."
     ]
   },
   "stsjorbsmod:LiquidClarity": {
