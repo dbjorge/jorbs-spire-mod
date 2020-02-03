@@ -6,7 +6,8 @@ title: Jorbs Mod
 
 1. Get [Slay the Spire](https://store.steampowered.com/app/646570/Slay_the_Spire/) through Steam
 1. Subscribe to [StSLib](https://steamcommunity.com/sharedfiles/filedetails/?id=1609158507) in the Slay the Spire Steam Workshop.
-1. Download `JorbsMod.jar` from the latest release: [![GitHub release version badge](https://img.shields.io/github/v/release/dbjorge/jorbs-spire-mod?color=blue&label=latest%20release&sort=semver)](https://github.com/dbjorge/sts-jorbs-mod/releases)
+1. Download `JorbsMod.jar` from the latest release:
+   [![GitHub release version badge](https://img.shields.io/github/v/release/dbjorge/jorbs-spire-mod?color=blue&label=latest%20release&sort=semver)](https://github.com/dbjorge/sts-jorbs-mod/releases)
 1. Launch Slay the Spire and select **Play With Mods**:
    ![screenshot of Steam "play with mods" option highlighted](./steam-play-with-mods.png)
 1. In the mod launcher, select the "open mods folder" button:
