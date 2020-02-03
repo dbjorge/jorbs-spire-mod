@@ -2,6 +2,7 @@ package stsjorbsmod.powers;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -33,14 +34,27 @@ public class CoilPower extends CustomJorbsModPower implements OnModifyMemoriesSu
         description = String.format(DESCRIPTIONS[0], calculateDamage());
     }
 
-    @Override
-    public void onRememberMemory(String id) {
+    private void consumeCoilForDamage() {
         this.flash();
 
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAllEnemiesAction(owner, DamageInfo.createDamageMatrix(calculateDamage(), true), DamageInfo.DamageType.THORNS, AttackEffect.SLASH_HORIZONTAL));
-        AbstractDungeon.actionManager.addToBottom(
-                new RemoveSpecificPowerAction(owner, owner, CoilPower.POWER_ID));
+        if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new DamageAllEnemiesAction(owner, DamageInfo.createDamageMatrix(calculateDamage(), true), DamageInfo.DamageType.THORNS, AttackEffect.SLASH_HORIZONTAL));
+            AbstractDungeon.actionManager.addToBottom(
+                    new RemoveSpecificPowerAction(owner, owner, CoilPower.POWER_ID));
+        }
+    }
+
+    @Override
+    public void onRememberMemory(String id) {
+        consumeCoilForDamage();
+    }
+
+    @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        if (owner.hasPower(SnappedPower.POWER_ID)) {
+            consumeCoilForDamage();
+        }
     }
 
     @Override

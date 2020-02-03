@@ -43,7 +43,7 @@
   "stsjorbsmod:CoilPower": {
     "NAME": "Coil",
     "DESCRIPTIONS": [
-      "Whenever you remember a new memory, deal #b%1$s damage to ALL enemies and lose all Coil."
+      "Whenever you remember a new memory or end your turn while #ySnapped, deal #b%1$s damage to ALL enemies and lose all Coil."
     ]
   },
   "stsjorbsmod:DamnationPower": {
