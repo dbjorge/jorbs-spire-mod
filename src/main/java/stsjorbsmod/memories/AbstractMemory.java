@@ -111,6 +111,7 @@ public abstract class AbstractMemory implements OnModifyGoldSubscriber {
     // onMonsterDeath can happen within the same action that ends the combat, so you shouldn't queue new actions in here.
     public void onMonsterKilled(AbstractMonster monster) { }
     public void onVictory() { }
+    public void onEnergyRecharge() { }
 
     private AbstractPower makeFakePowerForEffects() {
         AbstractPower p = new AbstractPower() {};

@@ -2,12 +2,14 @@ package stsjorbsmod.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.GameActionManager;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAndEnableControlsAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.PlayerTurnEffect;
 import javassist.CtBehavior;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -140,6 +142,30 @@ public class MemoryHooksPatch {
             MemoryManager memoryManager = MemoryManager.forPlayer(__this);
             if (memoryManager != null) {
                 MemoryManager.forPlayer(__this).clear();
+            }
+        }
+    }
+
+    @SpirePatch(clz = PlayerTurnEffect.class, method = SpirePatch.CONSTRUCTOR)
+    public static class PlayerTurnEffect_onEnergyRecharge {
+        @SpirePostfixPatch
+        public static void Postfix(PlayerTurnEffect __this) {
+            forEachMemory(AbstractDungeon.player, m -> m.onEnergyRecharge());
+        }
+    }
+
+    @SpirePatch(clz = GainEnergyAndEnableControlsAction.class, method = SpirePatch.CLASS)
+    public static class GainEnergyAndEnableControlsAction_onEnergyRechargeField {
+        public static SpireField<Boolean> hasCalledMemoryHook = new SpireField<>(() -> false);
+    }
+
+    @SpirePatch(clz = GainEnergyAndEnableControlsAction.class, method = "update")
+    public static class GainEnergyAndEnableControlsAction_onEnergyRecharge {
+        @SpirePostfixPatch
+        public static void Postfix(GainEnergyAndEnableControlsAction __this) {
+            if (!GainEnergyAndEnableControlsAction_onEnergyRechargeField.hasCalledMemoryHook.get(__this)) {
+                GainEnergyAndEnableControlsAction_onEnergyRechargeField.hasCalledMemoryHook.set(__this, true);
+                forEachMemory(AbstractDungeon.player, m -> m.onEnergyRecharge());
             }
         }
     }
