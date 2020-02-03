@@ -27,14 +27,19 @@ public class DamageWithOnKillEffectAction extends AbstractGameAction {
         this.worksOnMinions = worksOnMinions;
     }
 
+    private boolean isDying(AbstractCreature c) {
+        return (c.isDying || c.currentHealth <= 0) && !c.halfDead;
+    }
+
     public void update() {
         if (this.duration == Settings.ACTION_DUR_FAST) {
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, this.attackEffect));
         }
         this.tickDuration();
         if (this.isDone) {
+            boolean wasDyingBeforeDamage = isDying(this.target);
             this.target.damage(this.info);
-            if ((this.target.isDying || this.target.currentHealth <= 0) && !this.target.halfDead) {
+            if (!wasDyingBeforeDamage && isDying(this.target)) {
                 if (worksOnMinions || !this.target.hasPower(MinionPower.POWER_ID)) {
                     this.onKillCallback.run();
                 }
