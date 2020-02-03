@@ -13,7 +13,9 @@
 
     <header class="page-header" role="banner">
       <h1 class="project-name">{{ site.title }}</h1>
-      <p class="project-tagline">{{ site.description }}</p>
+      {% for tagline in site.taglines %}
+        <p class="project-tagline">{{ tagline }}</p>
+      {% endfor %}
       <nav>
         {% for nav_item in site.navigation %}
           <a class="btn" href="{{ nav_item.url }}">{{nav_item.title}}</a>
