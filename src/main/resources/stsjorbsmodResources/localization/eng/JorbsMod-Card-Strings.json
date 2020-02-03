@@ -326,10 +326,6 @@
     "NAME": "Lose Grip",
     "DESCRIPTION": "Gain !B! Block. NL Exhaust. stsjorbsmod:Exhume when you stsjorbsmod:Snap."
   },
-  "stsjorbsmod:Loss": {
-    "NAME": "Loss",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Weak."
-  },
   "stsjorbsmod:MageArmor": {
     "NAME": "Mage Armor",
     "DESCRIPTION": "Unplayable. NL Retain. NL When you would lose HP, lose !M! fewer HP and discard this.",
@@ -375,10 +371,6 @@
   "stsjorbsmod:Mindworm": {
     "NAME": "Mindworm",
     "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage if stsjorbsmod:Snapped. NL Add a copy of this card to your discard pile."
-  },
-  "stsjorbsmod:MinorIllusion": {
-    "NAME": "Minor Illusion",
-    "DESCRIPTION": "Gain !B! Block."
   },
   "stsjorbsmod:Miracle_Cull": {
     "NAME": "Miracle",
