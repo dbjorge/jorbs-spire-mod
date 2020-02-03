@@ -1,19 +1,17 @@
 package stsjorbsmod.patches;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpireField;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
+import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.helpers.RelicLibrary;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.events.shrines.Duplicator;
+import com.megacrit.cardcrawl.events.shrines.FountainOfCurseRemoval;
 import com.megacrit.cardcrawl.relics.BottledFlame;
 import com.megacrit.cardcrawl.relics.BottledLightning;
 import com.megacrit.cardcrawl.relics.BottledTornado;
+import com.megacrit.cardcrawl.relics.DollysMirror;
 import javassist.CannotCompileException;
+import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
 import javassist.expr.MethodCall;
@@ -49,12 +47,6 @@ public class BottledMemoryPatch {
         }
     }
 
-    /**
-     * Removes all bottled cards from the card group passed in and returns the CardGroup.
-     *
-     * @param cards
-     * @return cards
-     */
     public static CardGroup removeBottledCards(CardGroup cards) {
         cards.group.removeIf(c -> c.inBottleTornado || c.inBottleFlame || c.inBottleLightning || AbstractCardMemoryFields.inBottleMemory.get(c));
         return cards;
@@ -105,6 +97,48 @@ public class BottledMemoryPatch {
                     // Logically equivalent to `!inBottleTornado && !inBottleMemory`
                     if (fieldAccess.getClassName().equals(AbstractCard.class.getName()) && fieldAccess.getFieldName().equals("inBottleTornado")) {
                         fieldAccess.replace("{ $_ = ($proceed() || stsjorbsmod.patches.BottledMemoryPatch.isInBottleMemory(c)); }");
+                    }
+                }
+            };
+        }
+    }
+
+    @SpirePatch(clz = Duplicator.class, method = "update")
+    public static class Duplicator_update {
+        @SpireInsertPatch(locator = AbstractCard_InBottleTornado_Locator.class, localvars = "c")
+        public static void patch(Duplicator __this, AbstractCard c) {
+            AbstractCardMemoryFields.inBottleMemory.set(c, false);
+        }
+    }
+
+    @SpirePatch(clz = DollysMirror.class, method = "update")
+    public static class DollysMirror_update {
+        @SpireInsertPatch(locator = AbstractCard_InBottleTornado_Locator.class, localvars = "c")
+        public static void patch(DollysMirror __this, AbstractCard c) {
+            AbstractCardMemoryFields.inBottleMemory.set(c, false);
+        }
+    }
+
+    public static class AbstractCard_InBottleTornado_Locator extends SpireInsertLocator {
+        @Override
+        public int[] Locate(CtBehavior ctBehavior) throws Exception {
+            Matcher finalMatcher = new Matcher.FieldAccessMatcher(AbstractCard.class, "inBottleTornado");
+            return LineFinder.findInOrder(ctBehavior, finalMatcher);
+        }
+    }
+
+    // The Fountain of Curse Removal event removes curse cards from the deck. It selects them directly from the
+    // master deck. We don't let it remove any bottled curses.
+    @SpirePatch(clz = FountainOfCurseRemoval.class, method = "buttonEffect")
+    public static class FountainOfCurseRemoval_buttonEffect {
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                @Override
+                public void edit(FieldAccess fieldAccess) throws CannotCompileException {
+                    // replacing the "((AbstractCard)AbstractDungeon.player.masterDeck.group.get(i)).inBottleFlame"
+                    // expression in the original if statement to add in an "|| card.hasTag(LEGENDARY)"
+                    if (fieldAccess.getClassName().equals(AbstractCard.class.getName()) && fieldAccess.getFieldName().equals("inBottleFlame")) {
+                        fieldAccess.replace("{ $_ = ($proceed() || stsjorbsmod.patches.BottledMemoryPatch.isInBottleMemory($0)); }");
                     }
                 }
             };
