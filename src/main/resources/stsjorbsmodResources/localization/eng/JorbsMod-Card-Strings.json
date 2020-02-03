@@ -420,6 +420,10 @@
       " NL (Deals !D! damage.)"
     ]
   },
+  "stsjorbsmod:ParryingBlow": {
+    "NAME": "Parrying Blow",
+    "DESCRIPTION": "Remember stsjorbsmod:Patience. NL Deal !D! damage. NL Draw !M! card."
+  },
   "stsjorbsmod:Pathos": {
     "NAME": "Pathos",
     "DESCRIPTION": "Cards in your hand cost 0 this turn. NL Add a curse to your discard pile for each card played."
