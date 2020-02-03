@@ -6,6 +6,8 @@ lang: en-US
 navigation:
   - title: Install
     url: /
+  - title: Changelog
+    url: https://github.com/dbjorge/jorbs-spire-mod/releases
   - title: Credits
     url: /credits
   - title: GitHub
