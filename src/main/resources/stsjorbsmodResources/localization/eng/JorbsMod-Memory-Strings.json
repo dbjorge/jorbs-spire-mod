@@ -8,7 +8,7 @@
   "stsjorbsmod:ChastityMemory": {
     "NAME": "Chastity",
     "DESCRIPTIONS": [
-      "#bRemember: Gain !R! #yDexterity. NL #bPassive: At the end of each turn, lose !D! #yDexterity and gain !B! #yBlock."
+      "#bRemember: Gain !R! #yDexterity. Apply !W! #yWeak to ALL enemies. NL #bPassive: At the end of each turn, lose !D! #yDexterity and gain !B! #yBlock."
     ]
   },
   "stsjorbsmod:DiligenceMemory": {

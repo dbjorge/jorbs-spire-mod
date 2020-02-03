@@ -9,7 +9,7 @@
   },
   {
     "NAMES": ["chastity"],
-    "DESCRIPTION": "When you remember Chastity, gain #b2 #yDexterity. At the end of each turn, lose #b1 #yDexterity and gain #b6 #yBlock."
+    "DESCRIPTION": "When you remember Chastity, gain #b2 #yDexterity and apply #b1 #yWeak to ALL enemies. At the end of each turn, lose #b1 #yDexterity and gain #b6 #yBlock."
   },
   {
     "NAMES": ["clarity", "clarities"],
