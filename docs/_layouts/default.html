@@ -12,11 +12,11 @@
     <a id="skip-to-content" href="#content">Skip to the content.</a>
 
     <header class="page-header" role="banner">
-      <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
-      <p class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</p>
+      <h1 class="project-name">{{ site.title }}</h1>
+      <p class="project-tagline">{{ site.description }}</p>
       <nav>
         {% for nav_item in site.navigation %}
-          <a class="nav-link" href="{{ nav_item.url }}">{{nav_item.title}}</a>
+          <a class="btn" href="{{ nav_item.url }}">{{nav_item.title}}</a>
         {% endfor %}
       </nav>
     </header>
