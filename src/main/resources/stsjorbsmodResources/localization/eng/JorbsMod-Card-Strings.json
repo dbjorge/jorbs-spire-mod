@@ -533,8 +533,8 @@
   },
   "stsjorbsmod:SnakeOil": {
     "NAME": "Snake Oil",
-    "DESCRIPTION": "Retain. NL Deal damage to ALL enemies equal to the amount of stsjorbsmod:Coil you have. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Deal damage to ALL enemies equal to twice the amount of stsjorbsmod:Coil you have. NL Exhaust.",
+    "DESCRIPTION": "Retain. NL Gain !stsjorbsmod:MetaMagic! stsjorbsmod:Coil. NL Deal damage to ALL enemies equal to the amount of stsjorbsmod:Coil you have. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Gain !stsjorbsmod:MetaMagic! stsjorbsmod:Coil. NL  Deal damage to ALL enemies equal to twice the amount of stsjorbsmod:Coil you have. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
