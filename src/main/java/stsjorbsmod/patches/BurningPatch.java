@@ -12,9 +12,12 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.InvinciblePower;
 import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
+import javassist.expr.MethodCall;
 import stsjorbsmod.powers.BurningPower;
 import stsjorbsmod.util.ReflectionUtils;
 
@@ -36,10 +39,32 @@ public class BurningPatch {
 
     public static void performTurnStartBurningCheck() {
         for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
+            if (m.hasPower(InvinciblePower.POWER_ID)) {
+                m.getPower(InvinciblePower.POWER_ID).atStartOfTurn();
+            }
             if (m.hasPower(BurningPower.POWER_ID)) {
                 m.getPower(BurningPower.POWER_ID).onSpecificTrigger();
             }
         }
+    }
+
+    @SpirePatch(clz = AbstractCreature.class, method = "applyStartOfTurnPowers")
+    public static class AbstractCreature_applyStartOfTurnPowers {
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                @Override
+                public void edit(MethodCall m) throws CannotCompileException {
+                    if (m.getClassName().contains(AbstractPower.class.getName()) && m.getMethodName().equals("atStartOfTurn")) {
+                        m.replace(String.format("{ if (!%1$s.isInvinciblePower($0)) { $_ = $proceed(); }}",
+                                BurningPatch.class.getName()));
+                    }
+                }
+            };
+        }
+    }
+
+    public static boolean isInvinciblePower(AbstractPower p) {
+        return p.ID.equals(InvinciblePower.POWER_ID);
     }
 
     static TextureAtlas.AtlasRegion BURNING_TEXTURE = new TextureAtlas(Gdx.files.internal("powers/powers.atlas")).findRegion("128/attackBurn");
