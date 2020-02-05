@@ -1,10 +1,13 @@
 package stsjorbsmod.potions;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import stsjorbsmod.JorbsMod;
@@ -25,6 +28,7 @@ public class BurningPotion extends AbstractPotion {
         this.isThrown = true;
         this.targetRequired = true;
         this.tips.add(new PowerTip(this.name, this.description));
+        this.tips.add(new PowerTip(BaseMod.getKeywordTitle("stsjorbsmod:burning"), BaseMod.getKeywordDescription("stsjorbsmod:burning")));
     }
 
     @Override

@@ -1,5 +1,6 @@
 package stsjorbsmod.potions;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -29,6 +30,7 @@ public class GhostPoisonPotion extends AbstractPotion {
         this.description = String.format(DESCRIPTIONS[0], MANIFEST_PER_ENEMY);
         this.isThrown = true;
         this.tips.add(new PowerTip(this.name, this.description));
+        this.tips.add(new PowerTip(BaseMod.getKeywordTitle("stsjorbsmod:manifest"), BaseMod.getKeywordDescription("stsjorbsmod:manifest")));
     }
 
     @Override
