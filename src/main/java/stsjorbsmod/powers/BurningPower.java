@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.beyond.TimeEater;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.InvinciblePower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import stsjorbsmod.actions.BurningLoseHpAction;
@@ -74,7 +75,31 @@ public class BurningPower extends CustomJorbsModPower implements HealthBarRender
     }
 
     @Override
-    public void onSpecificTrigger() {
+    public void atStartOfTurnPreLoseBlock() {
+        // This is the normal case; we generally want block to prevent burning, so we generally have
+        // burning tick right before block would be removed at the start of a monster's turn, which is
+        // slightly before normal atStartOfTurn() triggers
+        if (!owner.hasPower(InvinciblePower.POWER_ID)) {
+            performBurningTick();
+        }
+    }
+
+    @Override
+    public void atStartOfTurn() {
+        // The heart fight is a special case because we want burning to apply after invincible resets at
+        // the start of the heart's turn, even though that reset happens in InvinciblePower::atStartOfTurn, which
+        // is after loseBlock (and would normally be too late for BurningPower to take effect).
+        //
+        // The Heart never blocks, so we work around this by moving the burning tick slightly later in that case.
+        //
+        // This means that if some other mod enables a monster to both block and have InvinciblePower, burning won't
+        // order correctly with Block for that monster. So be it.
+        if (owner.hasPower(InvinciblePower.POWER_ID)) {
+            performBurningTick();
+        }
+    }
+
+    private void performBurningTick() {
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT &&
                 !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             this.flashWithoutSound();
