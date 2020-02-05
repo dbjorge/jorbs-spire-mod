@@ -19,7 +19,7 @@ public class MageArmor extends CustomJorbsModCard implements OnPlayerHpLossCardS
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = COST_UNPLAYABLE;
-    private static final int DAMAGE_REDUCTION = 5;
+    private static final int DAMAGE_REDUCTION = 7;
     private static final int UPGRADE_PLUS_DAMAGE_REDUCTION = 2;
 
     public MageArmor() {

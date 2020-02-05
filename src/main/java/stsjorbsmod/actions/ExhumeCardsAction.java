@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.CorruptionPower;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
+import stsjorbsmod.cards.OnCardExhumedSubscriber;
 
 import java.util.function.Predicate;
 
@@ -60,6 +61,10 @@ public class ExhumeCardsAction extends AbstractGameAction {
 
             c.unhover();
             c.fadingOut = false;
+
+            if (c instanceof OnCardExhumedSubscriber) {
+                ((OnCardExhumedSubscriber) c).onCardExhumed();
+            }
         }
 
         this.isDone = true;

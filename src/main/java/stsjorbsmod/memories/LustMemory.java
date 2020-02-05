@@ -13,13 +13,11 @@ public class LustMemory extends AbstractMemory {
 
     private static final int BURNING_ON_REMEMBER = 2;
     private static final int PASSIVE_BURNING_ON_ATTACK = 2;
-    private static final int WEAK_ON_FORGET = 2;
 
     public LustMemory(final AbstractCreature owner) {
         super(STATIC, MemoryType.SIN, owner);
         setDescriptionPlaceholder("!R!", BURNING_ON_REMEMBER);
         setDescriptionPlaceholder("!P!", PASSIVE_BURNING_ON_ATTACK);
-        setDescriptionPlaceholder("!F!", WEAK_ON_FORGET);
     }
 
     @Override
@@ -44,12 +42,5 @@ public class LustMemory extends AbstractMemory {
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(target, this.owner, new BurningPower(target, this.owner, PASSIVE_BURNING_ON_ATTACK), PASSIVE_BURNING_ON_ATTACK, true));
             }
         }
-    }
-
-    @Override
-    public void onForget() {
-        this.flash();
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(owner, owner, new WeakPower(owner, WEAK_ON_FORGET, false)));
     }
 }

@@ -1,0 +1,45 @@
+---
+---
+
+$header-bg-color: #333;
+
+@import "{{ site.theme }}";
+
+.page-header {
+  background-image: url("/assets/header_bg.png");
+  background-repeat: no-repeat;
+  background-position: left bottom;
+}
+
+.project-tagline {
+  margin: 0;
+}
+
+nav {
+  margin-top: 20px;
+}
+
+.btn {
+  background-color: rgba(100,100,100,0.4);
+  @include medium  {
+    padding: 0.3rem 0.3rem;
+  }
+}
+
+#skip-to-content {
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  overflow: hidden;
+  top: -10px;
+
+  &:focus {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    height: auto;
+    width: auto;
+    background: invert($body-link-color);
+    outline: thick solid invert($body-link-color);
+  }
+}

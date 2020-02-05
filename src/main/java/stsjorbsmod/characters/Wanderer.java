@@ -104,7 +104,7 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
     // =============== BASE STATS =================
 
     public static final int ENERGY_PER_TURN = 3;
-    public static final int STARTING_HP = 60;
+    public static final int STARTING_HP = 68;
     public static final int MAX_HP = 64;
     public static final int STARTING_GOLD = 99;
     public static final int CARD_DRAW = 5;

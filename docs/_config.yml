@@ -1,3 +1,21 @@
-theme: jekyll-theme-tactile
+theme: jekyll-theme-cayman
 title: Jorbs Mod
-description: The Wanderer, Cull, and Explorer. Inspired by Jorbs and co-developed by the community.
+description: The Wanderer, Cull, and Explorer. A Slay the Spire mod inspired by Jorbs and co-developed by the community.
+taglines:
+  - The Wanderer, Cull, and Explorer.
+  - Inspired by Jorbs and co-developed by the community.
+lang: en-US
+
+navigation:
+  - title: Install
+    url: /
+  - title: Changelog
+    url: https://github.com/dbjorge/jorbs-spire-mod/releases
+  - title: Credits
+    url: /credits
+  - title: GitHub
+    url: https://github.com/dbjorge/jorbs-spire-mod
+  - title: Discord
+    url: https://discord.gg/N8mETek
+  - title: Design Sheet
+    url: https://docs.google.com/spreadsheets/d/1GY0eJsooEp361hWFL2lD-uPVa5-l-7g4f4FtyKs-k7Q

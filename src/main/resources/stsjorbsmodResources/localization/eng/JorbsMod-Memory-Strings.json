@@ -8,7 +8,7 @@
   "stsjorbsmod:ChastityMemory": {
     "NAME": "Chastity",
     "DESCRIPTIONS": [
-      "#bRemember: Gain !R! #yDexterity. NL #bPassive: At the end of each turn, lose !D! #yDexterity and gain !B! #yBlock."
+      "#bRemember: Gain !R! #yDexterity. Apply !W! #yWeak to ALL enemies. NL #bPassive: At the end of each turn, lose !D! #yDexterity and gain !B! #yBlock."
     ]
   },
   "stsjorbsmod:DiligenceMemory": {
@@ -50,7 +50,7 @@
   "stsjorbsmod:LustMemory": {
     "NAME": "Lust",
     "DESCRIPTIONS": [
-      "#bRemember: Apply !R! #yBurning to ALL enemies. NL #bPassive: Your attacks apply !P! #yBurning. NL #bForget: Gain !F! #yWeak."
+      "#bRemember: Apply !R! #yBurning to ALL enemies. NL #bPassive: Your attacks apply !P! #yBurning."
     ]
   },
   "stsjorbsmod:PatienceMemory": {
@@ -68,7 +68,7 @@
   "stsjorbsmod:SlothMemory": {
     "NAME": "Sloth",
     "DESCRIPTIONS": [
-      "#bRemember: Discard !D! cards at random. NL #bPassive: Draw !M! less card each turn. Energy is conserved between turns."
+      "#bRemember: Discard !D! cards at random. NL #bPassive: Draw !M! fewer cards and gain !E! additional [E] each turn."
     ]
   },
   "stsjorbsmod:TemperanceMemory": {

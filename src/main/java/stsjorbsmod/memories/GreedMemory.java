@@ -10,7 +10,7 @@ import stsjorbsmod.JorbsMod;
 public class GreedMemory extends AbstractMemory {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(GreedMemory.class);
 
-    private static final int GOLD_PER_KILL = 10;
+    private static final int GOLD_PER_KILL = 20;
 
     public GreedMemory(final AbstractCreature owner) {
         super(STATIC, MemoryType.SIN, owner);

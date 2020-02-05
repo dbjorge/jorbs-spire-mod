@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.CullCardAction;
+import stsjorbsmod.actions.DamageWithOnKillEffectAction;
 import stsjorbsmod.actions.PermanentlyModifyDamageAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.cards.OnDrawCardSubscriber;
@@ -44,7 +45,13 @@ public class CULLCard extends CustomJorbsModCard implements OnDrawCardSubscriber
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new CullCardAction(m, new DamageInfo(p, damage, damageTypeForTurn), magicNumber, uuid));
+        Runnable permanentDamageIncrease = () -> {
+            this.addToTop(new PermanentlyModifyDamageAction(this.uuid, this.magicNumber));
+        };
+        this.addToBot(new DamageWithOnKillEffectAction(
+                m, new DamageInfo(p, damage, damageTypeForTurn), permanentDamageIncrease, false));
+        this.addToBot(new DamageWithOnKillEffectAction(
+                m, new DamageInfo(p, damage, damageTypeForTurn), permanentDamageIncrease, false));
     }
 
     @Override

@@ -11,6 +11,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.EntombedField;
+import stsjorbsmod.patches.EphemeralField;
 
 public class AnimateObjects extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(AnimateObjects.class);
@@ -28,7 +29,7 @@ public class AnimateObjects extends CustomJorbsModCard {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = 0;
         baseMetaMagicNumber = metaMagicNumber = THORNS_PER_MATCHING_CARD;
-        this.exhaust = true;
+        EphemeralField.ephemeral.set(this, true);
     }
 
     private int countCardsThatDidNotStartCombatInDeck(CardGroup group) {

@@ -23,7 +23,7 @@ public class SmithingStrike extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 2;
-    private static final int DAMAGE = 14;
+    private static final int DAMAGE = 16;
     private static final int UPGRADE_PLUS_DMG = 4;
 
     public SmithingStrike() {

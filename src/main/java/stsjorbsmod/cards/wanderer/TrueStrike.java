@@ -19,7 +19,7 @@ public class TrueStrike extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 2;
-    private static final int DAMAGE = 16;
+    private static final int DAMAGE = 18;
     private static final int UPGRADE_PLUS_DMG = 6;
 
     public TrueStrike() {

@@ -1,6 +1,7 @@
 package stsjorbsmod.cards.wanderer.materialcomponents;
 
 import com.megacrit.cardcrawl.actions.common.UpgradeRandomCardAction;
+import com.megacrit.cardcrawl.actions.unique.ArmamentsAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
@@ -29,7 +30,7 @@ public class Steel extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < magicNumber; ++i) {
-            addToBot(new UpgradeRandomCardAction());
+            addToBot(new ArmamentsAction(false));
         }
     }
 

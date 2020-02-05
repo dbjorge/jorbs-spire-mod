@@ -17,24 +17,21 @@ public class FindFamiliar extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 1;
-    private static final int DAMAGE_PER_TURN_AFTER_SNAP = 0;
-    private static final int UPGRADE_PLUS_DAMAGE_PER_TURN_AFTER_SNAP = 10;
 
     public FindFamiliar() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = DAMAGE_PER_TURN_AFTER_SNAP;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new FindFamiliarPower(p, magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new FindFamiliarPower(p)));
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_DAMAGE_PER_TURN_AFTER_SNAP);
+            this.isInnate = true;
             upgradeDescription();
         }
     }

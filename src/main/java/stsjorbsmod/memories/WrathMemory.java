@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.cards.cull.CULLCard;
 import stsjorbsmod.patches.WrathField;
 import stsjorbsmod.util.EffectUtils;
 
@@ -24,6 +25,10 @@ public class WrathMemory extends AbstractMemory {
         return c.type == CardType.ATTACK && c.baseDamage >= 0;
     }
 
+    public static boolean usesMiscToTrackPermanentBaseDamage(AbstractCard c) {
+        return c instanceof RitualDagger || c instanceof CULLCard;
+    }
+
     public static void reapplyToLoadedCard(AbstractCard card, int effectCount) {
         if (!isUpgradeCandidate(card) && (effectCount > 0)) {
             JorbsMod.logger.error("Wrath effect count modified for an ineligible card");
@@ -32,8 +37,7 @@ public class WrathMemory extends AbstractMemory {
 
         WrathField.wrathEffectCount.set(card, effectCount);
 
-        // Ritual Dagger saves the effect of wrath in its misc fields, so it alone doesn't need to be modified.
-        if (!(card instanceof RitualDagger)) {
+        if (!usesMiscToTrackPermanentBaseDamage(card)) {
             card.baseDamage += DAMAGE_INCREASE_PER_KILL * effectCount;
         }
     }
@@ -80,7 +84,7 @@ public class WrathMemory extends AbstractMemory {
         AbstractCard masterCard = StSLib.getMasterDeckEquivalent(card);
         if (masterCard != null) {
             masterCard.baseDamage += DAMAGE_INCREASE_PER_KILL;
-            if (masterCard instanceof RitualDagger) {
+            if (usesMiscToTrackPermanentBaseDamage(masterCard)) {
                 masterCard.misc += DAMAGE_INCREASE_PER_KILL;
             }
             WrathField.wrathEffectCount.set(masterCard, WrathField.wrathEffectCount.get(masterCard) + 1);
@@ -90,7 +94,7 @@ public class WrathMemory extends AbstractMemory {
 
         for (AbstractCard instance : GetAllInBattleInstances.get(card.uuid)) {
             instance.baseDamage += DAMAGE_INCREASE_PER_KILL;
-            if (instance instanceof RitualDagger) {
+            if (usesMiscToTrackPermanentBaseDamage(instance)) {
                 instance.misc += DAMAGE_INCREASE_PER_KILL;
             }
             WrathField.wrathEffectCount.set(instance, WrathField.wrathEffectCount.get(instance) + 1);

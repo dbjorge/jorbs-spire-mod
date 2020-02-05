@@ -9,7 +9,7 @@
   },
   {
     "NAMES": ["chastity"],
-    "DESCRIPTION": "When you remember Chastity, gain #b2 #yDexterity. At the end of each turn, lose #b1 #yDexterity and gain #b6 #yBlock."
+    "DESCRIPTION": "When you remember Chastity, gain #b2 #yDexterity and apply #b1 #yWeak to ALL enemies. At the end of each turn, lose #b1 #yDexterity and gain #b6 #yBlock."
   },
   {
     "NAMES": ["clarity", "clarities"],
@@ -17,7 +17,7 @@
   },
   {
     "NAMES": ["coil"],
-    "DESCRIPTION": "Gain 1 Coil each time you play a card while remembering #yPatience."
+    "DESCRIPTION": "Gain 1 Coil each time you play a card while remembering #yPatience. When remembering new memories or ending your turn while snapped, Coil is consumed to deal damage to ALL enemies."
   },
   {
     "NAMES": ["consume", "consumed"],
@@ -61,11 +61,11 @@
   },
   {
     "NAMES": ["greed"],
-    "DESCRIPTION": "Whenever you kill a non-minion enemy, gain #b10 gold."
+    "DESCRIPTION": "Whenever you kill a non-minion enemy, gain #b20 gold."
   },
   {
     "NAMES": ["humility"],
-    "DESCRIPTION": "Each time remembered, gain #b1 #yThorns. Until forgotten, double your #yThorns."
+    "DESCRIPTION": "Each time remembered, gain #b2 #yThorns. Until forgotten, double your #yThorns."
   },
   {
     "NAMES": ["kindness"],
@@ -77,7 +77,7 @@
   },
   {
     "NAMES": ["lust"],
-    "DESCRIPTION": "Your attacks apply #b2 #yBurning. Each time remembered, apply #b2 #yBurning to ALL enemies. Each time forgotten, gain #b2 #yWeak."
+    "DESCRIPTION": "Your attacks apply #b2 #yBurning. Each time remembered, apply #b2 #yBurning to ALL enemies."
   },
   {
     "NAMES": ["manifest"],
@@ -102,7 +102,7 @@
   },
   {
     "NAMES": ["sloth"],
-    "DESCRIPTION": "When you remember Sloth, discard #b3 random cards. Draw #b1 fewer cards each turn. Energy is conserved between turns."
+    "DESCRIPTION": "When you remember Sloth, discard #b3 random cards. Draw #b1 fewer cards and gain #b1 additional [E] each turn."
   },
   {
     "NAMES": ["slow", "slowed"],

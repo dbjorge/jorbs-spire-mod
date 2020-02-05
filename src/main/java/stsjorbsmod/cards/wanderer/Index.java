@@ -17,8 +17,8 @@ public class Index extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 0;
-    private static final int CARD_DRAW = 2;
-    private static final int TOP_OF_DECK = 2;
+    private static final int CARD_DRAW = 3;
+    private static final int TOP_OF_DECK = 3;
     private static final int UPGRADE_PLUS_TOP_OF_DECK = -1;
 
     public Index() {

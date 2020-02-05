@@ -25,7 +25,7 @@ public class DeathThroes extends CustomJorbsModCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
     private static final int DAMAGE = 14;
     private static final int UPGRADE_PLUS_DAMAGE = 4;
 

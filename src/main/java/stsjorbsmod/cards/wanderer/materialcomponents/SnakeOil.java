@@ -1,6 +1,7 @@
 package stsjorbsmod.cards.wanderer.materialcomponents;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -21,6 +22,7 @@ public class SnakeOil extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 0;
+    private static final int COIL_GAIN = 4;
     private static final int DAMAGE_PER_COIL = 1;
     private static final int UPGRADE_PLUS_DAMAGE_PER_COIL = 1;
 
@@ -28,6 +30,7 @@ public class SnakeOil extends CustomJorbsModCard {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = 0;
         magicNumber = baseMagicNumber = DAMAGE_PER_COIL;
+        metaMagicNumber = baseMetaMagicNumber = COIL_GAIN;
         damageType = damageTypeForTurn = DamageInfo.DamageType.THORNS;
         isMultiDamage = true;
         selfRetain = true;
@@ -37,11 +40,14 @@ public class SnakeOil extends CustomJorbsModCard {
     @Override
     public int calculateBonusBaseDamage() {
         AbstractPower possibleCoilPower = AbstractDungeon.player.getPower(CoilPower.POWER_ID);
-        return possibleCoilPower == null ? 0 : possibleCoilPower.amount * magicNumber;
+        int coilAmount = possibleCoilPower == null ? 0 : possibleCoilPower.amount;
+        coilAmount += metaMagicNumber; // account for coil we'll be adding
+        return coilAmount * magicNumber;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new ApplyPowerAction(p, p, new CoilPower(p, metaMagicNumber)));
         addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.POISON));
     }
 

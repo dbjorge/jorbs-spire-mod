@@ -34,10 +34,8 @@ public class FlameWardPower extends CustomJorbsModPower implements OnDamagedPreB
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.owner.hb.cX, this.owner.hb.cY, AbstractGameAction.AttackEffect.SHIELD));
             this.owner.addBlock(this.amount);
             for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
-                if (IntentUtils.isAttackIntent(m.intent)) {
-                    AbstractDungeon.actionManager.addToTop(
-                            new ApplyPowerAction(m, this.owner, new BurningPower(m, this.owner, this.amount2), this.amount2, AbstractGameAction.AttackEffect.FIRE));
-                }
+                AbstractDungeon.actionManager.addToTop(
+                        new ApplyPowerAction(m, this.owner, new BurningPower(m, this.owner, this.amount2), this.amount2, AbstractGameAction.AttackEffect.FIRE));
             }
             this.flash();
             AbstractDungeon.actionManager.addToTop(new ReducePowerAction(this.owner, this.owner, this.ID, this.amount));

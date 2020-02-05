@@ -6,6 +6,16 @@
       "Reduces stsjorbsmod:Burning falloff rate to 10% per turn."
     ]
   },
+  "stsjorbsmod:BottledMemoryRelic": {
+    "NAME": "Bottled Memory",
+    "FLAVOR": "My brain is broken",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose a card that #yRemembers. Start each combat with this card in your hand.",
+      "Choose a card for ",
+      "Start each combat with ",
+      " in your hand."
+    ]
+  },
   "stsjorbsmod:GrimoireRelic": {
     "NAME": "Grimoire",
     "FLAVOR": "Is this... familiar?",

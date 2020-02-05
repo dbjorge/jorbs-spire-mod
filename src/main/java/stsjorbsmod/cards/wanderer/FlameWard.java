@@ -24,9 +24,9 @@ public class FlameWard extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 2;
-    private static final int BLOCK = 8;
+    private static final int BLOCK = 11;
     private static final int UPGRADE_PLUS_BLOCK = 2;
-    private static final int BURNING = 8;
+    private static final int BURNING = 11;
     private static final int UPGRADE_PLUS_BURNING = 2;
 
     public FlameWard() {

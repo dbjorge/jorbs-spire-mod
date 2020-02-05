@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
+import stsjorbsmod.powers.BurningPower;
 
 import java.util.function.Consumer;
 
@@ -60,7 +61,11 @@ public class TImeEddyAction extends AbstractGameAction {
             forEachApplicableMonsterPower(p -> p.atStartOfTurn());
             forEachApplicableMonsterPower(p -> p.atStartOfTurnPostDraw());
 
+            // Monster turn
+            forEachApplicableMonsterPower(p -> p.duringTurn());
+
             // Monster turn end
+            forEachApplicableMonsterPower(p -> { if (p instanceof BurningPower) { p.onSpecificTrigger(); } });
             forEachApplicableMonsterPower(p -> p.atEndOfTurnPreEndTurnCards(false));
             forEachApplicableMonsterPower(p -> p.atEndOfTurn(false));
 
@@ -72,6 +77,9 @@ public class TImeEddyAction extends AbstractGameAction {
             forEachApplicablePlayerPower(p -> p.atStartOfTurn());
             forEachApplicablePlayerMemory(m -> m.atStartOfTurnPostDraw());
             forEachApplicablePlayerPower(p -> p.atStartOfTurnPostDraw());
+
+            // Player turn
+            forEachApplicablePlayerPower(p -> p.duringTurn());
         }
 
         isDone = true;
