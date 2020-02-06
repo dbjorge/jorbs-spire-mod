@@ -26,7 +26,7 @@ public class PurgeMind extends CustomJorbsModCard {
 
     private static final int COST = 2;
     private static final int DAMAGE_PER_REMEMBER = 8;
-    private static final int UPGRADE_DAMAGE = 3;
+    private static final int UPGRADE_DAMAGE = 1;
 
     public PurgeMind() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);

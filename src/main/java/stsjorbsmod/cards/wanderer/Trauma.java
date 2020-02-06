@@ -19,7 +19,7 @@ public class Trauma extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 2;
-    private static final int DAMAGE = 32;
+    private static final int DAMAGE = 28;
     private static final int UPGRADE_PLUS_DAMAGE = 5;
 
     public Trauma() {

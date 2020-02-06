@@ -11,26 +11,11 @@ import stsjorbsmod.powers.BurningPower;
 public class LustMemory extends AbstractMemory {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(LustMemory.class);
 
-    private static final int BURNING_ON_REMEMBER = 2;
     private static final int PASSIVE_BURNING_ON_ATTACK = 2;
 
     public LustMemory(final AbstractCreature owner) {
         super(STATIC, MemoryType.SIN, owner);
-        setDescriptionPlaceholder("!R!", BURNING_ON_REMEMBER);
         setDescriptionPlaceholder("!P!", PASSIVE_BURNING_ON_ATTACK);
-    }
-
-    @Override
-    public void onRemember() {
-        if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-            for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
-                if (!monster.halfDead && !monster.isDead && !monster.isDying) {
-                    // addToTop is important for the interaction with Inferno
-                    AbstractDungeon.actionManager.addToTop(
-                            new ApplyPowerAction(monster, owner, new BurningPower(monster, owner, BURNING_ON_REMEMBER), BURNING_ON_REMEMBER));
-                }
-            }
-        }
     }
 
     @Override
