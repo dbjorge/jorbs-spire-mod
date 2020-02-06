@@ -5,11 +5,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.actions.MakeMaterialComponentsInHandAction;
 
-public class BookOfTonguesPower extends CustomJorbsModPower {
-    public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(BookOfTonguesPower.class);
+public class BookOfTonguesUpgradedPower extends CustomJorbsModPower {
+    public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(BookOfTonguesUpgradedPower.class);
     public static final String POWER_ID = STATIC.ID;
 
-    public BookOfTonguesPower(final AbstractCreature owner, final int cardsPerTurn) {
+    public BookOfTonguesUpgradedPower(final AbstractCreature owner, final int cardsPerTurn) {
         super(STATIC);
 
         this.owner = owner;
@@ -21,7 +21,7 @@ public class BookOfTonguesPower extends CustomJorbsModPower {
     public void atStartOfTurn() {
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             flash();
-            AbstractDungeon.actionManager.addToBottom(new MakeMaterialComponentsInHandAction(amount, false));
+            AbstractDungeon.actionManager.addToBottom(new MakeMaterialComponentsInHandAction(amount, true));
         }
     }
 
@@ -32,7 +32,7 @@ public class BookOfTonguesPower extends CustomJorbsModPower {
 
     @Override
     public AbstractPower makeCopy() {
-        return new BookOfTonguesPower(owner, amount);
+        return new BookOfTonguesUpgradedPower(owner, amount);
     }
 }
 

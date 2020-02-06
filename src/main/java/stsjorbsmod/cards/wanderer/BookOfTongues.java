@@ -7,6 +7,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.BookOfTonguesPower;
+import stsjorbsmod.powers.BookOfTonguesUpgradedPower;
 
 public class BookOfTongues extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(BookOfTongues.class);
@@ -18,7 +19,6 @@ public class BookOfTongues extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int DRAW_PER_TURN = 1;
-    private static final int UPGRADE_PLUS_DRAW_PER_TURN = 1;
 
     public BookOfTongues() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
@@ -27,14 +27,17 @@ public class BookOfTongues extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new BookOfTonguesPower(p, this.magicNumber)));
+        if (upgraded) {
+            addToBot(new ApplyPowerAction(p, p, new BookOfTonguesUpgradedPower(p, this.magicNumber)));
+        } else {
+            addToBot(new ApplyPowerAction(p, p, new BookOfTonguesPower(p, this.magicNumber)));
+        }
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_DRAW_PER_TURN);
             upgradeDescription();
         }
     }

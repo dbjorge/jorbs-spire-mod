@@ -29,7 +29,7 @@ public class FranticSearch extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster monster) {
         int componentCount = (int) AbstractDungeon.getCurrRoom().monsters.monsters.stream().filter(m -> !m.isDeadOrEscaped()).count();
-        addToBot(new MakeMaterialComponentsInHandAction(componentCount));
+        addToBot(new MakeMaterialComponentsInHandAction(componentCount, false));
         addToBot(new GainClarityOfCurrentMemoryAction(p));
     }
 
