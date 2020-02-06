@@ -20,7 +20,9 @@ public class MakeMaterialComponentsInHandAction extends AbstractGameAction {
     public void update() {
         for (int i = 0; i < this.amount; ++i) {
             AbstractCard newCard = MaterialComponentsDeck.drawRandomCard();
-            newCard.upgrade();
+            if (upgraded) {
+                newCard.upgrade();
+            }
             int copiesToAdd = 1 + ExtraCopiesToAddWhenGeneratingCardField.field.get(newCard);
             AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(newCard, copiesToAdd, false));
         }
