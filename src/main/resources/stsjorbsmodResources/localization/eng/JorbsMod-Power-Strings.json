@@ -221,7 +221,7 @@
   "stsjorbsmod:StrangePendantPower": {
     "NAME": "Strange Pendant",
     "DESCRIPTIONS": [
-      "Prevent the first #b%1$s damage taken each turn."
+      "Reduce the first damage taken each turn by #b%1$s."
     ]
   },
   "stsjorbsmod:StrengthNextTurnPower": {
