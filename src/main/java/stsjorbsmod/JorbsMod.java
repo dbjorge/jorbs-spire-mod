@@ -49,6 +49,7 @@ import java.util.Properties;
 
 @SpireInitializer
 public class JorbsMod implements
+        AddAudioSubscriber,
         EditCardsSubscriber,
         EditRelicsSubscriber,
         EditStringsSubscriber,
@@ -110,8 +111,12 @@ public class JorbsMod implements
     public static final String BADGE_IMAGE = "stsjorbsmodResources/images/Badge.png";
 
     
-    // =============== MAKE IMAGE PATHS =================
-    
+    // =============== MAKE RESOURCE PATHS =================
+
+    public static String makeVoiceOverPath(String resourcePath) {
+        return MOD_ID + "Resources/audio/vo/" + resourcePath;
+    }
+
     public static String makeCardPath(String resourcePath) {
         return MOD_ID + "Resources/images/cards/" + resourcePath;
     }
@@ -160,7 +165,7 @@ public class JorbsMod implements
         return MOD_ID + "Resources/localization/" + languageFolder + "/" + resourcePath;
     }
     
-    // =============== /MAKE IMAGE PATHS/ =================
+    // =============== /MAKE RESOURCE PATHS/ =================
     
     // =============== /INPUT TEXTURE LOCATION/ =================
     
@@ -210,7 +215,11 @@ public class JorbsMod implements
     }
     
     // ============== /SUBSCRIBE, CREATE THE COLOR_GRAY, INITIALIZE/ =================
-    
+
+    @Override
+    public void receiveAddAudio() {
+        Wanderer.AudioInfo.registerAudio();
+    }
     
     // =============== LOAD THE CHARACTER =================
     

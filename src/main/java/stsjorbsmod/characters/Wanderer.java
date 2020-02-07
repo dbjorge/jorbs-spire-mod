@@ -20,6 +20,11 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.monsters.beyond.*;
+import com.megacrit.cardcrawl.monsters.city.*;
+import com.megacrit.cardcrawl.monsters.ending.CorruptHeart;
+import com.megacrit.cardcrawl.monsters.ending.SpireShield;
+import com.megacrit.cardcrawl.monsters.exordium.*;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -95,6 +100,46 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
                     CARD_BG_POWER_PORTRAIT_TEXTURE,
                     CARD_ENERGY_ORB_PORTRAIT_TEXTURE,
                     CARD_SMALL_ENERGY_ORB_TEXTURE);
+        }
+    }
+    
+    public static class AudioInfo {
+        private static void registerVoiceOver(String key) {
+            CharacterVoiceOver.register(Wanderer.Enums.WANDERER, key, "wanderer/" + key + ".ogg");
+        }
+
+        private static void registerVoiceOver(String key, String resourcePath) {
+            CharacterVoiceOver.register(Wanderer.Enums.WANDERER, key, resourcePath);
+        }
+        
+        public static void registerAudio() {
+            registerVoiceOver(AwakenedOne.ID);
+            registerVoiceOver(BookOfStabbing.ID);
+            registerVoiceOver(BronzeAutomaton.ID);
+            registerVoiceOver(Champ.ID);
+            registerVoiceOver(CorruptHeart.ID);
+            registerVoiceOver("death", "wanderer/death_1.ogg");
+            registerVoiceOver("death", "wanderer/death_2.ogg");
+            registerVoiceOver("death_victory");
+            registerVoiceOver(Donu.ID);
+            registerVoiceOver(GiantHead.ID);
+            registerVoiceOver(GremlinLeader.ID);
+            registerVoiceOver(GremlinNob.ID);
+            registerVoiceOver(Hexaghost.ID, "wanderer/Hexaghost_1.ogg");
+            registerVoiceOver(Hexaghost.ID, "wanderer/Hexaghost_2.ogg");
+            registerVoiceOver(Lagavulin.ID);
+            registerVoiceOver(Nemesis.ID, "wanderer/Nemesis_1.ogg");
+            registerVoiceOver(Nemesis.ID, "wanderer/Nemesis_2.ogg");
+            registerVoiceOver("new_run");
+            registerVoiceOver(Reptomancer.ID);
+            registerVoiceOver(Sentry.ID);
+            registerVoiceOver(Taskmaster.ID);
+            registerVoiceOver(SlimeBoss.ID);
+            registerVoiceOver(SpireShield.ID, "wanderer/SpireShield_1.ogg");
+            registerVoiceOver(SpireShield.ID, "wanderer/SpireShield_2.ogg");
+            registerVoiceOver(TheCollector.ID);
+            registerVoiceOver(TheGuardian.ID);
+            registerVoiceOver(TimeEater.ID);
         }
     }
 
@@ -402,6 +447,7 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
     public void preBattlePrep() {
         super.preBattlePrep();
         snapCounter.reset();
+        CharacterVoiceOver.playForBattle();
     }
 
     @Override

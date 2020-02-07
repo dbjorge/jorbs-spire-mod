@@ -14,6 +14,10 @@
 
 * Neablis ([GitHub](https://github.com/neablis-7))
 
+### Voice Acting
+
+* Ray Chase ([IMDb](https://www.imdb.com/name/nm2616557/), [raychase.com](http://www.raychase.com/))
+
 ### Lead Developers
 
 * Cartopol ([GitHub](https://github.com/Cartopol))
