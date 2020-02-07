@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.powers.CorruptionPower;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import stsjorbsmod.cards.OnCardExhumedSubscriber;
+import stsjorbsmod.cards.wanderer.ForbiddenGrimoire;
 
 import java.util.function.Predicate;
 
@@ -31,17 +32,25 @@ public class ExhumeCardsAction extends AbstractGameAction {
     public void update() {
         AbstractPlayer p = AbstractDungeon.player;
         int roomInHand = BaseMod.MAX_HAND_SIZE - p.hand.size();
+        AbstractCard grimoire = null;
 
         CardGroup targetCards = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (AbstractCard c : p.exhaustPile.group) {
             if (shouldApplyToCardPredicate.test(c)) {
-                targetCards.addToBottom(c);
+                if (c.cardID.equals(ForbiddenGrimoire.ID)) {
+                    grimoire = c;
+                } else {
+                    targetCards.addToBottom(c);
+                }
             }
         }
 
-        if (targetCards.size() > roomInHand) {
+        if (targetCards.size() > roomInHand - 1) {
             p.createHandIsFullDialog();
             targetCards.shuffle();
+        }
+        if (grimoire != null) {
+            targetCards.addToBottom(grimoire);
         }
 
         for (AbstractCard c : targetCards.group) {
