@@ -4,7 +4,7 @@
     <groupId>stsjorbsmod</groupId>
     <artifactId>JorbsMod</artifactId>
     <name>Jorbs Mod</name>
-    <version>0.59.0</version>
+    <version>0.59.1</version>
     <description>A mod based on Jorbs' spreadsheet.</description>
 
     <properties>
