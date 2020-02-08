@@ -530,8 +530,7 @@
   },
   "stsjorbsmod:SiphonEnergy": {
     "NAME": "Siphon Energy",
-    "DESCRIPTION": "Remove all stsjorbsmod:Burning from target and gain that much Strength until end of turn. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Remove all stsjorbsmod:Burning from target and gain that much Strength until end of turn."
+    "DESCRIPTION": "Draw !stsjorbsmod:MetaMagic! cards. NL Gain [E] for each Clarity. NL (Gain !M! [E] ) NL Exhaust."
   },
   "stsjorbsmod:SmithingStrike": {
     "NAME": "Smithing Strike",
