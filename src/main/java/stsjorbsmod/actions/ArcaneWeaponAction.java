@@ -7,14 +7,10 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.monsters.MonsterGroup;
-import com.megacrit.cardcrawl.random.Random;
 import stsjorbsmod.effects.ArcaneWeaponEffect;
 import stsjorbsmod.powers.BanishedPower;
 import stsjorbsmod.util.CombatUtils;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class ArcaneWeaponAction extends AbstractGameAction {
