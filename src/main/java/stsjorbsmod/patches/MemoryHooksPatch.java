@@ -76,13 +76,13 @@ public class MemoryHooksPatch {
     }
 
     @SpirePatch(
-            clz = AbstractCreature.class,
-            method = "applyEndOfTurnTriggers"
+            clz = GameActionManager.class,
+            method = "callEndOfTurnActions"
     )
-    public static class atEndOfTurnHook {
-        @SpirePostfixPatch
-        public static void patch(AbstractCreature __this) {
-            forEachMemory(__this, m -> m.atEndOfTurn(__this.isPlayer));
+    public static class callEndOfTurnActionsHook {
+        @SpirePrefixPatch
+        public static void patch(GameActionManager __this) {
+            forEachMemory(AbstractDungeon.player, m -> m.atEndOfTurn(AbstractDungeon.player.isPlayer));
         }
     }
 
