@@ -6,12 +6,15 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.DowngradeableCard;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
+import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 
 public class CardMetaUtils {
     /**
@@ -36,6 +39,9 @@ public class CardMetaUtils {
         }
     }
 
+    /**
+     * Destroys a card from the player's deck. If the card was Legendary, returns the card to the card pool.
+     */
     public static void destroyCardPermanently(AbstractCard card) {
         card.purgeOnUse = true; // handles destroying the copy that's in the middle of being played
         AbstractDungeon.player.discardPile.group.removeIf(abstractCard -> abstractCard.uuid.equals(card.uuid));

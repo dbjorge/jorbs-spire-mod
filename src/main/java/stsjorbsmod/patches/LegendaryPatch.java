@@ -49,6 +49,36 @@ public class LegendaryPatch {
         return ModHelper.isModEnabled(DraftMod) || ModHelper.isModEnabled(SealedMod);
     }
 
+    public static void addCardToPools(AbstractCard card) {
+        logger.info(String.format("Adding card %1$s (%2$s/%3$s/%4$s) from applicable pools", card.cardID, card.rarity, card.color, card.type));
+
+        // AbstractDungeon has many returnRandom*, returnTrulyRandom*, and *transformCard methods that use these pools.
+        if (card.rarity == AbstractCard.CardRarity.COMMON) {
+            AbstractDungeon.commonCardPool.addToTop(card);
+            AbstractDungeon.srcCommonCardPool.addToTop(card);
+        } else if (card.rarity == AbstractCard.CardRarity.UNCOMMON) {
+            AbstractDungeon.uncommonCardPool.addToTop(card);
+            AbstractDungeon.srcUncommonCardPool.addToTop(card);
+        } else if (card.rarity == AbstractCard.CardRarity.RARE) {
+            AbstractDungeon.rareCardPool.addToTop(card);
+            AbstractDungeon.srcRareCardPool.addToTop(card);
+        }
+
+        // Note: color pools can overlap with rarity pools
+        if (card.color == AbstractCard.CardColor.COLORLESS) {
+            AbstractDungeon.colorlessCardPool.addToTop(card);
+            AbstractDungeon.srcColorlessCardPool.addToTop(card);
+        }
+        if (card.color == AbstractCard.CardColor.CURSE || card.rarity == AbstractCard.CardRarity.CURSE) {
+            AbstractDungeon.curseCardPool.addToTop(card);
+            AbstractDungeon.srcCurseCardPool.addToTop(card);
+
+            // AbstractDungeon.transformCard can call getCurse directly to generate a replacement curse.
+            HashMap<String, AbstractCard> curses = ReflectionUtils.getPrivateField(null, CardLibrary.class, "curses");
+            curses.put(card.cardID, card);
+        }
+    }
+
     public static void removeCardFromPools(AbstractCard card) {
         logger.info(String.format("Removing card %1$s (%2$s/%3$s/%4$s) from applicable pools", card.cardID, card.rarity, card.color, card.type));
         Predicate<AbstractCard> isMatch = c -> c.cardID.equals(card.cardID);
