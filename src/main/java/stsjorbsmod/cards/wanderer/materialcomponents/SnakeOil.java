@@ -28,6 +28,7 @@ public class SnakeOil extends CustomJorbsModCard {
 
     public SnakeOil() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
+        bannerImageRarity = CardRarity.UNCOMMON;
         damage = baseDamage = 0;
         magicNumber = baseMagicNumber = DAMAGE_PER_COIL;
         metaMagicNumber = baseMetaMagicNumber = COIL_GAIN;

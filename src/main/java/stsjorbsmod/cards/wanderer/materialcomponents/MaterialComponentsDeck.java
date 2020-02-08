@@ -25,7 +25,7 @@ public class MaterialComponentsDeck {
     private static void resetCommonPool() {
         commonPool.clear();
         commonPool.addToTop(new Web());
-        commonPool.addToTop(new SnakeOil());
+        commonPool.addToTop(new EnergyBulb());
         commonPool.addToTop(new Sulfur());
         commonPool.addToTop(new Eye());
         commonPool.addToTop(new Moss());
@@ -36,7 +36,7 @@ public class MaterialComponentsDeck {
 
     private static void resetUncommonPool() {
         uncommonPool.clear();
-        uncommonPool.addToTop(new EnergyBulb());
+        uncommonPool.addToTop(new SnakeOil());
         uncommonPool.addToTop(new LooseLeaf());
         uncommonPool.addToTop(new StrangePendant());
         uncommonPool.addToTop(new Chamomile());
