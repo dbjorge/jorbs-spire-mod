@@ -7,7 +7,15 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
+import com.megacrit.cardcrawl.random.Random;
 import stsjorbsmod.effects.ArcaneWeaponEffect;
+import stsjorbsmod.powers.BanishedPower;
+import stsjorbsmod.util.CombatUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ArcaneWeaponAction extends AbstractGameAction {
     private AbstractCard card;
@@ -18,7 +26,10 @@ public class ArcaneWeaponAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        target = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
+        target = CombatUtils.getRandomMonster(AbstractDungeon.getMonsters(),
+                AbstractDungeon.getMonsters().monsters.stream().filter(m -> m.hasPower(BanishedPower.POWER_ID)).collect(Collectors.toList()),
+                true,
+                AbstractDungeon.cardRandomRng);
         if (this.target != null) {
             card.calculateCardDamage((AbstractMonster) target);
 
