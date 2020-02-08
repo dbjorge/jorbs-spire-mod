@@ -54,7 +54,7 @@
   "stsjorbsmod:BookOfTongues": {
     "NAME": "Book of Tongues",
     "DESCRIPTION": "At the start of each turn, put !M! stsjorbsmod:Material\u00a0Component into your hand.",
-    "UPGRADE_DESCRIPTION": "At the start of each turn, put !M! Upgraded stsjorbsmod:Material\u00a0Components into your hand."
+    "UPGRADE_DESCRIPTION": "At the start of each turn, put !M! Upgraded stsjorbsmod:Material\u00a0Component into your hand."
   },
   "stsjorbsmod:Brambles": {
     "NAME": "Brambles",
