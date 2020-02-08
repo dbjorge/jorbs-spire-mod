@@ -31,10 +31,7 @@ public class MemoryHooksPatch {
         }
     }
 
-    @SpirePatch(
-            clz = GameActionManager.class,
-            method = "getNextAction"
-    )
+    @SpirePatch(clz = GameActionManager.class, method = "getNextAction")
     public static class onPlayCardHook {
         @SpireInsertPatch(locator = Locator.class)
         public static void patch(GameActionManager __this) {
@@ -50,15 +47,9 @@ public class MemoryHooksPatch {
         }
     }
 
-    @SpirePatch(
-            clz = AbstractMonster.class,
-            method = "damage"
-    )
+    @SpirePatch(clz = AbstractMonster.class, method = "damage")
     public static class onAttackHook {
-        @SpireInsertPatch(
-                locator = Locator.class,
-                localvars = "damageAmount"
-        )
+        @SpireInsertPatch(locator = Locator.class, localvars = "damageAmount")
         public static void patch(AbstractMonster __this, DamageInfo info, int damageAmount) {
             if (info.owner == AbstractDungeon.player) {
                 forEachMemory(AbstractDungeon.player, m -> m.onAttack(info, damageAmount, __this));
@@ -75,21 +66,16 @@ public class MemoryHooksPatch {
         }
     }
 
-    @SpirePatch(
-            clz = GameActionManager.class,
-            method = "callEndOfTurnActions"
-    )
+    // This placement is very specific; we want Chastity's end-of-turn to happen before end-of-turn damage power/relics/etc
+    @SpirePatch(clz = GameActionManager.class, method = "callEndOfTurnActions")
     public static class callEndOfTurnActionsHook {
         @SpirePrefixPatch
         public static void patch(GameActionManager __this) {
-            forEachMemory(AbstractDungeon.player, m -> m.atEndOfTurn(AbstractDungeon.player.isPlayer));
+            forEachMemory(AbstractDungeon.player, m -> m.atEndOfTurn());
         }
     }
 
-    @SpirePatch(
-            clz = AbstractCreature.class,
-            method = "applyStartOfTurnPostDrawPowers"
-    )
+    @SpirePatch(clz = AbstractCreature.class, method = "applyStartOfTurnPostDrawPowers")
     public static class atStartOfTurnPostDrawHook {
         @SpirePostfixPatch
         public static void patch(AbstractCreature __this) {
@@ -97,10 +83,7 @@ public class MemoryHooksPatch {
         }
     }
 
-    @SpirePatch(
-            clz = AbstractPlayer.class,
-            method = "onVictory"
-    )
+    @SpirePatch(clz = AbstractPlayer.class, method = "onVictory")
     public static class onVictoryHook {
         @SpirePrefixPatch
         public static void patch(AbstractPlayer __this) {
@@ -112,11 +95,7 @@ public class MemoryHooksPatch {
 
     // Note: it's very important this happen as a prefix to die() rather than as an insert before the die() call in
     // damage(); this is because isHalfDead gets set by subclasses (Darkling, AwakenedOne) overriding damage().
-    @SpirePatch(
-            clz = AbstractMonster.class,
-            method = "die",
-            paramtypez = { boolean.class }
-    )
+    @SpirePatch(clz = AbstractMonster.class, method = "die", paramtypez = { boolean.class })
     public static class onMonsterKilledHook {
         @SpirePrefixPatch
         public static void Prefix(AbstractMonster __this) {
@@ -132,10 +111,7 @@ public class MemoryHooksPatch {
         }
     }
 
-    @SpirePatch(
-            clz = AbstractPlayer.class,
-            method = "preBattlePrep"
-    )
+    @SpirePatch(clz = AbstractPlayer.class, method = "preBattlePrep")
     public static class ClearAtStartOfCombatHook {
         @SpirePrefixPatch
         public static void prefixPatch(AbstractPlayer __this) {
