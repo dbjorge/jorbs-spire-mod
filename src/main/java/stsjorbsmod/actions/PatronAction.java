@@ -43,6 +43,7 @@ public class PatronAction extends AbstractGameAction {
         tickDuration();
         if (isDone) {
             AbstractDungeon.actionManager.addToBottom(new ConsumerGameAction<>(showEffect, card));
+            // TODO: refactor if we ever have more than one legendary Destroy card
             AbstractDungeon.actionManager.addToBottom(new ConsumerGameAction<>(LegendaryPatch::addCardToPools, card));
         }
     }
