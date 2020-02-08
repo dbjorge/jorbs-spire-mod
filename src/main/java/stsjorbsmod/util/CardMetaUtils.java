@@ -39,9 +39,6 @@ public class CardMetaUtils {
         }
     }
 
-    /**
-     * Destroys a card from the player's deck. If the card was Legendary, returns the card to the card pool.
-     */
     public static void destroyCardPermanently(AbstractCard card) {
         card.purgeOnUse = true; // handles destroying the copy that's in the middle of being played
         AbstractDungeon.player.discardPile.group.removeIf(abstractCard -> abstractCard.uuid.equals(card.uuid));
