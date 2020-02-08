@@ -42,7 +42,6 @@ public class SnakeOil extends CustomJorbsModCard {
     public int calculateBonusBaseDamage() {
         AbstractPower possibleCoilPower = AbstractDungeon.player.getPower(CoilPower.POWER_ID);
         int coilAmount = possibleCoilPower == null ? 0 : possibleCoilPower.amount;
-        coilAmount += metaMagicNumber; // account for coil we'll be adding
         return coilAmount * magicNumber;
     }
 
