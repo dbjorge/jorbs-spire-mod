@@ -8,6 +8,8 @@ import com.megacrit.cardcrawl.random.Random;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class CombatUtils {
     /**
@@ -23,56 +25,15 @@ public class CombatUtils {
         return true;
     }
 
-    public static AbstractMonster getRandomMonster(MonsterGroup group, List<AbstractMonster> exceptions, boolean aliveOnly, Random rng) {
-        if (group.areMonstersBasicallyDead()) {
+    public static AbstractMonster getRandomAliveMonster(MonsterGroup group, Predicate<AbstractMonster> isCandidate, Random rng) {
+        return getRandomMonster(group, m -> (!m.halfDead && !m.isDying && !m.isEscaping && isCandidate.test(m)), rng);
+    }
+
+    public static AbstractMonster getRandomMonster(MonsterGroup group, Predicate<AbstractMonster> isCandidate, Random rng) {
+        List<AbstractMonster> candidates = group.monsters.stream().filter(isCandidate).collect(Collectors.toList());
+        if (candidates.isEmpty()) {
             return null;
-        } else {
-            ArrayList<AbstractMonster> tmp;
-            if (group.monsters.size() == 1) {
-                return group.monsters.get(0);
-            } else if (exceptions == null || exceptions.isEmpty()) {
-                if (aliveOnly) {
-                    tmp = new ArrayList<>();
-
-                    for (AbstractMonster m : group.monsters) {
-                        if (!m.halfDead && !m.isDying && !m.isEscaping) {
-                            tmp.add(m);
-                        }
-                    }
-
-                    if (tmp.size() <= 0) {
-                        return null;
-                    } else {
-                        return tmp.get(rng.random(0, tmp.size() - 1));
-                    }
-                } else {
-                    return group.monsters.get(rng.random(0, group.monsters.size() - 1));
-                }
-            } else if (exceptions.containsAll(group.monsters)) {
-                return null;
-            } else if (aliveOnly) {
-                tmp = new ArrayList<>();
-                for (AbstractMonster m : group.monsters) {
-                    if (!m.halfDead && !m.isDying && !m.isEscaping && !exceptions.contains(m)) {
-                        tmp.add(m);
-                    }
-                }
-
-                if (tmp.size() == 0) {
-                    return null;
-                } else {
-                    return tmp.get(rng.random(0, tmp.size() - 1));
-                }
-            } else {
-                tmp = new ArrayList<>();
-                for (AbstractMonster m : group.monsters) {
-                    if (!exceptions.contains(m)) {
-                        tmp.add(m);
-                    }
-                }
-
-                return tmp.get(rng.random(0, tmp.size() - 1));
-            }
         }
+        return candidates.get(rng.random(0, candidates.size() - 1));
     }
 }
