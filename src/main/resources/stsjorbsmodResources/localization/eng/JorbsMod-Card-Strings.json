@@ -530,7 +530,7 @@
   },
   "stsjorbsmod:SiphonEnergy": {
     "NAME": "Siphon Energy",
-    "DESCRIPTION": "Draw !stsjorbsmod:MetaMagic! cards. NL Gain [E] for each Clarity. NL (Gain !M! [E] ) NL Exhaust."
+    "DESCRIPTION": "Draw !stsjorbsmod:MetaMagic! cards. NL Gain [E] for each stsjorbsmod:Clarity. NL (Gain !M! [E] ) NL Exhaust."
   },
   "stsjorbsmod:SmithingStrike": {
     "NAME": "Smithing Strike",
