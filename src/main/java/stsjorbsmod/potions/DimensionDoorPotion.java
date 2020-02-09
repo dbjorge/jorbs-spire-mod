@@ -40,7 +40,6 @@ public class DimensionDoorPotion extends FruitJuice {
     public DimensionDoorPotion() {
         super();
         this.ID = POTION_ID;
-        this.name = NAME;
         this.rarity = PotionRarity.RARE;
         this.size = PotionSize.GHOST;
 
@@ -57,6 +56,7 @@ public class DimensionDoorPotion extends FruitJuice {
 
     @Override
     public void initializeData() {
+        this.name = NAME;
         this.potency = this.getPotency();
         this.description = DESCRIPTIONS[0];
         this.tips.clear();
