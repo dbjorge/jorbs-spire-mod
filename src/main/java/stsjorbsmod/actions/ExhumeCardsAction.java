@@ -8,11 +8,16 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.CorruptionPower;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import stsjorbsmod.cards.OnCardExhumedSubscriber;
+import stsjorbsmod.cards.wanderer.ForbiddenGrimoire;
 
+import java.util.Comparator;
 import java.util.function.Predicate;
+
+import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 
 public class ExhumeCardsAction extends AbstractGameAction {
     private static final float PADDING = 25.0F * Settings.scale;
@@ -39,9 +44,14 @@ public class ExhumeCardsAction extends AbstractGameAction {
             }
         }
 
+        // Order is "grimoire first, then other legendaries, then by rarer-cards-first, then random"
+        targetCards.shuffle();
+        targetCards.sortByRarity(false);
+        targetCards.group.sort(new CardsMatchingPredicateFirstComparator(c -> c.hasTag(LEGENDARY)));
+        targetCards.group.sort(new CardsMatchingPredicateFirstComparator(c -> c.cardID.equals(ForbiddenGrimoire.ID)));
+
         if (targetCards.size() > roomInHand) {
             p.createHandIsFullDialog();
-            targetCards.shuffle();
         }
 
         for (AbstractCard c : targetCards.group) {
@@ -68,5 +78,15 @@ public class ExhumeCardsAction extends AbstractGameAction {
         }
 
         this.isDone = true;
+    }
+
+    private class CardsMatchingPredicateFirstComparator implements Comparator<AbstractCard> {
+        private final Predicate<AbstractCard> predicate;
+        public CardsMatchingPredicateFirstComparator(Predicate<AbstractCard> predicate) {
+            this.predicate = predicate;
+        }
+        public int compare(AbstractCard c1, AbstractCard c2) {
+            return Boolean.compare(predicate.test(c2), predicate.test(c1));
+        }
     }
 }

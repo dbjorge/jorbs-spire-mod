@@ -29,7 +29,7 @@ public class Materialize extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, block));
-        addToBot(new DiscoveryAtCostAction(MaterialComponentsDeck.drawRandomCards(3), true));
+        addToBot(new DiscoveryAtCostAction(MaterialComponentsDeck.drawUniqueRandomCards(3), true));
     }
 
     @Override

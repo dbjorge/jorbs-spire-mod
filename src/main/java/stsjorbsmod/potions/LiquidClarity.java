@@ -1,5 +1,6 @@
 package stsjorbsmod.potions;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -18,11 +19,17 @@ public class LiquidClarity extends AbstractPotion {
 
     public LiquidClarity() {
         super(NAME, POTION_ID, PotionRarity.UNCOMMON, PotionSize.BOTTLE, PotionColor.BLUE);
-        this.description = DESCRIPTIONS[0];
-        this.potency = getPotency();
         this.isThrown = false;
         this.targetRequired = false;
+    }
+
+    @Override
+    public void initializeData() {
+        this.potency = this.getPotency();
+        this.description = DESCRIPTIONS[0];
+        this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
+        this.tips.add(new PowerTip(BaseMod.getKeywordTitle("stsjorbsmod:clarity"), BaseMod.getKeywordDescription("stsjorbsmod:clarity")));
     }
 
     @Override

@@ -54,7 +54,7 @@
   "stsjorbsmod:BookOfTongues": {
     "NAME": "Book of Tongues",
     "DESCRIPTION": "At the start of each turn, put !M! stsjorbsmod:Material\u00a0Component into your hand.",
-    "UPGRADE_DESCRIPTION": "At the start of each turn, put !M! stsjorbsmod:Material\u00a0Components into your hand."
+    "UPGRADE_DESCRIPTION": "At the start of each turn, put !M! Upgraded stsjorbsmod:Material\u00a0Component into your hand."
   },
   "stsjorbsmod:Brambles": {
     "NAME": "Brambles",
@@ -530,8 +530,7 @@
   },
   "stsjorbsmod:SiphonEnergy": {
     "NAME": "Siphon Energy",
-    "DESCRIPTION": "Remove all stsjorbsmod:Burning from target and gain that much Strength until end of turn. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Remove all stsjorbsmod:Burning from target and gain that much Strength until end of turn."
+    "DESCRIPTION": "Draw !stsjorbsmod:MetaMagic! cards. NL Gain [E] for each stsjorbsmod:Clarity. NL (Gain !M! [E] ) NL Exhaust."
   },
   "stsjorbsmod:SmithingStrike": {
     "NAME": "Smithing Strike",
@@ -539,8 +538,8 @@
   },
   "stsjorbsmod:SnakeOil": {
     "NAME": "Snake Oil",
-    "DESCRIPTION": "Retain. NL Gain !stsjorbsmod:MetaMagic! stsjorbsmod:Coil. NL Deal damage to ALL enemies equal to the amount of stsjorbsmod:Coil you have. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Gain !stsjorbsmod:MetaMagic! stsjorbsmod:Coil. NL  Deal damage to ALL enemies equal to twice the amount of stsjorbsmod:Coil you have. NL Exhaust.",
+    "DESCRIPTION": "Retain. NL Remember stsjorbsmod:Patience. NL Deal damage to ALL enemies equal to the amount of stsjorbsmod:Coil you have. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Remember stsjorbsmod:Patience. NL  Deal damage to ALL enemies equal to twice the amount of stsjorbsmod:Coil you have. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
@@ -570,7 +569,7 @@
   },
   "stsjorbsmod:StrangePendant": {
     "NAME": "Strange Pendant",
-    "DESCRIPTION": "Prevent the first !M! damage taken each turn."
+    "DESCRIPTION": "Reduce the first damage taken each turn by !M!."
   },
   "stsjorbsmod:Strife": {
     "NAME": "Strife",

@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.powers.BurningPower;
+import stsjorbsmod.powers.CustomJorbsModPower;
 
 import java.util.function.Consumer;
 
@@ -49,15 +50,20 @@ public class TImeEddyAction extends AbstractGameAction {
         }
     }
 
+    private void atStartOfTurnPreLoseBlock(AbstractPower p) {
+
+    }
+
     @Override
     public void update() {
         for (int i = 0; i < this.amount; ++i) {
             // Player turn end
+            forEachApplicablePlayerMemory(m -> m.atEndOfTurn());
             forEachApplicablePlayerPower(p -> p.atEndOfTurnPreEndTurnCards(true));
-            forEachApplicablePlayerMemory(m -> m.atEndOfTurn(true));
             forEachApplicablePlayerPower(p -> p.atEndOfTurn(true));
 
             // Monster turn start
+            forEachApplicableMonsterPower(p -> { if (p instanceof CustomJorbsModPower) { ((CustomJorbsModPower) p).atStartOfTurnPreLoseBlock(); } });
             forEachApplicableMonsterPower(p -> p.atStartOfTurn());
             forEachApplicableMonsterPower(p -> p.atStartOfTurnPostDraw());
 

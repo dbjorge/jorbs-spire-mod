@@ -15,16 +15,23 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.monsters.beyond.*;
+import com.megacrit.cardcrawl.monsters.city.*;
+import com.megacrit.cardcrawl.monsters.ending.CorruptHeart;
+import com.megacrit.cardcrawl.monsters.ending.SpireShield;
+import com.megacrit.cardcrawl.monsters.exordium.*;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.wanderer.*;
+import stsjorbsmod.effects.EmphasizedSFXEffect;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.SnapCounter;
 import stsjorbsmod.patches.CutsceneMultiScreenPatch;
@@ -97,6 +104,46 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
                     CARD_SMALL_ENERGY_ORB_TEXTURE);
         }
     }
+    
+    public static class AudioInfo {
+        private static void registerVoiceOver(String key) {
+            CharacterVoiceOver.register(Wanderer.Enums.WANDERER, key, "wanderer/" + key + ".ogg");
+        }
+
+        private static void registerVoiceOver(String key, String resourcePath) {
+            CharacterVoiceOver.register(Wanderer.Enums.WANDERER, key, resourcePath);
+        }
+        
+        public static void registerAudio() {
+            registerVoiceOver(AwakenedOne.ID);
+            registerVoiceOver(BookOfStabbing.ID);
+            registerVoiceOver(BronzeAutomaton.ID);
+            registerVoiceOver(Champ.ID);
+            registerVoiceOver(CorruptHeart.ID);
+            registerVoiceOver("death", "wanderer/death_1.ogg");
+            registerVoiceOver("death", "wanderer/death_2.ogg");
+            registerVoiceOver("death_victory");
+            registerVoiceOver(Donu.ID);
+            registerVoiceOver(GiantHead.ID);
+            registerVoiceOver(GremlinLeader.ID);
+            registerVoiceOver(GremlinNob.ID);
+            registerVoiceOver(Hexaghost.ID, "wanderer/Hexaghost_1.ogg");
+            registerVoiceOver(Hexaghost.ID, "wanderer/Hexaghost_2.ogg");
+            registerVoiceOver(Lagavulin.ID);
+            registerVoiceOver(Nemesis.ID, "wanderer/Nemesis_1.ogg");
+            registerVoiceOver(Nemesis.ID, "wanderer/Nemesis_2.ogg");
+            registerVoiceOver("new_run");
+            registerVoiceOver(Reptomancer.ID);
+            registerVoiceOver(Sentry.ID);
+            registerVoiceOver(Taskmaster.ID);
+            registerVoiceOver(SlimeBoss.ID);
+            registerVoiceOver(SpireShield.ID, "wanderer/SpireShield_1.ogg");
+            registerVoiceOver(SpireShield.ID, "wanderer/SpireShield_2.ogg");
+            registerVoiceOver(TheCollector.ID);
+            registerVoiceOver(TheGuardian.ID);
+            registerVoiceOver(TimeEater.ID);
+        }
+    }
 
     // =============== CHARACTER ENUMERATORS  =================
 
@@ -105,7 +152,7 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
 
     public static final int ENERGY_PER_TURN = 3;
     public static final int STARTING_HP = 68;
-    public static final int MAX_HP = 64;
+    public static final int MAX_HP = 68;
     public static final int STARTING_GOLD = 99;
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;

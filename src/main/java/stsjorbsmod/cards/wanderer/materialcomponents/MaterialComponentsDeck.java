@@ -4,8 +4,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 /*
 Material Components Deck:	Contains 7 common, 6 uncommon, 3 rare Material Components cards.
@@ -25,7 +25,7 @@ public class MaterialComponentsDeck {
     private static void resetCommonPool() {
         commonPool.clear();
         commonPool.addToTop(new Web());
-        commonPool.addToTop(new SnakeOil());
+        commonPool.addToTop(new EnergyBulb());
         commonPool.addToTop(new Sulfur());
         commonPool.addToTop(new Eye());
         commonPool.addToTop(new Moss());
@@ -36,7 +36,7 @@ public class MaterialComponentsDeck {
 
     private static void resetUncommonPool() {
         uncommonPool.clear();
-        uncommonPool.addToTop(new EnergyBulb());
+        uncommonPool.addToTop(new SnakeOil());
         uncommonPool.addToTop(new LooseLeaf());
         uncommonPool.addToTop(new StrangePendant());
         uncommonPool.addToTop(new Chamomile());
@@ -87,10 +87,14 @@ public class MaterialComponentsDeck {
         return c;
     }
 
-    public static ArrayList<AbstractCard> drawRandomCards(int numCards) {
+    public static ArrayList<AbstractCard> drawUniqueRandomCards(int numCards) {
         ArrayList<AbstractCard> retVal = new ArrayList<>();
-        for (int i = 0; i < numCards; ++i) {
-            retVal.add(drawRandomCard());
+        while (retVal.size() < numCards) {
+            AbstractCard candidate = drawRandomCard();
+            boolean candidateHasAlreadyBeenDrawn = retVal.stream().anyMatch(c -> c.cardID.equals(candidate.cardID));
+            if (!candidateHasAlreadyBeenDrawn) {
+                retVal.add(candidate);
+            }
         }
         return retVal;
     }

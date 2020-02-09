@@ -1,5 +1,6 @@
 package stsjorbsmod.potions;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -22,11 +23,18 @@ public class LiquidVirtue extends AbstractPotion {
 
     public LiquidVirtue() {
         super(NAME, POTION_ID, PotionRarity.UNCOMMON, PotionSize.HEART, PotionColor.BLUE);
-        this.description = DESCRIPTIONS[0];
-        this.potency = getPotency();
         this.isThrown = false;
         this.targetRequired = false;
+    }
+
+    @Override
+    public void initializeData() {
+        this.potency = getPotency();
+        this.description = String.format(DESCRIPTIONS[0], this.potency);
+        this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
+        this.tips.add(new PowerTip(BaseMod.getKeywordTitle("stsjorbsmod:clarity"), BaseMod.getKeywordDescription("stsjorbsmod:clarity")));
+        this.tips.add(new PowerTip(BaseMod.getKeywordTitle("stsjorbsmod:virtue"), BaseMod.getKeywordDescription("stsjorbsmod:virtue")));
     }
 
     @Override

@@ -18,7 +18,6 @@ public class BookOfTongues extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int DRAW_PER_TURN = 1;
-    private static final int UPGRADE_PLUS_DRAW_PER_TURN = 1;
 
     public BookOfTongues() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
@@ -27,14 +26,13 @@ public class BookOfTongues extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new BookOfTonguesPower(p, this.magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new BookOfTonguesPower(p, this.magicNumber, this.upgraded)));
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_DRAW_PER_TURN);
             upgradeDescription();
         }
     }

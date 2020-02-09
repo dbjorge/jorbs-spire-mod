@@ -11,6 +11,12 @@
       "Ignore paths when choosing the next room to travel to."
     ]
   },
+  "stsjorbsmod:GhostPoisonPotion": {
+    "NAME": "Ghost Poison",
+    "DESCRIPTIONS": [
+      "Gain #b%1$s #yManifest for each enemy, then win the combat. NL Does not work on Boss and Elite enemies."
+    ]
+  },
   "stsjorbsmod:LiquidClarity": {
     "NAME": "Liquid Clarity",
     "DESCRIPTIONS": [
@@ -20,7 +26,7 @@
   "stsjorbsmod:LiquidVirtue": {
     "NAME": "Liquid Virtue",
     "DESCRIPTIONS": [
-      "Gain #yClarity of two random #yVirtues you don't already have #yClarity of."
+      "Gain #yClarity of #b%1$s random #yVirtues you don't already have #yClarity of."
     ]
   }
 }

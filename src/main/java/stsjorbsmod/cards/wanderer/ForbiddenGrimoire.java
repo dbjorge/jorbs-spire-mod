@@ -9,7 +9,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.cards.OnCardExhumedSubscriber;
 import stsjorbsmod.cards.wanderer.materialcomponents.MaterialComponentsDeck;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.patches.EntombedField;
 import stsjorbsmod.patches.EphemeralField;
 import stsjorbsmod.patches.SelfExhumeFields;
@@ -42,7 +41,7 @@ public class ForbiddenGrimoire extends CustomJorbsModCard implements OnCardExhum
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DiscoveryAtCostAction(MaterialComponentsDeck.drawRandomCards(3), true));
+        addToBot(new DiscoveryAtCostAction(MaterialComponentsDeck.drawUniqueRandomCards(3), true));
         addToBot(new ApplyPowerAction(p, p, new ForbiddenGrimoireDelayedExhumePower(p, this, magicNumber)));
     }
 

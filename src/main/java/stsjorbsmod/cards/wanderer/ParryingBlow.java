@@ -12,6 +12,8 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.PatienceMemory;
 
+import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
+
 public class ParryingBlow extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(ParryingBlow.class);
 
@@ -30,6 +32,8 @@ public class ParryingBlow extends CustomJorbsModCard {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = DRAW;
+
+        tags.add(REMEMBER_MEMORY);
     }
 
     @Override

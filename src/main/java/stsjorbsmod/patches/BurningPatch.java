@@ -12,36 +12,16 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.InvinciblePower;
 import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
+import javassist.expr.MethodCall;
 import stsjorbsmod.powers.BurningPower;
 import stsjorbsmod.util.ReflectionUtils;
 
 public class BurningPatch {
-    @SpirePatch(clz = EndTurnAction.class, method = "update")
-    public static class AbstractRoom_endTurn {
-        public static ExprEditor Instrument() {
-            return new ExprEditor() {
-                @Override
-                public void edit(FieldAccess f) throws CannotCompileException {
-                    if (f.getClassName().contains(AbstractDungeon.class.getName()) && f.getFieldName().equals("topLevelEffects")) {
-                        f.replace(String.format("{ %1$s.performTurnStartBurningCheck(); $_ = $proceed(); }",
-                                BurningPatch.class.getName()));
-                    }
-                }
-            };
-        }
-    }
-
-    public static void performTurnStartBurningCheck() {
-        for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
-            if (m.hasPower(BurningPower.POWER_ID)) {
-                m.getPower(BurningPower.POWER_ID).onSpecificTrigger();
-            }
-        }
-    }
-
     static TextureAtlas.AtlasRegion BURNING_TEXTURE = new TextureAtlas(Gdx.files.internal("powers/powers.atlas")).findRegion("128/attackBurn");
     static float ROTATION_DURATION = 60.0F;
 

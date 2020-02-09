@@ -53,5 +53,7 @@ public abstract class CustomJorbsModPower extends AbstractPower implements Clone
             this.amount2 += ((CustomJorbsModPower) otherPower).amount2;
         }
     }
+
+    public void atStartOfTurnPreLoseBlock() { }
 }
 

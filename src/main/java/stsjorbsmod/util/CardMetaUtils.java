@@ -6,12 +6,17 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.ConsumerGameAction;
 import stsjorbsmod.cards.DowngradeableCard;
+import stsjorbsmod.patches.LegendaryPatch;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
+import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 
 public class CardMetaUtils {
     /**
@@ -47,6 +52,11 @@ public class CardMetaUtils {
         if (masterCard != null) {
             JorbsMod.logger.info("Removing " + masterCard.toString());
             AbstractDungeon.player.masterDeck.removeCard(masterCard);
+
+            if (masterCard.hasTag(LEGENDARY)) {
+                JorbsMod.logger.info(String.format("destroyCardPermanently: re-adding legendary card %1$s to pools", masterCard.toString()));
+                LegendaryPatch.addCardToPools(masterCard.makeCopy());
+            }
         } else {
             JorbsMod.logger.info("Failed to purge a card we didn't have. Perhaps Duplication Potion or Attack Potion or similar effect occurred. " + card.cardID);
         }

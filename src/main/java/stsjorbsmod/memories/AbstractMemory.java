@@ -105,7 +105,7 @@ public abstract class AbstractMemory implements OnModifyGoldSubscriber {
     // ** Be sure to check isPassiveEffectActive as necessary. **
     @Override public void onModifyGold(AbstractPlayer p) {}
     public void atStartOfTurnPostDraw() {}
-    public void atEndOfTurn(boolean isPlayer) {}
+    public void atEndOfTurn() {}
     public void onPlayCard(AbstractCard card, AbstractMonster monster) { }
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) { }
     // onMonsterDeath can happen within the same action that ends the combat, so you shouldn't queue new actions in here.

@@ -1,8 +1,6 @@
 package stsjorbsmod;
 
-import basemod.BaseMod;
-import basemod.ModLabeledToggleButton;
-import basemod.ModPanel;
+import basemod.*;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -14,6 +12,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -26,6 +25,7 @@ import org.apache.logging.log4j.Logger;
 import org.clapper.util.classutil.RegexClassFilter;
 import stsjorbsmod.cards.CardSaveData;
 import stsjorbsmod.cards.CustomJorbsModCard;
+import stsjorbsmod.characters.CharacterVoiceOver;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.characters.ManifestSaveData;
 import stsjorbsmod.characters.Wanderer;
@@ -33,10 +33,7 @@ import stsjorbsmod.console.MemoryCommand;
 import stsjorbsmod.console.PlaySoundCommand;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
-import stsjorbsmod.potions.BurningPotion;
-import stsjorbsmod.potions.DimensionDoorPotion;
-import stsjorbsmod.potions.LiquidClarity;
-import stsjorbsmod.potions.LiquidVirtue;
+import stsjorbsmod.potions.*;
 import stsjorbsmod.relics.CustomJorbsModRelic;
 import stsjorbsmod.util.ReflectionUtils;
 import stsjorbsmod.util.TextureLoader;
@@ -49,9 +46,11 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.function.Consumer;
 
 @SpireInitializer
 public class JorbsMod implements
+        AddAudioSubscriber,
         EditCardsSubscriber,
         EditRelicsSubscriber,
         EditStringsSubscriber,
@@ -64,14 +63,14 @@ public class JorbsMod implements
     public static final Logger logger = LogManager.getLogger(JorbsMod.class.getName());
 
     // Mod-settings settings. This is if you want an on/off savable button
-    public static Properties theDefaultDefaultSettings = new Properties();
-    public static final String ENABLE_PLACEHOLDER_SETTINGS = "enablePlaceholder";
-    public static boolean enablePlaceholder = true; // The boolean we'll be setting on/off (true/false)
+    public static Properties defaultSettings = new Properties();
+    public static final String VOICEOVER_VOLUME_SETTING = "voiceover_volume";
 
-    //This is for the in-game mod settings panel.
+    // This is for the in-game mod settings panel.
+    private static final String MOD_SETTINGS_FILE = "stsjorbsmod_config";
     private static final String MODNAME = "Jorbs Mod";
-    private static final String AUTHOR = "Twitch chat"; // And pretty soon - You!
-    private static final String DESCRIPTION = "New characters, brought to you by Jorbs and Twitch chat!";
+    private static final String AUTHOR = "https://mod.jorbs.tv/credits";
+    private static final String DESCRIPTION = "The Wanderer, Explorer, and CULL";
 
     public static class JorbsCardTags {
         // Use on a card that brings in a possible beneficial effect that lasts longer than the combat and isn't
@@ -113,8 +112,12 @@ public class JorbsMod implements
     public static final String BADGE_IMAGE = "stsjorbsmodResources/images/Badge.png";
 
     
-    // =============== MAKE IMAGE PATHS =================
-    
+    // =============== MAKE RESOURCE PATHS =================
+
+    public static String makeVoiceOverPath(String resourcePath) {
+        return MOD_ID + "Resources/audio/vo/" + resourcePath;
+    }
+
     public static String makeCardPath(String resourcePath) {
         return MOD_ID + "Resources/images/cards/" + resourcePath;
     }
@@ -163,7 +166,7 @@ public class JorbsMod implements
         return MOD_ID + "Resources/localization/" + languageFolder + "/" + resourcePath;
     }
     
-    // =============== /MAKE IMAGE PATHS/ =================
+    // =============== /MAKE RESOURCE PATHS/ =================
     
     // =============== /INPUT TEXTURE LOCATION/ =================
     
@@ -186,14 +189,12 @@ public class JorbsMod implements
         
         
         logger.info("Adding mod settings");
-        // This loads the mod settings.
-        // The actual mod Button is added below in receivePostInitialize()
-        theDefaultDefaultSettings.setProperty(ENABLE_PLACEHOLDER_SETTINGS, "FALSE"); // This is the default setting. It's actually set...
+
+        defaultSettings.setProperty(VOICEOVER_VOLUME_SETTING, "0.5");
         try {
-            SpireConfig config = new SpireConfig("defaultMod", "theDefaultConfig", theDefaultDefaultSettings); // ...right here
-            // the "fileName" parameter is the name of the file MTS will create where it will save our setting.
-            config.load(); // Load the setting and set the boolean to equal it
-            enablePlaceholder = config.getBool(ENABLE_PLACEHOLDER_SETTINGS);
+            SpireConfig config = new SpireConfig(MODNAME, MOD_SETTINGS_FILE, defaultSettings);
+            config.load();
+            CharacterVoiceOver.VOICEOVER_VOLUME = config.getFloat(VOICEOVER_VOLUME_SETTING);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -213,7 +214,11 @@ public class JorbsMod implements
     }
     
     // ============== /SUBSCRIBE, CREATE THE COLOR_GRAY, INITIALIZE/ =================
-    
+
+    @Override
+    public void receiveAddAudio() {
+        Wanderer.AudioInfo.registerAudio();
+    }
     
     // =============== LOAD THE CHARACTER =================
     
@@ -276,29 +281,26 @@ public class JorbsMod implements
         // Load the Mod Badge
         Texture badgeTexture = TextureLoader.getTexture(BADGE_IMAGE);
         
-        // Create the Mod Menu
+        // Create the Mod config menu
+        String[] MOD_SETTINGS_PANEL_TEXT = CardCrawlGame.languagePack.getUIString(makeID("ModSettingsPanel")).TEXT;
         ModPanel settingsPanel = new ModPanel();
-        
-        // Create the on/off button:
-        ModLabeledToggleButton enableNormalsButton = new ModLabeledToggleButton("This is the text which goes next to the checkbox.",
-                350.0f, 700.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, // Position (trial and error it), color, font
-                enablePlaceholder, // Boolean it uses
-                settingsPanel, // The mod panel in which this button will be in
-                (label) -> {}, // thing??????? idk
-                (button) -> { // The actual button:
-            
-            enablePlaceholder = button.enabled; // The boolean true/false will be whether the button is enabled or not
+        Consumer<ModSlider> onVoiceoverVolumeChange = (slider) -> {
+            CharacterVoiceOver.VOICEOVER_VOLUME = slider.value;
             try {
                 // And based on that boolean, set the settings and save them
-                SpireConfig config = new SpireConfig("defaultMod", "theDefaultConfig", theDefaultDefaultSettings);
-                config.setBool(ENABLE_PLACEHOLDER_SETTINGS, enablePlaceholder);
+                SpireConfig config = new SpireConfig(JorbsMod.MODNAME, MOD_SETTINGS_FILE, defaultSettings);
+                config.setFloat(VOICEOVER_VOLUME_SETTING, slider.value);
                 config.save();
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        });
-        
-        settingsPanel.addUIElement(enableNormalsButton); // Add the button to the settings panel. Button is a go.
+        };
+        ModLabel voiceoverVolumeSliderLabel = new ModLabel(MOD_SETTINGS_PANEL_TEXT[0], 400.0F, 694.0F, Color.WHITE, FontHelper.tipHeaderFont, settingsPanel, (label) -> {});
+        settingsPanel.addUIElement(voiceoverVolumeSliderLabel);
+
+        ModSlider voiceoverVolumeSlider = new ModSlider("", 700.0F, 700.0F, 100, "%", settingsPanel, onVoiceoverVolumeChange);
+        voiceoverVolumeSlider.setValue(CharacterVoiceOver.VOICEOVER_VOLUME);
+        settingsPanel.addUIElement(voiceoverVolumeSlider);
         
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
@@ -310,7 +312,10 @@ public class JorbsMod implements
                 LiquidClarity.POTION_ID, Wanderer.Enums.WANDERER);
         BaseMod.addPotion(LiquidVirtue.class, Color.BLUE, null, Color.PURPLE,
                 LiquidVirtue.POTION_ID, Wanderer.Enums.WANDERER);
-        
+        BaseMod.addPotion(GhostPoisonPotion.class, Color.LIME, Color.BLACK, Color.LIME,
+                GhostPoisonPotion.POTION_ID, Cull.Enums.CULL);
+
+
         // =============== EVENTS =================
         
         // This event will be exclusive to the City (act 2). If you want an event that's present at any

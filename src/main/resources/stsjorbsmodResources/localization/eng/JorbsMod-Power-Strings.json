@@ -21,7 +21,9 @@
     "NAME": "Book of Tongues",
     "DESCRIPTIONS": [
       "At the start of your turn, draw #b%1$s random Material Component.",
-      "At the start of your turn, draw #b%1$s random Material Components."
+      "At the start of your turn, draw #b%1$s random Material Components.",
+      "At the start of your turn, draw #b%1$s random Upgraded Material Component.",
+      "At the start of your turn, draw #b%1$s random Upgraded Material Components."
     ]
   },
   "stsjorbsmod:BurningPower": {
@@ -43,7 +45,7 @@
   "stsjorbsmod:CoilPower": {
     "NAME": "Coil",
     "DESCRIPTIONS": [
-      "Whenever you remember a new memory or end your turn while #ySnapped, deal #b%1$s damage to ALL enemies and lose all Coil."
+      "Whenever you remember a new, #ynon-Patience memory or end your turn while #ySnapped, deal #b%1$s damage to ALL enemies and lose all Coil."
     ]
   },
   "stsjorbsmod:DamnationPower": {
@@ -221,7 +223,7 @@
   "stsjorbsmod:StrangePendantPower": {
     "NAME": "Strange Pendant",
     "DESCRIPTIONS": [
-      "Prevent the first #b%1$s damage taken each turn."
+      "Reduce the first damage taken each turn by #b%1$s."
     ]
   },
   "stsjorbsmod:StrengthNextTurnPower": {
