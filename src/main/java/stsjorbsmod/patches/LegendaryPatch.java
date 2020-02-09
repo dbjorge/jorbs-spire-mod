@@ -50,7 +50,7 @@ public class LegendaryPatch {
     }
 
     public static void addCardToPools(AbstractCard card) {
-        logger.info(String.format("Adding card %1$s (%2$s/%3$s/%4$s) from applicable pools", card.cardID, card.rarity, card.color, card.type));
+        logger.info(String.format("Adding card %1$s (%2$s/%3$s/%4$s) to applicable pools", card.cardID, card.rarity, card.color, card.type));
 
         // AbstractDungeon has many returnRandom*, returnTrulyRandom*, and *transformCard methods that use these pools.
         if (card.rarity == AbstractCard.CardRarity.COMMON) {
