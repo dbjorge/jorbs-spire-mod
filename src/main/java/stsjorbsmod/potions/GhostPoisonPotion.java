@@ -33,6 +33,7 @@ public class GhostPoisonPotion extends AbstractPotion {
     public void initializeData() {
         this.potency = this.getPotency();
         this.description = String.format(DESCRIPTIONS[0], MANIFEST_PER_ENEMY);
+        this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
         this.tips.add(new PowerTip(BaseMod.getKeywordTitle("stsjorbsmod:manifest"), BaseMod.getKeywordDescription("stsjorbsmod:manifest")));
     }

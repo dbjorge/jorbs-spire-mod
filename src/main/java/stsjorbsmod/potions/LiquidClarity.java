@@ -27,6 +27,7 @@ public class LiquidClarity extends AbstractPotion {
     public void initializeData() {
         this.potency = this.getPotency();
         this.description = DESCRIPTIONS[0];
+        this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
         this.tips.add(new PowerTip(BaseMod.getKeywordTitle("stsjorbsmod:clarity"), BaseMod.getKeywordDescription("stsjorbsmod:clarity")));
     }

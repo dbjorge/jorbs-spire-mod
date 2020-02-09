@@ -31,6 +31,7 @@ public class BurningPotion extends AbstractPotion {
     public void initializeData() {
         this.potency = this.getPotency();
         this.description = String.format(DESCRIPTIONS[0], this.potency);
+        this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
         this.tips.add(new PowerTip(BaseMod.getKeywordTitle("stsjorbsmod:burning"), BaseMod.getKeywordDescription("stsjorbsmod:burning")));
     }

@@ -30,7 +30,8 @@ public class LiquidVirtue extends AbstractPotion {
     @Override
     public void initializeData() {
         this.potency = getPotency();
-        this.description = DESCRIPTIONS[0];
+        this.description = String.format(DESCRIPTIONS[0], this.potency);
+        this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
         this.tips.add(new PowerTip(BaseMod.getKeywordTitle("stsjorbsmod:clarity"), BaseMod.getKeywordDescription("stsjorbsmod:clarity")));
         this.tips.add(new PowerTip(BaseMod.getKeywordTitle("stsjorbsmod:virtue"), BaseMod.getKeywordDescription("stsjorbsmod:virtue")));

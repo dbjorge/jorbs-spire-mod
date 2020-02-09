@@ -53,14 +53,13 @@ public class DimensionDoorPotion extends FruitJuice {
         ReflectionUtils.setPrivateField(this, AbstractPotion.class, "outlineImg", ImageMaster.POTION_CARD_OUTLINE);
         this.liquidColor = Color.TAN.cpy();
         this.hybridColor = Color.TAN.cpy();
-
-        this.tips.clear();
     }
 
     @Override
     public void initializeData() {
         this.potency = this.getPotency();
         this.description = DESCRIPTIONS[0];
+        this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
     }
 
