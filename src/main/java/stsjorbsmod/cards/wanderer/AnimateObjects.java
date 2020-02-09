@@ -47,7 +47,9 @@ public class AnimateObjects extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster monster) {
-        addToBot(new ApplyPowerAction(p, p, new ThornsPower(p, magicNumber)));
+        if (magicNumber > 0) {
+            addToBot(new ApplyPowerAction(p, p, new ThornsPower(p, magicNumber)));
+        }
     }
 
     @Override
