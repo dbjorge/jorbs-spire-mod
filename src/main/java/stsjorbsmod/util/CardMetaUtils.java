@@ -6,12 +6,15 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.DowngradeableCard;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
+import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 
 public class CardMetaUtils {
     /**

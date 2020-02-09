@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
+import stsjorbsmod.patches.LegendaryPatch;
 
 import java.util.function.Consumer;
 
@@ -42,6 +43,8 @@ public class PatronAction extends AbstractGameAction {
         tickDuration();
         if (isDone) {
             AbstractDungeon.actionManager.addToBottom(new ConsumerGameAction<>(showEffect, card));
+            // TODO: refactor if we ever have more than one legendary Destroy card
+            AbstractDungeon.actionManager.addToBottom(new ConsumerGameAction<>(LegendaryPatch::addCardToPools, card));
         }
     }
 }
