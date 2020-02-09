@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -30,6 +31,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.wanderer.*;
+import stsjorbsmod.effects.EmphasizedSFXEffect;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.SnapCounter;
 import stsjorbsmod.patches.CutsceneMultiScreenPatch;
@@ -447,7 +449,6 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
     public void preBattlePrep() {
         super.preBattlePrep();
         snapCounter.reset();
-        CharacterVoiceOver.playForBattle();
     }
 
     @Override
