@@ -17,7 +17,7 @@
   },
   {
     "NAMES": ["coil"],
-    "DESCRIPTION": "Gain 1 Coil each time you play a card while remembering #yPatience. When remembering new memories or ending your turn while snapped, Coil is consumed to deal damage to ALL enemies."
+    "DESCRIPTION": "Gain 1 Coil each time you play a card while remembering #yPatience. When you remember new, #ynon-Patience memories or end your turn while snapped, Coil is consumed to deal damage to ALL enemies."
   },
   {
     "NAMES": ["consume", "consumed"],

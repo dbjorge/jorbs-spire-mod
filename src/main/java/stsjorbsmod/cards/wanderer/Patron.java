@@ -15,6 +15,7 @@ import stsjorbsmod.util.CardMetaUtils;
 import stsjorbsmod.util.EffectUtils;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 
 public class Patron extends CustomJorbsModCard implements DowngradeableCard {
     public static final String ID = JorbsMod.makeID(Patron.class);
@@ -34,6 +35,8 @@ public class Patron extends CustomJorbsModCard implements DowngradeableCard {
         EntombedField.entombed.set(this, true);
         EphemeralField.ephemeral.set(this, true);
         SelfExhumeFields.selfExhumeOnSnap.set(this, true);
+
+        tags.add(LEGENDARY);
     }
 
     @Override

@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.memories.OnModifyMemoriesSubscriber;
+import stsjorbsmod.memories.PatienceMemory;
 
 public class CoilPower extends CustomJorbsModPower implements OnModifyMemoriesSubscriber {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(CoilPower.class);
@@ -47,7 +48,9 @@ public class CoilPower extends CustomJorbsModPower implements OnModifyMemoriesSu
 
     @Override
     public void onRememberMemory(String id) {
-        consumeCoilForDamage();
+        if (!PatienceMemory.STATIC.ID.equals(id)) {
+            consumeCoilForDamage();
+        }
     }
 
     @Override

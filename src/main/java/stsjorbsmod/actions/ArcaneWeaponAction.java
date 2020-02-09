@@ -8,6 +8,10 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.effects.ArcaneWeaponEffect;
+import stsjorbsmod.powers.BanishedPower;
+import stsjorbsmod.util.CombatUtils;
+
+import java.util.stream.Collectors;
 
 public class ArcaneWeaponAction extends AbstractGameAction {
     private AbstractCard card;
@@ -18,7 +22,7 @@ public class ArcaneWeaponAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        target = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
+        target = CombatUtils.getRandomAliveMonster(AbstractDungeon.getMonsters(), m -> !m.hasPower(BanishedPower.POWER_ID), AbstractDungeon.cardRandomRng);
         if (this.target != null) {
             card.calculateCardDamage((AbstractMonster) target);
 

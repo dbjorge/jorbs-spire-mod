@@ -58,8 +58,8 @@ public class TImeEddyAction extends AbstractGameAction {
     public void update() {
         for (int i = 0; i < this.amount; ++i) {
             // Player turn end
+            forEachApplicablePlayerMemory(m -> m.atEndOfTurn());
             forEachApplicablePlayerPower(p -> p.atEndOfTurnPreEndTurnCards(true));
-            forEachApplicablePlayerMemory(m -> m.atEndOfTurn(true));
             forEachApplicablePlayerPower(p -> p.atEndOfTurn(true));
 
             // Monster turn start

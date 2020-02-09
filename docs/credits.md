@@ -50,6 +50,7 @@
 * LouisLeGros
 * mziggles
 * Newigeg
+* NoblemanGR
 * SLG95
 
 ### Localization

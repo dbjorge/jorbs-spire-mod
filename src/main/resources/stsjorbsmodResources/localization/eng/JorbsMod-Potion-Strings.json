@@ -26,7 +26,7 @@
   "stsjorbsmod:LiquidVirtue": {
     "NAME": "Liquid Virtue",
     "DESCRIPTIONS": [
-      "Gain #yClarity of two random #yVirtues you don't already have #yClarity of."
+      "Gain #yClarity of #b%1$s random #yVirtues you don't already have #yClarity of."
     ]
   }
 }

@@ -60,6 +60,11 @@
       "Entangled!"
     ]
   },
+  "stsjorbsmod:ModSettingsPanel": {
+    "TEXT": [
+      "Voiceover Volume"
+    ]
+  },
   "stsjorbsmod:SnapCounter": {
     "TEXT": [
       "Fragile Mind",
