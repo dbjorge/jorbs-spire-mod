@@ -4,7 +4,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /*
@@ -87,10 +86,28 @@ public class MaterialComponentsDeck {
         return c;
     }
 
+    /**
+     * Draws a number of cards from the Material Components deck. They should be unique for values of numCards less than 4.
+     */
     public static ArrayList<AbstractCard> drawRandomCards(int numCards) {
         ArrayList<AbstractCard> retVal = new ArrayList<>();
-        for (int i = 0; i < numCards; ++i) {
-            retVal.add(drawRandomCard());
+        // I apologize in advance for the bastardization of the for loop
+        for (int i = 0; retVal.size() < numCards; i++) {
+            AbstractCard card = drawRandomCard();
+            // Safeguard against someone passing in a large number of cards and causing infinite loop
+            if (i < 7) { // XKCD's getRandomNumber() + current most used parameter (3)
+                boolean isDistinct = true;
+                for (AbstractCard c : retVal) {
+                    if (c.cardID.equals(card.cardID)) {
+                        isDistinct = false;
+                    }
+                }
+                if (isDistinct) {
+                    retVal.add(card);
+                }
+            } else {
+                retVal.add(card);
+            }
         }
         return retVal;
     }
