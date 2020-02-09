@@ -1,5 +1,7 @@
 package stsjorbsmod.relics;
 
+import com.evacipated.cardcrawl.modthespire.ReflectionHelper;
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -7,6 +9,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.PatienceMemory;
+import stsjorbsmod.util.ReflectionUtils;
 
 import static stsjorbsmod.characters.Wanderer.Enums.WANDERER_CARD_COLOR;
 
@@ -29,8 +32,8 @@ public class GrimoireRelic extends CustomJorbsModRelic {
     }
 
     @Override
-    public void atTurnStart() {
-        this.counter++;
+    public void atTurnStartPostDraw() {
+        this.counter = ReflectionUtils.getPrivateField(AbstractDungeon.actionManager, GameActionManager.class, "turn");
     }
 
     @Override
