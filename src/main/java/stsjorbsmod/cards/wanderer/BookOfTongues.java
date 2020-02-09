@@ -7,7 +7,6 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.BookOfTonguesPower;
-import stsjorbsmod.powers.BookOfTonguesUpgradedPower;
 
 public class BookOfTongues extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(BookOfTongues.class);
@@ -27,11 +26,7 @@ public class BookOfTongues extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (upgraded) {
-            addToBot(new ApplyPowerAction(p, p, new BookOfTonguesUpgradedPower(p, this.magicNumber)));
-        } else {
-            addToBot(new ApplyPowerAction(p, p, new BookOfTonguesPower(p, this.magicNumber)));
-        }
+        addToBot(new ApplyPowerAction(p, p, new BookOfTonguesPower(p, this.magicNumber, this.upgraded)));
     }
 
     @Override
