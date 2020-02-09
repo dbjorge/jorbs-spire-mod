@@ -23,10 +23,15 @@ public class BurningPotion extends AbstractPotion {
 
     public BurningPotion() {
         super(NAME, POTION_ID, PotionRarity.COMMON, PotionSize.BOTTLE, PotionColor.EXPLOSIVE);
-        this.potency = this.getPotency();
-        this.description = String.format(DESCRIPTIONS[0], this.potency);
         this.isThrown = true;
         this.targetRequired = true;
+    }
+
+    @Override
+    public void initializeData() {
+        this.potency = this.getPotency();
+        this.description = String.format(DESCRIPTIONS[0], this.potency);
+        this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
         this.tips.add(new PowerTip(BaseMod.getKeywordTitle("stsjorbsmod:burning"), BaseMod.getKeywordDescription("stsjorbsmod:burning")));
     }

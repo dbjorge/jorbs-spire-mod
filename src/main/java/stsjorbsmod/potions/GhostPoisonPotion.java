@@ -26,9 +26,14 @@ public class GhostPoisonPotion extends AbstractPotion {
 
     public GhostPoisonPotion() {
         super(NAME, POTION_ID, PotionRarity.COMMON, PotionSize.H, PotionColor.SMOKE);
+        this.isThrown = true;
+    }
+
+    @Override
+    public void initializeData() {
         this.potency = this.getPotency();
         this.description = String.format(DESCRIPTIONS[0], MANIFEST_PER_ENEMY);
-        this.isThrown = true;
+        this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
         this.tips.add(new PowerTip(BaseMod.getKeywordTitle("stsjorbsmod:manifest"), BaseMod.getKeywordDescription("stsjorbsmod:manifest")));
     }

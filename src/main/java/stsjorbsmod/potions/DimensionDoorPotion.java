@@ -1,5 +1,6 @@
 package stsjorbsmod.potions;
 
+import basemod.BaseMod;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -40,10 +41,8 @@ public class DimensionDoorPotion extends FruitJuice {
         super();
         this.ID = POTION_ID;
         this.name = NAME;
-        this.description = DESCRIPTIONS[0];
         this.rarity = PotionRarity.RARE;
         this.size = PotionSize.GHOST;
-        this.potency = getPotency();
 
         // Replicating some of AbstractPotion.ctor to enable use of "extends FruitPotion" hack
         // TODO: use scroll-shaped art instead
@@ -54,7 +53,12 @@ public class DimensionDoorPotion extends FruitJuice {
         ReflectionUtils.setPrivateField(this, AbstractPotion.class, "outlineImg", ImageMaster.POTION_CARD_OUTLINE);
         this.liquidColor = Color.TAN.cpy();
         this.hybridColor = Color.TAN.cpy();
+    }
 
+    @Override
+    public void initializeData() {
+        this.potency = this.getPotency();
+        this.description = DESCRIPTIONS[0];
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
     }
