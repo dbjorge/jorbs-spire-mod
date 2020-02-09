@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 /*
 Material Components Deck:	Contains 7 common, 6 uncommon, 3 rare Material Components cards.
@@ -86,27 +87,13 @@ public class MaterialComponentsDeck {
         return c;
     }
 
-    /**
-     * Draws a number of cards from the Material Components deck. They should be unique for values of numCards less than 4.
-     */
-    public static ArrayList<AbstractCard> drawRandomCards(int numCards) {
+    public static ArrayList<AbstractCard> drawUniqueRandomCards(int numCards) {
         ArrayList<AbstractCard> retVal = new ArrayList<>();
-        // I apologize in advance for the bastardization of the for loop
-        for (int i = 0; retVal.size() < numCards; i++) {
-            AbstractCard card = drawRandomCard();
-            // Safeguard against someone passing in a large number of cards and causing infinite loop
-            if (i < 7) { // XKCD's getRandomNumber() + current most used parameter (3)
-                boolean isDistinct = true;
-                for (AbstractCard c : retVal) {
-                    if (c.cardID.equals(card.cardID)) {
-                        isDistinct = false;
-                    }
-                }
-                if (isDistinct) {
-                    retVal.add(card);
-                }
-            } else {
-                retVal.add(card);
+        while (retVal.size() < numCards) {
+            AbstractCard candidate = drawRandomCard();
+            boolean candidateHasAlreadyBeenDrawn = retVal.stream().anyMatch(c -> c.cardID.equals(candidate.cardID));
+            if (!candidateHasAlreadyBeenDrawn) {
+                retVal.add(candidate);
             }
         }
         return retVal;
