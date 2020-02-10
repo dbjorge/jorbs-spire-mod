@@ -8,7 +8,7 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.EphemeralField;
 
-public class TimeEddy extends CustomJorbsModCard {
+public class TimeEddy extends MaterialComponent {
     public static final String ID = JorbsMod.makeID(TimeEddy.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
@@ -28,7 +28,7 @@ public class TimeEddy extends CustomJorbsModCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void useMaterialComponent(AbstractPlayer p, AbstractMonster m) {
         addToBot(new TImeEddyAction(p, magicNumber));
     }
 

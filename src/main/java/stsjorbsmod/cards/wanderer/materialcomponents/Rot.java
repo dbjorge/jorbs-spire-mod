@@ -9,7 +9,7 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.EphemeralField;
 import stsjorbsmod.patches.ExtraCopiesToAddWhenGeneratingCardField;
 
-public class Rot extends CustomJorbsModCard {
+public class Rot extends MaterialComponent {
     public static final String ID = JorbsMod.makeID(Rot.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
@@ -30,7 +30,7 @@ public class Rot extends CustomJorbsModCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void useMaterialComponent(AbstractPlayer p, AbstractMonster m) {
         addToBot(new LoseRandomClarityAction(p));
     }
 
