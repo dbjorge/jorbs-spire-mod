@@ -6,9 +6,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 
 public abstract class MaterialComponent extends CustomJorbsModCard {
 
-    private AbstractPlayer player;
-    private AbstractMonster monster;
-
     public MaterialComponent(String id, int cost, CardType type, CardColor color, CardRarity rarity, CardTarget target) {
         super(id, cost, type, color, rarity, target);
     }
