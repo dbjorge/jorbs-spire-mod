@@ -47,11 +47,19 @@ public class SnapCounter {
     private float indicatorCircleRotationTimer;
     private float indicatorParticleTimer;
 
-    //private static final Color startColor = new Color(0.0F, 1.0F, 1.0F, 0.5F);
-    private static final Color startColor = new Color(0.353F, 0.678F, 0.937F, 0.5F);
-    //private static final Color endColor = new Color(0.5F, 0.05F, 0.05F, 1.0F);
-    private static final Color endColor = new Color(0.353F, 0.678F, 0.937F, 1.0F);
-    private Color color;
+    private static final Color[] colors = new Color[] {
+            Color.VIOLET,
+            new Color(.24F, .45F, 1.0F, 1.0F),
+            Color.SKY,
+            Color.FOREST,
+            Color.YELLOW,
+            Color.ORANGE,
+            Color.RED
+    };
+
+    private static final float STARTING_ALPHA = 0.65F;
+    private static final float ENDING_ALPHA = 1.0F;
+    private float alpha;
 
     private int currentTurn; // we track this separately from the game manager to avoid ordering issues with start-of-turn triggers
     public boolean isActive;
@@ -59,7 +67,6 @@ public class SnapCounter {
     public SnapCounter(AbstractPlayer owner) {
         this.owner = owner;
         this.hb = new Hitbox(HB_WIDTH, HB_HEIGHT);
-        this.color = startColor.cpy();
 
         tips = new ArrayList<>();
         tips.add(new PowerTip(TEXT[0], TEXT[1]));
@@ -74,10 +81,7 @@ public class SnapCounter {
 
     public void atStartOfTurn() {
         currentTurn++;
-
-        color.set(startColor);
-        color.lerp(endColor, currentTurn / 7.0F);
-
+        alpha = MathUtils.lerp(STARTING_ALPHA, ENDING_ALPHA, currentTurn / 7.0F);
         updateDescription();
     }
 
@@ -102,7 +106,7 @@ public class SnapCounter {
     public void reset() {
         currentTurn = 0;
         isActive = true;
-        color.set(startColor);
+        alpha = STARTING_ALPHA;
         updateDescription();
     }
 
@@ -122,7 +126,13 @@ public class SnapCounter {
         if (indicatorParticleTimer < 0.0) {
             indicatorParticleTimer = INDICATOR_PARTICLE_DURATION;
 
+            Color color = colors[MathUtils.clamp(currentTurn - 1, 0, colors.length-1)];
+            color.a = alpha;
+
             for (int i = 0; i < currentTurn; ++i) {
+                if (currentTurn >= 7) {
+                    color = colors[i % 7];
+                }
                 float indicatorAngle = 360.0F * (((float)i) / (currentTurn));
                 indicatorAngle += flipMultiplier * (360.0F * (indicatorCircleRotationTimer / INDICATOR_CIRCLE_ROTATION_DURATION));
                 float x = flipMultiplier * INDICATOR_CIRCLE_X_RADIUS * MathUtils.cosDeg(indicatorAngle) + centerX;
