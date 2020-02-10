@@ -32,7 +32,7 @@ import stsjorbsmod.cards.wanderer.*;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.SnapCounter;
 import stsjorbsmod.patches.CutsceneMultiScreenPatch;
-import stsjorbsmod.powers.GrimoireExhumeCardInTurnsPower;
+import stsjorbsmod.powers.EntombedGrimoirePower;
 import stsjorbsmod.relics.GrimoireRelic;
 
 import java.util.ArrayList;
@@ -234,7 +234,6 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
                 getLoadout(), 0F, -10.0F, 160.0F, 280.0F, new EnergyManager(ENERGY_PER_TURN));
 
         this.dialogX = drawX + DIALOG_OFFSET_X;
-        ;
         this.dialogY = drawY + DIALOG_OFFSET_Y;
 
         MemoryManager.forPlayer(this).renderForgottenMemories = true;
@@ -452,7 +451,7 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
         super.preBattlePrep();
         snapCounter.reset();
         HashSet<AbstractCard> allInstances = GetAllInBattleInstances.get(masterDeck.group.stream().filter(c -> c.cardID.equals(ForbiddenGrimoire.ID)).findAny().get().uuid);
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new GrimoireExhumeCardInTurnsPower(
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new EntombedGrimoirePower(
                 this,
                 allInstances.iterator().next(),
                 ForbiddenGrimoire.EXHUME_TURN,

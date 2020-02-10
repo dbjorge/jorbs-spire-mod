@@ -74,6 +74,12 @@
       "Gain #b%1$s additional [E] next turn."
     ]
   },
+  "stsjorbsmod:EntombedGrimoirePower": {
+    "NAME": "Entombed Grimoire",
+    "DESCRIPTIONS": [
+      "%1$s will be Exhumed in #b%2$s turns, or when you Snap."
+    ]
+  },
   "stsjorbsmod:MirrorPower": {
     "NAME": "Mirror",
     "DESCRIPTIONS": [
@@ -118,12 +124,6 @@
     "DESCRIPTIONS": [
       "At the end of this turn, Snap.",
       "In %1$s turns, Snap."
-    ]
-  },
-  "stsjorbsmod:GrimoireExhumeCardInTurnsPower": {
-    "NAME": "Turn-start Exhume",
-    "DESCRIPTIONS": [
-      "%1$s will be Exhumed in #b%2$s turns, or when you Snap."
     ]
   },
   "stsjorbsmod:IntrospectionPower": {

@@ -8,8 +8,8 @@ import stsjorbsmod.memories.OnModifyMemoriesSubscriber;
 import stsjorbsmod.memories.SnapCounter;
 import stsjorbsmod.patches.EnumsPatch;
 
-public class GrimoireExhumeCardInTurnsPower extends CustomJorbsModPower implements OnModifyMemoriesSubscriber {
-    public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(GrimoireExhumeCardInTurnsPower.class);
+public class EntombedGrimoirePower extends CustomJorbsModPower implements OnModifyMemoriesSubscriber {
+    public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(EntombedGrimoirePower.class);
     public static final String POWER_ID = STATIC.ID;
 
     private static long instanceCounter = 0;
@@ -19,7 +19,7 @@ public class GrimoireExhumeCardInTurnsPower extends CustomJorbsModPower implemen
     private final int turnToExhume;
     private SnapCounter snapCounter;
 
-    public GrimoireExhumeCardInTurnsPower(final AbstractCreature owner, final AbstractCard cardToExhume, final int turnToExhume, final SnapCounter snapCounter) {
+    public EntombedGrimoirePower(final AbstractCreature owner, final AbstractCard cardToExhume, final int turnToExhume, final SnapCounter snapCounter) {
         super(STATIC);
 
         // This prevents the power from stacking with other instances of itself for different card instances.
@@ -41,9 +41,6 @@ public class GrimoireExhumeCardInTurnsPower extends CustomJorbsModPower implemen
         isTurnBased = false;
 
         updateDescription();
-    }
-
-    private void exhume() {
     }
 
     @Override
@@ -68,6 +65,6 @@ public class GrimoireExhumeCardInTurnsPower extends CustomJorbsModPower implemen
 
     @Override
     public AbstractPower makeCopy() {
-        return new GrimoireExhumeCardInTurnsPower(owner, cardToExhume, amount, snapCounter);
+        return new EntombedGrimoirePower(owner, cardToExhume, amount, snapCounter);
     }
 }
