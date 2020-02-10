@@ -57,7 +57,11 @@ public class EntombedGrimoirePower extends CustomJorbsModPower {
 
     @Override
     public void updateDescription() {
-        description = String.format(DESCRIPTIONS[0], cardToExhume.name, turnToExhume, amount);
+        if(amount == 1) {
+            description = String.format(DESCRIPTIONS[0] + DESCRIPTIONS[2], cardToExhume.name, turnToExhume, amount);
+        } else {
+            description = String.format(DESCRIPTIONS[0] + DESCRIPTIONS[1], cardToExhume.name, turnToExhume, amount);
+        }
     }
 
     @Override
