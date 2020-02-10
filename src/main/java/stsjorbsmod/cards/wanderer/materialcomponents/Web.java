@@ -8,7 +8,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 
-public class Web extends CustomJorbsModCard {
+public class Web extends MaterialComponent {
     public static final String ID = JorbsMod.makeID(Web.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
@@ -28,7 +28,7 @@ public class Web extends CustomJorbsModCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void useMaterialComponent(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber));
     }
 

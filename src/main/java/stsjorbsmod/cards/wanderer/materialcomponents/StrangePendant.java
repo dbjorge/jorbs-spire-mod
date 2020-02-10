@@ -8,7 +8,7 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.powers.StrangePendantPower;
 
-public class StrangePendant extends CustomJorbsModCard {
+public class StrangePendant extends MaterialComponent {
     public static final String ID = JorbsMod.makeID(StrangePendant.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
@@ -27,7 +27,7 @@ public class StrangePendant extends CustomJorbsModCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void useMaterialComponent(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p, new StrangePendantPower(p, magicNumber), magicNumber));
     }
 

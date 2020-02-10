@@ -25,7 +25,7 @@ import org.apache.logging.log4j.Logger;
 import org.clapper.util.classutil.RegexClassFilter;
 import stsjorbsmod.cards.CardSaveData;
 import stsjorbsmod.cards.CustomJorbsModCard;
-import stsjorbsmod.characters.CharacterVoiceOver;
+import stsjorbsmod.audio.VoiceoverMaster;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.characters.ManifestSaveData;
 import stsjorbsmod.characters.Wanderer;
@@ -194,7 +194,7 @@ public class JorbsMod implements
         try {
             SpireConfig config = new SpireConfig(MODNAME, MOD_SETTINGS_FILE, defaultSettings);
             config.load();
-            CharacterVoiceOver.VOICEOVER_VOLUME = config.getFloat(VOICEOVER_VOLUME_SETTING);
+            VoiceoverMaster.VOICEOVER_VOLUME = config.getFloat(VOICEOVER_VOLUME_SETTING);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -285,7 +285,7 @@ public class JorbsMod implements
         String[] MOD_SETTINGS_PANEL_TEXT = CardCrawlGame.languagePack.getUIString(makeID("ModSettingsPanel")).TEXT;
         ModPanel settingsPanel = new ModPanel();
         Consumer<ModSlider> onVoiceoverVolumeChange = (slider) -> {
-            CharacterVoiceOver.VOICEOVER_VOLUME = slider.value;
+            VoiceoverMaster.VOICEOVER_VOLUME = slider.value;
             try {
                 // And based on that boolean, set the settings and save them
                 SpireConfig config = new SpireConfig(JorbsMod.MODNAME, MOD_SETTINGS_FILE, defaultSettings);
@@ -299,7 +299,7 @@ public class JorbsMod implements
         settingsPanel.addUIElement(voiceoverVolumeSliderLabel);
 
         ModSlider voiceoverVolumeSlider = new ModSlider("", 700.0F, 700.0F, 100, "%", settingsPanel, onVoiceoverVolumeChange);
-        voiceoverVolumeSlider.setValue(CharacterVoiceOver.VOICEOVER_VOLUME);
+        voiceoverVolumeSlider.setValue(VoiceoverMaster.VOICEOVER_VOLUME);
         settingsPanel.addUIElement(voiceoverVolumeSlider);
         
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);

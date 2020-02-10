@@ -9,7 +9,7 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.EphemeralField;
 
-public class Steel extends CustomJorbsModCard {
+public class Steel extends MaterialComponent {
     public static final String ID = JorbsMod.makeID(Steel.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
@@ -28,7 +28,7 @@ public class Steel extends CustomJorbsModCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void useMaterialComponent(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < magicNumber; ++i) {
             addToBot(new ArmamentsAction(false));
         }

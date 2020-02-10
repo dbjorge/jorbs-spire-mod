@@ -8,7 +8,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 
-public class OakLeaf extends CustomJorbsModCard {
+public class OakLeaf extends MaterialComponent {
     public static final String ID = JorbsMod.makeID(OakLeaf.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
@@ -27,7 +27,7 @@ public class OakLeaf extends CustomJorbsModCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void useMaterialComponent(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber), magicNumber));
     }
 
