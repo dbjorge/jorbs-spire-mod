@@ -106,7 +106,7 @@ public class SnapCounter {
         updateDescription();
     }
 
-    public void update(float centerX, float centerY) {
+    public void update(float centerX, float centerY, int flipMultiplier) {
         if (!isVisible()) { return; }
 
         this.centerX = centerX;
@@ -124,9 +124,9 @@ public class SnapCounter {
 
             for (int i = 0; i < currentTurn; ++i) {
                 float indicatorAngle = 360.0F * (((float)i) / (currentTurn));
-                indicatorAngle += (360.0F * (indicatorCircleRotationTimer / INDICATOR_CIRCLE_ROTATION_DURATION));
-                float x = INDICATOR_CIRCLE_X_RADIUS * MathUtils.cosDeg(indicatorAngle) + centerX;
-                float y = INDICATOR_CIRCLE_Y_RADIUS * MathUtils.sinDeg(indicatorAngle) + centerY;
+                indicatorAngle += flipMultiplier * (360.0F * (indicatorCircleRotationTimer / INDICATOR_CIRCLE_ROTATION_DURATION));
+                float x = flipMultiplier * INDICATOR_CIRCLE_X_RADIUS * MathUtils.cosDeg(indicatorAngle) + centerX;
+                float y = flipMultiplier * INDICATOR_CIRCLE_Y_RADIUS * MathUtils.sinDeg(indicatorAngle) + centerY;
 
                 float scaleModifier = currentTurn == 7 ? 1.6F : 1.0F;
                 AbstractDungeon.effectList.add(new SnapTurnCounterEffect(x, y, color, scaleModifier));
