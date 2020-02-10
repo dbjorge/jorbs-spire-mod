@@ -9,7 +9,7 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.EphemeralField;
 import stsjorbsmod.powers.BurningPower;
 
-public class Sulfur extends CustomJorbsModCard {
+public class Sulfur extends MaterialComponent {
     public static final String ID = JorbsMod.makeID(Sulfur.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
@@ -28,7 +28,7 @@ public class Sulfur extends CustomJorbsModCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void useMaterialComponent(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(m, p, new BurningPower(m, p, this.magicNumber)));
     }
 
