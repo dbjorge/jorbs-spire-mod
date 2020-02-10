@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.CorruptionPower;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import stsjorbsmod.cards.OnCardExhumedSubscriber;
@@ -30,7 +29,7 @@ public class ExhumeCardsAction extends AbstractGameAction {
     }
 
     public ExhumeCardsAction(AbstractCard specificCard) {
-        this(c -> c == specificCard);
+        this(c -> c.uuid.equals(specificCard.uuid));
     }
 
     public void update() {

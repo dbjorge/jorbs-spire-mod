@@ -9,16 +9,15 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
-import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.helpers.ScreenShake;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.monsters.beyond.*;
 import com.megacrit.cardcrawl.monsters.city.*;
@@ -34,9 +33,11 @@ import stsjorbsmod.cards.wanderer.*;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.SnapCounter;
 import stsjorbsmod.patches.CutsceneMultiScreenPatch;
+import stsjorbsmod.powers.EntombedGrimoirePower;
 import stsjorbsmod.relics.GrimoireRelic;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import static stsjorbsmod.JorbsMod.makeCharPath;
@@ -234,7 +235,6 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
                 getLoadout(), 0F, -10.0F, 160.0F, 280.0F, new EnergyManager(ENERGY_PER_TURN));
 
         this.dialogX = drawX + DIALOG_OFFSET_X;
-        ;
         this.dialogY = drawY + DIALOG_OFFSET_Y;
 
         MemoryManager.forPlayer(this).renderForgottenMemories = true;
