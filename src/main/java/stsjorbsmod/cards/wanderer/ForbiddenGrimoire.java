@@ -27,6 +27,8 @@ public class ForbiddenGrimoire extends CustomJorbsModCard implements OnCardExhum
     private static final int COST = 0;
     private static final int CARD_PLAYS_TO_EXHUME = 3;
 
+    public static final int EXHUME_TURN = 7;
+
     public ForbiddenGrimoire() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = CARD_PLAYS_TO_EXHUME;

@@ -3,7 +3,6 @@ package stsjorbsmod.powers;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.memories.OnModifyMemoriesSubscriber;
 import stsjorbsmod.memories.SnapCounter;
@@ -45,22 +44,21 @@ public class GrimoireExhumeCardInTurnsPower extends CustomJorbsModPower implemen
     }
 
     private void exhume() {
-        this.flash();
-//            addToBot(new ExhumeCardsAction(cardToExhume));
-        addToBot(new RemoveSpecificPowerAction(owner, owner, this));
     }
 
     @Override
     public void atStartOfTurn() {
-        this.amount = turnToExhume - snapCounter.getCurrentTurn();
+        this.amount = turnToExhume - snapCounter.getCurrentTurn(); // SnapCounter's turn update happens earlier
         if (amount <= 0) {
-            exhume();
+            this.flash();
+            addToBot(new RemoveSpecificPowerAction(owner, owner, this));
         }
     }
 
     @Override
     public void onSnap() {
-        exhume();
+        this.flash();
+        addToBot(new RemoveSpecificPowerAction(owner, owner, this));
     }
 
     @Override
