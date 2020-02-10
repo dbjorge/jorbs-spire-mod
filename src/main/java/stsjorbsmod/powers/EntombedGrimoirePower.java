@@ -47,6 +47,7 @@ public class EntombedGrimoirePower extends CustomJorbsModPower {
         // Note, the turn counter appears off by one because it isn't incremented til after start-of-turn powers are applied.
         // However, on the first turn, turn is set to 1.
         amount = turnToExhume - GameActionManager.turn - (isFirstTurn ? 0 : 1);
+        updateDescription();
         isFirstTurn = false;
         if (amount <= 0) {
             flash();
@@ -56,7 +57,7 @@ public class EntombedGrimoirePower extends CustomJorbsModPower {
 
     @Override
     public void updateDescription() {
-        description = String.format(DESCRIPTIONS[0], cardToExhume.name, turnToExhume);
+        description = String.format(DESCRIPTIONS[0], cardToExhume.name, turnToExhume, amount);
     }
 
     @Override

@@ -77,7 +77,7 @@
   "stsjorbsmod:EntombedGrimoirePower": {
     "NAME": "Entombed Grimoire",
     "DESCRIPTIONS": [
-      "%1$s will be Exhumed on the #b%2$sth turn, or when you Snap."
+      "%1$s will be Exhumed on the #b%2$sth turn, or when you Snap. NL Exhumes in #b%3$s turns."
     ]
   },
   "stsjorbsmod:MirrorPower": {
