@@ -16,7 +16,7 @@ import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.PatienceMemory;
 import stsjorbsmod.powers.CoilPower;
 
-public class SnakeOil extends CustomJorbsModCard {
+public class SnakeOil extends MaterialComponent {
     public static final String ID = JorbsMod.makeID(SnakeOil.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
@@ -47,7 +47,7 @@ public class SnakeOil extends CustomJorbsModCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void useMaterialComponent(AbstractPlayer p, AbstractMonster m) {
         addToBot(new RememberSpecificMemoryAction(p, PatienceMemory.STATIC.ID));
         addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.POISON));
     }

@@ -10,7 +10,7 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.EphemeralField;
 import stsjorbsmod.powers.PlayNextCardThisTurnAdditionalTimesPower;
 
-public class Quicksilver extends CustomJorbsModCard {
+public class Quicksilver extends MaterialComponent {
     public static final String ID = JorbsMod.makeID(Quicksilver.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
@@ -32,7 +32,7 @@ public class Quicksilver extends CustomJorbsModCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void useMaterialComponent(AbstractPlayer p, AbstractMonster m) {
         addToBot(new AdvanceRelicsThroughTimeAction(p, metaMagicNumber));
         addToBot(new ApplyPowerAction(p, p, new PlayNextCardThisTurnAdditionalTimesPower(p, magicNumber), magicNumber));
     }
