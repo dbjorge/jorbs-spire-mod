@@ -29,6 +29,7 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.audio.VoiceoverMaster;
 import stsjorbsmod.cards.wanderer.*;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.SnapCounter;
@@ -107,11 +108,11 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
 
     public static class AudioInfo {
         private static void registerVoiceOver(String key) {
-            CharacterVoiceOver.register(Wanderer.Enums.WANDERER, key, "wanderer/" + key + ".ogg");
+            VoiceoverMaster.register(Wanderer.Enums.WANDERER, key, "wanderer/" + key + ".ogg");
         }
 
         private static void registerVoiceOver(String key, String resourcePath) {
-            CharacterVoiceOver.register(Wanderer.Enums.WANDERER, key, resourcePath);
+            VoiceoverMaster.register(Wanderer.Enums.WANDERER, key, resourcePath);
         }
 
         public static void registerAudio() {
