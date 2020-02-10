@@ -28,12 +28,6 @@ public class GrimoireRelic extends CustomJorbsModRelic {
         AbstractPlayer p = AbstractDungeon.player;
         this.flash();
         AbstractDungeon.actionManager.addToBottom(new RememberSpecificMemoryAction(p, PatienceMemory.STATIC.ID));
-        this.counter = 0;
-    }
-
-    @Override
-    public void atTurnStartPostDraw() {
-        this.counter = ReflectionUtils.getPrivateField(AbstractDungeon.actionManager, GameActionManager.class, "turn");
     }
 
     @Override

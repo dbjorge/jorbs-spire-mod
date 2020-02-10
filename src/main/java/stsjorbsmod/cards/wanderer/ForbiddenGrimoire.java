@@ -31,7 +31,6 @@ public class ForbiddenGrimoire extends CustomJorbsModCard implements OnCardExhum
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = CARD_PLAYS_TO_EXHUME;
         EntombedField.entombed.set(this, true);
-        SelfExhumeFields.selfExhumeAtStartOfTurn7.set(this, true);
         SelfExhumeFields.selfExhumeOnSnap.set(this, true);
         EphemeralField.ephemeral.set(this, true);
         tags.add(LEGENDARY);
@@ -47,7 +46,6 @@ public class ForbiddenGrimoire extends CustomJorbsModCard implements OnCardExhum
 
     @Override
     public void onCardExhumed() {
-        SelfExhumeFields.selfExhumeAtStartOfTurn7.set(this, false);
         SelfExhumeFields.selfExhumeOnSnap.set(this, false);
     }
 

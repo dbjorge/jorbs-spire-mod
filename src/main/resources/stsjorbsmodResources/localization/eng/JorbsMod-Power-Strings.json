@@ -120,6 +120,12 @@
       "In %1$s turns, Snap."
     ]
   },
+  "stsjorbsmod:GrimoireExhumeCardInTurnsPower": {
+    "NAME": "Turn-start Exhume",
+    "DESCRIPTIONS": [
+      "%1$s will be Exhumed in #b%2$s turns, or when you Snap."
+    ]
+  },
   "stsjorbsmod:IntrospectionPower": {
     "NAME": "Introspection",
     "DESCRIPTIONS": [

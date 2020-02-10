@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -18,6 +19,7 @@ import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.SnapAction;
 import stsjorbsmod.effects.SnapTurnCounterEffect;
+import stsjorbsmod.powers.ExhumeAtStartOfTurnPower;
 
 import java.util.ArrayList;
 
@@ -150,5 +152,9 @@ public class SnapCounter {
 
     public void render(SpriteBatch sb) {
         // We don't currently render anything directly; it's indirect via the effects added in update()
+    }
+
+    public int getCurrentTurn() {
+        return currentTurn;
     }
 }
