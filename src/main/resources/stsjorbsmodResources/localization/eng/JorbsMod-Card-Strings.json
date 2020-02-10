@@ -58,8 +58,11 @@
   },
   "stsjorbsmod:Brambles": {
     "NAME": "Brambles",
-    "DESCRIPTION": "Deal damage equal to the number of stsjorbsmod:Material\u00a0Components played this combat. NL (Deals !D! damage)",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to NL !stsjorbsmod:BaseDamage! + the number of stsjorbsmod:Material\u00a0Components played this combat. NL (Deals !D! damage)"
+    "DESCRIPTION": "Deal damage equal to the number of stsjorbsmod:Material\u00a0Components played this combat.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to NL !stsjorbsmod:BaseDamage! + the number of stsjorbsmod:Material\u00a0Components played this combat.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
   },
   "stsjorbsmod:Brooding": {
     "NAME": "Brooding",

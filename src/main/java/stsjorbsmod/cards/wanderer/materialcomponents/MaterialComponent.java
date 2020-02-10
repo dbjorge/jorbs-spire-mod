@@ -12,7 +12,7 @@ public abstract class MaterialComponent extends CustomJorbsModCard {
 
     @Override
     public final void use(AbstractPlayer p, AbstractMonster m) {
-        MaterialComponentsDeck.playedCount++;
+        MaterialComponentsDeck.playedThisCombatCount++;
         useMaterialComponent(p, m);
     }
 

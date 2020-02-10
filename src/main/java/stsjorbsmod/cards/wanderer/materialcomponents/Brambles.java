@@ -4,13 +4,9 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.powers.CoilPower;
 
 public class Brambles extends MaterialComponent {
     public static final String ID = JorbsMod.makeID(Brambles.class);
@@ -31,12 +27,17 @@ public class Brambles extends MaterialComponent {
 
     @Override
     public int calculateBonusBaseDamage() {
-        return MaterialComponentsDeck.playedCount;
+        return MaterialComponentsDeck.playedThisCombatCount;
     }
 
     @Override
     public void useMaterialComponent(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SLASH_VERTICAL));
+    }
+
+    @Override
+    public String getRawDynamicDescriptionSuffix() {
+        return cardStrings.EXTENDED_DESCRIPTION[0];
     }
 
     @Override

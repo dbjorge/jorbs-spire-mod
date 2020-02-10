@@ -5,7 +5,6 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 
 /*
 Material Components Deck:	Contains 7 common, 6 uncommon, 3 rare Material Components cards.
@@ -16,7 +15,7 @@ Material Components Deck:	Contains 7 common, 6 uncommon, 3 rare Material Compone
 	resets completely for next fight.
  */
 public class MaterialComponentsDeck {
-    public static int playedCount = 0;
+    public static int playedThisCombatCount = 0;
 
     private static final CardGroup commonPool = new CardGroup(CardGroupType.UNSPECIFIED);
     private static final CardGroup uncommonPool = new CardGroup(CardGroupType.UNSPECIFIED);
@@ -74,7 +73,7 @@ public class MaterialComponentsDeck {
     }
 
     public static void reset() {
-        playedCount = 0;
+        playedThisCombatCount = 0;
         resetCommonPool();
         resetUncommonPool();
         resetRarePool();
