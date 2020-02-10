@@ -450,12 +450,6 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
     public void preBattlePrep() {
         super.preBattlePrep();
         snapCounter.reset();
-        HashSet<AbstractCard> allInstances = GetAllInBattleInstances.get(masterDeck.group.stream().filter(c -> c.cardID.equals(ForbiddenGrimoire.ID)).findAny().get().uuid);
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new EntombedGrimoirePower(
-                this,
-                allInstances.iterator().next(),
-                ForbiddenGrimoire.EXHUME_TURN,
-                snapCounter)));
     }
 
     @Override

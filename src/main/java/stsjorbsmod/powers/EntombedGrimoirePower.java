@@ -1,14 +1,13 @@
 package stsjorbsmod.powers;
 
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import stsjorbsmod.memories.OnModifyMemoriesSubscriber;
-import stsjorbsmod.memories.SnapCounter;
+import stsjorbsmod.actions.ExhumeCardsAction;
 import stsjorbsmod.patches.EnumsPatch;
 
-public class EntombedGrimoirePower extends CustomJorbsModPower implements OnModifyMemoriesSubscriber {
+public class EntombedGrimoirePower extends CustomJorbsModPower {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(EntombedGrimoirePower.class);
     public static final String POWER_ID = STATIC.ID;
 
@@ -17,9 +16,9 @@ public class EntombedGrimoirePower extends CustomJorbsModPower implements OnModi
     public AbstractCreature source;
     private final AbstractCard cardToExhume;
     private final int turnToExhume;
-    private SnapCounter snapCounter;
+    private boolean isFirstTurn;
 
-    public EntombedGrimoirePower(final AbstractCreature owner, final AbstractCard cardToExhume, final int turnToExhume, final SnapCounter snapCounter) {
+    public EntombedGrimoirePower(final AbstractCreature owner, final AbstractCard cardToExhume, final int turnToExhume) {
         super(STATIC);
 
         // This prevents the power from stacking with other instances of itself for different card instances.
@@ -35,8 +34,8 @@ public class EntombedGrimoirePower extends CustomJorbsModPower implements OnModi
 
         this.cardToExhume = cardToExhume;
         this.turnToExhume = turnToExhume;
-        this.snapCounter = snapCounter;
 
+        isFirstTurn = true;
         type = EnumsPatch.SPECIAL;
         isTurnBased = false;
 
@@ -45,17 +44,14 @@ public class EntombedGrimoirePower extends CustomJorbsModPower implements OnModi
 
     @Override
     public void atStartOfTurn() {
-        this.amount = turnToExhume - snapCounter.getCurrentTurn(); // SnapCounter's turn update happens earlier
+        // Note, the turn counter appears off by one because it isn't incremented til after start-of-turn powers are applied.
+        // However, on the first turn, turn is set to 1.
+        amount = turnToExhume - GameActionManager.turn - (isFirstTurn ? 0 : 1);
+        isFirstTurn = false;
         if (amount <= 0) {
-            this.flash();
-            addToBot(new RemoveSpecificPowerAction(owner, owner, this));
+            flash();
+            addToBot(new ExhumeCardsAction(cardToExhume));
         }
-    }
-
-    @Override
-    public void onSnap() {
-        this.flash();
-        addToBot(new RemoveSpecificPowerAction(owner, owner, this));
     }
 
     @Override
@@ -65,6 +61,6 @@ public class EntombedGrimoirePower extends CustomJorbsModPower implements OnModi
 
     @Override
     public AbstractPower makeCopy() {
-        return new EntombedGrimoirePower(owner, cardToExhume, amount, snapCounter);
+        return new EntombedGrimoirePower(owner, cardToExhume, amount);
     }
 }

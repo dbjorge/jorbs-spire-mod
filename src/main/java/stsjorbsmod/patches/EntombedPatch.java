@@ -4,7 +4,6 @@ import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.BottledFlame;
 import com.megacrit.cardcrawl.relics.BottledLightning;
 import com.megacrit.cardcrawl.relics.BottledTornado;
@@ -12,8 +11,7 @@ import javassist.CannotCompileException;
 import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
-
-import java.util.Iterator;
+import stsjorbsmod.cards.OnEntombedSubscriber;
 
 public class EntombedPatch {
     public static boolean isEntombed(AbstractCard card) {
@@ -66,6 +64,9 @@ public class EntombedPatch {
         public static void patch(AbstractPlayer __this) {
             for (AbstractCard c : __this.masterDeck.group) {
                 if (isEntombed(c)) {
+                    if (c instanceof OnEntombedSubscriber) {
+                        ((OnEntombedSubscriber) c).onCardEntombed();
+                    }
                     __this.exhaustPile.addToTop(c.makeSameInstanceOf());
                 }
             }
