@@ -27,6 +27,7 @@ public class CampfireThirstPatch {
     public static ExprEditor Instrument() {
        return new ExprEditor() {
            public void edit(NewExpr e) throws CannotCompileException {
+               // Completely replace the rest option with thirst for Cull
                if(e.getClassName().equals("com.megacrit.cardcrawl.ui.campfire.RestOption")) {
                     e.replace(String.format(
                             "{$_ = %1$s.getCullCampfireOption();}",
@@ -39,9 +40,7 @@ public class CampfireThirstPatch {
     public static CardGroup getWrathCards() {
         CardGroup masterDeck = AbstractDungeon.player.masterDeck;
         CardGroup retVal = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-        Iterator itr = masterDeck.group.iterator();
-        while(itr.hasNext()) {
-            AbstractCard c = (AbstractCard)itr.next();
+        for (AbstractCard c : masterDeck.group) {
             if (WrathField.wrathEffectCount.get(c) > 0) {
                 retVal.group.add(c);
             }

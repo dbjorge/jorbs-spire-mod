@@ -26,12 +26,19 @@ public class CampfireThirstEffect extends AbstractGameEffect {
     public static final String[] TEXT;
     private Color screenColor;
     private boolean openedScreen = false;
+    private int thirstHeal;
+    private int thirstMaxHPIncrease;
 
     public CampfireThirstEffect() {
         this.screenColor = AbstractDungeon.fadeColor.cpy();
         this.duration = 1.5F;
         this.screenColor.a = 0.0F;
         AbstractDungeon.overlayMenu.proceedButton.hide();
+
+        // Did this in the constructor rather than the update in case there are relics
+        // for Cull that tweak these numbers.
+        this.thirstHeal = 5;
+        this.thirstMaxHPIncrease = 1;
     }
 
     public void render(SpriteBatch sb) {
@@ -54,9 +61,11 @@ public class CampfireThirstEffect extends AbstractGameEffect {
 
             while(var1.hasNext()) {
                 AbstractCard c = (AbstractCard)var1.next();
-                int wrathStacks;
-                int maxHPIncreaseAmount = wrathStacks = WrathField.wrathEffectCount.get(c);
-                int healAmount = wrathStacks * 5;
+
+                int wrathStacks = WrathField.wrathEffectCount.get(c);
+                int healAmount = wrathStacks * this.thirstHeal;
+                int maxHPIncreaseAmount = wrathStacks * this.thirstMaxHPIncrease;
+
                 WrathField.wrathEffectCount.set(c, 0);
                 AbstractDungeon.player.heal(healAmount);
                 AbstractDungeon.player.increaseMaxHp(maxHPIncreaseAmount, true);
@@ -69,6 +78,9 @@ public class CampfireThirstEffect extends AbstractGameEffect {
 
         if (this.duration < 1.0F && !this.openedScreen) {
             this.openedScreen = true;
+
+            // Currently this is piggy backing off of the Toke / purge grid screen as its UX is close enough for a v1
+            // could probably stand to patch GridCardSelectScreen to make it a bit friendlier
             AbstractDungeon.gridSelectScreen.open(CampfireThirstPatch.getWrathCards(),1, TEXT[0], false, false, true, true);
         }
 
