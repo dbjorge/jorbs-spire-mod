@@ -1,6 +1,7 @@
 package stsjorbsmod.powers;
 
 import com.megacrit.cardcrawl.actions.common.EscapeAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster.Intent;
@@ -10,6 +11,8 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.actions.GainSpecificClarityAction;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
+
+import java.util.ArrayList;
 
 public class FearPower extends CustomJorbsModPower {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(FearPower.class);
@@ -36,7 +39,7 @@ public class FearPower extends CustomJorbsModPower {
 
             if (this.amount == 0) {
                 int remainingMonsters = 0;
-                boolean flipHorizontal = true;
+                ArrayList<Float> monsterDisplacementsFromPlayer = new ArrayList<>();
                 for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
                     // We normally consider halfDead things to be remaining, assuming they'll have some condition by
                     // which they'll come back.
@@ -48,13 +51,16 @@ public class FearPower extends CustomJorbsModPower {
                     // Checking intent is to cover for the "multiple FearPowers triggering on the same turn" case
                     if (!isFunctionallyDead && m.intent != Intent.ESCAPE) {
                         ++remainingMonsters;
-                        // Turn if none of the remaining monsters are on the right of the player.
-                        if (m.drawX > AbstractDungeon.player.drawX) {
-                            flipHorizontal = false;
-                        }
+                        // negative if monster to the left of player, positive if monster to the right of player
+                        monsterDisplacementsFromPlayer.add(m.drawX - AbstractDungeon.player.drawX);
                     }
                 }
-                AbstractDungeon.player.flipHorizontal = flipHorizontal;
+                // flipHorizontal = false -> face right
+                // flipHorizontal = true  -> face left
+                if (monsterDisplacementsFromPlayer.stream().noneMatch(x -> x < 0 == AbstractDungeon.player.flipHorizontal)) {
+                    // If none of the remaining monsters are on the same side the player is facing, then turn
+                    AbstractDungeon.player.flipHorizontal = !AbstractDungeon.player.flipHorizontal;
+                }
 
                 AbstractDungeon.actionManager.addToBottom(new EscapeAction(monsterOwner));
 
