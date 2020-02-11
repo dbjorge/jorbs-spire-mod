@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster.Intent;
 import com.megacrit.cardcrawl.monsters.beyond.Darkling;
+import com.megacrit.cardcrawl.monsters.ending.SpireShield;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.actions.GainSpecificClarityAction;
 import stsjorbsmod.memories.AbstractMemory;
@@ -35,6 +36,7 @@ public class FearPower extends CustomJorbsModPower {
 
             if (this.amount == 0) {
                 int remainingMonsters = 0;
+                boolean flipHorizontal = true;
                 for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
                     // We normally consider halfDead things to be remaining, assuming they'll have some condition by
                     // which they'll come back.
@@ -44,8 +46,15 @@ public class FearPower extends CustomJorbsModPower {
                     boolean isFunctionallyDead = m.isDying || m.isDead || m.isEscaping || (m.halfDead && m.id.equals(Darkling.ID));
 
                     // Checking intent is to cover for the "multiple FearPowers triggering on the same turn" case
-                    if (!isFunctionallyDead && m.intent != Intent.ESCAPE) { ++remainingMonsters; }
+                    if (!isFunctionallyDead && m.intent != Intent.ESCAPE) {
+                        ++remainingMonsters;
+                        // Turn if none of the remaining monsters are on the right of the player.
+                        if (m.drawX > AbstractDungeon.player.drawX) {
+                            flipHorizontal = false;
+                        }
+                    }
                 }
+                AbstractDungeon.player.flipHorizontal = flipHorizontal;
 
                 AbstractDungeon.actionManager.addToBottom(new EscapeAction(monsterOwner));
 
