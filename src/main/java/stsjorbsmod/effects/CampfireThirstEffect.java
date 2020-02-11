@@ -14,14 +14,16 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.CampfireUI;
 import com.megacrit.cardcrawl.rooms.RestRoom;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
-import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import stsjorbsmod.patches.CampfireThirstPatch;
 import stsjorbsmod.patches.WrathField;
 
 import java.util.Iterator;
 
+import static stsjorbsmod.JorbsMod.makeID;
+
 public class CampfireThirstEffect extends AbstractGameEffect {
+    public static final String[] TEXT;
     private Color screenColor;
     private boolean openedScreen = false;
 
@@ -67,7 +69,7 @@ public class CampfireThirstEffect extends AbstractGameEffect {
 
         if (this.duration < 1.0F && !this.openedScreen) {
             this.openedScreen = true;
-            AbstractDungeon.gridSelectScreen.open(CampfireThirstPatch.getWrathCards(),1, "Heal for 5hp per Wrath. Gain 1 max hp per Wrath.", false, false, true, true);
+            AbstractDungeon.gridSelectScreen.open(CampfireThirstPatch.getWrathCards(),1, TEXT[0], false, false, true, true);
         }
 
         if (this.duration < 0.0F) {
@@ -88,5 +90,9 @@ public class CampfireThirstEffect extends AbstractGameEffect {
         } else {
             this.screenColor.a = Interpolation.fade.apply(0.0F, 1.0F, this.duration / 1.5F);
         }
+    }
+
+    static {
+        TEXT = CardCrawlGame.languagePack.getUIString(makeID("ThirstEffect")).TEXT;
     }
 }
