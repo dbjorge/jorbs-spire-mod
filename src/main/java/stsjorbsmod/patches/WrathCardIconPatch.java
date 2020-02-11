@@ -24,8 +24,10 @@ public class WrathCardIconPatch {
     )
     public static class AbstractCard_renderEnergy {
         // This is intentionally a little further out than the Energy cost because it can feasibly hit 2-digit numbers
-        public static final float WRATH_TEXT_OFFSET_X = 135.0F;
-        public static final float WRATH_TEXT_OFFSET_Y = 192.0F;
+        public static final float WRATH_ICON_OFFSET_X = -267.0F;
+        public static final float WRATH_TEXT_OFFSET_X = -132.0F;
+        public static final float WRATH_ICON_OFFSET_Y = 80.0F;
+        public static final float WRATH_TEXT_OFFSET_Y = 104.5F;
         public static final Texture wrathIconOverlayTexture = TextureLoader.getTexture(makeCharPath("wanderer/card_bgs/card_overlay_wrath_icon_512.png"));
         public static final AtlasRegion wrathIconOverlayImg = new AtlasRegion(wrathIconOverlayTexture, 0, 0, 512, 512);
 
@@ -39,7 +41,15 @@ public class WrathCardIconPatch {
             }
 
             Color renderColor = ReflectionUtils.getPrivateField(card, AbstractCard.class, "renderColor");
-            RenderUtils.renderAtlasRegionCenteredAt(sb, wrathIconOverlayImg, card.current_x, card.current_y, card.drawScale * Settings.scale, renderColor, card.angle);
+            RenderUtils.renderAtlasRegionCenteredAt(sb,
+                    wrathIconOverlayImg,
+                    card.current_x,
+                    card.current_y,
+                    WRATH_ICON_OFFSET_X,
+                    WRATH_ICON_OFFSET_Y,
+                    card.drawScale * Settings.scale,
+                    renderColor,
+                    card.angle);
 
             Color textColor = Color.WHITE.cpy();
             textColor.a = card.transparency;
@@ -58,16 +68,16 @@ public class WrathCardIconPatch {
                     textColor);
         }
     }
-    
+
     @SpirePatch(
             clz = SingleCardViewPopup.class,
             method = "renderCost"
     )
     public static class SingleCardViewPopup_renderCost {
-        public static final float WRATH_ICON_OFFSET_X = (float)Settings.WIDTH / 2.0F + 270.0F * Settings.scale;
-        public static final float WRATH_TEXT_OFFSET_X = (float)Settings.WIDTH / 2.0F + 252.0F * Settings.scale;
-        public static final float WRATH_ICON_OFFSET_Y = (float)Settings.HEIGHT / 2.0F + 425.0F * Settings.scale;
-        public static final float WRATH_TEXT_OFFSET_Y = (float)Settings.HEIGHT / 2.0F + 404.0F * Settings.scale;
+        public static final float WRATH_ICON_OFFSET_X = (float)Settings.WIDTH / 2.0F + -270.0F * Settings.scale;
+        public static final float WRATH_TEXT_OFFSET_X = (float)Settings.WIDTH / 2.0F + -288.0F * Settings.scale;
+        public static final float WRATH_ICON_OFFSET_Y = (float)Settings.HEIGHT / 2.0F + 230.0F * Settings.scale;
+        public static final float WRATH_TEXT_OFFSET_Y = (float)Settings.HEIGHT / 2.0F + 209.0F * Settings.scale;
         public static final Texture wrathIconOverlayTexture = TextureLoader.getTexture(makeCharPath("wanderer/card_bgs/card_wrath_icon.png"));
         public static final AtlasRegion wrathIconOverlayImg = new AtlasRegion(wrathIconOverlayTexture, 0, 0, 164, 250);
 
