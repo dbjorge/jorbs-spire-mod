@@ -6,9 +6,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.*;
 import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
@@ -43,11 +41,14 @@ public class CullDexPatch {
     }
 
     public static AbstractPower updateDexPower(AbstractPower power) {
-        if (power instanceof  DexterityPower && AbstractDungeon.player instanceof Cull && power.owner instanceof Cull) {
-            return new StrengthPower(power.owner, power.amount);
-        } else {
-            return power;
+        if (AbstractDungeon.player instanceof Cull && power.owner instanceof Cull) {
+            if(power instanceof DexterityPower) {
+                return new StrengthPower(power.owner, power.amount);
+            } else if (power instanceof LoseDexterityPower) {
+                return new LoseStrengthPower(power.owner, power.amount);
+            }
         }
+        return power;
     }
 }
 

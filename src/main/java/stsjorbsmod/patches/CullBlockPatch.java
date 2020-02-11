@@ -11,6 +11,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import stsjorbsmod.characters.Cull;
 
 
+/*
+This is an easy enough first pass for Cull not doing block things. A future iteration will probably want to patch
+GainBlockAction.update twice to both change the Shielded effect that is played as well as preventing the actual block.
+However this should be sufficient to feel out the mechanic.
+ */
 @SpirePatch(
         clz = AbstractCreature.class,
         method = "addBlock"
