@@ -26,7 +26,7 @@ public class WrathCardIconPatch {
         // This is intentionally a little further out than the Energy cost because it can feasibly hit 2-digit numbers
         public static final float WRATH_ICON_OFFSET_X = -267.0F;
         public static final float WRATH_TEXT_OFFSET_X = -132.0F;
-        public static final float WRATH_ICON_OFFSET_Y = 80.0F;
+        public static final float WRATH_ICON_OFFSET_Y = 80.0F; // the icon's y offset origin is the card's top, down is positive
         public static final float WRATH_TEXT_OFFSET_Y = 104.5F;
         public static final Texture wrathIconOverlayTexture = TextureLoader.getTexture(makeCharPath("wanderer/card_bgs/card_overlay_wrath_icon_512.png"));
         public static final AtlasRegion wrathIconOverlayImg = new AtlasRegion(wrathIconOverlayTexture, 0, 0, 512, 512);
