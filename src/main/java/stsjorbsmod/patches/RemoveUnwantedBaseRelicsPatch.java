@@ -21,7 +21,7 @@ public class RemoveUnwantedBaseRelicsPatch {
             if (__instance.player instanceof Wanderer || (cull = __instance.player instanceof Cull)) {
                 AbstractDungeon.relicsToRemoveOnStart.add(PrismaticShard.ID);
 
-                // Cull implicitly has Wing Boots
+                // Cull has this implicitly
                 if (cull) { AbstractDungeon.relicsToRemoveOnStart.add(WingBoots.ID); }
             }
         }
