@@ -27,7 +27,6 @@ public class ArcaneForm extends CustomJorbsModCard {
         isEthereal = true;
 
         tags.add(PERSISTENT_POSITIVE_EFFECT);
-        tags.add(REMEMBER_MEMORY);
         tags.add(BaseModCardTags.FORM);
     }
 
