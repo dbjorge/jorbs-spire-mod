@@ -105,7 +105,7 @@
   "stsjorbsmod:FindFamiliarPower": {
     "NAME": "Find Familiar",
     "DESCRIPTIONS": [
-      "At the end of each turn, gain #yClarity."
+      "At the start of each turn, gain #yClarity."
     ]
   },
   "stsjorbsmod:FlameWardPower": {

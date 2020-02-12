@@ -53,19 +53,6 @@ public class Prepare extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, block));
         addToBot(new ApplyPowerAction(p, p, new CoilPower(p, metaMagicNumber)));
-
-        // TODO: clean up later if we keep block -> gain coil
-        // We can't use a GainBlockAction directly because we need to recalculate block in applyPowers in between the
-        // new Coil stacks applying, this card being played (and possibly adding a new coil stack for that), and the
-        // GainBlockAction being scheduled.
-//        addToBot(new AbstractGameAction() {
-//            @Override
-//            public void update() {
-//                Prepare.this.applyPowers();
-//                AbstractDungeon.actionManager.addToTop(new GainBlockAction(p, p, Prepare.this.block));
-//                isDone = true;
-//            }
-//        });
     }
 
     @Override
