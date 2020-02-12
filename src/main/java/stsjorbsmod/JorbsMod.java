@@ -29,8 +29,10 @@ import stsjorbsmod.audio.VoiceoverMaster;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.characters.ManifestSaveData;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.console.BlockCommand;
 import stsjorbsmod.console.MemoryCommand;
 import stsjorbsmod.console.PlaySoundCommand;
+import stsjorbsmod.console.WrathCommand;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.potions.*;
@@ -275,8 +277,10 @@ public class JorbsMod implements
     public void receivePostInitialize() {
         logger.info("Loading badge image and mod options");
 
+        BlockCommand.register();
         MemoryCommand.register();
         PlaySoundCommand.register();
+        WrathCommand.register();
 
         // Load the Mod Badge
         Texture badgeTexture = TextureLoader.getTexture(BADGE_IMAGE);
