@@ -16,9 +16,9 @@ public class FindFamiliarPower extends CustomJorbsModPower {
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer) {
+    public void atStartOfTurn() {
         MemoryManager mm = MemoryManager.forPlayer(owner);
-        if (isPlayer && mm != null) {
+        if (mm != null) {
             this.flash();
             AbstractDungeon.actionManager.addToBottom(new GainClarityOfCurrentMemoryAction(owner));
         }
