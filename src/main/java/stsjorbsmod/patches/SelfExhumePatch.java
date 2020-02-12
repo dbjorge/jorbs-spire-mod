@@ -30,22 +30,6 @@ public class SelfExhumePatch {
             }
         }
     }
-
-    @SpirePatch(
-            clz = AbstractCreature.class,
-            method = "applyStartOfTurnPowers"
-    )
-    public static class ExhumeAtStartOfTurn7Patch {
-        public static final int TURN_TO_EXHUME_ON = 7;
-
-        @SpirePostfixPatch
-        public static void patch(AbstractCreature __this) {
-            // Note, the turn counter appears off by one because it isn't incremented til after start-of-turn powers are applied
-            if (__this.isPlayer && GameActionManager.turn == TURN_TO_EXHUME_ON - 1) {
-                AbstractDungeon.actionManager.addToBottom(new ExhumeCardsAction(SelfExhumeFields.selfExhumeAtStartOfTurn7::get));
-            }
-        }
-    }
 }
 
 

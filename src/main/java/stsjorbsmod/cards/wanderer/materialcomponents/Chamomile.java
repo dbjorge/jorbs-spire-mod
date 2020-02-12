@@ -11,7 +11,7 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.EphemeralField;
 
-public class Chamomile extends CustomJorbsModCard {
+public class Chamomile extends MaterialComponent {
     public static final String ID = JorbsMod.makeID(Chamomile.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
@@ -28,7 +28,7 @@ public class Chamomile extends CustomJorbsModCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void useMaterialComponent(AbstractPlayer p, AbstractMonster m) {
         addToBot(new RemoveSpecificPowerAction(p, p, FrailPower.POWER_ID));
         addToBot(new RemoveSpecificPowerAction(p, p, VulnerablePower.POWER_ID));
         addToBot(new RemoveSpecificPowerAction(p, p, WeakPower.POWER_ID));

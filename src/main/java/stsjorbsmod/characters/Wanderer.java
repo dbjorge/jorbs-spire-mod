@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -16,10 +17,7 @@ import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
-import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.helpers.ScreenShake;
+import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.monsters.beyond.*;
 import com.megacrit.cardcrawl.monsters.city.*;
@@ -30,17 +28,20 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.audio.VoiceoverMaster;
 import stsjorbsmod.cards.wanderer.*;
-import stsjorbsmod.effects.EmphasizedSFXEffect;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.SnapCounter;
 import stsjorbsmod.patches.CutsceneMultiScreenPatch;
+import stsjorbsmod.powers.EntombedGrimoirePower;
 import stsjorbsmod.relics.GrimoireRelic;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
-import static stsjorbsmod.JorbsMod.*;
+import static stsjorbsmod.JorbsMod.makeCharPath;
+import static stsjorbsmod.JorbsMod.makeID;
 import static stsjorbsmod.characters.Wanderer.Enums.WANDERER_CARD_COLOR;
 
 //Wiki-page https://github.com/daviscook477/BaseMod/wiki/Custom-Characters
@@ -62,10 +63,11 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
         public static AbstractPlayer.PlayerClass WANDERER;
         @SpireEnum(name = "WANDERER_GRAY_COLOR") // These two HAVE to have the same absolutely identical name.
         public static AbstractCard.CardColor WANDERER_CARD_COLOR;
-        @SpireEnum(name = "WANDERER_GRAY_COLOR") @SuppressWarnings("unused")
+        @SpireEnum(name = "WANDERER_GRAY_COLOR")
+        @SuppressWarnings("unused")
         public static CardLibrary.LibraryType WANDERER_LIBRARY_COLOR;
     }
-    
+
     // Note: These have to live in a separate static subclass to ensure the BaseMode.addColor call can happen before the
     // static initializers for the class run, due to temporal coupling between the abstract base class initializers.
     public static class ColorInfo {
@@ -104,16 +106,16 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
                     CARD_SMALL_ENERGY_ORB_TEXTURE);
         }
     }
-    
+
     public static class AudioInfo {
         private static void registerVoiceOver(String key) {
-            CharacterVoiceOver.register(Wanderer.Enums.WANDERER, key, "wanderer/" + key + ".ogg");
+            VoiceoverMaster.register(Wanderer.Enums.WANDERER, key, "wanderer/" + key + ".ogg");
         }
 
         private static void registerVoiceOver(String key, String resourcePath) {
-            CharacterVoiceOver.register(Wanderer.Enums.WANDERER, key, resourcePath);
+            VoiceoverMaster.register(Wanderer.Enums.WANDERER, key, resourcePath);
         }
-        
+
         public static void registerAudio() {
             registerVoiceOver(AwakenedOne.ID);
             registerVoiceOver(BookOfStabbing.ID);
@@ -172,7 +174,7 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
 
 
     // =============== TEXTURES ===============
-    
+
     // Character assets
     public static final String CHARACTER_SELECT_BUTTON_TEXTURE = makeCharPath("wanderer/char_select_button.png");
     public static final String CHARACTER_SELECT_BG_TEXTURE = makeCharPath("wanderer/char_select_bg.png");
@@ -222,7 +224,7 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
                 null,
                 loadIdleAnimation());
 
-        idleAnimation = (SpriterAnimation)this.animation;
+        idleAnimation = (SpriterAnimation) this.animation;
         postSnapAnimation = loadPostSnapAnimation();
 
         initializeClass(
@@ -232,7 +234,7 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
                 CORPSE_TEXTURE,
                 getLoadout(), 0F, -10.0F, 160.0F, 280.0F, new EnergyManager(ENERGY_PER_TURN));
 
-        this.dialogX = drawX + DIALOG_OFFSET_X;;
+        this.dialogX = drawX + DIALOG_OFFSET_X;
         this.dialogY = drawY + DIALOG_OFFSET_Y;
 
         MemoryManager.forPlayer(this).renderForgottenMemories = true;
@@ -466,7 +468,8 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
     @Override
     public void update() {
         super.update();
-        snapCounter.update(drawX + SNAP_COUNTER_OFFSET_X, drawY + SNAP_COUNTER_OFFSET_Y);
+        int flipMultiplier = flipHorizontal ? -1 : 1;
+        snapCounter.update(drawX + flipMultiplier * SNAP_COUNTER_OFFSET_X, drawY + SNAP_COUNTER_OFFSET_Y, flipMultiplier);
     }
 
     @Override

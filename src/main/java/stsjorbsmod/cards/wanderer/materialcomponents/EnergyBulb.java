@@ -8,7 +8,7 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.EphemeralField;
 
-public class EnergyBulb extends CustomJorbsModCard {
+public class EnergyBulb extends MaterialComponent {
     public static final String ID = JorbsMod.makeID(EnergyBulb.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
@@ -27,7 +27,7 @@ public class EnergyBulb extends CustomJorbsModCard {
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void useMaterialComponent(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainEnergyAction(magicNumber));
     }
 
