@@ -53,6 +53,14 @@
 * NoblemanGR
 * SLG95
 
+### Writers
+
+* Charlene Putney
+* Freyjas Guardian
+* Leeeeeeeeeee
+* Sasha Chapin
+* SkyeVeran
+
 ### Localization
 
 * GDami (French) ([GitHub](https://github.com/GDami))
