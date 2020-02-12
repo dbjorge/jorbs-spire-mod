@@ -27,6 +27,7 @@
 ### Developers
 
 * evan_tor ([GitHub](https://github.com/evantor))
+* Lucerna ([GitHub](https://github.com/Jacob-Laverty))
 * mderb4 ([GitHub](https://github.com/mderb4))
 * mdiehr ([GitHub](https://github.com/mdiehr))
 * mevestatney ([GitHub](https://github.com/stevematney))
@@ -52,6 +53,14 @@
 * Newigeg
 * NoblemanGR
 * SLG95
+
+### Writers
+
+* Charlene Putney
+* Freyjas Guardian
+* Leeeeeeeeeee
+* Sasha Chapin
+* SkyeVeran
 
 ### Localization
 

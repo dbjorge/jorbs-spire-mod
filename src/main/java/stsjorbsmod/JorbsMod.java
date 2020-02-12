@@ -29,8 +29,10 @@ import stsjorbsmod.audio.VoiceoverMaster;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.characters.ManifestSaveData;
 import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.console.BlockCommand;
 import stsjorbsmod.console.MemoryCommand;
 import stsjorbsmod.console.PlaySoundCommand;
+import stsjorbsmod.console.WrathCommand;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.potions.*;
@@ -275,8 +277,10 @@ public class JorbsMod implements
     public void receivePostInitialize() {
         logger.info("Loading badge image and mod options");
 
+        BlockCommand.register();
         MemoryCommand.register();
         PlaySoundCommand.register();
+        WrathCommand.register();
 
         // Load the Mod Badge
         Texture badgeTexture = TextureLoader.getTexture(BADGE_IMAGE);
@@ -304,15 +308,15 @@ public class JorbsMod implements
         
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
-        BaseMod.addPotion(DimensionDoorPotion.class, Color.BLACK, Color.CORAL, null,
+        BaseMod.addPotion(DimensionDoorPotion.class, Color.BLACK.cpy(), Color.CORAL.cpy(), null,
                 DimensionDoorPotion.POTION_ID, Wanderer.Enums.WANDERER);
-        BaseMod.addPotion(BurningPotion.class, Color.ORANGE, null, new Color(-1033371393),
+        BaseMod.addPotion(BurningPotion.class, Color.ORANGE.cpy(), null, new Color(-1033371393),
                 BurningPotion.POTION_ID, Wanderer.Enums.WANDERER);
-        BaseMod.addPotion(LiquidClarity.class, Color.BLUE, null, Color.PURPLE,
+        BaseMod.addPotion(LiquidClarity.class, Color.BLUE.cpy(), null, Color.PURPLE.cpy(),
                 LiquidClarity.POTION_ID, Wanderer.Enums.WANDERER);
-        BaseMod.addPotion(LiquidVirtue.class, Color.BLUE, null, Color.PURPLE,
+        BaseMod.addPotion(LiquidVirtue.class, Color.BLUE.cpy(), null, Color.PURPLE.cpy(),
                 LiquidVirtue.POTION_ID, Wanderer.Enums.WANDERER);
-        BaseMod.addPotion(GhostPoisonPotion.class, Color.LIME, Color.BLACK, Color.LIME,
+        BaseMod.addPotion(GhostPoisonPotion.class, Color.LIME.cpy(), Color.BLACK.cpy(), Color.LIME.cpy(),
                 GhostPoisonPotion.POTION_ID, Cull.Enums.CULL);
 
 

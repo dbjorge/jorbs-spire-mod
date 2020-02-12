@@ -31,9 +31,9 @@ public class TinyCardColorPatch {
         @SpirePrefixPatch
         public static SpireReturn<Color> Prefix(TinyCard __this, AbstractCard card) {
             if (card.color == Wanderer.Enums.WANDERER_CARD_COLOR) {
-                return SpireReturn.Return(Color.GRAY);
+                return SpireReturn.Return(Color.GRAY.cpy());
             } else if (card.color == Cull.Enums.CULL_CARD_COLOR) {
-                return SpireReturn.Return(Color.GRAY);
+                return SpireReturn.Return(Color.GRAY.cpy());
             } /* TODO: uncomment me: else if (card.color == Explorer.Enums.EXPLORER_CARD_COLOR) {
                 return SpireReturn.Return(Color.GRAY);
             } */ else {

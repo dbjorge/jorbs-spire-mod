@@ -48,13 +48,13 @@ public class SnapCounter {
     private float indicatorParticleTimer;
 
     private static final Color[] colors = new Color[] {
-            Color.VIOLET,
+            Color.VIOLET.cpy(),
             new Color(.24F, .45F, 1.0F, 1.0F),
-            Color.SKY,
-            Color.FOREST,
-            Color.YELLOW,
-            Color.ORANGE,
-            Color.RED
+            Color.SKY.cpy(),
+            Color.FOREST.cpy(),
+            Color.YELLOW.cpy(),
+            Color.ORANGE.cpy(),
+            Color.RED.cpy()
     };
 
     private static final float STARTING_ALPHA = 0.65F;

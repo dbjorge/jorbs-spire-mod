@@ -152,6 +152,6 @@ public class BurningPower extends CustomJorbsModPower implements HealthBarRender
 
     @Override
     public Color getColor() {
-        return Color.GOLD;
+        return Color.GOLD.cpy();
     }
 }
