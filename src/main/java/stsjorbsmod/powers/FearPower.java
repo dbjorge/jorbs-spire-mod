@@ -60,7 +60,7 @@ public class FearPower extends CustomJorbsModPower {
                 }
                 // flipHorizontal = false -> face right
                 // flipHorizontal = true  -> face left
-                if (monsterDisplacementsFromPlayer.stream().noneMatch(x -> x < 0 == AbstractDungeon.player.flipHorizontal)) {
+                if (remainingMonsters > 0 && monsterDisplacementsFromPlayer.stream().noneMatch(x -> x < 0 == AbstractDungeon.player.flipHorizontal)) {
                     // If none of the remaining monsters are on the same side the player is facing, then turn
                     AbstractDungeon.player.flipHorizontal = !AbstractDungeon.player.flipHorizontal;
                     addToBot(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, SurroundedPower.POWER_ID));
