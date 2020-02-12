@@ -1,6 +1,7 @@
 package stsjorbsmod.powers;
 
 import com.megacrit.cardcrawl.actions.common.EscapeAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -8,6 +9,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster.Intent;
 import com.megacrit.cardcrawl.monsters.beyond.Darkling;
 import com.megacrit.cardcrawl.monsters.ending.SpireShield;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.BackAttackPower;
+import com.megacrit.cardcrawl.powers.SurroundedPower;
 import stsjorbsmod.actions.GainSpecificClarityAction;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
@@ -60,6 +63,10 @@ public class FearPower extends CustomJorbsModPower {
                 if (monsterDisplacementsFromPlayer.stream().noneMatch(x -> x < 0 == AbstractDungeon.player.flipHorizontal)) {
                     // If none of the remaining monsters are on the same side the player is facing, then turn
                     AbstractDungeon.player.flipHorizontal = !AbstractDungeon.player.flipHorizontal;
+                    addToBot(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, SurroundedPower.POWER_ID));
+                    for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                        addToBot(new RemoveSpecificPowerAction(m, m, BackAttackPower.POWER_ID));
+                    }
                 }
 
                 AbstractDungeon.actionManager.addToBottom(new EscapeAction(monsterOwner));
