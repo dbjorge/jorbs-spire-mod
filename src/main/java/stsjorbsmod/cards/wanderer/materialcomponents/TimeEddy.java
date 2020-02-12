@@ -3,8 +3,7 @@ package stsjorbsmod.cards.wanderer.materialcomponents;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.TImeEddyAction;
-import stsjorbsmod.cards.CustomJorbsModCard;
+import stsjorbsmod.actions.TimeEddyAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.EphemeralField;
 
@@ -29,7 +28,7 @@ public class TimeEddy extends MaterialComponent {
 
     @Override
     public void useMaterialComponent(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new TImeEddyAction(p, magicNumber));
+        addToBot(new TimeEddyAction(magicNumber));
     }
 
     @Override

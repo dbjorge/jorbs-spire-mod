@@ -1,7 +1,6 @@
 package stsjorbsmod.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -12,8 +11,8 @@ import stsjorbsmod.powers.CustomJorbsModPower;
 
 import java.util.function.Consumer;
 
-public class TImeEddyAction extends AbstractGameAction {
-    public TImeEddyAction(AbstractCreature target, int turnsToAdvance) {
+public class TimeEddyAction extends AbstractGameAction {
+    public TimeEddyAction(int turnsToAdvance) {
         this.amount = turnsToAdvance;
     }
 
@@ -56,36 +55,39 @@ public class TImeEddyAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        for (int i = 0; i < this.amount; ++i) {
-            // Player turn end
-            forEachApplicablePlayerMemory(m -> m.atEndOfTurn());
-            forEachApplicablePlayerPower(p -> p.atEndOfTurnPreEndTurnCards(true));
-            forEachApplicablePlayerPower(p -> p.atEndOfTurn(true));
+        // Player turn end
+        forEachApplicablePlayerMemory(m -> m.atEndOfTurn());
+        forEachApplicablePlayerPower(p -> p.atEndOfTurnPreEndTurnCards(true));
+        forEachApplicablePlayerPower(p -> p.atEndOfTurn(true));
 
-            // Monster turn start
-            forEachApplicableMonsterPower(p -> { if (p instanceof CustomJorbsModPower) { ((CustomJorbsModPower) p).atStartOfTurnPreLoseBlock(); } });
-            forEachApplicableMonsterPower(p -> p.atStartOfTurn());
-            forEachApplicableMonsterPower(p -> p.atStartOfTurnPostDraw());
+        // Monster turn start
+        forEachApplicableMonsterPower(p -> { if (p instanceof CustomJorbsModPower) { ((CustomJorbsModPower) p).atStartOfTurnPreLoseBlock(); } });
+        forEachApplicableMonsterPower(p -> p.atStartOfTurn());
+        forEachApplicableMonsterPower(p -> p.atStartOfTurnPostDraw());
 
-            // Monster turn
-            forEachApplicableMonsterPower(p -> p.duringTurn());
+        // Monster turn
+        forEachApplicableMonsterPower(p -> p.duringTurn());
 
-            // Monster turn end
-            forEachApplicableMonsterPower(p -> { if (p instanceof BurningPower) { p.onSpecificTrigger(); } });
-            forEachApplicableMonsterPower(p -> p.atEndOfTurnPreEndTurnCards(false));
-            forEachApplicableMonsterPower(p -> p.atEndOfTurn(false));
+        // Monster turn end
+        forEachApplicableMonsterPower(p -> { if (p instanceof BurningPower) { p.onSpecificTrigger(); } });
+        forEachApplicableMonsterPower(p -> p.atEndOfTurnPreEndTurnCards(false));
+        forEachApplicableMonsterPower(p -> p.atEndOfTurn(false));
 
-            // Round end
-            forEachApplicablePlayerPower(p -> p.atEndOfRound());
-            forEachApplicableMonsterPower(p -> p.atEndOfRound());
+        // Round end
+        forEachApplicablePlayerPower(p -> p.atEndOfRound());
+        forEachApplicableMonsterPower(p -> p.atEndOfRound());
 
-            // Player turn start
-            forEachApplicablePlayerPower(p -> p.atStartOfTurn());
-            forEachApplicablePlayerMemory(m -> m.atStartOfTurnPostDraw());
-            forEachApplicablePlayerPower(p -> p.atStartOfTurnPostDraw());
+        // Player turn start
+        forEachApplicablePlayerPower(p -> p.atStartOfTurn());
+        forEachApplicablePlayerMemory(m -> m.atStartOfTurnPostDraw());
+        forEachApplicablePlayerPower(p -> p.atStartOfTurnPostDraw());
 
-            // Player turn
-            forEachApplicablePlayerPower(p -> p.duringTurn());
+        // Player turn
+        forEachApplicablePlayerPower(p -> p.duringTurn());
+
+        // base case, don't accidentally end up Time Eddying forever
+        if (amount > 1) {
+            addToBot(new TimeEddyAction(amount - 1));
         }
 
         isDone = true;
