@@ -446,7 +446,7 @@
   },
   "stsjorbsmod:Prepare": {
     "NAME": "Prepare",
-    "DESCRIPTION": "Gain !stsjorbsmod:MetaMagic! stsjorbsmod:Coil. NL Gain Block equal to your stsjorbsmod:Coil.",
+    "DESCRIPTION": "Gain Block equal to your stsjorbsmod:Coil. NL Gain !stsjorbsmod:MetaMagic! stsjorbsmod:Coil.",
     "EXTENDED_DESCRIPTION": [
       " NL (You have !M! Coil.)"
     ]
