@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.PrismaticShard;
 import com.megacrit.cardcrawl.relics.WingBoots;
 import stsjorbsmod.characters.Cull;
+import stsjorbsmod.characters.Wanderer;
 
 public class RemoveUnwantedBaseRelicsPatch {
     @SpirePatch(
@@ -15,12 +16,13 @@ public class RemoveUnwantedBaseRelicsPatch {
     public static class Implementation
     {
         @SpirePrefixPatch
-        public static void patch(AbstractDungeon __instance)
-        {
-            AbstractDungeon.relicsToRemoveOnStart.add(PrismaticShard.ID);
+        public static void patch(AbstractDungeon __instance) {
+            boolean cull = false;
+            if (__instance.player instanceof Wanderer || (cull = __instance.player instanceof Cull)) {
+                AbstractDungeon.relicsToRemoveOnStart.add(PrismaticShard.ID);
 
-            if (__instance.player instanceof Cull) {
-                AbstractDungeon.relicsToRemoveOnStart.add(WingBoots.ID); // Cull has this implicitly
+                // Cull implicitly has Wing Boots
+                if (cull) { AbstractDungeon.relicsToRemoveOnStart.add(WingBoots.ID); }
             }
         }
     }
