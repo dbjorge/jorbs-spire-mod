@@ -157,35 +157,6 @@ public class LegendaryPatch {
         }
     }
 
-    // This should act like the original, unpatched version of CardGroup::getPurgeableCards
-    public static CardGroup getPurgeableOrLegendaryCards(CardGroup originalCards) {
-        CardGroup result = originalCards.getPurgeableCards(); // without legendaries
-        for (AbstractCard c : originalCards.group) {
-            if (c.hasTag(LEGENDARY)) {
-                result.group.add(c);
-            }
-        }
-        return result;
-    }
-
-    // Bottle relics are exceptional in that they use getPurgeableCards to determine candidates but we don't want to
-    // exclude Legendary cards from them
-    @SpirePatch(clz = BottledFlame.class, method = "onEquip")
-    @SpirePatch(clz = BottledLightning.class, method = "onEquip")
-    @SpirePatch(clz = BottledTornado.class, method = "onEquip")
-    public static class BottledRelic_onEquip {
-        public static ExprEditor Instrument() {
-            return new ExprEditor() {
-                @Override
-                public void edit(MethodCall m) throws CannotCompileException {
-                    if (m.getClassName().equals(CardGroup.class.getName()) && m.getMethodName().equals("getPurgeableCards")) {
-                        m.replace(String.format("{ $_ = %1$s.getPurgeableOrLegendaryCards($0); }", LegendaryPatch.class.getName()));
-                    }
-                }
-            };
-        }
-    }
-
     // Legendary cards aren't purgeable. By removing them from choices to purge, we sidestep them even being picked
     // by the player to remove or transform.
     @SpirePatch(clz = CardGroup.class, method = "getPurgeableCards")
