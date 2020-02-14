@@ -2,8 +2,8 @@
   "steamPublishedID": "1997053791",
   "title": "Jorbs\u0027s Wanderer Trilogy",
   "description": "",
-  "visibility": "friends",
-  "changeNote": "v1.0.0",
+  "visibility": "public",
+  "changeNote": "v1.0.2",
   "tags": [
     "Character",
     "Expansion"
