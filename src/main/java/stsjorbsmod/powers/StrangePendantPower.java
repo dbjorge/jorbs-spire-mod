@@ -23,7 +23,7 @@ public class StrangePendantPower extends CustomJorbsModPower implements OnPlayer
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer) {
+    public void atStartOfTurn() {
         this.damageAbsorbedThisTurn = 0;
     }
 
