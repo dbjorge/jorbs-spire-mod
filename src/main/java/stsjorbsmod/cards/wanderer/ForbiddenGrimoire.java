@@ -31,7 +31,7 @@ public class ForbiddenGrimoire extends CustomJorbsModCard implements OnCardExhum
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 0;
-    private static final int CARD_PLAYS_TO_EXHUME = 3;
+    private static final int CARD_PLAYS_TO_EXHUME = 4;
 
     public static final int EXHUME_TURN = 7;
 
