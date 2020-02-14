@@ -7,10 +7,10 @@ taglines:
 lang: en-US
 
 navigation:
-  - title: Install
-    url: /
-  - title: Changelog
-    url: https://github.com/dbjorge/jorbs-spire-mod/releases
+  - title: Download on Steam
+    url: https://steamcommunity.com/sharedfiles/filedetails/?id=1997053791
+  - title: About
+    url: https://docs.google.com/document/d/1jA7JRDw88ygrLGzNK2t5UtwGUB7Z4TINHZUVNjYGmNs
   - title: Credits
     url: /credits
   - title: GitHub
