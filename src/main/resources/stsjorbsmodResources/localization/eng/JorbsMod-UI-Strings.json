@@ -62,7 +62,8 @@
   },
   "stsjorbsmod:ModSettingsPanel": {
     "TEXT": [
-      "Voiceover Volume"
+      "Voiceover Volume",
+      "Enable incomplete/in-development version of CULL (requires restart)"
     ]
   },
   "stsjorbsmod:SnapCounter": {
