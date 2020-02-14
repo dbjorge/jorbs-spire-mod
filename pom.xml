@@ -3,9 +3,9 @@
 
     <groupId>stsjorbsmod</groupId>
     <artifactId>JorbsMod</artifactId>
-    <name>Jorbs Mod</name>
+    <name>Jorbs's Wanderer Trilogy</name>
     <version>0.64.0</version>
-    <description>A mod based on Jorbs' spreadsheet.</description>
+    <description>The Wanderer, Cull, and Explorer. Inspired by Jorbs and co-developed by the community.</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -104,6 +104,8 @@
                             <target>
                                 <!-- This moves your mod into a common folder where all mods you make can go. -->
                                 <copy file="target/${project.artifactId}.jar" tofile="${SlayTheSpire.mod_folder}/${project.artifactId}.jar"/>
+                                <!-- This is where the steam workshop uploader looks for it -->
+                                <copy file="target/${project.artifactId}.jar" tofile="steam_workshop/content/${project.artifactId}.jar"/>
                             </target>
                         </configuration>
                         <goals>

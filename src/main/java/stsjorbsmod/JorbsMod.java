@@ -70,9 +70,9 @@ public class JorbsMod implements
 
     // This is for the in-game mod settings panel.
     private static final String MOD_SETTINGS_FILE = "stsjorbsmod_config";
-    private static final String MODNAME = "Jorbs Mod";
+    private static final String MODNAME = "Jorbs's Wanderer Trilogy";
     private static final String AUTHOR = "https://mod.jorbs.tv/credits";
-    private static final String DESCRIPTION = "The Wanderer, Explorer, and CULL";
+    private static final String DESCRIPTION = "The Wanderer, CULL, and Explorer. Inspired by Jorbs and co-developed by the community.";
 
     public static class JorbsCardTags {
         // Use on a card that brings in a possible beneficial effect that lasts longer than the combat and isn't

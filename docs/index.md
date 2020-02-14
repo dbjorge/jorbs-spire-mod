@@ -1,5 +1,5 @@
 ---
-title: Jorbs Mod
+title: Jorbs's Wanderer Trilogy
 ---
 
 ## How to install
