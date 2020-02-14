@@ -1,7 +1,11 @@
 {
-  "title": "Jorbs's Wanderer Trilogy",
+  "steamPublishedID": "1997053791",
+  "title": "Jorbs\u0027s Wanderer Trilogy",
   "description": "",
-  "visibility": "private",
+  "visibility": "unlisted",
   "changeNote": "v1.0.0",
-  "tags": ["Character", "Expansion"]
+  "tags": [
+    "Character",
+    "Expansion"
+  ]
 }
