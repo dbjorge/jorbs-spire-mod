@@ -8,7 +8,7 @@
 
 ### Technical Director
 
-* brosmike ([GitHub](https://github.com/dbjorge), [Twitch](https://twitch.tv/brosmike))
+* Dan "brosmike" Bjorge ([GitHub](https://github.com/dbjorge), [Twitch](https://twitch.tv/brosmike))
 
 ### Producer & Community Organizer
 
@@ -56,15 +56,19 @@
 
 ### Writers
 
-* Charlene Putney
+* Charlene Putney (Divinity: Original Sin, http://alphachar.com/)
 * Freyjas Guardian
 * Leeeeeeeeeee
-* Sasha Chapin
+* Sasha Chapin (All The Wrong Moves, https://www.imsashachapin.com/)
 * SkyeVeran
 
 ### Localization
 
 * GDami (French) ([GitHub](https://github.com/GDami))
+
+### Trailer Videographer
+
+* stambo
 
 ### Playtesting, Feedback, Bug Reports
 
