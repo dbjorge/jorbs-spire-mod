@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 public class VoiceoverMaster {
-    public static final float VOICEOVER_VOLUME_MODIFIER = 1.2F; // compensating for volume of files
+    public static final float VOICEOVER_VOLUME_MODIFIER = 1.35F; // compensating for volume of files
     public static float VOICEOVER_VOLUME = 0.5F; // set by mod settings
 
     // non-voiceover volumes are multiplied by this; it is decreased while voiceovers are active
