@@ -17,24 +17,6 @@ public class EntombedPatch {
     public static boolean isEntombed(AbstractCard card) {
         return EntombedField.entombed.get(card);
     }
-    public static CardGroup filterOutEntombedCards(CardGroup cards) {
-        CardGroup retVal = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-        for (AbstractCard card : cards.group) {
-            if (!isEntombed(card)) {
-                retVal.group.add(card);
-            }
-        }
-        return retVal;
-    }
-
-    public static class TreatEntombedAsNonPurgableExprEditor extends ExprEditor {
-        @Override
-        public void edit(MethodCall methodCall) throws CannotCompileException {
-            if (methodCall.getClassName().equals(CardGroup.class.getName()) && methodCall.getMethodName().equals("getPurgeableCards")) {
-                methodCall.replace(String.format("{ $_ = %1$s.filterOutEntombedCards($proceed($$)); }", EntombedPatch.class.getName()));
-            }
-        }
-    }
 
     // Remove Entombed cards from draw pile
     @SpirePatch(
@@ -78,14 +60,6 @@ public class EntombedPatch {
                 return LineFinder.findInOrder(ctBehavior, finalMatcher);
             }
         }
-    }
-
-    // Prevent Entombed cards from being bottled
-    @SpirePatch(clz = BottledFlame.class, method = "onEquip")
-    @SpirePatch(clz = BottledLightning.class, method = "onEquip")
-    @SpirePatch(clz = BottledTornado.class, method = "onEquip")
-    public static class BottledFlame_onEquip {
-        public static ExprEditor Instrument() { return new TreatEntombedAsNonPurgableExprEditor(); };
     }
 }
 
