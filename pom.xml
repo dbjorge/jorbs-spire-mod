@@ -4,7 +4,7 @@
     <groupId>stsjorbsmod</groupId>
     <artifactId>JorbsMod</artifactId>
     <name>Jorbs's Wanderer Trilogy</name>
-    <version>0.64.0</version>
+    <version>1.0.0</version>
     <description>The Wanderer, Cull, and Explorer. Inspired by Jorbs and co-developed by the community.</description>
 
     <properties>
