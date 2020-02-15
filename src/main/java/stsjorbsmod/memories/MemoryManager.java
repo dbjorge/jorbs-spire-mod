@@ -196,6 +196,7 @@ public class MemoryManager {
         owner.relics.forEach(possibleListener -> notifyPossibleModifyMemorySubscriber(possibleListener, callback));
         owner.powers.forEach(possibleListener -> notifyPossibleModifyMemorySubscriber(possibleListener, callback));
         this.memories.forEach(possibleListener -> notifyPossibleModifyMemorySubscriber(possibleListener, callback));
+        owner.masterDeck.group.forEach(possibleListener -> notifyPossibleModifyMemorySubscriber(possibleListener, callback));
 
         AbstractDungeon.onModifyPower();
     }

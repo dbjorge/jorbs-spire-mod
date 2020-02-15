@@ -256,7 +256,7 @@
   },
   "stsjorbsmod:FreshAdventure": {
     "NAME": "Fresh Adventure",
-    "DESCRIPTION": "Deal !D! damage. NL Remember stsjorbsmod:Diligence."
+    "DESCRIPTION": "Deal !D! damage. NL Remember stsjorbsmod:Diligence. NL This card gains !M! damage permanently when you stsjorbsmod:Snap."
   },
   "stsjorbsmod:Frostbite": {
     "NAME": "Frostbite",
