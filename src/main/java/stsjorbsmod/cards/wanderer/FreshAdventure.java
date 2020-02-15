@@ -26,7 +26,7 @@ public class FreshAdventure extends CustomJorbsModCard implements OnModifyMemori
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 2;
-    private static final int DAMAGE = 14;
+    private static final int DAMAGE = 13;
     private static final int UPGRADE_PLUS_DMG = 3;
     private static final int WRATH_STACK_ON_SNAP = 1;
 
