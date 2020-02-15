@@ -285,6 +285,7 @@
   "stsjorbsmod:Hurt": {
     "NAME": "Hurt",
     "DESCRIPTION": "Deal !D! damage. NL Lose HP equal to the number of stsjorbsmod:Clarities you have.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Lose HP equal to the number of stsjorbsmod:Clarities you have. NL Gain stsjorbsmod:Clarity of current memory.",
     "EXTENDED_DESCRIPTION": [
       " NL (Lose !M! HP.)"
     ]
