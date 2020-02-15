@@ -30,7 +30,9 @@ public class Chamomile extends MaterialComponent {
     @Override
     public void useMaterialComponent(AbstractPlayer p, AbstractMonster m) {
         addToBot(new RemoveSpecificPowerAction(p, p, FrailPower.POWER_ID));
-        addToBot(new RemoveSpecificPowerAction(p, p, VulnerablePower.POWER_ID));
+        if (upgraded) {
+            addToBot(new RemoveSpecificPowerAction(p, p, VulnerablePower.POWER_ID));
+        }
         addToBot(new RemoveSpecificPowerAction(p, p, WeakPower.POWER_ID));
     }
 
@@ -39,7 +41,6 @@ public class Chamomile extends MaterialComponent {
         if (!upgraded) {
             upgradeName();
             EphemeralField.ephemeral.set(this, false);
-            selfRetain = true;
             exhaust = true;
             upgradeDescription();
         }

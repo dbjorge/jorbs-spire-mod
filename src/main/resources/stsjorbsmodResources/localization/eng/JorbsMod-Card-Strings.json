@@ -82,8 +82,8 @@
   },
   "stsjorbsmod:Chamomile": {
     "NAME": "Chamomile",
-    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Remove Frail, Vulnerable, and Weak from yourself.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Remove Frail, Vulnerable, and Weak from yourself. NL Exhaust."
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Remove Frail, and Weak from yourself.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Remove Frail, Vulnerable, and Weak from yourself."
   },
   "stsjorbsmod:Channel": {
     "NAME": "Channel",
