@@ -18,7 +18,7 @@ public class GatherPower extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 1;
-    private static final int DRAW = 2;
+    private static final int DRAW = 1;
     private static final int NEXT_ATTACK_ADDITIONAL_TIMES = 1;
     private static final int UPGRADE_PLUS_NEXT_ATTACK_ADDITIONAL_TIMES = 1;
 
