@@ -101,7 +101,8 @@
   },
   "stsjorbsmod:ChatteringStrike": {
     "NAME": "Chattering Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Play this card !M! additional time."
+    "DESCRIPTION": "Deal !D! damage. NL Play this card !M! additional time.",
+    "DESCRIPTIONS": "Deal !D! damage. NL Play this card !M! additional times."
   },
   "stsjorbsmod:ChillTouch": {
     "NAME": "Chill Touch",
