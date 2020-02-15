@@ -51,7 +51,9 @@ public class ForbiddenGrimoire extends CustomJorbsModCard implements OnCardExhum
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DiscoveryAtCostAction(MaterialComponentsDeck.drawUniqueRandomCards(3), true));
-        addToBot(new ApplyPowerAction(p, p, new ForbiddenGrimoireDelayedExhumePower(p, this, magicNumber)));
+        if (!purgeOnUse) {
+            addToBot(new ApplyPowerAction(p, p, new ForbiddenGrimoireDelayedExhumePower(p, this, magicNumber)));
+        }
     }
 
     @Override
