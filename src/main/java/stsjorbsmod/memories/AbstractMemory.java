@@ -24,6 +24,7 @@ import com.megacrit.cardcrawl.vfx.combat.GainPowerEffect;
 import com.megacrit.cardcrawl.vfx.combat.SilentGainPowerEffect;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.powers.OnModifyGoldSubscriber;
+import stsjorbsmod.tips.MemoryFtueTip;
 import stsjorbsmod.util.RenderUtils;
 import stsjorbsmod.util.TextureLoader;
 
@@ -134,11 +135,15 @@ public abstract class AbstractMemory implements OnModifyGoldSubscriber {
     }
 
     public void render(SpriteBatch sb) {
-        if (isRemembered) {
+        if (isRemembered || MemoryFtueTip.shouldFakeBeingRemembered(this)) {
             float rotation = (-rememberBgRotationTimer / REMEMBER_BG_ROTATION_DURATION) * 360F;
             RenderUtils.renderAtlasRegionCenteredAt(sb, REMEMBER_BG_IMG_64, centerX, centerY, Settings.scale, REMEMBER_BG_COLOR, rotation);
         }
-        AtlasRegion img = isClarified ? this.staticInfo.CLARITY_IMG_48 : this.staticInfo.EMPTY_IMG_48;
+
+        AtlasRegion img = isClarified || MemoryFtueTip.shouldFakeBeingClarified(this) ?
+                this.staticInfo.CLARITY_IMG_48 :
+                this.staticInfo.EMPTY_IMG_48;
+
         RenderUtils.renderAtlasRegionCenteredAt(sb, img, centerX, centerY, ICON_COLOR);
 
         for (AbstractGameEffect effect : renderEffects) {

@@ -6,6 +6,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import stsjorbsmod.audio.VoiceoverMaster;
+import stsjorbsmod.tips.JorbsModTipTracker;
 
 import java.util.Properties;
 

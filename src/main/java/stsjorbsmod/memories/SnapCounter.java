@@ -5,23 +5,19 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector2;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.*;
-import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
-import com.megacrit.cardcrawl.ui.FtueTip;
-import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.JorbsModTipTracker;
 import stsjorbsmod.actions.SnapAction;
 import stsjorbsmod.effects.SnapTurnCounterEffect;
-import stsjorbsmod.util.TargettingArrowUi;
+import stsjorbsmod.tips.MemoryFtueTip;
+import stsjorbsmod.tips.SnapFtueTip;
 
 import java.util.ArrayList;
 
@@ -90,26 +86,9 @@ public class SnapCounter {
         alpha = MathUtils.lerp(STARTING_ALPHA, ENDING_ALPHA, currentTurn / 7.0F);
         updateDescription();
 
-        if (JorbsModTipTracker.shouldShow(JorbsModTipTracker.TipKey.SNAP)) {
-            ftueTurnTimer = 0.0F;
-            AbstractDungeon.ftue = new SnapFtueTip(centerX, centerY);
-            JorbsModTipTracker.neverShowAgain(JorbsModTipTracker.TipKey.SNAP);
-        }
-    }
-
-    private class SnapFtueTip extends FtueTip {
-        public SnapFtueTip(float x, float y) {
-            super(TEXT[2], TEXT[3], x + 400, y, FtueTip.TipType.COMBAT);
-        }
-
-        @Override
-        public void render(SpriteBatch sb) {
-            super.render(sb);
-            for (AbstractGameEffect e: AbstractDungeon.effectList) {
-                if (e instanceof SnapTurnCounterEffect) {
-                    e.render(sb);
-                }
-            }
+        boolean showingMemoryFtue = MemoryFtueTip.trigger(centerX, centerY);
+        if (!showingMemoryFtue) {
+            SnapFtueTip.trigger(centerX, centerY);
         }
     }
 
@@ -141,14 +120,7 @@ public class SnapCounter {
     public void update(float centerX, float centerY, int flipMultiplier) {
         if (!isVisible()) { return; }
 
-        int currentTurn = this.currentTurn;
-        if (AbstractDungeon.screen == AbstractDungeon.CurrentScreen.FTUE && AbstractDungeon.ftue != null && AbstractDungeon.ftue instanceof SnapFtueTip) {
-            ftueTurnTimer += Gdx.graphics.getDeltaTime();
-            if (ftueTurnTimer > FTUE_TURN_DURATION * 8) {
-                ftueTurnTimer = 0.0F;
-            }
-            currentTurn = MathUtils.clamp(1 + ((int) (ftueTurnTimer / FTUE_TURN_DURATION)), 1, 7);
-        }
+        int currentTurn = SnapFtueTip.shouldFakeCurrentTurn() ? SnapFtueTip.fakeCurrentTurn() : this.currentTurn;
 
         this.centerX = centerX;
         this.centerY = centerY;

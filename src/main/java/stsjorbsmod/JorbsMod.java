@@ -24,14 +24,12 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.characters.ManifestSaveData;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.console.BlockCommand;
-import stsjorbsmod.console.MemoryCommand;
-import stsjorbsmod.console.PlaySoundCommand;
-import stsjorbsmod.console.WrathCommand;
+import stsjorbsmod.console.*;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.potions.*;
 import stsjorbsmod.relics.CustomJorbsModRelic;
+import stsjorbsmod.tips.JorbsModTipTracker;
 import stsjorbsmod.util.ReflectionUtils;
 import stsjorbsmod.util.TextureLoader;
 import stsjorbsmod.variables.BaseBlockNumber;
@@ -255,14 +253,14 @@ public class JorbsMod implements
 
     @Override
     public void receivePostInitialize() {
-        logger.info("Loading badge image and mod options");
-
+        logger.info("Registering dev console commands");
         BlockCommand.register();
+        FtueCommand.register();
         MemoryCommand.register();
         PlaySoundCommand.register();
         WrathCommand.register();
 
-        // Load the Mod Badge
+        logger.info("Loading mod config page");
         Texture badgeTexture = TextureLoader.getTexture(BADGE_IMAGE);
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, JorbsModSettings.createSettingsPanel());
 

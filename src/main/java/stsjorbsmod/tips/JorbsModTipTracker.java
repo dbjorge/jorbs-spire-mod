@@ -1,24 +1,29 @@
-package stsjorbsmod;
+package stsjorbsmod.tips;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import stsjorbsmod.JorbsMod;
 
 import java.io.IOException;
 import java.util.Properties;
 
 import static stsjorbsmod.JorbsMod.makeID;
 
+// This tracker is for First-Time User Experience (FTUE) tips, not on-hover tooltips
 public class JorbsModTipTracker {
     public enum TipKey {
-        SNAP
+        SNAP,
+        MEMORY
     }
 
     private static final Logger logger = LogManager.getLogger(JorbsModTipTracker.class.getName());
     public static SpireConfig config;
     private static final Properties DEFAULTS = new Properties();
     static {
-        DEFAULTS.setProperty(TipKey.SNAP.name(), "false");
+        for(TipKey key : TipKey.values()) {
+            DEFAULTS.setProperty(key.name(), "false");
+        }
     }
 
     public static void initialize() {

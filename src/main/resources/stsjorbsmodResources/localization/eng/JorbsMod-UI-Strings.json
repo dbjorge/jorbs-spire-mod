@@ -60,6 +60,12 @@
       "Entangled!"
     ]
   },
+  "stsjorbsmod:MemoryFtueTip": {
+    "TEXT": [
+      "Memories",
+      "The Wanderer can use cards to #yRemember memories, gaining associated buffs and debuffs. Memories are #yForgotten whenever a different memory is #yRemembered, but you can gain #yClarity of a memory to hold onto its passive effect."
+    ]
+  },
   "stsjorbsmod:ModSettingsPanel": {
     "TEXT": [
       "Voiceover Volume",
@@ -71,8 +77,12 @@
     "TEXT": [
       "Fragile Mind",
       "At the end of turn 7, #ySnap. NL (It is turn #b%1$s now.)",
+    ]
+  },
+  "stsjorbsmod:SnapFtueTip": {
+    "TEXT": [
       "Snapping",
-      "The Wanderer will #ySnap at the end of turn 7. NL The #pflames around his Grimoire track turns."
+      "The Wanderer will #ySnap at the end of turn 7. NL The #pflames around his Grimoire track turns. NL #ySnap: Lose ALL #yMemories and #yClarities for the rest of the combat. For each #yClarity lost, deal 6 damage to ALL enemies and lose 3 HP."
     ]
   },
   "stsjorbsmod:WillAction": {
