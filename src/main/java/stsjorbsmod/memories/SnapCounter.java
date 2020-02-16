@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.ui.FtueTip;
+import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.JorbsModTipTracker;
 import stsjorbsmod.actions.SnapAction;
@@ -36,6 +37,7 @@ public class SnapCounter {
     private static final float INDICATOR_CIRCLE_Y_RADIUS = 24F * Settings.scale;
     private static final float INDICATOR_CIRCLE_ROTATION_DURATION = 20F;
     private static final float INDICATOR_PARTICLE_DURATION = .06F;
+    private static final float FTUE_TURN_DURATION = 1.0F;
 
     private static final String UI_ID = JorbsMod.makeID(SnapCounter.class);
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(UI_ID);
@@ -49,6 +51,7 @@ public class SnapCounter {
     private float centerY;
     private float indicatorCircleRotationTimer;
     private float indicatorParticleTimer;
+    private float ftueTurnTimer;
 
     private static final Color[] colors = new Color[] {
             Color.VIOLET.cpy(),
@@ -88,6 +91,7 @@ public class SnapCounter {
         updateDescription();
 
         if (JorbsModTipTracker.shouldShow(JorbsModTipTracker.TipKey.SNAP)) {
+            ftueTurnTimer = 0.0F;
             AbstractDungeon.ftue = new SnapFtueTip(centerX, centerY);
             JorbsModTipTracker.neverShowAgain(JorbsModTipTracker.TipKey.SNAP);
         }
@@ -101,7 +105,11 @@ public class SnapCounter {
         @Override
         public void render(SpriteBatch sb) {
             super.render(sb);
-            SnapCounter.this.render(sb);
+            for (AbstractGameEffect e: AbstractDungeon.effectList) {
+                if (e instanceof SnapTurnCounterEffect) {
+                    e.render(sb);
+                }
+            }
         }
     }
 
@@ -132,6 +140,15 @@ public class SnapCounter {
 
     public void update(float centerX, float centerY, int flipMultiplier) {
         if (!isVisible()) { return; }
+
+        int currentTurn = this.currentTurn;
+        if (AbstractDungeon.screen == AbstractDungeon.CurrentScreen.FTUE && AbstractDungeon.ftue != null && AbstractDungeon.ftue instanceof SnapFtueTip) {
+            ftueTurnTimer += Gdx.graphics.getDeltaTime();
+            if (ftueTurnTimer > FTUE_TURN_DURATION * 8) {
+                ftueTurnTimer = 0.0F;
+            }
+            currentTurn = MathUtils.clamp(1 + ((int) (ftueTurnTimer / FTUE_TURN_DURATION)), 1, 7);
+        }
 
         this.centerX = centerX;
         this.centerY = centerY;
