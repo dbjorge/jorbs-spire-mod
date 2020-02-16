@@ -40,8 +40,6 @@ public class Chamomile extends MaterialComponent {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            EphemeralField.ephemeral.set(this, false);
-            exhaust = true;
             upgradeDescription();
         }
     }

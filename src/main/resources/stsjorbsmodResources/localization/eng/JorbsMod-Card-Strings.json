@@ -82,7 +82,7 @@
   },
   "stsjorbsmod:Chamomile": {
     "NAME": "Chamomile",
-    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Remove Frail, and Weak from yourself.",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Remove Frail and Weak from yourself.",
     "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Remove Frail, Vulnerable, and Weak from yourself."
   },
   "stsjorbsmod:Channel": {
@@ -102,7 +102,7 @@
   "stsjorbsmod:ChatteringStrike": {
     "NAME": "Chattering Strike",
     "DESCRIPTION": "Deal !D! damage. NL Play this card !M! additional time.",
-    "DESCRIPTIONS": "Deal !D! damage. NL Play this card !M! additional times."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Play this card !M! additional times."
   },
   "stsjorbsmod:ChillTouch": {
     "NAME": "Chill Touch",
@@ -140,7 +140,8 @@
   },
   "stsjorbsmod:DeathThroes": {
     "NAME": "Death Throes",
-    "DESCRIPTION": "stsjorbsmod:Entombed. stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume whenever an enemy dies. NL Deal !D! damage. NL Remember stsjorbsmod:Wrath."
+    "DESCRIPTION": "stsjorbsmod:Entombed. stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume whenever an enemy dies. NL Deal !D! damage. NL Remember stsjorbsmod:Wrath.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Entombed. stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume whenever an enemy dies. NL Deal !D! damage. NL Gain stsjorbsmod:Clarity of stsjorbsmod:Wrath."
   },
   "stsjorbsmod:Defend_Wanderer": {
     "NAME": "Defend",
@@ -264,7 +265,7 @@
   },
   "stsjorbsmod:GatherPower": {
     "NAME": "Gather Power",
-    "DESCRIPTION": "Draw !M! cards. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional time.",
+    "DESCRIPTION": "Draw !M! card. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional time.",
     "UPGRADE_DESCRIPTION": "Draw !M! cards. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional times."
   },
   "stsjorbsmod:Haunt": {

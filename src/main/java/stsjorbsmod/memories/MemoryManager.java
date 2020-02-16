@@ -196,6 +196,7 @@ public class MemoryManager {
         owner.relics.forEach(possibleListener -> notifyPossibleModifyMemorySubscriber(possibleListener, callback));
         owner.powers.forEach(possibleListener -> notifyPossibleModifyMemorySubscriber(possibleListener, callback));
         this.memories.forEach(possibleListener -> notifyPossibleModifyMemorySubscriber(possibleListener, callback));
+        // FreshAdventure's onSnap relies on exactly one version of a given uuid being notified; revisit it if we ever add hand/discard/exhaust notifications
         owner.masterDeck.group.forEach(possibleListener -> notifyPossibleModifyMemorySubscriber(possibleListener, callback));
 
         AbstractDungeon.onModifyPower();
