@@ -110,7 +110,7 @@
   },
   {
     "NAMES": ["snap", "snapped"],
-    "DESCRIPTION": "Deal 6 damage to ALL enemies and lose 3 HP for every #yClarity you have. You cannot #yRemember or have #yClarity of any memories for the remainder of the fight."
+    "DESCRIPTION": "Lose ALL #yClarities. Deal 6 damage to ALL enemies and lose 3 HP for each #yClarity. You cannot #yRemember or have #yClarity of any memories for the remainder of the fight."
   },
   {
     "NAMES": ["temperance"],
