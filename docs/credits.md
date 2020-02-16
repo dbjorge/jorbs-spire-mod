@@ -42,6 +42,7 @@
 
 ### Artists
 
+* Bakuhaku
 * Crocketeer
 * DietTonicWater
 * Forceful Storm
