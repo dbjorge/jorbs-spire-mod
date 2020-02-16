@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.GainClarityOfCurrentMemoryAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.MemoryManager;
@@ -22,6 +21,7 @@ public class Hurt extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int DAMAGE = 12;
+    private static final int UPGRADE_PLUS_DMG = 4;
     private static final int HP_LOSS_PER_CLARITY = 1;
 
     public Hurt() {
@@ -43,9 +43,6 @@ public class Hurt extends CustomJorbsModCard {
         if (magicNumber > 0) {
             addToBot(new DamageAction(p, new DamageInfo(p, magicNumber, DamageInfo.DamageType.HP_LOSS), AttackEffect.SHIELD));
         }
-        if (upgraded) {
-            addToBot(new GainClarityOfCurrentMemoryAction(p));
-        }
     }
 
     @Override
@@ -57,6 +54,7 @@ public class Hurt extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeDamage(UPGRADE_PLUS_DMG);
             upgradeDescription();
         }
     }
