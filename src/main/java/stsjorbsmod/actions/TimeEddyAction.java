@@ -66,7 +66,8 @@ public class TimeEddyAction extends AbstractGameAction {
         forEachApplicableMonsterPower(p -> p.atStartOfTurnPostDraw());
 
         // Monster turn
-        forEachApplicableMonsterPower(p -> p.duringTurn());
+        // This causes any actions added to the bottom as part of duringTurn to occur after all the others. Maybe not a big deal
+        addToBot(new ConsumerGameAction<>(o -> forEachApplicableMonsterPower(p -> p.duringTurn()), null));
 
         // Monster turn end
         forEachApplicableMonsterPower(p -> { if (p instanceof BurningPower) { p.onSpecificTrigger(); } });
