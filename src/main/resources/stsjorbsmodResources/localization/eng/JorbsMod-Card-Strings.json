@@ -266,7 +266,7 @@
   "stsjorbsmod:GatherPower": {
     "NAME": "Gather Power",
     "DESCRIPTION": "Draw !M! card. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional time.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional times."
+    "UPGRADE_DESCRIPTION": "Draw !M! card. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional times."
   },
   "stsjorbsmod:Haunt": {
     "NAME": "Haunt",
