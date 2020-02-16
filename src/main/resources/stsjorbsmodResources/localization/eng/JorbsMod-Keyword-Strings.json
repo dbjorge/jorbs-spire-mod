@@ -110,7 +110,7 @@
   },
   {
     "NAMES": ["snap", "snapped"],
-    "DESCRIPTION": "Lose ALL #Memories and #yClarities. Deal 6 damage to ALL enemies and lose 3 HP for each #yClarity. You cannot #yRemember or have #yClarity of any memories for the remainder of the fight."
+    "DESCRIPTION": "The Wanderer #ySnaps at the end of turn 7. Lose ALL #yMemories and #yClarities for the rest of the combat. For each #yClarity lost, deal 6 damage to ALL enemies and lose 3 HP."
   },
   {
     "NAMES": ["temperance"],
