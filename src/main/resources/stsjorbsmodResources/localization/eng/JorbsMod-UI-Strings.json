@@ -63,13 +63,16 @@
   "stsjorbsmod:ModSettingsPanel": {
     "TEXT": [
       "Voiceover Volume",
-      "Enable incomplete/in-development version of CULL (requires restart)"
+      "Enable incomplete/in-development version of CULL (requires restart)",
+      "Reset tutorial tips"
     ]
   },
   "stsjorbsmod:SnapCounter": {
     "TEXT": [
       "Fragile Mind",
-      "At the end of turn 7, #ySnap. NL (It is turn #b%1$s now.)"
+      "At the end of turn 7, #ySnap. NL (It is turn #b%1$s now.)",
+      "Snapping",
+      "The Wanderer will #ySnap at the end of turn 7. NL The #pflames around his Grimoire track turns."
     ]
   },
   "stsjorbsmod:WillAction": {

@@ -28,7 +28,7 @@ public class JorbsModSettings {
         return config.getBool(CULL_ENABLED_SETTING);
     }
 
-    public static void loadConfig() {
+    public static void initialize() {
         try {
             config = new SpireConfig(JorbsMod.MODNAME, MOD_SETTINGS_FILE, DEFAULT_SETTINGS);
             config.load();
@@ -68,7 +68,6 @@ public class JorbsModSettings {
                 FontHelper.tipHeaderFont,
                 settingsPanel,
                 (label) -> {});
-
         settingsPanel.addUIElement(voiceoverVolumeSliderLabel);
 
         ModSlider voiceoverVolumeSlider = new ModSlider(
@@ -79,7 +78,6 @@ public class JorbsModSettings {
                 "%",
                 settingsPanel,
                 JorbsModSettings::onVoiceoverVolumeChange);
-
         voiceoverVolumeSlider.setValue(VoiceoverMaster.VOICEOVER_VOLUME);
         settingsPanel.addUIElement(voiceoverVolumeSlider);
 
@@ -94,6 +92,23 @@ public class JorbsModSettings {
                 (label) -> {},
                 JorbsModSettings::onCullToggle);
         settingsPanel.addUIElement(cullToggle);
+
+        ModLabel resetTipsLabel = new ModLabel(
+                MOD_SETTINGS_PANEL_TEXT[2],
+                400.0F,
+                575.0F,
+                Color.WHITE,
+                FontHelper.tipHeaderFont,
+                settingsPanel,
+                (label) -> {});
+        settingsPanel.addUIElement(resetTipsLabel);
+        ModButton resetTipsButton = new ModButton(
+                700.0F,
+                520.0F,
+                settingsPanel,
+                (b) -> { JorbsModTipTracker.reset(); }
+        );
+        settingsPanel.addUIElement(resetTipsButton);
 
         return settingsPanel;
     }
