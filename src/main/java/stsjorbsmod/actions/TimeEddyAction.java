@@ -56,7 +56,8 @@ public class TimeEddyAction extends AbstractGameAction {
     @Override
     public void update() {
         // Player turn end
-        forEachApplicablePlayerMemory(m -> m.atEndOfTurn());
+        forEachApplicablePlayerMemory(m -> m.atEndOfTurnPreEndTurnCards());
+        forEachApplicablePlayerMemory(m -> m.atEndOfTurn(true));
         forEachApplicablePlayerPower(p -> p.atEndOfTurnPreEndTurnCards(true));
         forEachApplicablePlayerPower(p -> p.atEndOfTurn(true));
 
