@@ -2,6 +2,7 @@ package stsjorbsmod.powers;
 
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -43,7 +44,7 @@ public class ForbiddenGrimoireDelayedExhumePower extends CustomJorbsModPower imp
     }
 
     @Override
-    public void onPlayCard(AbstractCard card, AbstractMonster target) {
+    public void onUseCard(AbstractCard card, UseCardAction action) {
         if (amount <= 1) {
             this.flash();
             AbstractDungeon.actionManager.addToBottom(new ExhumeCardsAction(cardToExhume));
