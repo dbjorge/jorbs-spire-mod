@@ -54,7 +54,7 @@
   "stsjorbsmod:BookOfTongues": {
     "NAME": "Book of Tongues",
     "DESCRIPTION": "At the start of each turn, put !M! stsjorbsmod:Material\u00a0Component into your hand.",
-    "UPGRADE_DESCRIPTION": "At the start of each turn, put !M! Upgraded stsjorbsmod:Material\u00a0Component into your hand."
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of each turn, put !M! stsjorbsmod:Material\u00a0Component into your hand."
   },
   "stsjorbsmod:Brambles": {
     "NAME": "Brambles",
@@ -82,8 +82,8 @@
   },
   "stsjorbsmod:Chamomile": {
     "NAME": "Chamomile",
-    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Remove Frail, Vulnerable, and Weak from yourself.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Remove Frail, Vulnerable, and Weak from yourself. NL Exhaust."
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Remove Frail and Weak from yourself.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Remove Frail, Vulnerable, and Weak from yourself."
   },
   "stsjorbsmod:Channel": {
     "NAME": "Channel",
@@ -101,7 +101,8 @@
   },
   "stsjorbsmod:ChatteringStrike": {
     "NAME": "Chattering Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Play this card !M! additional time."
+    "DESCRIPTION": "Deal !D! damage. NL Play this card !M! additional time.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Play this card !M! additional times."
   },
   "stsjorbsmod:ChillTouch": {
     "NAME": "Chill Touch",
@@ -139,7 +140,8 @@
   },
   "stsjorbsmod:DeathThroes": {
     "NAME": "Death Throes",
-    "DESCRIPTION": "stsjorbsmod:Entombed. stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume whenever an enemy dies. NL Deal !D! damage. NL Remember stsjorbsmod:Wrath."
+    "DESCRIPTION": "stsjorbsmod:Entombed. stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume whenever an enemy dies. NL Deal !D! damage. NL Remember stsjorbsmod:Wrath.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Entombed. stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume whenever an enemy dies. NL Deal !D! damage. NL Gain stsjorbsmod:Clarity of stsjorbsmod:Wrath."
   },
   "stsjorbsmod:Defend_Wanderer": {
     "NAME": "Defend",
@@ -255,7 +257,7 @@
   },
   "stsjorbsmod:FreshAdventure": {
     "NAME": "Fresh Adventure",
-    "DESCRIPTION": "Deal !D! damage. NL Remember stsjorbsmod:Diligence."
+    "DESCRIPTION": "Deal !D! damage. NL Remember stsjorbsmod:Diligence. NL This card gains !M! damage permanently when you stsjorbsmod:Snap."
   },
   "stsjorbsmod:Frostbite": {
     "NAME": "Frostbite",
@@ -263,7 +265,7 @@
   },
   "stsjorbsmod:GatherPower": {
     "NAME": "Gather Power",
-    "DESCRIPTION": "Draw !M! cards. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional time.",
+    "DESCRIPTION": "Draw !M! card. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional time.",
     "UPGRADE_DESCRIPTION": "Draw !M! cards. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional times."
   },
   "stsjorbsmod:Haunt": {
@@ -631,7 +633,7 @@
   },
   "stsjorbsmod:Trauma": {
     "NAME": "Trauma",
-    "DESCRIPTION": "stsjorbsmod:Snap. NL Deal !D! damage to ALL enemies. NL Put this card on top of your draw pile."
+    "DESCRIPTION": "stsjorbsmod:Snap. NL Deal !D! damage to ALL enemies. NL Shuffle this card into your draw pile."
   },
   "stsjorbsmod:Trouble": {
     "NAME": "Trouble",

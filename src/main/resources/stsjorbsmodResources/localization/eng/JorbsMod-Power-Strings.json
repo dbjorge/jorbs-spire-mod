@@ -21,9 +21,7 @@
     "NAME": "Book of Tongues",
     "DESCRIPTIONS": [
       "At the start of your turn, draw #b%1$s random Material Component.",
-      "At the start of your turn, draw #b%1$s random Material Components.",
-      "At the start of your turn, draw #b%1$s random Upgraded Material Component.",
-      "At the start of your turn, draw #b%1$s random Upgraded Material Components."
+      "At the start of your turn, draw #b%1$s random Material Components."
     ]
   },
   "stsjorbsmod:BurningPower": {

@@ -24,8 +24,8 @@ public class SiphonEnergy extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 1;
-    private static final int CARD_DRAW = 3;
-    private static final int UPGRADE_PLUS_CARD_DRAW = 2;
+    private static final int CARD_DRAW = 2;
+    private static final int UPGRADE_PLUS_CARD_DRAW = 1;
     private static final int BASE_ENERGY_GAIN = 0;
     private static final int ENERGY_GAIN_PER_CLARITY = 1;
 
