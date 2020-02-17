@@ -35,6 +35,12 @@ const monthStr = `${d.getMonth() + 1}`.padStart(2, '0');
 const dateStr = `${d.getDate()}`.padStart(2, '0');
 const dateStamp = `${d.getFullYear()}-${monthStr}-${dateStr}`;
 
+function logNote(noteLabel, noteContent) {
+    console.log(`--- vvv ${noteLabel} vvv ---`);
+    console.log(noteContent);
+    console.log(`--- ^^^ ${noteLabel} ^^^ ---`);
+}
+
 console.log(`Beginning update to v${version} - ${dateStamp}...`);
 
 console.log('Verifying necessary tools are available...');
@@ -72,7 +78,7 @@ console.log('Extracting changelog from CHANGELOG.md...');
 const changelogPath = path.join(__dirname, '../CHANGELOG.md');
 let changelogContent = fs.readFileSync(changelogPath).toString();
 const unreleasedChangelogContent = /## \[Unreleased\]\n((.|\n)*?)\n## \[/m.exec(changelogContent)[1].trim();
-console.log(`---\n${unreleasedChangelogContent}\n---`);
+logNote('CHANGELOG [Unreleased] SECTION', unreleasedChangelogContent);
 
 console.log(`Moving CHANGELOG.md [Unreleased] section to new section for v${version}...`)
 changelogContent = changelogContent.replace('## [Unreleased]', `## [Unreleased]\n\n## [v${version}] - ${dateStamp}`)
@@ -89,7 +95,7 @@ const steamChangeNoteContent = `v${version}\n\n` + unreleasedChangelogContent
     .replace(/\*\*\*(.*)\*\*\*/g, (s, text) => `[b][i]${text}[/i][/b]`)
     .replace(/\*\*(.*)\*\*/g, (s, text) => `[b]${text}[/b]`)
     .replace(/\*(.*)\*/g, (s, text) => `[i]${text}[/i]`);
-console.log(`---\n${steamChangeNoteContent}\n---`);
+logNote('STEAM', steamChangeNoteContent);
 
 console.log('Updating Steam Workshop config.json changeNote field with version + changelog...');
 const configJsonPath = path.join(__dirname, '../steam_workshop/config.json');
@@ -106,8 +112,11 @@ try {
     if (err.code !== 'ENOENT') { throw err; }
 }
 
+console.log('Generating alternate formats of release notes...')
 const hubReleaseInput = `v${version}\n\n${unreleasedChangelogContent}`;
+logNote('GITHUB', hubReleaseInput);
 const suggestedDiscordPost = `**Released v${version}**, available at https://mod.jorbs.tv/steam\n\n${unreleasedChangelogContent}`;
+logNote('DISCORD', suggestedDiscordPost);
 
 console.log('"git add" updated files...')
 child_process.exec(`git add "${changelogPath}" "${pomXmlPath}" "${configJsonPath}"`, {stdio: 'inherit'});
@@ -145,7 +154,9 @@ function promptToContinue() {
     console.log(`Uploading new version as a GitHub release...`);
     child_process.execSync(`hub release create --attach "${jarPath}#JorbsMod.jar" --file - v${version}`, {input: hubReleaseInput});
 
-    console.log(`Done! Suggested Discord post:\n\n${suggestedDiscordPost}`);
+    console.log('Done! Suggested Discord post:\n');
+    // Repeating so it'll be below the fold of "uploading..." spam
+    logNote('DISCORD', suggestedDiscordPost);
   });
 }
 
