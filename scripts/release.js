@@ -109,8 +109,6 @@ function promptToContinue() {
         return;
     }
 
-    console.log('CHOO CHOO');
-    /*
     console.log(`Commiting/tagging/pushing updated files as tag v${version}`);
     child_process.exec(`git commit -m 'Bump to v${version}'`, {stdio: 'inherit'});
     child_process.exec(`git tag v${version}`, {stdio: 'inherit'});
@@ -121,7 +119,8 @@ function promptToContinue() {
 
     console.log(`Uploading new version as a GitHub release...`);
     child_process.execSync(`hub release create --attach "${jarPath}" --file - v${version}`, {input: hubReleaseInput, stdio: 'inherit'});
-    */
+
+    console.log(`Done!`);
   });
 }
 
