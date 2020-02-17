@@ -46,7 +46,9 @@ public class FreshAdventure extends CustomJorbsModCard implements OnModifyMemori
 
     @Override
     public void onSnap() {
-        addToBot(new ConsumerGameAction<>(WrathMemory::permanentlyIncreaseCardDamage, this));
+        // It's important that this effect *not* be implemented as an action, because if it happens in response to the
+        // last enemy in a fight dying, no further actions will be executed during that fight.
+        WrathMemory.permanentlyIncreaseCardDamage(this);
     }
 
     @Override
