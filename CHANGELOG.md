@@ -8,7 +8,11 @@
 
 ### Updates
 
-* Will: card art updated to include stars/moons on Wanderer's robe
+* Will: card art updated to include stars/moons on Wanderer's robe (thanks @Cartopol)
+
+### Bug fixes
+
+* Fresh Adventure: Fixed Wrath upgrade on Snap being skipped if Snap ended the combat (thanks @wang429) 
 
 ## [v1.1.1] - 2020-02-16
 
