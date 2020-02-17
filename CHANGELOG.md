@@ -12,6 +12,7 @@
 
 ### Bug fixes
 
+* Time Eddy: If a buff (eg, Arcane Weapon) kills an enemy, that enemy's remaining powers will no longer still trigger (eg, dead Exploders won't explode)
 * Fresh Adventure: Fixed Wrath upgrade on Snap being skipped if Snap ended the combat (thanks @wang429) 
 
 ## [v1.1.1] - 2020-02-16
