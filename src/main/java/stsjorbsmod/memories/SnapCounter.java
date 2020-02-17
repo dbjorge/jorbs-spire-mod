@@ -63,7 +63,7 @@ public class SnapCounter {
     private static final float ENDING_ALPHA = 1.0F;
     private float alpha;
 
-    private int currentTurn; // we track this separately from the game manager to avoid ordering issues with start-of-turn triggers
+    public int currentTurn; // we track this separately from the game manager to avoid ordering issues with start-of-turn triggers
     public boolean isActive;
 
     public SnapCounter(AbstractPlayer owner) {
