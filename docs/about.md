@@ -38,6 +38,7 @@ Legendary Cards are similar to other cards, but there is one key difference:
 * **Only one Legendary of a certain Legendary card can be in your deck at once.** 
 Legendary cards have a special border so they can be more easily identified.
 </br>
+
 ![screenshot of Grimoire](./assets/grimoire-card.png)
 
 # The Wanderer
@@ -134,7 +135,7 @@ Manifest is a mechanic which stacks up in combat, mostly by increasing by one ev
 </br>
 Manifest also lets the CULL have a permanent “Wing Boots” effect, in which it does not have to abide by any pathing on the map.
 
-![screenshot of map showing off the manifest ability](manifest-on-map-example.png)
+![screenshot of map showing off the manifest ability](./assets/manifest-on-map-example.png)
 </br>
 *Here, the CULL has 3 Manifest, so it must skip 2 floors and go to the third floor above it. Notice how the CULL can go to any of the available floors, as it has a permanent Wing Boots effect.*
 
