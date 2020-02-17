@@ -8,6 +8,7 @@
 
 ### Updates
 
+* Ray of Frost: Add ray visual effect (thanks @wang429)
 * Arcane Weapon: Updated card/power descriptions to clarify that attack modifiers apply (thanks Gk, Crocketeer, MetaBoy for suggestions)
 * Will: Card art updated to include stars/moons on Wanderer's robe (thanks @Cartopol)
 
