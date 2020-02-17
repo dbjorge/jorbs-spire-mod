@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Arcane Weapon: -1 damage
+
 ## [v1.1.1] - 2020-02-16
 
 * Added a "Unlock Ascension 20" button to the mod's in-game Config page
