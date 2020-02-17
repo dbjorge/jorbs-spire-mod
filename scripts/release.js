@@ -84,6 +84,7 @@ try {
 }
 
 const hubReleaseInput = `v${version}\n\n${unreleasedChangelogContent}`;
+const suggestedDiscordPost = `**Released v${version}**, available at https://mod.jorbs.tv/steam\n\n${unreleasedChangelogContent}`;
 
 console.log('"git add" updated files...')
 child_process.exec(`git add "${changelogPath}" "${pomXmlPath}" "${configJsonPath}"`, {stdio: 'inherit'});
@@ -121,7 +122,7 @@ function promptToContinue() {
     console.log(`Uploading new version as a GitHub release...`);
     child_process.execSync(`hub release create --attach "${jarPath}#JorbsMod.jar" --file - v${version}`, {input: hubReleaseInput});
 
-    console.log(`Done!`);
+    console.log(`Done! Suggested Discord post:\n\n${suggestedDiscordPost}`);
   });
 }
 
