@@ -70,13 +70,16 @@
     "TEXT": [
       "Voiceover Volume",
       "Enable incomplete/in-development version of CULL (requires restart)",
-      "Reset tutorial tips"
+      "Reset tutorial tips",
+      "Tutorial tips reset!",
+      "Unlock ascension 20 for mod characters (may require restart)",
+      "Ascension 20 unlocked for mod characters! (may require restart)"
     ]
   },
   "stsjorbsmod:SnapCounter": {
     "TEXT": [
       "Fragile Mind",
-      "At the end of turn 7, #ySnap. NL (It is turn #b%1$s now.)",
+      "At the end of turn 7, #ySnap. NL (It is turn #b%1$s now.)"
     ]
   },
   "stsjorbsmod:SnapFtueTip": {

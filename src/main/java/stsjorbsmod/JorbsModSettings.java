@@ -3,9 +3,17 @@ package stsjorbsmod;
 import basemod.*;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.Prefs;
+import com.megacrit.cardcrawl.helpers.SaveHelper;
+import com.megacrit.cardcrawl.screens.stats.CharStat;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import stsjorbsmod.audio.VoiceoverMaster;
+import stsjorbsmod.characters.Cull;
+import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.tips.JorbsModTipTracker;
 
 import java.util.Properties;
@@ -61,6 +69,16 @@ public class JorbsModSettings {
         String[] MOD_SETTINGS_PANEL_TEXT = CardCrawlGame.languagePack.getUIString(makeID("ModSettingsPanel")).TEXT;
         ModPanel settingsPanel = new ModPanel();
 
+        // Buttons will set the text on this when pressed
+        ModLabel messageLabel = new ModLabel("",
+                400.0F,
+                350.0F,
+                Color.GREEN,
+                FontHelper.tipHeaderFont,
+                settingsPanel,
+                (label) -> {});
+        settingsPanel.addUIElement(messageLabel);
+
         ModLabel voiceoverVolumeSliderLabel = new ModLabel(
                 MOD_SETTINGS_PANEL_TEXT[0],
                 400.0F,
@@ -94,23 +112,57 @@ public class JorbsModSettings {
                 JorbsModSettings::onCullToggle);
         settingsPanel.addUIElement(cullToggle);
 
+        ModButton resetTipsButton = new ModButton(
+                400.0F,
+                520.0F,
+                settingsPanel,
+                (b) -> {
+                    JorbsModTipTracker.reset();
+                    messageLabel.text = MOD_SETTINGS_PANEL_TEXT[3];
+                }
+        );
+        settingsPanel.addUIElement(resetTipsButton);
         ModLabel resetTipsLabel = new ModLabel(
                 MOD_SETTINGS_PANEL_TEXT[2],
-                400.0F,
+                500.0F,
                 575.0F,
                 Color.WHITE,
                 FontHelper.tipHeaderFont,
                 settingsPanel,
                 (label) -> {});
         settingsPanel.addUIElement(resetTipsLabel);
-        ModButton resetTipsButton = new ModButton(
-                700.0F,
-                520.0F,
+
+        ModButton unlockA20Button = new ModButton(
+                400.0F,
+                420.0F,
                 settingsPanel,
-                (b) -> { JorbsModTipTracker.reset(); }
+                (b) -> {
+                    unlockA20(Wanderer.Enums.WANDERER);
+                    unlockA20(Cull.Enums.CULL);
+                    messageLabel.text = MOD_SETTINGS_PANEL_TEXT[5];
+                }
         );
-        settingsPanel.addUIElement(resetTipsButton);
+        settingsPanel.addUIElement(unlockA20Button);
+        ModLabel unlockA20Label = new ModLabel(
+                MOD_SETTINGS_PANEL_TEXT[4],
+                500.0F,
+                475.0F,
+                Color.WHITE,
+                FontHelper.tipHeaderFont,
+                settingsPanel,
+                (label) -> {});
+        settingsPanel.addUIElement(unlockA20Label);
 
         return settingsPanel;
+    }
+
+    private static void unlockA20(AbstractPlayer.PlayerClass clz) {
+        Prefs prefs = CardCrawlGame.characterManager.getCharacter(clz).getPrefs();
+        if (prefs.getInteger(CharStat.WIN_COUNT, 0) == 0) {
+            prefs.putInteger(CharStat.WIN_COUNT, 1);
+        }
+        prefs.putInteger(CharStat.LAST_ASCENSION_LEVEL, Settings.MAX_ASCENSION_LEVEL);
+        prefs.putInteger(CharStat.ASCENSION_LEVEL, Settings.MAX_ASCENSION_LEVEL);
+        prefs.flush();
     }
 }
