@@ -12,13 +12,14 @@
 
 ### Bug fixes
 
+* Banish: Will now be fully prevented by Artifact, rather than half-prevented (thanks @m0rph1ing for reporting)
 * Time Eddy: If a buff (eg, Arcane Weapon) kills an enemy, that enemy's remaining powers will no longer still trigger (eg, dead Exploders won't explode)
 * Fresh Adventure: Fixed Wrath upgrade on Snap being skipped if Snap ended the combat (thanks @wang429) 
 
 ## [v1.1.1] - 2020-02-16
 
 * Added a "Unlock Ascension 20" button to the mod's in-game Config page
-* New art for Disguise Self (by Newigeg) and Will (by Cartopol)
+* New art for Disguise Self (by @Newigeg) and Will (by @Cartopol)
 
 ## [v1.1.0] - 2020-02-16
 
