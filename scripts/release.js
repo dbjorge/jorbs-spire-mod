@@ -23,7 +23,7 @@ if (!fs.existsSync(javaPath)) {
 if (!fs.existsSync(modUploaderPath)) {
   console.log(`Cannot find ${modUploaderPath}; is STEAMAPPS_PATH set and Slay the Spire installed?`)
 }
-child_process.execSync('hub --version'); // throws if missing
+child_process.execSync('hub release -L 1'); // this verifies both that hub is installed and auth'd
 
 console.log('Verifying git status is clean...');
 const status = child_process.execSync('git status --porcelain');
@@ -89,7 +89,7 @@ console.log('"git add" updated files...')
 child_process.exec(`git add "${changelogPath}" "${pomXmlPath}" "${configJsonPath}"`, {stdio: 'inherit'});
 
 console.log(`Successfully prepared release files. Next steps:
-  * Verify that 'git status' looks reasonable
+  * Verify that 'git diff' looks reasonable
   * Run a build to pick up the new version number
   * Open the build and start a run in main + beta branches
 
