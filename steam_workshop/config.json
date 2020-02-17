@@ -3,7 +3,7 @@
   "title": "Jorbs's Wanderer Trilogy",
   "description": "",
   "visibility": "public",
-  "changeNote": "v1.1.1\n\n[*] Added a \"Unlock Ascension 20\" button to the mod's in-game Config page\n[*] New art for Disguise Self (by Newigeg) and Will (by Cartopol)",
+  "changeNote": "v1.2.0\n\n[h3]Balance changes[/h3]\n[list]\n[*] Arcane Weapon: -1 damage\n[/list]\n[h3]Updates[/h3]\n[list]\n[*] Ray of Frost: Add ray visual effect (thanks @wang429)\n[*] Arcane Weapon: Updated card/power descriptions to clarify that attack modifiers apply (thanks Gk, Crocketeer, MetaBoy for suggestions)\n[*] Will: Card art updated to include stars/moons on Wanderer's robe (thanks @Cartopol)\n[/list]\n[h3]Bug fixes[/h3]\n[list]\n[*] Banish: Will now be fully prevented by Artifact, rather than half-prevented (thanks @m0rph1ing for reporting)\n[*] Time Eddy: If a buff (eg, Arcane Weapon) kills an enemy, that enemy's remaining powers will no longer still trigger (eg, dead Exploders won't explode)\n[*] Fresh Adventure: Fixed Wrath upgrade on Snap being skipped if Snap ended the combat (thanks @wang429)",
   "tags": [
     "Character",
     "Expansion"

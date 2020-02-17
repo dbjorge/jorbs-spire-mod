@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [v1.2.0] - 2020-02-17
+
 ### Balance changes
 
 * Arcane Weapon: -1 damage
