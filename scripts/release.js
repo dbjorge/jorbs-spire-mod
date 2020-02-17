@@ -110,15 +110,16 @@ function promptToContinue() {
     }
 
     console.log(`Commiting/tagging/pushing updated files as tag v${version}`);
-    child_process.exec(`git commit -m 'Bump to v${version}'`, {stdio: 'inherit'});
-    child_process.exec(`git tag v${version}`, {stdio: 'inherit'});
-    child_process.exec(`git push origin v${version}`, {stdio: 'inherit'});
+    child_process.execSync(`git commit -m "Bump to v${version}"`, {stdio: 'inherit'});
+    child_process.execSync(`git push`, {stdio: 'inherit'});
+    child_process.execSync(`git tag v${version}`, {stdio: 'inherit'});
+    child_process.execSync(`git push origin v${version}`, {stdio: 'inherit'});
 
     console.log(`Uploading new version to the steam workshop...`);
     child_process.execSync(`"${javaPath}" -jar "${modUploaderPath}" upload -w "${steamWorkspacePath}"`, {stdio: 'inherit'});
 
     console.log(`Uploading new version as a GitHub release...`);
-    child_process.execSync(`hub release create --attach "${jarPath}" --file - v${version}`, {input: hubReleaseInput, stdio: 'inherit'});
+    child_process.execSync(`hub release create --attach "${jarPath}#JorbsMod.jar" --file - v${version}`, {input: hubReleaseInput});
 
     console.log(`Done!`);
   });
