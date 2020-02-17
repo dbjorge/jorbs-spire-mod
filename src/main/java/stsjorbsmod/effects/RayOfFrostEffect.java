@@ -14,28 +14,29 @@ public class RayOfFrostEffect extends AbstractGameEffect {
     private int amount;
 
     public RayOfFrostEffect(AbstractCreature source, AbstractCreature target, int amount) {
-        super();
         this.source = source;
         this.target = target;
         this.amount = amount;
     }
 
-
     @Override
     public void update() {
         CardCrawlGame.sound.play("ATTACK_MAGIC_SLOW_1", 0.7F);
         AbstractDungeon.effectsQueue.add(new BorderFlashEffect(Color.SKY.cpy()));
-        AbstractDungeon.effectsQueue.add(new ScalingLaserEffect(source.hb.cX, source.hb.cY, target.hb.cX, target.hb.cY, Color.SKY.cpy(), Color.CYAN.cpy(), amount));
+        AbstractDungeon.effectsQueue.add(new ScalingLaserEffect(
+                source.hb.cX,
+                source.hb.cY,
+                target.hb.cX,
+                target.hb.cY,
+                Color.SKY.cpy(),
+                Color.CYAN.cpy(),
+                amount));
         isDone = true;
     }
 
     @Override
-    public void render(SpriteBatch spriteBatch) {
-
-    }
+    public void render(SpriteBatch spriteBatch) { }
 
     @Override
-    public void dispose() {
-
-    }
+    public void dispose() { }
 }
