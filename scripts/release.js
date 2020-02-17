@@ -12,14 +12,27 @@ const monthStr = `${d.getMonth() + 1}`.padStart(2, '0');
 const dateStr = `${d.getDate()}`.padStart(2, '0');
 const dateStamp = `${d.getFullYear()}-${monthStr}-${dateStr}`;
 
-console.log('Verifying git status is clean');
+console.log(`Beginning update to v${version} - ${dateStamp}...`);
+
+console.log('Verifying necessary tools are available...');
+const javaPath = path.join(process.env.STEAMAPPS_PATH, 'common/SlayTheSpire/jre/bin/java.exe');
+const modUploaderPath = path.join(process.env.STEAMAPPS_PATH, 'common/SlayTheSpire/mod-uploader.jar');
+if (!fs.existsSync(javaPath)) {
+    console.log(`Cannot find ${javaPath}; is STEAMAPPS_PATH set and Slay the Spire installed?`)
+}
+if (!fs.existsSync(modUploaderPath)) {
+  console.log(`Cannot find ${modUploaderPath}; is STEAMAPPS_PATH set and Slay the Spire installed?`)
+}
+child_process.execSync('hub --version'); // throws if missing
+
+console.log('Verifying git status is clean...');
 const status = child_process.execSync('git status --porcelain');
 if (status.toString() !== '') {
     console.log('"git status --procelain" gave non-empty stdout; aborting release');
     process.exit(1);
 }
 
-console.log(`Beginning update to v${version} - ${dateStamp}...`);
+console.log('Verifying format of version number...');
 const versionRegex = /^[1-9]\d*\.[1-9]\d*\.[1-9]\d*$/;
 if (!versionRegex.test(version)) {
     console.log(`Invalid version number "${version}", should look like "1.2.3"`);
@@ -61,17 +74,19 @@ let configJsonContent = JSON.parse(fs.readFileSync(configJsonPath).toString());
 configJsonContent.changeNote = steamChangeNoteContent;
 fs.writeFileSync(configJsonPath, JSON.stringify(configJsonContent, null, 2));
 
+console.log('Cleaning obsolete jar file...');
+const steamWorkspacePath = path.join(__dirname, '../steam_workshop');
+const jarPath = path.join(steamWorkspacePath, 'content/JorbsMod.jar');
+try {
+    fs.unlinkSync(jarPath);
+} catch(err) {
+    if (err.code !== 'ENOENT') { throw err; }
+}
+
+const hubReleaseInput = `v${version}\n\n${unreleasedChangelogContent}`;
+
 console.log('"git add" updated files...')
 child_process.exec(`git add "${changelogPath}" "${pomXmlPath}" "${configJsonPath}"`, {stdio: 'inherit'});
-
-const javaPath = path.join(process.env.STEAMAPPS_PATH, 'common/SlayTheSpire/jre/bin/java.exe');
-const modUploaderPath = path.join(process.env.STEAMAPPS_PATH, 'common/SlayTheSpire/mod-uploader.jar');
-const steamWorkspacePath = path.join(__dirname, '../steam_workshop');
-const hubReleaseInput = `v${version}\n\n${unreleasedChangelogContent}`;
-const jarPath = path.join(steamWorkspacePath, 'content/JorbsMod.jar');
-
-console.log('Cleaning obsolete jar file (must be rebuilt with new version)');
-fs.unlinkSync(jarPath);
 
 console.log(`Successfully prepared release files. Next steps:
   * Verify that 'git status' looks reasonable
