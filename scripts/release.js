@@ -62,7 +62,7 @@ if (status.toString() !== '') {
 }
 
 console.log('Verifying format of version number...');
-const versionRegex = /^[1-9]\d*\.[1-9]\d*\.[1-9]\d*$/;
+const versionRegex = /^[1-9]\d*\.(0|([1-9]\d*))\.(0|([1-9]\d*))*$/;
 if (!versionRegex.test(version)) {
     console.log(`Invalid version number "${version}", should look like "1.2.3"`);
     process.exit(2);
