@@ -1,4 +1,27 @@
 // Usage: node scripts/release.js 1.2.3
+//
+// Prerequisites:
+//   * Have the Steam client installed and logged into the jorbsmods account
+//   * Have hub installed and auth'd as an account that can push GitHub releases
+//   * Have a clean "github status" (no files staged or modified)
+//   * Have the "master" branch checked out
+//
+// This script will first prepare the release:
+//
+//   * Extract changelog info from CHANGELOG.md's [Unreleased] section
+//   * Produce GitHub, Steam, and Discord-formatted release notes
+//   * Update pom.xml, steam_workshop/config.json, and CHANGELOG.md
+//   * Clean up any stale JorbsMod.jar file
+//
+// Then, it will prompt you to check its work, rebuild the mod, and test it.
+// Once you confirm you've done that, it will:
+//
+//   * Commit/push the updated files
+//   * Create/push a git tag
+//   * Upload a new Steam Workshop release
+//   * Upload a new GitHub release
+//   * Output a suggested Discord release message to the console
+
 const child_process = require('child_process');
 const fs = require('fs');
 const path = require('path');
