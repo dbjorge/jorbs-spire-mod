@@ -2,7 +2,13 @@
 
 ## [Unreleased]
 
+### Balance changes
+
 * Arcane Weapon: -1 damage
+
+### Updates
+
+* Will: card art updated to include stars/moons on Wanderer's robe
 
 ## [v1.1.1] - 2020-02-16
 
