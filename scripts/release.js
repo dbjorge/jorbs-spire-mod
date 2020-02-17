@@ -3,7 +3,7 @@
 // Prerequisites:
 //   * Have the Steam client installed and logged into the jorbsmods account
 //   * Have hub installed and auth'd as an account that can push GitHub releases
-//   * Have a clean "github status" (no files staged or modified)
+//   * Have a clean "git status" (no files staged or modified)
 //   * Have the "master" branch checked out
 //
 // This script will first prepare the release:
