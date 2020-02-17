@@ -10,7 +10,7 @@ navigation:
   - title: Download on Steam
     url: https://steamcommunity.com/sharedfiles/filedetails/?id=1997053791
   - title: About
-    url: https://docs.google.com/document/d/1jA7JRDw88ygrLGzNK2t5UtwGUB7Z4TINHZUVNjYGmNs
+    url: /about
   - title: Credits
     url: /credits
   - title: GitHub
