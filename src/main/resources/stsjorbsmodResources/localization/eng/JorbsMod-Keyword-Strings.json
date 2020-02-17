@@ -1,5 +1,10 @@
 [
   {
+    "PROPER_NAME": "Attack Damage",
+    "NAMES": ["attack\u00a0damage", "attack\u00a0damage"],
+    "DESCRIPTION": "Affected by buffs and debuffs that affect attacks: Strength, Vulnerable, Weakened, Thorns, Lust, Pen Nib, ...."
+  },
+  {
     "NAMES": ["burning"],
     "DESCRIPTION": "Burning creatures take damage at the start of their turn and cannot be healed. Burning damage will hit #yBlock. Each turn, Burning is reduced by a third."
   },
@@ -73,7 +78,7 @@
   },
   {
     "NAMES": ["legendary"],
-    "DESCRIPTION": "This card cannot be duplicated, removed, or transformed."
+    "DESCRIPTION": "Legendary cards cannot be duplicated, removed, or transformed. Legendary cards you already have a copy of will not appear as rewards."
   },
   {
     "NAMES": ["lust"],

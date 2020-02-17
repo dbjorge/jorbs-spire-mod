@@ -2,7 +2,7 @@
   "stsjorbsmod:ArcaneWeaponPower": {
     "NAME": "Arcane Weapon",
     "DESCRIPTIONS": [
-      "At the end of each turn, attack a random enemy for %1$s%2$s damage."
+      "At the end of each turn, deal %1$s%2$s #yAttack #yDamage to a random enemy."
     ]
   },
   "stsjorbsmod:BanishedPower": {
