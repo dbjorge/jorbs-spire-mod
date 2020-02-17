@@ -60,6 +60,7 @@
 * Charlene Putney (Divinity: Original Sin, http://alphachar.com/)
 * Freyjas Guardian
 * Leeeeeeeeeee
+* myop
 * Sasha Chapin (All The Wrong Moves, https://www.imsashachapin.com/)
 * SkyeVeran
 
