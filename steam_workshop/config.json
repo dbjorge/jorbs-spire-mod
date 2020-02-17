@@ -1,9 +1,9 @@
 {
   "steamPublishedID": "1997053791",
-  "title": "Jorbs\u0027s Wanderer Trilogy",
+  "title": "Jorbs's Wanderer Trilogy",
   "description": "",
   "visibility": "public",
-  "changeNote": "v1.1.0",
+  "changeNote": "v1.1.1\n\n[*] Added a \"Unlock Ascension 20\" button to the mod's in-game Config page\n[*] New art for Disguise Self (by Newigeg) and Will (by Cartopol)",
   "tags": [
     "Character",
     "Expansion"
