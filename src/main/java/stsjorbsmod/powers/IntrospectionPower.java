@@ -1,5 +1,6 @@
 package stsjorbsmod.powers;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
@@ -38,7 +39,15 @@ public class IntrospectionPower extends CustomJorbsModPower implements OnModifyM
     @Override
     public void atEndOfTurn(boolean isPlayerTurn) {
         if (isPlayerTurn) {
-            AbstractDungeon.actionManager.addToBottom(new LoseHPAction(this.owner, this.owner, amount2));
+            LoseHPAction loseHPAction = new LoseHPAction(this.owner, this.owner, amount2);
+            // In practice, the main way this LoseHPAction can end up on the action queue when
+            // the fight ends is if a *different* power that runs its atEndOfTurn first ends
+            // the fight (eg, Arcane Weapon, see #398). Since such an effect would feel to
+            // the player like it should be completing "before" this action happens, we think
+            // it's more friendly for this action to be affected by clearPostCombatActions.
+            loseHPAction.actionType = AbstractGameAction.ActionType.WAIT;
+            AbstractDungeon.actionManager.addToBottom(loseHPAction);
+
             int[] damageMatrix = DamageInfo.createDamageMatrix(amount, true);
             AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(owner, damageMatrix, DamageType.THORNS, AttackEffect.FIRE));
         }

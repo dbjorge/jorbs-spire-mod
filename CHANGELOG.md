@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Fix Introspection HP loss still happening if Arcane Weapon ends combat before Introspection would go off
+
 ## [v1.2.0] - 2020-02-17
 
 ### Balance changes
