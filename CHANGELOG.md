@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### Updates
+
+* Legendary cards now implicitly have a card tooltip for Legendary
+
+### Bug fixes
+
 * Fix Introspection HP loss still happening if Arcane Weapon ends combat before Introspection would go off
 
 ## [v1.2.0] - 2020-02-17
