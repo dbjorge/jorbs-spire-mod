@@ -21,13 +21,25 @@ import java.util.List;
 import java.util.Map;
 
 public class VoiceoverMaster {
+    private static final class VoiceoverInfo {
+        public final Sfx sfx;
+        public final String subtitle;
+        public VoiceoverInfo(Sfx sfx, String subtitle) {
+            this.sfx = sfx;
+            this.subtitle = subtitle;
+        }
+    }
+
     public static final float VOICEOVER_VOLUME_MODIFIER = 1.35F; // compensating for volume of files
-    public static float VOICEOVER_VOLUME = 0.5F; // set by mod settings
+
+    // set by mod settings
+    public static float VOICEOVER_VOLUME = 0.5F;
+    public static boolean VOICEOVER_SUBTITLES_ENABLED = true;
 
     // non-voiceover volumes are multiplied by this; it is decreased while voiceovers are active
     public static float MASTER_DAMPENING_FACTOR = 1.0F;
 
-    public static Map<PlayerClass, Map<String, List<Sfx>>> sfxByCharacterAndKey = new HashMap<>();
+    public static Map<PlayerClass, Map<String, List<VoiceoverInfo>>> sfxByCharacterAndKey = new HashMap<>();
 
     private static Voiceover activeVoiceover;
 
@@ -38,18 +50,18 @@ public class VoiceoverMaster {
     // You can register multiple files for the same key; play will choose randomly between them
     // key should be of form "AwakenedOne"
     // fileName should be of form "wanderer/AwakenedOne_2"
-    public static void register(PlayerClass playerClass, String key, String fileName) {
+    public static void register(PlayerClass playerClass, String key, String fileName, String subtitle) {
         Sfx sfx = load(JorbsMod.makeVoiceOverPath(fileName));
 
         if (!sfxByCharacterAndKey.containsKey(playerClass)) {
             sfxByCharacterAndKey.put(playerClass, new HashMap<>());
         }
-        Map<String, List<Sfx>> sfxByKey = sfxByCharacterAndKey.get(playerClass);
+        Map<String, List<VoiceoverInfo>> sfxByKey = sfxByCharacterAndKey.get(playerClass);
 
         if (!sfxByKey.containsKey(key)) {
             sfxByKey.put(key, new ArrayList<>());
         }
-        sfxByKey.get(key).add(sfx);
+        sfxByKey.get(key).add(new VoiceoverInfo(sfx, subtitle));
     }
 
     public static void update() {
@@ -70,7 +82,7 @@ public class VoiceoverMaster {
     }
 
     public static void playForCurrentBattle() {
-        Sfx sfx = getSfxByCurrentBattle();
+        VoiceoverInfo sfx = getSfxByCurrentBattle();
 
         // The heart fight's music starts with a music change involving a big loud trumpet note,
         // it's less jarring for that particular music to be dampened immediately
@@ -80,9 +92,9 @@ public class VoiceoverMaster {
         playSfx(sfx, 0.0F, dampeningDuration);
     }
 
-    private static void playSfx(Sfx sfx, float startingDelay, float dampeningDuration) {
+    private static void playSfx(VoiceoverInfo sfx, float startingDelay, float dampeningDuration) {
         if (sfx != null && !isMuted() && activeVoiceover == null) {
-            activeVoiceover = new Voiceover(sfx, startingDelay, dampeningDuration);
+            activeVoiceover = new Voiceover(sfx.sfx, sfx.subtitle, startingDelay, dampeningDuration);
         }
     }
 
@@ -94,18 +106,18 @@ public class VoiceoverMaster {
         return new Sfx(file, false);
     }
 
-    private static Sfx getSfxByKey(String key) {
+    private static VoiceoverInfo getSfxByKey(String key) {
         if (AbstractDungeon.player == null) {
             return null;
         }
         if (!sfxByCharacterAndKey.containsKey(AbstractDungeon.player.chosenClass)) {
             return null;
         }
-        Map<String, List<Sfx>> sfxByKey = sfxByCharacterAndKey.get(AbstractDungeon.player.chosenClass);
+        Map<String, List<VoiceoverInfo>> sfxByKey = sfxByCharacterAndKey.get(AbstractDungeon.player.chosenClass);
         if (!sfxByKey.containsKey(key)) {
             return null;
         }
-        List<Sfx> candidates = sfxByKey.get(key);
+        List<VoiceoverInfo> candidates = sfxByKey.get(key);
         if (candidates.isEmpty()) {
             return null;
         }
@@ -113,7 +125,7 @@ public class VoiceoverMaster {
         return candidates.get(index);
     }
 
-    private static Sfx getSfxByCurrentBattle() {
+    private static VoiceoverInfo getSfxByCurrentBattle() {
         // The Sentry + SphericGuardian fight uses an elite enemy in a non-elite fight; we need to special
         // case it to avoid playing the 3-sentries line in that fight
         for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
@@ -123,7 +135,7 @@ public class VoiceoverMaster {
         }
 
         for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
-            Sfx sfxForCurrentMonster = getSfxByKey(m.id);
+            VoiceoverInfo sfxForCurrentMonster = getSfxByKey(m.id);
             if (sfxForCurrentMonster != null) {
                 return sfxForCurrentMonster;
             }

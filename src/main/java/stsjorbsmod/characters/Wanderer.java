@@ -109,11 +109,12 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
 
     public static class AudioInfo {
         private static void registerVoiceOver(String key) {
-            VoiceoverMaster.register(Wanderer.Enums.WANDERER, key, "wanderer/" + key + ".ogg");
+            registerVoiceOver(key, key);
         }
 
-        private static void registerVoiceOver(String key, String resourcePath) {
-            VoiceoverMaster.register(Wanderer.Enums.WANDERER, key, resourcePath);
+        private static void registerVoiceOver(String key, String baseName) {
+            String subtitle = CardCrawlGame.languagePack.getUIString(makeID("wanderer:voiceover:"+baseName)).TEXT[0];
+            VoiceoverMaster.register(Wanderer.Enums.WANDERER, key, "wanderer/" + baseName + ".ogg", subtitle);
         }
 
         public static void registerAudio() {
@@ -122,25 +123,25 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
             registerVoiceOver(BronzeAutomaton.ID);
             registerVoiceOver(Champ.ID);
             registerVoiceOver(CorruptHeart.ID);
-            registerVoiceOver("death", "wanderer/death_1.ogg");
-            registerVoiceOver("death", "wanderer/death_2.ogg");
+            registerVoiceOver("death", "death_1");
+            registerVoiceOver("death", "death_2");
             registerVoiceOver("death_victory");
             registerVoiceOver(Donu.ID);
             registerVoiceOver(GiantHead.ID);
             registerVoiceOver(GremlinLeader.ID);
             registerVoiceOver(GremlinNob.ID);
-            registerVoiceOver(Hexaghost.ID, "wanderer/Hexaghost_1.ogg");
-            registerVoiceOver(Hexaghost.ID, "wanderer/Hexaghost_2.ogg");
+            registerVoiceOver(Hexaghost.ID, "Hexaghost_1");
+            registerVoiceOver(Hexaghost.ID, "Hexaghost_2");
             registerVoiceOver(Lagavulin.ID);
-            registerVoiceOver(Nemesis.ID, "wanderer/Nemesis_1.ogg");
-            registerVoiceOver(Nemesis.ID, "wanderer/Nemesis_2.ogg");
+            registerVoiceOver(Nemesis.ID, "Nemesis_1");
+            registerVoiceOver(Nemesis.ID, "Nemesis_2");
             registerVoiceOver("new_run");
             registerVoiceOver(Reptomancer.ID);
             registerVoiceOver(Sentry.ID);
             registerVoiceOver(Taskmaster.ID);
             registerVoiceOver(SlimeBoss.ID);
-            registerVoiceOver(SpireShield.ID, "wanderer/SpireShield_1.ogg");
-            registerVoiceOver(SpireShield.ID, "wanderer/SpireShield_2.ogg");
+            registerVoiceOver(SpireShield.ID, "SpireShield_1");
+            registerVoiceOver(SpireShield.ID, "SpireShield_2");
             registerVoiceOver(TheCollector.ID);
             registerVoiceOver(TheGuardian.ID);
             registerVoiceOver(TimeEater.ID);

@@ -23,9 +23,11 @@ import static stsjorbsmod.JorbsMod.makeID;
 public class JorbsModSettings {
     private static Properties DEFAULT_SETTINGS = new Properties();
     private static final String VOICEOVER_VOLUME_SETTING = "voiceover_volume";
+    private static final String VOICEOVER_SUBTITLES_ENABLED_SETTING = "voiceover_subtitles_enabled";
     private static final String CULL_ENABLED_SETTING = "cull_enabled";
     static {
         DEFAULT_SETTINGS.setProperty(VOICEOVER_VOLUME_SETTING, "0.5");
+        DEFAULT_SETTINGS.setProperty(VOICEOVER_SUBTITLES_ENABLED_SETTING, "true");
         DEFAULT_SETTINGS.setProperty(CULL_ENABLED_SETTING, "false");
     }
 
@@ -56,6 +58,16 @@ public class JorbsModSettings {
         }
     }
 
+    public static void onVoiceoverSubtitlesToggle(ModToggleButton toggle) {
+        try {
+            VoiceoverMaster.VOICEOVER_SUBTITLES_ENABLED = toggle.enabled;
+            config.setBool(VOICEOVER_SUBTITLES_ENABLED_SETTING, toggle.enabled);
+            config.save();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void onCullToggle(ModToggleButton toggle) {
         try {
             config.setBool(CULL_ENABLED_SETTING, toggle.enabled);
@@ -72,7 +84,7 @@ public class JorbsModSettings {
         // Buttons will set the text on this when pressed
         ModLabel messageLabel = new ModLabel("",
                 400.0F,
-                350.0F,
+                300.0F,
                 Color.GREEN,
                 FontHelper.tipHeaderFont,
                 settingsPanel,
@@ -88,7 +100,6 @@ public class JorbsModSettings {
                 settingsPanel,
                 (label) -> {});
         settingsPanel.addUIElement(voiceoverVolumeSliderLabel);
-
         ModSlider voiceoverVolumeSlider = new ModSlider(
                 "",
                 700.0F,
@@ -100,10 +111,22 @@ public class JorbsModSettings {
         voiceoverVolumeSlider.setValue(VoiceoverMaster.VOICEOVER_VOLUME);
         settingsPanel.addUIElement(voiceoverVolumeSlider);
 
+        ModLabeledToggleButton voiceoverSubtitlesToggle = new ModLabeledToggleButton(
+                MOD_SETTINGS_PANEL_TEXT[6],
+        400.0F,
+                640.0F,
+                Color.WHITE,
+                FontHelper.tipHeaderFont,
+                isCullEnabled(),
+                settingsPanel,
+                (label) -> {},
+                JorbsModSettings::onCullToggle);
+        settingsPanel.addUIElement(voiceoverSubtitlesToggle);
+
         ModLabeledToggleButton cullToggle = new ModLabeledToggleButton(
                 MOD_SETTINGS_PANEL_TEXT[1],
                 400.0F,
-                650.0F,
+                580.0F,
                 Color.WHITE,
                 FontHelper.tipHeaderFont,
                 isCullEnabled(),
@@ -113,8 +136,8 @@ public class JorbsModSettings {
         settingsPanel.addUIElement(cullToggle);
 
         ModButton resetTipsButton = new ModButton(
-                400.0F,
-                520.0F,
+                370.0F,
+                460.0F,
                 settingsPanel,
                 (b) -> {
                     JorbsModTipTracker.reset();
@@ -125,7 +148,7 @@ public class JorbsModSettings {
         ModLabel resetTipsLabel = new ModLabel(
                 MOD_SETTINGS_PANEL_TEXT[2],
                 500.0F,
-                575.0F,
+                515.0F,
                 Color.WHITE,
                 FontHelper.tipHeaderFont,
                 settingsPanel,
@@ -133,8 +156,8 @@ public class JorbsModSettings {
         settingsPanel.addUIElement(resetTipsLabel);
 
         ModButton unlockA20Button = new ModButton(
-                400.0F,
-                420.0F,
+                370.0F,
+                370.0F,
                 settingsPanel,
                 (b) -> {
                     unlockA20(Wanderer.Enums.WANDERER);
@@ -146,7 +169,7 @@ public class JorbsModSettings {
         ModLabel unlockA20Label = new ModLabel(
                 MOD_SETTINGS_PANEL_TEXT[4],
                 500.0F,
-                475.0F,
+                425.0F,
                 Color.WHITE,
                 FontHelper.tipHeaderFont,
                 settingsPanel,

@@ -4,6 +4,7 @@
 
 ### Updates
 
+* Added subtitle speech bubbles for voiceover lines
 * Legendary cards now implicitly have a card tooltip for Legendary
 
 ### Bug fixes

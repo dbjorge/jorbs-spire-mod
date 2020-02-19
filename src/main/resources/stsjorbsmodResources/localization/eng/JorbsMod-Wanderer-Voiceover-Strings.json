@@ -1,0 +1,137 @@
+{
+  "stsjorbsmod:wanderer:voiceover:AwakenedOne": {
+    "TEXT": [
+      "I have no patience left for gods."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:BookOfStabbing": {
+    "TEXT": [
+      "A book? Yes... I found a book..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:BronzeAutomaton": {
+    "TEXT": [
+      "Didn't I kill the last of these? Years ago...?"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Champ": {
+    "TEXT": [
+      "Fame? Fortune? Your victories mean nothing."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:CorruptHeart": {
+    "TEXT": [
+      "At last. Please, let this be the end."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:death_1": {
+    "TEXT": [
+      "So... tired..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:death_2": {
+    "TEXT": [
+      "Rest..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:death_victory": {
+    "TEXT": [
+      "Is this the end?"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Donu": {
+    "TEXT": [
+      "Even perfect forms have weaknesses."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:GiantHead": {
+    "TEXT": [
+      "Perhaps I can look inside..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:GremlinLeader": {
+    "TEXT": [
+      "Ah, to have companions again."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:GremlinNob": {
+    "TEXT": [
+      "The empty feeling of rage."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Hexaghost_1": {
+    "TEXT": [
+      "I will bring you peace, old one."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Hexaghost_2": {
+    "TEXT": [
+      "Six cursed souls, forged in unholy fire."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Lagavulin": {
+    "TEXT": [
+      "My old friend... but no, we cannot rest."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Nemesis_1": {
+    "TEXT": [
+      "Heat and vapor. Fire and smoke."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Nemesis_2": {
+    "TEXT": [
+      "You're not really there at all, are you..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:new_run": {
+    "TEXT": [
+      "Wait... what is this place?"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Reptomancer": {
+    "TEXT": [
+      "Ah, you wish to compare sorcery?"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Sentry": {
+    "TEXT": [
+      "Confusion, loss, deception."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:SlaverBoss": {
+    "TEXT": [
+      "Cruelty is a shallow answer."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:SlimeBoss": {
+    "TEXT": [
+      "Extraordinary specimen! Time for an experiment..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:SpireShield_1": {
+    "TEXT": [
+      "Made by magic. Unmade by magic."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:SpireShield_2": {
+    "TEXT": [
+      "What was made can at last be un-made."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:TheCollector": {
+    "TEXT": [
+      "Such knowledge. If only we could converse..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:TheGuardian": {
+    "TEXT": [
+      "Do you ever tire of our endless dance?"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:TimeEater": {
+    "TEXT": [
+      "Bending time's river... Fascinating..."
+    ]
+  }
+}
