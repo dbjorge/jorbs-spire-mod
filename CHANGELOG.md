@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### Balance changes
+
+* Arcane Weapon: -1 damage (again)
+* Fresh Adventure+: +1 damage
+
 ## [v1.3.0] - 2020-02-19
 
 ### Updates
