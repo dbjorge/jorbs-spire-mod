@@ -4,6 +4,8 @@
 
 ### Updates
 
+* New art for Fractured Mind (thanks Bakuhaku)
+* New art for Unseen Servant (thanks Cartopol)
 * Added subtitle speech bubbles for voiceover lines
 * Legendary cards now implicitly have a card tooltip for Legendary
 
