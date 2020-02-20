@@ -9,6 +9,7 @@
 
 ### Bug fixes
 
+* Fix crash in OnDamageToRedirectPatch with other mods that use DamageActions with null targets
 * Fix Introspection HP loss still happening if Arcane Weapon ends combat before Introspection would go off
 
 ## [v1.2.0] - 2020-02-17
