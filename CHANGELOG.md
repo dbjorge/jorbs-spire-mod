@@ -13,6 +13,7 @@
 
 ### Bug fixes
 
+* Fixed crash in OnModifyGoldPatch with other mods which add gold before you enter a room (eg, Gold Saver)
 * Fixed issues where Voiceover lines for elite fights would play in non-elite fights that shared certain elite enemies (eg, Colosseum event)
 * Fixed memory tooltips not appearing when using Peek button from a card select screen (eg, Retain)
 * Fixed Weight of Memory damage number not counting Wandering Mind cards that are in the process of being played
