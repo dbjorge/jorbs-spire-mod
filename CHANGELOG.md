@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [v1.3.0] - 2020-02-19
+
 ### Updates
 
 * New art for Fractured Mind (thanks Bakuhaku)
