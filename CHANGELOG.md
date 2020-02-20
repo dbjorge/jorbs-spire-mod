@@ -14,6 +14,7 @@
 ### Bug fixes
 
 * Fixed issues where Voiceover lines for elite fights would play in non-elite fights that shared certain elite enemies (eg, Colosseum event)
+* Fixed memory tooltips not appearing when using Peek button from a card select screen (eg, Retain)
 
 ## [v1.3.0] - 2020-02-19
 

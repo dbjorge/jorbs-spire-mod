@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.ui.buttons.PeekButton;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
 import com.megacrit.cardcrawl.vfx.combat.GainPowerEffect;
@@ -151,7 +152,7 @@ public abstract class AbstractMemory implements OnModifyGoldSubscriber {
             effect.render(sb, centerX, centerY);
         }
 
-        if (!AbstractDungeon.isScreenUp && hb.hovered) {
+        if ((!AbstractDungeon.isScreenUp || PeekButton.isPeeking) && hb.hovered) {
             renderTip();
         }
     }
