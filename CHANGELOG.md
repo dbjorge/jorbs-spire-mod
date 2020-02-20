@@ -15,6 +15,7 @@
 
 * Fixed issues where Voiceover lines for elite fights would play in non-elite fights that shared certain elite enemies (eg, Colosseum event)
 * Fixed memory tooltips not appearing when using Peek button from a card select screen (eg, Retain)
+* Fixed Weight of Memory damage number not counting Wandering Mind cards that are in the process of being played
 
 ## [v1.3.0] - 2020-02-19
 
