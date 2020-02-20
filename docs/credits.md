@@ -115,6 +115,7 @@
 * NoWaitSuperKamiGuru
 * passerbyninja
 * Rabbit
+* Renko
 * Rhamni
 * Rindokisuto
 * Seaih
