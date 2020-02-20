@@ -13,7 +13,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.city.SphericGuardian;
 import com.megacrit.cardcrawl.monsters.ending.CorruptHeart;
 import com.megacrit.cardcrawl.random.Random;
+import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.patches.VoiceoverMasterPatch;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -126,21 +128,14 @@ public class VoiceoverMaster {
     }
 
     private static VoiceoverInfo getSfxByCurrentBattle() {
-        // The Sentry + SphericGuardian fight uses an elite enemy in a non-elite fight; we need to special
-        // case it to avoid playing the 3-sentries line in that fight
-        for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
-            if (m.id.equals(SphericGuardian.ID)) {
-                return null;
-            }
+        if (AbstractDungeon.getCurrRoom() == null || AbstractDungeon.getCurrRoom().monsters == null) {
+            return null;
+        }
+        String encounterKey = VoiceoverMasterPatch.MonsterGroup_class.encounterKeyField.get(AbstractDungeon.getCurrRoom().monsters);
+        if (encounterKey == null) {
+            return null;
         }
 
-        for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
-            VoiceoverInfo sfxForCurrentMonster = getSfxByKey(m.id);
-            if (sfxForCurrentMonster != null) {
-                return sfxForCurrentMonster;
-            }
-        }
-
-        return null;
+        return getSfxByKey(encounterKey);
     }
 }

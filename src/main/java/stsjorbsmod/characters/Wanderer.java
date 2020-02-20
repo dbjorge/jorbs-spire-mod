@@ -113,38 +113,42 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
         }
 
         private static void registerVoiceOver(String key, String baseName) {
+            baseName = baseName.replace(' ', '_');
+            String fileName = "wanderer/" + baseName + ".ogg";
             String subtitle = CardCrawlGame.languagePack.getUIString(makeID("wanderer:voiceover:"+baseName)).TEXT[0];
-            VoiceoverMaster.register(Wanderer.Enums.WANDERER, key, "wanderer/" + baseName + ".ogg", subtitle);
+            VoiceoverMaster.register(Wanderer.Enums.WANDERER, key, fileName, subtitle);
         }
 
         public static void registerAudio() {
-            registerVoiceOver(AwakenedOne.ID);
-            registerVoiceOver(BookOfStabbing.ID);
-            registerVoiceOver(BronzeAutomaton.ID);
-            registerVoiceOver(Champ.ID);
-            registerVoiceOver(CorruptHeart.ID);
+            // See MonsterHelper.getEncounter for IDs
+            registerVoiceOver("3 Sentries");
+            registerVoiceOver("Automaton");
+            registerVoiceOver("Awakened One");
+            registerVoiceOver("Book of Stabbing");
+            registerVoiceOver("Champ");
+            registerVoiceOver("Collector");
+            registerVoiceOver("Donu and Deca");
+            registerVoiceOver("Giant Head");
+            registerVoiceOver("Gremlin Leader");
+            registerVoiceOver("Gremlin Nob");
+            registerVoiceOver("Hexaghost", "Hexaghost_1");
+            registerVoiceOver("Hexaghost", "Hexaghost_2");
+            registerVoiceOver("Lagavulin Event", "Lagavulin");
+            registerVoiceOver("Lagavulin");
+            registerVoiceOver("Nemesis", "Nemesis_1");
+            registerVoiceOver("Nemesis", "Nemesis_2");
+            registerVoiceOver("Reptomancer");
+            registerVoiceOver("Shield and Spear", "Shield_and_Spear_1");
+            registerVoiceOver("Shield and Spear", "Shield_and_Spear_2");
+            registerVoiceOver("Slavers");
+            registerVoiceOver("Slime Boss");
+            registerVoiceOver("The Guardian");
+            registerVoiceOver("The Heart");
+            registerVoiceOver("Time Eater");
             registerVoiceOver("death", "death_1");
             registerVoiceOver("death", "death_2");
             registerVoiceOver("death_victory");
-            registerVoiceOver(Donu.ID);
-            registerVoiceOver(GiantHead.ID);
-            registerVoiceOver(GremlinLeader.ID);
-            registerVoiceOver(GremlinNob.ID);
-            registerVoiceOver(Hexaghost.ID, "Hexaghost_1");
-            registerVoiceOver(Hexaghost.ID, "Hexaghost_2");
-            registerVoiceOver(Lagavulin.ID);
-            registerVoiceOver(Nemesis.ID, "Nemesis_1");
-            registerVoiceOver(Nemesis.ID, "Nemesis_2");
             registerVoiceOver("new_run");
-            registerVoiceOver(Reptomancer.ID);
-            registerVoiceOver(Sentry.ID);
-            registerVoiceOver(Taskmaster.ID);
-            registerVoiceOver(SlimeBoss.ID);
-            registerVoiceOver(SpireShield.ID, "SpireShield_1");
-            registerVoiceOver(SpireShield.ID, "SpireShield_2");
-            registerVoiceOver(TheCollector.ID);
-            registerVoiceOver(TheGuardian.ID);
-            registerVoiceOver(TimeEater.ID);
         }
     }
 

@@ -27,6 +27,10 @@
 
 * Arcane Weapon: -1 damage
 
+### Bug fixes
+
+* Fixed issues where Voiceover lines for elite fights would play in non-elite fights that shared certain elite enemies (eg, Colosseum event)
+
 ### Updates
 
 * Ray of Frost: Add ray visual effect (thanks @wang429)
