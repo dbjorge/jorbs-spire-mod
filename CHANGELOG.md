@@ -7,6 +7,10 @@
 * Arcane Weapon: -1 damage (again)
 * Fresh Adventure+: +1 damage
 
+### Updates
+
+* Added secondary tooltips for Patience and Temperance describing Coil and Clarity, respectively
+
 ### Bug fixes
 
 * Fixed issues where Voiceover lines for elite fights would play in non-elite fights that shared certain elite enemies (eg, Colosseum event)

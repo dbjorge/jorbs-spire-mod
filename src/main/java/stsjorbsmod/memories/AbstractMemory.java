@@ -156,9 +156,12 @@ public abstract class AbstractMemory implements OnModifyGoldSubscriber {
         }
     }
 
+    protected void addExtraPowerTips(ArrayList<PowerTip> tips) { }
+
     private void renderTip() {
         ArrayList<PowerTip> tips = new ArrayList<>();
         tips.add(new PowerTip(name, description, staticInfo.CLARITY_IMG_48));
+        addExtraPowerTips(tips);
 
         // Based on the AbstractCreature.renderPowerTips impl
         float tipX = centerX + hb.width / 2.0F < TIP_X_THRESHOLD ?
