@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.powers.IntangiblePower;
 import javassist.CtBehavior;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.MemoryManager;
+import stsjorbsmod.powers.FragilePower;
 
 public class HealthBarRenderSnapPatch {
     @SpirePatch(clz = HealthBarRenderPowerPatch.RenderPowerHealthBar.class, method = "Insert")
@@ -21,7 +22,8 @@ public class HealthBarRenderSnapPatch {
         )
         public static void Insert(AbstractCreature __instance, SpriteBatch sb, float x, float y, @ByRef int[] prevPowerAmtSum,
                                   float targetHealthBarWidth, float HEALTH_BAR_HEIGHT, float HEALTH_BAR_OFFSET_Y) {
-            if (!(__instance instanceof Wanderer) || !(((Wanderer) __instance).snapCounter.isSnapTurn())) {
+            if (!((__instance instanceof Wanderer) && (((Wanderer) __instance).snapCounter.isSnapTurn())) ||
+                    !(__instance.hasPower(FragilePower.POWER_ID) && (((FragilePower) __instance.getPower(FragilePower.POWER_ID)).amount == 1))) {
                 return;
             }
 

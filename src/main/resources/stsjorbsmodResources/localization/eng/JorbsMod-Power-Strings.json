@@ -122,8 +122,8 @@
   "stsjorbsmod:FragilePower": {
     "NAME": "Fragile",
     "DESCRIPTIONS": [
-      "At the end of this turn, Snap.",
-      "In %1$s turns, Snap."
+      "At the end of this turn, #ySnap. NL At the end of your turn, lose #b%2$s HP and deal #b%3$s damage to ALL enemies.",
+      "In #b%1$s turns, #ySnap."
     ]
   },
   "stsjorbsmod:IntrospectionPower": {

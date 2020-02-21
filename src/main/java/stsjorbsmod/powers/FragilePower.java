@@ -6,8 +6,12 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.actions.SnapAction;
+import stsjorbsmod.memories.MemoryManager;
+import stsjorbsmod.memories.OnModifyMemoriesSubscriber;
 
-public class FragilePower extends CustomJorbsModPower {
+import static stsjorbsmod.patches.EnumsPatch.SPECIAL;
+
+public class FragilePower extends CustomJorbsModPower implements OnModifyMemoriesSubscriber {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(FragilePower.class);
     public static final String POWER_ID = STATIC.ID;
 
@@ -16,7 +20,21 @@ public class FragilePower extends CustomJorbsModPower {
 
         this.owner = owner;
         this.amount = turnsUntilSnap;
+        this.amount2 = MemoryManager.forPlayer(owner).countCurrentClarities();
+        this.type = SPECIAL;
 
+        updateDescription();
+    }
+
+    @Override
+    public void onGainClarity(String memoryID) {
+        this.amount2 = MemoryManager.forPlayer(owner).countCurrentClarities();
+        updateDescription();
+    }
+
+    @Override
+    public void onLoseClarity(String memoryID) {
+        this.amount2 = MemoryManager.forPlayer(owner).countCurrentClarities();
         updateDescription();
     }
 
@@ -32,7 +50,7 @@ public class FragilePower extends CustomJorbsModPower {
 
     @Override
     public void updateDescription() {
-        description = String.format(this.amount == 1 ? DESCRIPTIONS[0] : DESCRIPTIONS[1], this.amount);
+        description = String.format(this.amount == 1 ? DESCRIPTIONS[0] : DESCRIPTIONS[1], this.amount, amount2 * 3, amount2 * 6);
     }
 
     @Override

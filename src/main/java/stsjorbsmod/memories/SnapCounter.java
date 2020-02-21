@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -16,6 +17,7 @@ import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.SnapAction;
 import stsjorbsmod.effects.SnapTurnCounterEffect;
+import stsjorbsmod.powers.FragilePower;
 import stsjorbsmod.tips.MemoryFtueTip;
 import stsjorbsmod.tips.SnapFtueTip;
 
@@ -90,11 +92,15 @@ public class SnapCounter {
         if (!showingMemoryFtue) {
             SnapFtueTip.trigger(centerX, centerY);
         }
+
+        if (isSnapTurn()) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new FragilePower(owner, 1)));
+        }
     }
 
     public void atEndOfTurn() {
         if (isSnapTurn()) {
-            AbstractDungeon.actionManager.addToBottom(new SnapAction(AbstractDungeon.player, true));
+            AbstractDungeon.actionManager.addToBottom(new SnapAction(owner, true));
         }
     }
 
