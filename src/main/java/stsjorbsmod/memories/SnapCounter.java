@@ -93,9 +93,13 @@ public class SnapCounter {
     }
 
     public void atEndOfTurn() {
-        if (currentTurn == 7) {
+        if (isSnapTurn()) {
             AbstractDungeon.actionManager.addToBottom(new SnapAction(AbstractDungeon.player, true));
         }
+    }
+
+    public boolean isSnapTurn() {
+        return currentTurn == 7;
     }
 
     private boolean isVisible() {

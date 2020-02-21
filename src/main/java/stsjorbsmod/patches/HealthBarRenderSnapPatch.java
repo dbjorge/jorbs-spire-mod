@@ -21,7 +21,7 @@ public class HealthBarRenderSnapPatch {
         )
         public static void Insert(AbstractCreature __instance, SpriteBatch sb, float x, float y, @ByRef int[] prevPowerAmtSum,
                                   float targetHealthBarWidth, float HEALTH_BAR_HEIGHT, float HEALTH_BAR_OFFSET_Y) {
-            if (!(__instance instanceof Wanderer) || (((Wanderer) __instance).snapCounter.currentTurn != 7)) {
+            if (!(__instance instanceof Wanderer) || !(((Wanderer) __instance).snapCounter.isSnapTurn())) {
                 return;
             }
 
