@@ -42,7 +42,6 @@ public class FragilePower extends CustomJorbsModPower implements OnModifyMemorie
     public void atEndOfTurn(boolean isPlayer) {
         if (this.amount == 1) {
             AbstractDungeon.actionManager.addToBottom(new SnapAction(owner, true));
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         } else {
             AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
         }

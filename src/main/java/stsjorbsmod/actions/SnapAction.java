@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -15,6 +16,7 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.patches.SelfExhumeFields;
 import stsjorbsmod.powers.ExhumeAtStartOfTurnPower;
+import stsjorbsmod.powers.FragilePower;
 import stsjorbsmod.powers.SnappedPower;
 import stsjorbsmod.util.CombatUtils;
 
@@ -51,6 +53,8 @@ public class SnapAction extends AbstractGameAction {
 
         // addToTop is important for Trauma effect ordering
         // Note that the group of addToTops actually executes in reverse order
+        AbstractDungeon.actionManager.addToTop(
+                new RemoveSpecificPowerAction(target, null, FragilePower.POWER_ID));
         AbstractDungeon.actionManager.addToTop(
                 new ApplyPowerAction(target, null, new SnappedPower(target)));
         AbstractDungeon.actionManager.addToTop(

@@ -93,8 +93,8 @@ public class SnapCounter {
             SnapFtueTip.trigger(centerX, centerY);
         }
 
-        if (isSnapTurn()) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new FragilePower(owner, 1)));
+        if (currentTurn == 1) {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new FragilePower(owner, 7)));
         }
     }
 
