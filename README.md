@@ -9,7 +9,7 @@
 
 Many people have contributed code and art for this mod; thanks to all the contributors listed among the [mod authors](./src/main/resources/ModTheSpire.json).
 
-This mod would not have been possible without the excellent documentation and guidance from all of the contributors at [ModTheSpire](https://github.com/kiooeht/ModTheSpire), [BaseMod](https://github.com/daviscook477/BaseMod), [StSLib](), [StS-DefaultModBase](https://github.com/Gremious/StS-DefaultModBase), and [Slay the Spire Discord](https://discordapp.com/invite/SlayTheSpire) **#modding**.
+This mod would not have been possible without the excellent documentation and guidance from all of the contributors at [ModTheSpire](https://github.com/kiooeht/ModTheSpire), [BaseMod](https://github.com/daviscook477/BaseMod), [StSLib](https://github.com/kiooeht/StSLib), [StS-DefaultModBase](https://github.com/Gremious/StS-DefaultModBase), and [Slay the Spire Discord](https://discordapp.com/invite/SlayTheSpire) **#modding**.
 
 This mod aims to support *both* the stable and beta branches of Slay the Spire, but is primarily developed and tested against the beta branch. If you notice an incompatibility with *either* branch, please [file an issue](https://github.com/dbjorge/jorbs-spire-mod/issues/new)!
 
