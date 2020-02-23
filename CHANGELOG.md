@@ -9,6 +9,10 @@
 * New art for Wanderer's Defend (thanks Chevy28360)
 * Touched up art for Rest and Chain Lightning (thanks Newigeg)
 
+### Bug fixes
+
+* Amnesia removing Thorns while you have Humility will no longer result in negative Thorns (thanks wang429)
+
 ## [v1.4.0] - 2020-02-19
 
 ### Balance changes
