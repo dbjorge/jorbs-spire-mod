@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.ThornsPower;
+import stsjorbsmod.cards.wanderer.Thorns;
 import stsjorbsmod.util.ReflectionUtils;
 
 public class HumilityMemory extends AbstractMemory implements OnPowersModifiedSubscriber {
@@ -31,13 +32,7 @@ public class HumilityMemory extends AbstractMemory implements OnPowersModifiedSu
 
     private int calculateBonusThorns() {
         AbstractPower maybeThornsPower = owner == null ? null : owner.getPower(ThornsPower.POWER_ID);
-        int currentThornsStacks = 0;
-        if (maybeThornsPower == null) {
-            // if the owner does not have thorns, then the base thorns amount is 0
-            thornsAlreadyApplied = 0;
-        } else {
-            currentThornsStacks = maybeThornsPower.amount;
-        }
+        int currentThornsStacks = maybeThornsPower == null ? 0 : maybeThornsPower.amount;
         int pendingThornsStacks = AbstractDungeon.actionManager.actions
                 .stream()
                 .filter(a ->
@@ -52,6 +47,11 @@ public class HumilityMemory extends AbstractMemory implements OnPowersModifiedSu
     }
 
     private void updateAppliedThorns() {
+        // This handles the special case of Thorns being removed entirely (eg, via Amnesia) instead of via additive modifications.
+        if (!owner.hasPower(ThornsPower.POWER_ID)) {
+            thornsAlreadyApplied = 0;
+        }
+        
         int goalBonusThorns = calculateBonusThorns();
 
         // We intentionally set this to the calculated value even if we aren't applying the passive effect
