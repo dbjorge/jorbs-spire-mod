@@ -451,6 +451,7 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
     public void preBattlePrep() {
         super.preBattlePrep();
         snapCounter.reset();
+        snapCounter.atPreBattle();
     }
 
     @Override

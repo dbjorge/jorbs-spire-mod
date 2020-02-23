@@ -83,6 +83,10 @@ public class SnapCounter {
         tips.get(0).body = String.format(TEXT[1], currentTurn);
     }
 
+    public void atPreBattle() {
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new FragilePower(owner, 7)));
+    }
+
     public void atStartOfTurn() {
         currentTurn++;
         alpha = MathUtils.lerp(STARTING_ALPHA, ENDING_ALPHA, currentTurn / 7.0F);
@@ -91,10 +95,6 @@ public class SnapCounter {
         boolean showingMemoryFtue = MemoryFtueTip.trigger(centerX, centerY);
         if (!showingMemoryFtue) {
             SnapFtueTip.trigger(centerX, centerY);
-        }
-
-        if (currentTurn == 1) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new FragilePower(owner, 7)));
         }
     }
 
