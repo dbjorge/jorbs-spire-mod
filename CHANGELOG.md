@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+### Updates
+
+* New art for Brooding (thanks lobbien)
+* New art for Corroding Barrier (thanks Cartopol)
+* New art for Wanderer's Defend (thanks Chevy28360)
+* Touched up art for Rest and Chain Lightning (thanks Newigeg)
+
 ## [v1.4.0] - 2020-02-19
 
 ### Balance changes
