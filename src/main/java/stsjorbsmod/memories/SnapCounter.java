@@ -100,6 +100,7 @@ public class SnapCounter {
 
     public void atEndOfTurn() {
         if (isSnapTurn()) {
+            // Since snapping is a core mechanic of the Wanderer, this ensures that even if FragilePower is removed, he snaps
             AbstractDungeon.actionManager.addToBottom(new SnapAction(owner, true));
         }
     }

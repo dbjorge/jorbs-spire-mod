@@ -3,7 +3,6 @@ package stsjorbsmod.powers;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.actions.SnapAction;
 import stsjorbsmod.memories.MemoryManager;
@@ -39,11 +38,16 @@ public class FragilePower extends CustomJorbsModPower implements OnModifyMemorie
     }
 
     @Override
+    public void onSnap() {
+        addToBot(new RemoveSpecificPowerAction(owner, owner, ID));
+    }
+
+    @Override
     public void atEndOfTurn(boolean isPlayer) {
         if (this.amount == 1) {
-            AbstractDungeon.actionManager.addToBottom(new SnapAction(owner, true));
+            addToBot(new SnapAction(owner, true));
         } else {
-            AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
+            addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
         }
     }
 
