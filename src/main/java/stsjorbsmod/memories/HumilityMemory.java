@@ -42,8 +42,8 @@ public class HumilityMemory extends AbstractMemory implements OnPowersModifiedSu
                 .stream()
                 .filter(a ->
                         a instanceof ApplyPowerAction &&
-                                a.target == owner &&
-                                ReflectionUtils.getPrivateField((ApplyPowerAction) a, ApplyPowerAction.class, "powerToApply") instanceof ThornsPower)
+                        a.target == owner &&
+                        ReflectionUtils.getPrivateField((ApplyPowerAction) a, ApplyPowerAction.class, "powerToApply") instanceof ThornsPower)
                 .mapToInt(a -> a.amount)
                 .sum();
 
