@@ -8,8 +8,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.ThornsPower;
 import stsjorbsmod.util.ReflectionUtils;
 
-import java.util.stream.Collectors;
-
 public class HumilityMemory extends AbstractMemory implements OnPowersModifiedSubscriber {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(HumilityMemory.class);
 
@@ -33,7 +31,13 @@ public class HumilityMemory extends AbstractMemory implements OnPowersModifiedSu
 
     private int calculateBonusThorns() {
         AbstractPower maybeThornsPower = owner == null ? null : owner.getPower(ThornsPower.POWER_ID);
-        int currentThornsStacks = maybeThornsPower == null ? 0 : maybeThornsPower.amount;
+        int currentThornsStacks = 0;
+        if (maybeThornsPower == null) {
+            // if the owner does not have thorns, then the base thorns amount is 0
+            thornsAlreadyApplied = 0;
+        } else {
+            currentThornsStacks = maybeThornsPower.amount;
+        }
         int pendingThornsStacks = AbstractDungeon.actionManager.actions
                 .stream()
                 .filter(a ->
