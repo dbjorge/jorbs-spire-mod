@@ -33,6 +33,7 @@ public class HumilityMemory extends AbstractMemory implements OnPowersModifiedSu
         AbstractPower maybeThornsPower = owner == null ? null : owner.getPower(ThornsPower.POWER_ID);
         int currentThornsStacks = 0;
         if (maybeThornsPower == null) {
+            // if the owner does not have thorns, then the base thorns amount is 0
             thornsAlreadyApplied = 0;
         } else {
             currentThornsStacks = maybeThornsPower.amount;
