@@ -12,6 +12,7 @@
 ### Bug fixes
 
 * Amnesia removing Thorns while you have Humility will no longer result in negative Thorns (thanks wang429)
+* "Add card to hand" effects when your hand is full will now exhaust Ephemeral cards instead of discarding them 
 
 ## [v1.4.0] - 2020-02-19
 
