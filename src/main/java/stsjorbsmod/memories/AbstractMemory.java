@@ -152,6 +152,8 @@ public abstract class AbstractMemory implements OnModifyGoldSubscriber {
             effect.render(sb, centerX, centerY);
         }
 
+        hb.render(sb);
+
         if ((!AbstractDungeon.isScreenUp || PeekButton.isPeeking) && hb.hovered) {
             renderTip();
         }
@@ -178,7 +180,8 @@ public abstract class AbstractMemory implements OnModifyGoldSubscriber {
     public void update(float centerX, float centerY) {
         this.centerX = centerX;
         this.centerY = centerY;
-        this.hb.update(centerX - (HB_WIDTH / 2.0F), centerY - (HB_HEIGHT / 2.0F));
+        this.hb.move(centerX, centerY);
+        this.hb.update();
 
         this.updateRememberBgRotationTimer();
 
