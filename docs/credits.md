@@ -115,6 +115,7 @@
 * NoWaitSuperKamiGuru
 * passerbyninja
 * Rabbit
+* Ray661
 * Renko
 * Rhamni
 * Rindokisuto
