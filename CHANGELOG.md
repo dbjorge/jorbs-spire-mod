@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [v1.5.0] - 2020-02-23
+
 ### Updates
 
 * New art for Brooding (thanks lobbien)
