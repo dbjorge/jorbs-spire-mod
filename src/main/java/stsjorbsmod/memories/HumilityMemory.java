@@ -6,10 +6,12 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.ThornsPower;
-import stsjorbsmod.cards.wanderer.Thorns;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import stsjorbsmod.util.ReflectionUtils;
 
 public class HumilityMemory extends AbstractMemory implements OnPowersModifiedSubscriber {
+    public static final Logger logger = LogManager.getLogger(HumilityMemory.class.getName());
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(HumilityMemory.class);
 
     private static final int THORNS_ON_REMEMBER = 2;
@@ -21,7 +23,7 @@ public class HumilityMemory extends AbstractMemory implements OnPowersModifiedSu
         thornsAlreadyApplied = 0;
 
         setDescriptionPlaceholder("!R!", THORNS_ON_REMEMBER);
-        setDescriptionPlaceholder("!P!", calculateBonusThorns());
+        setDescriptionPlaceholder("!P!", calculateExistingThorns());
     }
 
     @Override
@@ -30,7 +32,7 @@ public class HumilityMemory extends AbstractMemory implements OnPowersModifiedSu
                 new ApplyPowerAction(owner, owner, new ThornsPower(owner, THORNS_ON_REMEMBER)));
     }
 
-    private int calculateBonusThorns() {
+    private int calculateExistingThorns() {
         AbstractPower maybeThornsPower = owner == null ? null : owner.getPower(ThornsPower.POWER_ID);
         int currentThornsStacks = maybeThornsPower == null ? 0 : maybeThornsPower.amount;
         int pendingThornsStacks = AbstractDungeon.actionManager.actions
@@ -42,17 +44,19 @@ public class HumilityMemory extends AbstractMemory implements OnPowersModifiedSu
                 .mapToInt(a -> a.amount)
                 .sum();
 
-        int totalExistingThorns = currentThornsStacks + pendingThornsStacks;
-        return totalExistingThorns - thornsAlreadyApplied;
+        return currentThornsStacks + pendingThornsStacks;
     }
 
     private void updateAppliedThorns() {
+        int existingThorns = calculateExistingThorns();
+
         // This handles the special case of Thorns being removed entirely (eg, via Amnesia) instead of via additive modifications.
-        if (!owner.hasPower(ThornsPower.POWER_ID)) {
+        if (existingThorns == 0 && thornsAlreadyApplied != 0) {
+            logger.info("Thorns removed (Amnesia?), resetting tracked doubling state");
             thornsAlreadyApplied = 0;
         }
         
-        int goalBonusThorns = calculateBonusThorns();
+        int goalBonusThorns = existingThorns - thornsAlreadyApplied;
 
         // We intentionally set this to the calculated value even if we aren't applying the passive effect
         setDescriptionPlaceholder("!P!", goalBonusThorns);
@@ -63,6 +67,10 @@ public class HumilityMemory extends AbstractMemory implements OnPowersModifiedSu
 
         int bonusThornsDelta = goalBonusThorns - thornsAlreadyApplied;
         if (bonusThornsDelta != 0) {
+            logger.info(String.format(
+                    "existingThorns: %1$s, thornsAlreadyApplied: %2$s, goalBonusThorns: %3$s, bonusThornsDelta: %4$s",
+                    existingThorns, thornsAlreadyApplied, goalBonusThorns, bonusThornsDelta));
+
             AbstractPower thornsDeltaPower = new ThornsPower(owner, bonusThornsDelta);
             if (bonusThornsDelta < 0) {
                 // This ensures that thorns decreases can be blocked by artifact.
