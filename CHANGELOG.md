@@ -11,6 +11,7 @@
 
 ### Bug fixes
 
+* Fix memory tooltips not displaying in touchscreen mode
 * Amnesia removing Thorns while you have Humility will no longer result in negative Thorns (thanks wang429)
 * "Add card to hand" effects when your hand is full will now exhaust Ephemeral cards instead of discarding them 
 
