@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.ui.buttons.PeekButton;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
 import com.megacrit.cardcrawl.vfx.combat.GainPowerEffect;
@@ -151,14 +152,19 @@ public abstract class AbstractMemory implements OnModifyGoldSubscriber {
             effect.render(sb, centerX, centerY);
         }
 
-        if (!AbstractDungeon.isScreenUp && hb.hovered) {
+        hb.render(sb);
+
+        if ((!AbstractDungeon.isScreenUp || PeekButton.isPeeking) && hb.hovered) {
             renderTip();
         }
     }
 
+    protected void addExtraPowerTips(ArrayList<PowerTip> tips) { }
+
     private void renderTip() {
         ArrayList<PowerTip> tips = new ArrayList<>();
         tips.add(new PowerTip(name, description, staticInfo.CLARITY_IMG_48));
+        addExtraPowerTips(tips);
 
         // Based on the AbstractCreature.renderPowerTips impl
         float tipX = centerX + hb.width / 2.0F < TIP_X_THRESHOLD ?
@@ -174,7 +180,8 @@ public abstract class AbstractMemory implements OnModifyGoldSubscriber {
     public void update(float centerX, float centerY) {
         this.centerX = centerX;
         this.centerY = centerY;
-        this.hb.update(centerX - (HB_WIDTH / 2.0F), centerY - (HB_HEIGHT / 2.0F));
+        this.hb.move(centerX, centerY);
+        this.hb.update();
 
         this.updateRememberBgRotationTimer();
 

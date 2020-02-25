@@ -27,7 +27,7 @@ public class FreshAdventure extends CustomJorbsModCard implements OnModifyMemori
 
     private static final int COST = 2;
     private static final int DAMAGE = 13;
-    private static final int UPGRADE_PLUS_DMG = 3;
+    private static final int UPGRADE_PLUS_DMG = 4;
     private static final int WRATH_STACK_ON_SNAP = 1;
 
     public FreshAdventure() {
@@ -46,7 +46,9 @@ public class FreshAdventure extends CustomJorbsModCard implements OnModifyMemori
 
     @Override
     public void onSnap() {
-        addToBot(new ConsumerGameAction<>(WrathMemory::permanentlyIncreaseCardDamage, this));
+        // It's important that this effect *not* be implemented as an action, because if it happens in response to the
+        // last enemy in a fight dying, no further actions will be executed during that fight.
+        WrathMemory.permanentlyIncreaseCardDamage(this);
     }
 
     @Override

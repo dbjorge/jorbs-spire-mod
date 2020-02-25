@@ -20,11 +20,14 @@ public class MindPalaceRelic extends CustomJorbsModRelic implements OnModifyMemo
     }
 
     @Override
-    public void atBattleStart() {
+    public void atBattleStartPreDraw() {
         if (trackedMemoryID != null) {
             this.flash();
             AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-            AbstractDungeon.actionManager.addToBottom(new GainSpecificClarityAction(AbstractDungeon.player, trackedMemoryID));
+            // We intentionally do this directly rather than via a GainClarity action because we want it to be
+            // present before any onStartOfTurn callbacks get invoked (and for Sloth, before start-of-turn draw/energy
+            // effects happen)
+            MemoryManager.forPlayer(AbstractDungeon.player).gainClarity(trackedMemoryID);
             trackedMemoryID = null;
         }
     }

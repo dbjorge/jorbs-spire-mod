@@ -23,7 +23,7 @@ public class OnDamageToRedirectPatch {
     public static class DamageAction_update {
         @SpirePrefixPatch
         public static SpireReturn patch(DamageAction __this) {
-            if (!__this.target.isPlayer || !(__this.target instanceof AbstractPlayer)) {
+            if (__this.target == null || !__this.target.isPlayer || !(__this.target instanceof AbstractPlayer)) {
                 return SpireReturn.Continue();
             }
 

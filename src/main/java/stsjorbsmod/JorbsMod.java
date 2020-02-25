@@ -357,6 +357,7 @@ public class JorbsMod implements
         BaseMod.loadCustomStringsFile(PowerStrings.class, makeLocalizedStringsPath("JorbsMod-Power-Strings.json"));
         BaseMod.loadCustomStringsFile(RelicStrings.class, makeLocalizedStringsPath("JorbsMod-Relic-Strings.json"));
         BaseMod.loadCustomStringsFile(UIStrings.class, makeLocalizedStringsPath("JorbsMod-UI-Strings.json"));
+        BaseMod.loadCustomStringsFile(UIStrings.class, makeLocalizedStringsPath("JorbsMod-Wanderer-Voiceover-Strings.json"));
 
         logger.info("Done editing strings");
     }

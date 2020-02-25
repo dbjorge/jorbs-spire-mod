@@ -41,7 +41,7 @@
   },
   "stsjorbsmod:ArcaneWeapon": {
     "NAME": "Arcane Weapon",
-    "DESCRIPTION": "At the end of each turn, attack a random enemy for !D! damage."
+    "DESCRIPTION": "At the end of each turn, deal !D! stsjorbsmod:Attack\u00a0Damage to a random enemy."
   },
   "stsjorbsmod:Banish": {
     "NAME": "Banish",

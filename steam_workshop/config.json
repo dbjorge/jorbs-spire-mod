@@ -3,7 +3,7 @@
   "title": "Jorbs's Wanderer Trilogy",
   "description": "",
   "visibility": "public",
-  "changeNote": "v1.1.1\n\n[*] Added a \"Unlock Ascension 20\" button to the mod's in-game Config page\n[*] New art for Disguise Self (by Newigeg) and Will (by Cartopol)",
+  "changeNote": "v1.5.0\n\n[h3]Updates[/h3]\n[list]\n[*] New art for Brooding (thanks lobbien)\n[*] New art for Corroding Barrier (thanks Cartopol)\n[*] New art for Wanderer's Defend (thanks Chevy28360)\n[*] Touched up art for Rest and Chain Lightning (thanks Newigeg)\n[/list]\n[h3]Bug fixes[/h3]\n[list]\n[*] Fix memory tooltips not displaying in touchscreen mode\n[*] Amnesia removing Thorns while you have Humility will no longer result in negative Thorns (thanks wang429)\n[*] \"Add card to hand\" effects when your hand is full will now exhaust Ephemeral cards instead of discarding them",
   "tags": [
     "Character",
     "Expansion"

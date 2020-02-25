@@ -1,4 +1,27 @@
 // Usage: node scripts/release.js 1.2.3
+//
+// Prerequisites:
+//   * Have the Steam client installed and logged into the jorbsmods account
+//   * Have hub installed and auth'd as an account that can push GitHub releases
+//   * Have a clean "git status" (no files staged or modified)
+//   * Have the "master" branch checked out
+//
+// This script will first prepare the release:
+//
+//   * Extract changelog info from CHANGELOG.md's [Unreleased] section
+//   * Produce GitHub, Steam, and Discord-formatted release notes
+//   * Update pom.xml, steam_workshop/config.json, and CHANGELOG.md
+//   * Clean up any stale JorbsMod.jar file
+//
+// Then, it will prompt you to check its work, rebuild the mod, and test it.
+// Once you confirm you've done that, it will:
+//
+//   * Commit/push the updated files
+//   * Create/push a git tag
+//   * Upload a new Steam Workshop release
+//   * Upload a new GitHub release
+//   * Output a suggested Discord release message to the console
+
 const child_process = require('child_process');
 const fs = require('fs');
 const path = require('path');
@@ -11,6 +34,12 @@ const d = new Date();
 const monthStr = `${d.getMonth() + 1}`.padStart(2, '0');
 const dateStr = `${d.getDate()}`.padStart(2, '0');
 const dateStamp = `${d.getFullYear()}-${monthStr}-${dateStr}`;
+
+function logNote(noteLabel, noteContent) {
+    console.log(`--- vvv ${noteLabel} vvv ---`);
+    console.log(noteContent);
+    console.log(`--- ^^^ ${noteLabel} ^^^ ---`);
+}
 
 console.log(`Beginning update to v${version} - ${dateStamp}...`);
 
@@ -33,7 +62,7 @@ if (status.toString() !== '') {
 }
 
 console.log('Verifying format of version number...');
-const versionRegex = /^[1-9]\d*\.[1-9]\d*\.[1-9]\d*$/;
+const versionRegex = /^[1-9]\d*\.(0|([1-9]\d*))\.(0|([1-9]\d*))*$/;
 if (!versionRegex.test(version)) {
     console.log(`Invalid version number "${version}", should look like "1.2.3"`);
     process.exit(2);
@@ -49,7 +78,7 @@ console.log('Extracting changelog from CHANGELOG.md...');
 const changelogPath = path.join(__dirname, '../CHANGELOG.md');
 let changelogContent = fs.readFileSync(changelogPath).toString();
 const unreleasedChangelogContent = /## \[Unreleased\]\n((.|\n)*?)\n## \[/m.exec(changelogContent)[1].trim();
-console.log(`---\n${unreleasedChangelogContent}\n---`);
+logNote('CHANGELOG [Unreleased] SECTION', unreleasedChangelogContent);
 
 console.log(`Moving CHANGELOG.md [Unreleased] section to new section for v${version}...`)
 changelogContent = changelogContent.replace('## [Unreleased]', `## [Unreleased]\n\n## [v${version}] - ${dateStamp}`)
@@ -66,7 +95,7 @@ const steamChangeNoteContent = `v${version}\n\n` + unreleasedChangelogContent
     .replace(/\*\*\*(.*)\*\*\*/g, (s, text) => `[b][i]${text}[/i][/b]`)
     .replace(/\*\*(.*)\*\*/g, (s, text) => `[b]${text}[/b]`)
     .replace(/\*(.*)\*/g, (s, text) => `[i]${text}[/i]`);
-console.log(`---\n${steamChangeNoteContent}\n---`);
+logNote('STEAM', steamChangeNoteContent);
 
 console.log('Updating Steam Workshop config.json changeNote field with version + changelog...');
 const configJsonPath = path.join(__dirname, '../steam_workshop/config.json');
@@ -83,8 +112,11 @@ try {
     if (err.code !== 'ENOENT') { throw err; }
 }
 
+console.log('Generating alternate formats of release notes...')
 const hubReleaseInput = `v${version}\n\n${unreleasedChangelogContent}`;
+logNote('GITHUB', hubReleaseInput);
 const suggestedDiscordPost = `**Released v${version}**, available at https://mod.jorbs.tv/steam\n\n${unreleasedChangelogContent}`;
+logNote('DISCORD', suggestedDiscordPost);
 
 console.log('"git add" updated files...')
 child_process.exec(`git add "${changelogPath}" "${pomXmlPath}" "${configJsonPath}"`, {stdio: 'inherit'});
@@ -122,7 +154,9 @@ function promptToContinue() {
     console.log(`Uploading new version as a GitHub release...`);
     child_process.execSync(`hub release create --attach "${jarPath}#JorbsMod.jar" --file - v${version}`, {input: hubReleaseInput});
 
-    console.log(`Done! Suggested Discord post:\n\n${suggestedDiscordPost}`);
+    console.log('Done! Suggested Discord post:\n');
+    // Repeating so it'll be below the fold of "uploading..." spam
+    logNote('DISCORD', suggestedDiscordPost);
   });
 }
 

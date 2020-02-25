@@ -22,6 +22,7 @@ public class BanishedPower extends CustomJorbsModPower implements OnApplyPowerTo
 
     public BanishedPower(final AbstractCreature owner, final AbstractCreature source, final int duration) {
         super(STATIC);
+        this.type = PowerType.DEBUFF;
         this.isTurnBased = true;
 
         this.owner = owner;

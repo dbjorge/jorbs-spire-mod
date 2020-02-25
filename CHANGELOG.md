@@ -2,12 +2,76 @@
 
 ## [Unreleased]
 
+## [v1.5.0] - 2020-02-23
+
+### Updates
+
+* New art for Brooding (thanks lobbien)
+* New art for Corroding Barrier (thanks Cartopol)
+* New art for Wanderer's Defend (thanks Chevy28360)
+* Touched up art for Rest and Chain Lightning (thanks Newigeg)
+
+### Bug fixes
+
+* Fix memory tooltips not displaying in touchscreen mode
+* Amnesia removing Thorns while you have Humility will no longer result in negative Thorns (thanks wang429)
+* "Add card to hand" effects when your hand is full will now exhaust Ephemeral cards instead of discarding them 
+
+## [v1.4.0] - 2020-02-19
+
+### Balance changes
+
+* Arcane Weapon: -1 damage (again)
+* Fresh Adventure+: +1 damage
+
+### Updates
+
+* Added secondary tooltips for Patience and Temperance describing Coil and Clarity, respectively
+
+### Bug fixes
+
+* Fixed crash in OnModifyGoldPatch with other mods which add gold before you enter a room (eg, Gold Saver)
+* Fixed issues where Voiceover lines for elite fights would play in non-elite fights that shared certain elite enemies (eg, Colosseum event)
+* Fixed memory tooltips not appearing when using Peek button from a card select screen (eg, Retain)
+* Fixed Weight of Memory damage number not counting Wandering Mind cards that are in the process of being played
+* Fixed Mind Palace not applying Sloth's draw down + energy up on turn 1
+
+## [v1.3.0] - 2020-02-19
+
+### Updates
+
+* New art for Fractured Mind (thanks Bakuhaku)
+* New art for Unseen Servant (thanks Cartopol)
+* Added subtitle speech bubbles for voiceover lines
+* Legendary cards now implicitly have a card tooltip for Legendary
+
+### Bug fixes
+
+* Fix crash in OnDamageToRedirectPatch with other mods (eg STSFriendlyMinions) that use DamageActions with null targets
+* Fix Introspection HP loss still happening if Arcane Weapon ends combat before Introspection would go off
+
+## [v1.2.0] - 2020-02-17
+
+### Balance changes
+
 * Arcane Weapon: -1 damage
+
+### Updates
+
+* Ray of Frost: Add ray visual effect (thanks @wang429)
+* Arcane Weapon: Updated card/power descriptions to clarify that attack modifiers apply (thanks Gk, Crocketeer, MetaBoy for suggestions)
+* Will: Card art updated to include stars/moons on Wanderer's robe (thanks @Cartopol)
+
+### Bug fixes
+
+* Banish: Will now be fully prevented by Artifact, rather than half-prevented (thanks @m0rph1ing for reporting)
+* Time Eddy: If a buff (eg, Arcane Weapon) kills an enemy, that enemy's remaining powers will no longer still trigger (eg, dead Exploders won't explode)
+* Fresh Adventure: Fixed Wrath upgrade on Snap being skipped if Snap ended the combat (thanks @wang429) 
 
 ## [v1.1.1] - 2020-02-16
 
 * Added a "Unlock Ascension 20" button to the mod's in-game Config page
-* New art for Disguise Self (by Newigeg) and Will (by Cartopol)
+* New art for Disguise Self (by @Newigeg) and Will (by @Cartopol)
 
 ## [v1.1.0] - 2020-02-16
 

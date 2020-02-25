@@ -49,6 +49,7 @@
 * GinFizzes
 * Jac2012
 * JoeKage
+* lobbien
 * LouisLeGros
 * mziggles
 * Newigeg
@@ -60,6 +61,7 @@
 * Charlene Putney (Divinity: Original Sin, http://alphachar.com/)
 * Freyjas Guardian
 * Leeeeeeeeeee
+* myop
 * Sasha Chapin (All The Wrong Moves, https://www.imsashachapin.com/)
 * SkyeVeran
 
@@ -104,6 +106,7 @@
 * june
 * kawyua
 * Levender
+* m0rph1ing
 * Mark
 * MasterChef
 * MetaBoy
@@ -112,6 +115,8 @@
 * NoWaitSuperKamiGuru
 * passerbyninja
 * Rabbit
+* Ray661
+* Renko
 * Rhamni
 * Rindokisuto
 * Seaih
