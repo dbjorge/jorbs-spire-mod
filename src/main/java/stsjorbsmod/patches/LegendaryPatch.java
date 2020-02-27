@@ -13,12 +13,15 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.random.Random;
-import com.megacrit.cardcrawl.relics.*;
+import com.megacrit.cardcrawl.relics.Astrolabe;
+import com.megacrit.cardcrawl.relics.DollysMirror;
+import com.megacrit.cardcrawl.relics.EmptyCage;
+import com.megacrit.cardcrawl.rewards.RewardItem;
+import com.megacrit.cardcrawl.screens.CombatRewardScreen;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
-import javassist.expr.ExprEditor;
-import javassist.expr.FieldAccess;
-import javassist.expr.MethodCall;
+import javassist.NotFoundException;
+import javassist.expr.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.util.ReflectionUtils;
@@ -126,6 +129,14 @@ public class LegendaryPatch {
         return copy;
     }
 
+    public static void removeShownLegendaryCardFromPools(RewardItem item) {
+        for (AbstractCard card : item.cards) {
+            if (card.hasTag(LEGENDARY)) {
+                removeCardFromPools(card);
+            }
+        }
+    }
+
     private static class CloneMasterDeckWithoutLegendaryCardsEditor extends ExprEditor {
         @Override
         public void edit(FieldAccess fieldAccess) throws CannotCompileException {
@@ -156,6 +167,21 @@ public class LegendaryPatch {
             LegendaryPatch.removeObtainedLegendaryCardsFromPools();
         }
     }
+
+    @SpirePatch(clz = CombatRewardScreen.class, method = "setupItemReward")
+    public static class AbstractDungeon_getRewardCards {
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                @Override
+                public void edit(NewExpr n) throws CannotCompileException {
+                    if (n.getClassName().equals(RewardItem.class.getName())) {
+                        n.replace("{ $_ = $proceed(); " + LegendaryPatch.class.getName() + ".removeShownLegendaryCardFromPools($_); }");
+                    }
+                }
+            };
+        }
+    }
+
 
     // Legendary cards aren't purgeable. By removing them from choices to purge, we sidestep them even being picked
     // by the player to remove or transform.
