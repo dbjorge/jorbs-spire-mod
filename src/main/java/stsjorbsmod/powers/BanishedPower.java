@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.BackAttackPower;
 
 public class BanishedPower extends CustomJorbsModPower implements OnApplyPowerToCancelSubscriber, OnHealedBySubscriber {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(BanishedPower.class);
@@ -62,7 +63,7 @@ public class BanishedPower extends CustomJorbsModPower implements OnApplyPowerTo
 
     @Override
     public boolean onReceivePowerToCancel(AbstractPower power, AbstractCreature source) {
-        return (source != this.owner) && (power != associatedStunPower);
+        return (source != this.owner) && (power != associatedStunPower) && !(power instanceof BackAttackPower);
     }
 
     @Override
