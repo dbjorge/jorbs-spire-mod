@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Updates
+
+* New art for Parrying Blow (thanks lobbien)
+
 ### Bug fixes
 
 * Fix crash in ManifestPatch reported in workshop comment
