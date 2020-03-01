@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Bug fixes
+
+* Fix crash in ManifestPatch reported in workshop comment
+
 ## [v1.5.0] - 2020-02-23
 
 ### Updates
