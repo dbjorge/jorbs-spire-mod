@@ -11,6 +11,8 @@
 ### Bug fixes
 
 * Fix crash in ManifestPatch reported in workshop comment
+* Fix issue where card text was not being updated immediately after permanent damage changes (particularly, after drawing CULL) (thanks wang429)
+* Fix issue where banishing one of the two enemies in the Spear and Shield fight would prevent Unceasing Top from working (thanks wang429)
 
 ## [v1.5.0] - 2020-02-23
 
