@@ -5,6 +5,8 @@
 ### Updates
 
 * New art for Parrying Blow (thanks lobbien)
+* New art for Stalwart (thanks chevy28360)
+* New art for Magic Mirror (thanks Cartopol)
 
 ### Bug fixes
 
