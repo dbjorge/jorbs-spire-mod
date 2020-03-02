@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [v1.6.0] - 2020-03-01
+
 ### Updates
 
 * New art for Parrying Blow (thanks lobbien)
