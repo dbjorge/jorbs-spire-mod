@@ -7,6 +7,7 @@
 * New art for Parrying Blow (thanks lobbien)
 * New art for Stalwart (thanks chevy28360)
 * New art for Magic Mirror (thanks Cartopol)
+* Scroll of Dimension Door now sounds like a scroll and is something you "Read" instead of "Drink"
 
 ### Bug fixes
 

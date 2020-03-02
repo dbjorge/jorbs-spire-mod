@@ -8,7 +8,8 @@
   "stsjorbsmod:DimensionDoorPotion": {
     "NAME": "Scroll of Dimension Door",
     "DESCRIPTIONS": [
-      "Ignore paths when choosing the next room to travel to."
+      "Ignore paths when choosing the next room to travel to.",
+      "Read"
     ]
   },
   "stsjorbsmod:GhostPoisonPotion": {

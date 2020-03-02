@@ -1,6 +1,5 @@
 package stsjorbsmod.potions;
 
-import basemod.BaseMod;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -10,6 +9,7 @@ import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.FruitJuice;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.patches.CustomPotionDrinkFields;
 import stsjorbsmod.util.ReflectionUtils;
 
 // Extending FruitJuice is a hack that causes the game to allow use during non-combat screens
@@ -41,7 +41,11 @@ public class DimensionDoorPotion extends FruitJuice {
         super();
         this.ID = POTION_ID;
         this.rarity = PotionRarity.RARE;
-        this.size = PotionSize.GHOST;
+        this.size = PotionSize.CARD;
+
+        CustomPotionDrinkFields.customDrinkText.set(this, DESCRIPTIONS[1]);
+        CustomPotionDrinkFields.customDrinkSound.set(this, "EVENT_TOME");
+        CustomPotionDrinkFields.customHoverSound.set(this, "CARD_SELECT");
 
         // Replicating some of AbstractPotion.ctor to enable use of "extends FruitPotion" hack
         // TODO: use scroll-shaped art instead
