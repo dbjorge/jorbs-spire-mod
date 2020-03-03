@@ -1,5 +1,8 @@
 package stsjorbsmod.powers;
 
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.MathUtils;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.HealthBarRenderPower;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -12,7 +15,7 @@ import static stsjorbsmod.actions.SnapAction.ENEMY_DAMAGE_PER_CLARITY;
 import static stsjorbsmod.actions.SnapAction.PLAYER_DAMAGE_PER_CLARITY;
 import static stsjorbsmod.patches.EnumsPatch.SPECIAL;
 
-public class FragilePower extends CustomJorbsModPower implements OnModifyMemoriesSubscriber {
+public class FragilePower extends CustomJorbsModPower implements OnModifyMemoriesSubscriber, HealthBarRenderPower {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(FragilePower.class);
     public static final String POWER_ID = STATIC.ID;
 
@@ -63,5 +66,19 @@ public class FragilePower extends CustomJorbsModPower implements OnModifyMemorie
     @Override
     public AbstractPower makeCopy() {
         return new FragilePower(owner, amount);
+    }
+
+    @Override
+    public int getHealthBarAmount() {
+        return 0;
+    }
+
+    @Override
+    public Color getColor() {
+        return new Color(
+                (MathUtils.cosDeg((float) (System.currentTimeMillis() / 10L % 360L)) + 1.25F) / 2.3F,
+                (MathUtils.cosDeg((float) ((System.currentTimeMillis() + 1000L) / 10L % 360L)) + 1.25F) / 2.3F,
+                (MathUtils.cosDeg((float) ((System.currentTimeMillis() + 2000L) / 10L % 360L)) + 1.25F) / 2.3F,
+                1.0F);
     }
 }
