@@ -46,7 +46,6 @@ public class Determination extends CustomJorbsModCard {
             } else if (p.hasPower(SnappedPower.POWER_ID)) {
                 p.getPower(SnappedPower.POWER_ID).flash();
             } else if (!p.hasPower(FragilePower.POWER_ID) && !p.hasPower(SnappedPower.POWER_ID)) {
-                // apply FragilePower only if the player doesn't already have FragilePower or SnappedPower.
                 addToBot(new ApplyPowerAction(p, p, new FragilePower(p, magicNumber), magicNumber));
             }
         }
