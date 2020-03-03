@@ -16,12 +16,14 @@ public class FragilePower extends CustomJorbsModPower implements OnModifyMemorie
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(FragilePower.class);
     public static final String POWER_ID = STATIC.ID;
 
+    private int clarityCount = 0;
+
     public FragilePower(final AbstractCreature owner, final int turnsUntilSnap) {
         super(STATIC);
 
         this.owner = owner;
         this.amount = turnsUntilSnap;
-        this.amount2 = MemoryManager.forPlayer(owner).countCurrentClarities();
+        this.clarityCount = MemoryManager.forPlayer(owner).countCurrentClarities();
         this.type = SPECIAL;
 
         updateDescription();
@@ -29,13 +31,13 @@ public class FragilePower extends CustomJorbsModPower implements OnModifyMemorie
 
     @Override
     public void onGainClarity(String memoryID) {
-        this.amount2 = MemoryManager.forPlayer(owner).countCurrentClarities();
+        this.clarityCount = MemoryManager.forPlayer(owner).countCurrentClarities();
         updateDescription();
     }
 
     @Override
     public void onLoseClarity(String memoryID) {
-        this.amount2 = MemoryManager.forPlayer(owner).countCurrentClarities();
+        this.clarityCount = MemoryManager.forPlayer(owner).countCurrentClarities();
         updateDescription();
     }
 
@@ -55,7 +57,7 @@ public class FragilePower extends CustomJorbsModPower implements OnModifyMemorie
 
     @Override
     public void updateDescription() {
-        description = String.format(this.amount == 1 ? DESCRIPTIONS[0] : DESCRIPTIONS[1], this.amount, amount2 * PLAYER_DAMAGE_PER_CLARITY, amount2 * ENEMY_DAMAGE_PER_CLARITY);
+        description = String.format(this.amount == 1 ? DESCRIPTIONS[0] : DESCRIPTIONS[1], this.amount, clarityCount * PLAYER_DAMAGE_PER_CLARITY, clarityCount * ENEMY_DAMAGE_PER_CLARITY);
     }
 
     @Override
