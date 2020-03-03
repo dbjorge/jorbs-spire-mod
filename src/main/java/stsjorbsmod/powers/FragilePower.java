@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import stsjorbsmod.actions.SnapAction;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.OnModifyMemoriesSubscriber;
@@ -70,7 +71,14 @@ public class FragilePower extends CustomJorbsModPower implements OnModifyMemorie
 
     @Override
     public int getHealthBarAmount() {
-        return 0;
+        if (this.amount != 1) {
+            return 0;
+        }
+        int selfDamage = clarityCount * PLAYER_DAMAGE_PER_CLARITY;
+        if (owner.hasPower(IntangiblePlayerPower.POWER_ID)) {
+            selfDamage = MathUtils.clamp(selfDamage, 0, 1);
+        }
+        return selfDamage;
     }
 
     @Override
