@@ -8,6 +8,8 @@ import stsjorbsmod.actions.SnapAction;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.OnModifyMemoriesSubscriber;
 
+import static stsjorbsmod.actions.SnapAction.ENEMY_DAMAGE_PER_CLARITY;
+import static stsjorbsmod.actions.SnapAction.PLAYER_DAMAGE_PER_CLARITY;
 import static stsjorbsmod.patches.EnumsPatch.SPECIAL;
 
 public class FragilePower extends CustomJorbsModPower implements OnModifyMemoriesSubscriber {
@@ -53,7 +55,7 @@ public class FragilePower extends CustomJorbsModPower implements OnModifyMemorie
 
     @Override
     public void updateDescription() {
-        description = String.format(this.amount == 1 ? DESCRIPTIONS[0] : DESCRIPTIONS[1], this.amount, amount2 * 3, amount2 * 6);
+        description = String.format(this.amount == 1 ? DESCRIPTIONS[0] : DESCRIPTIONS[1], this.amount, amount2 * PLAYER_DAMAGE_PER_CLARITY, amount2 * ENEMY_DAMAGE_PER_CLARITY);
     }
 
     @Override
