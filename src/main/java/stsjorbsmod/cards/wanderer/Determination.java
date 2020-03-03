@@ -41,7 +41,7 @@ public class Determination extends CustomJorbsModCard {
             if (p.hasPower(FragilePower.POWER_ID)) {
                 FragilePower fragilePower = (FragilePower) p.getPower(FragilePower.POWER_ID);
                 fragilePower.flash();
-                fragilePower.amount = 1;
+                fragilePower.amount = magicNumber;
                 fragilePower.updateDescription();
             } else if (p.hasPower(SnappedPower.POWER_ID)) {
                 p.getPower(SnappedPower.POWER_ID).flash();
