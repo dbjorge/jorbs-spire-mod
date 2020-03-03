@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Updates
+
+* New art for Entangle (thansk Cartopol)
+
 ## [v1.6.0] - 2020-03-01
 
 ### Updates
