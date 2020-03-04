@@ -4,10 +4,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireField;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
-@SpirePatch(
-        clz = AbstractCard.class,
-        method = SpirePatch.CLASS
-)
+@SpirePatch(clz = AbstractCard.class, method = SpirePatch.CLASS)
 public class EphemeralField {
     public static SpireField<Boolean> ephemeral = new EphemeralSpireField(() -> false);
 

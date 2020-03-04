@@ -8,7 +8,7 @@
 
 ### Technical Director
 
-* brosmike ([GitHub](https://github.com/dbjorge), [Twitch](https://twitch.tv/brosmike))
+* Dan "brosmike" Bjorge ([GitHub](https://github.com/dbjorge), [Twitch](https://twitch.tv/brosmike))
 
 ### Producer & Community Organizer
 
@@ -42,12 +42,14 @@
 
 ### Artists
 
+* Bakuhaku
 * Crocketeer
 * DietTonicWater
 * Forceful Storm
 * GinFizzes
 * Jac2012
 * JoeKage
+* lobbien
 * LouisLeGros
 * mziggles
 * Newigeg
@@ -56,15 +58,20 @@
 
 ### Writers
 
-* Charlene Putney
+* Charlene Putney (Divinity: Original Sin, http://alphachar.com/)
 * Freyjas Guardian
 * Leeeeeeeeeee
-* Sasha Chapin
+* myop
+* Sasha Chapin (All The Wrong Moves, https://www.imsashachapin.com/)
 * SkyeVeran
 
 ### Localization
 
 * GDami (French) ([GitHub](https://github.com/GDami))
+
+### Trailer Videographer
+
+* stambo
 
 ### Playtesting, Feedback, Bug Reports
 
@@ -99,6 +106,7 @@
 * june
 * kawyua
 * Levender
+* m0rph1ing
 * Mark
 * MasterChef
 * MetaBoy
@@ -107,6 +115,8 @@
 * NoWaitSuperKamiGuru
 * passerbyninja
 * Rabbit
+* Ray661
+* Renko
 * Rhamni
 * Rindokisuto
 * Seaih
@@ -114,6 +124,7 @@
 * Silver_Leafz
 * Socien
 * That Guy Called Max
+* Trafalgar_D_Bakanky
 * Treyell
 * Tskami
 * Weyland

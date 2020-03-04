@@ -1,0 +1,11 @@
+{
+  "steamPublishedID": "1997053791",
+  "title": "Jorbs's Wanderer Trilogy",
+  "description": "",
+  "visibility": "public",
+  "changeNote": "v1.6.0\n\n[h3]Updates[/h3]\n[list]\n[*] New art for Parrying Blow (thanks lobbien)\n[*] New art for Stalwart (thanks chevy28360)\n[*] New art for Magic Mirror (thanks Cartopol)\n[*] Scroll of Dimension Door now sounds like a scroll and is something you \"Read\" instead of \"Drink\"\n[*] Brambles now shows how much damage it will deal in the Grimoire select screen\n[/list]\n[h3]Bug fixes[/h3]\n[list]\n[*] Fix crash in ManifestPatch reported in workshop comment\n[*] Fix issue where card text was not being updated immediately after permanent damage changes (particularly, after drawing CULL) (thanks wang429)\n[*] Fix issue where banishing one of the two enemies in the Spear and Shield fight would prevent Unceasing Top from working (thanks wang429)\n[[i]] Black Tentacles now *immediately[/i] stops redirecting damage once the target dies",
+  "tags": [
+    "Character",
+    "Expansion"
+  ]
+}

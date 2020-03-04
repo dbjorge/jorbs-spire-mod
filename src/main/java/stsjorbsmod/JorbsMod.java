@@ -1,21 +1,17 @@
 package stsjorbsmod;
 
-import basemod.*;
+import basemod.BaseMod;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
-import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -25,16 +21,15 @@ import org.apache.logging.log4j.Logger;
 import org.clapper.util.classutil.RegexClassFilter;
 import stsjorbsmod.cards.CardSaveData;
 import stsjorbsmod.cards.CustomJorbsModCard;
-import stsjorbsmod.audio.VoiceoverMaster;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.characters.ManifestSaveData;
 import stsjorbsmod.characters.Wanderer;
-import stsjorbsmod.console.MemoryCommand;
-import stsjorbsmod.console.PlaySoundCommand;
+import stsjorbsmod.console.*;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.potions.*;
 import stsjorbsmod.relics.CustomJorbsModRelic;
+import stsjorbsmod.tips.JorbsModTipTracker;
 import stsjorbsmod.util.ReflectionUtils;
 import stsjorbsmod.util.TextureLoader;
 import stsjorbsmod.variables.BaseBlockNumber;
@@ -45,8 +40,6 @@ import stsjorbsmod.variables.UrMagicNumber;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
-import java.util.function.Consumer;
 
 @SpireInitializer
 public class JorbsMod implements
@@ -62,15 +55,9 @@ public class JorbsMod implements
 
     public static final Logger logger = LogManager.getLogger(JorbsMod.class.getName());
 
-    // Mod-settings settings. This is if you want an on/off savable button
-    public static Properties defaultSettings = new Properties();
-    public static final String VOICEOVER_VOLUME_SETTING = "voiceover_volume";
-
-    // This is for the in-game mod settings panel.
-    private static final String MOD_SETTINGS_FILE = "stsjorbsmod_config";
-    private static final String MODNAME = "Jorbs Mod";
+    public static final String MODNAME = "Jorbs's Wanderer Trilogy";
     private static final String AUTHOR = "https://mod.jorbs.tv/credits";
-    private static final String DESCRIPTION = "The Wanderer, Explorer, and CULL";
+    private static final String DESCRIPTION = "The Wanderer, CULL, and Explorer. Inspired by Jorbs and co-developed by the community.";
 
     public static class JorbsCardTags {
         // Use on a card that brings in a possible beneficial effect that lasts longer than the combat and isn't
@@ -160,7 +147,8 @@ public class JorbsMod implements
 
     public static String makeLocalizedStringsPath(String resourcePath) {
         String languageFolder =
-                Settings.language == Settings.GameLanguage.FRA ? "fra" :
+                // Disable this until we can get it back up to date
+                // Settings.language == Settings.GameLanguage.FRA ? "fra" :
                 /* default: */ "eng";
 
         return MOD_ID + "Resources/localization/" + languageFolder + "/" + resourcePath;
@@ -175,30 +163,18 @@ public class JorbsMod implements
     
     public JorbsMod() {
         logger.info("Subscribe to BaseMod hooks");
-        
         BaseMod.subscribe(this);
-
         logger.info("Done subscribing");
-        
-        logger.info("Creating new card colors...");
 
+        logger.info("Adding mod settings");
+        JorbsModSettings.initialize();
+        JorbsModTipTracker.initialize();
+        logger.info("Done adding mod settings");
+
+        logger.info("Creating new card colors...");
         Cull.ColorInfo.registerColorWithBaseMod();
         Wanderer.ColorInfo.registerColorWithBaseMod();
-        
         logger.info("Done creating colors");
-        
-        
-        logger.info("Adding mod settings");
-
-        defaultSettings.setProperty(VOICEOVER_VOLUME_SETTING, "0.5");
-        try {
-            SpireConfig config = new SpireConfig(MODNAME, MOD_SETTINGS_FILE, defaultSettings);
-            config.load();
-            VoiceoverMaster.VOICEOVER_VOLUME = config.getFloat(VOICEOVER_VOLUME_SETTING);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        logger.info("Done adding mod settings");
 
         logger.info("Adding save fields");
         BaseMod.addSaveField(MOD_ID + ":CardSaveData", new CardSaveData());
@@ -235,12 +211,16 @@ public class JorbsMod implements
                 Wanderer.CHARACTER_SELECT_BG_TEXTURE,
                 Wanderer.Enums.WANDERER);
 
-        logger.info("Adding Cull...");
-        BaseMod.addCharacter(
-                new Cull("The Cull", Cull.Enums.CULL),
-                Cull.CHARACTER_SELECT_BUTTON_TEXTURE,
-                Cull.CHARACTER_SELECT_BG_TEXTURE,
-                Cull.Enums.CULL);
+        if (JorbsModSettings.isCullEnabled()) {
+            logger.info("Adding CULL...");
+            BaseMod.addCharacter(
+                    new Cull("The CULL", Cull.Enums.CULL),
+                    Cull.CHARACTER_SELECT_BUTTON_TEXTURE,
+                    Cull.CHARACTER_SELECT_BG_TEXTURE,
+                    Cull.Enums.CULL);
+        } else {
+            logger.info("Omitting CULL (setting disabled)...");
+        }
 
         logger.info("Added characters");
     }
@@ -273,36 +253,16 @@ public class JorbsMod implements
 
     @Override
     public void receivePostInitialize() {
-        logger.info("Loading badge image and mod options");
-
+        logger.info("Registering dev console commands");
+        BlockCommand.register();
+        FtueCommand.register();
         MemoryCommand.register();
         PlaySoundCommand.register();
+        WrathCommand.register();
 
-        // Load the Mod Badge
+        logger.info("Loading mod config page");
         Texture badgeTexture = TextureLoader.getTexture(BADGE_IMAGE);
-        
-        // Create the Mod config menu
-        String[] MOD_SETTINGS_PANEL_TEXT = CardCrawlGame.languagePack.getUIString(makeID("ModSettingsPanel")).TEXT;
-        ModPanel settingsPanel = new ModPanel();
-        Consumer<ModSlider> onVoiceoverVolumeChange = (slider) -> {
-            VoiceoverMaster.VOICEOVER_VOLUME = slider.value;
-            try {
-                // And based on that boolean, set the settings and save them
-                SpireConfig config = new SpireConfig(JorbsMod.MODNAME, MOD_SETTINGS_FILE, defaultSettings);
-                config.setFloat(VOICEOVER_VOLUME_SETTING, slider.value);
-                config.save();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        };
-        ModLabel voiceoverVolumeSliderLabel = new ModLabel(MOD_SETTINGS_PANEL_TEXT[0], 400.0F, 694.0F, Color.WHITE, FontHelper.tipHeaderFont, settingsPanel, (label) -> {});
-        settingsPanel.addUIElement(voiceoverVolumeSliderLabel);
-
-        ModSlider voiceoverVolumeSlider = new ModSlider("", 700.0F, 700.0F, 100, "%", settingsPanel, onVoiceoverVolumeChange);
-        voiceoverVolumeSlider.setValue(VoiceoverMaster.VOICEOVER_VOLUME);
-        settingsPanel.addUIElement(voiceoverVolumeSlider);
-        
-        BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
+        BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, JorbsModSettings.createSettingsPanel());
 
         BaseMod.addPotion(DimensionDoorPotion.class, Color.BLACK.cpy(), Color.CORAL.cpy(), null,
                 DimensionDoorPotion.POTION_ID, Wanderer.Enums.WANDERER);
@@ -397,6 +357,7 @@ public class JorbsMod implements
         BaseMod.loadCustomStringsFile(PowerStrings.class, makeLocalizedStringsPath("JorbsMod-Power-Strings.json"));
         BaseMod.loadCustomStringsFile(RelicStrings.class, makeLocalizedStringsPath("JorbsMod-Relic-Strings.json"));
         BaseMod.loadCustomStringsFile(UIStrings.class, makeLocalizedStringsPath("JorbsMod-UI-Strings.json"));
+        BaseMod.loadCustomStringsFile(UIStrings.class, makeLocalizedStringsPath("JorbsMod-Wanderer-Voiceover-Strings.json"));
 
         logger.info("Done editing strings");
     }

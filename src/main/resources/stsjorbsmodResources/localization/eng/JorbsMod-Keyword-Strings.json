@@ -1,5 +1,10 @@
 [
   {
+    "PROPER_NAME": "Attack Damage",
+    "NAMES": ["attack\u00a0damage", "attack\u00a0damage"],
+    "DESCRIPTION": "Affected by buffs and debuffs that affect attacks: Strength, Vulnerable, Weakened, Thorns, Lust, Pen Nib, ...."
+  },
+  {
     "NAMES": ["burning"],
     "DESCRIPTION": "Burning creatures take damage at the start of their turn and cannot be healed. Burning damage will hit #yBlock. Each turn, Burning is reduced by a third."
   },
@@ -73,7 +78,7 @@
   },
   {
     "NAMES": ["legendary"],
-    "DESCRIPTION": "This card cannot be duplicated, removed, or transformed."
+    "DESCRIPTION": "Legendary cards cannot be duplicated, removed, or transformed. Legendary cards you already have a copy of will not appear as rewards."
   },
   {
     "NAMES": ["lust"],
@@ -110,7 +115,7 @@
   },
   {
     "NAMES": ["snap", "snapped"],
-    "DESCRIPTION": "Deal 6 damage to ALL enemies and lose 3 HP for every #yClarity you have. You cannot #yRemember or have #yClarity of any memories for the remainder of the fight."
+    "DESCRIPTION": "The Wanderer #ySnaps at the end of turn 7. Lose ALL #yMemories and #yClarities for the rest of the combat. For each #yClarity lost, deal 6 damage to ALL enemies and lose 3 HP."
   },
   {
     "NAMES": ["temperance"],

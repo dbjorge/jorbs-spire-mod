@@ -9,15 +9,15 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.Hitbox;
-import com.megacrit.cardcrawl.helpers.PowerTip;
-import com.megacrit.cardcrawl.helpers.TipHelper;
+import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.SnapAction;
 import stsjorbsmod.effects.SnapTurnCounterEffect;
+import stsjorbsmod.tips.MemoryFtueTip;
+import stsjorbsmod.tips.SnapFtueTip;
 
 import java.util.ArrayList;
 
@@ -33,6 +33,7 @@ public class SnapCounter {
     private static final float INDICATOR_CIRCLE_Y_RADIUS = 24F * Settings.scale;
     private static final float INDICATOR_CIRCLE_ROTATION_DURATION = 20F;
     private static final float INDICATOR_PARTICLE_DURATION = .06F;
+    private static final float FTUE_TURN_DURATION = 1.0F;
 
     private static final String UI_ID = JorbsMod.makeID(SnapCounter.class);
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(UI_ID);
@@ -46,6 +47,7 @@ public class SnapCounter {
     private float centerY;
     private float indicatorCircleRotationTimer;
     private float indicatorParticleTimer;
+    private float ftueTurnTimer;
 
     private static final Color[] colors = new Color[] {
             Color.VIOLET.cpy(),
@@ -83,6 +85,11 @@ public class SnapCounter {
         currentTurn++;
         alpha = MathUtils.lerp(STARTING_ALPHA, ENDING_ALPHA, currentTurn / 7.0F);
         updateDescription();
+
+        boolean showingMemoryFtue = MemoryFtueTip.trigger(centerX, centerY);
+        if (!showingMemoryFtue) {
+            SnapFtueTip.trigger(centerX, centerY);
+        }
     }
 
     public void atEndOfTurn() {
@@ -112,6 +119,8 @@ public class SnapCounter {
 
     public void update(float centerX, float centerY, int flipMultiplier) {
         if (!isVisible()) { return; }
+
+        int currentTurn = SnapFtueTip.shouldFakeCurrentTurn() ? SnapFtueTip.fakeCurrentTurn() : this.currentTurn;
 
         this.centerX = centerX;
         this.centerY = centerY;

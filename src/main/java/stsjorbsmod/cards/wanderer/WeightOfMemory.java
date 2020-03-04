@@ -43,6 +43,17 @@ public class WeightOfMemory extends CustomJorbsModCard {
         for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
             if (isRememberMemoryCard(c)) { ++count; }
         }
+
+        // We want to count cards like Wandering Mind while they're processing, but not count
+        // extra temporary copies from Gather Power/Quicksilver/etc
+        AbstractCard cardInUse = AbstractDungeon.player.cardInUse;
+        if (cardInUse != null && isRememberMemoryCard(cardInUse) && !cardInUse.purgeOnUse) {
+            ++count;
+        }
+        for (AbstractCard c : AbstractDungeon.player.limbo.group) {
+            if (isRememberMemoryCard(c) && !c.purgeOnUse) { ++count; }
+        }
+
         return count;
     }
 

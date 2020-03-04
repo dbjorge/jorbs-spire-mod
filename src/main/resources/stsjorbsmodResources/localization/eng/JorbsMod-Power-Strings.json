@@ -2,7 +2,7 @@
   "stsjorbsmod:ArcaneWeaponPower": {
     "NAME": "Arcane Weapon",
     "DESCRIPTIONS": [
-      "At the end of each turn, attack a random enemy for %1$s%2$s damage."
+      "At the end of each turn, deal %1$s%2$s #yAttack #yDamage to a random enemy."
     ]
   },
   "stsjorbsmod:BanishedPower": {
@@ -21,9 +21,7 @@
     "NAME": "Book of Tongues",
     "DESCRIPTIONS": [
       "At the start of your turn, draw #b%1$s random Material Component.",
-      "At the start of your turn, draw #b%1$s random Material Components.",
-      "At the start of your turn, draw #b%1$s random Upgraded Material Component.",
-      "At the start of your turn, draw #b%1$s random Upgraded Material Components."
+      "At the start of your turn, draw #b%1$s random Material Components."
     ]
   },
   "stsjorbsmod:BurningPower": {
@@ -105,7 +103,7 @@
   "stsjorbsmod:FindFamiliarPower": {
     "NAME": "Find Familiar",
     "DESCRIPTIONS": [
-      "At the end of each turn, gain #yClarity."
+      "At the start of each turn, gain #yClarity."
     ]
   },
   "stsjorbsmod:FlameWardPower": {

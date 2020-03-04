@@ -1,6 +1,8 @@
 package stsjorbsmod.cards;
 
+import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
+import basemod.helpers.TooltipInfo;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
@@ -11,9 +13,13 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.patches.EphemeralField;
 
+import javax.tools.Tool;
 import java.lang.reflect.Field;
+import java.util.Collections;
+import java.util.List;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 
 public abstract class CustomJorbsModCard extends CustomCard {
     // These sentinel values are defined by the base game, we're just giving them more readable names.
@@ -221,5 +227,15 @@ public abstract class CustomJorbsModCard extends CustomCard {
     @Override
     public void triggerOnGlowCheck() {
         this.glowColor = shouldGlowGold() ? AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy() : AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+    }
+
+    @Override
+    public List<TooltipInfo> getCustomTooltips() {
+        if (this.hasTag(LEGENDARY)) {
+            return Collections.singletonList(new TooltipInfo(
+                    BaseMod.getKeywordTitle("stsjorbsmod:legendary"),
+                    BaseMod.getKeywordDescription("stsjorbsmod:legendary")));
+        }
+        return null;
     }
 }

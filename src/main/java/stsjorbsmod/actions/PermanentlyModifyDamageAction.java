@@ -30,6 +30,7 @@ public class PermanentlyModifyDamageAction extends AbstractGameAction {
                 if (c.misc < 0) {
                     c.misc = 0;
                 }
+                c.applyPowers();
             }
         }
 
@@ -42,6 +43,7 @@ public class PermanentlyModifyDamageAction extends AbstractGameAction {
             if (c.misc < 0) {
                 c.misc = 0;
             }
+            c.applyPowers();
         }
 
         this.isDone = true;

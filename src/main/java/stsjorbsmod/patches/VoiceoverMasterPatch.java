@@ -1,5 +1,6 @@
 package stsjorbsmod.patches;
 
+import com.evacipated.cardcrawl.modthespire.lib.SpireField;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
@@ -10,6 +11,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.MonsterHelper;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.neow.NeowEvent;
 import com.megacrit.cardcrawl.screens.DeathScreen;
 import javassist.CannotCompileException;
@@ -19,6 +22,20 @@ import stsjorbsmod.audio.VoiceoverMaster;
 import stsjorbsmod.audio.Voiceover;
 
 public class VoiceoverMasterPatch {
+    @SpirePatch(clz = MonsterGroup.class, method = SpirePatch.CLASS)
+    public static class MonsterGroup_class {
+        public static SpireField<String> encounterKeyField = new SpireField<>(() -> null);
+    }
+
+    @SpirePatch(clz = MonsterHelper.class, method = "getEncounter")
+    public static class MonsterHelper_getEncounter {
+        @SpirePostfixPatch
+        public static MonsterGroup Postfix(MonsterGroup __originalRetVal, String key) {
+            MonsterGroup_class.encounterKeyField.set(__originalRetVal, key);
+            return __originalRetVal;
+        }
+    }
+
     @SpirePatch(clz = DeathScreen.class, method = SpirePatch.CONSTRUCTOR)
     public static class DeathScreen_ctor {
         @SpirePostfixPatch

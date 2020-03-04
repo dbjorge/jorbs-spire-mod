@@ -86,6 +86,7 @@ public class MaterialComponentsDeck {
         }
         AbstractCard c = deck.getTopCard(); // drawNewDeck shuffled already, don't need to getRandomCard here
         deck.removeTopCard();
+        c.applyPowers(); // Important for Brambles, see #431
         return c;
     }
 
