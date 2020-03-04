@@ -41,6 +41,8 @@ public class SnapCounter {
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(UI_ID);
     private static final String[] TEXT = uiStrings.TEXT;
 
+    public static final int SNAP_TURN = 7;
+
     private final AbstractPlayer owner;
     private final Hitbox hb;
     private final ArrayList<PowerTip> tips;
@@ -80,16 +82,20 @@ public class SnapCounter {
     }
 
     private void updateDescription() {
-        tips.get(0).body = String.format(TEXT[1], currentTurn);
+        if (isSnapTurn()) {
+            tips.get(0).body = String.format(TEXT[2]);
+        } else {
+            tips.get(0).body = String.format(TEXT[1], currentTurn);
+        }
     }
 
     public void atPreBattle() {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new FragilePower(owner, 7)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new FragilePower(owner, this)));
     }
 
     public void atStartOfTurn() {
         currentTurn++;
-        alpha = MathUtils.lerp(STARTING_ALPHA, ENDING_ALPHA, currentTurn / 7.0F);
+        alpha = MathUtils.lerp(STARTING_ALPHA, ENDING_ALPHA, currentTurn / (float) SNAP_TURN);
         updateDescription();
 
         boolean showingMemoryFtue = MemoryFtueTip.trigger(centerX, centerY);
@@ -98,15 +104,20 @@ public class SnapCounter {
         }
     }
 
+    public void forceSnapTurn() {
+        currentTurn = SNAP_TURN;
+        alpha = MathUtils.lerp(STARTING_ALPHA, ENDING_ALPHA, currentTurn / 7.0F);
+        tips.get(0).body = String.format(TEXT[2]);
+    }
+
     public void atEndOfTurn() {
         if (isSnapTurn()) {
-            // Since snapping is a core mechanic of the Wanderer, this ensures that even if FragilePower is removed, he snaps
             AbstractDungeon.actionManager.addToBottom(new SnapAction(owner, true));
         }
     }
 
     public boolean isSnapTurn() {
-        return currentTurn == 7;
+        return currentTurn == SNAP_TURN;
     }
 
     private boolean isVisible() {
@@ -150,15 +161,15 @@ public class SnapCounter {
             color.a = alpha;
 
             for (int i = 0; i < currentTurn; ++i) {
-                if (currentTurn >= 7) {
-                    color = colors[i % 7];
+                if (currentTurn >= SNAP_TURN) {
+                    color = colors[i % SNAP_TURN];
                 }
                 float indicatorAngle = 360.0F * (((float)i) / (currentTurn));
                 indicatorAngle += flipMultiplier * (360.0F * (indicatorCircleRotationTimer / INDICATOR_CIRCLE_ROTATION_DURATION));
                 float x = flipMultiplier * INDICATOR_CIRCLE_X_RADIUS * MathUtils.cosDeg(indicatorAngle) + centerX;
                 float y = flipMultiplier * INDICATOR_CIRCLE_Y_RADIUS * MathUtils.sinDeg(indicatorAngle) + centerY;
 
-                float scaleModifier = currentTurn == 7 ? 1.6F : 1.0F;
+                float scaleModifier = isSnapTurn() ? 1.6F : 1.0F;
                 AbstractDungeon.effectList.add(new SnapTurnCounterEffect(x, y, color, scaleModifier));
             }
         }

@@ -123,7 +123,7 @@
     "NAME": "Fragile",
     "DESCRIPTIONS": [
       "At the end of your turn, #ySnap. NL Lose #b%2$s HP and deal #b%3$s damage to ALL enemies.",
-      "In #b%1$s turns, #ySnap. NL Lose #b%2$s HP and deal #b%3$s damage to ALL enemies."
+      "At the end of turn #b%1$s, #ySnap. NL Lose #b%2$s HP and deal #b%3$s damage to ALL enemies."
     ]
   },
   "stsjorbsmod:IntrospectionPower": {
