@@ -246,6 +246,10 @@
     "NAME": "The Grimoire",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until you stsjorbsmod:Snap OR start turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL stsjorbsmod:Exhume after playing this then !M! other cards."
   },
+  "stsjorbsmod:ForcedPresence": {
+    "NAME": "Forced Presence",
+    "DESCRIPTION": "Lose !M! Intangible. If you do, gain !stsjorbsmod:UrMagic! [E]. NL Exhaust."
+  },
   "stsjorbsmod:FracturedMind": {
     "NAME": "Fractured Mind",
     "DESCRIPTION": "stsjorbsmod:Sin: Deal !D! damage. NL stsjorbsmod:Virtue: Gain !B! Block. NL stsjorbsmod:Snapped: Do both."
