@@ -135,6 +135,12 @@
       " additional damage per Clarity."
     ]
   },
+  "stsjorbsmod:LoseStrengthNextTurnPower": {
+    "NAME": "Lose Strength Next Turn",
+    "DESCRIPTIONS": [
+      "At the start of next turn, lose #b%1$s Strength."
+    ]
+  },
   "stsjorbsmod:MagicMirrorPower": {
     "NAME": "Magic Mirror",
     "DESCRIPTIONS": [

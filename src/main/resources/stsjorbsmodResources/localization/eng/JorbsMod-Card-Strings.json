@@ -190,6 +190,11 @@
     "DESCRIPTION": "Apply stsjorbsmod:Slow to ALL enemies. NL Add !M! stsjorbsmod:Web into your hand.",
     "UPGRADE_DESCRIPTION": "Apply stsjorbsmod:Slow to ALL enemies. NL Add !M! stsjorbsmod:Webs into your hand."
   },
+  "stsjorbsmod:Exhale": {
+    "NAME": "Exhale",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !M! Intangible. NL At the start of your next turn, lose !stsjorbsmod:UrMagic! Strength.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Intangible. NL At the start of your next turn, lose !stsjorbsmod:UrMagic! Strength. NL Exhaust."
+  },
   "stsjorbsmod:Expose": {
     "NAME": "Expose",
     "DESCRIPTION": "Deal !D! damage. NL If this does not end the combat, lose !M! HP."
