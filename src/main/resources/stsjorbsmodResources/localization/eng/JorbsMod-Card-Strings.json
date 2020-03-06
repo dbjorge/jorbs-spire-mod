@@ -418,6 +418,10 @@
     "NAME": "Panic",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !M! Intangible. NL Lose !stsjorbsmod:UrMagic! Max HP."
   },
+  "stsjorbsmod:Paralysis": {
+    "NAME": "Paralysis",
+    "DESCRIPTION": "Retain. NL Gain !M! Intangible. NL When Retained, lower its cost by 1 this combat. NL Exhaust."
+  },
   "stsjorbsmod:PartingBlow": {
     "NAME": "Parting Blow",
     "DESCRIPTION": "Deal damage equal to NL !M! minus your Max HP.",
