@@ -28,6 +28,7 @@ import stsjorbsmod.util.ReflectionUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -129,12 +130,28 @@ public class LegendaryPatch {
         return copy;
     }
 
-    public static void removeShownLegendaryCardFromPools(RewardItem item) {
-        for (AbstractCard card : item.cards) {
-            if (card.hasTag(LEGENDARY)) {
-                removeCardFromPools(card);
+    public static RewardItem rerollRewardsIfDupeLegendary(RewardItem item, ArrayList<RewardItem> existingRewardItems) {
+        HashSet<String> existingCardRewardIds = new HashSet<>();
+        for (RewardItem existingRewardItem : existingRewardItems) {
+            if (existingRewardItem.type == RewardItem.RewardType.CARD) {
+                existingRewardItem.cards.forEach(c -> existingCardRewardIds.add(c.cardID));
             }
         }
+        if (existingCardRewardIds.size() > 0) {
+            boolean hasLegendaryDupe;
+            do {
+                hasLegendaryDupe = false;
+                for (AbstractCard card : item.cards) {
+                    if (card.hasTag(LEGENDARY) && existingCardRewardIds.contains(card.cardID)) {
+                        // reroll and check the new reward items
+                        hasLegendaryDupe = true;
+                        item = new RewardItem();
+                        break;
+                    }
+                }
+            } while(hasLegendaryDupe);
+        }
+        return item;
     }
 
     private static class CloneMasterDeckWithoutLegendaryCardsEditor extends ExprEditor {
@@ -175,7 +192,7 @@ public class LegendaryPatch {
                 @Override
                 public void edit(NewExpr n) throws CannotCompileException {
                     if (n.getClassName().equals(RewardItem.class.getName())) {
-                        n.replace("{ $_ = $proceed(); " + LegendaryPatch.class.getName() + ".removeShownLegendaryCardFromPools($_); }");
+                        n.replace("{ $_ = " + LegendaryPatch.class.getName() + ".rerollRewardsIfDupeLegendary($proceed(), this.rewards); }");
                     }
                 }
             };
