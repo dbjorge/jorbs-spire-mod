@@ -242,10 +242,6 @@
     "NAME": "Flame Ward",
     "DESCRIPTION": "The next time you are attacked, apply !M! stsjorbsmod:Burning to ALL enemies and gain !B! Block. Exhaust."
   },
-  "stsjorbsmod:ForbiddenGrimoire": {
-    "NAME": "The Grimoire",
-    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until you stsjorbsmod:Snap OR start turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL stsjorbsmod:Exhume after playing this then !M! other cards."
-  },
   "stsjorbsmod:FracturedMind": {
     "NAME": "Fractured Mind",
     "DESCRIPTION": "stsjorbsmod:Sin: Deal !D! damage. NL stsjorbsmod:Virtue: Gain !B! Block. NL stsjorbsmod:Snapped: Do both."
@@ -267,6 +263,10 @@
     "NAME": "Gather Power",
     "DESCRIPTION": "Draw !M! card. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional time.",
     "UPGRADE_DESCRIPTION": "Draw !M! card. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional times."
+  },
+  "stsjorbsmod:Grimoire": {
+    "NAME": "The Grimoire",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until you stsjorbsmod:Snap OR start turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL stsjorbsmod:Exhume after playing this then !M! other cards."
   },
   "stsjorbsmod:Haunt": {
     "NAME": "Haunt",

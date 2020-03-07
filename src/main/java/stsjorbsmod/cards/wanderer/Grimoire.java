@@ -18,12 +18,12 @@ import stsjorbsmod.patches.EntombedField;
 import stsjorbsmod.patches.EphemeralField;
 import stsjorbsmod.patches.SelfExhumeFields;
 import stsjorbsmod.powers.EntombedGrimoirePower;
-import stsjorbsmod.powers.ForbiddenGrimoireDelayedExhumePower;
+import stsjorbsmod.powers.GrimoireDelayedExhumePower;
 
 import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 
-public class ForbiddenGrimoire extends CustomJorbsModCard implements OnCardExhumedSubscriber, OnEntombedSubscriber {
-    public static final String ID = JorbsMod.makeID(ForbiddenGrimoire.class);
+public class Grimoire extends CustomJorbsModCard implements OnCardExhumedSubscriber, OnEntombedSubscriber {
+    public static final String ID = JorbsMod.makeID(Grimoire.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -37,7 +37,7 @@ public class ForbiddenGrimoire extends CustomJorbsModCard implements OnCardExhum
 
     private String entombedGrimoirePowerInstanceID;
 
-    public ForbiddenGrimoire() {
+    public Grimoire() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = CARD_PLAYS_TO_EXHUME;
         EntombedField.entombed.set(this, true);
@@ -52,7 +52,7 @@ public class ForbiddenGrimoire extends CustomJorbsModCard implements OnCardExhum
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DiscoveryAtCostAction(MaterialComponentsDeck.drawUniqueRandomCards(3), true));
         if (!purgeOnUse) {
-            addToBot(new ApplyPowerAction(p, p, new ForbiddenGrimoireDelayedExhumePower(p, this, magicNumber)));
+            addToBot(new ApplyPowerAction(p, p, new GrimoireDelayedExhumePower(p, this, magicNumber)));
         }
     }
 
@@ -64,7 +64,7 @@ public class ForbiddenGrimoire extends CustomJorbsModCard implements OnCardExhum
 
     @Override
     public void onCardEntombed() {
-        AbstractPower entombedGrimoirePower = new EntombedGrimoirePower(AbstractDungeon.player, this, ForbiddenGrimoire.EXHUME_TURN);
+        AbstractPower entombedGrimoirePower = new EntombedGrimoirePower(AbstractDungeon.player, this, Grimoire.EXHUME_TURN);
         entombedGrimoirePowerInstanceID = entombedGrimoirePower.ID;
         addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, entombedGrimoirePower));
     }
@@ -72,7 +72,7 @@ public class ForbiddenGrimoire extends CustomJorbsModCard implements OnCardExhum
     @Override
     public AbstractCard makeStatEquivalentCopy() {
         AbstractCard c = super.makeStatEquivalentCopy();
-        ((ForbiddenGrimoire) c).entombedGrimoirePowerInstanceID = entombedGrimoirePowerInstanceID;
+        ((Grimoire) c).entombedGrimoirePowerInstanceID = entombedGrimoirePowerInstanceID;
         return c;
     }
 

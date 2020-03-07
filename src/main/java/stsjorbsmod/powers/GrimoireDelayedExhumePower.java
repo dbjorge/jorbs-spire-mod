@@ -6,14 +6,12 @@ import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.actions.ExhumeCardsAction;
-import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.OnModifyMemoriesSubscriber;
 
-public class ForbiddenGrimoireDelayedExhumePower extends CustomJorbsModPower implements OnModifyMemoriesSubscriber {
-    public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(ForbiddenGrimoireDelayedExhumePower.class);
+public class GrimoireDelayedExhumePower extends CustomJorbsModPower implements OnModifyMemoriesSubscriber {
+    public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(GrimoireDelayedExhumePower.class);
     public static final String POWER_ID = STATIC.ID;
 
     private static long instanceCounter = 0;
@@ -21,7 +19,7 @@ public class ForbiddenGrimoireDelayedExhumePower extends CustomJorbsModPower imp
     public AbstractCreature source;
     private final AbstractCard cardToExhume;
 
-    public ForbiddenGrimoireDelayedExhumePower(final AbstractCreature owner, final AbstractCard cardToExhume, final int cardPlaysUntilExhume) {
+    public GrimoireDelayedExhumePower(final AbstractCreature owner, final AbstractCard cardToExhume, final int cardPlaysUntilExhume) {
         super(STATIC);
 
         // This prevents the power from stacking with other instances of itself for different card instances.
@@ -61,6 +59,6 @@ public class ForbiddenGrimoireDelayedExhumePower extends CustomJorbsModPower imp
 
     @Override
     public AbstractPower makeCopy() {
-        return new ForbiddenGrimoireDelayedExhumePower(owner, cardToExhume, amount);
+        return new GrimoireDelayedExhumePower(owner, cardToExhume, amount);
     }
 }

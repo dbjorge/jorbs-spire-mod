@@ -81,7 +81,7 @@
       "Chaque fois que vous perdez des PV, gagnez en Clarté."
     ]
   },
-  "stsjorbsmod:ForbiddenGrimoireDelayedExhumePower": {
+  "stsjorbsmod:GrimoireDelayedExhumePower": {
     "NAME": "Exhumation différée",
     "DESCRIPTIONS": [
       " sera Exhumée après avoir joué #b",

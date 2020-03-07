@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.powers.CorruptionPower;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import stsjorbsmod.cards.OnCardExhumedSubscriber;
-import stsjorbsmod.cards.wanderer.ForbiddenGrimoire;
+import stsjorbsmod.cards.wanderer.Grimoire;
 
 import java.util.Comparator;
 import java.util.function.Predicate;
@@ -47,7 +47,7 @@ public class ExhumeCardsAction extends AbstractGameAction {
         targetCards.shuffle();
         targetCards.sortByRarity(false);
         targetCards.group.sort(new CardsMatchingPredicateFirstComparator(c -> c.hasTag(LEGENDARY)));
-        targetCards.group.sort(new CardsMatchingPredicateFirstComparator(c -> c.cardID.equals(ForbiddenGrimoire.ID)));
+        targetCards.group.sort(new CardsMatchingPredicateFirstComparator(c -> c.cardID.equals(Grimoire.ID)));
 
         if (targetCards.size() > roomInHand) {
             p.createHandIsFullDialog();

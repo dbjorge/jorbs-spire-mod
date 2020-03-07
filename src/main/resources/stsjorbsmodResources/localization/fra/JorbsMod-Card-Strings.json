@@ -147,10 +147,6 @@
     "NAME": "Esprit concentré",
     "DESCRIPTION": "stsjorbsmod:Péché: Infligez !D! dégât(s). NL stsjorbsmod:Vertu: Gagnez !B! d'Armure. NL stsjorbsmod:Craqué: Faites les 2."
   },
-  "stsjorbsmod:ForbiddenGrimoire": {
-    "NAME": "Grimoire interdit",
-    "DESCRIPTION": "stsjorbsmod:Enterrée jusqu'au tour 7. NL Choisissez 1 stsjorbsmod:Composant\u00a0Matériel parmi 3. NL Épuisement, et stsjorbsmod:Exhumée après !M! autres cartes jouées, sauf si stsjorbsmod:Craqué."
-  },
   "stsjorbsmod:FreshAdventure": {
     "NAME": "Nouvelle aventure",
     "DESCRIPTION": "Infligez !D! dégât(s). NL Souvenez-vous de stsjorbsmod:Diligence."
@@ -159,6 +155,10 @@
     "NAME": "Puissance réunie",
     "DESCRIPTION": "Piochez !M! cartes. NL Votre prochaine attaque ce tour est jouée !stsjorbsmod:MetaMagic! fois supplémentaire.",
     "UPGRADE_DESCRIPTION": "Piochez !M! cartes. NL Votre prochaine attaque ce tour est jouée !stsjorbsmod:MetaMagic! fois supplémentaires."
+  },
+  "stsjorbsmod:Grimoire": {
+    "NAME": "Grimoire interdit",
+    "DESCRIPTION": "stsjorbsmod:Enterrée jusqu'au tour 7. NL Choisissez 1 stsjorbsmod:Composant\u00a0Matériel parmi 3. NL Épuisement, et stsjorbsmod:Exhumée après !M! autres cartes jouées, sauf si stsjorbsmod:Craqué."
   },
   "stsjorbsmod:HedgeWizard": {
     "NAME": "Enchant'haie",

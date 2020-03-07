@@ -9,21 +9,14 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.monsters.beyond.*;
-import com.megacrit.cardcrawl.monsters.city.*;
-import com.megacrit.cardcrawl.monsters.ending.CorruptHeart;
-import com.megacrit.cardcrawl.monsters.ending.SpireShield;
-import com.megacrit.cardcrawl.monsters.exordium.*;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -33,11 +26,9 @@ import stsjorbsmod.cards.wanderer.*;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.SnapCounter;
 import stsjorbsmod.patches.CutsceneMultiScreenPatch;
-import stsjorbsmod.powers.EntombedGrimoirePower;
 import stsjorbsmod.relics.GrimoireRelic;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 import static stsjorbsmod.JorbsMod.makeCharPath;
@@ -285,7 +276,7 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
 
         ArrayList<String> retVal = new ArrayList<>();
 
-        retVal.add(ForbiddenGrimoire.ID);
+        retVal.add(Grimoire.ID);
         retVal.add(Strike_Wanderer.ID);
         retVal.add(Strike_Wanderer.ID);
         retVal.add(Strike_Wanderer.ID);
