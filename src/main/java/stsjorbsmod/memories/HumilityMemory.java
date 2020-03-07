@@ -56,7 +56,7 @@ public class HumilityMemory extends AbstractMemory implements OnPowersModifiedSu
             thornsAlreadyApplied = 0;
         }
         
-        int goalBonusThorns = existingThorns - thornsAlreadyApplied;
+        int goalBonusThorns = 2;
 
         // We intentionally set this to the calculated value even if we aren't applying the passive effect
         setDescriptionPlaceholder("!P!", goalBonusThorns);
