@@ -2,6 +2,27 @@
 
 ## [Unreleased]
 
+### Updates
+
+* New art for Entangle (thansk Cartopol)
+
+## [v1.6.0] - 2020-03-01
+
+### Updates
+
+* New art for Parrying Blow (thanks lobbien)
+* New art for Stalwart (thanks chevy28360)
+* New art for Magic Mirror (thanks Cartopol)
+* Scroll of Dimension Door now sounds like a scroll and is something you "Read" instead of "Drink"
+* Brambles now shows how much damage it will deal in the Grimoire select screen
+
+### Bug fixes
+
+* Fix crash in ManifestPatch reported in workshop comment
+* Fix issue where card text was not being updated immediately after permanent damage changes (particularly, after drawing CULL) (thanks wang429)
+* Fix issue where banishing one of the two enemies in the Spear and Shield fight would prevent Unceasing Top from working (thanks wang429)
+* Black Tentacles now *immediately* stops redirecting damage once the target dies
+
 ## [v1.5.0] - 2020-02-23
 
 ### Updates
