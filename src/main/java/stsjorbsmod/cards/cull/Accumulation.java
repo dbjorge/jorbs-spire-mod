@@ -42,8 +42,10 @@ public class Accumulation extends CustomJorbsModCard {
 
     @Override
     public void upgrade() {
-        upgradeMagicNumber(UPGRADE_DRAW_AMOUNT);
-        upgradeName();
-        upgradeDescription();
+        if (!this.upgraded) {
+            upgradeMagicNumber(UPGRADE_DRAW_AMOUNT);
+            upgradeName();
+            upgradeDescription();
+        }
     }
 }
