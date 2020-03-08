@@ -442,6 +442,14 @@
     "NAME": "Phantasm",
     "DESCRIPTION": "Whenever you gain Intangible, deal !M! damage to ALL enemies."
   },
+  "stsjorbsmod:PollutedStrike": {
+    "NAME": "Polluted Strike",
+    "DESCRIPTION": "Deal !D! damage once for each Curse in your hand.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (You have !M! Curse.)",
+      " NL (You have !M! Curses.)"
+    ]
+  },
   "stsjorbsmod:Poultergeist": {
     "NAME": "Poultergeist",
     "DESCRIPTION": "Deal !D! damage."
