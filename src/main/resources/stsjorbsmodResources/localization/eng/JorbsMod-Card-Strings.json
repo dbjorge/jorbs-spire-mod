@@ -4,6 +4,10 @@
     "DESCRIPTION": "Put all Spirit Shields into your hand from your draw pile, discard pile and exhaust pile.",
     "UPGRADE_DESCRIPTION": "Retain. NL Put all Spirit Shields into your hand from your draw pile, discard pile and exhaust pile."
   },
+  "stsjorbsmod:Accumulation": {
+    "NAME": "Accumulation",
+    "DESCRIPTION": "Draw !M! cards. NL Draws 1 additional card for each Accumulation in your discard pile."
+  },
   "stsjorbsmod:Aid": {
     "NAME": "Aid",
     "DESCRIPTION": "Heal an enemy for !M! HP. NL Remember stsjorbsmod:Kindness. NL Exhaust.",
