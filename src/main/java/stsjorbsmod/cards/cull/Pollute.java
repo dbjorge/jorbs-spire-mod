@@ -33,9 +33,10 @@ public class Pollute extends CustomJorbsModCard {
 
     @Override
     public void upgrade() {
-        this.exhaust = false;
-        upgradeName();
-        upgradeDescription();
-
+        if (!upgraded) {
+            this.exhaust = false;
+            upgradeName();
+            upgradeDescription();
+        }
     }
 }
