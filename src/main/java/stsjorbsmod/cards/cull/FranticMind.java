@@ -48,8 +48,10 @@ public class FranticMind extends CustomJorbsModCard {
 
     @Override
     public void upgrade() {
+        if (!upgraded) {
             upgradeName();
             upgradeDescription();
             this.exhaust = false;
+        }
     }
 }
