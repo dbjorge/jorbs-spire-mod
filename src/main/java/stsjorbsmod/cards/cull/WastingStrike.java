@@ -27,6 +27,7 @@ public class WastingStrike extends CustomJorbsModCard {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseMagicNumber = DAMAGE_PER_EXHAUSTED;
+        this.tags.add(CardTags.STRIKE);
     }
 
     @Override
