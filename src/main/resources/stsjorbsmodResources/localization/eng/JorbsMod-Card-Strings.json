@@ -222,6 +222,10 @@
     "DESCRIPTION": "At the start of each turn, gain stsjorbsmod:Clarity of current memory.",
     "UPGRADE_DESCRIPTION": "Innate. NL At the start of each turn, gain stsjorbsmod:Clarity of current memory."
   },
+  "stsjorbsmod:FindWeakness": {
+    "NAME": "Find Weakness",
+    "DESCRIPTION": "Scry !M! the first time you attack an enemy each turn."
+  },
   "stsjorbsmod:Fireball": {
     "NAME": "Fireball",
     "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Deal !D! damage to ALL enemies.",
