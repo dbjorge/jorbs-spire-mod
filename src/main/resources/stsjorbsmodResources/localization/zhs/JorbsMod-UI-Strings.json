@@ -1,0 +1,96 @@
+{
+  "stsjorbsmod:AbstractMemory": {
+    "TEXT": [
+      "#g清晰。 NL ",
+      "#g记得。 NL ",
+      "#r遗忘。 NL "
+    ]
+  },
+  "stsjorbsmod:AlchemistsFireOnClick": {
+    "TEXT": [
+      "GOLASO! GOL! GOL! GOL!"
+    ]
+  },
+  "stsjorbsmod:CallCalipers": {
+    "TEXT": [
+      "这个地方应该适合使用卡尺……"
+    ]
+  },
+  "stsjorbsmod:CardsToTopOfDeckAction": {
+    "TEXT": [
+      "选择 %1$s 张牌放到你抽牌堆的顶端。",
+      "选择 %1$s 张牌放到你抽牌堆的顶端。",
+      "将牌放到你抽牌堆的顶端。"
+    ]
+  },
+  "stsjorbsmod:CounterspellAction": {
+    "TEXT": [
+      "这名敌人的意图并不是施加负面状态"
+    ]
+  },
+  "stsjorbsmod:DecreaseMaxHpAction": {
+    "TEXT": [
+      "最大生命 -%1$s"
+    ]
+  },
+  "stsjorbsmod:DigEmote": {
+    "TEXT": [
+      "jorbsBird Dig! jorbsBird RELIC jorbsBird DIG jorbsBird"
+    ]
+  },
+  "stsjorbsmod:ExhumeAndMakeEtherealAction": {
+    "TEXT": [
+      "虚无。 NL "
+    ]
+  },
+  "stsjorbsmod:IfEnemyIntendsToAttackAction": {
+    "TEXT": [
+      "这名敌人的意图并不是攻击"
+    ]
+  },
+  "stsjorbsmod:IncreaseManifestAction": {
+    "TEXT": [
+      "舱单 +%1$s",
+      "舱单 %1$s"
+    ]
+  },
+  "stsjorbsmod:MagicMirrorPatch": {
+    "TEXT": [
+      "被缠住！"
+    ]
+  },
+  "stsjorbsmod:MemoryFtueTip": {
+    "TEXT": [
+      "记忆",
+      "迷糊法师可以使用牌来 #y回忆 记忆，藉由此获得相应的正负面效果。 每当你 #y回忆 起新的记忆时，你将会 #y遗忘 之前的记忆，但你可以通过使记忆变得 #y清晰 来保留其被动效果。"
+    ]
+  },
+  "stsjorbsmod:ModSettingsPanel": {
+    "TEXT": [
+      "旁白音量",
+      "启用未完成/工作中的尖塔幽魂版本（需要重启）",
+      "重置教程",
+      "教程重置！",
+      "为模组角色解锁进阶20（可能需要重启）",
+      "已为模组角色解锁进阶20！（可能需要重启）",
+      "旁白字幕"
+    ]
+  },
+  "stsjorbsmod:SnapCounter": {
+    "TEXT": [
+      "精神衰弱",
+      "在第7回合结束时， #y爆发 。 NL （现在是第 #b%1$s 回合。）"
+    ]
+  },
+  "stsjorbsmod:SnapFtueTip": {
+    "TEXT": [
+      "爆发",
+      "迷糊法师会在第七回合结束时 #y爆发 。 NL 魔导书周围环绕的火焰会记录回合数。 NL #y爆发 ：在本场战斗接下来的时间中失去所有 #y记忆 与 #y清晰记忆 。你每失去一份 #y清晰记忆 ，对所有敌人造成6点伤害并失去3点生命。"
+    ]
+  },
+  "stsjorbsmod:WillAction": {
+    "TEXT": [
+      "消耗"
+    ]
+  }
+}
