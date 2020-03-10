@@ -4,9 +4,9 @@
     "DESCRIPTIONS": [
       "当你穿过 ~这座~ ~城市~ ，你遇到了一面 #p紫色的 #p镜子 . NL 你仔细打量着它，但镜中看不到任何反光。",
       "你看不到任何人，但 #g~你~ #g~希望~ #g~成为~ #g~某个~ #g~人。~",
-      "#r@YOU@ #r@EXIST@ #r@AND@ #r@ARE@ #r@VALID!@",
-      "#yYou #yare #yat #ypeace #ywith #yyour #ypresence.",
-      "You have no hands."
+      "#r@你@ #r@存在@ #r@即@ #r@为@ #r@合理！@",
+      "#y你 #y在这里 #y十分 #y平静 。",
+      "你的双手不见了。"
     ],
     "OPTIONS": [
       "[灵感] #g获得 #g一个 #g随机 #g初始 #g遗物 。",
