@@ -108,6 +108,14 @@
     "NAME": "Chill Touch",
     "DESCRIPTION": "Deal !D! damage to an enemy. NL It can no longer heal."
   },
+  "stsjorbsmod:Cleanse": {
+    "NAME": "Cleanse",
+    "DESCRIPTION": "Discard all Curses from your draw pile. NL Heal !stsjorbsmod:UrMagic! HP for each Curse discarded. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (You have !M! Curse.)",
+      " NL (You have !M! Curses.)"
+    ]
+  },
   "stsjorbsmod:Coda": {
     "NAME" : "Coda",
     "DESCRIPTION": "Deal !D! damage. NL If this would kill an enemy, instead leave the enemy at 1 HP."
