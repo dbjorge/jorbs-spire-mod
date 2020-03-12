@@ -3,12 +3,14 @@ package stsjorbsmod.cards.cull.deckoftrials;
 import com.megacrit.cardcrawl.actions.unique.AddCardToDeckAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import stsjorbsmod.relics.BookOfTrialsRelic;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
+import stsjorbsmod.relics.BookOfToilsRelic;
 
 import java.util.ArrayList;
 
-public class DeckOfTrials {
+public class DeckOfToils {
     public static CardGroup deck = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
     public static void reset() {
@@ -19,8 +21,8 @@ public class DeckOfTrials {
 
     public static ArrayList<AbstractCard> drawCards(int num) {
         ArrayList<AbstractCard> cards = new ArrayList<>();
-        if (deck.size() > 0) {
-            for (int i = 0; i < num; i++) {
+        for (int i = 0; i < num; i++) {
+            if (!deck.isEmpty()) {
                 AbstractCard card = deck.getTopCard();
                 deck.removeCard(card);
                 cards.add(card);
@@ -30,11 +32,11 @@ public class DeckOfTrials {
     }
 
     public static void addDeckOfTrialsCardsToMasterDeck() {
-        if (AbstractDungeon.player.hasRelic(BookOfTrialsRelic.ID)) {
-            AbstractDungeon.player.getRelic(BookOfTrialsRelic.ID).flash();
-            ArrayList<AbstractCard> cards = DeckOfTrials.drawCards(2);
+        if (AbstractDungeon.player.hasRelic(BookOfToilsRelic.ID)) {
+            AbstractDungeon.player.getRelic(BookOfToilsRelic.ID).flash();
+            ArrayList<AbstractCard> cards = DeckOfToils.drawCards(2);
             for (AbstractCard card : cards) {
-                AbstractDungeon.actionManager.addToBottom(new AddCardToDeckAction(card));
+                AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(card, (float) Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
             }
         }
     }

@@ -6,6 +6,13 @@
       "Reduces stsjorbsmod:Burning falloff rate to 10% per turn."
     ]
   },
+  "stsjorbsmod:BookOfToilsRelic": {
+    "NAME": "Book of Toils",
+    "FLAVOR": "Like tongues, but not at all.",
+    "DESCRIPTIONS": [
+      "Add #b2 cards from the Deck of Toils to your deck at the start of each act."
+    ]
+  },
   "stsjorbsmod:BottledMemoryRelic": {
     "NAME": "Bottled Memory",
     "FLAVOR": "My brain is broken",

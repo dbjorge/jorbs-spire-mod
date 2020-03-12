@@ -18,7 +18,6 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.relics.SpiritPoop;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.screens.DeathScreen;
 import org.apache.logging.log4j.LogManager;
@@ -30,6 +29,7 @@ import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.cards.cull.*;
 import stsjorbsmod.cards.cull.deckoftrials.Frostbite;
 import stsjorbsmod.memories.WrathMemory;
+import stsjorbsmod.relics.BookOfToilsRelic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -213,7 +213,6 @@ public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber 
 
         retVal.add(CULLCard.ID);
         retVal.add(Apparition_Cull.ID);
-        retVal.add(Frostbite.ID);
         retVal.add(Apparate.ID);
         retVal.add(Inhale.ID);
         retVal.add(SpiritShield_Cull.ID);
@@ -229,7 +228,7 @@ public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber 
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
 
-        retVal.add(SpiritPoop.ID);
+        retVal.add(BookOfToilsRelic.ID);
 
         return retVal;
     }
