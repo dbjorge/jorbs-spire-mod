@@ -18,26 +18,26 @@ public class Goosebumps extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int DAMAGE = 3;
-    private static final int MULTI = 3;
-    private static final int UPGRADE_MULTI = 1;
+    private static final int ATTACK_COUNT = 3;
+    private static final int UPGRADE_PLUS_ATTACK_COUNT = 1;
 
     public Goosebumps() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = DAMAGE;
-        magicNumber = baseMagicNumber = MULTI;
+        magicNumber = baseMagicNumber = ATTACK_COUNT;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < magicNumber; i++) {
-            addToBot(new DamageAction(m, new DamageInfo(p, damage)));
+            addToBot(new DamageAction(p, new DamageInfo(p, damage)));
         }
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
-            upgradeMagicNumber(UPGRADE_MULTI);
+            upgradeMagicNumber(UPGRADE_PLUS_ATTACK_COUNT);
             upgradeName();
             upgradeDescription();
         }
