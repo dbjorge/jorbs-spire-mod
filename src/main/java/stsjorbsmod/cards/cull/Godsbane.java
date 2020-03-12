@@ -19,7 +19,7 @@ public class Godsbane extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int DAMAGE_PERCENT = 8;
-    private static final int UPGRADE_DAMAGE_PERCENT = 2;
+    private static final int UPGRADE_PLUS_DAMAGE_PERCENT = 2;
 
     public Godsbane() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
@@ -27,14 +27,10 @@ public class Godsbane extends CustomJorbsModCard {
         damage = baseDamage = 0;
     }
 
-    private void recalculateDamage(AbstractMonster m) {
-        damage = (int) Math.round((m.maxHealth * ((double) magicNumber / 100)));
-    }
-
     @Override
     public void calculateCardDamage(AbstractMonster m) {
         super.calculateCardDamage(m);
-        recalculateDamage(m);
+        damage = (int)(m.maxHealth * ((double) magicNumber / 100));
     }
 
     @Override
@@ -45,7 +41,7 @@ public class Godsbane extends CustomJorbsModCard {
     @Override
     public void upgrade() {
         if (!upgraded) {
-            upgradeMagicNumber(UPGRADE_DAMAGE_PERCENT);
+            upgradeMagicNumber(UPGRADE_PLUS_DAMAGE_PERCENT);
             upgradeName();
             upgradeDescription();
         }
