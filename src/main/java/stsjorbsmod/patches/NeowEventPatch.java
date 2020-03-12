@@ -2,11 +2,10 @@ package stsjorbsmod.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
-import com.megacrit.cardcrawl.events.AbstractEvent;
 import com.megacrit.cardcrawl.neow.NeowEvent;
 import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
-import javassist.expr.MethodCall;
+import javassist.expr.FieldAccess;
 import stsjorbsmod.cards.cull.deckoftrials.DeckOfToils;
 
 public class NeowEventPatch {
@@ -22,10 +21,10 @@ public class NeowEventPatch {
     public static class NeowEvent_ButtonEffect {
         public static ExprEditor Instrument() {
             return new ExprEditor() {
-                public void edit(MethodCall methodCall) throws CannotCompileException {
-                    if (methodCall.getClassName().equals(NeowEvent.class.getName()) && methodCall.getMethodName().equals("openMap")) {
+                public void edit(FieldAccess methodCall) throws CannotCompileException {
+                    if (methodCall.getClassName().equals(NeowEvent.class.getName()) && methodCall.getFieldName().equals("waitingToSave")) {
                         methodCall.replace(String.format(
-                                "{ $_ = $proceed($$); %1$s.addDeckOfTrialsCardsToMasterDeck(); }",
+                                "{ %1$s.addDeckOfTrialsCardsToMasterDeck(); $_ = $proceed($$); }",
                                 DeckOfToils.class.getName()));
                     }
                 }
