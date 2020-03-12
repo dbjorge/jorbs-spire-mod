@@ -268,6 +268,15 @@
     "DESCRIPTION": "Draw !M! card. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional time.",
     "UPGRADE_DESCRIPTION": "Draw !M! card. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional times."
   },
+  "stsjorbsmod:GatheringEvil": {
+    "NAME": "Gathering Evil",
+    "DESCRIPTION": "Gain !stsjorbsmod:MetaMagic! Strength and !stsjorbsmod:UrMagic! Vulnerable for each Curse played this combat. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !stsjorbsmod:MetaMagic! Strength and !stsjorbsmod:UrMagic! Vulnerable for each Curse played this combat. NL Exhaust. NL Exhume when you shuffle your draw pile.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (You have played !M! Curse.)",
+      " NL (You have played !M! Curses.)"
+    ]
+  },
   "stsjorbsmod:Haunt": {
     "NAME": "Haunt",
     "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Next turn, draw !M! additional cards. NL Exhaust."
