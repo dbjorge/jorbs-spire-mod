@@ -41,8 +41,10 @@ public class GatheringEvil extends CustomJorbsModCard implements OnShuffleSubscr
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber * metaMagicNumber)));
-        addToBot(new ApplyPowerAction(p, p, new VulnerablePower(p, magicNumber * urMagicNumber, false)));
+        if (magicNumber > 0) {
+            addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber * metaMagicNumber)));
+            addToBot(new ApplyPowerAction(p, p, new VulnerablePower(p, magicNumber * urMagicNumber, false)));
+        }
     }
 
     @Override
