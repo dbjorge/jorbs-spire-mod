@@ -1,6 +1,5 @@
 package stsjorbsmod.cards.cull.deckoftrials;
 
-import com.megacrit.cardcrawl.actions.unique.AddCardToDeckAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
@@ -36,7 +35,7 @@ public class DeckOfToils {
             AbstractDungeon.player.getRelic(BookOfToilsRelic.ID).flash();
             ArrayList<AbstractCard> cards = DeckOfToils.drawCards(2);
             for (AbstractCard card : cards) {
-                AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(card, (float) Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
+                AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(card, (float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F));
             }
         }
     }
