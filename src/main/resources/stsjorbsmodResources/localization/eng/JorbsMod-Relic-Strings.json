@@ -6,6 +6,16 @@
       "Reduces stsjorbsmod:Burning falloff rate to 10% per turn."
     ]
   },
+  "stsjorbsmod:BottledBurdenRelic": {
+    "NAME": "Bottled Burden",
+    "FLAVOR": "I carry this with me, always",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose a card that does not #yExert. Start each combat with that card #yEntombed. #yExhume it on turn 3.",
+      "Choose a card for ",
+      "At the start of turn 3 ",
+      " will Exhume."
+    ]
+  },
   "stsjorbsmod:BottledMemoryRelic": {
     "NAME": "Bottled Memory",
     "FLAVOR": "My brain is broken",
