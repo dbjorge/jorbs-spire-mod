@@ -238,6 +238,12 @@
       "At the start of next turn, gain #b%1$s Strength."
     ]
   },
+  "stsjorbsmod:SummoningPower": {
+    "NAME": "Summoning",
+    "DESCRIPTIONS": [
+      "At the start of next turn, #yExhume #b%1$s."
+    ]
+  },
   "stsjorbsmod:TroublePower": {
     "NAME": "Trouble",
     "DESCRIPTIONS": [

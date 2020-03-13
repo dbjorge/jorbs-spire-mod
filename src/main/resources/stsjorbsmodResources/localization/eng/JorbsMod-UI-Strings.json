@@ -89,6 +89,13 @@
       "The Wanderer will #ySnap at the end of turn 7. NL The #pflames around his Grimoire track turns. NL #ySnap: Lose ALL #yMemories and #yClarities for the rest of the combat. For each #yClarity lost, deal 6 damage to ALL enemies and lose 3 HP."
     ]
   },
+  "stsjorbsmod:SummoningAction": {
+    "TEXT": [
+      "Choose a Card to Exhume next turn.",
+      "Choose ",
+      " Cards to Exhume next turn."
+    ]
+  },
   "stsjorbsmod:WillAction": {
     "TEXT": [
       "Exhaust"
