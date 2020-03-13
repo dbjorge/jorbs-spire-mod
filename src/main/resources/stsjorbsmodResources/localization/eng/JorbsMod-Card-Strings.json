@@ -364,6 +364,10 @@
     "NAME": "Materialize",
     "DESCRIPTION": "Gain !B! Block. NL Choose 1 of 3 stsjorbsmod:Material Components."
   },
+  "stsjorbsmod:Melt": {
+    "NAME": "Melt",
+    "DESCRIPTION": "Apply burning equal to target's block. NL Deal !D! damage."
+  },
   "stsjorbsmod:Mending": {
     "NAME": "Mending",
     "DESCRIPTION": "Heal HP equal to the number of stsjorbsmod:Clarities you have. NL Exhaust.",
