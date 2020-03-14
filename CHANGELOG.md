@@ -6,6 +6,10 @@
 
 * New art for Entangle (thansk Cartopol)
 
+### Bug fixes
+
+* Fix Prayer Wheel being able to show multiple copies of legendary cards (thanks wang429)
+
 ## [v1.6.0] - 2020-03-01
 
 ### Updates
