@@ -3,7 +3,7 @@ package stsjorbsmod.cards;
 import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
 import basemod.helpers.TooltipInfo;
-import com.badlogic.gdx.graphics.Color;
+import basemod.interfaces.StartActSubscriber;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -11,17 +11,16 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.patches.EntombedField;
 import stsjorbsmod.patches.EphemeralField;
 
-import javax.tools.Tool;
-import java.lang.reflect.Field;
 import java.util.Collections;
 import java.util.List;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 
-public abstract class CustomJorbsModCard extends CustomCard {
+public abstract class CustomJorbsModCard extends CustomCard implements StartActSubscriber {
     // These sentinel values are defined by the base game, we're just giving them more readable names.
     public static final int COST_X = -1;
     public static final int COST_UNPLAYABLE = -2;
@@ -37,6 +36,9 @@ public abstract class CustomJorbsModCard extends CustomCard {
     public int baseMetaMagicNumber = 0;
     public boolean upgradedMetaMagicNumber = false;
     public boolean isMetaMagicNumberModified = false;
+
+    public boolean exert = false;
+
 
     // This enables us to use separate rarities for card generation vs the title banner graphic
     // (primarily for SPECIAL cards that we want displayed at a non-common rarity)
@@ -237,5 +239,12 @@ public abstract class CustomJorbsModCard extends CustomCard {
                     BaseMod.getKeywordDescription("stsjorbsmod:legendary")));
         }
         return null;
+    }
+
+    @Override
+    public void receiveStartAct() {
+        if (this.exert) {
+            EntombedField.entombed.set(this, false);
+        }
     }
 }

@@ -1,8 +1,9 @@
 package stsjorbsmod.cards.cull;
 
-import basemod.interfaces.StartActSubscriber;
+import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -11,7 +12,7 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.patches.EntombedField;
 
-public class Frustration extends CustomJorbsModCard implements StartActSubscriber {
+public class Frustration extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Frustration.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
@@ -24,7 +25,6 @@ public class Frustration extends CustomJorbsModCard implements StartActSubscribe
     private static final int UPGRADE_DAMAGE = 3;
     private static final int DAMAGE_ON_RETAIN = 2;
     private static final int UPGRADE_DAMAGE_ON_RETAIN = 1;
-    private boolean isEntombed = false;
 
 
     public Frustration() {
@@ -34,7 +34,7 @@ public class Frustration extends CustomJorbsModCard implements StartActSubscribe
         this.baseDamage = DAMAGE;
         this.baseMagicNumber = DAMAGE_ON_RETAIN;
         this.exhaust = true;
-        EntombedField.entombed.set(this, this.isEntombed);
+        this.exert = true;
     }
 
 
@@ -45,11 +45,10 @@ public class Frustration extends CustomJorbsModCard implements StartActSubscribe
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
-        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
-        JorbsMod.logger.info("Card entombed: " + EntombedField.entombed.get(this));
-        this.isEntombed = true;
-        JorbsMod.logger.info("Card set to entombed: " + EntombedField.entombed.get(this));
+        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 
+        AbstractCard masterCard = StSLib.getMasterDeckEquivalent(this);
+        EntombedField.entombed.set(masterCard, true);
     }
 
     @Override
@@ -58,11 +57,5 @@ public class Frustration extends CustomJorbsModCard implements StartActSubscribe
         upgradeDescription();
         upgradeDamage(UPGRADE_DAMAGE);
         upgradeMagicNumber(UPGRADE_DAMAGE_ON_RETAIN);
-    }
-
-    @Override
-    public void receiveStartAct() {
-        EntombedField.entombed.set(this, false);
-
     }
 }
