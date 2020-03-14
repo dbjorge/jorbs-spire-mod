@@ -414,6 +414,11 @@
     "DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
   },
+  "stsjorbsmod:Overkill": {
+    "NAME": "Overkill",
+    "DESCRIPTION": "Deal Damage equal to overkill damage to all other enemies.",
+    "UPGRADE_DESCRIPTION": "Deal Damage equal to overkill damage + !M! to all other enemies."
+  },
   "stsjorbsmod:Panic": {
     "NAME": "Panic",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !M! Intangible. NL Lose !stsjorbsmod:UrMagic! Max HP."

@@ -161,6 +161,13 @@
       "You cannot remember other memories until you have #yClarity of your current memory."
     ]
   },
+  "stsjorbsmod:OverkillPower": {
+    "NAME": "Overkill Power",
+    "DESCRIPTIONS": [
+      "Deal Overkill damage to all other enemies.",
+      "Deal Overkill damage + #b%1$s to all other enemies."
+    ]
+  },
   "stsjorbsmod:PathosPower": {
     "NAME": "Pathos",
     "DESCRIPTIONS": [
