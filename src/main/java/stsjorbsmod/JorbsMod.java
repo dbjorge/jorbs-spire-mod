@@ -91,6 +91,10 @@ public class JorbsMod implements
         // Use on a card that remembers a memory, which is mechanic specific to the Wanderer character.
         @SpireEnum(name = "REMEMBER_MEMORY")
         public static AbstractCard.CardTags REMEMBER_MEMORY;
+
+        // Cards in the Deck of Toils should be
+        @SpireEnum(name = "DECK_OF_TOILS")
+        public static AbstractCard.CardTags DECK_OF_TOILS;
     }
 
     // =============== INPUT TEXTURE LOCATION =================
