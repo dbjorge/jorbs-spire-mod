@@ -3,6 +3,7 @@ package stsjorbsmod.cards.cull;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
@@ -28,9 +29,21 @@ public class Godsbane extends CustomJorbsModCard {
     }
 
     @Override
-    public void calculateCardDamage(AbstractMonster m) {
-        super.calculateCardDamage(m);
-        damage = (int)(m.maxHealth * ((double) magicNumber / 100));
+    protected int calculateBonusBaseDamage() {
+        AbstractMonster m = AbstractDungeon.getCurrRoom().monsters.hoveredMonster;
+        int bonusDamage = 0;
+        if (m != null) {
+            bonusDamage = (int)(m.currentHealth * ((double) magicNumber / 100));
+        }
+        return bonusDamage;
+    }
+
+    @Override
+    public String getRawDynamicDescriptionSuffix() {
+        if (damage > 0) {
+            return EXTENDED_DESCRIPTION[0];
+        }
+        return "";
     }
 
     @Override
