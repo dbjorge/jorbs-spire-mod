@@ -412,8 +412,8 @@
   },
   "stsjorbsmod:OldPocket": {
     "NAME": "旧钱包",
-    "DESCRIPTION": "获得 !M! 金币 。 NL 回忆起 stsjorbsmod:贞洁 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "获得 !M! 金币 。 NL 回忆起 stsjorbsmod:贞洁 。 NL 使当前记忆变得 stsjorbsmod:清晰 。 NL 消耗 。"
+    "DESCRIPTION": "获得 !M! 金币 。 NL 回忆起 stsjorbsmod:慷慨 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 金币 。 NL 回忆起 stsjorbsmod:慷慨 。 NL 使当前记忆变得 stsjorbsmod:清晰 。 NL 消耗 。"
   },
   "stsjorbsmod:Panic": {
     "NAME": "恐慌",
@@ -509,7 +509,7 @@
   "stsjorbsmod:Rot": {
     "NAME": "腐败",
     "DESCRIPTION": "stsjorbsmod:飞逝 。 NL 随机失去一份 stsjorbsmod:清晰 记忆。 NL 若这张牌第一次加入你的手牌中，加入 !M! 张它的复制品。",
-    "UPGRADE_DESCRIPTION": "stsjorbsmod:飞逝 。 NL 随机失去一个 stsjorbsmod:清晰 记忆。 NL 若这张牌第一次加入你的手牌中，加入 !M! 张它的复制品。"
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:飞逝 。 NL 随机失去一份 stsjorbsmod:清晰 记忆。 NL 若这张牌第一次加入你的手牌中，加入 !M! 张它的复制品。"
   },
   "stsjorbsmod:SchoolsOfMagic": {
     "NAME": "魔法学派",
@@ -608,8 +608,8 @@
   },
   "stsjorbsmod:TimeEddy": {
     "NAME": "时间涡流",
-    "DESCRIPTION": "stsjorbsmod:飞逝 。 NL 将你所有的正负面效果向前推进 !M! 回合。",
-    "UPGRADE_DESCRIPTION": "stsjorbsmod:飞逝 。NL 将你所有的正负面效果向前推进 !M! 回合。"
+    "DESCRIPTION": "stsjorbsmod:飞逝 。 NL 将所有的正负面效果向前推进 !M! 回合。",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:飞逝 。NL 将所有的正负面效果向前推进 !M! 回合。"
   },
   "stsjorbsmod:TinyHut": {
     "NAME": "小屋",
