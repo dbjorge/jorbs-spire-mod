@@ -42,7 +42,7 @@ public class OverkillPower extends CustomJorbsModPower {
 
     @Override
     public AbstractPower makeCopy() {
-        return new StrengthNextTurnPower(owner, amount);
+        return new OverkillPower(owner, amount);
     }
 }
 
