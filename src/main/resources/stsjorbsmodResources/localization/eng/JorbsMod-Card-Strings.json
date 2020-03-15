@@ -1,8 +1,8 @@
 {
   "stsjorbsmod:Abjure": {
     "NAME": "Abjure",
-    "DESCRIPTION": "Put all Spirit Shields into your hand from your draw pile, discard pile and exhaust pile.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Put all Spirit Shields into your hand from your draw pile, discard pile and exhaust pile."
+    "DESCRIPTION": "Put Spirit Shield into your hand from your draw pile, discard pile or exhaust pile.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Put Spirit Shield into your hand from your draw pile, discard pile or exhaust pile."
   },
   "stsjorbsmod:Aid": {
     "NAME": "Aid",
