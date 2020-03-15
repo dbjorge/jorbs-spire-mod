@@ -4,8 +4,10 @@
 
 ### Updates
 
+* Made Snap timing/damage more clear with power bar icon/tooltip and health bar effect (thanks wang429)
 * New art for Entangle (thanks Cartopol)
 * Updated art for Book of Tongues and Faerie Fire (thanks lobbien)
+
 
 ### Bug fixes
 
