@@ -127,7 +127,8 @@
   },
   "stsjorbsmod:CULLCard": {
     "NAME": "CULL",
-    "DESCRIPTION": "Permanently decrease this card's damage by !stsjorbsmod:UrMagic! each time it is drawn. NL Deal !D! damage twice. NL If Fatal, permanently increase this card's damage by !M!. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage twice. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage twice. NL stsjorbsmod:Wrath is applied twice. NL Exhaust."
   },
   "stsjorbsmod:Cyclone": {
     "NAME": "Cyclone",
