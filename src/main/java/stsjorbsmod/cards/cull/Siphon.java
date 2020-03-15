@@ -12,15 +12,17 @@ import stsjorbsmod.characters.Cull;
 public class Siphon extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Siphon.class);
 
-    private static final CardRarity RARITY = CardRarity.BASIC;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = Cull.Enums.CULL_CARD_COLOR;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 10;
-    private static final int UPGRADE_DAMAGE = 4;
-    private static final int HEAL_ON_FATAL = 5;
+    private static final int DAMAGE = 9;
+    private static final int UPGRADE_DAMAGE = 3;
+    private static final int HEAL_ON_FATAL = 4;
+    private static final int UPGRADE_PLUS_HEAL_ON_FATAL = 4;
+
 
     public Siphon() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
@@ -40,6 +42,8 @@ public class Siphon extends CustomJorbsModCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_DAMAGE);
+            upgradeMagicNumber(UPGRADE_PLUS_HEAL_ON_FATAL);
+
             upgradeDescription();
         }
     }
