@@ -22,8 +22,8 @@ public class WastingEssence extends CustomJorbsModCard {
 
     private static final int COST = 3;
     private static final int NUMBER_OF_CURSES = 5;
-    private static final int DAMAGE_PER_CURSE = 20;
-    private static final int UPGRADE_DAMAGE_PER_CURSE = 10;
+    private static final int DAMAGE_PER_CURSE = 12;
+    private static final int UPGRADE_DAMAGE_PER_CURSE = 4;
 
     public WastingEssence() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
