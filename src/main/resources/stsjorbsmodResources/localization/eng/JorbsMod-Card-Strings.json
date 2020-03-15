@@ -271,7 +271,8 @@
   },
   "stsjorbsmod:Haunt": {
     "NAME": "Haunt",
-    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Next turn, draw !M! additional cards. NL Exhaust."
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !stsjorbsmod:UrMagic! Intangible. NL Draw !M! fewer card next turn.",
+    "UPGRADE_DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Draw !M! fewer card next turn. NL Exhaust."
   },
   "stsjorbsmod:HedgeWizard": {
     "NAME": "Hedge Wizard",
