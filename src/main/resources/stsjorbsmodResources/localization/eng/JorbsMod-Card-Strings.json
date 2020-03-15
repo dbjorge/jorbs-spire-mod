@@ -385,7 +385,7 @@
   },
   "stsjorbsmod:Miracle_Cull": {
     "NAME": "Miracle",
-    "DESCRIPTION": "Retain. NL Gain !M! [E] . NL Add !stsjorbsmod:MetaMagic! stsjorbsmod:Manifest."
+    "DESCRIPTION": "Retain. NL Gain !M! [E] . NL Add !stsjorbsmod:MetaMagic! stsjorbsmod:Manifest. NL Exhaust."
   },
   "stsjorbsmod:Mirror": {
     "NAME": "Mirror",
