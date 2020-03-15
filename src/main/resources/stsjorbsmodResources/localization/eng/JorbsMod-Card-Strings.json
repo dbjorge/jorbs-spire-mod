@@ -581,7 +581,8 @@
   },
   "stsjorbsmod:Strife": {
     "NAME": "Strife",
-    "DESCRIPTION": "Add a random Curse to your discard pile. NL Gain !stsjorbsmod:MetaMagic! Strength for each Curse in your hand, draw pile and discard pile.",
+    "DESCRIPTION": "Add !stsjorbsmod:UrMagic! random Curse to your discard pile. NL Gain !stsjorbsmod:MetaMagic! Strength for each Curse in your discard pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add !stsjorbsmod:UrMagic! random Curses to your discard pile. NL Gain !stsjorbsmod:MetaMagic! Strength for each Curse in your discard pile. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (Gains !M! Strength.)"
     ]
