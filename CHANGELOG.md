@@ -4,7 +4,8 @@
 
 ### Updates
 
-* New art for Entangle (thansk Cartopol)
+* New art for Entangle (thanks Cartopol)
+* Updated art for Book of Tongues and Faerie Fire (thanks lobbien)
 
 ### Bug fixes
 
