@@ -619,7 +619,7 @@
   },
   "stsjorbsmod:Toil": {
     "NAME": "Toil",
-    "DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, permanently upgrade a random card. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL If Fatal, permanently upgrade a random card. NL Exhaust."
   },
   "stsjorbsmod:TollTheDead": {
     "NAME": "Toll the Dead",
