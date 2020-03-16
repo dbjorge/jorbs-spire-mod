@@ -23,8 +23,8 @@ public class Mindworm extends CustomJorbsModCard {
     private static final int COST = 0;
     private static final int DAMAGE = 6;
     private static final int UPGRADE_PLUS_DAMAGE = 1;
-    private static final int BONUS_SNAPPED_DAMAGE = 10;
-    private static final int UPGRADE_PLUS_BONUS_SNAPPED_DAMAGE = 7;
+    private static final int BONUS_SNAPPED_DAMAGE = 6;
+    private static final int UPGRADE_PLUS_BONUS_SNAPPED_DAMAGE = 3;
 
     public Mindworm() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
