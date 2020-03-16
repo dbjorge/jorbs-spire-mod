@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [v1.7.0] - 2020-03-15
+
 ### Balance changes
 
 * Arcane Form: removed Diligence (thanks wang429) 
