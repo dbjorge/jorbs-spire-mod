@@ -2,8 +2,17 @@
 
 ## [Unreleased]
 
+### Balance changes
+
+* Arcane Form: removed Diligence (thanks wang429) 
+* Mindworm: Reduced damage to 6(7)+6(9) (thanks wang429) 
+* Greed: Reduced gold amount from 20 to 10 (thanks wang429) 
+* Old Pocket: Reduced gold amount from 10 to 5 (thanks wang429) 
+* Humility: Passive effected changed from "double thorns" to "+2 more thorns" (thanks wang429) 
+
 ### Wanderer updates
 
+* Improved coloring on memory tooltips (thanks wang429) 
 * Made Snap timing/damage more clear with power bar icon/tooltip and health bar effect (thanks wang429)
 * New art for Entangle (thanks Cartopol)
 * Updated art for Book of Tongues and Faerie Fire (thanks lobbien)
