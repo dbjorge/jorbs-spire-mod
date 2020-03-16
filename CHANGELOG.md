@@ -11,6 +11,7 @@
 ### New CULL cards
 
 * Forced Presence (thanks Cartopol)
+* Commune (thanks Cartopol)
 
 ### Bug fixes
 
