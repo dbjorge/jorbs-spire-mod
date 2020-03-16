@@ -105,8 +105,9 @@ public class BottledBurdenRelic extends CustomJorbsModRelic implements CustomBot
             this.tips.add(new PowerTip(this.name, this.description));
             this.initializeTips();
 
-            EntombedField.entombed.set(this.card, true);
-            SelfExhumeFields.selfExhumeOnTurnX.set(this.card, true);
+            AbstractCard cardInDeck = AbstractDungeon.player.masterDeck.getSpecificCard(this.card);
+            EntombedField.entombed.set(cardInDeck, true);
+            SelfExhumeFields.selfExhumeOnTurnX.set(cardInDeck, true);
         }
     }
 
@@ -119,7 +120,7 @@ public class BottledBurdenRelic extends CustomJorbsModRelic implements CustomBot
 
     @Override
     public void atBattleStart() {
-        AbstractPower exhumeOnTurnXPower = new ExhumeOnTurnXPower(AbstractDungeon.player, this.card, EXHUME_TURN);
+        AbstractPower exhumeOnTurnXPower = new ExhumeOnTurnXPower(AbstractDungeon.player, AbstractDungeon.player.masterDeck.getSpecificCard(this.card), EXHUME_TURN);
         exhumeOnTurnXPowerInstanceID = exhumeOnTurnXPower.ID;
         //addToTop(new ExhaustSpecificCardAction(this.card, AbstractDungeon.player.drawPile));
         addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, exhumeOnTurnXPower));

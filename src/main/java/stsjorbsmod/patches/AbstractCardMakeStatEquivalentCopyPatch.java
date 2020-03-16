@@ -33,8 +33,11 @@ public class AbstractCardMakeStatEquivalentCopyPatch {
             card.upgradedMetaMagicNumber = source.upgradedMetaMagicNumber;
             boolean entombed = EntombedField.entombed.get(source);
             EntombedField.entombed.set(card, entombed);
+        } else{
+            boolean entombed = EntombedField.entombed.get(__this);
+            EntombedField.entombed.set(__result, entombed);
         }
-        
+
         return __result;
     }
 }
