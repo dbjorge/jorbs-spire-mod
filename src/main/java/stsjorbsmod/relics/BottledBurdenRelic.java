@@ -3,6 +3,7 @@ package stsjorbsmod.relics;
 import basemod.abstracts.CustomBottleRelic;
 import basemod.abstracts.CustomSavable;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -68,7 +69,7 @@ public class BottledBurdenRelic extends CustomJorbsModRelic implements CustomBot
         // follow same behavior as base game bottle relics.
         CardGroup nonExertCards = CardUtils.getCardsForBottling(AbstractDungeon.player.masterDeck.getPurgeableCards());
         nonExertCards.group.removeIf(c -> c.hasTag(HAS_EXERT));
-        if (nonExertCards.size() < 1) {
+        if (nonExertCards.size() > 0) {
             this.cardSelected = false;
             if (AbstractDungeon.isScreenUp) {
                 AbstractDungeon.dynamicBanner.hide();
@@ -97,16 +98,16 @@ public class BottledBurdenRelic extends CustomJorbsModRelic implements CustomBot
             this.cardSelected = true;
             this.card = AbstractDungeon.gridSelectScreen.selectedCards.get(0);
             inBottledBurden.set(card, true);
-            EntombedField.entombed.set(this.card, true);
-            SelfExhumeFields.selfExhumeOnTurnThree.set(this.card, true);
             AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
             this.description = this.DESCRIPTIONS[2] + FontHelper.colorString(this.card.name, "y") + this.DESCRIPTIONS[3];
             this.tips.clear();
             this.tips.add(new PowerTip(this.name, this.description));
             this.initializeTips();
-        }
 
+            EntombedField.entombed.set(this.card, true);
+            SelfExhumeFields.selfExhumeOnTurnX.set(this.card, true);
+        }
     }
 
     public void setDescriptionAfterLoading() {
@@ -120,19 +121,10 @@ public class BottledBurdenRelic extends CustomJorbsModRelic implements CustomBot
     public void atBattleStart() {
         AbstractPower exhumeOnTurnXPower = new ExhumeOnTurnXPower(AbstractDungeon.player, this.card, EXHUME_TURN);
         exhumeOnTurnXPowerInstanceID = exhumeOnTurnXPower.ID;
+        //addToTop(new ExhaustSpecificCardAction(this.card, AbstractDungeon.player.drawPile));
         addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, exhumeOnTurnXPower));
     }
 
-
-    @Override
-    public boolean canSpawn() {
-        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-            if (!c.hasTag(HAS_EXERT)) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     @Override
     public String getUpdatedDescription() {

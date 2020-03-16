@@ -115,6 +115,16 @@ public class BottledMemoryRelic extends CustomJorbsModRelic implements CustomBot
     }
 
     @Override
+    public boolean canSpawn() {
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+            if (c.hasTag(REMEMBER_MEMORY)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
     public String getUpdatedDescription() {
         return this.DESCRIPTIONS[0];
     }
