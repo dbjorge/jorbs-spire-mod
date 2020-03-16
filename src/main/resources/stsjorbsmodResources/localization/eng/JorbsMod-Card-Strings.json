@@ -194,6 +194,14 @@
     "DESCRIPTION": "Apply stsjorbsmod:Slow to ALL enemies. NL Add !M! stsjorbsmod:Web into your hand.",
     "UPGRADE_DESCRIPTION": "Apply stsjorbsmod:Slow to ALL enemies. NL Add !M! stsjorbsmod:Webs into your hand."
   },
+  "stsjorbsmod:Equinox": {
+    "NAME": "Equinox",
+    "DESCRIPTION": "Deal damage equal to the current Floor number. NL The cost of this card is equal to the current Act number. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to the current Floor number. NL The cost of this card is equal to the current Act number - !M!. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deal !D! damage.)"
+    ]
+  },
   "stsjorbsmod:Expose": {
     "NAME": "Expose",
     "DESCRIPTION": "Deal !D! damage. NL If this does not end the combat, lose !M! HP."
