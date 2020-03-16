@@ -31,7 +31,6 @@ public class BottledBurdenRelic extends CustomJorbsModRelic implements CustomBot
     public static final String ID = makeID(BottledBurdenRelic.class);
     public AbstractCard card = null;
     public static final int EXHUME_TURN = 3;
-    private String exhumeOnTurnXPowerInstanceID;
     private boolean cardSelected = true;
 
     public BottledBurdenRelic(){super(ID, CULL_CARD_COLOR, RelicTier.COMMON, LandingSound.CLINK);}
@@ -59,6 +58,9 @@ public class BottledBurdenRelic extends CustomJorbsModRelic implements CustomBot
             card = AbstractDungeon.player.masterDeck.group.get(cardIndex);
             if (card != null) {
                 inBottledBurden.set(card, true);
+                AbstractCard cardInDeck = AbstractDungeon.player.masterDeck.getSpecificCard(this.card);
+                EntombedField.entombed.set(cardInDeck, true);
+                SelfExhumeFields.selfExhumeOnTurnX.set(cardInDeck, true);
                 setDescriptionAfterLoading();
             }
         }
@@ -121,7 +123,6 @@ public class BottledBurdenRelic extends CustomJorbsModRelic implements CustomBot
     @Override
     public void atBattleStart() {
         AbstractPower exhumeOnTurnXPower = new ExhumeOnTurnXPower(AbstractDungeon.player, AbstractDungeon.player.masterDeck.getSpecificCard(this.card), EXHUME_TURN);
-        exhumeOnTurnXPowerInstanceID = exhumeOnTurnXPower.ID;
         //addToTop(new ExhaustSpecificCardAction(this.card, AbstractDungeon.player.drawPile));
         addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, exhumeOnTurnXPower));
     }
