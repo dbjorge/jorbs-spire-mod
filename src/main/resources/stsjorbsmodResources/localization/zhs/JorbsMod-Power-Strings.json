@@ -177,8 +177,8 @@
   "stsjorbsmod:PlayNextAttackThisTurnAdditionalTimesPower": {
     "NAME": "汇聚能量",
     "DESCRIPTIONS": [
-      "The next attack you play this turn is played an additional time.",
-      "The next attack you play this turn is played an additional #b%1$s times."
+      "本回合内，你打出的下一张攻击牌会被额外打出1次。",
+      "本回合内，你打出的下一张攻击牌会被额外打出 #b%1$s 次。"
     ]
   },
   "stsjorbsmod:PlayNextCardThisTurnAdditionalTimesPower": {
