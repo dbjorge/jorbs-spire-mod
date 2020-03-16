@@ -39,7 +39,7 @@ public class Discordance extends CustomJorbsModCard {
 
         while(var2.hasNext()) {
             AbstractCard c = (AbstractCard)var2.next();
-            if (!seen.contains(c.type) && c.cardID != this.cardID) {
+            if (!seen.contains(c.type)) {
                 seen.add(c.type);
             }
         }
