@@ -157,9 +157,9 @@
     "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Pride. NL Exhaust."
   },"stsjorbsmod:Discordance": {
   "NAME": "Discordance",
-  "DESCRIPTION": "Deal damage equal to the number of card types in your hand times !D!.",
+  "DESCRIPTION": "Deal damage equal to the number of card types in your hand times !M!.",
   "EXTENDED_DESCRIPTION": [
-    " NL (You have !M! card types in hand)"
+    " NL (Deals !D! damage)"
   ]
   },
   "stsjorbsmod:DisguiseSelf": {

@@ -28,34 +28,39 @@ public class Discordance extends CustomJorbsModCard {
 
     public Discordance() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
-        this.damage = 5;
+        this.baseDamage = 0;
+        this.baseMagicNumber = magicNumber = 5;
     }
 
     @Override
-    public void applyPowers() {
-        super.applyPowers();
+    public int calculateBonusBaseDamage() {
         Iterator var2 = AbstractDungeon.player.hand.group.iterator();
         ArrayList<CardType> seen = new ArrayList<CardType>();
 
         while(var2.hasNext()) {
             AbstractCard c = (AbstractCard)var2.next();
-            if (!seen.contains(c.type)) {
+            if (!seen.contains(c.type) && c.cardID != this.cardID) {
                 seen.add(c.type);
             }
         }
 
-        magicNumber = seen.size();
+        return seen.size() * magicNumber;
+    }
+
+    @Override
+    public String getRawDynamicDescriptionSuffix() {
+        return EXTENDED_DESCRIPTION[0];
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, magicNumber * damage), AbstractGameAction.AttackEffect.SMASH));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.LIGHTNING));
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
-            upgradeDamage(2);
+            upgradeMagicNumber(2);
             upgradeName();
             upgradeDescription();
         }
