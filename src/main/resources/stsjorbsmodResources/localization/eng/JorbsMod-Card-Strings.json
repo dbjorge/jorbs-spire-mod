@@ -116,6 +116,10 @@
     "NAME": "Color Spray",
     "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each. NL Remember stsjorbsmod:Envy."
   },
+  "stsjorbsmod:Commune": {
+    "NAME" : "Commune",
+    "DESCRIPTION": "Scry !M!."
+  },
   "stsjorbsmod:CorrodingBarrier": {
     "NAME": "Corroding Barrier",
     "DESCRIPTION": "Gain !B! Block. Decrease this card's Block this combat by !M! each time it is drawn.",
