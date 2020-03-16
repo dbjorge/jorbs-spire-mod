@@ -36,8 +36,8 @@
   },
   "stsjorbsmod:ArcaneForm": {
     "NAME": "Arcane Form",
-    "DESCRIPTION": "Ethereal. NL Gain stsjorbsmod:Clarity of stsjorbsmod:Patience, stsjorbsmod:Lust, stsjorbsmod:Diligence, stsjorbsmod:Kindness, and stsjorbsmod:Chastity.",
-    "UPGRADE_DESCRIPTION": "Gain stsjorbsmod:Clarity of stsjorbsmod:Patience, stsjorbsmod:Lust, stsjorbsmod:Diligence, stsjorbsmod:Kindness, and stsjorbsmod:Chastity."
+    "DESCRIPTION": "Ethereal. NL Gain stsjorbsmod:Clarity of stsjorbsmod:Patience, stsjorbsmod:Lust, stsjorbsmod:Kindness, and stsjorbsmod:Chastity.",
+    "UPGRADE_DESCRIPTION": "Gain stsjorbsmod:Clarity of stsjorbsmod:Patience, stsjorbsmod:Lust, stsjorbsmod:Kindness, and stsjorbsmod:Chastity."
   },
   "stsjorbsmod:ArcaneWeapon": {
     "NAME": "Arcane Weapon",
