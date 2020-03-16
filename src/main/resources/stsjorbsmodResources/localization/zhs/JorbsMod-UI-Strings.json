@@ -2,7 +2,7 @@
   "stsjorbsmod:AbstractMemory": {
     "TEXT": [
       "#g清晰。 NL ",
-      "#g记得。 NL ",
+      "#g记起。 NL ",
       "#r遗忘。 NL "
     ]
   },
@@ -79,7 +79,8 @@
   "stsjorbsmod:SnapCounter": {
     "TEXT": [
       "精神衰弱",
-      "在第7回合结束时， #y爆发 。 NL （现在是第 #b%1$s 回合。）"
+      "在第 #b7 回合结束时， #y爆发 。 NL （现在是第 #b%1$s 回合。）",
+      "在你的回合结束时， #y爆发 。"
     ]
   },
   "stsjorbsmod:SnapFtueTip": {

@@ -21,7 +21,6 @@
   "stsjorbsmod:AnimateObjects": {
     "NAME": "赋予生命",
     "DESCRIPTION": "stsjorbsmod:飞逝 。获得等同于战斗开始时不在你牌组中且未被 消耗 的牌数目的 荆棘 。",
-    "!DESCRIPTION": "包括战斗中新加入的牌（状态诅咒复制印牌），以及被发掘出来的当前未被消耗的开局埋的牌",
     "EXTENDED_DESCRIPTION": [
       " NL （获得 !M! 点荆棘。）"
     ]
@@ -37,8 +36,8 @@
   },
   "stsjorbsmod:ArcaneForm": {
     "NAME": "诡秘形态",
-    "DESCRIPTION": "虚无 。 NL 使 stsjorbsmod:耐心 、 stsjorbsmod:色欲 、 stsjorbsmod:勤奋 、 stsjorbsmod:宽容 与 stsjorbsmod:贞洁 的记忆变得 stsjorbsmod:清晰 。",
-    "UPGRADE_DESCRIPTION": "使 stsjorbsmod:耐心 、 stsjorbsmod:色欲 、 stsjorbsmod:勤奋 、 stsjorbsmod:宽容 与 stsjorbsmod:贞洁 的记忆变得 stsjorbsmod:清晰 。"
+    "DESCRIPTION": "虚无 。 NL 使 stsjorbsmod:耐心 、 stsjorbsmod:色欲 、 stsjorbsmod:宽容 与 stsjorbsmod:贞洁 的记忆变 stsjorbsmod:清晰 。",
+    "UPGRADE_DESCRIPTION": "使 stsjorbsmod:耐心 、 stsjorbsmod:色欲 、 stsjorbsmod:宽容 与 stsjorbsmod:贞洁 的记忆变 stsjorbsmod:清晰 。"
   },
   "stsjorbsmod:ArcaneWeapon": {
     "NAME": "诡异武器",
@@ -117,6 +116,10 @@
     "NAME": "七彩喷射",
     "DESCRIPTION": "对所有敌人造成 !D! 点伤害，并给予每个人一个随机负面效果。 NL 回忆起 stsjorbsmod:嫉妒 。"
   },
+  "stsjorbsmod:Commune": {
+    "NAME": "通神",
+    "DESCRIPTION": "预见 !M! 。"
+  },
   "stsjorbsmod:CorrodingBarrier": {
     "NAME": "腐蚀屏障",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL 这张牌每被抽到一次，它在本场战斗中的基础 格挡 下降 !M! 。",
@@ -141,8 +144,8 @@
   },
   "stsjorbsmod:DeathThroes": {
     "NAME": "垂死挣扎",
-    "DESCRIPTION": "stsjorbsmod:土间埋 。 stsjorbsmod:飞逝 。 NL 当有一名敌人死亡， stsjorbsmod:发掘 之。 NL 造成 !D! 点伤害。 NL 回忆起 stsjorbsmod:暴怒 。",
-    "UPGRADE_DESCRIPTION": "stsjorbsmod:土间埋 。 stsjorbsmod:飞逝 。 NL 当有一名敌人死亡， stsjorbsmod:发掘 之。 NL 造成 !D! 点伤害。 NL 使 stsjorbsmod:暴怒 的记忆变得 stsjorbsmod:清晰 。"
+    "DESCRIPTION": "stsjorbsmod:深藏 。 stsjorbsmod:飞逝 。 NL 当有一名敌人死亡， stsjorbsmod:发掘 之。 NL 造成 !D! 点伤害。 NL 回忆起 stsjorbsmod:暴怒 。",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:深藏 。 stsjorbsmod:飞逝 。 NL 当有一名敌人死亡， stsjorbsmod:发掘 之。 NL 造成 !D! 点伤害。 NL 使 stsjorbsmod:暴怒 的记忆变得 stsjorbsmod:清晰 。"
   },
   "stsjorbsmod:Defend_Wanderer": {
     "NAME": "防御",
@@ -245,7 +248,11 @@
   },
   "stsjorbsmod:ForbiddenGrimoire": {
     "NAME": "魔导书",
-    "DESCRIPTION": "stsjorbsmod:飞逝 。 NL 在 stsjorbsmod:爆发 或第七回合开始前， stsjorbsmod:土间埋 。 NL 从3张 stsjorbsmod:魔法原料 中选择一张加入手牌。 NL 在打出这张牌后，你每打出 !M! 张牌， stsjorbsmod:发掘 之。"
+    "DESCRIPTION": "stsjorbsmod:飞逝 。在 stsjorbsmod:爆发 或第7回合开始前， stsjorbsmod:深藏 。 NL 从3张 stsjorbsmod:魔法原料 中选择一张加入手牌。 NL 在打出这张牌后，你每打出 !M! 张牌， stsjorbsmod:发掘 之。"
+  },
+  "stsjorbsmod:ForcedPresence": {
+    "NAME": "原形毕露",
+    "DESCRIPTION": "失去 !M! 层 无实体 。 NL 如果你这么做， NL 获得 !stsjorbsmod:UrMagic! 点 [E] 。 NL 消耗 。"
   },
   "stsjorbsmod:FracturedMind": {
     "NAME": "思绪破碎",
@@ -274,7 +281,7 @@
     "DESCRIPTION": "获得 !stsjorbsmod:UrMagic! 层 无实体 。 NL 下一回合，额外抽 !M! 张牌。 NL 消耗 。"
   },
   "stsjorbsmod:HedgeWizard": {
-    "NAME": "赤脚巫师",
+    "NAME": "树篱巫师",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL 回忆起 stsjorbsmod:谦逊 。"
   },
   "stsjorbsmod:Hibernate": {
@@ -356,7 +363,7 @@
   "stsjorbsmod:Mania": {
     "NAME": "狂热",
     "DESCRIPTION": "造成等同于你手牌中不重复牌数的伤害。如果你的手牌均不重复，获得 !stsjorbsmod:MetaMagic! 点 [E] 并抽 !stsjorbsmod:UrMagic! 张牌。",
-    "UPGRADE_DESCRIPTION": "造成等同于你手牌中不重复牌数加 !stsjorbsmod:BaseDamage! 的伤害。 NL 如果你的手牌均不重复，获得 !stsjorbsmod:MetaMagic! 点 [E] 并抽 !stsjorbsmod:UrMagic! 张牌。",
+    "UPGRADE_DESCRIPTION": "造成等同于你手牌中不重复牌数+ !stsjorbsmod:BaseDamage! 的伤害。 NL 如果你的手牌均不重复，获得 !stsjorbsmod:MetaMagic! 点 [E] 并抽 !stsjorbsmod:UrMagic! 张牌。",
     "EXTENDED_DESCRIPTION": [
       " NL （造成 !D! 点伤害。）"
     ]
@@ -436,8 +443,8 @@
   },
   "stsjorbsmod:Patron": {
     "NAME": "守护神",
-    "DESCRIPTION": "stsjorbsmod:飞逝 。 NL 在你 stsjorbsmod:爆发 之前 ， stsjorbsmod:土间埋 。 NL 造成 !D! 点伤害。 NL stsjorbsmod:摧毁 。",
-    "UPGRADE_DESCRIPTION": "stsjorbsmod:飞逝 。 NL 在你 stsjorbsmod:爆发 之前 ， stsjorbsmod:土间埋 。 NL 造成 !D! 点伤害。 NL stsjorbsmod:降级 。"
+    "DESCRIPTION": "stsjorbsmod:飞逝 。 NL 在你 stsjorbsmod:爆发 之前 ， stsjorbsmod:深藏 。 NL 造成 !D! 点伤害。 NL stsjorbsmod:摧毁 。",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:飞逝 。 NL 在你 stsjorbsmod:爆发 之前 ， stsjorbsmod:深藏 。 NL 造成 !D! 点伤害。 NL stsjorbsmod:降级 。"
   },
   "stsjorbsmod:Phantasm": {
     "NAME": "幽灵",
@@ -580,7 +587,7 @@
   },
   "stsjorbsmod:Strife": {
     "NAME": "冲突",
-    "DESCRIPTION": "将一张随机 诅咒 放入你的弃牌堆。 NL 你手牌、抽牌堆与弃牌堆中的每有一张 诅咒 牌，获得 !stsjorbsmod:MetaMagic! 点 力量 。",
+    "DESCRIPTION": "将一张随机 诅咒 放入你的弃牌堆。 NL 你手牌、抽牌堆与弃牌堆中每有一张 诅咒 牌，获得 !stsjorbsmod:MetaMagic! 点 力量 。",
     "EXTENDED_DESCRIPTION": [
       " NL （获得 !M! 点 力量 。）"
     ]
@@ -660,7 +667,7 @@
   },
   "stsjorbsmod:WanderingMind": {
     "NAME": "精神恍惚",
-    "DESCRIPTION": "抽 !M! 张牌。 NL 回忆起一个随机的未变得 stsjorbsmod:清晰 的记忆。"
+    "DESCRIPTION": "抽 !M! 张牌。 NL 随机回忆起一个未变得 stsjorbsmod:清晰 的记忆。"
   },
   "stsjorbsmod:WastingEssence": {
     "NAME": "浪费的精华",

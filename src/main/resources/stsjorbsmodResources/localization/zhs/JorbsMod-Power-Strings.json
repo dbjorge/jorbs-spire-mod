@@ -75,7 +75,7 @@
   "stsjorbsmod:EntombedGrimoirePower": {
     "NAME": "埋下魔导书",
     "DESCRIPTIONS": [
-      "%1$s 将在第 #b%2$s 回合或你爆发时被 发掘。 NL ",
+      "在第 #b%2$s 回合开始时或当你爆发时， 发掘 %1$s 。 NL ",
       "将在 #b%3$s 回合后发掘。",
       "将在 #b%3$s 回合后发掘。"
     ]
@@ -113,7 +113,7 @@
     ]
   },
   "stsjorbsmod:ForbiddenGrimoireDelayedExhumePower": {
-    "NAME": "延迟发掘",
+    "NAME": "延时发掘",
     "DESCRIPTIONS": [
       "%1$s 将在你打出 #b%2$s 张牌后被发掘。",
       "%1$s 将在你打出 #b%2$s 张牌后被发掘。"
@@ -122,8 +122,8 @@
   "stsjorbsmod:FragilePower": {
     "NAME": "衰弱",
     "DESCRIPTIONS": [
-      "在本回合结束时爆发。",
-      "在 %1$s 回合后爆发。"
+      "在你的回合结束时，爆发。 NL 失去 #b%2$s 点生命并对所有敌人造成 #b%3$s 点伤害。",
+      "在第 %1$s 回合结束时，爆发。 NL 失去 #b%2$s 点生命并对所有敌人造成 #b%3$s 点伤害。"
     ]
   },
   "stsjorbsmod:IntrospectionPower": {
