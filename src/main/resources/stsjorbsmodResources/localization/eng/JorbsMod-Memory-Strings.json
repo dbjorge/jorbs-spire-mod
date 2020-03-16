@@ -8,19 +8,19 @@
   "stsjorbsmod:ChastityMemory": {
     "NAME": "Chastity",
     "DESCRIPTIONS": [
-      "#pRemember: Gain #b!R! #yDexterity. Apply #b!W! #yWeak to ALL enemies. NL #bPassive: At the end of each turn, lose #b!D! #yDexterity and gain #b!B! #yBlock."
+      "#pRemember: Gain #b!R! #yDexterity. Apply #b!W! #yWeak to ALL enemies. NL #pPassive: At the end of each turn, lose #b!D! #yDexterity and gain #b!B! #yBlock."
     ]
   },
   "stsjorbsmod:DiligenceMemory": {
     "NAME": "Diligence",
     "DESCRIPTIONS": [
-      "#pRemember: Draw #b!D! cards. NL #bPassive: At the end of your turn, #yRetain #b!M!."
+      "#pRemember: Draw #b!D! cards. NL #pPassive: At the end of your turn, #yRetain #b!M!."
     ]
   },
   "stsjorbsmod:EnvyMemory": {
     "NAME": "Envy",
     "DESCRIPTIONS": [
-      "#pRemember: Gain #b!V! #yVulnerable. #bPassive: Whenever you target an enemy with a card, apply #b!M! #yVulnerable to that enemy."
+      "#pRemember: Gain #b!V! #yVulnerable. #pPassive: Whenever you target an enemy with a card, apply #b!M! #yVulnerable to that enemy."
     ]
   },
   "stsjorbsmod:GluttonyMemory": {
@@ -38,7 +38,7 @@
   "stsjorbsmod:HumilityMemory": {
     "NAME": "Humility",
     "DESCRIPTIONS": [
-      "#pRemember: Gain #b!R! #yThorns. NL #bPassive: Gain an additional #b2 #yThorns. (Gain #b!P! Thorns.)"
+      "#pRemember: Gain #b!R! #yThorns. NL #pPassive: Gain an additional #b2 #yThorns. (Gain #b!P! Thorns.)"
     ]
   },
   "stsjorbsmod:KindnessMemory": {
