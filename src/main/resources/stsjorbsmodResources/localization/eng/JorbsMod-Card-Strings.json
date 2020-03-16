@@ -155,6 +155,12 @@
     "NAME": "Determination",
     "DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of this turn, stsjorbsmod:Snap. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Pride. NL Exhaust."
+  },"stsjorbsmod:Discordance": {
+  "NAME": "Discordance",
+  "DESCRIPTION": "Deal damage equal to the number of card types in your hand times !D!.",
+  "EXTENDED_DESCRIPTION": [
+    " NL (You have !M! card types in hand)"
+  ]
   },
   "stsjorbsmod:DisguiseSelf": {
     "NAME": "Disguise Self",
