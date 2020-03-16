@@ -38,7 +38,7 @@
   "stsjorbsmod:HumilityMemory": {
     "NAME": "Humility",
     "DESCRIPTIONS": [
-      "#pRemember: Gain #b!R! #yThorns. NL #pPassive: Gain an additional #b2 #yThorns. (Gain #b!P! Thorns.)"
+      "#pRemember: Gain #b!R! #yThorns. NL #pPassive: Gain an additional #b!P! #yThorns."
     ]
   },
   "stsjorbsmod:KindnessMemory": {
