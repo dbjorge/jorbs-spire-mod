@@ -21,7 +21,7 @@ public class Siphon extends CustomJorbsModCard {
     private static final int DAMAGE = 9;
     private static final int UPGRADE_DAMAGE = 3;
     private static final int HEAL_ON_FATAL = 4;
-    private static final int UPGRADE_PLUS_HEAL_ON_FATAL = 4;
+    private static final int UPGRADE_PLUS_HEAL_ON_FATAL = 1;
 
 
     public Siphon() {

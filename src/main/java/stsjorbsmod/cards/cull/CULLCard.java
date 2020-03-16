@@ -27,6 +27,7 @@ public class CULLCard extends CustomJorbsModCard implements OnWrathStackReceived
     public CULLCard() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = DAMAGE;
+        this.exhaust = true;
 
         tags.add(LEGENDARY);
     }

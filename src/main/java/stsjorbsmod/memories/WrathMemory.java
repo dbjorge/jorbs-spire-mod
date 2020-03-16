@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.OnWrathStackReceivedSubscriber;
-import stsjorbsmod.cards.cull.CULLCard;
 import stsjorbsmod.patches.WrathField;
 import stsjorbsmod.util.EffectUtils;
 
@@ -27,7 +26,7 @@ public class WrathMemory extends AbstractMemory {
     }
 
     public static boolean usesMiscToTrackPermanentBaseDamage(AbstractCard c) {
-        return c instanceof RitualDagger || c instanceof CULLCard;
+        return c instanceof RitualDagger;
     }
 
     public static void reapplyToLoadedCard(AbstractCard card, int effectCount) {

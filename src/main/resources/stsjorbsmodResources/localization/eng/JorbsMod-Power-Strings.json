@@ -245,8 +245,8 @@
       "Whenever you draw a Curse, draw #b%1$s cards."
     ]
   },
-  "stsjorbsmod:WastingEssencePower": {
-    "NAME": "Wasting Essence",
+  "stsjorbsmod:WastingFormPower": {
+    "NAME": "Wasting Form",
     "DESCRIPTIONS": [
       "Whenever you draw a Curse, deal #b%1$s damage to ALL enemies."
     ]

@@ -8,13 +8,13 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class WastingEssencePower extends CustomJorbsModPower {
-    public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(WastingEssencePower.class);
+public class WastingFormPower extends CustomJorbsModPower {
+    public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(WastingFormPower.class);
     public static final String POWER_ID = STATIC.ID;
 
     private int numberOfCurses;
 
-    public WastingEssencePower(AbstractCreature owner, int damagePerCurse, int numberOfCurses) {
+    public WastingFormPower(AbstractCreature owner, int damagePerCurse, int numberOfCurses) {
         super(STATIC);
 
         this.owner = owner;
@@ -39,6 +39,6 @@ public class WastingEssencePower extends CustomJorbsModPower {
 
     @Override
     public AbstractPower makeCopy() {
-        return new WastingEssencePower(owner, amount, numberOfCurses);
+        return new WastingFormPower(owner, amount, numberOfCurses);
     }
 }
