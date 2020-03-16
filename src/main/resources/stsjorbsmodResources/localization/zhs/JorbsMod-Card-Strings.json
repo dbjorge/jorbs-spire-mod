@@ -194,6 +194,11 @@
     "DESCRIPTION": "给予所有敌人 stsjorbsmod:缓慢 。 NL 将 !M! 张 stsjorbsmod:网 加入你的手牌。",
     "UPGRADE_DESCRIPTION": "给予所有敌人 stsjorbsmod:缓慢 。 NL 将 !M! 张 stsjorbsmod:网 加入你的手牌。"
   },
+  "stsjorbsmod:Exhale": {
+    "NAME": "发散",
+    "DESCRIPTION": "stsjorbsmod:飞逝 。 NL 获得 !M! 层 无实体 。 NL 在下一回合开始时，失去 !stsjorbsmod:UrMagic! 点 力量 。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 无实体 。 NL 在下一回合开始时，失去 !stsjorbsmod:UrMagic! 点 力量 。 NL 消耗 。"
+  },
   "stsjorbsmod:Expose": {
     "NAME": "暴露",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 若这张牌未能结束战斗，失去 !M! 点生命。"
