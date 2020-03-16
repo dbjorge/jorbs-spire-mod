@@ -426,10 +426,6 @@
     "NAME": "恐慌",
     "DESCRIPTION": "stsjorbsmod:飞逝 。 NL 获得 !M! 层 无实体 。 NL 失去 !stsjorbsmod:UrMagic! 点最大生命。"
   },
-  "stsjorbsmod:Paralysis": {
-    "NAME": "无力",
-    "DESCRIPTION": " 保留 。 NL 获得 !M! 层 无实体 。 NL 每当这张牌被 保留 时，将其在本场战斗的耗能减少1。 消耗 。"
-  },
   "stsjorbsmod:PartingBlow": {
     "NAME": "碎骨猛击",
     "DESCRIPTION": "造成等同于你 !M! 减去你最大生命值的伤害。",
