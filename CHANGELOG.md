@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Added the Bottled Burden relic. This is a Cull relic. Bottle a card. The bottled card will begin combat in your exhaust pile, and will Exhume on turn 3.
+
 ### Updates
 
 * New art for Entangle (thansk Cartopol)
