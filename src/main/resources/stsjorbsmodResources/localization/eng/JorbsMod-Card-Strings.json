@@ -36,8 +36,8 @@
   },
   "stsjorbsmod:ArcaneForm": {
     "NAME": "Arcane Form",
-    "DESCRIPTION": "Ethereal. NL Gain stsjorbsmod:Clarity of stsjorbsmod:Patience, stsjorbsmod:Lust, stsjorbsmod:Diligence, stsjorbsmod:Kindness, and stsjorbsmod:Chastity.",
-    "UPGRADE_DESCRIPTION": "Gain stsjorbsmod:Clarity of stsjorbsmod:Patience, stsjorbsmod:Lust, stsjorbsmod:Diligence, stsjorbsmod:Kindness, and stsjorbsmod:Chastity."
+    "DESCRIPTION": "Ethereal. NL Gain stsjorbsmod:Clarity of stsjorbsmod:Patience, stsjorbsmod:Lust, stsjorbsmod:Kindness, and stsjorbsmod:Chastity.",
+    "UPGRADE_DESCRIPTION": "Gain stsjorbsmod:Clarity of stsjorbsmod:Patience, stsjorbsmod:Lust, stsjorbsmod:Kindness, and stsjorbsmod:Chastity."
   },
   "stsjorbsmod:ArcaneWeapon": {
     "NAME": "Arcane Weapon",
@@ -115,6 +115,10 @@
   "stsjorbsmod:ColorSpray": {
     "NAME": "Color Spray",
     "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each. NL Remember stsjorbsmod:Envy."
+  },
+  "stsjorbsmod:Commune": {
+    "NAME" : "Commune",
+    "DESCRIPTION": "Scry !M!."
   },
   "stsjorbsmod:CorrodingBarrier": {
     "NAME": "Corroding Barrier",
@@ -245,6 +249,10 @@
   "stsjorbsmod:ForbiddenGrimoire": {
     "NAME": "The Grimoire",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until you stsjorbsmod:Snap OR start turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL stsjorbsmod:Exhume after playing this then !M! other cards."
+  },
+  "stsjorbsmod:ForcedPresence": {
+    "NAME": "Forced Presence",
+    "DESCRIPTION": "Lose !M! Intangible. If you do, gain !stsjorbsmod:UrMagic! [E]. NL Exhaust."
   },
   "stsjorbsmod:FracturedMind": {
     "NAME": "Fractured Mind",
