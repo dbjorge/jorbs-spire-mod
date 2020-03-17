@@ -254,7 +254,7 @@
   "stsjorbsmod:WitherPower": {
     "NAME": "Wither",
     "DESCRIPTIONS": [
-      "Hp loss is increased by #b1 while Intangible."
+      "Intangible reduces HP loss and damage taken by 1 less."
     ]
   }
 }

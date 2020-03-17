@@ -9,15 +9,15 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class WitherPower extends CustomJorbsModPower {
-    public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(WastingEssencePower.class);
+    public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(WitherPower.class);
     public static final String POWER_ID = STATIC.ID;
-    private AbstractCreature owner;
     public WitherPower(AbstractCreature owner) {
         super(STATIC);
         this.amount = -1;
         this.updateDescription();
         this.owner = owner;
-        this.owner = AbstractDungeon.player;
+        this.type = PowerType.DEBUFF;
+        this.img = this.region48.getTexture();
     }
 
     @Override

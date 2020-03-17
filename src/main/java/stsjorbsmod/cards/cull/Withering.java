@@ -26,7 +26,7 @@ public class Withering extends CustomJorbsModCard implements OnDrawCardSubscribe
     public static final AbstractCard.CardColor COLOR = CardColor.CURSE;
 
 
-    private static final int COST = 1;
+    private static final int COST = -2;
     private static final int DAMAGE = 10;
     private static final int DRAW_MINUS_DAMAGE = 1;
     private static final int KILL_PLUS_DAMAGE = 3;
