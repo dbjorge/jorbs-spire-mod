@@ -120,7 +120,7 @@
     "NAME" : "Commune",
     "DESCRIPTION": "Scry !M!."
   },
-  "Concentrate": {
+  "stsjorbsmod:Concentrate": {
     "NAME": "Concentrate",
     "DESCRIPTION": "Discard !M! cards. NL Gain [E] [E]."
   },

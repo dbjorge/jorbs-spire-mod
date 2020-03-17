@@ -34,9 +34,9 @@ public class Concentrate extends CustomJorbsModCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeMagicNumber(-1);
-            this.initializeDescription();
+            upgradeName();
+            upgradeMagicNumber(-1);
+            upgradeDescription();
         }
 
     }
