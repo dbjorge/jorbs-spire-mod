@@ -75,7 +75,7 @@
   "stsjorbsmod:EntombedGrimoirePower": {
     "NAME": "Entombed Grimoire",
     "DESCRIPTIONS": [
-      "%1$s will be Exhumed on the #b%2$sth turn, or when you Snap. NL ",
+      "At the start of turn #b%2$s or when you #ySnap, #yExhume %1$s. NL ",
       "Exhumes in #b%3$s turns.",
       "Exhumes in #b%3$s turn."
     ]
@@ -122,8 +122,8 @@
   "stsjorbsmod:FragilePower": {
     "NAME": "Fragile",
     "DESCRIPTIONS": [
-      "At the end of this turn, Snap.",
-      "In %1$s turns, Snap."
+      "At the end of your turn, #ySnap. NL Lose #b%2$s HP and deal #b%3$s damage to ALL enemies.",
+      "At the end of turn #b%1$s, #ySnap. NL Lose #b%2$s HP and deal #b%3$s damage to ALL enemies."
     ]
   },
   "stsjorbsmod:IntrospectionPower": {
