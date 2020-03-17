@@ -120,6 +120,10 @@
     "NAME" : "Commune",
     "DESCRIPTION": "Scry !M!."
   },
+  "Concentrate": {
+    "NAME": "Concentrate",
+    "DESCRIPTION": "Discard !M! cards. NL Gain [E] [E]."
+  },
   "stsjorbsmod:CorrodingBarrier": {
     "NAME": "Corroding Barrier",
     "DESCRIPTION": "Gain !B! Block. Decrease this card's Block this combat by !M! each time it is drawn.",

@@ -1,7 +1,7 @@
 # Changelog
 
 ## [Unreleased]
-
+New Card: Concentrate (Cull, Uncommon) 0: Discard 3(2) cards, gain 2 energy
 ## [v1.7.0] - 2020-03-15
 
 ### Balance changes
