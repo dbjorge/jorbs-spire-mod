@@ -250,5 +250,11 @@
     "DESCRIPTIONS": [
       "Whenever you draw a Curse, deal #b%1$s damage to ALL enemies."
     ]
+  },
+  "stsjorbsmod:WitherPower": {
+    "NAME": "Wither",
+    "DESCRIPTIONS": [
+      "Hp loss is increased by #b1 while Intangible."
+    ]
   }
 }

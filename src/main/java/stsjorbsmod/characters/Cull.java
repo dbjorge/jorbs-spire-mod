@@ -223,7 +223,7 @@ public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber 
         retVal.add(SplinterSoul.ID);
         retVal.add(Wail.ID);
         retVal.add(WakingDream.ID);
-
+        retVal.add(Withering.ID);
         return retVal;
     }
 
