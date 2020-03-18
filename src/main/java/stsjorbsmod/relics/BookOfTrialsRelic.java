@@ -4,10 +4,10 @@ import stsjorbsmod.JorbsMod;
 
 import static stsjorbsmod.characters.Cull.Enums.CULL_CARD_COLOR;
 
-public class BookOfToilsRelic extends CustomJorbsModRelic {
-    public static final String ID = JorbsMod.makeID(BookOfToilsRelic.class);
+public class BookOfTrialsRelic extends CustomJorbsModRelic {
+    public static final String ID = JorbsMod.makeID(BookOfTrialsRelic.class);
 
-    public BookOfToilsRelic() {
+    public BookOfTrialsRelic() {
         super(ID, CULL_CARD_COLOR, RelicTier.STARTER, LandingSound.MAGICAL);
     }
 }

@@ -5,11 +5,11 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
-import stsjorbsmod.relics.BookOfToilsRelic;
+import stsjorbsmod.relics.BookOfTrialsRelic;
 
 import java.util.ArrayList;
 
-public class DeckOfToils {
+public class DeckOfTrials {
     public static CardGroup deck = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
     public static void reset() {
@@ -31,9 +31,9 @@ public class DeckOfToils {
     }
 
     public static void addDeckOfTrialsCardsToMasterDeck() {
-        if (AbstractDungeon.player.hasRelic(BookOfToilsRelic.ID)) {
-            AbstractDungeon.player.getRelic(BookOfToilsRelic.ID).flash();
-            ArrayList<AbstractCard> cards = DeckOfToils.drawCards(2);
+        if (AbstractDungeon.player.hasRelic(BookOfTrialsRelic.ID)) {
+            AbstractDungeon.player.getRelic(BookOfTrialsRelic.ID).flash();
+            ArrayList<AbstractCard> cards = DeckOfTrials.drawCards(2);
             for (AbstractCard card : cards) {
                 AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(card, (float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F));
             }

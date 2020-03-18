@@ -27,9 +27,8 @@ import stsjorbsmod.actions.GainSpecificClarityAction;
 import stsjorbsmod.actions.IncreaseManifestAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.cards.cull.*;
-import stsjorbsmod.cards.cull.deckoftrials.Frostbite;
 import stsjorbsmod.memories.WrathMemory;
-import stsjorbsmod.relics.BookOfToilsRelic;
+import stsjorbsmod.relics.BookOfTrialsRelic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -228,7 +227,7 @@ public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber 
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
 
-        retVal.add(BookOfToilsRelic.ID);
+        retVal.add(BookOfTrialsRelic.ID);
 
         return retVal;
     }

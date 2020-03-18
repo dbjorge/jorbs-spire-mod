@@ -29,6 +29,10 @@
     "DESCRIPTION": "Consumed cards are permanently removed from your deck. Gain a reward based on the card's rarity: NL #yStarter: Heal for #b5. NL #yCommon: #b+3 Max HP. NL #yUncommon: #b+3 Max HP and heal fully. NL #yRare or #yLegendary: #b+5 Max HP and heal fully. NL #yCurse: #b-1 Max HP."
   },
   {
+    "NAMES": ["deck\u00a0of\u00a0trials"],
+    "DESCRIPTION": "A side deck of unique cards with relatively powerful effects."
+  },
+  {
     "NAMES": ["destroy"],
     "DESCRIPTION": "Permanently remove this card from your deck (not just this combat)."
   },

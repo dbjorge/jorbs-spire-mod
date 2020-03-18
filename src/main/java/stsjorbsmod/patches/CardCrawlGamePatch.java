@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.screens.DungeonMapScreen;
 import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
-import stsjorbsmod.cards.cull.deckoftrials.DeckOfToils;
+import stsjorbsmod.cards.cull.deckoftrials.DeckOfTrials;
 
 public class CardCrawlGamePatch {
 
@@ -18,7 +18,7 @@ public class CardCrawlGamePatch {
                     if (methodCall.getClassName().equals(DungeonMapScreen.class.getName()) && methodCall.getMethodName().equals("open")) {
                         methodCall.replace(String.format(
                                 "{ %1$s.addDeckOfTrialsCardsToMasterDeck(); $_ = $proceed($$); }",
-                                DeckOfToils.class.getName()));
+                                DeckOfTrials.class.getName()));
                     }
                 }
             };

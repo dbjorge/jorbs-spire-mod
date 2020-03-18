@@ -6,14 +6,14 @@ import com.megacrit.cardcrawl.neow.NeowEvent;
 import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
-import stsjorbsmod.cards.cull.deckoftrials.DeckOfToils;
+import stsjorbsmod.cards.cull.deckoftrials.DeckOfTrials;
 
 public class NeowEventPatch {
     @SpirePatch(clz = NeowEvent.class, method = SpirePatch.CONSTRUCTOR, paramtypez = boolean.class)
     public static class NeowEvent_ctor {
         @SpirePrefixPatch
         public static void Prefix(NeowEvent __this, boolean isDone) {
-            DeckOfToils.reset();
+            DeckOfTrials.reset();
         }
     }
 
@@ -25,7 +25,7 @@ public class NeowEventPatch {
                     if (methodCall.getClassName().equals(NeowEvent.class.getName()) && methodCall.getFieldName().equals("waitingToSave")) {
                         methodCall.replace(String.format(
                                 "{ %1$s.addDeckOfTrialsCardsToMasterDeck(); $_ = $proceed($$); }",
-                                DeckOfToils.class.getName()));
+                                DeckOfTrials.class.getName()));
                     }
                 }
             };
