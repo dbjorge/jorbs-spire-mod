@@ -233,7 +233,7 @@
   },
   "stsjorbsmod:Firebolt": {
     "NAME": "火焰弹",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !stsjorbsmod:MetaMagic! 倍于你 stsjorbsmod:清晰 记忆数的 stsjorbsmod:灼烧 层数。",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予你 stsjorbsmod:清晰 记忆数 !stsjorbsmod:MetaMagic! 倍的 stsjorbsmod:灼烧 层数。",
     "EXTENDED_DESCRIPTION": [
       " NL （给予 !M! 层 灼烧 。）"
     ]
@@ -374,8 +374,8 @@
   },
   "stsjorbsmod:Mending": {
     "NAME": "修补",
-    "DESCRIPTION": "回复等同于你 stsjorbsmod:清晰 记忆 数的生命。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "回复两倍于你 stsjorbsmod:清晰 记忆 数的生命。 NL 消耗 。",
+    "DESCRIPTION": "回复你 stsjorbsmod:清晰 记忆 数的生命。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "回复你 stsjorbsmod:清晰 记忆 数两倍的生命。 NL 消耗 。",
     "EXTENDED_DESCRIPTION": [
       " NL （回复 !M! 点生命。）"
     ]
@@ -403,8 +403,8 @@
   },
   "stsjorbsmod:MistyStep": {
     "NAME": "迷踪步",
-    "DESCRIPTION": "获得 !stsjorbsmod:MetaMagic! 倍于你 stsjorbsmod:清晰 记忆 数的 格挡 。 NL 抽 !M! 张牌。",
-    "UPGRADE_DESCRIPTION": "获得 !stsjorbsmod:MetaMagic! 倍于你 stsjorbsmod:清晰 记忆 数加上 !stsjorbsmod:BaseBlock! 的 格挡 。 NL 抽 !M! 张牌。",
+    "DESCRIPTION": "获得你 stsjorbsmod:清晰 记忆 数 !stsjorbsmod:MetaMagic! 倍的 格挡 。 NL 抽 !M! 张牌。",
+    "UPGRADE_DESCRIPTION": "获得你 stsjorbsmod:清晰 记忆 数 !stsjorbsmod:MetaMagic! 倍加上 !stsjorbsmod:BaseBlock! 的 格挡 。 NL 抽 !M! 张牌。",
     "EXTENDED_DESCRIPTION": [
       " NL （获得 !B! 点 格挡 。）"
     ]
@@ -435,7 +435,7 @@
   },
   "stsjorbsmod:ParryingBlow": {
     "NAME": "格挡猛击",
-    "DESCRIPTION": "回忆起 stsjorbsmod:耐心 。 NL 造成 !D! 点伤害。 NL 抽 !M! 张卡。"
+    "DESCRIPTION": "回忆起 stsjorbsmod:耐心 。 NL 造成 !D! 点伤害。 NL 抽 !M! 张牌。"
   },
   "stsjorbsmod:Pathos": {
     "NAME": "受难",
@@ -490,7 +490,7 @@
   },
   "stsjorbsmod:Rebuke": {
     "NAME": "斥责",
-    "DESCRIPTION": "获得 !stsjorbsmod:UrMagic! 层 无实体 。 NL 对所有敌人造成 !D! 倍于你 无实体 层数的伤害。 NL 消耗 。",
+    "DESCRIPTION": "获得 !stsjorbsmod:UrMagic! 层 无实体 。 NL 对所有敌人造成你 无实体 层数 !D! 倍的伤害。 NL 消耗 。",
     "EXTENDED_DESCRIPTION": [
       " NL （造成 !M! 点伤害。）"
     ]
@@ -553,7 +553,7 @@
   "stsjorbsmod:SnakeOil": {
     "NAME": "蛇油",
     "DESCRIPTION": "保留 。 NL 回忆起 stsjorbsmod:耐心 。 NL 对所有敌人造成等同于你 stsjorbsmod:线圈 数的伤害。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "保留 。 NL 回忆起 stsjorbsmod:耐心 。 NL 对所有敌人造成两倍于你 stsjorbsmod:线圈 数的伤害。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 回忆起 stsjorbsmod:耐心 。 NL 对所有敌人造成你 stsjorbsmod:线圈 数两倍的伤害。 NL 消耗 。",
     "EXTENDED_DESCRIPTION": [
       " NL （造成 !D! 点伤害。）"
     ]
@@ -587,7 +587,7 @@
   },
   "stsjorbsmod:Strife": {
     "NAME": "冲突",
-    "DESCRIPTION": "将一张随机 诅咒 放入你的弃牌堆。 NL 你手牌、抽牌堆与弃牌堆中每有一张 诅咒 牌，获得 !stsjorbsmod:MetaMagic! 点 力量 。",
+    "DESCRIPTION": "将一张随机 诅咒 加入你的弃牌堆。 NL 你手牌、抽牌堆与弃牌堆中每有一张 诅咒 牌，获得 !stsjorbsmod:MetaMagic! 点 力量 。",
     "EXTENDED_DESCRIPTION": [
       " NL （获得 !M! 点 力量 。）"
     ]
