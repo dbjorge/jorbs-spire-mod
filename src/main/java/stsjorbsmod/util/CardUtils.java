@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.patches.BottledMemoryPatch;
-import stsjorbsmod.patches.DeckOfToilsPatch;
 
 import java.util.ArrayList;
 import java.util.Arrays;

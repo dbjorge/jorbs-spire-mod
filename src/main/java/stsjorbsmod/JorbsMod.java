@@ -92,9 +92,9 @@ public class JorbsMod implements
         @SpireEnum(name = "REMEMBER_MEMORY")
         public static AbstractCard.CardTags REMEMBER_MEMORY;
 
-        // Cards in the Deck of Toils should be
-        @SpireEnum(name = "DECK_OF_TOILS")
-        public static AbstractCard.CardTags DECK_OF_TOILS;
+        // Cards in the Deck of Trials should be
+        @SpireEnum(name = "DECK_OF_TRIALS")
+        public static AbstractCard.CardTags DECK_OF_TRIALS;
     }
 
     // =============== INPUT TEXTURE LOCATION =================
