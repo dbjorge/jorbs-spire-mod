@@ -12,6 +12,7 @@
 * Strike (thanks Cartopol)
 * Paralysis (thanks Cartopol)
 * Accumulation (thanks Cartopol)
+* Grim Dirge (thanks Cartopol)
 
 ## [v1.7.0] - 2020-03-15
 
