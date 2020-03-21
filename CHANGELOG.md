@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+### New translations
+
+* Spanish (thanks ChDaVinci)
+
+### New CULL cards
+
+* Strike (thanks Cartopol)
+* Paralysis (thanks Cartopol) 
+
 ## [v1.7.0] - 2020-03-15
 
 ### Balance changes

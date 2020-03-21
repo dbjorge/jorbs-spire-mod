@@ -67,6 +67,7 @@
 
 ### Localization
 
+* ChDaVinci (Spanish)
 * GDami (French) ([GitHub](https://github.com/GDami))
 
 ### Trailer Videographer
