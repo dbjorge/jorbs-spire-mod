@@ -4,6 +4,7 @@
 
 ### New translations
 
+* Chinese (Simplified) (thanks yanang007)
 * Spanish (thanks ChDaVinci)
 
 ### New CULL cards
