@@ -596,6 +596,10 @@
       " NL (Gains !M! Strength.)"
     ]
   },
+  "stsjorbsmod:Strike_Cull": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
   "stsjorbsmod:Strike_Wanderer": {
     "NAME": "Strike",
     "DESCRIPTION": "Deal !D! damage."
