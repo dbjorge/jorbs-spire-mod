@@ -114,6 +114,13 @@
       "At the start of each turn, gain #yClarity."
     ]
   },
+  "stsjorbsmod:FindWeaknessPower": {
+    "NAME": "Find Weakness",
+    "DESCRIPTIONS": [
+      "Scry #b%1$s the first time you attack an enemy each turn. NL You have not played an Attack this turn.",
+      "Scry #b%1$s the first time you attack an enemy each turn. NL You have played an Attack this turn."
+    ]
+  },
   "stsjorbsmod:FlameWardPower": {
     "NAME": "Flame Ward",
     "DESCRIPTIONS": [
