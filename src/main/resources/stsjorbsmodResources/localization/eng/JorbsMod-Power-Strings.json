@@ -80,6 +80,14 @@
       "Exhumes in #b%3$s turn."
     ]
   },
+  "stsjorbsmod:EntombedGrimDirgePower": {
+    "NAME": "Entombed Grim Dirge",
+    "DESCRIPTIONS": [
+      "%1$s will be Exhumed on the #b%2$srd turn. NL ",
+      "Exhumes in #b%3$s turns.",
+      "Exhumes in #b%3$s turn."
+    ]
+  },
   "stsjorbsmod:MirrorPower": {
     "NAME": "Mirror",
     "DESCRIPTIONS": [

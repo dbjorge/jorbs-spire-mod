@@ -280,6 +280,10 @@
     "DESCRIPTION": "Draw !M! card. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional time.",
     "UPGRADE_DESCRIPTION": "Draw !M! card. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional times."
   },
+  "stsjorbsmod:GrimDirge": {
+    "NAME": "Grim Dirge",
+    "DESCRIPTION": "stsjorbsmod:Entombed. NL stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume on turn !M!. NL Deal !D! damage."
+  },
   "stsjorbsmod:Haunt": {
     "NAME": "Haunt",
     "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Next turn, draw !M! additional cards. NL Exhaust."
