@@ -6,6 +6,23 @@
       "stsjorbsmod:灼烧 每回合降低比率减为10%。"
     ]
   },
+  "stsjorbsmod:BookOfTrialsRelic": {
+    "NAME": "试炼之书",
+    "FLAVOR": "乍一看像多舌之书，但其实完全不是一回事。",
+    "DESCRIPTIONS": [
+      "在每一幕开始时，从 stsjorbsmod:试炼之牌 中抽取 #b2 张加入你的牌组。"
+    ]
+  },
+  "stsjorbsmod:BottledBurdenRelic": {
+    "NAME": "瓶装负担",
+    "FLAVOR": "从始至终，我一直带着这个东西",
+    "DESCRIPTIONS": [
+      "拾起时，选择一张不需要“ #y竭力 ”的牌。在你每场战斗开始时，将其 #y深藏 。在第三回合 #y发掘 之。",
+      "选择一张牌 ",
+      "将在第三回合开始时 ",
+      " 被发掘。"
+    ]
+  },
   "stsjorbsmod:BottledMemoryRelic": {
     "NAME": "瓶装记忆",
     "FLAVOR": "我的脑子不那么灵光了",
@@ -27,7 +44,7 @@
     "NAME": "心如明镜",
     "FLAVOR": "按下e来按下e。",
     "DESCRIPTIONS": [
-      "当你的记忆变得 stsjorbsmod:清晰 时，对所有敌人造成 3 点伤害。 NL 若你单场战斗内对所有敌人造成总计100点伤害，获得十份 10 stsjorbsmod:清晰 记忆。"
+      "当你的记忆变得 stsjorbsmod:清晰 时，对所有敌人造成 3 点伤害。 NL 若你单场战斗内对所有敌人造成总计100点伤害，获得10份 stsjorbsmod:清晰 记忆。"
     ]
   },
   "stsjorbsmod:MindPalaceRelic": {
