@@ -28,6 +28,8 @@ public class Feint extends CustomJorbsModCard {
     public Feint() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
+        baseMagicNumber = magicNumber = DRAW;
+        baseMetaMagicNumber = metaMagicNumber = DISCARD;
     }
 
     @Override
