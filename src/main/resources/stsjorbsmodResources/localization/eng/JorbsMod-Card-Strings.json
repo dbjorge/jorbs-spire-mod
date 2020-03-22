@@ -366,7 +366,7 @@
   },
   "stsjorbsmod:Melt": {
     "NAME": "Melt",
-    "DESCRIPTION": "Apply burning equal to target's block. NL Deal !D! damage."
+    "DESCRIPTION": "Apply stsjorbsmod:Burning equal to target's Block. NL Deal !D! damage."
   },
   "stsjorbsmod:Mending": {
     "NAME": "Mending",
