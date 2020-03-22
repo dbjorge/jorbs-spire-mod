@@ -48,12 +48,18 @@ public class Anxiety extends CustomJorbsModCard {
         this.initializeDescription();
     }
 
+    @Override
+    public void applyLoadedMiscValue(int misc) {
+        this.baseMetaMagicNumber = this.misc;
+        super.applyLoadedMiscValue(misc);
+        this.initializeDescription();
+    }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeMetaMagicNumber(UPGRADE_DRAW);
-            ++this.misc;
+            this.misc += UPGRADE_DRAW;
 
             upgradeName();
             upgradeDescription();
