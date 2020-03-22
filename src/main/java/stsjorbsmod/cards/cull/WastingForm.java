@@ -10,10 +10,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
-import stsjorbsmod.powers.WastingEssencePower;
+import stsjorbsmod.powers.WastingFormPower;
 
-public class WastingEssence extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(WastingEssence.class);
+public class WastingForm extends CustomJorbsModCard {
+    public static final String ID = JorbsMod.makeID(WastingForm.class);
 
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -22,10 +22,10 @@ public class WastingEssence extends CustomJorbsModCard {
 
     private static final int COST = 3;
     private static final int NUMBER_OF_CURSES = 5;
-    private static final int DAMAGE_PER_CURSE = 20;
-    private static final int UPGRADE_DAMAGE_PER_CURSE = 10;
+    private static final int DAMAGE_PER_CURSE = 12;
+    private static final int UPGRADE_DAMAGE_PER_CURSE = 4;
 
-    public WastingEssence() {
+    public WastingForm() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
 
         magicNumber = baseMagicNumber = DAMAGE_PER_CURSE;
@@ -40,7 +40,7 @@ public class WastingEssence extends CustomJorbsModCard {
             AbstractCard c = AbstractDungeon.returnRandomCurse();
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(c, 1));
         }
-        addToBot(new ApplyPowerAction(p, p, new WastingEssencePower(p, magicNumber, metaMagicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new WastingFormPower(p, magicNumber, metaMagicNumber)));
     }
 
     @Override

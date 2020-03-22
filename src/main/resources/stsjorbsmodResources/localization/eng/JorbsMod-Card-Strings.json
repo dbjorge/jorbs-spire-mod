@@ -1,8 +1,8 @@
 {
   "stsjorbsmod:Abjure": {
     "NAME": "Abjure",
-    "DESCRIPTION": "Put all Spirit Shields into your hand from your draw pile, discard pile and exhaust pile.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Put all Spirit Shields into your hand from your draw pile, discard pile and exhaust pile."
+    "DESCRIPTION": "Put Spirit Shield into your hand from your draw pile, discard pile or exhaust pile.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Put Spirit Shield into your hand from your draw pile, discard pile or exhaust pile."
   },
   "stsjorbsmod:Accumulation": {
     "NAME": "Accumulation",
@@ -135,7 +135,8 @@
   },
   "stsjorbsmod:CULLCard": {
     "NAME": "CULL",
-    "DESCRIPTION": "Permanently decrease this card's damage by !stsjorbsmod:UrMagic! each time it is drawn. NL Deal !D! damage twice. NL If Fatal, permanently increase this card's damage by !M!. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage twice. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage twice. NL stsjorbsmod:Wrath is applied twice. NL Exhaust."
   },
   "stsjorbsmod:Cyclone": {
     "NAME": "Cyclone",
@@ -299,7 +300,8 @@
   },
   "stsjorbsmod:Haunt": {
     "NAME": "Haunt",
-    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Next turn, draw !M! additional cards. NL Exhaust."
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !stsjorbsmod:UrMagic! Intangible. NL Draw !M! fewer card next turn.",
+    "UPGRADE_DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Draw !M! fewer card next turn. NL Exhaust."
   },
   "stsjorbsmod:HedgeWizard": {
     "NAME": "Hedge Wizard",
@@ -412,7 +414,7 @@
   },
   "stsjorbsmod:Miracle_Cull": {
     "NAME": "Miracle",
-    "DESCRIPTION": "Retain. NL Gain !M! [E] . NL Add !stsjorbsmod:MetaMagic! stsjorbsmod:Manifest."
+    "DESCRIPTION": "Retain. NL Gain !M! [E] . NL Add !stsjorbsmod:MetaMagic! stsjorbsmod:Manifest. NL Exhaust."
   },
   "stsjorbsmod:Mirror": {
     "NAME": "Mirror",
@@ -612,7 +614,8 @@
   },
   "stsjorbsmod:Strife": {
     "NAME": "Strife",
-    "DESCRIPTION": "Add a random Curse to your discard pile. NL Gain !stsjorbsmod:MetaMagic! Strength for each Curse in your hand, draw pile and discard pile.",
+    "DESCRIPTION": "Add !stsjorbsmod:UrMagic! random Curse to your discard pile. NL Gain !stsjorbsmod:MetaMagic! Strength for each Curse in your discard pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add !stsjorbsmod:UrMagic! random Curses to your discard pile. NL Gain !stsjorbsmod:MetaMagic! Strength for each Curse in your discard pile. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (Gains !M! Strength.)"
     ]
@@ -654,7 +657,7 @@
   },
   "stsjorbsmod:Toil": {
     "NAME": "Toil",
-    "DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, permanently upgrade a random card. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL If Fatal, permanently upgrade a random card. NL Exhaust."
   },
   "stsjorbsmod:TollTheDead": {
     "NAME": "Toll the Dead",
@@ -688,7 +691,7 @@
   },
   "stsjorbsmod:Wail": {
     "NAME": "Wail",
-    "DESCRIPTION": "Apply !stsjorbsmod:UrMagic! Vulnerable. NL Draw !M! card."
+    "DESCRIPTION": "Apply !stsjorbsmod:UrMagic! Vulnerable. NL Draw !M! card. NL Exhaust."
   },
   "stsjorbsmod:WakingDream": {
     "NAME": "Waking Dream",
@@ -698,8 +701,8 @@
     "NAME": "Wandering Mind",
     "DESCRIPTION": "Draw !M! cards. NL Remember a random memory you do not have stsjorbsmod:Clarity of."
   },
-  "stsjorbsmod:WastingEssence": {
-    "NAME": "Wasting Essence",
+  "stsjorbsmod:WastingForm": {
+    "NAME": "Wasting Form",
     "DESCRIPTION": "Add !stsjorbsmod:MetaMagic! random Curses to your discard pile. NL Whenever you draw a Curse, deal !M! damage to ALL enemies."
   },
   "stsjorbsmod:Web": {
