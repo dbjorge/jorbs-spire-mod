@@ -219,7 +219,7 @@
   },
   "stsjorbsmod:Feint": {
     "NAME": "Feint",
-    "DESCRIPTION": "Deal !D! Damage. NL Draw 2 Cards. NL Discard 1 Card."
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! cards. NL Discard !stsjorbsmod:MetaMagic! card."
   },
   "stsjorbsmod:FindFamiliar": {
     "NAME": "Find Familiar",
