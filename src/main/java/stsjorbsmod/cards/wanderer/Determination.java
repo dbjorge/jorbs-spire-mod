@@ -4,11 +4,13 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.cards.CustomJorbsModCard;
+import stsjorbsmod.actions.DeterminationAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
+import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.PrideMemory;
 import stsjorbsmod.powers.FragilePower;
+import stsjorbsmod.powers.SnappedPower;
 
 import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
@@ -37,7 +39,7 @@ public class Determination extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new RememberSpecificMemoryAction(p, PrideMemory.STATIC.ID));
         if (!upgraded) {
-            addToBot(new ApplyPowerAction(p, p, new FragilePower(p, magicNumber), magicNumber));
+            addToBot(new DeterminationAction(p, magicNumber));
         }
     }
 

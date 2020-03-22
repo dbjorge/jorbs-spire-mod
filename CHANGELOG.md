@@ -2,9 +2,44 @@
 
 ## [Unreleased]
 
-### Updates
+### New translations
 
-* New art for Entangle (thansk Cartopol)
+* Chinese (Simplified) (thanks yanang007)
+* Spanish (thanks ChDaVinci)
+
+### New CULL cards
+
+* Strike (thanks Cartopol)
+* Paralysis (thanks Cartopol)
+* Accumulation (thanks Cartopol)
+* Grim Dirge (thanks Cartopol)
+* Find Weakness (thanks Cartopol)
+
+## [v1.7.0] - 2020-03-15
+
+### Balance changes
+
+* Arcane Form: removed Diligence (thanks wang429) 
+* Mindworm: Reduced damage to 6(7)+6(9) (thanks wang429) 
+* Greed: Reduced gold amount from 20 to 10 (thanks wang429) 
+* Old Pocket: Reduced gold amount from 10 to 5 (thanks wang429) 
+* Humility: Passive effected changed from "double thorns" to "+2 more thorns" (thanks wang429) 
+
+### Wanderer updates
+
+* Improved coloring on memory tooltips (thanks wang429) 
+* Made Snap timing/damage more clear with power bar icon/tooltip and health bar effect (thanks wang429)
+* New art for Entangle (thanks Cartopol)
+* Updated art for Book of Tongues and Faerie Fire (thanks lobbien)
+
+### New CULL cards
+
+* Forced Presence (thanks Cartopol)
+* Commune (thanks Cartopol)
+
+### Bug fixes
+
+* Fix Prayer Wheel being able to show multiple copies of legendary cards (thanks wang429)
 
 ## [v1.6.0] - 2020-03-01
 

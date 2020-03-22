@@ -444,7 +444,7 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
 
     private static final float SNAP_COUNTER_OFFSET_X = 39.0F * Settings.scale;
     private static final float SNAP_COUNTER_OFFSET_Y = 178.0F * Settings.scale;
-    private final SnapCounter snapCounter = new SnapCounter(this);
+    public final SnapCounter snapCounter = new SnapCounter(this);
 
     @Override
     public void onVictory() {
@@ -456,6 +456,7 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
     public void preBattlePrep() {
         super.preBattlePrep();
         snapCounter.reset();
+        snapCounter.atPreBattle();
     }
 
     @Override

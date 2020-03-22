@@ -4,6 +4,10 @@
     "DESCRIPTION": "Put all Spirit Shields into your hand from your draw pile, discard pile and exhaust pile.",
     "UPGRADE_DESCRIPTION": "Retain. NL Put all Spirit Shields into your hand from your draw pile, discard pile and exhaust pile."
   },
+  "stsjorbsmod:Accumulation": {
+    "NAME": "Accumulation",
+    "DESCRIPTION": "Draw !M! cards. NL Draws 1 additional card for each Accumulation in your discard pile."
+  },
   "stsjorbsmod:Aid": {
     "NAME": "Aid",
     "DESCRIPTION": "Heal an enemy for !M! HP. NL Remember stsjorbsmod:Kindness. NL Exhaust.",
@@ -36,8 +40,8 @@
   },
   "stsjorbsmod:ArcaneForm": {
     "NAME": "Arcane Form",
-    "DESCRIPTION": "Ethereal. NL Gain stsjorbsmod:Clarity of stsjorbsmod:Patience, stsjorbsmod:Lust, stsjorbsmod:Diligence, stsjorbsmod:Kindness, and stsjorbsmod:Chastity.",
-    "UPGRADE_DESCRIPTION": "Gain stsjorbsmod:Clarity of stsjorbsmod:Patience, stsjorbsmod:Lust, stsjorbsmod:Diligence, stsjorbsmod:Kindness, and stsjorbsmod:Chastity."
+    "DESCRIPTION": "Ethereal. NL Gain stsjorbsmod:Clarity of stsjorbsmod:Patience, stsjorbsmod:Lust, stsjorbsmod:Kindness, and stsjorbsmod:Chastity.",
+    "UPGRADE_DESCRIPTION": "Gain stsjorbsmod:Clarity of stsjorbsmod:Patience, stsjorbsmod:Lust, stsjorbsmod:Kindness, and stsjorbsmod:Chastity."
   },
   "stsjorbsmod:ArcaneWeapon": {
     "NAME": "Arcane Weapon",
@@ -115,6 +119,10 @@
   "stsjorbsmod:ColorSpray": {
     "NAME": "Color Spray",
     "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each. NL Remember stsjorbsmod:Envy."
+  },
+  "stsjorbsmod:Commune": {
+    "NAME" : "Commune",
+    "DESCRIPTION": "Scry !M!."
   },
   "stsjorbsmod:CorrodingBarrier": {
     "NAME": "Corroding Barrier",
@@ -222,6 +230,10 @@
     "DESCRIPTION": "At the start of each turn, gain stsjorbsmod:Clarity of current memory.",
     "UPGRADE_DESCRIPTION": "Innate. NL At the start of each turn, gain stsjorbsmod:Clarity of current memory."
   },
+  "stsjorbsmod:FindWeakness": {
+    "NAME": "Find Weakness",
+    "DESCRIPTION": "Scry !M! the first time you attack an enemy each turn."
+  },
   "stsjorbsmod:Fireball": {
     "NAME": "Fireball",
     "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Deal !D! damage to ALL enemies.",
@@ -245,6 +257,10 @@
   "stsjorbsmod:ForbiddenGrimoire": {
     "NAME": "The Grimoire",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until you stsjorbsmod:Snap OR start turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL stsjorbsmod:Exhume after playing this then !M! other cards."
+  },
+  "stsjorbsmod:ForcedPresence": {
+    "NAME": "Forced Presence",
+    "DESCRIPTION": "Lose !M! Intangible. If you do, gain !stsjorbsmod:UrMagic! [E]. NL Exhaust."
   },
   "stsjorbsmod:FracturedMind": {
     "NAME": "Fractured Mind",
@@ -276,6 +292,10 @@
       " NL (You have played !M! Curse.)",
       " NL (You have played !M! Curses.)"
     ]
+  },
+  "stsjorbsmod:GrimDirge": {
+    "NAME": "Grim Dirge",
+    "DESCRIPTION": "stsjorbsmod:Entombed. NL stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume on turn !M!. NL Deal !D! damage."
   },
   "stsjorbsmod:Haunt": {
     "NAME": "Haunt",
@@ -426,6 +446,10 @@
   "stsjorbsmod:Panic": {
     "NAME": "Panic",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !M! Intangible. NL Lose !stsjorbsmod:UrMagic! Max HP."
+  },
+  "stsjorbsmod:Paralysis": {
+    "NAME": "Paralysis",
+    "DESCRIPTION": "Retain. NL Gain !M! Intangible. NL When Retained, lower its cost by 1 this combat. NL Exhaust."
   },
   "stsjorbsmod:PartingBlow": {
     "NAME": "Parting Blow",
@@ -592,6 +616,10 @@
     "EXTENDED_DESCRIPTION": [
       " NL (Gains !M! Strength.)"
     ]
+  },
+  "stsjorbsmod:Strike_Cull": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
   },
   "stsjorbsmod:Strike_Wanderer": {
     "NAME": "Strike",
