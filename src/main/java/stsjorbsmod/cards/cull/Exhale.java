@@ -24,6 +24,7 @@ public class Exhale extends CustomJorbsModCard {
 
     public Exhale() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
+
         magicNumber = baseMagicNumber = INTANGIBLE;
         urMagicNumber = baseUrMagicNumber = STRENGTH_LOSS;
         EphemeralField.ephemeral.set(this, true);
@@ -31,8 +32,8 @@ public class Exhale extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, urMagicNumber)));
-        addToBot(new ApplyPowerAction(p, p, new LoseStrengthNextTurnPower(p, magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new LoseStrengthNextTurnPower(p, urMagicNumber)));
     }
 
     @Override

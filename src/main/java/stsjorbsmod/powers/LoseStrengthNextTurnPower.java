@@ -14,6 +14,8 @@ public class LoseStrengthNextTurnPower extends CustomJorbsModPower {
     public LoseStrengthNextTurnPower(AbstractCreature owner, int amount) {
         super(STATIC);
 
+        this.type = PowerType.DEBUFF;
+
         this.owner = owner;
         this.amount = amount;
 
