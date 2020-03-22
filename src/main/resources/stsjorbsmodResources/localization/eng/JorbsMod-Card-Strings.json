@@ -621,7 +621,7 @@
   },
   "stsjorbsmod:Toll": {
     "NAME": "Toll",
-    "DESCRIPTION": "Deal !M! times the sum of your relic counters.",
+    "DESCRIPTION": "Deal damage equal to !M! times the sum of your relic counters.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deal !D! Damage)"
     ]
