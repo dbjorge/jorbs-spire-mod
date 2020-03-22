@@ -252,8 +252,8 @@
   },
   "stsjorbsmod:FranticMind": {
     "NAME": "Frantic Mind",
-    "DESCRIPTION": "Discard a card for each Manifest, then draw that many cards. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Discard a card for each Manifest, then draw that many cards.",
+    "DESCRIPTION": "Discard a card for each stsjorbsmod:Manifest, then draw that many cards. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Discard a card for each stsjorbsmod:Manifest, then draw that many cards.",
     "EXTENDED_DESCRIPTION": [
       " NL (Discard !M! card.)",
       " NL (Discard !M! cards.)"
