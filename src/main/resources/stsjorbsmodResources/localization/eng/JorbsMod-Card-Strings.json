@@ -444,7 +444,7 @@
   },
   "stsjorbsmod:PollutedStrike": {
     "NAME": "Polluted Strike",
-    "DESCRIPTION": "Deal !D! damage once for each Curse in your hand.",
+    "DESCRIPTION": "Deal !D! stsjorbsmod:Attack\u00a0Damage once for each Curse in your hand.",
     "EXTENDED_DESCRIPTION": [
       " NL (You have !M! Curse.)",
       " NL (You have !M! Curses.)"
