@@ -30,7 +30,7 @@ public class Goosebumps extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < magicNumber; i++) {
-            addToBot(new DamageAction(p, new DamageInfo(p, damage)));
+            addToBot(new DamageAction(m, new DamageInfo(p, damage)));
         }
     }
 

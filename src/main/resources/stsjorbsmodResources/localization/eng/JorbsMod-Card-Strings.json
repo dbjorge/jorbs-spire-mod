@@ -270,7 +270,7 @@
   },
   "stsjorbsmod:Goosebumps": {
     "NAME": "Goosebumps",
-    "DESCRIPTION": "Deal !D! damage to target !M! times."
+    "DESCRIPTION": "Deal !D! damage !M! times."
   },
   "stsjorbsmod:Haunt": {
     "NAME": "Haunt",
