@@ -243,6 +243,10 @@
     "NAME": "Feast",
     "DESCRIPTION": "Remember stsjorbsmod:Gluttony. NL Draw !M! cards. NL Exhaust."
   },
+  "stsjorbsmod:Feint": {
+    "NAME": "Feint",
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! cards. NL Discard !stsjorbsmod:MetaMagic! card."
+  },
   "stsjorbsmod:FindFamiliar": {
     "NAME": "Find Familiar",
     "DESCRIPTION": "At the start of each turn, gain stsjorbsmod:Clarity of current memory.",
