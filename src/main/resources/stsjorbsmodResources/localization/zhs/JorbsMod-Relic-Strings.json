@@ -1,0 +1,40 @@
+{
+  "stsjorbsmod:AlchemistsFireRelic": {
+    "NAME": "炽炎胶",
+    "FLAVOR": "Forca Messi! Forca Messi! Messi Animal! （加油梅西！加油梅西！！爆发吧梅西！！！）",
+    "DESCRIPTIONS": [
+      "stsjorbsmod:灼烧 每回合降低比率减为10%。"
+    ]
+  },
+  "stsjorbsmod:BottledMemoryRelic": {
+    "NAME": "瓶装记忆",
+    "FLAVOR": "我的脑子不那么灵光了",
+    "DESCRIPTIONS": [
+      "拾起时，选择一张 使你“回忆”的牌。在每场战斗开始时，这张牌会出现在手牌中。",
+      "选择一张牌 ",
+      "在每场战斗开始时，将 ",
+      " 放入你的手牌。"
+    ]
+  },
+  "stsjorbsmod:GrimoireRelic": {
+    "NAME": "魔导书",
+    "FLAVOR": "我是不是... 见过它？",
+    "DESCRIPTIONS": [
+      "在每场战斗开始时，回忆起 stsjorbsmod:耐心 。 NL 在每场战斗结束时，你每有一份 stsjorbsmod:清晰 记忆，回复 #b1 点生命。"
+    ]
+  },
+  "stsjorbsmod:MindGlassRelic": {
+    "NAME": "心如明镜",
+    "FLAVOR": "按下e来按下e。",
+    "DESCRIPTIONS": [
+      "当你的记忆变得 stsjorbsmod:清晰 时，对所有敌人造成 3 点伤害。 NL 若你单场战斗内对所有敌人造成总计100点伤害，获得十份 10 stsjorbsmod:清晰 记忆。"
+    ]
+  },
+  "stsjorbsmod:MindPalaceRelic": {
+    "NAME": "思维宫殿",
+    "FLAVOR": "这是堡垒，还是囚笼？",
+    "DESCRIPTIONS": [
+      "在每场战斗开始时，使你上一场战斗中最后回忆的记忆变得 stsjorbsmod:清晰 。（如果存在的话）"
+    ]
+  }
+}

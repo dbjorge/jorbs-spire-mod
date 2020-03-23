@@ -16,7 +16,7 @@ import stsjorbsmod.characters.Cull;
 public class Apparate extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Apparate.class);
 
-    private static final CardRarity RARITY = CardRarity.BASIC;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ALL;
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = Cull.Enums.CULL_CARD_COLOR;
@@ -25,7 +25,7 @@ public class Apparate extends CustomJorbsModCard {
     private static final int DAMAGE = 10;
     private static final int SELF_VULNERABLE = 3;
     private static final int ENEMY_VULNERABLE = 3;
-    private static final int UPGRADE_PLUS_DAMAGE = 3;
+    private static final int UPGRADE_PLUS_DAMAGE = 4;
 
     public Apparate() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);

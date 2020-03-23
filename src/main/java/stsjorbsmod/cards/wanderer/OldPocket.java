@@ -23,7 +23,7 @@ public class OldPocket extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 1;
-    private static final int GOLD_GAIN = 10;
+    private static final int GOLD_GAIN = 5;
 
     public OldPocket() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
