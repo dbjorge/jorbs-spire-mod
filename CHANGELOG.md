@@ -38,6 +38,7 @@
 * Polluted Strike (thanks Cartopol)
 * Cleanse (thanks Cartopol)
 * Anxiety (thanks Cartopol)
+* Feint (thanks PanicPoint)
 
 ## [v1.7.0] - 2020-03-15
 
