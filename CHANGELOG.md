@@ -35,7 +35,7 @@
 * Exhale (thanks Cartopol)
 * Frantic Mind (thanks Cartopol)
 * Wasting Strike (thanks Cartopol)
-
+* Polluted Strike (thanks Cartopol)
 
 ## [v1.7.0] - 2020-03-15
 
