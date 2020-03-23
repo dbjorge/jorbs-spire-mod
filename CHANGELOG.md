@@ -33,6 +33,7 @@
 * Find Weakness (thanks Cartopol)
 * Gathering Evil (thanks Cartopol)
 * Exhale (thanks Cartopol)
+* Frantic Mind (thanks Cartopol)
 
 ## [v1.7.0] - 2020-03-15
 
