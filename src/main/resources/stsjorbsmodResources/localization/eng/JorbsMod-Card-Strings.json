@@ -325,6 +325,10 @@
       " NL (You have played !M! Curses.)"
     ]
   },
+  "stsjorbsmod:Goosebumps": {
+    "NAME": "Goosebumps",
+    "DESCRIPTION": "Deal !D! damage !M! times."
+  },
   "stsjorbsmod:GrimDirge": {
     "NAME": "Grim Dirge",
     "DESCRIPTION": "stsjorbsmod:Entombed. NL stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume on turn !M!. NL Deal !D! damage."
