@@ -720,6 +720,10 @@
     "NAME": "Wasting Form",
     "DESCRIPTION": "Add !stsjorbsmod:MetaMagic! random Curses to your discard pile. NL Whenever you draw a Curse, deal !M! damage to ALL enemies."
   },
+  "stsjorbsmod:WastingStrike": {
+    "NAME": "Wasting Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for each card in your exhaust pile."
+  },
   "stsjorbsmod:Web": {
     "NAME": "Web",
     "DESCRIPTION": "Retain. NL Apply !M! Weak. NL Exhaust."
