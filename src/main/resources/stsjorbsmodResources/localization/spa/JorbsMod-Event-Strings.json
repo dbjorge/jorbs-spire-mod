@@ -1,0 +1,28 @@
+{
+  "stsjorbsmod:DeckOfManyThingsEvent": {
+    "NAME": "Mazo de Muchas Cosas",
+    "DESCRIPTIONS": [
+      "Mientras te mueves por ~La~ ~Ciudad~ te encuentras un #pEspejo #pMorado. NL Lo miras, pero no ves reflejo.",
+      "No ves a nadie pero #g~deseas~ #g~convertirte~ #g~en~ #g~alguien.~",
+      "#r@TÚ@ #r@EXISTES@ #r@Y@ #r@ERES@ #r@VÁLIDO!@",
+      "#yTú #yestás #yen #ypaz #ycon #ytu #ypresencia.",
+      "Tú no tienes manos."
+    ],
+    "OPTIONS": [
+      "[Inspiración] #gGana #guna #gReliquia #gBásica #gAleatoria.",
+      "[Negación] #rPierde #r",
+      " #rMax #rPV. #gRetirar #guna #gCarta #gde #gtu #gmazo.",
+      "[Aceptación] #gGana #gApoteosis.",
+      "[TOCA EL ESPEJO] TOCA TOCA TO#C# TOCA TO CA TOCA #rTOCA TOCA",
+      "[Retirarse]",
+      "Selecciona una carta para retirar."
+    ]
+  },
+  "stsjorbsmod:SensoryStone": {
+    "DESCRIPTIONS": [
+      "#g~PASOS.~ NL NL Un #ytrueno de pasos salpica en el agua y hace eco sobre las rocas. Miras a tu alrededor, pero no ves a nadie en la cueva. Escuchas como el sonido crece y acelera hasta formar una cacofonía.@ NL NL Te mareas y caes inconsciente. NL NL Cuando despiertas estás solo.",
+      "#b~RECUERDA.~ NL NL Una cara se te acerca como en un sueño. Una que se parece a la tuya, pero con menos arrugas y cicatrices. NL NL Te dice que no ~olvides,~ te dice que #b~recuerdes.~ #brecuerdes #p~recuerdas~ #p@-cuerdas@ #r~-das~ #r@-das.@ NL NL Arañas la palabra en la piel de tu brazo antes de olvidarte. #yRecuerda. #yRecuerda. NL NL Cuando sigues caminando comienzas a notar un poco de dolor en tu brazo, como si alguien lo hubiera arañado.",
+      "#r~ALIMENTARSE.~ NL NL El cuarto... te acepta. Frenas por un segundo y no sientes presión para continuar. Tu #r~hambre~ sucumbe. Si lo deseas, podrías dormir. NL NL Es terrorifico. NL NL Es tiempo de continuar."
+    ]
+  }
+}

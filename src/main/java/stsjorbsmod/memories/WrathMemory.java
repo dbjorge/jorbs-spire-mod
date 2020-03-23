@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.cards.cull.CULLCard;
+import stsjorbsmod.cards.OnWrathStackReceivedSubscriber;
 import stsjorbsmod.patches.WrathField;
 import stsjorbsmod.util.EffectUtils;
 
@@ -26,7 +26,7 @@ public class WrathMemory extends AbstractMemory {
     }
 
     public static boolean usesMiscToTrackPermanentBaseDamage(AbstractCard c) {
-        return c instanceof RitualDagger || c instanceof CULLCard;
+        return c instanceof RitualDagger;
     }
 
     public static void reapplyToLoadedCard(AbstractCard card, int effectCount) {
@@ -64,6 +64,9 @@ public class WrathMemory extends AbstractMemory {
         if (isPassiveEffectActive() && !m.hasPower(MinionPower.POWER_ID) && upgradeTarget != null) {
             this.flash();
             permanentlyIncreaseCardDamage(upgradeTarget);
+            if (upgradeTarget instanceof OnWrathStackReceivedSubscriber) {
+                ((OnWrathStackReceivedSubscriber) upgradeTarget).onWrathStackReceived();
+            }
         }
     }
 

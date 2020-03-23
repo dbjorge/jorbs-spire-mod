@@ -80,7 +80,8 @@
   "stsjorbsmod:SnapCounter": {
     "TEXT": [
       "Fragile Mind",
-      "At the end of turn 7, #ySnap. NL (It is turn #b%1$s now.)"
+      "At the end of turn #b7, #ySnap. NL (It is turn #b%1$s now.)",
+      "At the end of your turn, #ySnap."
     ]
   },
   "stsjorbsmod:SnapFtueTip": {

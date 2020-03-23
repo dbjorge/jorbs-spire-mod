@@ -1,0 +1,86 @@
+{
+  "stsjorbsmod:CharityMemory": {
+    "NAME": "慷慨",
+    "DESCRIPTIONS": [
+      "#p被动 ：你每有 #b!G! 金币，获得 #b1 点 #y力量 。（获得 #b!S! 点 力量 。）"
+    ]
+  },
+  "stsjorbsmod:ChastityMemory": {
+    "NAME": "贞洁",
+    "DESCRIPTIONS": [
+      "#p记起 ：获得 #b!R! 点 #y敏捷 。 给予所有敌人 #b!W! 层 #y虚弱 。 NL #p被动 ：在你的回合结束时，失去 #b!D! 点 #y敏捷 并获得 #b!B! 点 #y格挡 。"
+    ]
+  },
+  "stsjorbsmod:DiligenceMemory": {
+    "NAME": "勤奋",
+    "DESCRIPTIONS": [
+      "#p记起 ：抽 #b!D! 张牌。 NL #p被动 ： 在你的回合结束时， #y保留 至多 #b!M! 张牌。"
+    ]
+  },
+  "stsjorbsmod:EnvyMemory": {
+    "NAME": "嫉妒",
+    "DESCRIPTIONS": [
+      "#p记起 ：获得 #b!V! 层 #y易伤 。 NL #p被动 ：每当你选定某个敌人作为牌的目标时，给予其 #b!M! 层 #y易伤 。"
+    ]
+  },
+  "stsjorbsmod:GluttonyMemory": {
+    "NAME": "暴食",
+    "DESCRIPTIONS": [
+      "#p被动 ：每当你杀死一名不是“爪牙”的敌人时，提升 #b!M! 点最大生命值。在你的回合开始时，丢弃 #b1 张牌。"
+    ]
+  },
+  "stsjorbsmod:GreedMemory": {
+    "NAME": "贪婪",
+    "DESCRIPTIONS": [
+      "#p被动 ：每当你杀死一名不是“爪牙”的敌人时，获得 #b!M! 金币。"
+    ]
+  },
+  "stsjorbsmod:HumilityMemory": {
+    "NAME": "谦逊",
+    "DESCRIPTIONS": [
+      "#p记起 ：获得 #b!R! 点 #y荆棘 。 NL #p被动 ：获得额外 #b!P! 点 #y荆棘 。"
+    ]
+  },
+  "stsjorbsmod:KindnessMemory": {
+    "NAME": "宽容",
+    "DESCRIPTIONS": [
+      "#p被动 ：所有敌人失去 #b!M! 点 #y力量 。"
+    ]
+  },
+  "stsjorbsmod:LustMemory": {
+    "NAME": "色欲",
+    "DESCRIPTIONS": [
+      "#p被动 ：你的攻击会附带 #b!P! 层 #y灼烧 。"
+    ]
+  },
+  "stsjorbsmod:PatienceMemory": {
+    "NAME": "耐心",
+    "DESCRIPTIONS": [
+      "#p被动 ：你每打出一张牌，获得 #b1 层 #y线圈 。"
+    ]
+  },
+  "stsjorbsmod:PrideMemory": {
+    "NAME": "傲慢",
+    "DESCRIPTIONS": [
+      "#p被动 ：失去 #b!D! 点 #y敏捷 。在战斗结束时，永久 #y升级 你牌组中的一张牌。"
+    ]
+  },
+  "stsjorbsmod:SlothMemory": {
+    "NAME": "懒惰",
+    "DESCRIPTIONS": [
+      "#p记起 ：随机丢弃 #b!D! 张牌。 NL #p被动 ：每回合少抽 #b!M! 张牌并获得 !E! 点额外的 [E] 。"
+    ]
+  },
+  "stsjorbsmod:TemperanceMemory": {
+    "NAME": "节制",
+    "DESCRIPTIONS": [
+      "#p被动 : 获得等同当前 #y清晰 记忆数的 #y力量 。 NL （获得 #b!S! 点力量。）"
+    ]
+  },
+  "stsjorbsmod:WrathMemory": {
+    "NAME": "暴怒",
+    "DESCRIPTIONS": [
+      "#p被动 ：每当你杀死一名不是“爪牙”的敌人时，将本场战斗中打出的上一张造成伤害的攻击牌的基础伤害永久提升 #b!M! 。（当前牌为， !C! ）"
+    ]
+  }
+}
