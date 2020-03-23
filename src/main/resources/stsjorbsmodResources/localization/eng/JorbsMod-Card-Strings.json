@@ -272,6 +272,16 @@
     "NAME": "Fractured Mind",
     "DESCRIPTION": "stsjorbsmod:Sin: Deal !D! damage. NL stsjorbsmod:Virtue: Gain !B! Block. NL stsjorbsmod:Snapped: Do both."
   },
+  "stsjorbsmod:FranticMind": {
+    "NAME": "Frantic Mind",
+    "DESCRIPTION": "Discard a card for each stsjorbsmod:Manifest, then draw that many cards. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Discard a card for each stsjorbsmod:Manifest, then draw that many cards.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Discard !M! card.)",
+      " NL (Discard !M! cards.)"
+    ]
+
+  },
   "stsjorbsmod:FranticSearch": {
     "NAME": "Frantic Search",
     "DESCRIPTION": "Put !M! stsjorbsmod:Material\u00a0Component into your hand for each enemy. NL Gain stsjorbsmod:Clarity. NL Exhaust.",
