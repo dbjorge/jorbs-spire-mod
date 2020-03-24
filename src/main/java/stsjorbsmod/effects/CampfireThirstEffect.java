@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.CampfireUI;
 import com.megacrit.cardcrawl.rooms.RestRoom;
@@ -18,16 +17,15 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import stsjorbsmod.patches.CampfireThirstPatch;
 import stsjorbsmod.patches.WrathField;
 
-import java.util.Iterator;
-
 import static stsjorbsmod.JorbsMod.makeID;
 
 public class CampfireThirstEffect extends AbstractGameEffect {
-    public static final String[] TEXT;
+    public static final String[] TEXT = CardCrawlGame.languagePack.getUIString(makeID("ThirstEffect")).TEXT;
+
     private Color screenColor;
     private boolean openedScreen = false;
-    private int thirstHeal;
-    private int thirstMaxHPIncrease;
+    private int healPerWrathStack;
+    private int maxHPPerWrathStack;
 
     public CampfireThirstEffect() {
         this.screenColor = AbstractDungeon.fadeColor.cpy();
@@ -37,8 +35,8 @@ public class CampfireThirstEffect extends AbstractGameEffect {
 
         // Did this in the constructor rather than the update in case there are relics
         // for Cull that tweak these numbers.
-        this.thirstHeal = 5;
-        this.thirstMaxHPIncrease = 1;
+        this.healPerWrathStack = 5;
+        this.maxHPPerWrathStack = 1;
     }
 
     public void render(SpriteBatch sb) {
@@ -55,16 +53,11 @@ public class CampfireThirstEffect extends AbstractGameEffect {
             this.updateBlackScreenColor();
         }
 
-        Iterator var1;
         if (!AbstractDungeon.isScreenUp && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
-            var1 = AbstractDungeon.gridSelectScreen.selectedCards.iterator();
-
-            while(var1.hasNext()) {
-                AbstractCard c = (AbstractCard)var1.next();
-
+            for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
                 int wrathStacks = WrathField.wrathEffectCount.get(c);
-                int healAmount = wrathStacks * this.thirstHeal;
-                int maxHPIncreaseAmount = wrathStacks * this.thirstMaxHPIncrease;
+                int healAmount = wrathStacks * this.healPerWrathStack;
+                int maxHPIncreaseAmount = wrathStacks * this.maxHPPerWrathStack;
 
                 WrathField.wrathEffectCount.set(c, 0);
                 AbstractDungeon.player.heal(healAmount);
@@ -102,9 +95,5 @@ public class CampfireThirstEffect extends AbstractGameEffect {
         } else {
             this.screenColor.a = Interpolation.fade.apply(0.0F, 1.0F, this.duration / 1.5F);
         }
-    }
-
-    static {
-        TEXT = CardCrawlGame.languagePack.getUIString(makeID("ThirstEffect")).TEXT;
     }
 }
