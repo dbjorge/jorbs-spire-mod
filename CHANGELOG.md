@@ -41,6 +41,7 @@
 * Feint (thanks PanicPoint)
 * Goosebumps (thanks PanicPoint)
 * Melt (thanks PanicPoint)
+* Godsbane (thanks PanicPoint)
 
 ## [v1.7.0] - 2020-03-15
 
