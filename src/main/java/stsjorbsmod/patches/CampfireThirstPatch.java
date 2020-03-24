@@ -30,7 +30,7 @@ public class CampfireThirstPatch {
                // Completely replace the rest option with thirst for Cull
                if(e.getClassName().equals("com.megacrit.cardcrawl.ui.campfire.RestOption")) {
                     e.replace(String.format(
-                            "{$_ = %1$s.getCullCampfireOption();}",
+                            "{$_ = %1$s.getCullCampfireOption($proceed($$));}",
                             CampfireThirstPatch.class.getName()));
                }
            }
@@ -49,11 +49,11 @@ public class CampfireThirstPatch {
         return retVal;
     }
 
-    public static AbstractCampfireOption getCullCampfireOption() {
+    public static AbstractCampfireOption getCullCampfireOption(AbstractCampfireOption originalOption) {
         if(AbstractDungeon.player instanceof Cull) {
             return new ThirstOption(getWrathCards().size() > 0);
         } else {
-            return new RestOption(true);
+            return originalOption;
         }
     }
 }

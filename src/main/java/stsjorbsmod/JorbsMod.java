@@ -130,20 +130,12 @@ public class JorbsMod implements
         return MOD_ID + "Resources/images/monsters/" + resourcePath;
     }
 
-    public static String makeOrbPath(String resourcePath) {
-        return MOD_ID + "Resources/orbs/" + resourcePath;
-    }
-    
     public static String makePowerPath(String resourcePath) {
         return MOD_ID + "Resources/images/powers/" + resourcePath;
     }
-    
-    public static String makeEventPath(String resourcePath) {
-        return MOD_ID + "Resources/images/events/" + resourcePath;
-    }
 
-    public static String makeScenePath(String resourcePath) {
-        return MOD_ID + "Resources/images/scenes/" + resourcePath;
+    public static String makeImagePath(String resourcePath) {
+        return MOD_ID + "Resources/images/" + resourcePath;
     }
 
     public static String makeLocalizedStringsPath(Settings.GameLanguage language, String resourcePath) {
