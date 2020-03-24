@@ -17,7 +17,7 @@ public class BurningFlask extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 1;
-    private static final int BURNING = 8;
+    private static final int BURNING = 7;
     private static final int BURNING_PLUS_UPGRADE = 3;
 
     public BurningFlask() {

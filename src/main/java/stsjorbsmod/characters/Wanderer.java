@@ -109,41 +109,46 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
 
     public static class AudioInfo {
         private static void registerVoiceOver(String key) {
-            VoiceoverMaster.register(Wanderer.Enums.WANDERER, key, "wanderer/" + key + ".ogg");
+            registerVoiceOver(key, key);
         }
 
-        private static void registerVoiceOver(String key, String resourcePath) {
-            VoiceoverMaster.register(Wanderer.Enums.WANDERER, key, resourcePath);
+        private static void registerVoiceOver(String key, String baseName) {
+            baseName = baseName.replace(' ', '_');
+            String fileName = "wanderer/" + baseName + ".ogg";
+            String subtitle = CardCrawlGame.languagePack.getUIString(makeID("wanderer:voiceover:"+baseName)).TEXT[0];
+            VoiceoverMaster.register(Wanderer.Enums.WANDERER, key, fileName, subtitle);
         }
 
         public static void registerAudio() {
-            registerVoiceOver(AwakenedOne.ID);
-            registerVoiceOver(BookOfStabbing.ID);
-            registerVoiceOver(BronzeAutomaton.ID);
-            registerVoiceOver(Champ.ID);
-            registerVoiceOver(CorruptHeart.ID);
-            registerVoiceOver("death", "wanderer/death_1.ogg");
-            registerVoiceOver("death", "wanderer/death_2.ogg");
+            // See MonsterHelper.getEncounter for IDs
+            registerVoiceOver("3 Sentries");
+            registerVoiceOver("Automaton");
+            registerVoiceOver("Awakened One");
+            registerVoiceOver("Book of Stabbing");
+            registerVoiceOver("Champ");
+            registerVoiceOver("Collector");
+            registerVoiceOver("Donu and Deca");
+            registerVoiceOver("Giant Head");
+            registerVoiceOver("Gremlin Leader");
+            registerVoiceOver("Gremlin Nob");
+            registerVoiceOver("Hexaghost", "Hexaghost_1");
+            registerVoiceOver("Hexaghost", "Hexaghost_2");
+            registerVoiceOver("Lagavulin Event", "Lagavulin");
+            registerVoiceOver("Lagavulin");
+            registerVoiceOver("Nemesis", "Nemesis_1");
+            registerVoiceOver("Nemesis", "Nemesis_2");
+            registerVoiceOver("Reptomancer");
+            registerVoiceOver("Shield and Spear", "Shield_and_Spear_1");
+            registerVoiceOver("Shield and Spear", "Shield_and_Spear_2");
+            registerVoiceOver("Slavers");
+            registerVoiceOver("Slime Boss");
+            registerVoiceOver("The Guardian");
+            registerVoiceOver("The Heart");
+            registerVoiceOver("Time Eater");
+            registerVoiceOver("death", "death_1");
+            registerVoiceOver("death", "death_2");
             registerVoiceOver("death_victory");
-            registerVoiceOver(Donu.ID);
-            registerVoiceOver(GiantHead.ID);
-            registerVoiceOver(GremlinLeader.ID);
-            registerVoiceOver(GremlinNob.ID);
-            registerVoiceOver(Hexaghost.ID, "wanderer/Hexaghost_1.ogg");
-            registerVoiceOver(Hexaghost.ID, "wanderer/Hexaghost_2.ogg");
-            registerVoiceOver(Lagavulin.ID);
-            registerVoiceOver(Nemesis.ID, "wanderer/Nemesis_1.ogg");
-            registerVoiceOver(Nemesis.ID, "wanderer/Nemesis_2.ogg");
             registerVoiceOver("new_run");
-            registerVoiceOver(Reptomancer.ID);
-            registerVoiceOver(Sentry.ID);
-            registerVoiceOver(Taskmaster.ID);
-            registerVoiceOver(SlimeBoss.ID);
-            registerVoiceOver(SpireShield.ID, "wanderer/SpireShield_1.ogg");
-            registerVoiceOver(SpireShield.ID, "wanderer/SpireShield_2.ogg");
-            registerVoiceOver(TheCollector.ID);
-            registerVoiceOver(TheGuardian.ID);
-            registerVoiceOver(TimeEater.ID);
         }
     }
 
@@ -439,7 +444,7 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
 
     private static final float SNAP_COUNTER_OFFSET_X = 39.0F * Settings.scale;
     private static final float SNAP_COUNTER_OFFSET_Y = 178.0F * Settings.scale;
-    private final SnapCounter snapCounter = new SnapCounter(this);
+    public final SnapCounter snapCounter = new SnapCounter(this);
 
     @Override
     public void onVictory() {
@@ -451,6 +456,7 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
     public void preBattlePrep() {
         super.preBattlePrep();
         snapCounter.reset();
+        snapCounter.atPreBattle();
     }
 
     @Override

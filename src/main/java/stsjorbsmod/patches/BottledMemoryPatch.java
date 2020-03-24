@@ -6,15 +6,11 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.events.shrines.Duplicator;
 import com.megacrit.cardcrawl.events.shrines.FountainOfCurseRemoval;
-import com.megacrit.cardcrawl.relics.BottledFlame;
-import com.megacrit.cardcrawl.relics.BottledLightning;
-import com.megacrit.cardcrawl.relics.BottledTornado;
 import com.megacrit.cardcrawl.relics.DollysMirror;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
-import javassist.expr.MethodCall;
 import stsjorbsmod.relics.BottledMemoryRelic;
 
 public class BottledMemoryPatch {
@@ -29,47 +25,6 @@ public class BottledMemoryPatch {
         public static AbstractCard patch(AbstractCard __return, AbstractCard __this) {
             AbstractCardMemoryFields.inBottleMemory.set(__return, AbstractCardMemoryFields.inBottleMemory.get(__this));
             return __return;
-        }
-    }
-
-    public static class BottledGetCardsExprEditor extends ExprEditor {
-        private String methodName;
-
-        BottledGetCardsExprEditor(String methodName) {
-            this.methodName = methodName;
-        }
-
-        @Override
-        public void edit(MethodCall methodCall) throws CannotCompileException {
-            if (methodCall.getClassName().equals(CardGroup.class.getName()) && methodCall.getMethodName().equals(methodName)) {
-                methodCall.replace("{ $_ = (stsjorbsmod.patches.BottledMemoryPatch.removeBottledCards($proceed())); }");
-            }
-        }
-    }
-
-    public static CardGroup removeBottledCards(CardGroup cards) {
-        cards.group.removeIf(c -> c.inBottleTornado || c.inBottleFlame || c.inBottleLightning || AbstractCardMemoryFields.inBottleMemory.get(c));
-        return cards;
-    }
-
-    @SpirePatch(clz = BottledTornado.class, method = "onEquip")
-    public static class BottledTornado_onEquip {
-        public static ExprEditor Instrument() {
-            return new BottledGetCardsExprEditor("getPowers");
-        }
-    }
-
-    @SpirePatch(clz = BottledFlame.class, method = "onEquip")
-    public static class BottledFlame_onEquip {
-        public static ExprEditor Instrument() {
-            return new BottledGetCardsExprEditor("getAttacks");
-        }
-    }
-
-    @SpirePatch(clz = BottledLightning.class, method = "onEquip")
-    public static class BottledLightning_onEquip {
-        public static ExprEditor Instrument() {
-            return new BottledGetCardsExprEditor("getSkills");
         }
     }
 

@@ -41,7 +41,7 @@ public class ChastityMemory extends AbstractMemory {
     }
 
     @Override
-    public void atEndOfTurn() {
+    public void atEndOfTurnPreEndTurnCards() {
         if (isPassiveEffectActive()) {
             AbstractDungeon.actionManager.addToBottom(
                     // It's important to apply a negative dex power rather than reducing an existing dex power

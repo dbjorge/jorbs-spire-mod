@@ -90,10 +90,10 @@ public class DamageAllEnemiesWithOnKillEffectAction extends AbstractGameAction {
                 AbstractMonster currentMonster = AbstractDungeon.getCurrRoom().monsters.monsters.get(i);
                 if (!currentMonster.isDeadOrEscaped()) {
                     if (this.attackEffect == AttackEffect.POISON) {
-                        currentMonster.tint.color.set(Color.CHARTREUSE);
+                        currentMonster.tint.color.set(Color.CHARTREUSE.cpy());
                         currentMonster.tint.changeColor(Color.WHITE.cpy());
                     } else if (this.attackEffect == AttackEffect.FIRE) {
-                        currentMonster.tint.color.set(Color.RED);
+                        currentMonster.tint.color.set(Color.RED.cpy());
                         currentMonster.tint.changeColor(Color.WHITE.cpy());
                     }
 

@@ -26,8 +26,9 @@ public class DiligenceMemory extends AbstractMemory {
     }
 
     @Override
-    public void atEndOfTurn() {
-        if (isPassiveEffectActive() &&
+    public void atEndOfTurn(boolean isPlayer) {
+        if (isPlayer &&
+            isPassiveEffectActive() &&
             // Similar to Well-Laid Plans' RetainCardPower...
             !AbstractDungeon.player.hand.isEmpty() &&
             !AbstractDungeon.player.hasRelic(RunicPyramid.ID) &&

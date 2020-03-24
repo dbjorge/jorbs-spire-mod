@@ -21,30 +21,23 @@ public class Strife extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int STRENGTH_PER_CURSE = 1;
-    private static final int UPGRADE_STRENGTH_PER_CURSE = 1;
     private static final int CURSE_AMOUNT = 1;
+    private static final int UPGRADE_CURSE_AMOUNT = 1;
 
     public Strife() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 0;
         metaMagicNumber = baseMetaMagicNumber = STRENGTH_PER_CURSE;
+        urMagicNumber = baseUrMagicNumber = CURSE_AMOUNT;
+
+        this.exhaust = true;
     }
 
     @Override
     public int calculateBonusMagicNumber() {
-        int nbCurses = CURSE_AMOUNT;
+        int nbCurses = urMagicNumber;
         AbstractPlayer p = AbstractDungeon.player;
-        for (AbstractCard card : p.drawPile.group) {
-            if (card.type.equals(CardType.CURSE)) {
-                ++nbCurses;
-            }
-        }
         for (AbstractCard card : p.discardPile.group) {
-            if (card.type.equals(CardType.CURSE)) {
-                ++nbCurses;
-            }
-        }
-        for (AbstractCard card : p.hand.group) {
             if (card.type.equals(CardType.CURSE)) {
                 ++nbCurses;
             }
@@ -54,8 +47,10 @@ public class Strife extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
-        AbstractCard c = AbstractDungeon.returnRandomCurse();
-        addToBot(new MakeTempCardInDiscardAction(c, CURSE_AMOUNT));
+        for (int i = 0; i < urMagicNumber; ++i) {
+            AbstractCard c = AbstractDungeon.returnRandomCurse();
+            addToBot(new MakeTempCardInDiscardAction(c, 1));
+        }
         addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
     }
 
@@ -64,13 +59,11 @@ public class Strife extends CustomJorbsModCard {
         return EXTENDED_DESCRIPTION[0];
     }
 
-
-
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMetaMagicNumber(UPGRADE_STRENGTH_PER_CURSE);
+            upgradeUrMagicNumber(UPGRADE_CURSE_AMOUNT);
             upgradeDescription();
         }
     }

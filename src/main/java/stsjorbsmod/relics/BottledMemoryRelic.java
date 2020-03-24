@@ -1,23 +1,17 @@
 package stsjorbsmod.relics;
 
-import basemod.BaseMod;
 import basemod.abstracts.CustomBottleRelic;
 import basemod.abstracts.CustomSavable;
-import com.evacipated.cardcrawl.mod.stslib.actions.common.AutoplayCardAction;
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AutoplayField;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.LocalizedStrings;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import stsjorbsmod.patches.BottledMemoryPatch;
+import stsjorbsmod.util.CardUtils;
 
-import java.util.Iterator;
 import java.util.function.Predicate;
 
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
@@ -64,7 +58,8 @@ public class BottledMemoryRelic extends CustomJorbsModRelic implements CustomBot
 
     @Override
     public void onEquip() {
-        CardGroup rememberCards = CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck.getPurgeableCards());
+        // follow same behavior as base game bottle relics. Maybe there's some mod that adds a bottle mechanic changing card using getPurgeableCards
+        CardGroup rememberCards = CardUtils.getCardsForBottling(AbstractDungeon.player.masterDeck.getPurgeableCards());
         rememberCards.group.removeIf(c -> !c.hasTag(REMEMBER_MEMORY));
         if (rememberCards.size() > 0) {
             this.cardSelected = false;

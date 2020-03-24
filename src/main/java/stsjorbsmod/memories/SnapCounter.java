@@ -5,19 +5,21 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.Hitbox;
-import com.megacrit.cardcrawl.helpers.PowerTip;
-import com.megacrit.cardcrawl.helpers.TipHelper;
+import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.SnapAction;
 import stsjorbsmod.effects.SnapTurnCounterEffect;
+import stsjorbsmod.powers.FragilePower;
+import stsjorbsmod.tips.MemoryFtueTip;
+import stsjorbsmod.tips.SnapFtueTip;
 
 import java.util.ArrayList;
 
@@ -33,10 +35,13 @@ public class SnapCounter {
     private static final float INDICATOR_CIRCLE_Y_RADIUS = 24F * Settings.scale;
     private static final float INDICATOR_CIRCLE_ROTATION_DURATION = 20F;
     private static final float INDICATOR_PARTICLE_DURATION = .06F;
+    private static final float FTUE_TURN_DURATION = 1.0F;
 
     private static final String UI_ID = JorbsMod.makeID(SnapCounter.class);
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(UI_ID);
     private static final String[] TEXT = uiStrings.TEXT;
+
+    public static final int SNAP_TURN = 7;
 
     private final AbstractPlayer owner;
     private final Hitbox hb;
@@ -46,22 +51,23 @@ public class SnapCounter {
     private float centerY;
     private float indicatorCircleRotationTimer;
     private float indicatorParticleTimer;
+    private float ftueTurnTimer;
 
     private static final Color[] colors = new Color[] {
-            Color.VIOLET,
+            Color.VIOLET.cpy(),
             new Color(.24F, .45F, 1.0F, 1.0F),
-            Color.SKY,
-            Color.FOREST,
-            Color.YELLOW,
-            Color.ORANGE,
-            Color.RED
+            Color.SKY.cpy(),
+            Color.FOREST.cpy(),
+            Color.YELLOW.cpy(),
+            Color.ORANGE.cpy(),
+            Color.RED.cpy()
     };
 
     private static final float STARTING_ALPHA = 0.65F;
     private static final float ENDING_ALPHA = 1.0F;
     private float alpha;
 
-    private int currentTurn; // we track this separately from the game manager to avoid ordering issues with start-of-turn triggers
+    public int currentTurn; // we track this separately from the game manager to avoid ordering issues with start-of-turn triggers
     public boolean isActive;
 
     public SnapCounter(AbstractPlayer owner) {
@@ -76,19 +82,42 @@ public class SnapCounter {
     }
 
     private void updateDescription() {
-        tips.get(0).body = String.format(TEXT[1], currentTurn);
+        if (isSnapTurn()) {
+            tips.get(0).body = String.format(TEXT[2]);
+        } else {
+            tips.get(0).body = String.format(TEXT[1], currentTurn);
+        }
+    }
+
+    public void atPreBattle() {
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new FragilePower(owner, this)));
     }
 
     public void atStartOfTurn() {
         currentTurn++;
-        alpha = MathUtils.lerp(STARTING_ALPHA, ENDING_ALPHA, currentTurn / 7.0F);
+        alpha = MathUtils.lerp(STARTING_ALPHA, ENDING_ALPHA, currentTurn / (float) SNAP_TURN);
         updateDescription();
+
+        boolean showingMemoryFtue = MemoryFtueTip.trigger(centerX, centerY);
+        if (!showingMemoryFtue) {
+            SnapFtueTip.trigger(centerX, centerY);
+        }
+    }
+
+    public void forceSnapTurn() {
+        currentTurn = SNAP_TURN;
+        alpha = MathUtils.lerp(STARTING_ALPHA, ENDING_ALPHA, currentTurn / 7.0F);
+        tips.get(0).body = String.format(TEXT[2]);
     }
 
     public void atEndOfTurn() {
-        if (currentTurn == 7) {
-            AbstractDungeon.actionManager.addToBottom(new SnapAction(AbstractDungeon.player, true));
+        if (isSnapTurn()) {
+            AbstractDungeon.actionManager.addToBottom(new SnapAction(owner, true));
         }
+    }
+
+    public boolean isSnapTurn() {
+        return currentTurn == SNAP_TURN;
     }
 
     private boolean isVisible() {
@@ -113,6 +142,8 @@ public class SnapCounter {
     public void update(float centerX, float centerY, int flipMultiplier) {
         if (!isVisible()) { return; }
 
+        int currentTurn = SnapFtueTip.shouldFakeCurrentTurn() ? SnapFtueTip.fakeCurrentTurn() : this.currentTurn;
+
         this.centerX = centerX;
         this.centerY = centerY;
         hb.update(centerX - hb.width / 2, centerY - hb.height / 2);
@@ -130,15 +161,15 @@ public class SnapCounter {
             color.a = alpha;
 
             for (int i = 0; i < currentTurn; ++i) {
-                if (currentTurn >= 7) {
-                    color = colors[i % 7];
+                if (currentTurn >= SNAP_TURN) {
+                    color = colors[i % SNAP_TURN];
                 }
                 float indicatorAngle = 360.0F * (((float)i) / (currentTurn));
                 indicatorAngle += flipMultiplier * (360.0F * (indicatorCircleRotationTimer / INDICATOR_CIRCLE_ROTATION_DURATION));
                 float x = flipMultiplier * INDICATOR_CIRCLE_X_RADIUS * MathUtils.cosDeg(indicatorAngle) + centerX;
                 float y = flipMultiplier * INDICATOR_CIRCLE_Y_RADIUS * MathUtils.sinDeg(indicatorAngle) + centerY;
 
-                float scaleModifier = currentTurn == 7 ? 1.6F : 1.0F;
+                float scaleModifier = isSnapTurn() ? 1.6F : 1.0F;
                 AbstractDungeon.effectList.add(new SnapTurnCounterEffect(x, y, color, scaleModifier));
             }
         }

@@ -1,5 +1,5 @@
 theme: jekyll-theme-cayman
-title: Jorbs Mod
+title: Jorbs's Wanderer Trilogy
 description: The Wanderer, Cull, and Explorer. A Slay the Spire mod inspired by Jorbs and co-developed by the community.
 taglines:
   - The Wanderer, Cull, and Explorer.
@@ -7,10 +7,10 @@ taglines:
 lang: en-US
 
 navigation:
-  - title: Install
-    url: /
-  - title: Changelog
-    url: https://github.com/dbjorge/jorbs-spire-mod/releases
+  - title: Download on Steam
+    url: https://steamcommunity.com/sharedfiles/filedetails/?id=1997053791
+  - title: About
+    url: /about
   - title: Credits
     url: /credits
   - title: GitHub

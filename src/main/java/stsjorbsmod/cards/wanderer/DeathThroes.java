@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.GainSpecificClarityAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
@@ -27,7 +28,6 @@ public class DeathThroes extends CustomJorbsModCard {
 
     private static final int COST = 0;
     private static final int DAMAGE = 14;
-    private static final int UPGRADE_PLUS_DAMAGE = 4;
 
     public DeathThroes() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
@@ -43,14 +43,18 @@ public class DeathThroes extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.FIRE));
-        addToBot(new RememberSpecificMemoryAction(p, WrathMemory.STATIC.ID));
+        if (upgraded) {
+            addToBot(new GainSpecificClarityAction(p, WrathMemory.STATIC.ID));
+        } else {
+            addToBot(new RememberSpecificMemoryAction(p, WrathMemory.STATIC.ID));
+        }
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DAMAGE);
+            tags.remove(REMEMBER_MEMORY);
             upgradeDescription();
         }
     }
