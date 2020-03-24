@@ -11,6 +11,7 @@
 
 * The CULL can no longer gain Block; instead, the block amount is dealt as damage to a random enemy. (thanks Lucerna)
 * The CULL can no longer gain Dexterity; instead, it gains the Dexterity amount as Strength (thanks Lucerna)
+* Tungsten Rod removed from CULL relic pool.
 * CULL (the card): Changed to "Deal 12 damage twice. Exhaust."
 * CULL (the card): Upgrade changed to "wrath applies twice"
 * Haunt: Changed to "Ephemeral(Exhaust). Gain 1 intangible and draw 1 fewer card next turn."
