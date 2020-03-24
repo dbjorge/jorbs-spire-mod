@@ -33,6 +33,7 @@
 * mevestatney ([GitHub](https://github.com/stevematney))
 * mikeynap ([GitHub](https://github.com/mikeynap))
 * Sanity Dance ([GitHub](https://github.com/sanity-dance))
+* PanicPoint ([Github](https://github.com/Panic-Point))
 
 ### Lead Artists
 
@@ -115,6 +116,7 @@
 * myop
 * mziggles
 * NoWaitSuperKamiGuru
+* PanicPoint
 * passerbyninja
 * Rabbit
 * Ray661

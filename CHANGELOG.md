@@ -9,6 +9,9 @@
 
 ### CULL balance/design changes
 
+* The CULL can no longer gain Block; instead, the block amount is dealt as damage to a random enemy. (thanks Lucerna)
+* The CULL can no longer gain Dexterity; instead, it gains the Dexterity amount as Strength (thanks Lucerna)
+* Tungsten Rod removed from CULL relic pool.
 * CULL (the card): Changed to "Deal 12 damage twice. Exhaust."
 * CULL (the card): Upgrade changed to "wrath applies twice"
 * Haunt: Changed to "Ephemeral(Exhaust). Gain 1 intangible and draw 1 fewer card next turn."
@@ -32,6 +35,16 @@
 * Grim Dirge (thanks Cartopol)
 * Find Weakness (thanks Cartopol)
 * Gathering Evil (thanks Cartopol)
+* Exhale (thanks Cartopol)
+* Frantic Mind (thanks Cartopol)
+* Wasting Strike (thanks Cartopol)
+* Polluted Strike (thanks Cartopol)
+* Cleanse (thanks Cartopol)
+* Anxiety (thanks Cartopol)
+* Feint (thanks PanicPoint)
+* Goosebumps (thanks PanicPoint)
+* Melt (thanks PanicPoint)
+* Godsbane (thanks PanicPoint)
 
 ## [v1.7.0] - 2020-03-15
 
