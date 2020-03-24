@@ -4,40 +4,24 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.*;
-import javassist.CannotCompileException;
-import javassist.expr.ExprEditor;
-import javassist.expr.FieldAccess;
-import javassist.expr.NewExpr;
 import stsjorbsmod.characters.Cull;
+import stsjorbsmod.util.ReflectionUtils;
 
-@SpirePatch(
-        clz = ApplyPowerAction.class,
-        method = SpirePatch.CONSTRUCTOR,
-        paramtypez = {
-                AbstractCreature.class,
-                AbstractCreature.class,
-                AbstractPower.class,
-                int.class,
-                boolean.class,
-                AbstractGameAction.AttackEffect.class
-        }
-)
+@SpirePatch(clz = ApplyPowerAction.class, method = "update")
 public class CullDexPatch {
-    public CullDexPatch() {}
-
-    public static ExprEditor Instrument() {
-        return new ExprEditor() {
-            public void edit(FieldAccess f) throws CannotCompileException {
-                if(f.getFieldName().equals("powerToApply") && f.isWriter()) {
-                    f.replace(String.format(
-                            "{$0.powerToApply = %1$s.updateDexPower($1);}",
-                            CullDexPatch.class.getName()));
-                }
+    @SpirePrefixPatch
+    public static void Prefix(ApplyPowerAction __this) {
+        float duration = ReflectionUtils.getPrivateField(__this, AbstractGameAction.class, "duration");
+        float startingDuration = ReflectionUtils.getPrivateField(__this, ApplyPowerAction.class, "startingDuration");
+        if (duration == startingDuration) {
+            AbstractPower originalPower = ReflectionUtils.getPrivateField(__this, ApplyPowerAction.class, "powerToApply");
+            AbstractPower updatedPower = updateDexPower(originalPower);
+            if (originalPower != updatedPower) {
+                ReflectionUtils.setPrivateField(__this, ApplyPowerAction.class, "powerToApply", updatedPower);
             }
-        };
+        }
     }
 
     public static AbstractPower updateDexPower(AbstractPower power) {
