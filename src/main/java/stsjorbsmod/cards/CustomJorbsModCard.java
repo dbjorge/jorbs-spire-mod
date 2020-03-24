@@ -150,6 +150,18 @@ public abstract class CustomJorbsModCard extends CustomCard {
     protected int calculateBonusMagicNumber() { return 0; }
 
     /**
+     * Most cards will want to override the no-argument calculateBonusBaseDamage() instead of this version,
+     * to ensure !D! placeholders are filled in reasonably when there is no monster hovered/selected yet.
+     *
+     * This version *only* applies when a monster is actively being hovered/selected/targeted; it should only
+     * be used for cards which *cannot* calculate bonus damage except in the context of a specific monster
+     * (eg, Godsbane)
+     */
+    protected int calculateBonusBaseDamage(AbstractMonster m) {
+        return calculateBonusBaseDamage();
+    }
+
+    /**
      * This is intended for use with cards that work like Blizzard/Flechettes/etc, adding a parenthetical suffix
      * for dynamically calculated damage/block/etc values that summarizes the calculated total amount.
      *
@@ -163,7 +175,7 @@ public abstract class CustomJorbsModCard extends CustomCard {
         int realBaseBlock = baseBlock;
         baseBlock += calculateBonusBaseBlock();
         int realBaseDamage = baseDamage;
-        baseDamage += calculateBonusBaseDamage();
+        baseDamage += calculateBonusBaseDamage(mo);
 
         magicNumber = baseMagicNumber + calculateBonusMagicNumber();
         isMagicNumberModified = magicNumber != baseMagicNumber;
