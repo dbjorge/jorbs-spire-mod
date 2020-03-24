@@ -8,7 +8,7 @@
 
 ### Technical Director
 
-* brosmike ([GitHub](https://github.com/dbjorge), [Twitch](https://twitch.tv/brosmike))
+* Dan "brosmike" Bjorge ([GitHub](https://github.com/dbjorge), [Twitch](https://twitch.tv/brosmike))
 
 ### Producer & Community Organizer
 
@@ -27,11 +27,13 @@
 ### Developers
 
 * evan_tor ([GitHub](https://github.com/evantor))
+* Lucerna ([GitHub](https://github.com/Jacob-Laverty))
 * mderb4 ([GitHub](https://github.com/mderb4))
 * mdiehr ([GitHub](https://github.com/mdiehr))
 * mevestatney ([GitHub](https://github.com/stevematney))
 * mikeynap ([GitHub](https://github.com/mikeynap))
 * Sanity Dance ([GitHub](https://github.com/sanity-dance))
+* PanicPoint ([Github](https://github.com/Panic-Point))
 
 ### Lead Artists
 
@@ -41,21 +43,38 @@
 
 ### Artists
 
+* Bakuhaku
 * Crocketeer
 * DietTonicWater
 * Forceful Storm
 * GinFizzes
 * Jac2012
 * JoeKage
+* lobbien
 * LouisLeGros
 * mziggles
 * Newigeg
 * NoblemanGR
 * SLG95
 
+### Writers
+
+* Charlene Putney (Divinity: Original Sin, http://alphachar.com/)
+* Freyjas Guardian
+* Leeeeeeeeeee
+* myop
+* Sasha Chapin (All The Wrong Moves, https://www.imsashachapin.com/)
+* SkyeVeran
+
 ### Localization
 
+* ChDaVinci (Spanish)
 * GDami (French) ([GitHub](https://github.com/GDami))
+* yanang007 (Chinese (Simplified)) ([GitHub](https://github.com/yanang007))
+
+### Trailer Videographer
+
+* stambo
 
 ### Playtesting, Feedback, Bug Reports
 
@@ -90,14 +109,18 @@
 * june
 * kawyua
 * Levender
+* m0rph1ing
 * Mark
 * MasterChef
 * MetaBoy
 * myop
 * mziggles
 * NoWaitSuperKamiGuru
+* PanicPoint
 * passerbyninja
 * Rabbit
+* Ray661
+* Renko
 * Rhamni
 * Rindokisuto
 * Seaih
@@ -105,6 +128,7 @@
 * Silver_Leafz
 * Socien
 * That Guy Called Max
+* Trafalgar_D_Bakanky
 * Treyell
 * Tskami
 * Weyland

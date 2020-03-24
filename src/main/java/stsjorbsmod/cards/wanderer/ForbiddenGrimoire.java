@@ -31,7 +31,7 @@ public class ForbiddenGrimoire extends CustomJorbsModCard implements OnCardExhum
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 0;
-    private static final int CARD_PLAYS_TO_EXHUME = 3;
+    private static final int CARD_PLAYS_TO_EXHUME = 4;
 
     public static final int EXHUME_TURN = 7;
 
@@ -51,7 +51,9 @@ public class ForbiddenGrimoire extends CustomJorbsModCard implements OnCardExhum
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DiscoveryAtCostAction(MaterialComponentsDeck.drawUniqueRandomCards(3), true));
-        addToBot(new ApplyPowerAction(p, p, new ForbiddenGrimoireDelayedExhumePower(p, this, magicNumber)));
+        if (!purgeOnUse) {
+            addToBot(new ApplyPowerAction(p, p, new ForbiddenGrimoireDelayedExhumePower(p, this, magicNumber)));
+        }
     }
 
     @Override

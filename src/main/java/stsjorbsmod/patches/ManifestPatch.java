@@ -27,6 +27,10 @@ public class ManifestPatch {
         @SpirePostfixPatch
         public static boolean patch(boolean originalResult, MapRoomNode __this, MapRoomNode __node)
         {
+            if (AbstractDungeon.player == null) {
+                return originalResult;
+            }
+
             int manifest = PlayerManifestField.manifestField.get(AbstractDungeon.player);
 
             if (manifest == 0 && !(AbstractDungeon.player instanceof Cull)) {
@@ -62,7 +66,7 @@ public class ManifestPatch {
     {
         @SpirePostfixPatch
         public static void patch(AbstractScene __this, AbstractRoom __room) {
-            if (!CardCrawlGame.loadingSave) {
+            if (!CardCrawlGame.loadingSave && AbstractDungeon.player != null) {
                 PlayerManifestField.manifestField.set(AbstractDungeon.player, 0);
             }
         }

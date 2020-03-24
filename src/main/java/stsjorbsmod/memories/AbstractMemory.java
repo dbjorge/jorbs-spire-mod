@@ -18,12 +18,14 @@ import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.ui.buttons.PeekButton;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
 import com.megacrit.cardcrawl.vfx.combat.GainPowerEffect;
 import com.megacrit.cardcrawl.vfx.combat.SilentGainPowerEffect;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.powers.OnModifyGoldSubscriber;
+import stsjorbsmod.tips.MemoryFtueTip;
 import stsjorbsmod.util.RenderUtils;
 import stsjorbsmod.util.TextureLoader;
 
@@ -105,7 +107,8 @@ public abstract class AbstractMemory implements OnModifyGoldSubscriber {
     // ** Be sure to check isPassiveEffectActive as necessary. **
     @Override public void onModifyGold(AbstractPlayer p) {}
     public void atStartOfTurnPostDraw() {}
-    public void atEndOfTurn() {}
+    public void atEndOfTurnPreEndTurnCards() {}
+    public void atEndOfTurn(boolean isPlayer) {}
     public void onPlayCard(AbstractCard card, AbstractMonster monster) { }
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) { }
     // onMonsterDeath can happen within the same action that ends the combat, so you shouldn't queue new actions in here.
@@ -134,25 +137,34 @@ public abstract class AbstractMemory implements OnModifyGoldSubscriber {
     }
 
     public void render(SpriteBatch sb) {
-        if (isRemembered) {
+        if (isRemembered || MemoryFtueTip.shouldFakeBeingRemembered(this)) {
             float rotation = (-rememberBgRotationTimer / REMEMBER_BG_ROTATION_DURATION) * 360F;
             RenderUtils.renderAtlasRegionCenteredAt(sb, REMEMBER_BG_IMG_64, centerX, centerY, Settings.scale, REMEMBER_BG_COLOR, rotation);
         }
-        AtlasRegion img = isClarified ? this.staticInfo.CLARITY_IMG_48 : this.staticInfo.EMPTY_IMG_48;
+
+        AtlasRegion img = isClarified || MemoryFtueTip.shouldFakeBeingClarified(this) ?
+                this.staticInfo.CLARITY_IMG_48 :
+                this.staticInfo.EMPTY_IMG_48;
+
         RenderUtils.renderAtlasRegionCenteredAt(sb, img, centerX, centerY, ICON_COLOR);
 
         for (AbstractGameEffect effect : renderEffects) {
             effect.render(sb, centerX, centerY);
         }
 
-        if (!AbstractDungeon.isScreenUp && hb.hovered) {
+        hb.render(sb);
+
+        if ((!AbstractDungeon.isScreenUp || PeekButton.isPeeking) && hb.hovered) {
             renderTip();
         }
     }
 
+    protected void addExtraPowerTips(ArrayList<PowerTip> tips) { }
+
     private void renderTip() {
         ArrayList<PowerTip> tips = new ArrayList<>();
         tips.add(new PowerTip(name, description, staticInfo.CLARITY_IMG_48));
+        addExtraPowerTips(tips);
 
         // Based on the AbstractCreature.renderPowerTips impl
         float tipX = centerX + hb.width / 2.0F < TIP_X_THRESHOLD ?
@@ -168,7 +180,8 @@ public abstract class AbstractMemory implements OnModifyGoldSubscriber {
     public void update(float centerX, float centerY) {
         this.centerX = centerX;
         this.centerY = centerY;
-        this.hb.update(centerX - (HB_WIDTH / 2.0F), centerY - (HB_HEIGHT / 2.0F));
+        this.hb.move(centerX, centerY);
+        this.hb.update();
 
         this.updateRememberBgRotationTimer();
 

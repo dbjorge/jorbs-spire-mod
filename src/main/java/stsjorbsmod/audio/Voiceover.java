@@ -4,8 +4,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.audio.Sfx;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.vfx.SpeechBubble;
 
 // Tracks a delay -> dampen master -> play VO -> undampen state machine
 public class Voiceover {
@@ -14,7 +18,9 @@ public class Voiceover {
     private static final float PLAY_DURATION = 4.0F;
 
     private final Sfx sfx;
+    private final String subtitle;
     private final float dampeningDuration;
+    private final AbstractCreature source;
 
     enum State {
         INITIAL_DELAY,
@@ -26,8 +32,10 @@ public class Voiceover {
     private State state;
     private float duration;
 
-    public Voiceover(Sfx sfx, float startingDelay, float dampeningDuration) {
+    public Voiceover(Sfx sfx, String subtitle, float startingDelay, float dampeningDuration) {
         this.sfx = sfx;
+        this.source = AbstractDungeon.player;
+        this.subtitle = subtitle;
         this.dampeningDuration = dampeningDuration;
 
         if (startingDelay > 0.0F) {
@@ -56,6 +64,9 @@ public class Voiceover {
                 CardCrawlGame.music.updateVolume();
 
                 if (this.duration <= 0.0F) {
+                    if (VoiceoverMaster.VOICEOVER_SUBTITLES_ENABLED) {
+                        AbstractDungeon.effectList.add(new SpeechBubble(source.dialogX, source.dialogY, PLAY_DURATION, subtitle, source.isPlayer));
+                    }
                     sfx.play(Settings.MASTER_VOLUME * VoiceoverMaster.VOICEOVER_VOLUME * VoiceoverMaster.VOICEOVER_VOLUME_MODIFIER);
 
                     this.state = State.PLAYING_SFX;

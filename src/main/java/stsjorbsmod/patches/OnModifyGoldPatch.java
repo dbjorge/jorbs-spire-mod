@@ -12,7 +12,10 @@ import stsjorbsmod.powers.OnModifyGoldSubscriber;
 
 public class OnModifyGoldPatch {
     private static void notifyModifyGold(AbstractPlayer player) {
-        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+        if (AbstractDungeon.currMapNode != null &&
+            AbstractDungeon.getCurrRoom() != null &&
+            AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT)
+        {
             for (AbstractPower p : player.powers) {
                 if (p instanceof OnModifyGoldSubscriber) {
                     ((OnModifyGoldSubscriber) p).onModifyGold(player);

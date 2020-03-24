@@ -1,9 +1,14 @@
 package stsjorbsmod.memories;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import stsjorbsmod.powers.CoilPower;
+
+import java.util.ArrayList;
 
 public class TemperanceMemory extends AbstractMemory implements OnModifyMemoriesSubscriber {
     public static final StaticMemoryInfo STATIC = StaticMemoryInfo.Load(TemperanceMemory.class);
@@ -62,5 +67,12 @@ public class TemperanceMemory extends AbstractMemory implements OnModifyMemories
     @Override
     public void onLoseClarity(String id) {
         updateAppliedStrength();
+    }
+
+    @Override
+    protected void addExtraPowerTips(ArrayList<PowerTip> tips) {
+        tips.add(new PowerTip(
+                BaseMod.getKeywordTitle("stsjorbsmod:clarity"),
+                BaseMod.getKeywordDescription("stsjorbsmod:clarity")));
     }
 }

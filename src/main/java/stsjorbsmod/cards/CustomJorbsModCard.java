@@ -1,6 +1,8 @@
 package stsjorbsmod.cards;
 
+import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
+import basemod.helpers.TooltipInfo;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
@@ -11,9 +13,13 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.patches.EphemeralField;
 
+import javax.tools.Tool;
 import java.lang.reflect.Field;
+import java.util.Collections;
+import java.util.List;
 
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
+import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 
 public abstract class CustomJorbsModCard extends CustomCard {
     // These sentinel values are defined by the base game, we're just giving them more readable names.
@@ -144,6 +150,18 @@ public abstract class CustomJorbsModCard extends CustomCard {
     protected int calculateBonusMagicNumber() { return 0; }
 
     /**
+     * Most cards will want to override the no-argument calculateBonusBaseDamage() instead of this version,
+     * to ensure !D! placeholders are filled in reasonably when there is no monster hovered/selected yet.
+     *
+     * This version *only* applies when a monster is actively being hovered/selected/targeted; it should only
+     * be used for cards which *cannot* calculate bonus damage except in the context of a specific monster
+     * (eg, Godsbane)
+     */
+    protected int calculateBonusBaseDamage(AbstractMonster m) {
+        return calculateBonusBaseDamage();
+    }
+
+    /**
      * This is intended for use with cards that work like Blizzard/Flechettes/etc, adding a parenthetical suffix
      * for dynamically calculated damage/block/etc values that summarizes the calculated total amount.
      *
@@ -157,7 +175,7 @@ public abstract class CustomJorbsModCard extends CustomCard {
         int realBaseBlock = baseBlock;
         baseBlock += calculateBonusBaseBlock();
         int realBaseDamage = baseDamage;
-        baseDamage += calculateBonusBaseDamage();
+        baseDamage += calculateBonusBaseDamage(mo);
 
         magicNumber = baseMagicNumber + calculateBonusMagicNumber();
         isMagicNumberModified = magicNumber != baseMagicNumber;
@@ -221,5 +239,15 @@ public abstract class CustomJorbsModCard extends CustomCard {
     @Override
     public void triggerOnGlowCheck() {
         this.glowColor = shouldGlowGold() ? AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy() : AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+    }
+
+    @Override
+    public List<TooltipInfo> getCustomTooltips() {
+        if (this.hasTag(LEGENDARY)) {
+            return Collections.singletonList(new TooltipInfo(
+                    BaseMod.getKeywordTitle("stsjorbsmod:legendary"),
+                    BaseMod.getKeywordDescription("stsjorbsmod:legendary")));
+        }
+        return null;
     }
 }

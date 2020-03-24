@@ -77,3 +77,7 @@ $RECYCLE.BIN/
 
 # Spriter files
 *.autosave.scml
+
+# Side effects of the Slay the Spire mod-uploader
+sendToDevs/
+steam_appid.txt

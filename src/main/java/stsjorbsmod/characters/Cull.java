@@ -6,10 +6,8 @@ import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -30,13 +28,13 @@ import stsjorbsmod.actions.GainSpecificClarityAction;
 import stsjorbsmod.actions.IncreaseManifestAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.cards.cull.*;
-import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.WrathMemory;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static stsjorbsmod.JorbsMod.*;
+import static stsjorbsmod.JorbsMod.makeCharPath;
+import static stsjorbsmod.JorbsMod.makeID;
 
 //Wiki-page https://github.com/daviscook477/BaseMod/wiki/Custom-Characters
 //and https://github.com/daviscook477/BaseMod/wiki/Migrating-to-5.0
@@ -106,8 +104,8 @@ public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber 
     // =============== BASE STATS =================
 
     public static final int ENERGY_PER_TURN = 3;
-    public static final int STARTING_HP = 109;
-    public static final int MAX_HP = 109;
+    public static final int STARTING_HP = 48;
+    public static final int MAX_HP = 48;
     public static final int STARTING_GOLD = 199;
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
@@ -216,13 +214,14 @@ public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber 
         retVal.add(CULLCard.ID);
         retVal.add(Apparition_Cull.ID);
         retVal.add(Frostbite.ID);
-        retVal.add(Apparate.ID);
         retVal.add(Inhale.ID);
         retVal.add(SpiritShield_Cull.ID);
-        retVal.add(Siphon.ID);
         retVal.add(SplinterSoul.ID);
-        retVal.add(Wail.ID);
         retVal.add(WakingDream.ID);
+        retVal.add(Strike_Cull.ID);
+        retVal.add(Strike_Cull.ID);
+        retVal.add(Strike_Cull.ID);
+        retVal.add(Strike_Cull.ID);
 
         return retVal;
     }

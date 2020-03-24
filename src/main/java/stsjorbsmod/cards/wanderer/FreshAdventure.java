@@ -6,15 +6,18 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.ConsumerGameAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.memories.DiligenceMemory;
+import stsjorbsmod.memories.OnModifyMemoriesSubscriber;
+import stsjorbsmod.memories.WrathMemory;
 
 import static stsjorbsmod.JorbsMod.JorbsCardTags.REMEMBER_MEMORY;
 
 // Deal 12(15) damage and remember Diligence
-public class FreshAdventure extends CustomJorbsModCard {
+public class FreshAdventure extends CustomJorbsModCard implements OnModifyMemoriesSubscriber {
     public static final String ID = JorbsMod.makeID(FreshAdventure.class);
 
     private static final CardRarity RARITY = CardRarity.BASIC;
@@ -23,12 +26,14 @@ public class FreshAdventure extends CustomJorbsModCard {
     public static final CardColor COLOR = Wanderer.Enums.WANDERER_CARD_COLOR;
 
     private static final int COST = 2;
-    private static final int DAMAGE = 14;
-    private static final int UPGRADE_PLUS_DMG = 3;
+    private static final int DAMAGE = 13;
+    private static final int UPGRADE_PLUS_DMG = 4;
+    private static final int WRATH_STACK_ON_SNAP = 1;
 
     public FreshAdventure() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
+        magicNumber = baseMagicNumber = WRATH_STACK_ON_SNAP;
 
         this.tags.add(REMEMBER_MEMORY);
     }
@@ -37,6 +42,13 @@ public class FreshAdventure extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AttackEffect.SLASH_DIAGONAL));
         addToBot(new RememberSpecificMemoryAction(p, DiligenceMemory.STATIC.ID));
+    }
+
+    @Override
+    public void onSnap() {
+        // It's important that this effect *not* be implemented as an action, because if it happens in response to the
+        // last enemy in a fight dying, no further actions will be executed during that fight.
+        WrathMemory.permanentlyIncreaseCardDamage(this);
     }
 
     @Override

@@ -1,40 +1,32 @@
 package stsjorbsmod.actions;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
-public class AdvanceRelicsThroughTimeAction extends AbstractGameAction {
-    AbstractPlayer player;
+import java.util.Arrays;
+import java.util.function.Consumer;
 
-    public AdvanceRelicsThroughTimeAction(AbstractPlayer player, int relicCounterIncrement) {
-        this.player = player;
-        this.amount = relicCounterIncrement;
-        this.duration = Settings.ACTION_DUR_FAST;
-    }
+// Notable test cases:
+//   * Stone Calendar
+//   * Happy Flower
+//   * Ancient Tea Set
+public class AdvanceRelicsThroughTimeAction extends AbstractTimeProgressionAction {
+    private static final Runnable[] RELIC_TURN_PROGRESSION = new Runnable[] {
+            () -> forEachRelic((r) -> r.onPlayerEndTurn()),
+            () -> forEachRelic((r) -> r.atTurnStart()),
+            () -> forEachRelic((r) -> r.atTurnStartPostDraw()),
+    };
 
-    @Override
-    public void update() {
-        for (int i = 0; i < this.amount; ++i) {
-            for (AbstractRelic relic : player.relics) {
-                if (relic.counter >= 0) {
-                    // We aren't just incrementing the counter directly because the relics generally aren't listening for
-                    // that to happen, so incrementing a counter to a relic's trigger value that way wouldn't trigger
-                    // the relic as desire. Instead, we simulate the passage of the turn ending and then starting again,
-                    // so those relics' trigger behaviors can get a chance to run.
-                    //
-                    // Notable test cases:
-                    //   * Stone Calendar
-                    //   * Happy Flower
-                    //   * Ancient Tea Set
-                    relic.onPlayerEndTurn();
-                    relic.atTurnStart();
-                    relic.atTurnStartPostDraw();
-                }
+    private static void forEachRelic(Consumer<AbstractRelic> callback) {
+        for (AbstractRelic relic : AbstractDungeon.player.relics) {
+            if (relic.counter >= 0) {
+                callback.accept(relic);
             }
         }
+    }
 
-        isDone = true;
+    public AdvanceRelicsThroughTimeAction(AbstractPlayer player, int relicCounterIncrement) {
+        super(Arrays.asList(RELIC_TURN_PROGRESSION), relicCounterIncrement);
     }
 }

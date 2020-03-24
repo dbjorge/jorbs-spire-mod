@@ -1,5 +1,6 @@
 package stsjorbsmod.patches;
 
+import basemod.ReflectionHacks;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -24,8 +25,9 @@ public class WrathCardIconPatch {
     )
     public static class AbstractCard_renderEnergy {
         // This is intentionally a little further out than the Energy cost because it can feasibly hit 2-digit numbers
-        public static final float WRATH_TEXT_OFFSET_X = 135.0F;
-        public static final float WRATH_TEXT_OFFSET_Y = 192.0F;
+        public static float WRATH_TEXT_OFFSET_X = -133.0F;
+        public static float WRATH_TEXT_OFFSET_Y = 112.5F;
+        public static final Color WRATH_TEXT_COLOR = new Color(1.0F, 0.5F, 0.3F, 1.0F);
         public static final Texture wrathIconOverlayTexture = TextureLoader.getTexture(makeCharPath("wanderer/card_bgs/card_overlay_wrath_icon_512.png"));
         public static final AtlasRegion wrathIconOverlayImg = new AtlasRegion(wrathIconOverlayTexture, 0, 0, 512, 512);
 
@@ -39,10 +41,15 @@ public class WrathCardIconPatch {
             }
 
             Color renderColor = ReflectionUtils.getPrivateField(card, AbstractCard.class, "renderColor");
-            RenderUtils.renderAtlasRegionCenteredAt(sb, wrathIconOverlayImg, card.current_x, card.current_y, card.drawScale * Settings.scale, renderColor, card.angle);
+            RenderUtils.renderAtlasRegionCenteredAt(sb,
+                    wrathIconOverlayImg,
+                    card.current_x,
+                    card.current_y,
+                    card.drawScale * Settings.scale,
+                    renderColor,
+                    card.angle);
 
-            Color textColor = Color.WHITE.cpy();
-            textColor.a = card.transparency;
+            WRATH_TEXT_COLOR.a = card.transparency;
             String text = Integer.toString(wrathCount);
             BitmapFont font = FontHelper.cardEnergyFont_L;
             font.getData().setScale(card.drawScale);
@@ -55,19 +62,20 @@ public class WrathCardIconPatch {
                     WRATH_TEXT_OFFSET_Y * card.drawScale * Settings.scale,
                     card.angle,
                     false,
-                    textColor);
+                    WRATH_TEXT_COLOR);
         }
     }
-    
+
     @SpirePatch(
             clz = SingleCardViewPopup.class,
             method = "renderCost"
     )
     public static class SingleCardViewPopup_renderCost {
-        public static final float WRATH_ICON_OFFSET_X = (float)Settings.WIDTH / 2.0F + 270.0F * Settings.scale;
-        public static final float WRATH_TEXT_OFFSET_X = (float)Settings.WIDTH / 2.0F + 252.0F * Settings.scale;
-        public static final float WRATH_ICON_OFFSET_Y = (float)Settings.HEIGHT / 2.0F + 425.0F * Settings.scale;
-        public static final float WRATH_TEXT_OFFSET_Y = (float)Settings.HEIGHT / 2.0F + 404.0F * Settings.scale;
+        public static final float WRATH_ICON_OFFSET_X = (float)Settings.WIDTH / 2.0F + -270.0F * Settings.scale;
+        public static final float WRATH_TEXT_OFFSET_X = (float)Settings.WIDTH / 2.0F + -288.0F * Settings.scale;
+        public static final float WRATH_ICON_OFFSET_Y = (float)Settings.HEIGHT / 2.0F + 230.0F * Settings.scale;
+        public static final float WRATH_TEXT_OFFSET_Y = (float)Settings.HEIGHT / 2.0F + 209.0F * Settings.scale;
+        public static final Color WRATH_TEXT_COLOR = new Color(1.0F, 0.5F, 0.3F, 1.0F);
         public static final Texture wrathIconOverlayTexture = TextureLoader.getTexture(makeCharPath("wanderer/card_bgs/card_wrath_icon.png"));
         public static final AtlasRegion wrathIconOverlayImg = new AtlasRegion(wrathIconOverlayTexture, 0, 0, 164, 250);
 
@@ -86,7 +94,7 @@ public class WrathCardIconPatch {
             BitmapFont font = FontHelper.SCP_cardEnergyFont;
             float x = WRATH_TEXT_OFFSET_X;
             if (wrathCount > 9) x -= (20 * Settings.scale);
-            FontHelper.renderFont(sb, font, text, x, WRATH_TEXT_OFFSET_Y, Settings.CREAM_COLOR);
+            FontHelper.renderFont(sb, font, text, x, WRATH_TEXT_OFFSET_Y, WRATH_TEXT_COLOR);
         }
     }
 }

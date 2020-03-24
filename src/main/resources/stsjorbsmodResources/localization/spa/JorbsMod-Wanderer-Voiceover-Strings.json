@@ -1,0 +1,137 @@
+{
+  "stsjorbsmod:wanderer:voiceover:3_Sentries": {
+    "TEXT": [
+      "Confusión, pérdida, engaño."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Automaton": {
+    "TEXT": [
+      "No he matado a todos estos? Hace años...?"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Awakened_One": {
+    "TEXT": [
+      "Ya no tengo paciencia para los dioses."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Book_of_Stabbing": {
+    "TEXT": [
+      "Un libro? Si... encontré un libro..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Champ": {
+    "TEXT": [
+      "Fama? Fortuna? Tus victorias no significan nada."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Collector": {
+    "TEXT": [
+      "Cuanto conocimiento. Si solo pudieramos conversar..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:death_1": {
+    "TEXT": [
+      "Muy... cansado..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:death_2": {
+    "TEXT": [
+      "Descanso..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:death_victory": {
+    "TEXT": [
+      "Es este el final?"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Donu_and_Deca": {
+    "TEXT": [
+      "Incluso las formas perfectas tienen debilidades."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Giant_Head": {
+    "TEXT": [
+      "Quizas pueda ver adentro..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Gremlin_Leader": {
+    "TEXT": [
+      "Ah, tener acompaniantes de nuevo."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Gremlin_Nob": {
+    "TEXT": [
+      "El sentimiento vacío de la ira."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Hexaghost_1": {
+    "TEXT": [
+      "Te traere paz, viejo amigo."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Hexaghost_2": {
+    "TEXT": [
+      "Seis almas malditas, forjadas en fuego impío."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Lagavulin": {
+    "TEXT": [
+      "Mi viejo amigo... pero no, no podemos descansar."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Nemesis_1": {
+    "TEXT": [
+      "Calor y vapor. Fuego y humo."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Nemesis_2": {
+    "TEXT": [
+      "Realmente no estás ahi, o si..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:new_run": {
+    "TEXT": [
+      "Espera... que es este lugar?"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Reptomancer": {
+    "TEXT": [
+      "Ah, deseas comparar brujería?"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Shield_and_Spear_1": {
+    "TEXT": [
+      "Hecho por magia. Deshecho por magia."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Shield_and_Spear_2": {
+    "TEXT": [
+      "Lo que fue hecho al fin puede ser deshecho."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Slavers": {
+    "TEXT": [
+      "Crueldad es la solución poco profunda."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Slime_Boss": {
+    "TEXT": [
+      "Especimen extraordinario! Tiempo de experimentar..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:The_Guardian": {
+    "TEXT": [
+      "¿Alguna vez te cansaras de tu baile sin fin?"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:The_Heart": {
+    "TEXT": [
+      "Por fin. Por favor, que sea este el final."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Time_Eater": {
+    "TEXT": [
+      "Curvando el río del tiempo... Fascinante..."
+    ]
+  }
+}

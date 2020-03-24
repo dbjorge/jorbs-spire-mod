@@ -11,6 +11,9 @@ assignees: ''
 Slay the spire: PUT "MAIN" OR "BETA" HERE
 Mod version: PUT x.y.z HERE (and if it isn't the latest version, try to reproduce there)
 
+**Reporting a crash?**
+Upload the contents of `C:\Program Files (x86)\Steam\steamapps\common\SlayTheSpire\sendToDevs\logs\SlayTheSpire.log` to https://pastebin.com and include a link here!
+
 **Describe the bug**
 A clear and concise description of what the bug is.
 

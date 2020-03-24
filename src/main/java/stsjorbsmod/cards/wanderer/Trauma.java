@@ -26,13 +26,13 @@ public class Trauma extends CustomJorbsModCard {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = DAMAGE;
         isMultiDamage = true;
+        shuffleBackIntoDrawPile = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SnapAction(p));
         addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AttackEffect.BLUNT_HEAVY));
-        CardReboundField.reboundOnce.set(this, true);
     }
 
     @Override
