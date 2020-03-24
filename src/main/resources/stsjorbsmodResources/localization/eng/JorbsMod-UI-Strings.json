@@ -94,7 +94,7 @@
     "TEXT": [
       "Thirst",
       "Consume all Wrath from an attack. For each Wrath, heal 5 HP and gain 1 max HP.",
-      "No attacks with Wrath"
+      "Consume all Wrath from an attack. (No attacks have any Wrath.)"
     ]
   },
   "stsjorbsmod:ThirstEffect": {
