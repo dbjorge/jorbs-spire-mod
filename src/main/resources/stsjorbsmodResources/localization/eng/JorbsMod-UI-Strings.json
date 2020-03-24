@@ -93,7 +93,7 @@
   "stsjorbsmod:ThirstOption": {
     "TEXT": [
       "Thirst",
-      "Consume wrath from an attack, heal 5 hp, and gain 1 max hp per wrath",
+      "Consume all Wrath from an attack. For each Wrath, heal 5 HP and gain 1 max HP.",
       "No attacks with Wrath"
     ]
   },
