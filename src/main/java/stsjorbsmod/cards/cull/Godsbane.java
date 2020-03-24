@@ -29,13 +29,10 @@ public class Godsbane extends CustomJorbsModCard {
     }
 
     @Override
-    protected int calculateBonusBaseDamage() {
-        AbstractMonster m = AbstractDungeon.getCurrRoom().monsters.hoveredMonster;
-        int bonusDamage = 0;
-        if (m != null) {
-            bonusDamage = (int)(m.maxHealth * ((double) magicNumber / 100));
-        }
-        return bonusDamage;
+    protected int calculateBonusBaseDamage(AbstractMonster m) {
+        if (m == null) { return 0; }
+
+        return (int)(m.maxHealth * ((double) magicNumber / 100));
     }
 
     @Override

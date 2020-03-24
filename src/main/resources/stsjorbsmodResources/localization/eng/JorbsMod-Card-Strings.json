@@ -329,7 +329,7 @@
     "NAME": "Godsbane",
     "DESCRIPTION": "Deal !M! % of target's max HP.",
     "EXTENDED_DESCRIPTION": [
-      " NL (Deal !D! damage)"
+      " NL (Deals !D! damage.)"
     ]
   },
   "stsjorbsmod:Goosebumps": {
