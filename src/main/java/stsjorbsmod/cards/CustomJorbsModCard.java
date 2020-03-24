@@ -50,7 +50,7 @@ public abstract class CustomJorbsModCard extends CustomCard {
 
     private static String imgFromId(String id) {
         String unprefixedId = id.replace(JorbsMod.MOD_ID + ":","");
-        return String.format("%1$sResources/images/cards/generated/%2$s.png", JorbsMod.MOD_ID, unprefixedId);
+        return JorbsMod.makeCardPath(String.format("generated/%1$s.png", unprefixedId));
     }
 
     public CustomJorbsModCard(final String id,
