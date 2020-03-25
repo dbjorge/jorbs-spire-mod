@@ -28,8 +28,9 @@
 * Toil: changed to work only on non-minion enemies, using the Fatal keyword.
 * Wasting Essence: Renamed to Wasting Form. Changed damage per curse drawn and upgrade damage increase.
 * Strife: only counts curses in discard pile. Upgrade adds 2 curses instead of 2 strength per curse. Added Exhaust.
-
 (thanks Cartopol for all!)
+
+* Seance: deprecated
 
 ### New CULL cards
 
