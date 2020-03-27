@@ -264,7 +264,7 @@
   },
   "stsjorbsmod:Feint": {
     "NAME": "佯攻",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 抽2张牌。 NL 丢弃1张牌。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 抽 !M! 张牌。 NL 丢弃 !stsjorbsmod:MetaMagic! 张牌。"
   },
   "stsjorbsmod:FindFamiliar": {
     "NAME": "亲切",
@@ -552,7 +552,7 @@
   },
   "stsjorbsmod:PollutedStrike": {
     "NAME": "不洁打击",
-    "DESCRIPTION": "你手牌中每有一张 诅咒 牌，造成 !D! 点伤害。",
+    "DESCRIPTION": "你手牌中每有一张 诅咒 牌，造成 !D! 点 stsjorbsmod:攻击伤害 。",
     "EXTENDED_DESCRIPTION": [
       " NL （你有 !M! 张 诅咒 牌。）",
       " NL （你有 !M! 张 诅咒 牌。）"
@@ -749,6 +749,13 @@
   "stsjorbsmod:Toil": {
     "NAME": "劳累",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 斩杀 时，永久 升级 一张随机牌。 NL 消耗 。"
+  },
+  "stsjorbsmod:Toll": {
+    "NAME": "送葬",
+    "DESCRIPTION": "造成你遗物计数总量 !M! 倍的伤害。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （造成 !D! 点伤害。）"
+    ]
   },
   "stsjorbsmod:TollTheDead": {
     "NAME": "敲响丧钟",

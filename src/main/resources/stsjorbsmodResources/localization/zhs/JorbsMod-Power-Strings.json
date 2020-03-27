@@ -151,7 +151,7 @@
   "stsjorbsmod:LoseStrengthNextTurnPower": {
     "NAME": "下一回合失去力量",
     "DESCRIPTIONS": [
-      "在你的下一回合开始时，失去 #b%1$s 点 力量 。"
+      "在下一回合开始时，失去 #b%1$s 点 力量 。"
     ]
   },
   "stsjorbsmod:MagicMirrorPower": {
