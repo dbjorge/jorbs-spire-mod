@@ -523,6 +523,11 @@
     "NAME": "Phantasm",
     "DESCRIPTION": "Whenever you gain Intangible, deal !M! damage to ALL enemies."
   },
+  "stsjorbsmod:Pollute": {
+    "NAME": "Pollute",
+    "DESCRIPTION": "Turn all cards in your hand into Curses (they can still be played). NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Turn all cards in your hand into Curses (they can still be played)."
+  },
   "stsjorbsmod:PollutedStrike": {
     "NAME": "Polluted Strike",
     "DESCRIPTION": "Deal !D! stsjorbsmod:Attack\u00a0Damage once for each Curse in your hand.",
