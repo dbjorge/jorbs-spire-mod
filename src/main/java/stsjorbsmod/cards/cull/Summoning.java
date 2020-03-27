@@ -27,7 +27,7 @@ public class Summoning extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
-        addToBot(new SummoningAction(magicNumber, true));
+        addToBot(new SummoningAction(magicNumber));
     }
 
     @Override
