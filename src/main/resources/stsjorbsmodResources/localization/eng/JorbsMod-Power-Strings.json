@@ -262,7 +262,7 @@
   "stsjorbsmod:SummoningPower": {
     "NAME": "Summoning",
     "DESCRIPTIONS": [
-      "At the start of next turn, #yExhume #b%1$s."
+      "At the start of next turn, #yExhume %1$s."
     ]
   },
   "stsjorbsmod:TroublePower": {
