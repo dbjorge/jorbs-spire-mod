@@ -1,0 +1,33 @@
+{
+  "stsjorbsmod:BurningPotion": {
+    "NAME": "灼烧药水",
+    "DESCRIPTIONS": [
+      "给予 #b%1$s  层 #y灼烧 。"
+    ]
+  },
+  "stsjorbsmod:DimensionDoorPotion": {
+    "NAME": "次元门卷轴",
+    "DESCRIPTIONS": [
+      "你在选择下一层的房间时可以无视当前路线。",
+      "阅读"
+    ]
+  },
+  "stsjorbsmod:GhostPoisonPotion": {
+    "NAME": "幽鬼药水",
+    "DESCRIPTIONS": [
+      "每有一个敌人，获得 #b%1$s 层 #y舱单，然后获得本场战斗的胜利。 NL 对精英与首领敌人无效。"
+    ]
+  },
+  "stsjorbsmod:LiquidClarity": {
+    "NAME": "脑白金",
+    "DESCRIPTIONS": [
+      "使当前的记忆变得 #y清晰 。"
+    ]
+  },
+  "stsjorbsmod:LiquidVirtue": {
+    "NAME": "瓶装德思",
+    "DESCRIPTIONS": [
+      "随机使 #b%1$s 份未变得 #y清晰 的 #y德 行记忆变得 #y清晰 。"
+    ]
+  }
+}

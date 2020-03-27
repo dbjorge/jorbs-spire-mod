@@ -34,7 +34,6 @@ public class ArcaneForm extends CustomJorbsModCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainSpecificClarityAction(p, PatienceMemory.STATIC.ID));
         addToBot(new GainSpecificClarityAction(p, LustMemory.STATIC.ID));
-        addToBot(new GainSpecificClarityAction(p, DiligenceMemory.STATIC.ID));
         addToBot(new GainSpecificClarityAction(p, KindnessMemory.STATIC.ID));
         addToBot(new GainSpecificClarityAction(p, ChastityMemory.STATIC.ID));
     }

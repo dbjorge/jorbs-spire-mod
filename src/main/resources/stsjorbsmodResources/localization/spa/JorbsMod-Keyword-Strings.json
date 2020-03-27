@@ -1,0 +1,248 @@
+[
+  {
+    "PROPER_NAME": "Daño Atacante",
+    "NAMES": [
+      "daño\u00a0atacante",
+      "attack damage"
+    ],
+    "DESCRIPTION": "Afectado por ventajas y perjuicios que afectan ataques: Fuerza, Vulnerable, Débil, Espinas, Lujuria, Punta de Pluma, ...."
+  },
+  {
+    "NAMES": [
+      "quemado",
+      "burning"
+    ],
+    "DESCRIPTION": "Criaturas quemadas reciben daño al principio de su turno y no puede ser curado. Daño por quemado golpeara el #yBloqueo. Cada turno, el Quemado es reducido por un tercio."
+  },
+  {
+    "NAMES": [
+      "caridad",
+      "charity"
+    ],
+    "DESCRIPTION": "Hasta olvidarla, gana 1 de #yFuerza por cada 100 de oro que tienes."
+  },
+  {
+    "NAMES": [
+      "castidad",
+      "chastity"
+    ],
+    "DESCRIPTION": "Cuando recuerdas Castidad, gana #b2 de #yDestreza y aplica #b1 de #yDébil a TODOS los enemigos. Al final de cada turno, pierde #b1 de #yDestreza y gana #b6 de #yBloqueo."
+  },
+  {
+    "NAMES": [
+      "claridad",
+      "claridades",
+      "clarity",
+      "clarities"
+    ],
+    "DESCRIPTION": "Cuando tienes Claridad de una memoria, obtienes su efecto pasivo incluso despues de olvidarla."
+  },
+  {
+    "NAMES": [
+      "rollo",
+      "coil"
+    ],
+    "DESCRIPTION": "Gana 1 Rollo cada vez que juegas una carta mientras recuerdas #yPaciencia. Cuando recuerdas nuevas memorias o terminas tu turno quebrado, Rollo se consume y hace daño a TODOS los enemigos."
+  },
+  {
+    "NAMES": [
+      "consumir",
+      "consume",
+      "consumed"
+    ],
+    "DESCRIPTION": "Cartas consumidas son removidas permanentemente de tu mazo. Obtiene una recompenza basado en la rareza de la carta: NL #yBásica: Cura por #b5. NL #yComún: #b+3 Max PV. NL #yPoco #yComún: #b+3 Max PV y recupera todos tus PV. NL #yRara or #yLegendaria: #b+5 Max PV y recupera todos tus PV. NL #yMaldición: #b-1 Max PV."
+  },
+  {
+    "NAMES": [
+      "destruir",
+      "destroy"
+    ],
+    "DESCRIPTION": "Remover de forma permanente esta carta de tu mazo (no solo este combate)."
+  },
+  {
+    "NAMES": [
+      "diligencia",
+      "diligence"
+    ],
+    "DESCRIPTION": "Cuando recuerdas Diligencia, roba #b2 cartas. Al finalizar tu turno, retiene #b1."
+  },
+  {
+    "NAMES": [
+      "degradar",
+      "downgrade",
+      "downgraded"
+    ],
+    "DESCRIPTION": "Cartas degradadas se debilitan permanentemente."
+  },
+  {
+    "NAMES": [
+      "enterrar",
+      "entomb"
+    ],
+    "DESCRIPTION": "Mover una carta hacia tu pila de agotados. Se desentierra desde la pila de agotados hasta tu mano cada vez que su condicion de desentierro se cumpla."
+  },
+  {
+    "NAMES": [
+      "enterrada",
+      "entombed"
+    ],
+    "DESCRIPTION": "Esta carta empieza cada combate en tu pila de agotados. Se desentierra desde la pila de agotados hasta tu mano cada vez que su condicion de desentierro se cumpla."
+  },
+  {
+    "NAMES": [
+      "envidia",
+      "envy"
+    ],
+    "DESCRIPTION": "Cuando recuerdas Envidia, gana #b1 de #yVulnerable. Cuando apuntas a un enemigo con una carta, aplica #b1 de #yVulnerable a ese enemigo."
+  },
+  {
+    "NAMES": [
+      "efímera",
+      "ephemeral"
+    ],
+    "DESCRIPTION": "Agotada al final the tu turno, cuando se juega, o cuando se descarta."
+  },
+  {
+    "NAMES": [
+      "desenterrar",
+      "exhume",
+      "exhumes"
+    ],
+    "DESCRIPTION": "Movida desde tu pila de agotados hasta tu mano."
+  },
+  {
+    "NAMES": [
+      "gula",
+      "gluttony"
+    ],
+    "DESCRIPTION": "Cuando asesinas a un enemigo no-esbirro, sube tu Max PV por #b2. Al principio de tu turno, descarta 1 carta."
+  },
+  {
+    "NAMES": [
+      "codicia",
+      "greed"
+    ],
+    "DESCRIPTION": "Cuando asesinas a un enemigo no-esbirro, gana #b20 oro."
+  },
+  {
+    "NAMES": [
+      "humildad",
+      "humilty"
+    ],
+    "DESCRIPTION": "Cada vez que se recuerda, gana #b2 #yEspinas. Hasta olvidarla, duplica tus #yEspinas."
+  },
+  {
+    "NAMES": [
+      "amabilidad",
+      "kindness"
+    ],
+    "DESCRIPTION": "Hasta olvidarla, TODOS los enemigos pierden #b3 de #yFuerza."
+  },
+  {
+    "NAMES": [
+      "legendaria",
+      "legendary"
+    ],
+    "DESCRIPTION": "Cartas legendarias no pueden ser duplicadas, removidas, o transformadas. Cartas legendarias que ya tienes no apareceran como recompenza."
+  },
+  {
+    "NAMES": [
+      "lujuria",
+      "lust"
+    ],
+    "DESCRIPTION": "Tus ataques aplican #b2 #yQuemado."
+  },
+  {
+    "NAMES": [
+      "manifiesto",
+      "manifest"
+    ],
+    "DESCRIPTION": "Por cada turno en combate, gana #b1 #yManifiesto. Cuando elijas tu camino, saltea un piso por cada #yManifiesto. Vuelve a #b0 cuando entras a un piso."
+  },
+  {
+    "PROPER_NAME": "Componentes Materiales",
+    "NAMES": [
+      "componente\u00a0material",
+      "componentes\u00a0materiales",
+      "material component",
+      "material components"
+    ],
+    "DESCRIPTION": "Componentes Materiales son (mayormente) cartas de coste 0 con una variedad de efectos menores."
+  },
+  {
+    "NAMES": [
+      "paciencia",
+      "patience"
+    ],
+    "DESCRIPTION": "Gana 1 #yRollo cada vez que juegas una carta. Cuando recuerdas una nueva memoria, haz 1 daño a TODOS los enemigos por cada #yRollo y pierde todo el #yRollo."
+  },
+  {
+    "NAMES": [
+      "orgullo",
+      "pride"
+    ],
+    "DESCRIPTION": "Al final del combate, #ymejora una carta en tu mazo. Hasta olvidarlo, pierde #b2 Destreza."
+  },
+  {
+    "NAMES": [
+      "pecado",
+      "sin"
+    ],
+    "DESCRIPTION": "Una memoria de #yEnvidia, #yCodicia, #yGula, #yLujuria, #yOrgullo, #yPereza, o #yIra."
+  },
+  {
+    "NAMES": [
+      "pereza",
+      "sloth"
+    ],
+    "DESCRIPTION": "Cuando recuerdas Pereza, descarta #b3 cartas aleatorias. Roba #b1 carta menos y gana #b1 [E] adicional cada turno."
+  },
+  {
+    "NAMES": [
+      "lentitud",
+      "ralentizado",
+      "slow",
+      "slowed"
+    ],
+    "DESCRIPTION": "Criaturas ralentizadas toman 10% más daño de los ataques por cada carta ya jugada este turno."
+  },
+  {
+    "NAMES": [
+      "quebrar",
+      "quebrado",
+      "snap",
+      "snapped"
+    ],
+    "DESCRIPTION": "El Deambulante #yQuiebra en el final del turno 7. Pierde TODOS los #yRecuerdos y #yClaridades por el resto del combate. Por cada #yClaridad perdida, haz 6 de daño a TODOS los enemigos y pierde 3 PV."
+  },
+  {
+    "NAMES": [
+      "templanza",
+      "temperance"
+    ],
+    "DESCRIPTION": "Cuando recuerdas o tienes claridad de Templanza, gana 1 #yFuerza por cada #yClaridad que tienes."
+  },
+  {
+    "NAMES": [
+      "virtud",
+      "virtue"
+    ],
+    "DESCRIPTION": "Una memoria de #yCaridad, #yCastidad, #yDiligencia, #yHumildad, #yAmabilidad, #yPaciencia, o #yTemplanza."
+  },
+  {
+    "NAMES": [
+      "red",
+      "redes",
+      "web",
+      "webs"
+    ],
+    "DESCRIPTION": "Redes son cartas de Habilidad de coste 0 con Retiene, aplica Débil, y Agota."
+  },
+  {
+    "NAMES": [
+      "ira",
+      "wrath"
+    ],
+    "DESCRIPTION": "Cuando asesinas a un enemigo no-esbirro, incrementa permanente el daño de la ultima carta de ataque usada por 1."
+  }
+]

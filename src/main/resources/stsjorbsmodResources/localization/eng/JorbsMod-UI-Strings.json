@@ -80,7 +80,8 @@
   "stsjorbsmod:SnapCounter": {
     "TEXT": [
       "Fragile Mind",
-      "At the end of turn 7, #ySnap. NL (It is turn #b%1$s now.)"
+      "At the end of turn #b7, #ySnap. NL (It is turn #b%1$s now.)",
+      "At the end of your turn, #ySnap."
     ]
   },
   "stsjorbsmod:SnapFtueTip": {
@@ -94,6 +95,18 @@
       "Choose a Card to Exhume next turn.",
       "Choose ",
       " Cards to Exhume next turn."
+    ]
+  },
+  "stsjorbsmod:ThirstOption": {
+    "TEXT": [
+      "Thirst",
+      "Consume all Wrath from an attack. For each Wrath, heal 5 HP and gain 1 max HP.",
+      "Consume all Wrath from an attack. (No attacks have any Wrath.)"
+    ]
+  },
+  "stsjorbsmod:ThirstEffect": {
+    "TEXT": [
+      "Select a card to Thirst"
     ]
   },
   "stsjorbsmod:WillAction": {

@@ -21,8 +21,8 @@ import stsjorbsmod.util.CombatUtils;
 
 // At the end of turn 7 deal 5 damage to all enemies and 2 damage to yourself for every clarity bonus you have. You cannot be affected by memories or clarities for the remainder of the fight.
 public class SnapAction extends AbstractGameAction {
-    private static final int ENEMY_DAMAGE_PER_CLARITY = 6;
-    private static final int PLAYER_DAMAGE_PER_CLARITY = 3;
+    public static final int ENEMY_DAMAGE_PER_CLARITY = 6;
+    public static final int PLAYER_DAMAGE_PER_CLARITY = 3;
 
     private final boolean isEndOfTurn;
 

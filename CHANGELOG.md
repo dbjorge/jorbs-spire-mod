@@ -2,9 +2,82 @@
 
 ## [Unreleased]
 
-### Updates
+### New translations
 
-* New art for Entangle (thansk Cartopol)
+* Chinese (Simplified) (thanks yanang007)
+* Spanish (thanks ChDaVinci)
+
+### CULL mechanics
+
+* The CULL can no long Rest at campfires; instead, it Thirsts, consuming Wrath from an attack to heal (thanks Lucerna)
+* The CULL can no longer gain Block; instead, the block amount is dealt as damage to a random enemy (thanks Lucerna)
+* The CULL can no longer gain Dexterity; instead, it gains the Dexterity amount as Strength (thanks Lucerna)
+
+### CULL balance/design changes
+
+* Tungsten Rod removed from CULL relic pool.
+* CULL (the card): Changed to "Deal 12 damage twice. Exhaust."
+* CULL (the card): Upgrade changed to "wrath applies twice"
+* Haunt: Changed to "Ephemeral(Exhaust). Gain 1 intangible and draw 1 fewer card next turn."
+* Abjure: text changed to represent that you will have exactly 1 Spirit Shield.
+* Miracle: added Exhaust
+* Siphon: changed damage, heal amount, upgrade heal amount and rarity. Removed from the starting loadout, since it is now a common.
+* Ectoplasm: changed gold gained from 10 to 5.
+* Wail: added Exhaust. Changed rarity from basic to uncommon, and removed from the starting loadout.
+* Apparate: changed upgrade damage increase from 3 to 4. Changed rarity from basic to uncommon, and removed from the starting loadout.
+* Toil: changed to work only on non-minion enemies, using the Fatal keyword.
+* Wasting Essence: Renamed to Wasting Form. Changed damage per curse drawn and upgrade damage increase.
+* Strife: only counts curses in discard pile. Upgrade adds 2 curses instead of 2 strength per curse. Added Exhaust.
+(thanks Cartopol for all!)
+
+* Seance: deprecated
+
+### New CULL cards
+
+* Strike (thanks Cartopol)
+* Paralysis (thanks Cartopol)
+* Accumulation (thanks Cartopol)
+* Grim Dirge (thanks Cartopol)
+* Find Weakness (thanks Cartopol)
+* Gathering Evil (thanks Cartopol)
+* Exhale (thanks Cartopol)
+* Frantic Mind (thanks Cartopol)
+* Wasting Strike (thanks Cartopol)
+* Polluted Strike (thanks Cartopol)
+* Cleanse (thanks Cartopol)
+* Anxiety (thanks Cartopol)
+* Feint (thanks PanicPoint)
+* Goosebumps (thanks PanicPoint)
+* Melt (thanks PanicPoint)
+* Godsbane (thanks PanicPoint)
+* Pollute (Thanks Cartopol)
+
+
+## [v1.7.0] - 2020-03-15
+
+### Balance changes
+
+* Arcane Form: removed Diligence (thanks wang429) 
+* Mindworm: Reduced damage to 6(7)+6(9) (thanks wang429) 
+* Greed: Reduced gold amount from 20 to 10 (thanks wang429) 
+* Old Pocket: Reduced gold amount from 10 to 5 (thanks wang429) 
+* Humility: Passive effected changed from "double thorns" to "+2 more thorns" (thanks wang429) 
+
+### Wanderer updates
+
+* Improved coloring on memory tooltips (thanks wang429) 
+* Made Snap timing/damage more clear with power bar icon/tooltip and health bar effect (thanks wang429)
+* New art for Entangle (thanks Cartopol)
+* Updated art for Book of Tongues and Faerie Fire (thanks lobbien)
+
+### New CULL cards
+
+* Forced Presence (thanks Cartopol)
+* Commune (thanks Cartopol)
+
+### Bug fixes
+
+* Fix Prayer Wheel being able to show multiple copies of legendary cards (thanks wang429)
 
 ## [v1.6.0] - 2020-03-01
 
