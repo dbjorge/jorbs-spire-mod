@@ -33,6 +33,7 @@
 * mevestatney ([GitHub](https://github.com/stevematney))
 * mikeynap ([GitHub](https://github.com/mikeynap))
 * Sanity Dance ([GitHub](https://github.com/sanity-dance))
+* PanicPoint ([Github](https://github.com/Panic-Point))
 
 ### Lead Artists
 
@@ -67,7 +68,9 @@
 
 ### Localization
 
+* ChDaVinci (Spanish)
 * GDami (French) ([GitHub](https://github.com/GDami))
+* yanang007 (Chinese (Simplified)) ([GitHub](https://github.com/yanang007))
 
 ### Trailer Videographer
 
@@ -113,6 +116,7 @@
 * myop
 * mziggles
 * NoWaitSuperKamiGuru
+* PanicPoint
 * passerbyninja
 * Rabbit
 * Ray661

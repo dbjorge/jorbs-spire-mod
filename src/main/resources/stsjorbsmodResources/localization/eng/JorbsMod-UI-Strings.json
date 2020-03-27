@@ -80,13 +80,26 @@
   "stsjorbsmod:SnapCounter": {
     "TEXT": [
       "Fragile Mind",
-      "At the end of turn 7, #ySnap. NL (It is turn #b%1$s now.)"
+      "At the end of turn #b7, #ySnap. NL (It is turn #b%1$s now.)",
+      "At the end of your turn, #ySnap."
     ]
   },
   "stsjorbsmod:SnapFtueTip": {
     "TEXT": [
       "Snapping",
       "The Wanderer will #ySnap at the end of turn 7. NL The #pflames around his Grimoire track turns. NL #ySnap: Lose ALL #yMemories and #yClarities for the rest of the combat. For each #yClarity lost, deal 6 damage to ALL enemies and lose 3 HP."
+    ]
+  },
+  "stsjorbsmod:ThirstOption": {
+    "TEXT": [
+      "Thirst",
+      "Consume all Wrath from an attack. For each Wrath, heal 5 HP and gain 1 max HP.",
+      "Consume all Wrath from an attack. (No attacks have any Wrath.)"
+    ]
+  },
+  "stsjorbsmod:ThirstEffect": {
+    "TEXT": [
+      "Select a card to Thirst"
     ]
   },
   "stsjorbsmod:WillAction": {
