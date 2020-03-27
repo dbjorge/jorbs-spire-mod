@@ -691,6 +691,11 @@
     "NAME": "Sulfur",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Apply !M! stsjorbsmod:Burning."
   },
+  "stsjorbsmod:Summoning": {
+    "NAME": "Summoning",
+    "DESCRIPTION": "Exhaust !M! card from your draw pile. stsjorbsmod:Exhume it at the start of of next turn.",
+    "UPGRADE_DESCRIPTION": "Exhaust !M! cards from your draw pile. stsjorbsmod:Exhume them at the start of of next turn."
+  },
   "stsjorbsmod:Taunt": {
     "NAME": "Taunt",
     "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Apply 3 Vulnerable to ALL enemies. NL Exhaust."
