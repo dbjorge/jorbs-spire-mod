@@ -19,11 +19,12 @@ public class Toll extends CustomJorbsModCard {
     public static final CardColor COLOR = Cull.Enums.CULL_CARD_COLOR;
 
     private static final int COST = 1;
-    private static final int UPGRADE_PLUS_MAGIC_NUMBER = 1;
+    private static final int DAMAGE_MULTIPLIER = 3;
+    private static final int UPGRADE_PLUS_DAMAGE_MULTIPLIER = 1;
 
     public Toll() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = magicNumber = 3;
+        baseMagicNumber = magicNumber = DAMAGE_MULTIPLIER;
         baseDamage = 0;
     }
 
@@ -40,10 +41,7 @@ public class Toll extends CustomJorbsModCard {
 
     @Override
     public String getRawDynamicDescriptionSuffix() {
-        if (damage > 0) {
-            return EXTENDED_DESCRIPTION[0];
-        }
-        return "";
+        return EXTENDED_DESCRIPTION[0];
     }
 
     @Override
@@ -56,7 +54,7 @@ public class Toll extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_MAGIC_NUMBER);
+            upgradeMagicNumber(UPGRADE_PLUS_DAMAGE_MULTIPLIER);
             upgradeDescription();
         }
     }

@@ -623,7 +623,7 @@
     "NAME": "Toll",
     "DESCRIPTION": "Deal damage equal to !M! times the sum of your relic counters.",
     "EXTENDED_DESCRIPTION": [
-      " NL (Deal !D! Damage)"
+      " NL (Deal !D! damage)"
     ]
   },
   "stsjorbsmod:TollTheDead": {
