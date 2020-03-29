@@ -53,6 +53,7 @@
 * Pollute (thanks Cartopol)
 * Summoning (thanks Cartopol)
 * Toll (thanks PanicPoint)
+* Concentrate (thanks Skyl3lazer)
 
 ## [v1.7.0] - 2020-03-15
 
