@@ -261,7 +261,13 @@
   "stsjorbsmod:StrengthNextTurnPower": {
     "NAME": "力量秘仪",
     "DESCRIPTIONS": [
-      "在你的下一回合开始时，获得 #b%1$s 点力量。"
+      "在下一回合开始时，获得 #b%1$s 点力量。"
+    ]
+  },
+  "stsjorbsmod:SummoningPower": {
+    "NAME": "召唤",
+    "DESCRIPTIONS": [
+      "在下一回合开始时， #y发掘 %1$s 。"
     ]
   },
   "stsjorbsmod:TroublePower": {
