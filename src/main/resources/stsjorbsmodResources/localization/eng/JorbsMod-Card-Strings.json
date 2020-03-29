@@ -192,7 +192,7 @@
     "DESCRIPTION": "Deal X damage. NL Gain Max HP equal to the damage dealt. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Deal X+1 damage. NL Gain Max HP equal to the damage dealt. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
-      " NL (Deal !D! damage.)"
+      " NL (Deals !D! damage.)"
     ]
   },
   "stsjorbsmod:Ectoplasm_Cull": {
@@ -727,7 +727,7 @@
     "NAME": "Toll",
     "DESCRIPTION": "Deal damage equal to !M! times the sum of your relic counters.",
     "EXTENDED_DESCRIPTION": [
-      " NL (Deal !D! damage)"
+      " NL (Deals !D! damage)"
     ]
   },
   "stsjorbsmod:TollTheDead": {
