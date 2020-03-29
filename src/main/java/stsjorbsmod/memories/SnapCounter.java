@@ -10,7 +10,9 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.*;
+import com.megacrit.cardcrawl.helpers.Hitbox;
+import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
@@ -20,6 +22,7 @@ import stsjorbsmod.effects.SnapTurnCounterEffect;
 import stsjorbsmod.powers.FragilePower;
 import stsjorbsmod.tips.MemoryFtueTip;
 import stsjorbsmod.tips.SnapFtueTip;
+import stsjorbsmod.twitch.TwitchExtensionAPI;
 
 import java.util.ArrayList;
 
@@ -173,6 +176,8 @@ public class SnapCounter {
                 AbstractDungeon.effectList.add(new SnapTurnCounterEffect(x, y, color, scaleModifier));
             }
         }
+
+        TwitchExtensionAPI.addPowerTips(hb, tips);
     }
 
     public void renderTips(SpriteBatch sb) {

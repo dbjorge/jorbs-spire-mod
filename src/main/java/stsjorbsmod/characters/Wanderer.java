@@ -35,6 +35,7 @@ import stsjorbsmod.memories.SnapCounter;
 import stsjorbsmod.patches.CutsceneMultiScreenPatch;
 import stsjorbsmod.powers.EntombedGrimoirePower;
 import stsjorbsmod.relics.GrimoireRelic;
+import stsjorbsmod.twitch.TwitchExtensionAPI;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -473,6 +474,7 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
 
     @Override
     public void update() {
+        TwitchExtensionAPI.clearLists();
         super.update();
         int flipMultiplier = flipHorizontal ? -1 : 1;
         snapCounter.update(drawX + flipMultiplier * SNAP_COUNTER_OFFSET_X, drawY + SNAP_COUNTER_OFFSET_Y, flipMultiplier);

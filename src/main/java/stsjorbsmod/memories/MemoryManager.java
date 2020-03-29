@@ -7,9 +7,9 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.PlayerMemoryManagerPatch;
 import stsjorbsmod.powers.SnappedPower;
+import stsjorbsmod.twitch.TwitchExtensionAPI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -236,6 +236,8 @@ public class MemoryManager {
             float y = MEMORY_ARC_Y_RADIUS * MathUtils.sinDeg(absoluteAngle) + centerY + MEMORY_ARC_Y_OFFSET;
 
             memories.get(i).update(x, y);
+
+            TwitchExtensionAPI.addPowerTips(memories.get(i).hb, memories.get(i).getTips());
         }
     }
 
