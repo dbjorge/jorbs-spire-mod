@@ -52,6 +52,7 @@
 * Godsbane (thanks PanicPoint)
 * Pollute (thanks Cartopol)
 * Summoning (thanks Cartopol)
+* Toll (thanks PanicPoint)
 
 ## [v1.7.0] - 2020-03-15
 
