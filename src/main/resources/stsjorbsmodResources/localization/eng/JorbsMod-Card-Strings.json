@@ -723,6 +723,13 @@
     "NAME": "Toil",
     "DESCRIPTION": "Deal !D! damage. NL If Fatal, permanently upgrade a random card. NL Exhaust."
   },
+  "stsjorbsmod:Toll": {
+    "NAME": "Toll",
+    "DESCRIPTION": "Deal damage equal to !M! times the sum of your relic counters.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deal !D! damage)"
+    ]
+  },
   "stsjorbsmod:TollTheDead": {
     "NAME": "Toll the Dead",
     "DESCRIPTION": "Deal !D! damage. NL If the target had already been damaged this turn, deal !D! damage again."
