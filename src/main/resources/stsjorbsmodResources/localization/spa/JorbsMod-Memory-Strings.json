@@ -1,0 +1,86 @@
+{
+  "stsjorbsmod:CharityMemory": {
+    "NAME": "Caridad",
+    "DESCRIPTIONS": [
+      "#bPasivo: Gana #b1 de #yFuerza por cada #b!G! de oro que tienes. (Gana #b!S! de Fuerza.)"
+    ]
+  },
+  "stsjorbsmod:ChastityMemory": {
+    "NAME": "Castidad",
+    "DESCRIPTIONS": [
+      "#bRecuerda: Gana #b!R! de #yDestreza. Aplica #b!W! #yDébil a TODOS los enemigos. NL #bPasivo: Al final de cada turno, pierde #b!D! de #yDestreza y gana #b!B! de #yBloqueo."
+    ]
+  },
+  "stsjorbsmod:DiligenceMemory": {
+    "NAME": "Diligencia",
+    "DESCRIPTIONS": [
+      "#bRecuerda: Roba #b!D! cartas. NL #bPasivo: Al final de tu turno, #yRetiene #b!M!."
+    ]
+  },
+  "stsjorbsmod:EnvyMemory": {
+    "NAME": "Envidia",
+    "DESCRIPTIONS": [
+      "#bRecuerda: Gana #b!V! #yVulnerable. #bPasivo: Cuando utilizas una carta sobre un enemigo, aplica #b!M! #yVulnerable a ese enemigo."
+    ]
+  },
+  "stsjorbsmod:GluttonyMemory": {
+    "NAME": "Gula",
+    "DESCRIPTIONS": [
+      "#bPasivo: Cuando asesinas a un enemigo no-esbirro, sube tu Max PV en #b!M!. Al principio de cada turno, descarta una carta."
+    ]
+  },
+  "stsjorbsmod:GreedMemory": {
+    "NAME": "Codicia",
+    "DESCRIPTIONS": [
+      "#bPasivo: Cuando asesinas a un enemigo no-esbirro, gana #b!M! de oro."
+    ]
+  },
+  "stsjorbsmod:HumilityMemory": {
+    "NAME": "Humildad",
+    "DESCRIPTIONS": [
+      "#bRecuerda: Gana #b!R! #yEspinas. NL #bPasivo: Gana #b!P! #yEspinas adicionales"
+    ]
+  },
+  "stsjorbsmod:KindnessMemory": {
+    "NAME": "Amabilidad",
+    "DESCRIPTIONS": [
+      "#bPasivo: Reduce #yFuerza de TODOS los enemigos en #b!M!."
+    ]
+  },
+  "stsjorbsmod:LustMemory": {
+    "NAME": "Lujuria",
+    "DESCRIPTIONS": [
+      "#bPasivo: Tus ataques aplican #b!P! de #yQuemado."
+    ]
+  },
+  "stsjorbsmod:PatienceMemory": {
+    "NAME": "Paciencia",
+    "DESCRIPTIONS": [
+      "#bPasivo: Gana #b1 #yRollo cada ves que juegas una carta."
+    ]
+  },
+  "stsjorbsmod:PrideMemory": {
+    "NAME": "Orgullo",
+    "DESCRIPTIONS": [
+      "#bPasivo: Pierde #b!D! de #yDestreza. Al final del combate, #yMejora una carta de forma permanente."
+    ]
+  },
+  "stsjorbsmod:SlothMemory": {
+    "NAME": "Pereza",
+    "DESCRIPTIONS": [
+      "#bRecuerda: Descarta #b!D! cartas aleatorias. NL #bPasivo: Roba #b!M! cartas menos y gana #b!E! [E] adicional cada turno."
+    ]
+  },
+  "stsjorbsmod:TemperanceMemory": {
+    "NAME": "Templanza",
+    "DESCRIPTIONS": [
+      "#bPasivo: Gana #yFuerza igual al numero de #yClaridades que tienes. (Gana #b!S! de Fuerza.)"
+    ]
+  },
+  "stsjorbsmod:WrathMemory": {
+    "NAME": "Ira",
+    "DESCRIPTIONS": [
+      "#bPasivo: Cuando asesinas un enemigo no-esbirro, incrementa de forma permanente el daño de la ultima carta de ataque jugada este combate (ahora, !C!) en #b!M!."
+    ]
+  }
+}

@@ -2,24 +2,18 @@ package stsjorbsmod.cards.cull;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.ModifyDamageAction;
-import com.megacrit.cardcrawl.actions.unique.RitualDaggerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.CullCardAction;
-import stsjorbsmod.actions.DamageWithOnKillEffectAction;
-import stsjorbsmod.actions.PermanentlyModifyDamageAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
-import stsjorbsmod.cards.OnDrawCardSubscriber;
+import stsjorbsmod.cards.OnWrathStackReceivedSubscriber;
 import stsjorbsmod.characters.Cull;
+import stsjorbsmod.memories.WrathMemory;
 
 import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 
-public class CULLCard extends CustomJorbsModCard implements OnDrawCardSubscriber {
+public class CULLCard extends CustomJorbsModCard implements OnWrathStackReceivedSubscriber {
     public static final String ID = JorbsMod.makeID(CULLCard.class);
 
     private static final CardRarity RARITY = CardRarity.BASIC;
@@ -28,30 +22,20 @@ public class CULLCard extends CustomJorbsModCard implements OnDrawCardSubscriber
     public static final CardColor COLOR = Cull.Enums.CULL_CARD_COLOR;
 
     private static final int COST = 1;
-    private static final int DAMAGE = 10;
-    private static final int DRAW_MINUS_DAMAGE = 1;
-    private static final int KILL_PLUS_DAMAGE = 3;
-    private static final int UPGRADE_PLUS_KILL_PLUS_DAMAGE = 1;
+    private static final int DAMAGE = 12;
 
     public CULLCard() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
-        misc = baseDamage = DAMAGE;
+        this.baseDamage = DAMAGE;
+        this.exhaust = true;
 
-        magicNumber = baseMagicNumber = KILL_PLUS_DAMAGE;
-        urMagicNumber = baseUrMagicNumber = DRAW_MINUS_DAMAGE;
-        exhaust = true;
         tags.add(LEGENDARY);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Runnable permanentDamageIncrease = () -> {
-            this.addToTop(new PermanentlyModifyDamageAction(this.uuid, this.magicNumber));
-        };
-        this.addToBot(new DamageWithOnKillEffectAction(
-                m, new DamageInfo(p, damage, damageTypeForTurn), permanentDamageIncrease, false));
-        this.addToBot(new DamageWithOnKillEffectAction(
-                m, new DamageInfo(p, damage, damageTypeForTurn), permanentDamageIncrease, false));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }
 
     @Override
@@ -61,21 +45,18 @@ public class CULLCard extends CustomJorbsModCard implements OnDrawCardSubscriber
     }
 
     @Override
-    public void onDraw() {
-        addToBot(new PermanentlyModifyDamageAction(uuid, -urMagicNumber));
-    }
-
-    @Override
-    public void applyLoadedMiscValue(int misc) {
-        baseDamage = this.misc = misc;
-    }
-
-    @Override
     public void upgrade() {
         if(!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_KILL_PLUS_DAMAGE);
             upgradeDescription();
         }
+    }
+
+    @Override
+    public void onWrathStackReceived() {
+        if (this.upgraded) {
+            WrathMemory.permanentlyIncreaseCardDamage(this);
+        }
+
     }
 }

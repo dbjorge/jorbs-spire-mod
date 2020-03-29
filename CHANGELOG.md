@@ -1,7 +1,60 @@
 # Changelog
 
 ## [Unreleased]
-New Card: Concentrate (Cull, Uncommon) 0: Discard 3(2) cards, gain 2 energy
+
+### New translations
+
+* Chinese (Simplified) (thanks yanang007)
+* Spanish (thanks ChDaVinci)
+
+### CULL mechanics
+
+* The CULL can no long Rest at campfires; instead, it Thirsts, consuming Wrath from an attack to heal (thanks Lucerna)
+* The CULL can no longer gain Block; instead, the block amount is dealt as damage to a random enemy (thanks Lucerna)
+* The CULL can no longer gain Dexterity; instead, it gains the Dexterity amount as Strength (thanks Lucerna)
+
+### CULL balance/design changes
+
+* Tungsten Rod removed from CULL relic pool.
+* CULL (the card): Changed to "Deal 12 damage twice. Exhaust."
+* CULL (the card): Upgrade changed to "wrath applies twice"
+* Haunt: Changed to "Ephemeral(Exhaust). Gain 1 intangible and draw 1 fewer card next turn."
+* Abjure: text changed to represent that you will have exactly 1 Spirit Shield.
+* Miracle: added Exhaust
+* Siphon: changed damage, heal amount, upgrade heal amount and rarity. Removed from the starting loadout, since it is now a common.
+* Ectoplasm: changed gold gained from 10 to 5.
+* Wail: added Exhaust. Changed rarity from basic to uncommon, and removed from the starting loadout.
+* Apparate: changed upgrade damage increase from 3 to 4. Changed rarity from basic to uncommon, and removed from the starting loadout.
+* Toil: changed to work only on non-minion enemies, using the Fatal keyword.
+* Wasting Essence: Renamed to Wasting Form. Changed damage per curse drawn and upgrade damage increase.
+* Strife: only counts curses in discard pile. Upgrade adds 2 curses instead of 2 strength per curse. Added Exhaust.
+(thanks Cartopol for all!)
+
+* Seance: deprecated
+
+### New CULL cards
+
+* Strike (thanks Cartopol)
+* Paralysis (thanks Cartopol)
+* Accumulation (thanks Cartopol)
+* Grim Dirge (thanks Cartopol)
+* Find Weakness (thanks Cartopol)
+* Gathering Evil (thanks Cartopol)
+* Exhale (thanks Cartopol)
+* Frantic Mind (thanks Cartopol)
+* Wasting Strike (thanks Cartopol)
+* Polluted Strike (thanks Cartopol)
+* Cleanse (thanks Cartopol)
+* Anxiety (thanks Cartopol)
+* Feint (thanks PanicPoint)
+* Goosebumps (thanks PanicPoint)
+* Melt (thanks PanicPoint)
+* Godsbane (thanks PanicPoint)
+* Pollute (thanks Cartopol)
+* Summoning (thanks Cartopol)
+* Toll (thanks PanicPoint)
+* Concentrate (thanks Skyl3lazer)
+
 ## [v1.7.0] - 2020-03-15
 
 ### Balance changes
