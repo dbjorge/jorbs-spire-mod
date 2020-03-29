@@ -32,8 +32,9 @@
 * mdiehr ([GitHub](https://github.com/mdiehr))
 * mevestatney ([GitHub](https://github.com/stevematney))
 * mikeynap ([GitHub](https://github.com/mikeynap))
-* Sanity Dance ([GitHub](https://github.com/sanity-dance))
 * PanicPoint ([Github](https://github.com/Panic-Point))
+* Sanity Dance ([GitHub](https://github.com/sanity-dance))
+* Skyl3lazer ([GitHub](https://github.com/Skyl3lazer))
 
 ### Lead Artists
 
