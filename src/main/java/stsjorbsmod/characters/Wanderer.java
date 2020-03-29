@@ -474,10 +474,23 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
 
     @Override
     public void update() {
-        TwitchExtensionAPI.clearLists();
         super.update();
         int flipMultiplier = flipHorizontal ? -1 : 1;
         snapCounter.update(drawX + flipMultiplier * SNAP_COUNTER_OFFSET_X, drawY + SNAP_COUNTER_OFFSET_Y, flipMultiplier);
+        updateTwitchExtensionAPI();
+    }
+
+    private void updateTwitchExtensionAPI() {
+        TwitchExtensionAPI.clearLists();
+
+        MemoryManager manager = MemoryManager.forPlayer();
+        if (!manager.isSnapped()) {
+            for (int i = 0; i < manager.memories.size(); ++i) {
+                TwitchExtensionAPI.addPowerTips(manager.memories.get(i).hb, manager.memories.get(i).getTips());
+            }
+
+            TwitchExtensionAPI.addPowerTips(snapCounter.hb, snapCounter.tips);
+        }
     }
 
     @Override

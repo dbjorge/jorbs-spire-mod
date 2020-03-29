@@ -73,7 +73,7 @@ public abstract class AbstractMemory implements OnModifyGoldSubscriber {
     private static Color ICON_COLOR = Settings.CREAM_COLOR.cpy();
     private float centerX;
     private float centerY;
-    protected Hitbox hb;
+    public Hitbox hb;
     private float rememberBgRotationTimer = 0.0F;
     private ArrayList<AbstractGameEffect> renderEffects = new ArrayList<>();
 
@@ -161,7 +161,7 @@ public abstract class AbstractMemory implements OnModifyGoldSubscriber {
 
     protected void addExtraPowerTips(ArrayList<PowerTip> tips) { }
 
-    protected ArrayList<PowerTip> getTips() {
+    public ArrayList<PowerTip> getTips() {
         ArrayList<PowerTip> tips = new ArrayList<>();
         tips.add(new PowerTip(name, description, staticInfo.CLARITY_IMG_48));
         addExtraPowerTips(tips);

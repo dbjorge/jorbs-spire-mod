@@ -47,8 +47,8 @@ public class SnapCounter {
     public static final int SNAP_TURN = 7;
 
     private final AbstractPlayer owner;
-    private final Hitbox hb;
-    private final ArrayList<PowerTip> tips;
+    public final Hitbox hb;
+    public final ArrayList<PowerTip> tips;
 
     private float centerX;
     private float centerY;
@@ -176,8 +176,6 @@ public class SnapCounter {
                 AbstractDungeon.effectList.add(new SnapTurnCounterEffect(x, y, color, scaleModifier));
             }
         }
-
-        TwitchExtensionAPI.addPowerTips(hb, tips);
     }
 
     public void renderTips(SpriteBatch sb) {

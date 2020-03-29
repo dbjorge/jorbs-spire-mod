@@ -20,7 +20,7 @@ public class MemoryManager {
     private final AbstractPlayer owner;
 
     public AbstractMemory currentMemory;
-    private ArrayList<AbstractMemory> memories;
+    public ArrayList<AbstractMemory> memories;
     public boolean renderForgottenMemories = false;
 
     public MemoryManager(AbstractPlayer owner) {
@@ -236,8 +236,6 @@ public class MemoryManager {
             float y = MEMORY_ARC_Y_RADIUS * MathUtils.sinDeg(absoluteAngle) + centerY + MEMORY_ARC_Y_OFFSET;
 
             memories.get(i).update(x, y);
-
-            TwitchExtensionAPI.addPowerTips(memories.get(i).hb, memories.get(i).getTips());
         }
     }
 
