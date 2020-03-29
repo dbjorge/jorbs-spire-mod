@@ -11,6 +11,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -129,26 +130,20 @@ public class JorbsMod implements
         return MOD_ID + "Resources/images/monsters/" + resourcePath;
     }
 
-    public static String makeOrbPath(String resourcePath) {
-        return MOD_ID + "Resources/orbs/" + resourcePath;
-    }
-    
     public static String makePowerPath(String resourcePath) {
         return MOD_ID + "Resources/images/powers/" + resourcePath;
     }
-    
-    public static String makeEventPath(String resourcePath) {
-        return MOD_ID + "Resources/images/events/" + resourcePath;
+
+    public static String makeImagePath(String resourcePath) {
+        return MOD_ID + "Resources/images/" + resourcePath;
     }
 
-    public static String makeScenePath(String resourcePath) {
-        return MOD_ID + "Resources/images/scenes/" + resourcePath;
-    }
-
-    public static String makeLocalizedStringsPath(String resourcePath) {
+    public static String makeLocalizedStringsPath(Settings.GameLanguage language, String resourcePath) {
         String languageFolder =
                 // Disable this until we can get it back up to date
                 // Settings.language == Settings.GameLanguage.FRA ? "fra" :
+                language == Settings.GameLanguage.SPA ? "spa" :
+                language == Settings.GameLanguage.ZHS ? "zhs" :
                 /* default: */ "eng";
 
         return MOD_ID + "Resources/localization/" + languageFolder + "/" + resourcePath;
@@ -344,20 +339,26 @@ public class JorbsMod implements
     
     // ================ LOAD THE TEXT ===================
 
+    private void loadStrings(Class<?> stringType, String stringsFileName) {
+        // We load english first as a fallback for yet-to-be-translated things, then load the "true" language
+        BaseMod.loadCustomStringsFile(stringType, makeLocalizedStringsPath(Settings.GameLanguage.ENG, stringsFileName));
+        BaseMod.loadCustomStringsFile(stringType, makeLocalizedStringsPath(Settings.language, stringsFileName));
+    }
+    
     @Override
     public void receiveEditStrings() {
         logger.info("Beginning to edit strings for mod with ID: " + MOD_ID);
 
-        BaseMod.loadCustomStringsFile(CardStrings.class, makeLocalizedStringsPath("JorbsMod-Card-Strings.json"));
-        BaseMod.loadCustomStringsFile(CharacterStrings.class, makeLocalizedStringsPath("JorbsMod-Character-Strings.json"));
-        BaseMod.loadCustomStringsFile(EventStrings.class, makeLocalizedStringsPath("JorbsMod-Event-Strings.json"));
-        BaseMod.loadCustomStringsFile(PowerStrings.class, makeLocalizedStringsPath("JorbsMod-Memory-Strings.json"));
-        BaseMod.loadCustomStringsFile(MonsterStrings.class, makeLocalizedStringsPath("JorbsMod-Monster-Strings.json"));
-        BaseMod.loadCustomStringsFile(PotionStrings.class, makeLocalizedStringsPath("JorbsMod-Potion-Strings.json"));
-        BaseMod.loadCustomStringsFile(PowerStrings.class, makeLocalizedStringsPath("JorbsMod-Power-Strings.json"));
-        BaseMod.loadCustomStringsFile(RelicStrings.class, makeLocalizedStringsPath("JorbsMod-Relic-Strings.json"));
-        BaseMod.loadCustomStringsFile(UIStrings.class, makeLocalizedStringsPath("JorbsMod-UI-Strings.json"));
-        BaseMod.loadCustomStringsFile(UIStrings.class, makeLocalizedStringsPath("JorbsMod-Wanderer-Voiceover-Strings.json"));
+        loadStrings(CardStrings.class, "JorbsMod-Card-Strings.json");
+        loadStrings(CharacterStrings.class, "JorbsMod-Character-Strings.json");
+        loadStrings(EventStrings.class, "JorbsMod-Event-Strings.json");
+        loadStrings(PowerStrings.class, "JorbsMod-Memory-Strings.json");
+        loadStrings(MonsterStrings.class, "JorbsMod-Monster-Strings.json");
+        loadStrings(PotionStrings.class, "JorbsMod-Potion-Strings.json");
+        loadStrings(PowerStrings.class, "JorbsMod-Power-Strings.json");
+        loadStrings(RelicStrings.class, "JorbsMod-Relic-Strings.json");
+        loadStrings(UIStrings.class, "JorbsMod-UI-Strings.json");
+        loadStrings(UIStrings.class, "JorbsMod-Wanderer-Voiceover-Strings.json");
 
         logger.info("Done editing strings");
     }
@@ -377,7 +378,7 @@ public class JorbsMod implements
         // In Keyword-Strings.json you would have PROPER_NAME as A Long Keyword and the first element in NAMES be a long keyword, and the second element be a_long_keyword
         
         Gson gson = new Gson();
-        String json = Gdx.files.internal( makeLocalizedStringsPath("JorbsMod-Keyword-Strings.json")).readString(String.valueOf(StandardCharsets.UTF_8));
+        String json = Gdx.files.internal( makeLocalizedStringsPath(Settings.language, "JorbsMod-Keyword-Strings.json")).readString(String.valueOf(StandardCharsets.UTF_8));
         com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
         
         if (keywords != null) {

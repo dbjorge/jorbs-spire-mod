@@ -80,6 +80,14 @@
       "Exhumes in #b%3$s turn."
     ]
   },
+  "stsjorbsmod:EntombedGrimDirgePower": {
+    "NAME": "Entombed Grim Dirge",
+    "DESCRIPTIONS": [
+      "%1$s will be Exhumed on the #b%2$srd turn. NL ",
+      "Exhumes in #b%3$s turns.",
+      "Exhumes in #b%3$s turn."
+    ]
+  },
   "stsjorbsmod:MirrorPower": {
     "NAME": "Mirror",
     "DESCRIPTIONS": [
@@ -104,6 +112,13 @@
     "NAME": "Find Familiar",
     "DESCRIPTIONS": [
       "At the start of each turn, gain #yClarity."
+    ]
+  },
+  "stsjorbsmod:FindWeaknessPower": {
+    "NAME": "Find Weakness",
+    "DESCRIPTIONS": [
+      "Scry #b%1$s the first time you attack an enemy each turn. NL You have not played an Attack this turn.",
+      "Scry #b%1$s the first time you attack an enemy each turn. NL You have played an Attack this turn."
     ]
   },
   "stsjorbsmod:FlameWardPower": {
@@ -133,6 +148,12 @@
       " HP and deal #b",
       " damage to ALL enemies. Deal ",
       " additional damage per Clarity."
+    ]
+  },
+  "stsjorbsmod:LoseStrengthNextTurnPower": {
+    "NAME": "Lose Strength Next Turn",
+    "DESCRIPTIONS": [
+      "At the start of next turn, lose #b%1$s Strength."
     ]
   },
   "stsjorbsmod:MagicMirrorPower": {
@@ -238,6 +259,12 @@
       "At the start of next turn, gain #b%1$s Strength."
     ]
   },
+  "stsjorbsmod:SummoningPower": {
+    "NAME": "Summoning",
+    "DESCRIPTIONS": [
+      "At the start of next turn, #yExhume %1$s."
+    ]
+  },
   "stsjorbsmod:TroublePower": {
     "NAME": "Trouble",
     "DESCRIPTIONS": [
@@ -245,8 +272,8 @@
       "Whenever you draw a Curse, draw #b%1$s cards."
     ]
   },
-  "stsjorbsmod:WastingEssencePower": {
-    "NAME": "Wasting Essence",
+  "stsjorbsmod:WastingFormPower": {
+    "NAME": "Wasting Form",
     "DESCRIPTIONS": [
       "Whenever you draw a Curse, deal #b%1$s damage to ALL enemies."
     ]

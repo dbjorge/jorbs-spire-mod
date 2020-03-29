@@ -1,0 +1,254 @@
+{
+  "stsjorbsmod:ArcaneWeaponPower": {
+    "NAME": "Arma Arcana",
+    "DESCRIPTIONS": [
+      "Al final de cada turno, haz %1$s%2$s de #yDaño de #yAtaque a un enemigo aleatorio."
+    ]
+  },
+  "stsjorbsmod:BanishedPower": {
+    "NAME": "Desaparecido",
+    "DESCRIPTIONS": [
+      "No puedes infligir o recibir daño, ventajas o perjuicios."
+    ]
+  },
+  "stsjorbsmod:BlackTentaclesPower": {
+    "NAME": "Tentáculos Negros",
+    "DESCRIPTIONS": [
+      "Este turno, todo el daño que inflijas a otros enemigos sera hecho a este enemigo, en cambio."
+    ]
+  },
+  "stsjorbsmod:BookOfTonguesPower": {
+    "NAME": "Libro de Lenguas",
+    "DESCRIPTIONS": [
+      "Al principio de tu turno, roba #b%1$s Componente Material aleatorio.",
+      "Al principio de tu turno, roba #b%1$s Componentes Materiales aleatorios."
+    ]
+  },
+  "stsjorbsmod:BurningPower": {
+    "NAME": "Quemado",
+    "DESCRIPTIONS": [
+      "Al principio de tu turno, recibe #b%1$s de daño, después reduce #yQuemado por #b%2$s. No puedes curarte.",
+      "Al principio de este turno, recibe #b%1$s de daño, después reduce #yQuemado por #b%2$s. No puede curarse.",
+      "Reduce la curación por %1$s%%.",
+      "Mmmm... Caracoles"
+    ]
+  },
+  "stsjorbsmod:CatharsisPower": {
+    "NAME": "Catarsis",
+    "DESCRIPTIONS": [
+      "Cartas #yInjugables de #rMaldición ahora pueden jugarse. Cuando lo hagas, pierde #b%3$s PV y haz #b%1$s de daño a un enemigo aleatorio por cada Maldición jugada este combate ( #b%2$s #rMalidición jugada).",
+      "Cartas #yInjugables de #rMaldición ahora pueden jugarse. Cuando lo hagas, pierde #b%3$s PV y haz #b%1$s de daño a un enemigo aleatorio por cada Maldición jugada este combate ( #b%2$s #rMalidiciónes jugadas)."
+    ]
+  },
+  "stsjorbsmod:CoilPower": {
+    "NAME": "Rollo",
+    "DESCRIPTIONS": [
+      "Cuando recuerdas nuevas memorias o terminas tu turno quebrado, Rollo se consume y hace daño a TODOS los enemigos."
+    ]
+  },
+  "stsjorbsmod:DamnationPower": {
+    "NAME": "Condenación",
+    "DESCRIPTIONS": [
+      "Permanentemente #yTransforma la próxima carta jugada este combate.",
+      "Permanentemente #yTransforma la próxima carta jugada este combate, luego #yMejora la carta."
+    ]
+  },
+  "stsjorbsmod:DoubleCheckPower": {
+    "NAME": "Doble-check",
+    "DESCRIPTIONS": [
+      "Al principio de tu próximo turno, si recuerdas #yDiligencia gana #yClaridad."
+    ]
+  },
+  "stsjorbsmod:DoubleExhaustPower": {
+    "NAME": "Doble",
+    "DESCRIPTIONS": [
+      "Este turno, tu próxima carta que #yAgota se juega dos veces.",
+      "Este turno, tus próximas %1$s cartas que #yAgotes se juegan dos veces."
+    ]
+  },
+  "stsjorbsmod:EnergizedCustomPower": {
+    "NAME": "Energizado",
+    "DESCRIPTIONS": [
+      "Gana #b%1$s [E] adicional el próximio turno."
+    ]
+  },
+  "stsjorbsmod:EntombedGrimoirePower": {
+    "NAME": "Grimorio Enterrado",
+    "DESCRIPTIONS": [
+      "%1$s será Desenterrado en el #b%2$s turno, o cuando Quiebres. NL ",
+      "Se Desentierra en #b%3$s turnos.",
+      "Se Desentierra en #b%3$s turno."
+    ]
+  },
+  "stsjorbsmod:MirrorPower": {
+    "NAME": "Espejo",
+    "DESCRIPTIONS": [
+      "Por #b%1$s turno, no recibes daño y reflejas ese daño de ataque al enemigo que te lo inflijió.",
+      "Por #b%1$s turnos, no recibes daño y reflejas ese daño de ataque al enemigo que te lo inflijió."
+    ]
+  },
+  "stsjorbsmod:ExhumeAtStartOfTurnPower": {
+    "NAME": "Desentierro",
+    "DESCRIPTIONS": [
+      "Al principio de tu próximo turno, Desenterraras algunas cartas."
+    ]
+  },
+  "stsjorbsmod:FearPower": {
+    "NAME": "Miedo",
+    "DESCRIPTIONS": [
+      "Escapas en #b%1$s turno. Si esto termina la pelea, mantén las Claridades para el siguiente combate.",
+      "Escapas en #b%1$s turnos. Si esto termina la pelea, mantén las Claridades para el siguiente combate."
+    ]
+  },
+  "stsjorbsmod:FindFamiliarPower": {
+    "NAME": "Parece Familiar",
+    "DESCRIPTIONS": [
+      "Al principío de cada turno, gana #yClaridad."
+    ]
+  },
+  "stsjorbsmod:FlameWardPower": {
+    "NAME": "Pared de Llamas",
+    "DESCRIPTIONS": [
+      "Cuando seas atacado, aplica #b%1$s de #yQuemado a TODOS los enemigos y gana #b%2$s de #yBloqueo."
+    ]
+  },
+  "stsjorbsmod:ForbiddenGrimoireDelayedExhumePower": {
+    "NAME": "Desentierro Retrasado",
+    "DESCRIPTIONS": [
+      "%1$s será Desenterrado depués que juegues una #b%2$s carta más.",
+      "%1$s será Desenterrado después que juegues unas #b%2$s cartas más."
+    ]
+  },
+  "stsjorbsmod:FragilePower": {
+    "NAME": "Frágil",
+    "DESCRIPTIONS": [
+      "Al final de este turno, #yQuiebra. NL Pierde #b%2$s PV y haz #b%3$s de daño a TODOS los enemigos.",
+      "Al final del turno #b%1$s, #yQuiebra. NL Pierde #b%2$s PV y haz #b%3$s de daño a TODOS los enemigos."
+    ]
+  },
+  "stsjorbsmod:IntrospectionPower": {
+    "NAME": "Introspección",
+    "DESCRIPTIONS": [
+      "Al final de cada turno, pierde #b",
+      " PV y haz #b",
+      " de daño a TODOS los enemigos. Haz ",
+      " daño adicional por cada Claridad."
+    ]
+  },
+  "stsjorbsmod:MagicMirrorPower": {
+    "NAME": "Espejo Mágico",
+    "DESCRIPTIONS": [
+      "Cuando un enemigo aplica un perjuicio hacia a ti, aplica ese perjuicio a TODOS los enemigos.",
+      "Cuando un enemigo aplica un perjuicio hacia a ti, aplica ese perjuicio a TODOS los enemigos #b%1$s veces."
+    ]
+  },
+  "stsjorbsmod:MindGlassPower": {
+    "NAME": "Mente de Cristal",
+    "DESCRIPTIONS": [
+      "La próxima vez que ganes #yClaridad, haz #b%1$s de daño a TODOS los enemigos."
+    ]
+  },
+  "stsjorbsmod:MirrorImagePower": {
+    "NAME": "Reflejo de Espejo",
+    "DESCRIPTIONS": [
+      "Un Reflejo de Espejo que interceptará %1$s ataque por vos.",
+      "Un Reflejo de Espejo que interceptará %1$s ataques por vos."
+    ]
+  },
+  "stsjorbsmod:MustClarifyBeforeRememberingNewMemoriesPower": {
+    "NAME": "Negarse a Olvidar",
+    "DESCRIPTIONS": [
+      "No puedes recordar otras memorias hasta que tengas #yClaridad the tu memoria actual."
+    ]
+  },
+  "stsjorbsmod:PathosPower": {
+    "NAME": "Pathos",
+    "DESCRIPTIONS": [
+      "Este turno, las cartas en tu mano cuestan 0. Agrega una Maldición a tu pila de descarte por cada carta jugada.",
+      "Por #b%1$s turnos, las cartas en tu mano cuestan 0. Agrega una Maldición a tu pila de descarte por cada carta jugada."
+    ]
+  },
+  "stsjorbsmod:PhantasmPower": {
+    "NAME": "Fantasma",
+    "DESCRIPTIONS": [
+      "Cuando ganas #yIntangible, haz #b%1$s de daño a TODOS los enemigos."
+    ]
+  },
+  "stsjorbsmod:PlayNextAttackThisTurnAdditionalTimesPower": {
+    "NAME": "Acumulación de Poder",
+    "DESCRIPTIONS": [
+      "El próximo ataque que juegues este turno se jugara una vez más.",
+      "El próximo ataque que juegues este turno se jugara #b%1$s veces más."
+    ]
+  },
+  "stsjorbsmod:PlayNextCardThisTurnAdditionalTimesPower": {
+    "NAME": "Azogue",
+    "DESCRIPTIONS": [
+      "La próxima carta que juegues este turno se jugara una vez más.",
+      "La próxima carta que juegues este turno se jugara #b%1$s veces más."
+    ]
+  },
+  "stsjorbsmod:PrestidigitationPower": {
+    "NAME": "Prestidigitación",
+    "DESCRIPTIONS": [
+      "Al principio de cada turno, aplica #b%1$s Débil o #b%2$s Vulnerable a un enemigo aleatorio."
+    ]
+  },
+  "stsjorbsmod:PyromancyPower": {
+    "NAME": "Piromancia",
+    "DESCRIPTIONS": [
+      "Cuando aplicas #yQuemado, aplica esa cantidad de #yQuemado #b%1$s vez más.",
+      "Cuando aplicas #yQuemado, aplica esa cantidad de #yQuemado #b%1$s veces más."
+    ]
+  },
+  "stsjorbsmod:RediscoveryPower": {
+    "NAME": "Redescubrimiento",
+    "DESCRIPTIONS": [
+      "Cuando ganas #yClaridad de una nueva memoria, gana #b%1$s de [E]"
+    ]
+  },
+  "stsjorbsmod:ReducedHealingPower": {
+    "NAME": "Sin cura",
+    "DESCRIPTIONS": [
+      "Reduce curación por %1$s%%."
+    ]
+  },
+  "stsjorbsmod:SnappedPower": {
+    "NAME": "Quebrado",
+    "DESCRIPTIONS": [
+      "No recuerdas ninguna memoria o claridad."
+    ]
+  },
+  "stsjorbsmod:SpiritShieldPower": {
+    "NAME": "Escudo Espiritual",
+    "DESCRIPTIONS": [
+      "Reduce todo el daño en #b%2$s por #b%1$s turno.",
+      "Reduce todo el daño en #b%2$s por #b%1$s turnos."
+    ]
+  },
+  "stsjorbsmod:StrangePendantPower": {
+    "NAME": "Pendiente Extraño",
+    "DESCRIPTIONS": [
+      "Reduce el primer daño recibido cada turno en #b%1$s."
+    ]
+  },
+  "stsjorbsmod:StrengthNextTurnPower": {
+    "NAME": "Fuerza Siguiente",
+    "DESCRIPTIONS": [
+      "Al principio del próximo turno, gana #b%1$s de Fuerza."
+    ]
+  },
+  "stsjorbsmod:TroublePower": {
+    "NAME": "Problema",
+    "DESCRIPTIONS": [
+      "Cuando robas una Maldición, roba #b%1$s carta.",
+      "Cuando robas una Maldición, roba #b%1$s cartas."
+    ]
+  },
+  "stsjorbsmod:WastingEssencePower": {
+    "NAME": "Desperdicio de Esencia",
+    "DESCRIPTIONS": [
+      "Cuando robas una Maldición, haz #b%1$s de daño a TODOS los enemigos."
+    ]
+  }
+}

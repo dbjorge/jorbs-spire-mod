@@ -22,7 +22,7 @@ public class Ectoplasm_Cull extends CustomJorbsModCard {
 
     private static final int COST = 1;
     private static final int DAMAGE = 10;
-    private static final int GOLD_PER_MANIFEST = 10;
+    private static final int GOLD_PER_MANIFEST = 5;
     private static final int UPGRADE_GOLD_PER_MANIFEST = 3;
     private static final int UPGRADE_PLUS_DAMAGE = 3;
 
