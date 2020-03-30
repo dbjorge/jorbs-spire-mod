@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.patches.EphemeralField;
-import stsjorbsmod.patches.ExertedField;
 
 import java.util.Collections;
 import java.util.List;
@@ -237,11 +236,21 @@ public abstract class CustomJorbsModCard extends CustomCard implements StartActS
         }
         return null;
     }
+//
+//    @Override
+//    public void receiveStartAct() {
+//        if (ExertedField.exerted.get(this)) {
+//            ExertedField.exerted.set(this, false);
+//        }
+//    }
 
     @Override
-    public void receiveStartAct() {
-        if (ExertedField.exerted.get(this)) {
-            ExertedField.exerted.set(this, false);
-        }
+    public final void receiveStartAct() {
+        this.atStartOfAct();
     }
+
+
+    // Individual cards override this (and don't have to remember to call super.sameMethod() because of the pattern)
+    protected void atStartOfAct() { }
+
 }

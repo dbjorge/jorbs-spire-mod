@@ -31,7 +31,6 @@ public class Frustration extends CustomJorbsModCard {
         this.isMultiDamage = true;
         this.baseDamage = DAMAGE;
         this.baseMagicNumber = DAMAGE_ON_RETAIN;
-        this.exhaust = true;
         SelfExertField.selfExert.set(this, true);
     }
 
