@@ -50,7 +50,7 @@
   },
   {
     "NAMES": ["exert"],
-    "DESCRIPTION": "Exhaust this card when played. It will be entombed until the start of next Act."
+    "DESCRIPTION": "Exhaust this card when played. It will be #yEntombed until the start of next Act."
   },
   {
     "NAMES": ["exerted"],

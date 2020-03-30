@@ -1,16 +1,14 @@
 package stsjorbsmod.cards.cull;
 
-import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
-import stsjorbsmod.patches.EntombedField;
+import stsjorbsmod.patches.SelfExertField;
 
 public class Frustration extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Frustration.class);
@@ -34,7 +32,7 @@ public class Frustration extends CustomJorbsModCard {
         this.baseDamage = DAMAGE;
         this.baseMagicNumber = DAMAGE_ON_RETAIN;
         this.exhaust = true;
-        this.exert = true;
+        SelfExertField.selfExert.set(this, true);
     }
 
 
@@ -46,9 +44,6 @@ public class Frustration extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
         this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-
-        AbstractCard masterCard = StSLib.getMasterDeckEquivalent(this);
-        EntombedField.entombed.set(masterCard, true);
     }
 
     @Override

@@ -11,8 +11,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.patches.EntombedField;
 import stsjorbsmod.patches.EphemeralField;
+import stsjorbsmod.patches.ExertedField;
 
 import java.util.Collections;
 import java.util.List;
@@ -36,9 +36,6 @@ public abstract class CustomJorbsModCard extends CustomCard implements StartActS
     public int baseMetaMagicNumber = 0;
     public boolean upgradedMetaMagicNumber = false;
     public boolean isMetaMagicNumberModified = false;
-
-    public boolean exert = false;
-
 
     // This enables us to use separate rarities for card generation vs the title banner graphic
     // (primarily for SPECIAL cards that we want displayed at a non-common rarity)
@@ -243,8 +240,8 @@ public abstract class CustomJorbsModCard extends CustomCard implements StartActS
 
     @Override
     public void receiveStartAct() {
-        if (this.exert) {
-            EntombedField.entombed.set(this, false);
+        if (ExertedField.exerted.get(this)) {
+            ExertedField.exerted.set(this, false);
         }
     }
 }

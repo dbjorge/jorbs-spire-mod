@@ -265,7 +265,7 @@
   },
   "stsjorbsmod:Frustration": {
     "NAME": "Frustration",
-    "DESCRIPTION": "Retain. NL Deal !D! damage to ALL enemies. NL Whenever this is retained, deal !M! damage to ALL enemies. NL stsjorbsmod:Exert."
+    "DESCRIPTION": "Retain: Deal !M! damage to ALL enemies. NL stsjorbsmod:Exert: Deal !D! damage to ALL enemies."
   },
   "stsjorbsmod:GatherPower": {
     "NAME": "Gather Power",
