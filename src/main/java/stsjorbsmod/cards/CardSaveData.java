@@ -62,12 +62,13 @@ public class CardSaveData implements CustomSavableRaw {
             int i = 0;
 
             for (AbstractCard card : masterDeck.group) {
-                int wrathEffectCount = cardData.get(i++).wrathEffectCount;
+                int wrathEffectCount = cardData.get(i).wrathEffectCount;
                 WrathMemory.reapplyToLoadedCard(card, wrathEffectCount);
-                boolean isEntombed = cardData.get(i++).isEntombed;
+                boolean isEntombed = cardData.get(i).isEntombed;
                 EntombedField.entombed.set(card, isEntombed);
-                boolean isExerted = cardData.get(i++).isExerted;
+                boolean isExerted = cardData.get(i).isExerted;
                 ExertedField.exerted.set(card, isExerted);
+                i++;
             }
         }
     }

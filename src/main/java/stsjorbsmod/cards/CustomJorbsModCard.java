@@ -236,19 +236,11 @@ public abstract class CustomJorbsModCard extends CustomCard implements StartActS
         }
         return null;
     }
-//
-//    @Override
-//    public void receiveStartAct() {
-//        if (ExertedField.exerted.get(this)) {
-//            ExertedField.exerted.set(this, false);
-//        }
-//    }
 
     @Override
     public final void receiveStartAct() {
         this.atStartOfAct();
     }
-
 
     // Individual cards override this (and don't have to remember to call super.sameMethod() because of the pattern)
     protected void atStartOfAct() { }

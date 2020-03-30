@@ -27,6 +27,7 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.console.*;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
+import stsjorbsmod.patches.ExertedField;
 import stsjorbsmod.potions.*;
 import stsjorbsmod.relics.CustomJorbsModRelic;
 import stsjorbsmod.tips.JorbsModTipTracker;
@@ -423,9 +424,12 @@ public class JorbsMod implements
     @Override
     public void receiveStartAct() {
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-//            if (c instanceof StartActSubscriber) {
+            if (c instanceof StartActSubscriber) {
                 ((StartActSubscriber) c).receiveStartAct();
-//            }
+            }
+            if (ExertedField.exerted.get(c)) {
+                ExertedField.exerted.set(c, false);
+            }
         }
     }
 }
