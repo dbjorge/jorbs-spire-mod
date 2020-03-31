@@ -3,7 +3,6 @@ package stsjorbsmod.cards;
 import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
 import basemod.helpers.TooltipInfo;
-import basemod.interfaces.StartActSubscriber;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -19,7 +18,7 @@ import java.util.List;
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 
-public abstract class CustomJorbsModCard extends CustomCard implements StartActSubscriber {
+public abstract class CustomJorbsModCard extends CustomCard {
     // These sentinel values are defined by the base game, we're just giving them more readable names.
     public static final int COST_X = -1;
     public static final int COST_UNPLAYABLE = -2;
@@ -237,7 +236,6 @@ public abstract class CustomJorbsModCard extends CustomCard implements StartActS
         return null;
     }
 
-    @Override
     public final void receiveStartAct() {
         this.atStartOfAct();
     }
