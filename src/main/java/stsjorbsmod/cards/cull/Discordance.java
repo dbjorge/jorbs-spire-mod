@@ -12,6 +12,7 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 
 public class Discordance extends CustomJorbsModCard {
@@ -23,23 +24,23 @@ public class Discordance extends CustomJorbsModCard {
     public static final CardColor COLOR = Cull.Enums.CULL_CARD_COLOR;
 
     private static final int COST = 1;
+    private static final int DAMAGE_PER_CARD_TYPE = 5;
+    private static final int UPGRADE_ADDED_DAMAGE_PER_CARD_TYPE = 2;
 
 
 
     public Discordance() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = 0;
-        this.baseMagicNumber = magicNumber = 5;
+        this.baseMagicNumber = magicNumber = DAMAGE_PER_CARD_TYPE;
     }
 
     @Override
     public int calculateBonusBaseDamage() {
-        Iterator var2 = AbstractDungeon.player.hand.group.iterator();
-        ArrayList<CardType> seen = new ArrayList<CardType>();
+        HashSet<CardType> seen = new HashSet<CardType>();
 
-        while(var2.hasNext()) {
-            AbstractCard c = (AbstractCard)var2.next();
-            if (!seen.contains(c.type)) {
+        for(AbstractCard c : AbstractDungeon.player.hand.group) {
+            if (c != this) {
                 seen.add(c.type);
             }
         }
@@ -60,7 +61,7 @@ public class Discordance extends CustomJorbsModCard {
     @Override
     public void upgrade() {
         if (!upgraded) {
-            upgradeMagicNumber(2);
+            upgradeMagicNumber(UPGRADE_ADDED_DAMAGE_PER_CARD_TYPE);
             upgradeName();
             upgradeDescription();
         }
