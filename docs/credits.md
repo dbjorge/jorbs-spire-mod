@@ -26,6 +26,7 @@
 
 ### Developers
 
+* avolny ([GitHub](https://github.com/avolny))
 * evan_tor ([GitHub](https://github.com/evantor))
 * Lucerna ([GitHub](https://github.com/Jacob-Laverty))
 * mderb4 ([GitHub](https://github.com/mderb4))

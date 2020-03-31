@@ -7,6 +7,10 @@
 * Chinese (Simplified) (thanks yanang007)
 * Spanish (thanks ChDaVinci)
 
+### Updates
+
+* Integration with the Slay the Relics Twitch extension (thanks avolny)
+
 ### CULL mechanics
 
 * The CULL can no long Rest at campfires; instead, it Thirsts, consuming Wrath from an attack to heal (thanks Lucerna)
