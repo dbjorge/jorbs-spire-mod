@@ -20,6 +20,7 @@ import stsjorbsmod.effects.SnapTurnCounterEffect;
 import stsjorbsmod.powers.FragilePower;
 import stsjorbsmod.tips.MemoryFtueTip;
 import stsjorbsmod.tips.SnapFtueTip;
+import stsjorbsmod.twitch.SlayTheRelicsIntegration;
 
 import java.util.ArrayList;
 
@@ -190,6 +191,8 @@ public class SnapCounter {
     }
 
     public void render(SpriteBatch sb) {
-        // We don't currently render anything directly; it's indirect via the effects added in update()
+        if (!isVisible()) { return; }
+
+        SlayTheRelicsIntegration.renderTipHitbox(hb, tips);
     }
 }

@@ -26,6 +26,7 @@ import com.megacrit.cardcrawl.vfx.combat.SilentGainPowerEffect;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.powers.OnModifyGoldSubscriber;
 import stsjorbsmod.tips.MemoryFtueTip;
+import stsjorbsmod.twitch.SlayTheRelicsIntegration;
 import stsjorbsmod.util.RenderUtils;
 import stsjorbsmod.util.TextureLoader;
 
@@ -157,14 +158,22 @@ public abstract class AbstractMemory implements OnModifyGoldSubscriber {
         if ((!AbstractDungeon.isScreenUp || PeekButton.isPeeking) && hb.hovered) {
             renderTip();
         }
+
+        SlayTheRelicsIntegration.renderTipHitbox(hb, getTips());
     }
 
     protected void addExtraPowerTips(ArrayList<PowerTip> tips) { }
 
-    private void renderTip() {
+    private ArrayList<PowerTip> getTips() {
         ArrayList<PowerTip> tips = new ArrayList<>();
         tips.add(new PowerTip(name, description, staticInfo.CLARITY_IMG_48));
         addExtraPowerTips(tips);
+
+        return tips;
+    }
+
+    private void renderTip() {
+        ArrayList<PowerTip> tips = getTips();
 
         // Based on the AbstractCreature.renderPowerTips impl
         float tipX = centerX + hb.width / 2.0F < TIP_X_THRESHOLD ?
