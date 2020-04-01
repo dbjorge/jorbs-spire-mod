@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.MinionPower;
 import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
@@ -28,7 +29,7 @@ public class ToilAction extends AbstractGameAction {
         if (duration == Settings.ACTION_DUR_MED && target != null) {
             AbstractDungeon.effectList.add(new FlashAtkImgEffect(target.hb.cX, target.hb.cY, AttackEffect.BLUNT_HEAVY));
             target.damage(info);
-            if ((target.isDying || target.currentHealth <= 0) && !target.halfDead) {
+            if ((target.isDying || target.currentHealth <= 0) && !target.halfDead && !target.hasPower(MinionPower.POWER_ID)) {
                 ArrayList<AbstractCard> possibleCards = new ArrayList<>();
 
                 for(AbstractCard c : AbstractDungeon.player.masterDeck.group) {
