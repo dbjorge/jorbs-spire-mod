@@ -416,8 +416,8 @@
   },
   "stsjorbsmod:Overkill": {
     "NAME": "Overkill",
-    "DESCRIPTION": "Deal damage equal to overkill damage to all other enemies.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to overkill damage + !M! to all other enemies."
+    "DESCRIPTION": "Whenever you kill an enemy, deal any overkill damage to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Whenever you kill an enemy, deal any overkill damage + !M! to ALL enemies."
   },
   "stsjorbsmod:Panic": {
     "NAME": "Panic",

@@ -162,7 +162,7 @@
     ]
   },
   "stsjorbsmod:OverkillPower": {
-    "NAME": "Overkill Power",
+    "NAME": "Overkill",
     "DESCRIPTIONS": [
       "Deal Overkill damage to all other enemies.",
       "Deal Overkill damage + #b%1$s to all other enemies."
