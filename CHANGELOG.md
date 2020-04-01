@@ -66,6 +66,7 @@
 * Concentrate (thanks Skyl3lazer)
 * Frustration (thanks Cartopol)
 * Discordance (thanks Skyl3lazer)
+* Equinox (thanks Cartopol)
 
 ## [v1.7.0] - 2020-03-15
 
