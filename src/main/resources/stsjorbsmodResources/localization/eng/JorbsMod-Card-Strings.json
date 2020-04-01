@@ -389,10 +389,6 @@
     "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Double target enemy's stsjorbsmod:Burning. NL Exhaust. stsjorbsmod:Exhume when you stsjorbsmod:Snap.",
     "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Lust. NL Triple target enemy's stsjorbsmod:Burning. NL Exhaust. stsjorbsmod:Exhume when you stsjorbsmod:Snap."
   },
-  "stsjorbsmod:Inhale": {
-    "NAME": "Inhale",
-    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Gain !M! Strength at the start of next turn. NL Exhaust."
-  },
   "stsjorbsmod:Intervention": {
     "NAME": "Intervention",
     "DESCRIPTION": "Deal !D! damage. NL stsjorbsmod:Consume this card and add Regret to your deck."
@@ -627,10 +623,6 @@
     "NAME": "Scorching Ray",
     "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Apply !stsjorbsmod:MetaMagic! stsjorbsmod:Burning !M! times. This stsjorbsmod:Burning is affected by Strength."
   },
-  "stsjorbsmod:Seance": {
-    "NAME": "Séance",
-    "DESCRIPTION": "stsjorbsmod:Exhume a card. NL It gains Ethereal. NL Exhaust."
-  },
   "stsjorbsmod:Sentinel_Cull": {
     "NAME": "Sentinel",
     "DESCRIPTION": "Deal !D! damage. NL Lower your stsjorbsmod:Manifest by !M!. NL Exhaust."
@@ -662,10 +654,6 @@
   "stsjorbsmod:SpiritShield_Cull": {
     "NAME": "Spirit Shield",
     "DESCRIPTION": "Reduce all damage taken by !M! until next turn."
-  },
-  "stsjorbsmod:SplinterSoul": {
-    "NAME": "Splinter Soul",
-    "DESCRIPTION": "Deal !D! damage. NL stsjorbsmod:Consume a random non-Legendary card in your draw pile."
   },
   "stsjorbsmod:Stalwart": {
     "NAME": "Stalwart",
@@ -778,10 +766,6 @@
   "stsjorbsmod:Wail": {
     "NAME": "Wail",
     "DESCRIPTION": "Apply !stsjorbsmod:UrMagic! Vulnerable. NL Draw !M! card. NL Exhaust."
-  },
-  "stsjorbsmod:WakingDream": {
-    "NAME": "Waking Dream",
-    "DESCRIPTION": "Retain. NL Gain !M! Intangible. NL When Retained, increase its cost by !stsjorbsmod:MetaMagic! this combat. NL Exhaust."
   },
   "stsjorbsmod:WanderingMind": {
     "NAME": "Wandering Mind",
