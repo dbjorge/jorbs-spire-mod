@@ -199,7 +199,7 @@
     "DESCRIPTION": "Deal damage equal to the current Floor number. NL The cost of this card is equal to the current Act number. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Deal damage equal to the current Floor number. NL The cost of this card is equal to the current Act number - !M!. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
-      " NL (Deal !D! damage.)"
+      " NL (Deals !D! damage.)"
     ]
   },
   "stsjorbsmod:Expose": {

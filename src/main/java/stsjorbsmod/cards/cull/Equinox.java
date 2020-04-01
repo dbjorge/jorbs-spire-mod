@@ -1,7 +1,5 @@
 package stsjorbsmod.cards.cull;
 
-import basemod.interfaces.StartActSubscriber;
-import basemod.interfaces.StartGameSubscriber;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -12,7 +10,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 
-public class Equinox extends CustomJorbsModCard implements StartActSubscriber, StartGameSubscriber {
+public class Equinox extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Equinox.class);
 
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
@@ -67,12 +65,12 @@ public class Equinox extends CustomJorbsModCard implements StartActSubscriber, S
     }
 
     @Override
-    public void receiveStartAct() {
+    public void atStartOfAct() {
         determineCost();
     }
 
     @Override
-    public void receiveStartGame() {
+    public void atStartOfGame() {
         determineCost();
     }
 }

@@ -424,8 +424,8 @@ public class JorbsMod implements
     @Override
     public void receiveStartAct() {
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-            if (c instanceof StartActSubscriber) {
-                ((StartActSubscriber)c).receiveStartAct();
+            if (c instanceof CustomJorbsModCard) {
+                ((CustomJorbsModCard)c).receiveStartAct();
             }
         }
     }
@@ -433,8 +433,8 @@ public class JorbsMod implements
     @Override
     public void receiveStartGame() {
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-            if (c instanceof StartGameSubscriber) {
-                ((StartGameSubscriber)c).receiveStartGame();
+            if (c instanceof CustomJorbsModCard) {
+                ((CustomJorbsModCard)c).receiveStartGame();
             }
         }
     }
