@@ -9,8 +9,9 @@
     "DESCRIPTION": "Burning creatures take damage at the start of their turn and cannot be healed. Burning damage will hit #yBlock. Each turn, Burning is reduced by a third."
   },
   {
+    "PROPER_NAME": "Card Type",
     "NAMES": ["card\u00a0type", "card\u00a0types"],
-    "DESCRIPTION": "The Card Types are Attack, Skill, Power, Curse, Status, etc."
+    "DESCRIPTION": "Card Types are Attack, Skill, Power, Curse, Status, etc."
   },
   {
     "NAMES": ["charity"],

@@ -178,11 +178,11 @@
     "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Pride. NL Exhaust."
   },
   "stsjorbsmod:Discordance": {
-  "NAME": "Discordance",
-  "DESCRIPTION": "Deal damage equal to the number of stsjorbsmod:Card\u00a0Types in your hand times !M!.",
-  "EXTENDED_DESCRIPTION": [
-    " NL (Deals !D! damage)"
-  ]
+    "NAME": "Discordance",
+    "DESCRIPTION": "Deal damage equal to the number of stsjorbsmod:Card\u00a0Types in your hand times !M!.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage)"
+    ]
   },
   "stsjorbsmod:DisguiseSelf": {
     "NAME": "Disguise Self",
