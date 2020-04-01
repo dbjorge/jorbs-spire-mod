@@ -3,7 +3,6 @@ package stsjorbsmod.cards;
 import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
 import basemod.helpers.TooltipInfo;
-import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,8 +12,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.patches.EphemeralField;
 
-import javax.tools.Tool;
-import java.lang.reflect.Field;
 import java.util.Collections;
 import java.util.List;
 
@@ -250,4 +247,12 @@ public abstract class CustomJorbsModCard extends CustomCard {
         }
         return null;
     }
+
+    public final void receiveStartAct() {
+        this.atStartOfAct();
+    }
+
+    // Individual cards override this (and don't have to remember to call super.sameMethod() because of the pattern)
+    protected void atStartOfAct() { }
+
 }

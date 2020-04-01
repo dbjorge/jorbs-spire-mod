@@ -49,6 +49,14 @@
     "DESCRIPTION": "This card starts each combat in your Exhaust pile. It will be Exhumed from your Exhaust pile into your hand each time its Exhume condition is met."
   },
   {
+    "NAMES": ["exert"],
+    "DESCRIPTION": "Exhaust this card when played. It will be #yEntombed until the start of next Act."
+  },
+  {
+    "NAMES": ["exerted"],
+    "DESCRIPTION": "This card starts each combat in your Exhaust pile, until the start of next Act."
+  },
+  {
     "NAMES": ["envy"],
     "DESCRIPTION": "When you remember Envy, gain #b1 #yVulnerable. Whenever you target an enemy with a card, apply #b1 #yVulnerable to that enemy."
   },

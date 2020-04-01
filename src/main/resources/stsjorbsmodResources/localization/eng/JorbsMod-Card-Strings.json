@@ -315,6 +315,10 @@
     "NAME": "Frostbite",
     "DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, stsjorbsmod:Consume this."
   },
+  "stsjorbsmod:Frustration": {
+    "NAME": "Frustration",
+    "DESCRIPTION": "Retain: Deal !M! damage to ALL enemies. NL stsjorbsmod:Exert: Deal !D! damage to ALL enemies."
+  },
   "stsjorbsmod:GatherPower": {
     "NAME": "Gather Power",
     "DESCRIPTION": "Draw !M! card. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional time.",
