@@ -21,6 +21,7 @@
 
 ### CULL balance/design changes
 
+* Starting HP changed to 70
 * Tungsten Rod removed from CULL relic pool.
 * CULL (the card): Changed to "Deal 12 damage twice. Exhaust."
 * CULL (the card): Upgrade changed to "wrath applies twice"
