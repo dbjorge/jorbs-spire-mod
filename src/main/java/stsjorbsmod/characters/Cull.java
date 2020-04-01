@@ -213,15 +213,13 @@ public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber 
 
         retVal.add(CULLCard.ID);
         retVal.add(Apparition_Cull.ID);
-        retVal.add(Frostbite.ID);
-        retVal.add(Inhale.ID);
+        retVal.add(Strike_Cull.ID);
+        retVal.add(Strike_Cull.ID);
+        retVal.add(Strike_Cull.ID);
+        retVal.add(Strike_Cull.ID);
+        retVal.add(Paralysis.ID);
         retVal.add(SpiritShield_Cull.ID);
-        retVal.add(SplinterSoul.ID);
-        retVal.add(WakingDream.ID);
-        retVal.add(Strike_Cull.ID);
-        retVal.add(Strike_Cull.ID);
-        retVal.add(Strike_Cull.ID);
-        retVal.add(Strike_Cull.ID);
+        retVal.add(Exhale.ID);
 
         return retVal;
     }

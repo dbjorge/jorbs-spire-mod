@@ -37,6 +37,9 @@
 (thanks Cartopol for all!)
 
 * Seance: deprecated
+* Inhale: deprecated
+* Splinter Soul: deprecated
+* Waking Dream: deprecated
 
 ### New CULL cards
 
