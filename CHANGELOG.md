@@ -35,6 +35,8 @@
 * Toil: changed to work only on non-minion enemies, using the Fatal keyword.
 * Wasting Essence: Renamed to Wasting Form. Changed damage per curse drawn and upgrade damage increase.
 * Strife: only counts curses in discard pile. Upgrade adds 2 curses instead of 2 strength per curse. Added Exhaust.
+* Drain Life: now exerts instead of exhausting
+* Intervention: exerts instead of exhausting, gives Procrastination instead of Regret
 (thanks Cartopol for all!)
 
 * Seance: deprecated
@@ -67,6 +69,7 @@
 * Frustration (thanks Cartopol)
 * Discordance (thanks Skyl3lazer)
 * Equinox (thanks Cartopol)
+* Procrastination (thanks Cartopol)
 
 ## [v1.7.0] - 2020-03-15
 
