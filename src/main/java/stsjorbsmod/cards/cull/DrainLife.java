@@ -10,6 +10,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.DrainLifeAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
+import stsjorbsmod.patches.SelfExertField;
 
 import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
 
@@ -26,7 +27,7 @@ public class DrainLife extends CustomJorbsModCard {
     public DrainLife() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         this.baseDamage = 0;
-        this.exhaust = true;
+        SelfExertField.selfExert.set(this, true);
         tags.add(PERSISTENT_POSITIVE_EFFECT);
     }
 

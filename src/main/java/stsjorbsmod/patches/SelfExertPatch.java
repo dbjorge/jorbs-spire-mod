@@ -21,7 +21,9 @@ public class SelfExertPatch {
 
             // I'm setting both masterdeck and combatdeck instances of the card to exerted,
             // in case we want to show text on exerted cards, or want to prevent exerted cards from being returned from Exhaust.
-            ExertedField.exerted.set(masterCard, true);
+            if (masterCard != null) {
+                ExertedField.exerted.set(masterCard, true);
+            }
             ExertedField.exerted.set(targetCard, true);
         }
     }
