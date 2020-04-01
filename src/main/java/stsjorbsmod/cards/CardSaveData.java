@@ -10,6 +10,8 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.memories.WrathMemory;
+import stsjorbsmod.patches.EntombedField;
+import stsjorbsmod.patches.ExertedField;
 import stsjorbsmod.patches.WrathField;
 
 import java.util.ArrayList;
@@ -17,9 +19,13 @@ import java.util.ArrayList;
 public class CardSaveData implements CustomSavableRaw {
     static class CardData {
         Integer wrathEffectCount;
+        boolean isEntombed;
+        boolean isExerted;
 
-        CardData(Integer wrathEffectCount) {
+        CardData(Integer wrathEffectCount, boolean isEntombed, boolean isExerted) {
             this.wrathEffectCount = wrathEffectCount;
+            this.isEntombed = isEntombed;
+            this.isExerted = isExerted;
         }
     }
 
@@ -30,7 +36,7 @@ public class CardSaveData implements CustomSavableRaw {
     public JsonElement onSaveRaw() {
         cardData = new ArrayList<>();
         for (AbstractCard card : AbstractDungeon.player.masterDeck.group) {
-            cardData.add(new CardData(WrathField.wrathEffectCount.get(card)));
+            cardData.add(new CardData(WrathField.wrathEffectCount.get(card), EntombedField.entombed.get(card), ExertedField.exerted.get(card)));
         }
         return saveFileGson.toJsonTree(cardData);
     }
@@ -56,8 +62,13 @@ public class CardSaveData implements CustomSavableRaw {
             int i = 0;
 
             for (AbstractCard card : masterDeck.group) {
-                int wrathEffectCount = cardData.get(i++).wrathEffectCount;
+                int wrathEffectCount = cardData.get(i).wrathEffectCount;
                 WrathMemory.reapplyToLoadedCard(card, wrathEffectCount);
+                boolean isEntombed = cardData.get(i).isEntombed;
+                EntombedField.entombed.set(card, isEntombed);
+                boolean isExerted = cardData.get(i).isExerted;
+                ExertedField.exerted.set(card, isExerted);
+                i++;
             }
         }
     }

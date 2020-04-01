@@ -17,6 +17,9 @@ public class AbstractCardMakeStatEquivalentCopyPatch {
     // Copy every field we add to cards that lasts more than an action
     public static AbstractCard Postfix(AbstractCard __result, AbstractCard __this) {
         WrathField.wrathEffectCount.set(__result, WrathField.wrathEffectCount.get(__this));
+        SelfExertField.selfExert.set(__result, SelfExertField.selfExert.get(__this));
+        ExertedField.exerted.set(__result, ExertedField.exerted.get(__this));
+        EntombedField.entombed.set(__result, EntombedField.entombed.get(__this));
 
         if ((__result instanceof CustomJorbsModCard) != (__this instanceof CustomJorbsModCard)) {
             JorbsMod.logger.error(Name + "source and copy aren't both JorbsMod cards");
