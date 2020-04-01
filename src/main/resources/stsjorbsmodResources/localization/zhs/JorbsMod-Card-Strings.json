@@ -179,7 +179,7 @@
   },
   "stsjorbsmod:Discordance": {
     "NAME": "散伤丑害",
-    "DESCRIPTION": "造成你手牌中牌的种类数 !M! 倍的伤害。",
+    "DESCRIPTION": "造成你手牌中 stsjorbsmod:卡牌种类 数 !M! 倍的伤害。",
     "EXTENDED_DESCRIPTION": [
       " NL （造成 !D! 点伤害。）"
     ]
@@ -331,7 +331,7 @@
   },
   "stsjorbsmod:Frustration": {
     "NAME": "沮丧",
-    "DESCRIPTION": "保留 。 NL 对所有敌人造成 !D! 点伤害。 NL 每当这张牌被 保留 时，对所有敌人造成 !M! 点伤害。 NL stsjorbsmod:竭力 。"
+    "DESCRIPTION": "保留 ：对所有敌人造成 !M! 点伤害。 NL stsjorbsmod:竭力 ：对所有敌人造成 !D! 点伤害。"
   },
   "stsjorbsmod:GatherPower": {
     "NAME": "汇聚能量",
