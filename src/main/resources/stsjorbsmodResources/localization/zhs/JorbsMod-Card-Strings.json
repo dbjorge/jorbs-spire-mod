@@ -24,7 +24,7 @@
   },
   "stsjorbsmod:AnimateObjects": {
     "NAME": "赋予生命",
-    "DESCRIPTION": "stsjorbsmod:飞逝 。获得等同于战斗开始时不在你牌组中且未被 消耗 的牌数目的 荆棘 。",
+    "DESCRIPTION": "stsjorbsmod:飞逝 。获得等同于战斗开始时不在你牌组中且未被 消耗 的牌数的 荆棘 。",
     "EXTENDED_DESCRIPTION": [
       " NL （获得 !M! 点荆棘。）"
     ]
@@ -66,8 +66,8 @@
   },
   "stsjorbsmod:Brambles": {
     "NAME": "刺棘",
-    "DESCRIPTION": "造成等同于你本场战斗打出的 stsjorbsmod:魔法原料 数目的伤害。",
-    "UPGRADE_DESCRIPTION": "造成等同于你本场战斗打出的 stsjorbsmod:魔法原料 数目加上 !stsjorbsmod:BaseDamage! 的伤害。",
+    "DESCRIPTION": "造成等同于你本场战斗打出的 stsjorbsmod:魔法原料 数的伤害。",
+    "UPGRADE_DESCRIPTION": "造成等同于你本场战斗打出的 stsjorbsmod:魔法原料 数 NL + !stsjorbsmod:BaseDamage! 的伤害。",
     "EXTENDED_DESCRIPTION": [
       " NL （造成 !D! 点伤害。）"
     ]
@@ -200,8 +200,8 @@
   },
   "stsjorbsmod:DrainLife": {
     "NAME": "生命汲取",
-    "DESCRIPTION": "造成 X 点伤害。 NL 获得等同于所造成伤害的最大生命。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "造成 X+1 点伤害。 NL 获得等同于所造成伤害的最大生命。 NL 消耗 。",
+    "DESCRIPTION": "造成 X 点伤害。 NL 获得等同于所造成伤害的最大生命。 NL stsjorbsmod:竭力 。",
+    "UPGRADE_DESCRIPTION": "造成 X+1 点伤害。 NL 获得等同于所造成伤害的最大生命。 NL stsjorbsmod:竭力 。",
     "EXTENDED_DESCRIPTION": [
       " NL （造成 !D! 点伤害。）"
     ]
@@ -402,7 +402,7 @@
   },
   "stsjorbsmod:Intervention": {
     "NAME": "干扰",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 将这张牌 stsjorbsmod:耗费 并将一张 *悔恨 加入你的牌组。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将拖延永久加入你的牌组。 NL stsjorbsmod:竭力 。"
   },
   "stsjorbsmod:Introspection": {
     "NAME": "内省",
@@ -516,7 +516,7 @@
   "stsjorbsmod:Overkill": {
     "NAME": "赶尽杀绝",
     "DESCRIPTION": "当你造成的伤害溢出时，对其它所有敌人造成溢出伤害值的伤害。",
-    "UPGRADE_DESCRIPTION": "当你造成的伤害溢出时，对其它所有敌人造成溢出伤害值加 !M! 的伤害。"
+    "UPGRADE_DESCRIPTION": "当你造成的伤害溢出时，对其它所有敌人造成溢出伤害值+ !M! 的伤害。"
   },
   "stsjorbsmod:Panic": {
     "NAME": "恐慌",
@@ -577,6 +577,10 @@
   "stsjorbsmod:Prestidigitation": {
     "NAME": "变戏法",
     "DESCRIPTION": "在你的回合开始时，随机给予一名敌人 !M! 层 虚弱 或 !M! 层 易伤 。"
+  },
+  "stsjorbsmod:Procrastination": {
+    "NAME": "拖延",
+    "DESCRIPTION": " 不能被打出 。 NL 在每场战斗开始时，这张牌会出现在你的弃牌堆中。"
   },
   "stsjorbsmod:PurgeMind": {
     "NAME": "净化思维",
