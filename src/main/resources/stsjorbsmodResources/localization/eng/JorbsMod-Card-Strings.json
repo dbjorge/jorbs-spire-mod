@@ -200,8 +200,8 @@
   },
   "stsjorbsmod:DrainLife": {
     "NAME": "Drain Life",
-    "DESCRIPTION": "Deal X damage. NL Gain Max HP equal to the damage dealt. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal X+1 damage. NL Gain Max HP equal to the damage dealt. NL Exhaust.",
+    "DESCRIPTION": "Deal X damage. NL Gain Max HP equal to the damage dealt. NL stsjorbsmod:Exert.",
+    "UPGRADE_DESCRIPTION": "Deal X+1 damage. NL Gain Max HP equal to the damage dealt. NL stsjorbsmod:Exert.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
@@ -399,7 +399,7 @@
   },
   "stsjorbsmod:Intervention": {
     "NAME": "Intervention",
-    "DESCRIPTION": "Deal !D! damage. NL stsjorbsmod:Consume this card and add Regret to your deck."
+    "DESCRIPTION": "Deal !D! damage. NL Permanently add Procrastination to your deck. NL stsjorbsmod:Exert."
   },
   "stsjorbsmod:Introspection": {
     "NAME": "Introspection",
@@ -569,6 +569,10 @@
   "stsjorbsmod:Prestidigitation": {
     "NAME": "Prestidigitation",
     "DESCRIPTION": "At the start of each turn, apply !M! Weak or !M! Vulnerable to a random enemy."
+  },
+  "stsjorbsmod:Procrastination": {
+    "NAME": "Procrastination",
+    "DESCRIPTION": "Unplayable. NL Starts each combat in your discard pile."
   },
   "stsjorbsmod:PurgeMind": {
     "NAME": "Purge Mind",
