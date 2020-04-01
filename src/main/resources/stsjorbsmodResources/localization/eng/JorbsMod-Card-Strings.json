@@ -222,6 +222,14 @@
     "DESCRIPTION": "Apply stsjorbsmod:Slow to ALL enemies. NL Add !M! stsjorbsmod:Web into your hand.",
     "UPGRADE_DESCRIPTION": "Apply stsjorbsmod:Slow to ALL enemies. NL Add !M! stsjorbsmod:Webs into your hand."
   },
+  "stsjorbsmod:Equinox": {
+    "NAME": "Equinox",
+    "DESCRIPTION": "Deal damage equal to the current Floor number. NL The cost of this card is equal to the current Act number. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to the current Floor number. NL The cost of this card is equal to the current Act number - !M!. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
+  },
   "stsjorbsmod:Exhale": {
     "NAME": "Exhale",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !M! Intangible. NL At the start of your next turn, lose !stsjorbsmod:UrMagic! Strength.",

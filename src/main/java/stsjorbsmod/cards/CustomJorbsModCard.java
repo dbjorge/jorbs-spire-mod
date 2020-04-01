@@ -255,4 +255,11 @@ public abstract class CustomJorbsModCard extends CustomCard {
     // Individual cards override this (and don't have to remember to call super.sameMethod() because of the pattern)
     protected void atStartOfAct() { }
 
+    public final void receiveStartGame() {
+        this.receiveStartGame();
+    }
+
+    // Individual cards override this (and don't have to remember to call super.sameMethod() because of the pattern)
+    protected void atStartOfGame() { }
+
 }

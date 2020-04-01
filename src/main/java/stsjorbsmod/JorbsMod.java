@@ -53,7 +53,8 @@ public class JorbsMod implements
         EditCharactersSubscriber,
         PostInitializeSubscriber,
         OnPowersModifiedSubscriber,
-        StartActSubscriber {
+        StartActSubscriber,
+        StartGameSubscriber{
     public static final String MOD_ID = "stsjorbsmod";
 
     public static final Logger logger = LogManager.getLogger(JorbsMod.class.getName());
@@ -426,10 +427,17 @@ public class JorbsMod implements
     public void receiveStartAct() {
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
             if (c instanceof CustomJorbsModCard) {
-                ((CustomJorbsModCard) c).receiveStartAct();
+                ((CustomJorbsModCard)c).receiveStartAct();
             }
-            if (ExertedField.exerted.get(c)) {
-                ExertedField.exerted.set(c, false);
+            ExertedField.exerted.set(c, false);
+        }
+    }
+
+    @Override
+    public void receiveStartGame() {
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+            if (c instanceof CustomJorbsModCard) {
+                ((CustomJorbsModCard)c).receiveStartGame();
             }
         }
     }
