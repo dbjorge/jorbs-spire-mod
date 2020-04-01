@@ -33,10 +33,10 @@ public class OverkillPower extends CustomJorbsModPower {
     @Override
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
         if(damageAmount > target.currentHealth){
-            int overkill_damage = damageAmount - target.currentHealth;
-            addToBot(new DamageAllEnemiesAction(null,
-                    DamageInfo.createDamageMatrix(overkill_damage + this.amount),
-                    DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, true));
+            int overkillDamage = damageAmount - target.currentHealth;
+            addToBot(new DamageAllEnemiesAction(this.owner,
+                    DamageInfo.createDamageMatrix(overkillDamage + this.amount, true),
+                    DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL, true));
         }
     }
 
