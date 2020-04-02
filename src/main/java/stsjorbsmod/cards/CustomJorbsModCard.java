@@ -227,9 +227,10 @@ public abstract class CustomJorbsModCard extends CustomCard {
     }
 
     public void onMoveToDiscardImpl() { }
+    public void atStartOfAct() { }
+    public void atStartOfGame() { }
 
-    public void applyLoadedMiscValue(int misc) {
-    }
+    public void applyLoadedMiscValue(int misc) { }
 
     public boolean shouldGlowGold() { return false; }
 
@@ -247,19 +248,4 @@ public abstract class CustomJorbsModCard extends CustomCard {
         }
         return null;
     }
-
-    public final void receiveStartAct() {
-        this.atStartOfAct();
-    }
-
-    // Individual cards override this (and don't have to remember to call super.sameMethod() because of the pattern)
-    protected void atStartOfAct() { }
-
-    public final void receiveStartGame() {
-        this.receiveStartGame();
-    }
-
-    // Individual cards override this (and don't have to remember to call super.sameMethod() because of the pattern)
-    protected void atStartOfGame() { }
-
 }

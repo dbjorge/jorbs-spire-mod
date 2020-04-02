@@ -427,7 +427,7 @@ public class JorbsMod implements
     public void receiveStartAct() {
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
             if (c instanceof CustomJorbsModCard) {
-                ((CustomJorbsModCard)c).receiveStartAct();
+                ((CustomJorbsModCard)c).atStartOfAct();
             }
             ExertedField.exerted.set(c, false);
         }
@@ -437,7 +437,7 @@ public class JorbsMod implements
     public void receiveStartGame() {
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
             if (c instanceof CustomJorbsModCard) {
-                ((CustomJorbsModCard)c).receiveStartGame();
+                ((CustomJorbsModCard)c).atStartOfGame();
             }
         }
     }
