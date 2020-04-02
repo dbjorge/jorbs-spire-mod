@@ -65,8 +65,8 @@ public class Rebuttal extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
-        addToBot(new ApplyPowerAction(p, p, new ThornsPower(p, magicNumber)));
         removeRetainThorns();
+        addToBot(new ApplyPowerAction(p, p, new ThornsPower(p, magicNumber)));
     }
 
     @Override
