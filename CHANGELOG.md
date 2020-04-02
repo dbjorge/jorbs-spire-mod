@@ -70,6 +70,7 @@
 * Discordance (thanks Skyl3lazer)
 * Equinox (thanks Cartopol)
 * Procrastination (thanks Cartopol)
+* Overkill (thanks PanicPoint)
 
 ## [v1.7.0] - 2020-03-15
 
