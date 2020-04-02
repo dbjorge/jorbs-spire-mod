@@ -99,7 +99,7 @@
   },
   {
     "NAMES": ["manifest"],
-    "DESCRIPTION": "For each turn spent in combat, gain #b1 #yManifest. When choosing your path, skip a floor for each #yManifest. Resets to #b0 when entering a floor."
+    "DESCRIPTION": "The CULL gains #b1 #yManifest for each turn spent in combat and each event. When choosing your path, #yManifest is spent to skip floors."
   },
   {
     "PROPER_NAME": "Material Component",

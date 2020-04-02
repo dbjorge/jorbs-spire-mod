@@ -32,6 +32,7 @@ import stsjorbsmod.patches.ExertedField;
 import stsjorbsmod.potions.*;
 import stsjorbsmod.relics.CustomJorbsModRelic;
 import stsjorbsmod.tips.JorbsModTipTracker;
+import stsjorbsmod.toppanel.ManifestTopPanelItem;
 import stsjorbsmod.util.ReflectionUtils;
 import stsjorbsmod.util.TextureLoader;
 import stsjorbsmod.variables.BaseBlockNumber;
@@ -54,7 +55,7 @@ public class JorbsMod implements
         PostInitializeSubscriber,
         OnPowersModifiedSubscriber,
         StartActSubscriber,
-        StartGameSubscriber{
+        StartGameSubscriber {
     public static final String MOD_ID = "stsjorbsmod";
 
     public static final Logger logger = LogManager.getLogger(JorbsMod.class.getName());
@@ -258,10 +259,11 @@ public class JorbsMod implements
         PlaySoundCommand.register();
         WrathCommand.register();
 
-        logger.info("Loading mod config page");
+        logger.info("Registering mod config page");
         Texture badgeTexture = TextureLoader.getTexture(BADGE_IMAGE);
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, JorbsModSettings.createSettingsPanel());
 
+        logger.info("Registering potions");
         BaseMod.addPotion(DimensionDoorPotion.class, Color.BLACK.cpy(), Color.CORAL.cpy(), null,
                 DimensionDoorPotion.POTION_ID, Wanderer.Enums.WANDERER);
         BaseMod.addPotion(BurningPotion.class, Color.ORANGE.cpy(), null, new Color(-1033371393),
@@ -273,6 +275,8 @@ public class JorbsMod implements
         BaseMod.addPotion(GhostPoisonPotion.class, Color.LIME.cpy(), Color.BLACK.cpy(), Color.LIME.cpy(),
                 GhostPoisonPotion.POTION_ID, Cull.Enums.CULL);
 
+        logger.info("Registering powers for dev console");
+        registerPowersInDevConsole();
 
         // =============== EVENTS =================
 
@@ -285,9 +289,6 @@ public class JorbsMod implements
         // BaseMod.addEvent(DeckOfManyThingsEvent.ID, DeckOfManyThingsEvent.class, TheCity.ID);
 
         // =============== /EVENTS/ =================
-        logger.info("Done loading badge Image and mod options");
-
-        registerPowersInDevConsole();
     }
 
     // =============== / POST-INITIALIZE/ =================
@@ -435,6 +436,12 @@ public class JorbsMod implements
 
     @Override
     public void receiveStartGame() {
+        if (AbstractDungeon.player != null && AbstractDungeon.player instanceof Cull) {
+            ManifestTopPanelItem.show();
+        } else {
+            ManifestTopPanelItem.hide();
+        }
+
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
             if (c instanceof CustomJorbsModCard) {
                 ((CustomJorbsModCard)c).atStartOfGame();

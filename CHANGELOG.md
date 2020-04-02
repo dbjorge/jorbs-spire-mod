@@ -18,7 +18,8 @@
 * The CULL can no long Rest at campfires; instead, it Thirsts, consuming Wrath from an attack to heal (thanks Lucerna)
 * The CULL can no longer gain Block; instead, the block amount is dealt as damage to a random enemy (thanks Lucerna)
 * The CULL can no longer gain Dexterity; instead, it gains the Dexterity amount as Strength (thanks Lucerna)
-* Event rooms now cost 1 Manifest to enter 
+* Event rooms now cost 1 Manifest to enter
+* Added a Top Panel icon to track Manifest and explain CULL mechanics
 
 ### CULL balance/design changes
 
@@ -39,7 +40,6 @@
 * Drain Life: now exerts instead of exhausting
 * Intervention: exerts instead of exhausting, gives Procrastination instead of Regret
 (thanks Cartopol for all!)
-
 
 ### Removed CULL cards
 
