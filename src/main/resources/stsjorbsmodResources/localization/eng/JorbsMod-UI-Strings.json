@@ -63,9 +63,9 @@
   "stsjorbsmod:ManifestTopPanelItem": {
     "TEXT": [
       "Wasting Away",
-      "The CULL loses 1 max HP each time it takes damage and at the end of each turn.",
+      "The CULL loses #b1 max HP each time it takes damage and at the end of each turn.",
       "Disdain",
-      "The CULL cannot gain #yDexterity or #gBlock. Instead, it gains #yStrength or #gdeals #gdamage #gto #ga #grandom #genemy.",
+      "The CULL cannot gain #yDexterity or #yBlock. Instead, it gains #yStrength or deals damage to a random enemy, respectively.",
       "Wrathful",
       "The CULL permanently remembers #yWrath."
     ]
