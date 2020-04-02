@@ -609,6 +609,10 @@
       " NL (Deals !M! damage.)"
     ]
   },
+  "stsjorbsmod:Rebuttal": {
+    "NAME": "Rebuttal",
+    "DESCRIPTION": "Retain: Gain !stsjorbsmod:UrMagic! Thorns while this is in your hand. NL stsjorbsmod:Exert: Gain !M! Thorns."
+  },
   "stsjorbsmod:Rediscovery": {
     "NAME": "Rediscovery",
     "DESCRIPTION": "Whenever you gain stsjorbsmod:Clarity of a new memory, gain 1 [E].",
