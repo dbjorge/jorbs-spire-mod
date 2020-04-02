@@ -26,7 +26,7 @@
     "NAME": "赋予生命",
     "DESCRIPTION": "stsjorbsmod:飞逝 。获得等同于战斗开始时不在你牌组中且未被 消耗 的牌数的 荆棘 。",
     "EXTENDED_DESCRIPTION": [
-      " NL （获得 !M! 点荆棘。）"
+      " NL （获得 !M! 点 荆棘 。）"
     ]
   },
   "stsjorbsmod:Anxiety": {
@@ -515,8 +515,8 @@
   },
   "stsjorbsmod:Overkill": {
     "NAME": "赶尽杀绝",
-    "DESCRIPTION": "当你造成的伤害溢出时，对其它所有敌人造成溢出伤害值的伤害。",
-    "UPGRADE_DESCRIPTION": "当你造成的伤害溢出时，对其它所有敌人造成溢出伤害值+ !M! 的伤害。"
+    "DESCRIPTION": "每当你杀死敌人，对所有敌人造成溢出伤害值的伤害。",
+    "UPGRADE_DESCRIPTION": "每当你杀死敌人，对所有敌人造成溢出伤害值+ !M! 的伤害。"
   },
   "stsjorbsmod:Panic": {
     "NAME": "恐慌",
@@ -611,6 +611,10 @@
     "EXTENDED_DESCRIPTION": [
       " NL （造成 !M! 点伤害。）"
     ]
+  },
+  "stsjorbsmod:Rebuttal": {
+    "NAME": "驳斥",
+    "DESCRIPTION": "保留 ：在手牌中时，获得 !stsjorbsmod:UrMagic! 点 荆棘 。 NL stsjorbsmod:竭力 ： 获得 !M! 点 荆棘 。"
   },
   "stsjorbsmod:Rediscovery": {
     "NAME": "重拾",
