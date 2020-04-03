@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import stsjorbsmod.JorbsMod;
 
-import static stsjorbsmod.JorbsMod.makeEventPath;
+import static stsjorbsmod.JorbsMod.makeImagePath;
 
 public class DeckOfManyThingsEvent extends AbstractImageEvent {
     public static final String ID = JorbsMod.makeID(DeckOfManyThingsEvent.class.getSimpleName());
@@ -24,7 +24,7 @@ public class DeckOfManyThingsEvent extends AbstractImageEvent {
     private static final String NAME = eventStrings.NAME;
     private static final String[] DESCRIPTIONS = eventStrings.DESCRIPTIONS;
     private static final String[] OPTIONS = eventStrings.OPTIONS;
-    public static final String IMG = makeEventPath("deck_of_many_things.png");
+    public static final String IMG = makeImagePath("events/deck_of_many_things.png");
 
     private int screenNum = 0; // The initial screen we will see when encountering the event - screen 0;
 

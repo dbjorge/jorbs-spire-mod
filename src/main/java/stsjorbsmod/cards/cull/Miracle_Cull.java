@@ -26,6 +26,7 @@ public class Miracle_Cull extends CustomJorbsModCard {
         selfRetain = true;
         magicNumber = baseMagicNumber = ENERGY_GAIN;
         metaMagicNumber = baseMetaMagicNumber = MANIFEST_INCREASE;
+        this.exhaust = true;
     }
 
     @Override
