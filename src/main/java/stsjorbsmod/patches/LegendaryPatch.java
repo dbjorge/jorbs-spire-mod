@@ -32,9 +32,7 @@ import java.util.HashSet;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import static stsjorbsmod.JorbsMod.JorbsCardTags.DECK_OF_TRIALS;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
-import static stsjorbsmod.util.CardUtils.*;
 
 // Legendary cards (cards with the LEGENDARY tag) have the following special qualities:
 // * Cannot be duplicated, removed, or transformed
@@ -47,12 +45,12 @@ public class LegendaryPatch {
     private static final String DraftMod = "Draft";
     private static final String SealedMod = "SealedDeck";
 
-    public static boolean doesStartingDeckNeedFullPools() {
-        return ModHelper.isModEnabled(DraftMod) || ModHelper.isModEnabled(SealedMod);
+    private static void removeLegendaryCards(ArrayList<AbstractCard> list) {
+        list.removeIf(c -> c.hasTag(LEGENDARY));
     }
 
-    public static boolean isUniqueType(AbstractCard c) {
-        return c.hasTag(LEGENDARY) || c.hasTag(DECK_OF_TRIALS);
+    public static boolean doesStartingDeckNeedFullPools() {
+        return ModHelper.isModEnabled(DraftMod) || ModHelper.isModEnabled(SealedMod);
     }
 
     public static void addCardToPools(AbstractCard card) {
@@ -85,9 +83,42 @@ public class LegendaryPatch {
         }
     }
 
+    public static void removeCardFromPools(AbstractCard card) {
+        logger.info(String.format("Removing card %1$s (%2$s/%3$s/%4$s) from applicable pools", card.cardID, card.rarity, card.color, card.type));
+        Predicate<AbstractCard> isMatch = c -> c.cardID.equals(card.cardID);
+
+        // AbstractDungeon has many returnRandom*, returnTrulyRandom*, and *transformCard methods that use these pools.
+        if (card.rarity == AbstractCard.CardRarity.COMMON) {
+            AbstractDungeon.commonCardPool.group.removeIf(isMatch);
+            AbstractDungeon.srcCommonCardPool.group.removeIf(isMatch);
+        } else if (card.rarity == AbstractCard.CardRarity.UNCOMMON) {
+            AbstractDungeon.uncommonCardPool.group.removeIf(isMatch);
+            AbstractDungeon.srcUncommonCardPool.group.removeIf(isMatch);
+        } else if (card.rarity == AbstractCard.CardRarity.RARE) {
+            AbstractDungeon.rareCardPool.group.removeIf(isMatch);
+            AbstractDungeon.srcRareCardPool.group.removeIf(isMatch);
+        }
+
+        // Note: color pools can overlap with rarity pools
+        if (card.color == AbstractCard.CardColor.COLORLESS) {
+            AbstractDungeon.colorlessCardPool.group.removeIf(isMatch);
+            AbstractDungeon.srcColorlessCardPool.group.removeIf(isMatch);
+        }
+        if (card.color == AbstractCard.CardColor.CURSE || card.rarity == AbstractCard.CardRarity.CURSE) {
+            AbstractDungeon.curseCardPool.group.removeIf(isMatch);
+            AbstractDungeon.srcCurseCardPool.group.removeIf(isMatch);
+
+            // AbstractDungeon.transformCard can call getCurse directly to generate a replacement curse.
+            HashMap<String, AbstractCard> curses = ReflectionUtils.getPrivateField(null, CardLibrary.class, "curses");
+            curses.remove(card.cardID);
+        }
+    }
+
     public static void removeObtainedLegendaryCardsFromPools() {
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-            removeCardsWithTagsFromPools(c);
+            if (c.hasTag(LEGENDARY)) {
+                removeCardFromPools(c);
+            }
         }
     }
 
@@ -95,7 +126,7 @@ public class LegendaryPatch {
     public static CardGroup cloneCardGroupWithoutLegendaryCards(CardGroup original) {
         CardGroup copy = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         copy.group = new ArrayList<>(original.group);
-        removeCardsWithCardTags(copy.group, LEGENDARY, DECK_OF_TRIALS);
+        removeLegendaryCards(copy.group);
         return copy;
     }
 
@@ -138,7 +169,9 @@ public class LegendaryPatch {
     public static class Soul_obtain {
         @SpirePostfixPatch
         public static void patch(Soul __this, AbstractCard card) {
-            removeCardsWithTagsFromPools(card);
+            if (card.hasTag(LEGENDARY)) {
+                removeCardFromPools(card);
+            }
         }
     }
 
@@ -148,7 +181,7 @@ public class LegendaryPatch {
     public static class AbstractDungeon_initializeCardPools {
         @SpirePostfixPatch
         public static void patch(AbstractDungeon __this) {
-            removeObtainedLegendaryCardsFromPools();
+            LegendaryPatch.removeObtainedLegendaryCardsFromPools();
         }
     }
 
@@ -173,7 +206,7 @@ public class LegendaryPatch {
     public static class CardGroup_getPurgeableCards {
         @SpirePostfixPatch
         public static CardGroup patch(CardGroup result, CardGroup instance) {
-            removeCardsWithCardTags(result.group, LEGENDARY, DECK_OF_TRIALS);
+            removeLegendaryCards(result.group);
             return result;
         }
     }
@@ -186,7 +219,7 @@ public class LegendaryPatch {
     public static class CardLibrary_getAnyColorCard {
         @SpireInsertPatch(locator = CardGroup_shuffle_Locator.class, localvars = "anyCard")
         public static void patch(AbstractCard.CardRarity rarity, CardGroup anyCard) {
-            removeCardsWithCardTags(anyCard.group, LEGENDARY, DECK_OF_TRIALS);
+            removeLegendaryCards(anyCard.group);
         }
     }
 
@@ -197,7 +230,7 @@ public class LegendaryPatch {
         @SpirePostfixPatch
         public static boolean patch(AbstractCard.CardType type) {
             return CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck).group.stream()
-                    .anyMatch(c -> c.type == type && !(c.hasTag(LEGENDARY) || c.hasTag(DECK_OF_TRIALS)));
+                    .anyMatch(c -> c.type == type && !c.hasTag(LEGENDARY));
         }
     }
 
@@ -207,7 +240,7 @@ public class LegendaryPatch {
         public static AbstractCard patch(AbstractCard.CardType type, Random rng) {
             ArrayList<AbstractCard> cards =
                     CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck).group.stream()
-                            .filter(c -> c.type == type && !(c.hasTag(LEGENDARY) || c.hasTag(DECK_OF_TRIALS)))
+                            .filter(c -> c.type == type && !c.hasTag(LEGENDARY))
                             .collect(Collectors.toCollection(ArrayList::new));
             return cards.remove(rng.random(cards.size() - 1));
         }
@@ -241,7 +274,7 @@ public class LegendaryPatch {
                     // replacing the "((AbstractCard)AbstractDungeon.player.masterDeck.group.get(i)).inBottleFlame"
                     // expression in the original if statement to add in an "|| card.hasTag(LEGENDARY)"
                     if (fieldAccess.getClassName().equals(AbstractCard.class.getName()) && fieldAccess.getFieldName().equals("inBottleFlame")) {
-                        fieldAccess.replace("{ $_ = ($proceed() || " + LegendaryPatch.class.getName() + ".isUniqueType($0)); }");
+                        fieldAccess.replace("{ $_ = ($proceed() || $0.hasTag(" + LEGENDARY_QUALIFIED_NAME + ")); }");
                     }
                 }
             };
@@ -253,7 +286,7 @@ public class LegendaryPatch {
     public static class WeMeetAgain_getRandomNonBasicCard {
         @SpireInsertPatch(locator = ArrayList_isEmpty_Locator.class, localvars = "list")
         public static void patch(ArrayList<AbstractCard> list) {
-            removeCardsWithCardTags(list, LEGENDARY, DECK_OF_TRIALS);
+            removeLegendaryCards(list);
         }
     }
 
@@ -262,7 +295,7 @@ public class LegendaryPatch {
     public static class Astrolabe_onEquip {
         @SpireInsertPatch(locator = ArrayList_isEmpty_Locator.class, localvars = "tmp")
         public static void patch(CardGroup tmp) {
-            removeCardsWithCardTags(tmp.group, LEGENDARY, DECK_OF_TRIALS);
+            removeLegendaryCards(tmp.group);
         }
     }
 
@@ -279,7 +312,7 @@ public class LegendaryPatch {
     public static class EmptyCage_onEquip {
         @SpireInsertPatch(locator = ArrayList_isEmpty_Locator.class, localvars = "tmp")
         public static void patch(CardGroup tmp) {
-            removeCardsWithCardTags(tmp.group, LEGENDARY, DECK_OF_TRIALS);
+            removeLegendaryCards(tmp.group);
         }
     }
 
@@ -290,7 +323,7 @@ public class LegendaryPatch {
     public static class CardGroup_removeCard_1 {
         @SpirePrefixPatch
         public static void patch(CardGroup instance, AbstractCard c) {
-            if (instance.type == CardGroup.CardGroupType.MASTER_DECK && (c.hasTag(LEGENDARY) || c.hasTag(DECK_OF_TRIALS))) {
+            if (instance.type == CardGroup.CardGroupType.MASTER_DECK && c.hasTag(LEGENDARY)) {
                 logger.error("Legendary card removed from Master Deck.");
             }
         }
@@ -302,7 +335,7 @@ public class LegendaryPatch {
         @SpirePrefixPatch
         public static void patch(CardGroup instance, String targetID) {
             if (instance.type == CardGroup.CardGroupType.MASTER_DECK) {
-                if (instance.group.stream().anyMatch(c -> c.cardID.equals(targetID) && (c.hasTag(LEGENDARY) || c.hasTag(DECK_OF_TRIALS)))) {
+                if (instance.group.stream().anyMatch(c -> c.cardID.equals(targetID) && c.hasTag(LEGENDARY))) {
                     logger.error("Legendary card removed by cardID from Master Deck.");
                 }
             }
@@ -315,7 +348,7 @@ public class LegendaryPatch {
         @SpirePostfixPatch
         public static void patch(AbstractCard c, boolean autoUpgrade, Random rng) {
             // Because the transformed card is replaced, this can incorrectly mark cards as seen in the UnlockTracker.
-            if (c.hasTag(LEGENDARY) || c.hasTag(DECK_OF_TRIALS)) {
+            if (c.hasTag(LEGENDARY)) {
                 logger.error(
                         "AbstractDungeon.transformCard invoked on Legendary card. "
                                 + "Setting original card as the transform.");
@@ -328,7 +361,7 @@ public class LegendaryPatch {
     public static class AbstractDungeon_srcTransformCard {
         @SpirePostfixPatch
         public static void patch(AbstractCard c) {
-            if (c.hasTag(LEGENDARY) || c.hasTag(DECK_OF_TRIALS)) {
+            if (c.hasTag(LEGENDARY)) {
                 logger.error(
                         "AbstractDungeon.srcTransformCard invoked on Legendary card. "
                                 + "Setting original card as the transform.");
