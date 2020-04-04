@@ -2,15 +2,26 @@
 
 ## [Unreleased]
 
+* New Card: Discordance (Cull, Uncommon Attack) - 1: Deal 5 (7) damage for each card type in your hand.
+
 ### New translations
 
 * Chinese (Simplified) (thanks yanang007)
 * Spanish (thanks ChDaVinci)
 
+### Updates
+
+* Integration with the Slay the Relics Twitch extension (thanks avolny)
+
+### CULL mechanics
+
+* The CULL can no long Rest at campfires; instead, it Thirsts, consuming Wrath from an attack to heal (thanks Lucerna)
+* The CULL can no longer gain Block; instead, the block amount is dealt as damage to a random enemy (thanks Lucerna)
+* The CULL can no longer gain Dexterity; instead, it gains the Dexterity amount as Strength (thanks Lucerna)
+
 ### CULL balance/design changes
 
-* The CULL can no longer gain Block; instead, the block amount is dealt as damage to a random enemy. (thanks Lucerna)
-* The CULL can no longer gain Dexterity; instead, it gains the Dexterity amount as Strength (thanks Lucerna)
+* Starting HP changed to 70
 * Tungsten Rod removed from CULL relic pool.
 * CULL (the card): Changed to "Deal 12 damage twice. Exhaust."
 * CULL (the card): Upgrade changed to "wrath applies twice"
@@ -24,8 +35,14 @@
 * Toil: changed to work only on non-minion enemies, using the Fatal keyword.
 * Wasting Essence: Renamed to Wasting Form. Changed damage per curse drawn and upgrade damage increase.
 * Strife: only counts curses in discard pile. Upgrade adds 2 curses instead of 2 strength per curse. Added Exhaust.
-
+* Drain Life: now exerts instead of exhausting
+* Intervention: exerts instead of exhausting, gives Procrastination instead of Regret
 (thanks Cartopol for all!)
+
+* Seance: deprecated
+* Inhale: deprecated
+* Splinter Soul: deprecated
+* Waking Dream: deprecated
 
 ### New CULL cards
 
@@ -45,6 +62,14 @@
 * Goosebumps (thanks PanicPoint)
 * Melt (thanks PanicPoint)
 * Godsbane (thanks PanicPoint)
+* Pollute (thanks Cartopol)
+* Summoning (thanks Cartopol)
+* Toll (thanks PanicPoint)
+* Concentrate (thanks Skyl3lazer)
+* Frustration (thanks Cartopol)
+* Discordance (thanks Skyl3lazer)
+* Equinox (thanks Cartopol)
+* Procrastination (thanks Cartopol)
 
 ## [v1.7.0] - 2020-03-15
 

@@ -104,8 +104,8 @@ public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber 
     // =============== BASE STATS =================
 
     public static final int ENERGY_PER_TURN = 3;
-    public static final int STARTING_HP = 48;
-    public static final int MAX_HP = 48;
+    public static final int STARTING_HP = 70;
+    public static final int MAX_HP = 70;
     public static final int STARTING_GOLD = 199;
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
@@ -213,15 +213,13 @@ public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber 
 
         retVal.add(CULLCard.ID);
         retVal.add(Apparition_Cull.ID);
-        retVal.add(Frostbite.ID);
-        retVal.add(Inhale.ID);
+        retVal.add(Strike_Cull.ID);
+        retVal.add(Strike_Cull.ID);
+        retVal.add(Strike_Cull.ID);
+        retVal.add(Strike_Cull.ID);
+        retVal.add(Paralysis.ID);
         retVal.add(SpiritShield_Cull.ID);
-        retVal.add(SplinterSoul.ID);
-        retVal.add(WakingDream.ID);
-        retVal.add(Strike_Cull.ID);
-        retVal.add(Strike_Cull.ID);
-        retVal.add(Strike_Cull.ID);
-        retVal.add(Strike_Cull.ID);
+        retVal.add(Exhale.ID);
 
         return retVal;
     }

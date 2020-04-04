@@ -28,6 +28,7 @@ import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.console.*;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
+import stsjorbsmod.patches.ExertedField;
 import stsjorbsmod.potions.*;
 import stsjorbsmod.relics.CustomJorbsModRelic;
 import stsjorbsmod.tips.JorbsModTipTracker;
@@ -51,7 +52,9 @@ public class JorbsMod implements
         EditKeywordsSubscriber,
         EditCharactersSubscriber,
         PostInitializeSubscriber,
-        OnPowersModifiedSubscriber {
+        OnPowersModifiedSubscriber,
+        StartActSubscriber,
+        StartGameSubscriber{
     public static final String MOD_ID = "stsjorbsmod";
 
     public static final Logger logger = LogManager.getLogger(JorbsMod.class.getName());
@@ -99,7 +102,7 @@ public class JorbsMod implements
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.
     public static final String BADGE_IMAGE = "stsjorbsmodResources/images/Badge.png";
 
-    
+
     // =============== MAKE RESOURCE PATHS =================
 
     public static String makeVoiceOverPath(String resourcePath) {
@@ -109,7 +112,7 @@ public class JorbsMod implements
     public static String makeCardPath(String resourcePath) {
         return MOD_ID + "Resources/images/cards/" + resourcePath;
     }
-    
+
     public static String makeRelicPath(String resourcePath) {
         return MOD_ID + "Resources/images/relics/" + resourcePath;
     }
@@ -117,7 +120,7 @@ public class JorbsMod implements
     public static String makeCharPath(String resourcePath) {
         return MOD_ID + "Resources/images/characters/" + resourcePath;
     }
-    
+
     public static String makeRelicOutlinePath(String resourcePath) {
         return MOD_ID + "Resources/images/relics/outline/" + resourcePath;
     }
@@ -130,20 +133,12 @@ public class JorbsMod implements
         return MOD_ID + "Resources/images/monsters/" + resourcePath;
     }
 
-    public static String makeOrbPath(String resourcePath) {
-        return MOD_ID + "Resources/orbs/" + resourcePath;
-    }
-    
     public static String makePowerPath(String resourcePath) {
         return MOD_ID + "Resources/images/powers/" + resourcePath;
     }
-    
-    public static String makeEventPath(String resourcePath) {
-        return MOD_ID + "Resources/images/events/" + resourcePath;
-    }
 
-    public static String makeScenePath(String resourcePath) {
-        return MOD_ID + "Resources/images/scenes/" + resourcePath;
+    public static String makeImagePath(String resourcePath) {
+        return MOD_ID + "Resources/images/" + resourcePath;
     }
 
     public static String makeLocalizedStringsPath(Settings.GameLanguage language, String resourcePath) {
@@ -156,14 +151,14 @@ public class JorbsMod implements
 
         return MOD_ID + "Resources/localization/" + languageFolder + "/" + resourcePath;
     }
-    
+
     // =============== /MAKE RESOURCE PATHS/ =================
-    
+
     // =============== /INPUT TEXTURE LOCATION/ =================
-    
-    
+
+
     // =============== SUBSCRIBE, CREATE THE COLOR_GRAY, INITIALIZE =================
-    
+
     public JorbsMod() {
         logger.info("Subscribe to BaseMod hooks");
         BaseMod.subscribe(this);
@@ -184,23 +179,23 @@ public class JorbsMod implements
         BaseMod.addSaveField(MOD_ID + ":ManifestSaveData", new ManifestSaveData());
         logger.info("Done adding save fields");
     }
-    
+
     @SuppressWarnings("unused")
     public static void initialize() {
         logger.info("========================= Initializing JorbsMod. !dig =========================");
         JorbsMod defaultmod = new JorbsMod();
         logger.info("========================= /JorbsMod Initialized./ =========================");
     }
-    
+
     // ============== /SUBSCRIBE, CREATE THE COLOR_GRAY, INITIALIZE/ =================
 
     @Override
     public void receiveAddAudio() {
         Wanderer.AudioInfo.registerAudio();
     }
-    
+
     // =============== LOAD THE CHARACTER =================
-    
+
     @Override
     public void receiveEditCharacters() {
         logger.info("Beginning to edit characters.");
@@ -227,15 +222,15 @@ public class JorbsMod implements
 
         logger.info("Added characters");
     }
-    
+
     // =============== /LOAD THE CHARACTER/ =================
-    
-    
+
+
     // =============== POST-INITIALIZE =================
 
     private static void registerPowerInDevConsole(Class<? extends AbstractPower> jorbsModPower) {
         try {
-            String id = (String)jorbsModPower.getField("POWER_ID").get(null);
+            String id = (String) jorbsModPower.getField("POWER_ID").get(null);
             logger.info("Registering power: " + id);
             BaseMod.addPower(jorbsModPower, id);
         } catch (IllegalAccessException | NoSuchFieldException e) {
@@ -247,7 +242,7 @@ public class JorbsMod implements
         logger.info("Registering powers in developer console");
 
         ArrayList<Class<AbstractPower>> powers = ReflectionUtils.findAllConcreteJorbsModClasses(new RegexClassFilter("^stsjorbsmod\\.powers\\.(.+)Power$"));
-        for(Class<AbstractPower> power : powers) {
+        for (Class<AbstractPower> power : powers) {
             registerPowerInDevConsole(power);
         }
 
@@ -280,7 +275,7 @@ public class JorbsMod implements
 
 
         // =============== EVENTS =================
-        
+
         // This event will be exclusive to the City (act 2). If you want an event that's present at any
         // part of the game, simply don't include the dungeon ID
         // If you want to have a character-specific event, look at slimebound (CityRemoveEventPatch).
@@ -288,16 +283,16 @@ public class JorbsMod implements
         //
         // Not complete yet:
         // BaseMod.addEvent(DeckOfManyThingsEvent.ID, DeckOfManyThingsEvent.class, TheCity.ID);
-        
+
         // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");
 
         registerPowersInDevConsole();
     }
-    
+
     // =============== / POST-INITIALIZE/ =================
 
-    
+
     // ================ ADD RELICS ===================
 
     @Override
@@ -317,10 +312,10 @@ public class JorbsMod implements
 
         logger.info("Done adding relics!");
     }
-    
+
     // ================ /ADD RELICS/ ===================
-    
-    
+
+
     // ================ ADD CARDS ===================
 
     @Override
@@ -341,10 +336,10 @@ public class JorbsMod implements
 
         logger.info("Done adding cards!");
     }
-    
+
     // ================ /ADD CARDS/ ===================
-    
-    
+
+
     // ================ LOAD THE TEXT ===================
 
     private void loadStrings(Class<?> stringType, String stringsFileName) {
@@ -370,11 +365,11 @@ public class JorbsMod implements
 
         logger.info("Done editing strings");
     }
-    
+
     // ================ /LOAD THE TEXT/ ===================
-    
+
     // ================ LOAD THE KEYWORDS ===================
-    
+
     @Override
     public void receiveEditKeywords() {
         // Keywords on cards are supposed to be Capitalized, while in Keyword-String.json they're lowercase
@@ -384,18 +379,18 @@ public class JorbsMod implements
         // If you're using multiword keywords, the first element in your NAMES array in your keywords-strings.json has to be the same as the PROPER_NAME.
         // That is, in Card-Strings.json you would have #yA_Long_Keyword (#y highlights the keyword in yellow).
         // In Keyword-Strings.json you would have PROPER_NAME as A Long Keyword and the first element in NAMES be a long keyword, and the second element be a_long_keyword
-        
+
         Gson gson = new Gson();
-        String json = Gdx.files.internal( makeLocalizedStringsPath(Settings.language, "JorbsMod-Keyword-Strings.json")).readString(String.valueOf(StandardCharsets.UTF_8));
+        String json = Gdx.files.internal(makeLocalizedStringsPath(Settings.language, "JorbsMod-Keyword-Strings.json")).readString(String.valueOf(StandardCharsets.UTF_8));
         com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
-        
+
         if (keywords != null) {
             for (Keyword keyword : keywords) {
                 BaseMod.addKeyword(MOD_ID.toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
         }
     }
-    
+
     // ================ /LOAD THE KEYWORDS/ ===================
 
     // this adds "ModName:" before the ID of any card/relic/power etc.
@@ -414,16 +409,35 @@ public class JorbsMod implements
                 !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             for (AbstractPower p : AbstractDungeon.player.powers) {
                 if (p instanceof OnPowersModifiedSubscriber) {
-                    ((OnPowersModifiedSubscriber)p).receivePowersModified();
+                    ((OnPowersModifiedSubscriber) p).receivePowersModified();
                 }
             }
             MemoryManager mm = MemoryManager.forPlayer();
             if (mm != null) {
                 for (AbstractMemory m : mm.allMemoriesIncludingInactive()) {
                     if (m instanceof OnPowersModifiedSubscriber) {
-                        ((OnPowersModifiedSubscriber)m).receivePowersModified();
+                        ((OnPowersModifiedSubscriber) m).receivePowersModified();
                     }
                 }
+            }
+        }
+    }
+
+    @Override
+    public void receiveStartAct() {
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+            if (c instanceof CustomJorbsModCard) {
+                ((CustomJorbsModCard)c).receiveStartAct();
+            }
+            ExertedField.exerted.set(c, false);
+        }
+    }
+
+    @Override
+    public void receiveStartGame() {
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+            if (c instanceof CustomJorbsModCard) {
+                ((CustomJorbsModCard)c).receiveStartGame();
             }
         }
     }
