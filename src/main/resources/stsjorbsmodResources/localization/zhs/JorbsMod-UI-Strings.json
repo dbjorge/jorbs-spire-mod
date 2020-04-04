@@ -59,6 +59,16 @@
       "被缠住！"
     ]
   },
+  "stsjorbsmod:ManifestTopPanelItem": {
+    "TEXT": [
+      "荒废",
+      "每当尖塔游魂受到伤害或在每回合结束时，它失去 #b1 点最大生命。",
+      "蔑视",
+      "尖塔游魂无法获得 #y敏捷 或 #y格挡 。相对应的，它将获得等量 #y力量 或 对一随机敌人造成等量伤害。",
+      "怒不可遏",
+      "尖塔游魂永远记得 #y暴怒 。"
+    ]
+  },
   "stsjorbsmod:MemoryFtueTip": {
     "TEXT": [
       "记忆",
@@ -91,9 +101,9 @@
   },
   "stsjorbsmod:SummoningAction": {
     "TEXT": [
-      "选择一张牌，下回合发掘它。",
+      "选择一张牌消耗，下回合发掘它。",
       "选择 ",
-      " 来等待下回合发掘。"
+      " 张牌消耗，下回合发掘它们。"
     ]
   },
   "stsjorbsmod:ThirstOption": {

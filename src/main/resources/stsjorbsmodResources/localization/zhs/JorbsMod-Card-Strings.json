@@ -397,7 +397,7 @@
     "UPGRADE_DESCRIPTION": "回忆起 stsjorbsmod:色欲 。 NL 将目标敌人的 stsjorbsmod:灼烧 层数翻三倍。 NL 消耗 。 NL 当你 stsjorbsmod:爆发 时， stsjorbsmod:发掘 之。"
   },
   "stsjorbsmod:Inhale": {
-    "NAME": "猛吸",
+    "NAME": "猛吸 DEPRECATED",
     "DESCRIPTION": "获得 !stsjorbsmod:UrMagic! 层 无实体 。 NL 在下一回合开始时，获得 !M! 点 力量 。 NL 消耗 。"
   },
   "stsjorbsmod:Intervention": {
@@ -648,7 +648,7 @@
     "DESCRIPTION": "回忆起 stsjorbsmod:色欲 。 NL 给予 !stsjorbsmod:MetaMagic! 层 stsjorbsmod:灼烧 !M! 次。本牌中的 stsjorbsmod:灼烧 层数受 力量 影响。"
   },
   "stsjorbsmod:Seance": {
-    "NAME": "降神会",
+    "NAME": "降神会 DEPRECATED",
     "DESCRIPTION": "stsjorbsmod:发掘 一张牌。 NL 它获得 虚无 。 NL 消耗。"
   },
   "stsjorbsmod:Sentinel_Cull": {
@@ -684,7 +684,7 @@
     "DESCRIPTION": "在下一回合开始前，所有你受到的伤害将减少 !M! 点。"
   },
   "stsjorbsmod:SplinterSoul": {
-    "NAME": "灵魂破碎",
+    "NAME": "灵魂破碎 DEPRECATED",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 随机 stsjorbsmod:耗费 一张你抽牌堆中的非传奇卡。"
   },
   "stsjorbsmod:Stalwart": {
@@ -800,7 +800,7 @@
     "DESCRIPTION": "给予 !stsjorbsmod:UrMagic! 层 易伤 。 NL 抽 !M! 张牌。 NL 消耗 。"
   },
   "stsjorbsmod:WakingDream": {
-    "NAME": "清醒之梦",
+    "NAME": "清醒之梦 DEPRECATED",
     "DESCRIPTION": "保留 。 NL 获得 !M! 层 无实体 。 NL 当这张牌被 保留 时，将其在本场战斗的耗能增加 !stsjorbsmod:MetaMagic! 点。 NL 消耗 。"
   },
   "stsjorbsmod:WanderingMind": {
