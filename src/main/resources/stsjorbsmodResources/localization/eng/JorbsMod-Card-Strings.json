@@ -1,8 +1,12 @@
 {
   "stsjorbsmod:Abjure": {
     "NAME": "Abjure",
-    "DESCRIPTION": "Put all Spirit Shields into your hand from your draw pile, discard pile and exhaust pile.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Put all Spirit Shields into your hand from your draw pile, discard pile and exhaust pile."
+    "DESCRIPTION": "Put Spirit Shield into your hand from your draw pile, discard pile or exhaust pile.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Put Spirit Shield into your hand from your draw pile, discard pile or exhaust pile."
+  },
+  "stsjorbsmod:Accumulation": {
+    "NAME": "Accumulation",
+    "DESCRIPTION": "Draw !M! cards. NL Draws 1 additional card for each Accumulation in your discard pile."
   },
   "stsjorbsmod:Aid": {
     "NAME": "Aid",
@@ -25,6 +29,10 @@
       " NL (Gain !M! Thorns.)"
     ]
   },
+  "stsjorbsmod:Anxiety": {
+    "NAME": "Anxiety",
+    "DESCRIPTION": "Draw !stsjorbsmod:MetaMagic! cards and gain [E]. NL Permanently lower the number of cards drawn by !M!. NL Exhaust."
+  },
   "stsjorbsmod:Apparate": {
     "NAME": "Apparate",
     "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Vulnerable. NL Deal !D! damage and apply !M! Vulnerable to ALL enemies."
@@ -36,8 +44,8 @@
   },
   "stsjorbsmod:ArcaneForm": {
     "NAME": "Arcane Form",
-    "DESCRIPTION": "Ethereal. NL Gain stsjorbsmod:Clarity of stsjorbsmod:Patience, stsjorbsmod:Lust, stsjorbsmod:Diligence, stsjorbsmod:Kindness, and stsjorbsmod:Chastity.",
-    "UPGRADE_DESCRIPTION": "Gain stsjorbsmod:Clarity of stsjorbsmod:Patience, stsjorbsmod:Lust, stsjorbsmod:Diligence, stsjorbsmod:Kindness, and stsjorbsmod:Chastity."
+    "DESCRIPTION": "Ethereal. NL Gain stsjorbsmod:Clarity of stsjorbsmod:Patience, stsjorbsmod:Lust, stsjorbsmod:Kindness, and stsjorbsmod:Chastity.",
+    "UPGRADE_DESCRIPTION": "Gain stsjorbsmod:Clarity of stsjorbsmod:Patience, stsjorbsmod:Lust, stsjorbsmod:Kindness, and stsjorbsmod:Chastity."
   },
   "stsjorbsmod:ArcaneWeapon": {
     "NAME": "Arcane Weapon",
@@ -108,6 +116,14 @@
     "NAME": "Chill Touch",
     "DESCRIPTION": "Deal !D! damage to an enemy. NL It can no longer heal."
   },
+  "stsjorbsmod:Cleanse": {
+    "NAME": "Cleanse",
+    "DESCRIPTION": "Discard all Curses from your draw pile. NL Heal !stsjorbsmod:UrMagic! HP for each Curse discarded. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (You have !M! Curse.)",
+      " NL (You have !M! Curses.)"
+    ]
+  },
   "stsjorbsmod:Coda": {
     "NAME" : "Coda",
     "DESCRIPTION": "Deal !D! damage. NL If this would kill an enemy, instead leave the enemy at 1 HP."
@@ -115,6 +131,14 @@
   "stsjorbsmod:ColorSpray": {
     "NAME": "Color Spray",
     "DESCRIPTION": "Deal !D! damage to ALL enemies and apply a random debuff to each. NL Remember stsjorbsmod:Envy."
+  },
+  "stsjorbsmod:Commune": {
+    "NAME" : "Commune",
+    "DESCRIPTION": "Scry !M!."
+  },
+  "stsjorbsmod:Concentrate": {
+    "NAME": "Concentrate",
+    "DESCRIPTION": "Discard !M! cards. NL Gain [E] [E]."
   },
   "stsjorbsmod:CorrodingBarrier": {
     "NAME": "Corroding Barrier",
@@ -127,7 +151,8 @@
   },
   "stsjorbsmod:CULLCard": {
     "NAME": "CULL",
-    "DESCRIPTION": "Permanently decrease this card's damage by !stsjorbsmod:UrMagic! each time it is drawn. NL Deal !D! damage twice. NL If Fatal, permanently increase this card's damage by !M!. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage twice. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage twice. NL stsjorbsmod:Wrath is applied twice. NL Exhaust."
   },
   "stsjorbsmod:Cyclone": {
     "NAME": "Cyclone",
@@ -152,6 +177,13 @@
     "DESCRIPTION": "Remember stsjorbsmod:Pride. NL At the end of this turn, stsjorbsmod:Snap. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Pride. NL Exhaust."
   },
+  "stsjorbsmod:Discordance": {
+    "NAME": "Discordance",
+    "DESCRIPTION": "Deal damage equal to the number of stsjorbsmod:Card\u00a0Types in your hand times !M!.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage)"
+    ]
+  },
   "stsjorbsmod:DisguiseSelf": {
     "NAME": "Disguise Self",
     "DESCRIPTION": "Gain !B! Block. NL Gain !B! Block next turn."
@@ -168,10 +200,10 @@
   },
   "stsjorbsmod:DrainLife": {
     "NAME": "Drain Life",
-    "DESCRIPTION": "Deal X damage. NL Gain Max HP equal to the damage dealt. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal X+1 damage. NL Gain Max HP equal to the damage dealt. NL Exhaust.",
+    "DESCRIPTION": "Deal X damage. NL Gain Max HP equal to the damage dealt. NL stsjorbsmod:Exert.",
+    "UPGRADE_DESCRIPTION": "Deal X+1 damage. NL Gain Max HP equal to the damage dealt. NL stsjorbsmod:Exert.",
     "EXTENDED_DESCRIPTION": [
-      " NL (Deal !D! damage.)"
+      " NL (Deals !D! damage.)"
     ]
   },
   "stsjorbsmod:Ectoplasm_Cull": {
@@ -189,6 +221,19 @@
     "NAME": "Entangle",
     "DESCRIPTION": "Apply stsjorbsmod:Slow to ALL enemies. NL Add !M! stsjorbsmod:Web into your hand.",
     "UPGRADE_DESCRIPTION": "Apply stsjorbsmod:Slow to ALL enemies. NL Add !M! stsjorbsmod:Webs into your hand."
+  },
+  "stsjorbsmod:Equinox": {
+    "NAME": "Equinox",
+    "DESCRIPTION": "Deal damage equal to the current Floor number. NL The cost of this card is equal to the current Act number. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to the current Floor number. NL The cost of this card is equal to the current Act number - !M!. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
+  },
+  "stsjorbsmod:Exhale": {
+    "NAME": "Exhale",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !M! Intangible. NL At the start of your next turn, lose !stsjorbsmod:UrMagic! Strength.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Intangible. NL At the start of your next turn, lose !stsjorbsmod:UrMagic! Strength. NL Exhaust."
   },
   "stsjorbsmod:Expose": {
     "NAME": "Expose",
@@ -217,10 +262,18 @@
     "NAME": "Feast",
     "DESCRIPTION": "Remember stsjorbsmod:Gluttony. NL Draw !M! cards. NL Exhaust."
   },
+  "stsjorbsmod:Feint": {
+    "NAME": "Feint",
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! cards. NL Discard !stsjorbsmod:MetaMagic! card."
+  },
   "stsjorbsmod:FindFamiliar": {
     "NAME": "Find Familiar",
     "DESCRIPTION": "At the start of each turn, gain stsjorbsmod:Clarity of current memory.",
     "UPGRADE_DESCRIPTION": "Innate. NL At the start of each turn, gain stsjorbsmod:Clarity of current memory."
+  },
+  "stsjorbsmod:FindWeakness": {
+    "NAME": "Find Weakness",
+    "DESCRIPTION": "Scry !M! the first time you attack an enemy each turn."
   },
   "stsjorbsmod:Fireball": {
     "NAME": "Fireball",
@@ -246,9 +299,23 @@
     "NAME": "The Grimoire",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until you stsjorbsmod:Snap OR start turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL stsjorbsmod:Exhume after playing this then !M! other cards."
   },
+  "stsjorbsmod:ForcedPresence": {
+    "NAME": "Forced Presence",
+    "DESCRIPTION": "Lose !M! Intangible. If you do, gain !stsjorbsmod:UrMagic! [E]. NL Exhaust."
+  },
   "stsjorbsmod:FracturedMind": {
     "NAME": "Fractured Mind",
     "DESCRIPTION": "stsjorbsmod:Sin: Deal !D! damage. NL stsjorbsmod:Virtue: Gain !B! Block. NL stsjorbsmod:Snapped: Do both."
+  },
+  "stsjorbsmod:FranticMind": {
+    "NAME": "Frantic Mind",
+    "DESCRIPTION": "Discard a card for each stsjorbsmod:Manifest, then draw that many cards. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Discard a card for each stsjorbsmod:Manifest, then draw that many cards.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Discard !M! card.)",
+      " NL (Discard !M! cards.)"
+    ]
+
   },
   "stsjorbsmod:FranticSearch": {
     "NAME": "Frantic Search",
@@ -263,14 +330,43 @@
     "NAME": "Frostbite",
     "DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, stsjorbsmod:Consume this."
   },
+  "stsjorbsmod:Frustration": {
+    "NAME": "Frustration",
+    "DESCRIPTION": "Retain: Deal !M! damage to ALL enemies. NL stsjorbsmod:Exert: Deal !D! damage to ALL enemies."
+  },
   "stsjorbsmod:GatherPower": {
     "NAME": "Gather Power",
     "DESCRIPTION": "Draw !M! card. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional time.",
     "UPGRADE_DESCRIPTION": "Draw !M! card. NL This turn, your next attack is played !stsjorbsmod:MetaMagic! additional times."
   },
+  "stsjorbsmod:GatheringEvil": {
+    "NAME": "Gathering Evil",
+    "DESCRIPTION": "Gain !stsjorbsmod:MetaMagic! Strength and !stsjorbsmod:UrMagic! Vulnerable for each Curse played this combat. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !stsjorbsmod:MetaMagic! Strength and !stsjorbsmod:UrMagic! Vulnerable for each Curse played this combat. NL Exhaust. NL Exhume when you shuffle your draw pile.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (You have played !M! Curse.)",
+      " NL (You have played !M! Curses.)"
+    ]
+  },
+  "stsjorbsmod:Godsbane": {
+    "NAME": "Godsbane",
+    "DESCRIPTION": "Deal !M! % of target's max HP.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
+  },
+  "stsjorbsmod:Goosebumps": {
+    "NAME": "Goosebumps",
+    "DESCRIPTION": "Deal !D! damage !M! times."
+  },
+  "stsjorbsmod:GrimDirge": {
+    "NAME": "Grim Dirge",
+    "DESCRIPTION": "stsjorbsmod:Entombed. NL stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume on turn !M!. NL Deal !D! damage."
+  },
   "stsjorbsmod:Haunt": {
     "NAME": "Haunt",
-    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Next turn, draw !M! additional cards. NL Exhaust."
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !stsjorbsmod:UrMagic! Intangible. NL Draw !M! fewer card next turn.",
+    "UPGRADE_DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Draw !M! fewer card next turn. NL Exhaust."
   },
   "stsjorbsmod:HedgeWizard": {
     "NAME": "Hedge Wizard",
@@ -301,13 +397,9 @@
     "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Double target enemy's stsjorbsmod:Burning. NL Exhaust. stsjorbsmod:Exhume when you stsjorbsmod:Snap.",
     "UPGRADE_DESCRIPTION": "Remember stsjorbsmod:Lust. NL Triple target enemy's stsjorbsmod:Burning. NL Exhaust. stsjorbsmod:Exhume when you stsjorbsmod:Snap."
   },
-  "stsjorbsmod:Inhale": {
-    "NAME": "Inhale",
-    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Gain !M! Strength at the start of next turn. NL Exhaust."
-  },
   "stsjorbsmod:Intervention": {
     "NAME": "Intervention",
-    "DESCRIPTION": "Deal !D! damage. NL stsjorbsmod:Consume this card and add Regret to your deck."
+    "DESCRIPTION": "Deal !D! damage. NL Permanently add Procrastination to your deck. NL stsjorbsmod:Exert."
   },
   "stsjorbsmod:Introspection": {
     "NAME": "Introspection",
@@ -364,6 +456,10 @@
     "NAME": "Materialize",
     "DESCRIPTION": "Gain !B! Block. NL Choose 1 of 3 stsjorbsmod:Material Components."
   },
+  "stsjorbsmod:Melt": {
+    "NAME": "Melt",
+    "DESCRIPTION": "Apply stsjorbsmod:Burning equal to target's Block. NL Deal !D! damage."
+  },
   "stsjorbsmod:Mending": {
     "NAME": "Mending",
     "DESCRIPTION": "Heal HP equal to the number of stsjorbsmod:Clarities you have. NL Exhaust.",
@@ -383,7 +479,7 @@
   },
   "stsjorbsmod:Miracle_Cull": {
     "NAME": "Miracle",
-    "DESCRIPTION": "Retain. NL Gain !M! [E] . NL Add !stsjorbsmod:MetaMagic! stsjorbsmod:Manifest."
+    "DESCRIPTION": "Retain. NL Gain !M! [E] . NL Add !stsjorbsmod:MetaMagic! stsjorbsmod:Manifest. NL Exhaust."
   },
   "stsjorbsmod:Mirror": {
     "NAME": "Mirror",
@@ -414,9 +510,18 @@
     "DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Gain stsjorbsmod:Clarity of current memory. NL Exhaust."
   },
+  "stsjorbsmod:Overkill": {
+    "NAME": "Overkill",
+    "DESCRIPTION": "Whenever you kill an enemy, deal any overkill damage to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Whenever you kill an enemy, deal any overkill damage + !M! to ALL enemies."
+  },
   "stsjorbsmod:Panic": {
     "NAME": "Panic",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !M! Intangible. NL Lose !stsjorbsmod:UrMagic! Max HP."
+  },
+  "stsjorbsmod:Paralysis": {
+    "NAME": "Paralysis",
+    "DESCRIPTION": "Retain. NL Gain !M! Intangible. NL When Retained, lower its cost by 1 this combat. NL Exhaust."
   },
   "stsjorbsmod:PartingBlow": {
     "NAME": "Parting Blow",
@@ -442,6 +547,19 @@
     "NAME": "Phantasm",
     "DESCRIPTION": "Whenever you gain Intangible, deal !M! damage to ALL enemies."
   },
+  "stsjorbsmod:Pollute": {
+    "NAME": "Pollute",
+    "DESCRIPTION": "Turn all cards in your hand into Curses (they can still be played). NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Turn all cards in your hand into Curses (they can still be played)."
+  },
+  "stsjorbsmod:PollutedStrike": {
+    "NAME": "Polluted Strike",
+    "DESCRIPTION": "Deal !D! stsjorbsmod:Attack\u00a0Damage once for each Curse in your hand.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (You have !M! Curse.)",
+      " NL (You have !M! Curses.)"
+    ]
+  },
   "stsjorbsmod:Poultergeist": {
     "NAME": "Poultergeist",
     "DESCRIPTION": "Deal !D! damage."
@@ -456,6 +574,10 @@
   "stsjorbsmod:Prestidigitation": {
     "NAME": "Prestidigitation",
     "DESCRIPTION": "At the start of each turn, apply !M! Weak or !M! Vulnerable to a random enemy."
+  },
+  "stsjorbsmod:Procrastination": {
+    "NAME": "Procrastination",
+    "DESCRIPTION": "Unplayable. NL Starts each combat in your discard pile."
   },
   "stsjorbsmod:PurgeMind": {
     "NAME": "Purge Mind",
@@ -487,6 +609,10 @@
       " NL (Deals !M! damage.)"
     ]
   },
+  "stsjorbsmod:Rebuttal": {
+    "NAME": "Rebuttal",
+    "DESCRIPTION": "Retain: Gain !stsjorbsmod:UrMagic! Thorns while this is in your hand. NL stsjorbsmod:Exert: Gain !M! Thorns."
+  },
   "stsjorbsmod:Rediscovery": {
     "NAME": "Rediscovery",
     "DESCRIPTION": "Whenever you gain stsjorbsmod:Clarity of a new memory, gain 1 [E].",
@@ -517,10 +643,6 @@
   "stsjorbsmod:ScorchingRay": {
     "NAME": "Scorching Ray",
     "DESCRIPTION": "Remember stsjorbsmod:Lust. NL Apply !stsjorbsmod:MetaMagic! stsjorbsmod:Burning !M! times. This stsjorbsmod:Burning is affected by Strength."
-  },
-  "stsjorbsmod:Seance": {
-    "NAME": "Séance",
-    "DESCRIPTION": "stsjorbsmod:Exhume a card. NL It gains Ethereal. NL Exhaust."
   },
   "stsjorbsmod:Sentinel_Cull": {
     "NAME": "Sentinel",
@@ -554,10 +676,6 @@
     "NAME": "Spirit Shield",
     "DESCRIPTION": "Reduce all damage taken by !M! until next turn."
   },
-  "stsjorbsmod:SplinterSoul": {
-    "NAME": "Splinter Soul",
-    "DESCRIPTION": "Deal !D! damage. NL stsjorbsmod:Consume a random non-Legendary card in your draw pile."
-  },
   "stsjorbsmod:Stalwart": {
     "NAME": "Stalwart",
     "DESCRIPTION": "Remember stsjorbsmod:Temperance. NL Exhaust.",
@@ -579,10 +697,15 @@
   },
   "stsjorbsmod:Strife": {
     "NAME": "Strife",
-    "DESCRIPTION": "Add a random Curse to your discard pile. NL Gain !stsjorbsmod:MetaMagic! Strength for each Curse in your hand, draw pile and discard pile.",
+    "DESCRIPTION": "Add !stsjorbsmod:UrMagic! random Curse to your discard pile. NL Gain !stsjorbsmod:MetaMagic! Strength for each Curse in your discard pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add !stsjorbsmod:UrMagic! random Curses to your discard pile. NL Gain !stsjorbsmod:MetaMagic! Strength for each Curse in your discard pile. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (Gains !M! Strength.)"
     ]
+  },
+  "stsjorbsmod:Strike_Cull": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
   },
   "stsjorbsmod:Strike_Wanderer": {
     "NAME": "Strike",
@@ -591,6 +714,11 @@
   "stsjorbsmod:Sulfur": {
     "NAME": "Sulfur",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Apply !M! stsjorbsmod:Burning."
+  },
+  "stsjorbsmod:Summoning": {
+    "NAME": "Summoning",
+    "DESCRIPTION": "Exhaust !M! card from your draw pile. stsjorbsmod:Exhume it at the start of of next turn.",
+    "UPGRADE_DESCRIPTION": "Exhaust !M! cards from your draw pile. stsjorbsmod:Exhume them at the start of of next turn."
   },
   "stsjorbsmod:Taunt": {
     "NAME": "Taunt",
@@ -617,7 +745,14 @@
   },
   "stsjorbsmod:Toil": {
     "NAME": "Toil",
-    "DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, permanently upgrade a random card. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL If Fatal, permanently upgrade a random card. NL Exhaust."
+  },
+  "stsjorbsmod:Toll": {
+    "NAME": "Toll",
+    "DESCRIPTION": "Deal damage equal to !M! times the sum of your relic counters.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage)"
+    ]
   },
   "stsjorbsmod:TollTheDead": {
     "NAME": "Toll the Dead",
@@ -651,19 +786,19 @@
   },
   "stsjorbsmod:Wail": {
     "NAME": "Wail",
-    "DESCRIPTION": "Apply !stsjorbsmod:UrMagic! Vulnerable. NL Draw !M! card."
-  },
-  "stsjorbsmod:WakingDream": {
-    "NAME": "Waking Dream",
-    "DESCRIPTION": "Retain. NL Gain !M! Intangible. NL When Retained, increase its cost by !stsjorbsmod:MetaMagic! this combat. NL Exhaust."
+    "DESCRIPTION": "Apply !stsjorbsmod:UrMagic! Vulnerable. NL Draw !M! card. NL Exhaust."
   },
   "stsjorbsmod:WanderingMind": {
     "NAME": "Wandering Mind",
     "DESCRIPTION": "Draw !M! cards. NL Remember a random memory you do not have stsjorbsmod:Clarity of."
   },
-  "stsjorbsmod:WastingEssence": {
-    "NAME": "Wasting Essence",
+  "stsjorbsmod:WastingForm": {
+    "NAME": "Wasting Form",
     "DESCRIPTION": "Add !stsjorbsmod:MetaMagic! random Curses to your discard pile. NL Whenever you draw a Curse, deal !M! damage to ALL enemies."
+  },
+  "stsjorbsmod:WastingStrike": {
+    "NAME": "Wasting Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for each card in your exhaust pile."
   },
   "stsjorbsmod:Web": {
     "NAME": "Web",

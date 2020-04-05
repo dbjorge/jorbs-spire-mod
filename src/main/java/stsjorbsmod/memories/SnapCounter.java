@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -16,8 +17,10 @@ import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.SnapAction;
 import stsjorbsmod.effects.SnapTurnCounterEffect;
+import stsjorbsmod.powers.FragilePower;
 import stsjorbsmod.tips.MemoryFtueTip;
 import stsjorbsmod.tips.SnapFtueTip;
+import stsjorbsmod.twitch.SlayTheRelicsIntegration;
 
 import java.util.ArrayList;
 
@@ -38,6 +41,8 @@ public class SnapCounter {
     private static final String UI_ID = JorbsMod.makeID(SnapCounter.class);
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(UI_ID);
     private static final String[] TEXT = uiStrings.TEXT;
+
+    public static final int SNAP_TURN = 7;
 
     private final AbstractPlayer owner;
     private final Hitbox hb;
@@ -63,7 +68,7 @@ public class SnapCounter {
     private static final float ENDING_ALPHA = 1.0F;
     private float alpha;
 
-    private int currentTurn; // we track this separately from the game manager to avoid ordering issues with start-of-turn triggers
+    public int currentTurn; // we track this separately from the game manager to avoid ordering issues with start-of-turn triggers
     public boolean isActive;
 
     public SnapCounter(AbstractPlayer owner) {
@@ -78,12 +83,20 @@ public class SnapCounter {
     }
 
     private void updateDescription() {
-        tips.get(0).body = String.format(TEXT[1], currentTurn);
+        if (isSnapTurn()) {
+            tips.get(0).body = String.format(TEXT[2]);
+        } else {
+            tips.get(0).body = String.format(TEXT[1], currentTurn);
+        }
+    }
+
+    public void atPreBattle() {
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new FragilePower(owner, this)));
     }
 
     public void atStartOfTurn() {
         currentTurn++;
-        alpha = MathUtils.lerp(STARTING_ALPHA, ENDING_ALPHA, currentTurn / 7.0F);
+        alpha = MathUtils.lerp(STARTING_ALPHA, ENDING_ALPHA, currentTurn / (float) SNAP_TURN);
         updateDescription();
 
         boolean showingMemoryFtue = MemoryFtueTip.trigger(centerX, centerY);
@@ -92,10 +105,20 @@ public class SnapCounter {
         }
     }
 
+    public void forceSnapTurn() {
+        currentTurn = SNAP_TURN;
+        alpha = MathUtils.lerp(STARTING_ALPHA, ENDING_ALPHA, currentTurn / 7.0F);
+        tips.get(0).body = String.format(TEXT[2]);
+    }
+
     public void atEndOfTurn() {
-        if (currentTurn == 7) {
-            AbstractDungeon.actionManager.addToBottom(new SnapAction(AbstractDungeon.player, true));
+        if (isSnapTurn()) {
+            AbstractDungeon.actionManager.addToBottom(new SnapAction(owner, true));
         }
+    }
+
+    public boolean isSnapTurn() {
+        return currentTurn == SNAP_TURN;
     }
 
     private boolean isVisible() {
@@ -139,15 +162,15 @@ public class SnapCounter {
             color.a = alpha;
 
             for (int i = 0; i < currentTurn; ++i) {
-                if (currentTurn >= 7) {
-                    color = colors[i % 7];
+                if (currentTurn >= SNAP_TURN) {
+                    color = colors[i % SNAP_TURN];
                 }
                 float indicatorAngle = 360.0F * (((float)i) / (currentTurn));
                 indicatorAngle += flipMultiplier * (360.0F * (indicatorCircleRotationTimer / INDICATOR_CIRCLE_ROTATION_DURATION));
                 float x = flipMultiplier * INDICATOR_CIRCLE_X_RADIUS * MathUtils.cosDeg(indicatorAngle) + centerX;
                 float y = flipMultiplier * INDICATOR_CIRCLE_Y_RADIUS * MathUtils.sinDeg(indicatorAngle) + centerY;
 
-                float scaleModifier = currentTurn == 7 ? 1.6F : 1.0F;
+                float scaleModifier = isSnapTurn() ? 1.6F : 1.0F;
                 AbstractDungeon.effectList.add(new SnapTurnCounterEffect(x, y, color, scaleModifier));
             }
         }
@@ -168,6 +191,8 @@ public class SnapCounter {
     }
 
     public void render(SpriteBatch sb) {
-        // We don't currently render anything directly; it's indirect via the effects added in update()
+        if (!isVisible()) { return; }
+
+        SlayTheRelicsIntegration.renderTipHitbox(hb, tips);
     }
 }

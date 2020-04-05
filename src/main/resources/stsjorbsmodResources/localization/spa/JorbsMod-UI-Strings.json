@@ -1,0 +1,98 @@
+{
+  "stsjorbsmod:AbstractMemory": {
+    "TEXT": [
+      "#gClarificada. NL ",
+      "#gRecordada. NL ",
+      "#rOlvidada. NL "
+    ]
+  },
+  "stsjorbsmod:AlchemistsFireOnClick": {
+    "TEXT": [
+      "GOLASO! GOL! GOL! GOL!"
+    ]
+  },
+  "stsjorbsmod:CallCalipers": {
+    "TEXT": [
+      "Calibrador vendría bien ahora..."
+    ]
+  },
+  "stsjorbsmod:CardsToTopOfDeckAction": {
+    "TEXT": [
+      "Elige %1$s Carta para mover al tope del mazo de robado.",
+      "Elige %1$s Carta para mover al tope del mazo de robado.",
+      "mover al tope del mazo de robado."
+    ]
+  },
+  "stsjorbsmod:CounterspellAction": {
+    "TEXT": [
+      "El enemigo no tiene intención de perjuiciar"
+    ]
+  },
+  "stsjorbsmod:DecreaseMaxHpAction": {
+    "TEXT": [
+      "Max PV -%1$s"
+    ]
+  },
+  "stsjorbsmod:DigEmote": {
+    "TEXT": [
+      "jorbsBird Cava! jorbsBird RELIQUIA jorbsBird CAVA jorbsBird"
+    ]
+  },
+  "stsjorbsmod:ExhumeAndMakeEtherealAction": {
+    "TEXT": [
+      "Etérea. NL "
+    ]
+  },
+  "stsjorbsmod:IfEnemyIntendsToAttackAction": {
+    "TEXT": [
+      "El enemigo no intenta atacar"
+    ]
+  },
+  "stsjorbsmod:IncreaseManifestAction": {
+    "TEXT": [
+      "Manifiesto +%1$s",
+      "Manifiesto %1$s"
+
+    ]
+  },
+  "stsjorbsmod:MagicMirrorPatch": {
+    "TEXT": [
+      "Enredado!"
+    ]
+  },
+  "stsjorbsmod:MemoryFtueTip": {
+    "TEXT": [
+      "Memorias",
+      "El Deambulante puede usar cartas para #yRecordar memorias, ganando ventajas y perjuicios. Las Memorias son #yOlvidadas cuando una memoria diferente es #yRecordada, pero puedes ganar #yClaridad de una memoria para mantener su efecto pasivo."
+    ]
+  },
+  "stsjorbsmod:ModSettingsPanel": {
+    "TEXT": [
+      "Volumen de la narración",
+      "Habilitar el personaje La COSA, todavía incompleto y en desarrollo (requiere reiniciar)",
+      "Reiniciar las ayudas del tutorial",
+      "Reinicio del tutorial!",
+      "Desbloquea ascenso 20 para los personajes del mod (puede requerir reinicio)",
+      "Ascenso 20 desbloqueado para los personajes del mod! (puede requerir reinicio)",
+      "Subtítulos de la narración"
+    ]
+  },
+  "stsjorbsmod:SnapCounter": {
+    "TEXT": [
+      "Mente Frágil",
+      "Al finalizar el turno 7, #yQuiebra. NL (Ahora es el turno #b%1$s.)",
+      "Al finalizar este turno, #yQuiebra."
+    ]
+  },
+  "stsjorbsmod:SnapFtueTip": {
+    "TEXT": [
+      "Quebrado",
+      "El Deambulante #yQuebrara al final del turno 7. NL Los #pfuegos alrededor de su Grimorio llevan la cuenta de los turnos. NL #yQuebrar: Perder TODAS las #yMemorias y #yClaridades por el resto del combate. Por cada #yClaridad perdida, haz 6 de daño a TODOS los enemigos y pierde 3 PV."
+    ]
+  },
+  "stsjorbsmod:WillAction": {
+    "TEXT": [
+      "Agota"
+    ]
+  }
+}

@@ -3,7 +3,6 @@ package stsjorbsmod.cards;
 import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
 import basemod.helpers.TooltipInfo;
-import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,8 +12,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.patches.EphemeralField;
 
-import javax.tools.Tool;
-import java.lang.reflect.Field;
 import java.util.Collections;
 import java.util.List;
 
@@ -50,7 +47,7 @@ public abstract class CustomJorbsModCard extends CustomCard {
 
     private static String imgFromId(String id) {
         String unprefixedId = id.replace(JorbsMod.MOD_ID + ":","");
-        return String.format("%1$sResources/images/cards/generated/%2$s.png", JorbsMod.MOD_ID, unprefixedId);
+        return JorbsMod.makeCardPath(String.format("generated/%1$s.png", unprefixedId));
     }
 
     public CustomJorbsModCard(final String id,
@@ -150,6 +147,18 @@ public abstract class CustomJorbsModCard extends CustomCard {
     protected int calculateBonusMagicNumber() { return 0; }
 
     /**
+     * Most cards will want to override the no-argument calculateBonusBaseDamage() instead of this version,
+     * to ensure !D! placeholders are filled in reasonably when there is no monster hovered/selected yet.
+     *
+     * This version *only* applies when a monster is actively being hovered/selected/targeted; it should only
+     * be used for cards which *cannot* calculate bonus damage except in the context of a specific monster
+     * (eg, Godsbane)
+     */
+    protected int calculateBonusBaseDamage(AbstractMonster m) {
+        return calculateBonusBaseDamage();
+    }
+
+    /**
      * This is intended for use with cards that work like Blizzard/Flechettes/etc, adding a parenthetical suffix
      * for dynamically calculated damage/block/etc values that summarizes the calculated total amount.
      *
@@ -163,7 +172,7 @@ public abstract class CustomJorbsModCard extends CustomCard {
         int realBaseBlock = baseBlock;
         baseBlock += calculateBonusBaseBlock();
         int realBaseDamage = baseDamage;
-        baseDamage += calculateBonusBaseDamage();
+        baseDamage += calculateBonusBaseDamage(mo);
 
         magicNumber = baseMagicNumber + calculateBonusMagicNumber();
         isMagicNumberModified = magicNumber != baseMagicNumber;
@@ -218,9 +227,10 @@ public abstract class CustomJorbsModCard extends CustomCard {
     }
 
     public void onMoveToDiscardImpl() { }
+    public void atStartOfAct() { }
+    public void atStartOfGame() { }
 
-    public void applyLoadedMiscValue(int misc) {
-    }
+    public void applyLoadedMiscValue(int misc) { }
 
     public boolean shouldGlowGold() { return false; }
 

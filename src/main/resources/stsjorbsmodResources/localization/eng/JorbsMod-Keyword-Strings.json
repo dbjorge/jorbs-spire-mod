@@ -9,6 +9,11 @@
     "DESCRIPTION": "Burning creatures take damage at the start of their turn and cannot be healed. Burning damage will hit #yBlock. Each turn, Burning is reduced by a third."
   },
   {
+    "PROPER_NAME": "Card Type",
+    "NAMES": ["card\u00a0type", "card\u00a0types"],
+    "DESCRIPTION": "Card Types are Attack, Skill, Power, Curse, Status, etc."
+  },
+  {
     "NAMES": ["charity"],
     "DESCRIPTION": "Until forgotten, gain 1 #yStrength for every 100 gold you have."
   },
@@ -49,6 +54,14 @@
     "DESCRIPTION": "This card starts each combat in your Exhaust pile. It will be Exhumed from your Exhaust pile into your hand each time its Exhume condition is met."
   },
   {
+    "NAMES": ["exert"],
+    "DESCRIPTION": "Exhaust this card when played. It will be #yEntombed until the start of next Act."
+  },
+  {
+    "NAMES": ["exerted"],
+    "DESCRIPTION": "This card starts each combat in your Exhaust pile, until the start of next Act."
+  },
+  {
     "NAMES": ["envy"],
     "DESCRIPTION": "When you remember Envy, gain #b1 #yVulnerable. Whenever you target an enemy with a card, apply #b1 #yVulnerable to that enemy."
   },
@@ -70,7 +83,7 @@
   },
   {
     "NAMES": ["humility"],
-    "DESCRIPTION": "Each time remembered, gain #b2 #yThorns. Until forgotten, double your #yThorns."
+    "DESCRIPTION": "Each time remembered, gain #b2 #yThorns. Until forgotten, gain #b2 additional #yThorns."
   },
   {
     "NAMES": ["kindness"],
@@ -86,7 +99,7 @@
   },
   {
     "NAMES": ["manifest"],
-    "DESCRIPTION": "For each turn spent in combat, gain #b1 #yManifest. When choosing your path, skip a floor for each #yManifest. Resets to #b0 when entering a floor."
+    "DESCRIPTION": "The CULL gains #b1 #yManifest at the start of each event and the end of each turn. When choosing your path, #yManifest is spent to skip floors."
   },
   {
     "PROPER_NAME": "Material Component",

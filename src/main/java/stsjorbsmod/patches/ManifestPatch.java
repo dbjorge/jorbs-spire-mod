@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.rooms.EventRoom;
 import com.megacrit.cardcrawl.scenes.AbstractScene;
 import stsjorbsmod.characters.Cull;
 
@@ -67,7 +68,8 @@ public class ManifestPatch {
         @SpirePostfixPatch
         public static void patch(AbstractScene __this, AbstractRoom __room) {
             if (!CardCrawlGame.loadingSave && AbstractDungeon.player != null) {
-                PlayerManifestField.manifestField.set(AbstractDungeon.player, 0);
+                int startingManifest = (__room instanceof EventRoom) ? 1 : 0;
+                PlayerManifestField.manifestField.set(AbstractDungeon.player, startingManifest);
             }
         }
     }
