@@ -64,7 +64,7 @@
 * Anxiety (thanks Cartopol)
 * Feint (thanks PanicPoint)
 * Goosebumps (thanks PanicPoint)
-* Melt (thanks PanicPoint (code) and Kiddo (art))
+* Melt (thanks PanicPoint (code) and Lila (art))
 * Godsbane (thanks PanicPoint)
 * Pollute (thanks Cartopol)
 * Summoning (thanks Cartopol)
