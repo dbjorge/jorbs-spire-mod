@@ -52,6 +52,7 @@
 * GinFizzes
 * Jac2012
 * JoeKage
+* Kiddo
 * lobbien
 * LouisLeGros
 * mziggles

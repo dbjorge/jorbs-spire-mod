@@ -39,7 +39,7 @@
 * Strife: only counts curses in discard pile. Upgrade adds 2 curses instead of 2 strength per curse. Added Exhaust.
 * Drain Life: now exerts instead of exhausting
 * Intervention: exerts instead of exhausting, gives Procrastination instead of Regret
-(thanks Cartopol for all!)
+(thanks Cartopol for most!)
 
 ### Removed CULL cards
 
@@ -64,7 +64,7 @@
 * Anxiety (thanks Cartopol)
 * Feint (thanks PanicPoint)
 * Goosebumps (thanks PanicPoint)
-* Melt (thanks PanicPoint)
+* Melt (thanks PanicPoint (code) and Kiddo (art))
 * Godsbane (thanks PanicPoint)
 * Pollute (thanks Cartopol)
 * Summoning (thanks Cartopol)
