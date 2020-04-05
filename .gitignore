@@ -81,3 +81,5 @@ $RECYCLE.BIN/
 # Side effects of the Slay the Spire mod-uploader
 sendToDevs/
 steam_appid.txt
+
+scripts/node_modules/
