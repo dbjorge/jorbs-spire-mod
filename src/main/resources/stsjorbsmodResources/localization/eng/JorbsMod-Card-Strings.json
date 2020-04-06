@@ -815,5 +815,9 @@
   "stsjorbsmod:Withdraw": {
     "NAME": "Withdraw",
     "DESCRIPTION": "Gain !M! Artifact. NL Gain !B! Block. NL Exhaust."
+  },
+  "stsjorbsmod:Withering": {
+    "NAME": "Withering",
+    "DESCRIPTION": "Gain !M! Intangible. NL Each time drawn, Intangible reduces damage by !stsjorbsmod:MetaMagic! less this combat."
   }
 }
