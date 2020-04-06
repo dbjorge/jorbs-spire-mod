@@ -2,18 +2,17 @@ package stsjorbsmod.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.map.MapRoomNode;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.EventRoom;
 import com.megacrit.cardcrawl.saveAndContinue.SaveFile;
 import com.megacrit.cardcrawl.scenes.AbstractScene;
+import com.megacrit.cardcrawl.screens.stats.StatsScreen;
+import javassist.CannotCompileException;
 import javassist.CtBehavior;
+import javassist.expr.ExprEditor;
+import javassist.expr.FieldAccess;
 import stsjorbsmod.characters.Cull;
-
-import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.currMapNode;
 
 public class ManifestPatch {
     @SpirePatch(clz = AbstractPlayer.class, method = SpirePatch.CLASS)
@@ -64,22 +63,24 @@ public class ManifestPatch {
         }
     }
 
-    // This resets manifest after each room movement
     @SpirePatch(clz = AbstractDungeon.class, method = "nextRoomTransition", paramtypez = { SaveFile.class })
-    public static class AbstractScene_nextRoom
+    public static class AbstractDungeon_nextRoomTransition
     {
-        @SpireInsertPatch(localvars = {"isLoadingPostCombatSave"}, locator = Locator.class)
-        public static void patch(AbstractDungeon __this, SaveFile saveFile, boolean isLoadingPostCombatSave) {
-            if (!isLoadingPostCombatSave && AbstractDungeon.player != null) {
-                int startingManifest = (AbstractDungeon.currMapNode.room instanceof EventRoom) ? 1 : 0;
+        // Note: it's important that this happen *before* the saveIfAppropriate call on the following line
+        @SpireInsertPatch(locator = IncrementFloorClimbedLocator.class)
+        public static void updateFloorNumPatch(AbstractDungeon __this, SaveFile saveFile) {
+            if (AbstractDungeon.player != null) {
+                __this.floorNum += PlayerManifestField.manifestField.get(AbstractDungeon.player);
+
+                int startingManifest = (__this.currMapNode != null && __this.currMapNode.room instanceof EventRoom) ? 1 : 0;
                 PlayerManifestField.manifestField.set(AbstractDungeon.player, startingManifest);
             }
         }
 
-        private static class Locator extends SpireInsertLocator {
+        private static class IncrementFloorClimbedLocator extends SpireInsertLocator {
             @Override
             public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
-                final Matcher matcher = new Matcher.MethodCallMatcher(AbstractScene.class, "nextRoom");
+                final Matcher matcher = new Matcher.MethodCallMatcher(StatsScreen.class, "incrementFloorClimbed");
                 return LineFinder.findInOrder(ctMethodToPatch, matcher);
             }
         }
