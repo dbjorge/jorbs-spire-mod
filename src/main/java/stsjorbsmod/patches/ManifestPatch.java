@@ -1,16 +1,19 @@
 package stsjorbsmod.patches;
 
-import com.evacipated.cardcrawl.modthespire.lib.SpireField;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
+import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.EventRoom;
+import com.megacrit.cardcrawl.saveAndContinue.SaveFile;
 import com.megacrit.cardcrawl.scenes.AbstractScene;
+import javassist.CtBehavior;
 import stsjorbsmod.characters.Cull;
+
+import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.currMapNode;
 
 public class ManifestPatch {
     @SpirePatch(clz = AbstractPlayer.class, method = SpirePatch.CLASS)
@@ -62,14 +65,22 @@ public class ManifestPatch {
     }
 
     // This resets manifest after each room movement
-    @SpirePatch(clz = AbstractScene.class, method = "nextRoom")
+    @SpirePatch(clz = AbstractDungeon.class, method = "nextRoomTransition", paramtypez = { SaveFile.class })
     public static class AbstractScene_nextRoom
     {
-        @SpirePostfixPatch
-        public static void patch(AbstractScene __this, AbstractRoom __room) {
-            if (!CardCrawlGame.loadingSave && AbstractDungeon.player != null) {
-                int startingManifest = (__room instanceof EventRoom) ? 1 : 0;
+        @SpireInsertPatch(localvars = {"isLoadingPostCombatSave"}, locator = Locator.class)
+        public static void patch(AbstractDungeon __this, SaveFile saveFile, boolean isLoadingPostCombatSave) {
+            if (!isLoadingPostCombatSave && AbstractDungeon.player != null) {
+                int startingManifest = (AbstractDungeon.currMapNode.room instanceof EventRoom) ? 1 : 0;
                 PlayerManifestField.manifestField.set(AbstractDungeon.player, startingManifest);
+            }
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            @Override
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+                final Matcher matcher = new Matcher.MethodCallMatcher(AbstractScene.class, "nextRoom");
+                return LineFinder.findInOrder(ctMethodToPatch, matcher);
             }
         }
     }
