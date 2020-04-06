@@ -80,6 +80,14 @@
       "将在 #b%3$s 回合后发掘。"
     ]
   },
+  "stsjorbsmod:EntombedGrimDirgePower": {
+    "NAME": "埋下无情悲歌",
+    "DESCRIPTIONS": [
+      "%1$s 将在第 #b%2$srd 回合被发掘。 NL ",
+      "将在 #b%3$s 回合后发掘。",
+      "将在 #b%3$s 回合后发掘。"
+    ]
+  },
   "stsjorbsmod:MirrorPower": {
     "NAME": "Mirror",
     "DESCRIPTIONS": [
