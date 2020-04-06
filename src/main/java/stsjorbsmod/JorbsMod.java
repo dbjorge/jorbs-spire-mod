@@ -22,6 +22,7 @@ import org.apache.logging.log4j.Logger;
 import org.clapper.util.classutil.RegexClassFilter;
 import stsjorbsmod.cards.CardSaveData;
 import stsjorbsmod.cards.CustomJorbsModCard;
+import stsjorbsmod.cards.cull.Withering;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.characters.ManifestSaveData;
 import stsjorbsmod.characters.Wanderer;
