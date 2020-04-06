@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.vfx.TextAboveCreatureEffect;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.patches.ManifestPatch;
+import stsjorbsmod.toppanel.ManifestTopPanelItem;
 
 public class IncreaseManifestAction extends AbstractGameAction {
     private static final String UI_ID = JorbsMod.makeID(IncreaseManifestAction.class);
@@ -20,6 +21,10 @@ public class IncreaseManifestAction extends AbstractGameAction {
         this.amount = amount;
         this.actionType = ActionType.SPECIAL;
         this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
+
+        // This is for the case where a non-CULL character somehow gets a "gain manifest" card
+        // Once such a card is played, the manifest icon will show until the end of the run
+        ManifestTopPanelItem.show();
     }
 
     @Override

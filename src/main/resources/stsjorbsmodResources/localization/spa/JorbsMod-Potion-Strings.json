@@ -1,0 +1,33 @@
+{
+  "stsjorbsmod:BurningPotion": {
+    "NAME": "Poción de Quemado",
+    "DESCRIPTIONS": [
+      "Aplica #b%1$s de #yQuemado."
+    ]
+  },
+  "stsjorbsmod:DimensionDoorPotion": {
+    "NAME": "Pergamino de la puerta dimensión",
+    "DESCRIPTIONS": [
+      "Ignora caminos cuando elijas el proximo piso al que viajar.",
+      "Leer"
+    ]
+  },
+  "stsjorbsmod:GhostPoisonPotion": {
+    "NAME": "Posión Fantasma",
+    "DESCRIPTIONS": [
+      "Gana #b%1$s de #yManifiesto por cada enemigo, después gana el combate. NL No funciona en los pisos de enemigos Jefe o Élite."
+    ]
+  },
+  "stsjorbsmod:LiquidClarity": {
+    "NAME": "Claridad Líquida",
+    "DESCRIPTIONS": [
+      "Gana #yClaridad de la memoria actual."
+    ]
+  },
+  "stsjorbsmod:LiquidVirtue": {
+    "NAME": "Virtud Líquida",
+    "DESCRIPTIONS": [
+      "Gana #yClaridad de #b%1$s #yVirtudes aleatorias de la que no tengas ya #yClaridad."
+    ]
+  }
+}

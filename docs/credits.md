@@ -26,13 +26,16 @@
 
 ### Developers
 
+* avolny ([GitHub](https://github.com/avolny))
 * evan_tor ([GitHub](https://github.com/evantor))
 * Lucerna ([GitHub](https://github.com/Jacob-Laverty))
 * mderb4 ([GitHub](https://github.com/mderb4))
 * mdiehr ([GitHub](https://github.com/mdiehr))
 * mevestatney ([GitHub](https://github.com/stevematney))
 * mikeynap ([GitHub](https://github.com/mikeynap))
+* PanicPoint ([Github](https://github.com/Panic-Point))
 * Sanity Dance ([GitHub](https://github.com/sanity-dance))
+* Skyl3lazer ([GitHub](https://github.com/Skyl3lazer))
 
 ### Lead Artists
 
@@ -49,6 +52,7 @@
 * GinFizzes
 * Jac2012
 * JoeKage
+* Lila
 * lobbien
 * LouisLeGros
 * mziggles
@@ -67,7 +71,9 @@
 
 ### Localization
 
+* ChDaVinci (Spanish)
 * GDami (French) ([GitHub](https://github.com/GDami))
+* yanang007 (Chinese (Simplified)) ([GitHub](https://github.com/yanang007))
 
 ### Trailer Videographer
 
@@ -113,6 +119,7 @@
 * myop
 * mziggles
 * NoWaitSuperKamiGuru
+* PanicPoint
 * passerbyninja
 * Rabbit
 * Ray661

@@ -1,0 +1,40 @@
+{
+  "stsjorbsmod:AlchemistsFireRelic": {
+    "NAME": "Fuego de Químico",
+    "FLAVOR": "Forca Messi! Forca Messi! Messi Animal!",
+    "DESCRIPTIONS": [
+      "Reduce la pérdida del stsjorbsmod:Quemado a 10% por turno."
+    ]
+  },
+  "stsjorbsmod:BottledMemoryRelic": {
+    "NAME": "Memoria Embotellada",
+    "FLAVOR": "Mi cerebro está roto",
+    "DESCRIPTIONS": [
+      "Cuando se agarra, elige una carta que #yRecuerda. Empieza cada combate con esta carta en tu mano.",
+      "Elige una carta para ",
+      "Empieza cada combate con ",
+      " en tu mano."
+    ]
+  },
+  "stsjorbsmod:GrimoireRelic": {
+    "NAME": "Grimorio",
+    "FLAVOR": "Es esto... algo familiar?",
+    "DESCRIPTIONS": [
+      "Al comenzar cada combate, recuerda stsjorbsmod:Paciencia. NL Al finalizar cada combate, cura #b1 PV por cada stsjorbsmod:Claridad."
+    ]
+  },
+  "stsjorbsmod:MindGlassRelic": {
+    "NAME": "Mente de cristal",
+    "FLAVOR": "Presiona e a e.",
+    "DESCRIPTIONS": [
+      "Ganar stsjorbsmod:Claridad hace 3 de daño a TODOS los enemigos. NL Ganar 10 stsjorbsmod:Claridad en la misma pelea hace 100 de daño a TODOS los enemigos."
+    ]
+  },
+  "stsjorbsmod:MindPalaceRelic": {
+    "NAME": "Palacio mental",
+    "FLAVOR": "Es esto una fortaleza o una prisión?",
+    "DESCRIPTIONS": [
+      "Empieza cada combate con stsjorbsmod:Claridad de la memoria con que terminaste tu pasada pelea recordando."
+    ]
+  }
+}
