@@ -367,6 +367,7 @@ public class JorbsMod implements
         loadStrings(RelicStrings.class, "JorbsMod-Relic-Strings.json");
         loadStrings(UIStrings.class, "JorbsMod-UI-Strings.json");
         loadStrings(UIStrings.class, "JorbsMod-Wanderer-Voiceover-Strings.json");
+        loadStrings(UIStrings.class, "JorbsMod-Cull-Voiceover-Strings.json");
 
         logger.info("Done editing strings");
     }
