@@ -291,10 +291,10 @@
       "每当你抽到一张 诅咒 牌时，对所有敌人造成 #b%1$s 点伤害。"
     ]
   },
-  "stsjorbsmod:WitherPower": {
+  "stsjorbsmod:WitheringPower": {
     "NAME": "凋零",
     "DESCRIPTIONS": [
-      "无实体 对失去生命与受到伤害的减伤效果降低1."
+      "无实体 对失去生命与受到伤害的减伤效果降低 #b%1$s 。"
     ]
   }
 }

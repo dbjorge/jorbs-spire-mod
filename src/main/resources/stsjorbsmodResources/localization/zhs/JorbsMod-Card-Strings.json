@@ -834,6 +834,6 @@
   },
   "stsjorbsmod:Withering": {
     "NAME": "凋零",
-    "DESCRIPTION": "stsjorbsmod:飞逝 。 NL 当你抽到这张牌时，本场战斗中， 无实体 的减伤效果降低1。"
+    "DESCRIPTION": "获得 !M! 层 无实体 。 NL 每当你抽到这张牌，本场战斗中 无实体 的减伤效果降低 !stsjorbsmod:MetaMagic! 。"
   }
 }
