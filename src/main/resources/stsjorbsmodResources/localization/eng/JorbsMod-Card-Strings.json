@@ -247,6 +247,10 @@
     "NAME": "Eye of the Storm",
     "DESCRIPTION": "Gain stsjorbsmod:Clarity of current memory, then remember a random memory you do not have stsjorbsmod:Clarity of. NL Gain !B! Block."
   },
+  "stsjorbsmod:FalseBlessings": {
+    "NAME": "False Blessings",
+    "DESCRIPTION": "stsjorbsmod:Exert: Fill your potion belt with random potions."
+  },
   "stsjorbsmod:FaerieFire": {
     "NAME": "Faerie Fire",
     "DESCRIPTION": "stsjorbsmod:Virtue: Apply !M! Weak to ALL enemies. NL stsjorbsmod:Sin: Apply !M! Vulnerable to ALL enemies. NL Exhaust."
