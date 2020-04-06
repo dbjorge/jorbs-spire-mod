@@ -65,7 +65,7 @@ public class JorbsMod implements
     private static final String AUTHOR = "https://mod.jorbs.tv/credits";
     private static final String DESCRIPTION = "The Wanderer, CULL, and Explorer. Inspired by Jorbs and co-developed by the community.";
 
-        public static class JorbsCardTags {
+    public static class JorbsCardTags {
         // Use on a card that brings in a possible beneficial effect that lasts longer than the combat and isn't
         // directly healing or gaining Max HP. If the effect has indirect healing, such as adding a second effect
         // that conditionally heals or grants Max HP, do use this card tag instead of HEALING.

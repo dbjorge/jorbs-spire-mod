@@ -818,6 +818,6 @@
   },
   "stsjorbsmod:Withering": {
     "NAME": "Withering",
-    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL When drawn, Intangible reduces damage by 1 less this combat."
+    "DESCRIPTION": "Gain !M! Intangible. NL Each time drawn, Intangible reduces damage by !stsjorbsmod:MetaMagic! less this combat."
   }
 }
