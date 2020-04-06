@@ -76,6 +76,7 @@
 * Procrastination (thanks Cartopol)
 * Overkill (thanks PanicPoint)
 * Rebuttal (thanks Cartopol)
+* Withering (thanks lobbien)
 
 ## [v1.7.0] - 2020-03-15
 
