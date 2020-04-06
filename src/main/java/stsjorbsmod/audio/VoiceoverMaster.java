@@ -22,6 +22,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.megacrit.cardcrawl.helpers.MonsterHelper.LAGAVULIN_ENC;
+import static com.megacrit.cardcrawl.helpers.MonsterHelper.LAGAVULIN_EVENT_ENC;
+
 public class VoiceoverMaster {
     private static final class VoiceoverInfo {
         public final Sfx sfx;
@@ -134,6 +137,10 @@ public class VoiceoverMaster {
         String encounterKey = VoiceoverMasterPatch.MonsterGroup_class.encounterKeyField.get(AbstractDungeon.getCurrRoom().monsters);
         if (encounterKey == null) {
             return null;
+        }
+
+        if (encounterKey.equals(LAGAVULIN_EVENT_ENC)) {
+            encounterKey = LAGAVULIN_ENC;
         }
 
         return getSfxByKey(encounterKey);

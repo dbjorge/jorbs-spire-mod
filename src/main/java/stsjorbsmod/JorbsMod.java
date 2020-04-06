@@ -193,6 +193,10 @@ public class JorbsMod implements
     @Override
     public void receiveAddAudio() {
         Wanderer.AudioInfo.registerAudio();
+
+        if (JorbsModSettings.isCullEnabled()) {
+            Cull.AudioInfo.registerAudio();
+        }
     }
 
     // =============== LOAD THE CHARACTER =================
