@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### New CULL cards
+
+* False Blessing (thanks PanicPoint)
+
 ## [v1.8.0] - 2020-04-06
 
 ### New translations
