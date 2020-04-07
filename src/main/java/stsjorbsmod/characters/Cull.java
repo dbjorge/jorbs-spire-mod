@@ -27,6 +27,7 @@ import stsjorbsmod.actions.DecreaseMaxHpAction;
 import stsjorbsmod.actions.GainSpecificClarityAction;
 import stsjorbsmod.actions.IncreaseManifestAction;
 import stsjorbsmod.actions.RememberSpecificMemoryAction;
+import stsjorbsmod.audio.VoiceoverMaster;
 import stsjorbsmod.cards.cull.*;
 import stsjorbsmod.memories.WrathMemory;
 
@@ -95,6 +96,46 @@ public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber 
                     CARD_BG_POWER_PORTRAIT_TEXTURE,
                     CARD_ENERGY_ORB_PORTRAIT_TEXTURE,
                     CARD_SMALL_ENERGY_ORB_TEXTURE);
+        }
+    }
+
+    public static class AudioInfo {
+        private static void registerVoiceOver(String key) {
+            registerVoiceOver(key, key);
+        }
+
+        private static void registerVoiceOver(String key, String baseName) {
+            baseName = baseName.replace(' ', '_');
+            String fileName = "cull/" + baseName + ".ogg";
+            String subtitle = CardCrawlGame.languagePack.getUIString(makeID("cull:voiceover:"+baseName)).TEXT[0];
+            VoiceoverMaster.register(Cull.Enums.CULL, key, fileName, subtitle);
+        }
+
+        public static void registerAudio() {
+            // See MonsterHelper.getEncounter for IDs
+            registerVoiceOver("3 Sentries");
+            registerVoiceOver("Automaton");
+            registerVoiceOver("Awakened One");
+            registerVoiceOver("Book of Stabbing");
+            registerVoiceOver("Champ");
+            registerVoiceOver("Collector");
+            registerVoiceOver("Donu and Deca");
+            registerVoiceOver("Giant Head");
+            registerVoiceOver("Gremlin Leader");
+            registerVoiceOver("Gremlin Nob");
+            registerVoiceOver("Hexaghost");
+            registerVoiceOver("Lagavulin");
+            registerVoiceOver("Nemesis");
+            registerVoiceOver("Reptomancer");
+            registerVoiceOver("Shield and Spear");
+            registerVoiceOver("Slavers");
+            registerVoiceOver("Slime Boss");
+            registerVoiceOver("The Guardian");
+            registerVoiceOver("The Heart");
+            registerVoiceOver("Time Eater");
+            registerVoiceOver("death");
+            registerVoiceOver("death_victory");
+            registerVoiceOver("new_run");
         }
     }
 
