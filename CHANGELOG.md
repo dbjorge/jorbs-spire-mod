@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [v1.8.0] - 2020-04-06
+
 * New Card: Discordance (Cull, Uncommon Attack) - 1: Deal 5 (7) damage for each card type in your hand.
 
 ### New translations
