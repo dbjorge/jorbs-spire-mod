@@ -68,11 +68,8 @@ public class ManifestPatch {
             if (AbstractDungeon.player != null) {
                 __this.floorNum += PlayerManifestField.manifestField.get(AbstractDungeon.player);
 
-                int startingManifest =
-                        (AbstractDungeon.player != null && AbstractDungeon.player instanceof Cull &&
-                        __this.currMapNode != null && __this.currMapNode.room instanceof EventRoom) ?
-                                1 :
-                                0;
+                boolean nextRoomIsEvent = __this.nextRoom != null && __this.nextRoom.room instanceof EventRoom;
+                int startingManifest = (nextRoomIsEvent && AbstractDungeon.player instanceof Cull) ? 1 : 0;
                 PlayerManifestField.manifestField.set(AbstractDungeon.player, startingManifest);
             }
         }
