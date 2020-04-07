@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### CULL updates
+
+* Added voiceovers for elites/bosses/death/start (thanks Ray Chase)
+
 ### New CULL cards
 
 * False Blessing (thanks PanicPoint)
