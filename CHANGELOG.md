@@ -10,6 +10,10 @@
 
 * False Blessing (thanks PanicPoint)
 
+## [v1.8.1] - 2020-04-07
+
+* Fixed bug where non-CULL characters would receive 1 manifest for entering event rooms (thanks puffalo for reporting)
+
 ## [v1.8.0] - 2020-04-06
 
 ### New translations

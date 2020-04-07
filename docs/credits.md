@@ -121,6 +121,7 @@
 * NoWaitSuperKamiGuru
 * PanicPoint
 * passerbyninja
+* puffalo
 * Rabbit
 * Ray661
 * Renko
