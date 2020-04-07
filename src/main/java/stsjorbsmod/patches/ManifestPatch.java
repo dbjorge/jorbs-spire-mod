@@ -6,12 +6,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.rooms.EventRoom;
 import com.megacrit.cardcrawl.saveAndContinue.SaveFile;
-import com.megacrit.cardcrawl.scenes.AbstractScene;
 import com.megacrit.cardcrawl.screens.stats.StatsScreen;
-import javassist.CannotCompileException;
 import javassist.CtBehavior;
-import javassist.expr.ExprEditor;
-import javassist.expr.FieldAccess;
 import stsjorbsmod.characters.Cull;
 
 public class ManifestPatch {
@@ -72,7 +68,11 @@ public class ManifestPatch {
             if (AbstractDungeon.player != null) {
                 __this.floorNum += PlayerManifestField.manifestField.get(AbstractDungeon.player);
 
-                int startingManifest = (__this.currMapNode != null && __this.currMapNode.room instanceof EventRoom) ? 1 : 0;
+                int startingManifest =
+                        (AbstractDungeon.player != null && AbstractDungeon.player instanceof Cull &&
+                        __this.currMapNode != null && __this.currMapNode.room instanceof EventRoom) ?
+                                1 :
+                                0;
                 PlayerManifestField.manifestField.set(AbstractDungeon.player, startingManifest);
             }
         }

@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Fixed bug where non-CULL characters would receive 1 manifest for entering event rooms (thanks puffalo for reporting)
+
 ## [v1.8.0] - 2020-04-06
 
 * New Card: Discordance (Cull, Uncommon Attack) - 1: Deal 5 (7) damage for each card type in your hand.
