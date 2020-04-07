@@ -44,7 +44,7 @@ function diffLinesWithCode(diffLines, code /* ' ', '+', '-' */) {
 }
 function diffLinesWithCodes(diffLines, codes /* ' ', '+', '-' */) {
     return diffLines
-        .filter(([diffCode, _]) => codes.contains(diffCode))
+        .filter(([diffCode, _]) => codes.includes(diffCode))
         .map(([_, val]) => val);
 }
 
