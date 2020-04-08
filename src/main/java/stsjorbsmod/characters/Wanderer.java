@@ -133,7 +133,6 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
             registerVoiceOver("Gremlin Nob");
             registerVoiceOver("Hexaghost", "Hexaghost_1");
             registerVoiceOver("Hexaghost", "Hexaghost_2");
-            registerVoiceOver("Lagavulin Event", "Lagavulin");
             registerVoiceOver("Lagavulin");
             registerVoiceOver("Nemesis", "Nemesis_1");
             registerVoiceOver("Nemesis", "Nemesis_2");

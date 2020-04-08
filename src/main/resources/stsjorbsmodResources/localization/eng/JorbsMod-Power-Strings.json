@@ -284,5 +284,11 @@
     "DESCRIPTIONS": [
       "Whenever you draw a Curse, deal #b%1$s damage to ALL enemies."
     ]
+  },
+  "stsjorbsmod:WitheringPower": {
+    "NAME": "Withering",
+    "DESCRIPTIONS": [
+      "Intangible reduces HP loss and damage taken by #b%1$s less."
+    ]
   }
 }

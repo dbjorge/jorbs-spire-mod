@@ -2,7 +2,21 @@
 
 ## [Unreleased]
 
-* New Card: Discordance (Cull, Uncommon Attack) - 1: Deal 5 (7) damage for each card type in your hand.
+### CULL updates
+
+* Coffee Dripper now prevents Thirsting at campfires
+* Remove Calipers from CULL's relic pool
+* Added voiceovers for elites/bosses/death/start (thanks Ray Chase)
+
+### New CULL cards
+
+* False Blessing (thanks PanicPoint)
+
+## [v1.8.1] - 2020-04-07
+
+* Fixed bug where non-CULL characters would receive 1 manifest for entering event rooms (thanks puffalo for reporting)
+
+## [v1.8.0] - 2020-04-06
 
 ### New translations
 
@@ -39,7 +53,7 @@
 * Strife: only counts curses in discard pile. Upgrade adds 2 curses instead of 2 strength per curse. Added Exhaust.
 * Drain Life: now exerts instead of exhausting
 * Intervention: exerts instead of exhausting, gives Procrastination instead of Regret
-(thanks Cartopol for all!)
+(thanks Cartopol for most!)
 
 ### Removed CULL cards
 
@@ -64,7 +78,7 @@
 * Anxiety (thanks Cartopol)
 * Feint (thanks PanicPoint)
 * Goosebumps (thanks PanicPoint)
-* Melt (thanks PanicPoint)
+* Melt (thanks PanicPoint (code) and Lila (art))
 * Godsbane (thanks PanicPoint)
 * Pollute (thanks Cartopol)
 * Summoning (thanks Cartopol)
@@ -76,6 +90,7 @@
 * Procrastination (thanks Cartopol)
 * Overkill (thanks PanicPoint)
 * Rebuttal (thanks Cartopol)
+* Withering (thanks lobbien)
 
 ## [v1.7.0] - 2020-03-15
 

@@ -22,6 +22,7 @@ import org.apache.logging.log4j.Logger;
 import org.clapper.util.classutil.RegexClassFilter;
 import stsjorbsmod.cards.CardSaveData;
 import stsjorbsmod.cards.CustomJorbsModCard;
+import stsjorbsmod.cards.cull.Withering;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.characters.ManifestSaveData;
 import stsjorbsmod.characters.Wanderer;
@@ -197,6 +198,10 @@ public class JorbsMod implements
     @Override
     public void receiveAddAudio() {
         Wanderer.AudioInfo.registerAudio();
+
+        if (JorbsModSettings.isCullEnabled()) {
+            Cull.AudioInfo.registerAudio();
+        }
     }
 
     // =============== LOAD THE CHARACTER =================
@@ -367,6 +372,7 @@ public class JorbsMod implements
         loadStrings(RelicStrings.class, "JorbsMod-Relic-Strings.json");
         loadStrings(UIStrings.class, "JorbsMod-UI-Strings.json");
         loadStrings(UIStrings.class, "JorbsMod-Wanderer-Voiceover-Strings.json");
+        loadStrings(UIStrings.class, "JorbsMod-Cull-Voiceover-Strings.json");
 
         logger.info("Done editing strings");
     }

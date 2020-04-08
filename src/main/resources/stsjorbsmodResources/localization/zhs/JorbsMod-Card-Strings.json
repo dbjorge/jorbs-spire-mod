@@ -1,8 +1,12 @@
 {
   "stsjorbsmod:Abjure": {
     "NAME": "放弃信仰",
-    "DESCRIPTION": "将你抽牌堆中的、弃牌堆中的以及被 消耗 的所有 *精魂护盾 放入你的手牌中。",
-    "UPGRADE_DESCRIPTION": "保留。 NL 将你抽牌堆中的、弃牌堆中的以及被 消耗 的所有 *精魂护盾 放入你的手牌中。"
+    "DESCRIPTION": "将你抽牌堆中的、弃牌堆中的或被 消耗 的 精魂护盾 放入你的手牌中。",
+    "UPGRADE_DESCRIPTION": "保留。 NL 将你抽牌堆中的、弃牌堆中的或被 消耗 的 精魂护盾 放入你的手牌中。"
+  },
+  "stsjorbsmod:Accumulation": {
+    "NAME": "聚集",
+    "DESCRIPTION": "抽 !M! 张牌。 NL 你弃牌堆中每有一张聚集，额外抽1张牌。"
   },
   "stsjorbsmod:Aid": {
     "NAME": "伸出援手",
@@ -20,10 +24,14 @@
   },
   "stsjorbsmod:AnimateObjects": {
     "NAME": "赋予生命",
-    "DESCRIPTION": "stsjorbsmod:飞逝 。获得等同于战斗开始时不在你牌组中且未被 消耗 的牌数目的 荆棘 。",
+    "DESCRIPTION": "stsjorbsmod:飞逝 。获得等同于战斗开始时不在你牌组中且未被 消耗 的牌数的 荆棘 。",
     "EXTENDED_DESCRIPTION": [
-      " NL （获得 !M! 点荆棘。）"
+      " NL （获得 !M! 点 荆棘 。）"
     ]
+  },
+  "stsjorbsmod:Anxiety": {
+    "NAME": "焦虑",
+    "DESCRIPTION": "抽 !stsjorbsmod:MetaMagic! 张牌并获得 [E] 。 NL 这张牌的抽牌数永久性降低 !M! 。 NL 消耗 。"
   },
   "stsjorbsmod:Apparate": {
     "NAME": "移形幻影",
@@ -58,8 +66,8 @@
   },
   "stsjorbsmod:Brambles": {
     "NAME": "刺棘",
-    "DESCRIPTION": "造成等同于你本场战斗打出的 stsjorbsmod:魔法原料 数目的伤害。",
-    "UPGRADE_DESCRIPTION": "造成等同于你本场战斗打出的 stsjorbsmod:魔法原料 数目加上 !stsjorbsmod:BaseDamage! 的伤害。",
+    "DESCRIPTION": "造成等同于你本场战斗打出的 stsjorbsmod:魔法原料 数的伤害。",
+    "UPGRADE_DESCRIPTION": "造成等同于你本场战斗打出的 stsjorbsmod:魔法原料 数 NL + !stsjorbsmod:BaseDamage! 的伤害。",
     "EXTENDED_DESCRIPTION": [
       " NL （造成 !D! 点伤害。）"
     ]
@@ -74,7 +82,7 @@
   },
   "stsjorbsmod:Catharsis": {
     "NAME": "祓禊",
-    "DESCRIPTION": "可以打出原本 不能被打出 的 诅咒 牌。 NL 当你这么做时，对某一随机敌人，你本场战斗中每打出过一张 诅咒 牌则对其造成 !M! 点伤害，然后失去一点生命。"
+    "DESCRIPTION": "可以打出原本 不能被打出 的 诅咒 牌。 当你这么做时，对某一随机敌人，你本场战斗中每打出过一张 诅咒 牌则造成 !M! 点伤害，然后失去1点生命。"
   },
   "stsjorbsmod:ChainLightning": {
     "NAME": "闪电链",
@@ -108,6 +116,14 @@
     "NAME": "冻寒之触",
     "DESCRIPTION": "对一名敌人造成 !D! 点伤害。 NL 他无法再获得治疗。"
   },
+  "stsjorbsmod:Cleanse": {
+    "NAME": "净化",
+    "DESCRIPTION": "丢弃你抽牌堆中的所有 诅咒 牌。 NL 你每丢弃一张 诅咒 牌，回复 !stsjorbsmod:UrMagic! 点生命。 NL 消耗 。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （你拥有 !M! 张 诅咒 牌。）",
+      " NL （你拥有 !M! 张 诅咒 牌。）"
+    ]
+  },
   "stsjorbsmod:Coda": {
     "NAME": "尾声",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 若这张牌将造成击杀，令其生命为 1。"
@@ -120,6 +136,10 @@
     "NAME": "通神",
     "DESCRIPTION": "预见 !M! 。"
   },
+  "stsjorbsmod:Concentrate": {
+    "NAME": "全神贯注",
+    "DESCRIPTION": "丢弃 !M! 张牌。 NL 获得 [G] [G] 。"
+  },
   "stsjorbsmod:CorrodingBarrier": {
     "NAME": "腐蚀屏障",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL 这张牌每被抽到一次，它在本场战斗中的基础 格挡 下降 !M! 。",
@@ -127,11 +147,12 @@
   },
   "stsjorbsmod:Counterspell": {
     "NAME": "反制咒语",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 如果一名敌人意图给你施加一个负面效果，获得 !M! 层 人工制品 。 NL 消耗 。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 如果一名敌人意图给你施加一个负面效果， NL 获得 !M! 层 人工制品 。 NL 消耗 。"
   },
   "stsjorbsmod:CULLCard": {
     "NAME": "弱肉强食",
-    "DESCRIPTION": "这张牌每被抽到一次，它的基础伤害永久下降 !stsjorbsmod:UrMagic! 。 NL 造成 !D! 点伤害两次. NL 斩杀 时， 它的伤害永久性增加 !M! 。 NL 消耗 。"
+    "DESCRIPTION": "造成 !D! 点伤害两次。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害两次。 NL stsjorbsmod:暴怒 记忆将生效两次。 NL 消耗 。"
   },
   "stsjorbsmod:Cyclone": {
     "NAME": "飓风",
@@ -156,6 +177,13 @@
     "DESCRIPTION": "回忆起 stsjorbsmod:傲慢 。 NL 在本回合结束时 stsjorbsmod:爆发 。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "回忆起 stsjorbsmod:傲慢 。 NL 消耗 。"
   },
+  "stsjorbsmod:Discordance": {
+    "NAME": "散伤丑害",
+    "DESCRIPTION": "造成你手牌中 stsjorbsmod:卡牌种类 数 !M! 倍的伤害。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （造成 !D! 点伤害。）"
+    ]
+  },
   "stsjorbsmod:DisguiseSelf": {
     "NAME": "易容术",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL 在下一回合获得 !B! 点 格挡 。"
@@ -172,8 +200,8 @@
   },
   "stsjorbsmod:DrainLife": {
     "NAME": "生命汲取",
-    "DESCRIPTION": "造成 X 点伤害。 NL 获得等同于所造成伤害的最大生命。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "造成 X+1 点伤害。 NL 获得等同于所造成伤害的最大生命。 NL 消耗 。",
+    "DESCRIPTION": "造成 X 点伤害。 NL 获得等同于所造成伤害的最大生命。 NL stsjorbsmod:竭力 。",
+    "UPGRADE_DESCRIPTION": "造成 X+1 点伤害。 NL 获得等同于所造成伤害的最大生命。 NL stsjorbsmod:竭力 。",
     "EXTENDED_DESCRIPTION": [
       " NL （造成 !D! 点伤害。）"
     ]
@@ -193,6 +221,19 @@
     "NAME": "纠缠",
     "DESCRIPTION": "给予所有敌人 stsjorbsmod:缓慢 。 NL 将 !M! 张 stsjorbsmod:网 加入你的手牌。",
     "UPGRADE_DESCRIPTION": "给予所有敌人 stsjorbsmod:缓慢 。 NL 将 !M! 张 stsjorbsmod:网 加入你的手牌。"
+  },
+  "stsjorbsmod:Exhale": {
+    "NAME": "发散",
+    "DESCRIPTION": "stsjorbsmod:飞逝 。 NL 获得 !M! 层 无实体 。 NL 在下一回合开始时，失去 !stsjorbsmod:UrMagic! 点 力量 。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 无实体 。 NL 在下一回合开始时，失去 !stsjorbsmod:UrMagic! 点 力量 。 NL 消耗 。"
+  },
+  "stsjorbsmod:Equinox": {
+    "NAME": "阴阳相半",
+    "DESCRIPTION": "造成当前所在楼层数的伤害。 NL 这张牌的耗能等同于当前所在幕数。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "造成当前所在楼层数的伤害。 NL 这张牌的耗能等同于当前所在幕数减去 !M! 。 NL 消耗 。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （造成 !D! 点伤害。）"
+    ]
   },
   "stsjorbsmod:Expose": {
     "NAME": "暴露",
@@ -221,10 +262,18 @@
     "NAME": "盛宴",
     "DESCRIPTION": "回忆起 stsjorbsmod:暴食 。 NL 抽 !M! 张牌。 NL 消耗 。"
   },
+  "stsjorbsmod:Feint": {
+    "NAME": "佯攻",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 抽 !M! 张牌。 NL 丢弃 !stsjorbsmod:MetaMagic! 张牌。"
+  },
   "stsjorbsmod:FindFamiliar": {
     "NAME": "亲切",
     "DESCRIPTION": "在你的回合开始时，使当前记忆变得 stsjorbsmod:清晰 。",
     "UPGRADE_DESCRIPTION": "固有 。 NL 在你的回合开始时，使当前记忆变得 stsjorbsmod:清晰 。"
+  },
+  "stsjorbsmod:FindWeakness": {
+    "NAME": "找寻弱点",
+    "DESCRIPTION": "每回合内你第一次攻击时， 预见 !M! 。"
   },
   "stsjorbsmod:Fireball": {
     "NAME": "火球术",
@@ -233,7 +282,7 @@
   },
   "stsjorbsmod:Firebolt": {
     "NAME": "火焰弹",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予你 stsjorbsmod:清晰 记忆数 !stsjorbsmod:MetaMagic! 倍的 stsjorbsmod:灼烧 层数。",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予你 stsjorbsmod:清晰 记忆数 NL !stsjorbsmod:MetaMagic! 倍的 stsjorbsmod:灼烧 层数。",
     "EXTENDED_DESCRIPTION": [
       " NL （给予 !M! 层 灼烧 。）"
     ]
@@ -258,6 +307,15 @@
     "NAME": "思绪破碎",
     "DESCRIPTION": "stsjorbsmod:罪 ：造成 !D! 点伤害。 NL stsjorbsmod:德 ：获得 !B! 点 格挡 。 NL stsjorbsmod:爆发 ：同时执行上述二者。"
   },
+  "stsjorbsmod:FranticMind": {
+    "NAME": "癫狂",
+    "DESCRIPTION": "你每有一层 stsjorbsmod:舱单 ，丢弃一张牌，然后抽等量的牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "你每有一层 stsjorbsmod:舱单 ，丢弃一张牌，然后抽等量的牌。 NL 消耗 。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （丢弃 !M! 张牌。）",
+      " NL （丢弃 !M! 张牌。）"
+    ]
+  },
   "stsjorbsmod:FranticSearch": {
     "NAME": "狂搜乱寻",
     "DESCRIPTION": "每有一名敌人，将 !M! 张 stsjorbsmod:魔法原料 放入你的手牌。 NL 使当前记忆变得 stsjorbsmod:清晰 。 NL 消耗 。",
@@ -271,14 +329,43 @@
     "NAME": "冻伤",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 若击杀敌人，将这张牌 stsjorbsmod:耗费 。"
   },
+  "stsjorbsmod:Frustration": {
+    "NAME": "沮丧",
+    "DESCRIPTION": "保留 ：对所有敌人造成 !M! 点伤害。 NL stsjorbsmod:竭力 ：对所有敌人造成 !D! 点伤害。"
+  },
   "stsjorbsmod:GatherPower": {
     "NAME": "汇聚能量",
     "DESCRIPTION": "抽 !M! 张牌。 NL 本回合内，你打出的下一张攻击牌会被额外打出 !stsjorbsmod:MetaMagic! 次。",
     "UPGRADE_DESCRIPTION": "抽 !M! 张牌。 NL 本回合内，你打出的下一张攻击牌会被额外打出 !stsjorbsmod:MetaMagic! 次。"
   },
+  "stsjorbsmod:GatheringEvil": {
+    "NAME": "汇聚恶念",
+    "DESCRIPTION": "你本场战斗中每打出过一张 诅咒 牌，获得 !stsjorbsmod:MetaMagic! 点 力量 以及 !stsjorbsmod:UrMagic! 层 易伤 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "你本场战斗中每打出过一张 诅咒 牌，获得 !stsjorbsmod:MetaMagic! 点 力量 以及 !stsjorbsmod:UrMagic! 层 易伤 。 NL 消耗 。 NL 当你洗牌时， stsjorbsmod:发掘 之。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （你已打出 !M! 张 诅咒 牌。）",
+      " NL （你已打出 !M! 张 诅咒 牌。）"
+    ]
+  },
+  "stsjorbsmod:GrimDirge": {
+    "NAME": "无情悲歌",
+    "DESCRIPTION": "stsjorbsmod:深藏 。 NL stsjorbsmod:飞逝 。 NL 在第 !M! 回合， stsjorbsmod:发掘 之。 NL 造成 !D! 点伤害。"
+  },
+  "stsjorbsmod:Godsbane": {
+    "NAME": "弑神剑",
+    "DESCRIPTION": "造成目标最大生命值 !M! %的伤害。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （造成 !D! 点伤害。）"
+    ]
+  },
+  "stsjorbsmod:Goosebumps": {
+    "NAME": "鸡皮疙瘩",
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。"
+  },
   "stsjorbsmod:Haunt": {
     "NAME": "萦绕",
-    "DESCRIPTION": "获得 !stsjorbsmod:UrMagic! 层 无实体 。 NL 下一回合，额外抽 !M! 张牌。 NL 消耗 。"
+    "DESCRIPTION": "stsjorbsmod:飞逝 。 NL 获得 !stsjorbsmod:UrMagic! 层 无实体 。 NL 下一回合少抽 !M! 张牌。",
+    "UPGRADE_DESCRIPTION": "获得 !stsjorbsmod:UrMagic! 层 无实体 。 NL 下一回合少抽 !M! 张牌。 NL 消耗 。"
   },
   "stsjorbsmod:HedgeWizard": {
     "NAME": "树篱巫师",
@@ -310,12 +397,12 @@
     "UPGRADE_DESCRIPTION": "回忆起 stsjorbsmod:色欲 。 NL 将目标敌人的 stsjorbsmod:灼烧 层数翻三倍。 NL 消耗 。 NL 当你 stsjorbsmod:爆发 时， stsjorbsmod:发掘 之。"
   },
   "stsjorbsmod:Inhale": {
-    "NAME": "猛吸",
+    "NAME": "猛吸 DEPRECATED",
     "DESCRIPTION": "获得 !stsjorbsmod:UrMagic! 层 无实体 。 NL 在下一回合开始时，获得 !M! 点 力量 。 NL 消耗 。"
   },
   "stsjorbsmod:Intervention": {
     "NAME": "干扰",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 将这张牌 stsjorbsmod:耗费 并将一张 *悔恨 加入你的牌组。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将拖延永久加入你的牌组。 NL stsjorbsmod:竭力 。"
   },
   "stsjorbsmod:Introspection": {
     "NAME": "内省",
@@ -372,6 +459,10 @@
     "NAME": "具现化",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL 从3张 stsjorbsmod:魔法原料 中选择1张加入手牌。"
   },
+  "stsjorbsmod:Melt": {
+    "NAME": "熔化",
+    "DESCRIPTION": "给予目标敌人等同于其 格挡 值的 stsjorbsmod:灼烧 。 NL 造成 !D! 点伤害。"
+  },
   "stsjorbsmod:Mending": {
     "NAME": "修补",
     "DESCRIPTION": "回复你 stsjorbsmod:清晰 记忆 数的生命。 NL 消耗 。",
@@ -391,7 +482,7 @@
   },
   "stsjorbsmod:Miracle_Cull": {
     "NAME": "奇迹",
-    "DESCRIPTION": "保留 。 NL 获得 !M! 点 [E] 。 NL 增加 !stsjorbsmod:MetaMagic! 层 stsjorbsmod:舱单 。"
+    "DESCRIPTION": "保留 。 NL 获得 !M! 点 [E] 。 NL 增加 !stsjorbsmod:MetaMagic! 层 stsjorbsmod:舱单 。 NL 消耗 。"
   },
   "stsjorbsmod:Mirror": {
     "NAME": "镜",
@@ -403,8 +494,8 @@
   },
   "stsjorbsmod:MistyStep": {
     "NAME": "迷踪步",
-    "DESCRIPTION": "获得你 stsjorbsmod:清晰 记忆 数 !stsjorbsmod:MetaMagic! 倍的 格挡 。 NL 抽 !M! 张牌。",
-    "UPGRADE_DESCRIPTION": "获得你 stsjorbsmod:清晰 记忆 数 !stsjorbsmod:MetaMagic! 倍加上 !stsjorbsmod:BaseBlock! 的 格挡 。 NL 抽 !M! 张牌。",
+    "DESCRIPTION": "获得你 stsjorbsmod:清晰 记忆 数 NL !stsjorbsmod:MetaMagic! 倍的 格挡 。 NL 抽 !M! 张牌。",
+    "UPGRADE_DESCRIPTION": "获得你 stsjorbsmod:清晰 记忆 数 NL !stsjorbsmod:MetaMagic! 倍加上 !stsjorbsmod:BaseBlock! 的 格挡 。 NL 抽 !M! 张牌。",
     "EXTENDED_DESCRIPTION": [
       " NL （获得 !B! 点 格挡 。）"
     ]
@@ -422,9 +513,18 @@
     "DESCRIPTION": "获得 !M! 金币 。 NL 回忆起 stsjorbsmod:慷慨 。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "获得 !M! 金币 。 NL 回忆起 stsjorbsmod:慷慨 。 NL 使当前记忆变得 stsjorbsmod:清晰 。 NL 消耗 。"
   },
+  "stsjorbsmod:Overkill": {
+    "NAME": "赶尽杀绝",
+    "DESCRIPTION": "每当你杀死敌人，对所有敌人造成溢出伤害值的伤害。",
+    "UPGRADE_DESCRIPTION": "每当你杀死敌人，对所有敌人造成溢出伤害值+ !M! 的伤害。"
+  },
   "stsjorbsmod:Panic": {
     "NAME": "恐慌",
     "DESCRIPTION": "stsjorbsmod:飞逝 。 NL 获得 !M! 层 无实体 。 NL 失去 !stsjorbsmod:UrMagic! 点最大生命。"
+  },
+  "stsjorbsmod:Paralysis": {
+    "NAME": "无力",
+    "DESCRIPTION": " 保留 。 NL 获得 !M! 层 无实体 。 NL 每当这张牌被 保留 时，将其在本场战斗的耗能减少1。 消耗 。"
   },
   "stsjorbsmod:PartingBlow": {
     "NAME": "碎骨猛击",
@@ -450,6 +550,19 @@
     "NAME": "幽灵",
     "DESCRIPTION": "每当你获得 无实体 ， 对所有敌人造成 !M! 点伤害。"
   },
+  "stsjorbsmod:PollutedStrike": {
+    "NAME": "不洁打击",
+    "DESCRIPTION": "你手牌中每有一张 诅咒 牌，造成 !D! 点 stsjorbsmod:攻击伤害 。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （你有 !M! 张 诅咒 牌。）",
+      " NL （你有 !M! 张 诅咒 牌。）"
+    ]
+  },
+  "stsjorbsmod:Pollute": {
+    "NAME": "污染",
+    "DESCRIPTION": "将你当前手牌中所有牌转化为 诅咒 牌（他们仍然可以被打出）。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "将你当前手牌中所有牌转化为 诅咒 牌（他们仍然可以被打出）。"
+  },
   "stsjorbsmod:Poultergeist": {
     "NAME": "吵闹鬼",
     "DESCRIPTION": "造成 !D! 点伤害。"
@@ -464,6 +577,10 @@
   "stsjorbsmod:Prestidigitation": {
     "NAME": "变戏法",
     "DESCRIPTION": "在你的回合开始时，随机给予一名敌人 !M! 层 虚弱 或 !M! 层 易伤 。"
+  },
+  "stsjorbsmod:Procrastination": {
+    "NAME": "拖延",
+    "DESCRIPTION": " 不能被打出 。 NL 在每场战斗开始时，这张牌会出现在你的弃牌堆中。"
   },
   "stsjorbsmod:PurgeMind": {
     "NAME": "净化思维",
@@ -494,6 +611,10 @@
     "EXTENDED_DESCRIPTION": [
       " NL （造成 !M! 点伤害。）"
     ]
+  },
+  "stsjorbsmod:Rebuttal": {
+    "NAME": "驳斥",
+    "DESCRIPTION": "保留 ：在手牌中时，获得 !stsjorbsmod:UrMagic! 点 荆棘 。 NL stsjorbsmod:竭力 ： 获得 !M! 点 荆棘 。"
   },
   "stsjorbsmod:Rediscovery": {
     "NAME": "重拾",
@@ -527,7 +648,7 @@
     "DESCRIPTION": "回忆起 stsjorbsmod:色欲 。 NL 给予 !stsjorbsmod:MetaMagic! 层 stsjorbsmod:灼烧 !M! 次。本牌中的 stsjorbsmod:灼烧 层数受 力量 影响。"
   },
   "stsjorbsmod:Seance": {
-    "NAME": "降神会",
+    "NAME": "降神会 DEPRECATED",
     "DESCRIPTION": "stsjorbsmod:发掘 一张牌。 NL 它获得 虚无 。 NL 消耗。"
   },
   "stsjorbsmod:Sentinel_Cull": {
@@ -563,7 +684,7 @@
     "DESCRIPTION": "在下一回合开始前，所有你受到的伤害将减少 !M! 点。"
   },
   "stsjorbsmod:SplinterSoul": {
-    "NAME": "灵魂破碎",
+    "NAME": "灵魂破碎 DEPRECATED",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 随机 stsjorbsmod:耗费 一张你抽牌堆中的非传奇卡。"
   },
   "stsjorbsmod:Stalwart": {
@@ -587,10 +708,15 @@
   },
   "stsjorbsmod:Strife": {
     "NAME": "冲突",
-    "DESCRIPTION": "将一张随机 诅咒 加入你的弃牌堆。 NL 你手牌、抽牌堆与弃牌堆中每有一张 诅咒 牌，获得 !stsjorbsmod:MetaMagic! 点 力量 。",
+    "DESCRIPTION": "将 !stsjorbsmod:UrMagic! 张随机 诅咒 牌加入你的弃牌堆。 NL 你弃牌堆中每有一张 诅咒 牌，获得 !stsjorbsmod:MetaMagic! 点 力量 。",
+    "UPGRADE_DESCRIPTION": "将 !stsjorbsmod:UrMagic! 张随机 诅咒 牌加入你的弃牌堆。 NL 你弃牌堆中每有一张 诅咒 牌，获得 !stsjorbsmod:MetaMagic! 点 力量 。",
     "EXTENDED_DESCRIPTION": [
       " NL （获得 !M! 点 力量 。）"
     ]
+  },
+  "stsjorbsmod:Strike_Cull": {
+    "NAME": "打击",
+    "DESCRIPTION": "造成 !D! 点伤害。"
   },
   "stsjorbsmod:Strike_Wanderer": {
     "NAME": "打击",
@@ -599,6 +725,11 @@
   "stsjorbsmod:Sulfur": {
     "NAME": "硫磺",
     "DESCRIPTION": "stsjorbsmod:飞逝 。 NL 给予 !M! 层 stsjorbsmod:灼烧 。"
+  },
+  "stsjorbsmod:Summoning": {
+    "NAME": "召唤",
+    "DESCRIPTION": "消耗你抽牌堆中的 !M! 张牌。 在你的下一回合开始时， stsjorbsmod:发掘 之。",
+    "UPGRADE_DESCRIPTION": "消耗你抽牌堆中的 !M! 张牌。 在你的下一回合开始时， stsjorbsmod:发掘 他们。"
   },
   "stsjorbsmod:Taunt": {
     "NAME": "讥讽",
@@ -625,7 +756,14 @@
   },
   "stsjorbsmod:Toil": {
     "NAME": "劳累",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 若击杀敌人，永久 升级 一张随机牌。 NL 消耗 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 斩杀 时，永久 升级 一张随机牌。 NL 消耗 。"
+  },
+  "stsjorbsmod:Toll": {
+    "NAME": "送葬",
+    "DESCRIPTION": "造成你遗物计数总量 !M! 倍的伤害。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （造成 !D! 点伤害。）"
+    ]
   },
   "stsjorbsmod:TollTheDead": {
     "NAME": "敲响丧钟",
@@ -659,19 +797,23 @@
   },
   "stsjorbsmod:Wail": {
     "NAME": "悲鸣",
-    "DESCRIPTION": "给予 !stsjorbsmod:UrMagic! 层 易伤 。 NL 抽 !M! 张牌。"
+    "DESCRIPTION": "给予 !stsjorbsmod:UrMagic! 层 易伤 。 NL 抽 !M! 张牌。 NL 消耗 。"
   },
   "stsjorbsmod:WakingDream": {
-    "NAME": "清醒之梦",
+    "NAME": "清醒之梦 DEPRECATED",
     "DESCRIPTION": "保留 。 NL 获得 !M! 层 无实体 。 NL 当这张牌被 保留 时，将其在本场战斗的耗能增加 !stsjorbsmod:MetaMagic! 点。 NL 消耗 。"
   },
   "stsjorbsmod:WanderingMind": {
     "NAME": "精神恍惚",
     "DESCRIPTION": "抽 !M! 张牌。 NL 随机回忆起一个未变得 stsjorbsmod:清晰 的记忆。"
   },
-  "stsjorbsmod:WastingEssence": {
-    "NAME": "浪费的精华",
+  "stsjorbsmod:WastingForm": {
+    "NAME": "荒废形态",
     "DESCRIPTION": "将 !stsjorbsmod:MetaMagic! 张随机 诅咒 牌加入你的弃牌堆。 NL 每当你抽到一张 诅咒 牌时，对所有敌人造成 !M! 点伤害。"
+  },
+  "stsjorbsmod:WastingStrike": {
+    "NAME": "荒废打击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 你每 消耗 过一张牌，额外造成 !M! 点伤害。"
   },
   "stsjorbsmod:Web": {
     "NAME": "网",
@@ -689,5 +831,9 @@
   "stsjorbsmod:Withdraw": {
     "NAME": "退缩",
     "DESCRIPTION": "获得 !M! 层 人工制品 。 NL 获得 !B! 点 格挡 。 NL 消耗 。"
+  },
+  "stsjorbsmod:Withering": {
+    "NAME": "凋零",
+    "DESCRIPTION": "获得 !M! 层 无实体 。 NL 每当你抽到这张牌，本场战斗中 无实体 的减伤效果降低 !stsjorbsmod:MetaMagic! 。"
   }
 }
