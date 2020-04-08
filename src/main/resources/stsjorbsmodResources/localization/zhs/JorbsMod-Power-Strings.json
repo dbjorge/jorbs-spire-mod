@@ -80,6 +80,14 @@
       "将在 #b%3$s 回合后发掘。"
     ]
   },
+  "stsjorbsmod:EntombedGrimDirgePower": {
+    "NAME": "埋下无情悲歌",
+    "DESCRIPTIONS": [
+      "%1$s 将在第 #b%2$srd 回合被发掘。 NL ",
+      "将在 #b%3$s 回合后发掘。",
+      "将在 #b%3$s 回合后发掘。"
+    ]
+  },
   "stsjorbsmod:MirrorPower": {
     "NAME": "Mirror",
     "DESCRIPTIONS": [
@@ -93,6 +101,12 @@
       "在你的下一回合开始时，你将会发掘一些牌。"
     ]
   },
+  "stsjorbsmod:ExhumeOnTurnXPower": {
+    "NAME": "发掘",
+    "DESCRIPTIONS": [
+      "在第3回合开始时，你将会发掘一些牌。"
+    ]
+  },
   "stsjorbsmod:FearPower": {
     "NAME": "恐惧",
     "DESCRIPTIONS": [
@@ -104,6 +118,13 @@
     "NAME": "亲切",
     "DESCRIPTIONS": [
       "在你的回合开始时，使当前记忆变得 #y清晰 。"
+    ]
+  },
+  "stsjorbsmod:FindWeaknessPower": {
+    "NAME": "找寻弱点",
+    "DESCRIPTIONS": [
+      "每回合内你第一次攻击时， 预见 #b%1$s 。 NL 你本回合内还未打出过攻击牌。",
+      "每回合内你第一次攻击时， 预见 #b%1$s 。 NL 你本回合内已打出过攻击牌。"
     ]
   },
   "stsjorbsmod:FlameWardPower": {
@@ -135,6 +156,12 @@
       " 点伤害。"
     ]
   },
+  "stsjorbsmod:LoseStrengthNextTurnPower": {
+    "NAME": "下一回合失去力量",
+    "DESCRIPTIONS": [
+      "在下一回合开始时，失去 #b%1$s 点 力量 。"
+    ]
+  },
   "stsjorbsmod:MagicMirrorPower": {
     "NAME": "魔镜",
     "DESCRIPTIONS": [
@@ -159,6 +186,13 @@
     "NAME": "不愿遗忘",
     "DESCRIPTIONS": [
       "在你当前记忆变得 #y清晰 之前，你无法遗忘你当前记忆。"
+    ]
+  },
+  "stsjorbsmod:OverkillPower": {
+    "NAME": "赶尽杀绝",
+    "DESCRIPTIONS": [
+      "当你造成的伤害溢出时，对其它所有敌人造成溢出伤害值的伤害。",
+      "当你造成的伤害溢出时，对其它所有敌人造成溢出伤害值+ #b%1$s 的伤害。"
     ]
   },
   "stsjorbsmod:PathosPower": {
@@ -235,7 +269,13 @@
   "stsjorbsmod:StrengthNextTurnPower": {
     "NAME": "力量秘仪",
     "DESCRIPTIONS": [
-      "在你的下一回合开始时，获得 #b%1$s 点力量。"
+      "在下一回合开始时，获得 #b%1$s 点力量。"
+    ]
+  },
+  "stsjorbsmod:SummoningPower": {
+    "NAME": "召唤",
+    "DESCRIPTIONS": [
+      "在下一回合开始时， #y发掘 %1$s 。"
     ]
   },
   "stsjorbsmod:TroublePower": {
@@ -245,10 +285,16 @@
       "每当你抽到一张 诅咒 牌时，抽 #b%1$s 张牌。"
     ]
   },
-  "stsjorbsmod:WastingEssencePower": {
-    "NAME": "浪费的精华",
+  "stsjorbsmod:WastingFormPower": {
+    "NAME": "荒废形态",
     "DESCRIPTIONS": [
       "每当你抽到一张 诅咒 牌时，对所有敌人造成 #b%1$s 点伤害。"
+    ]
+  },
+  "stsjorbsmod:WitheringPower": {
+    "NAME": "凋零",
+    "DESCRIPTIONS": [
+      "无实体 对失去生命与受到伤害的减伤效果降低 #b%1$s 。"
     ]
   }
 }

@@ -20,7 +20,7 @@
     "TEXT": [
       "选择 %1$s 张牌放到你抽牌堆的顶端。",
       "选择 %1$s 张牌放到你抽牌堆的顶端。",
-      "将牌放到你抽牌堆的顶端。"
+      "放到你抽牌堆的顶端。"
     ]
   },
   "stsjorbsmod:CounterspellAction": {
@@ -35,7 +35,7 @@
   },
   "stsjorbsmod:DigEmote": {
     "TEXT": [
-      "jorbsBird 挖！ jorbsBird 遗！物！ jorbsBird 挖他！！！ jorbsBird （jorbsBird是mod发布者在twitch上的一个主播表情）"
+      "jorbsBird挖! jorbsBird遗!物! jorbsBird挖! (其中英文是一个表情,这段话是mod作者作为主播的梗)"
     ]
   },
   "stsjorbsmod:ExhumeAndMakeEtherealAction": {
@@ -57,6 +57,16 @@
   "stsjorbsmod:MagicMirrorPatch": {
     "TEXT": [
       "被缠住！"
+    ]
+  },
+  "stsjorbsmod:ManifestTopPanelItem": {
+    "TEXT": [
+      "荒废",
+      "每当尖塔游魂受到伤害或在每回合结束时，它失去 #b1 点最大生命。",
+      "蔑视",
+      "尖塔游魂无法获得 #y敏捷 或 #y格挡 。相对应的，它将获得等量 #y力量 或 对一随机敌人造成等量伤害。",
+      "怒不可遏",
+      "尖塔游魂永远记得 #y暴怒 。"
     ]
   },
   "stsjorbsmod:MemoryFtueTip": {
@@ -87,6 +97,25 @@
     "TEXT": [
       "爆发",
       "迷糊法师会在第七回合结束时 #y爆发 。 NL 魔导书周围环绕的火焰会记录回合数。 NL #y爆发 ：在本场战斗接下来的时间中失去所有 #y记忆 与 #y清晰记忆 。你每失去一份 #y清晰记忆 ，对所有敌人造成6点伤害并失去3点生命。"
+    ]
+  },
+  "stsjorbsmod:SummoningAction": {
+    "TEXT": [
+      "选择一张牌消耗，下回合发掘它。",
+      "选择 ",
+      " 张牌消耗，下回合发掘它们。"
+    ]
+  },
+  "stsjorbsmod:ThirstOption": {
+    "TEXT": [
+      "渴求",
+      "消耗一张攻击牌中的所有怒气。每消耗一份怒气，回复5点生命并获得1点最大生命。",
+      "消耗一张攻击牌中的所有怒气。（你当前没有附着怒气的攻击牌。）"
+    ]
+  },
+  "stsjorbsmod:ThirstEffect": {
+    "TEXT": [
+      "选择一张牌来品尝"
     ]
   },
   "stsjorbsmod:WillAction": {

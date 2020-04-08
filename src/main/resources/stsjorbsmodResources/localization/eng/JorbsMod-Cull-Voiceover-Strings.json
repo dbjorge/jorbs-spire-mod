@@ -1,0 +1,117 @@
+{
+  "stsjorbsmod:cull:voiceover:3_Sentries": {
+    "TEXT": [
+      "Three for the price of one."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Automaton": {
+    "TEXT": [
+      "I wish you were more edible."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Awakened_One": {
+    "TEXT": [
+      "Ah, let me help you with that dagger."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Book_of_Stabbing": {
+    "TEXT": [
+      "A book after my own heart."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Champ": {
+    "TEXT": [
+      "Make your noise, tin can."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Collector": {
+    "TEXT": [
+      "It's MY mantel where you belong."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:death": {
+    "TEXT": [
+      "They live. For now."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:death_victory": {
+    "TEXT": [
+      "Do I feel satisfied?"
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Donu_and_Deca": {
+    "TEXT": [
+      "The one on the right looks good."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Giant_Head": {
+    "TEXT": [
+      "A pity it's made of stone."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Gremlin_Leader": {
+    "TEXT": [
+      "Appetizers and... yes, the main course."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Gremlin_Nob": {
+    "TEXT": [
+      "Blood for blood."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Hexaghost": {
+    "TEXT": [
+      "Around and around it goes. Until it doesn't."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Lagavulin": {
+    "TEXT": [
+      "Crack the shell, I'll eat well."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Nemesis": {
+    "TEXT": [
+      "Stand still, ethereal coward."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:new_run": {
+    "TEXT": [
+      "The cull begins."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Reptomancer": {
+    "TEXT": [
+      "So many barbs for such a slender meal."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Shield_and_Spear": {
+    "TEXT": [
+      "Let's butcher these quickly."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Slavers": {
+    "TEXT": [
+      "They think they're in control."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Slime_Boss": {
+    "TEXT": [
+      "Just don't besmirch my blade, slime."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:The_Guardian": {
+    "TEXT": [
+      "Bleed, glorified hedgehog."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:The_Heart": {
+    "TEXT": [
+      "The ~purest~ ~delicacy.~"
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Time_Eater": {
+    "TEXT": [
+      "Our appointment has arrived."
+    ]
+  }
+}

@@ -60,6 +60,16 @@
       "Enredado!"
     ]
   },
+  "stsjorbsmod:ManifestTopPanelItem": {
+    "TEXT": [
+      "Deshaciéndose",
+      "La COSA pierdes #b1 Max PV cada vez que recibe daño y al final de cada turno.",
+      "Desdén",
+      "La COSA no puede ganar #yDestreza o #yBloqueo. En lugar, gana #yFuerza o hace daño a un enemigo aleatorio, respectivamente.",
+      "Iracundo",
+      "La COSA recuerda #yIra de forma permanente."
+    ]
+  },
   "stsjorbsmod:MemoryFtueTip": {
     "TEXT": [
       "Memorias",
@@ -88,6 +98,25 @@
     "TEXT": [
       "Quebrado",
       "El Deambulante #yQuebrara al final del turno 7. NL Los #pfuegos alrededor de su Grimorio llevan la cuenta de los turnos. NL #yQuebrar: Perder TODAS las #yMemorias y #yClaridades por el resto del combate. Por cada #yClaridad perdida, haz 6 de daño a TODOS los enemigos y pierde 3 PV."
+    ]
+  },
+  "stsjorbsmod:SummoningAction": {
+    "TEXT": [
+      "Choose a Card to Exhume next turn.",
+      "Choose ",
+      " Cards to Exhume next turn."
+    ]
+  },
+  "stsjorbsmod:ThirstOption": {
+    "TEXT": [
+      "Desaguar",
+      "Consume toda la Ira de un ataque. Por cada Ira, cura 5 PV y gana 1 Max PV.",
+      "Consume toda la Ira de un ataque. (No tengo ataques con Ira.)"
+    ]
+  },
+  "stsjorbsmod:ThirstEffect": {
+    "TEXT": [
+      "Selecciona una carta para Desaguar"
     ]
   },
   "stsjorbsmod:WillAction": {

@@ -52,6 +52,7 @@
 * GinFizzes
 * Jac2012
 * JoeKage
+* Lila
 * lobbien
 * LouisLeGros
 * mziggles
@@ -120,6 +121,7 @@
 * NoWaitSuperKamiGuru
 * PanicPoint
 * passerbyninja
+* puffalo
 * Rabbit
 * Ray661
 * Renko

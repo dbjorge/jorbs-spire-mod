@@ -15,6 +15,11 @@
     "DESCRIPTION": "Criaturas quemadas reciben daño al principio de su turno y no puede ser curado. Daño por quemado golpeara el #yBloqueo. Cada turno, el Quemado es reducido por un tercio."
   },
   {
+    "PROPER_NAME": "Card Type",
+    "NAMES": ["card\u00a0type", "card\u00a0types"],
+    "DESCRIPTION": "Tipos de Carta son Ataque, Habilidad, Poder, Maldición, Estado, etc."
+  },
+  {
     "NAMES": [
       "caridad",
       "charity"
@@ -90,6 +95,20 @@
   },
   {
     "NAMES": [
+      "expirar",
+      "exert"
+    ],
+    "DESCRIPTION": "Agota esta carta al ser jugada. Será #yEnterrada hasta el comienzo del próximo Acto."
+  },
+  {
+    "NAMES": [
+      "expirada",
+      "exerted"
+    ],
+    "DESCRIPTION": "Esta carta empieza cada combate en tu pila de agotadas, hasta el comienzo del próximo Acto."
+  },
+  {
+    "NAMES": [
       "envidia",
       "envy"
     ],
@@ -157,7 +176,7 @@
       "manifiesto",
       "manifest"
     ],
-    "DESCRIPTION": "Por cada turno en combate, gana #b1 #yManifiesto. Cuando elijas tu camino, saltea un piso por cada #yManifiesto. Vuelve a #b0 cuando entras a un piso."
+    "DESCRIPTION": "La COSA gana #b1 #yManifiesto al principio de cada evento y al final de cada turno. Cuando eliges tu camino, #yManifiesto es gastado para saltearse pisos."
   },
   {
     "PROPER_NAME": "Componentes Materiales",
