@@ -7,6 +7,7 @@
 * Coffee Dripper now prevents Thirsting at campfires
 * Remove Calipers from CULL's relic pool
 * Added voiceovers for elites/bosses/death/start (thanks Ray Chase)
+* New art for Ritual (thanks Lila for art and Neablis for helping merge)
 
 ### New CULL cards
 
