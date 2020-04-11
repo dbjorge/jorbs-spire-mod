@@ -2,6 +2,8 @@ package stsjorbsmod.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.neow.NeowEvent;
 import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
@@ -14,7 +16,7 @@ public class NeowEventPatch {
     public static class NeowEvent_ctor {
         @SpirePrefixPatch
         public static void Prefix(NeowEvent __this, boolean isDone) {
-            DeckOfTrials.reset();
+            AbstractPlayerClassPatch.deckOfTrials.get(AbstractDungeon.player).reset();
         }
     }
 

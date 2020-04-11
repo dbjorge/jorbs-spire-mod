@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.cull.deckoftrials.DeckOfTrials;
+import stsjorbsmod.patches.AbstractPlayerClassPatch;
 
 import java.util.ArrayList;
 
@@ -21,7 +22,7 @@ public class BookOfTrialsRelic extends CustomJorbsModRelic implements AtStartOfA
     @Override
     public void atStartOfAct() {
         AbstractDungeon.player.getRelic(BookOfTrialsRelic.ID).flash();
-        ArrayList<AbstractCard> cards = DeckOfTrials.drawCards(2);
+        ArrayList<AbstractCard> cards = AbstractPlayerClassPatch.deckOfTrials.get(AbstractDungeon.player).drawCards(2);
         for (AbstractCard card : cards) {
             AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(card, (float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F));
         }
