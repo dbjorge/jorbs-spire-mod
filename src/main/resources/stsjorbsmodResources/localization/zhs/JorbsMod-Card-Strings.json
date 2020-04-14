@@ -2,7 +2,7 @@
   "stsjorbsmod:Abjure": {
     "NAME": "放弃信仰",
     "DESCRIPTION": "将你抽牌堆中的、弃牌堆中的或被 消耗 的 精魂护盾 放入你的手牌中。",
-    "UPGRADE_DESCRIPTION": "保留。 NL 将你抽牌堆中的、弃牌堆中的或被 消耗 的 精魂护盾 放入你的手牌中。"
+    "UPGRADE_DESCRIPTION": "保留 。 NL 将你抽牌堆中的、弃牌堆中的或被 消耗 的 精魂护盾 放入你的手牌中。"
   },
   "stsjorbsmod:Accumulation": {
     "NAME": "聚集",
@@ -38,8 +38,8 @@
     "DESCRIPTION": "获得 !stsjorbsmod:UrMagic! 层 易伤 。 NL 对所有敌人造成 !D! 点伤害并给予他们 !M! 层 易伤 。"
   },
   "stsjorbsmod:Apparition_Cull": {
-    "NAME": "幽魂",
-    "DESCRIPTION": "虚无。 NL 获得 !M! 层 无实体 。 NL 消耗 。",
+    "NAME": "灵体",
+    "DESCRIPTION": "虚无 。 NL 获得 !M! 层 无实体 。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "获得 !M! 层 无实体 。 NL 消耗 。"
   },
   "stsjorbsmod:ArcaneForm": {
@@ -82,7 +82,7 @@
   },
   "stsjorbsmod:Catharsis": {
     "NAME": "祓禊",
-    "DESCRIPTION": "可以打出原本 不能被打出 的 诅咒 牌。 当你这么做时，对某一随机敌人，你本场战斗中每打出过一张 诅咒 牌则造成 !M! 点伤害，然后失去1点生命。"
+    "DESCRIPTION": "可以打出原本 不能被打出 的 诅咒 牌。 当你这么做时，对某一随机敌人，你本场战斗中每打出过一张 诅咒 牌则造成 !M! 点伤害， NL 然后失去1点生命。"
   },
   "stsjorbsmod:ChainLightning": {
     "NAME": "闪电链",
@@ -100,7 +100,7 @@
   },
   "stsjorbsmod:Channeling": {
     "NAME": "贯注",
-    "DESCRIPTION": "（存疑）每有一名敌人意图是攻击，打出牌堆顶的一张牌。 NL 消耗 。",
+    "DESCRIPTION": "每有一名敌人意图是攻击，打出牌堆顶的一张牌。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "每有一名敌人意图是攻击，打出牌堆顶的一张牌。",
     "EXTENDED_DESCRIPTION": [
       " NL （打出 !M! 张牌。）",
@@ -114,7 +114,7 @@
   },
   "stsjorbsmod:ChillTouch": {
     "NAME": "冻寒之触",
-    "DESCRIPTION": "对一名敌人造成 !D! 点伤害。 NL 他无法再获得治疗。"
+    "DESCRIPTION": "对一名敌人造成 !D! 点伤害。 NL 它无法再获得治疗。"
   },
   "stsjorbsmod:Cleanse": {
     "NAME": "净化",
@@ -126,7 +126,7 @@
   },
   "stsjorbsmod:Coda": {
     "NAME": "尾声",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 若这张牌将造成击杀，令其生命为 1。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 若这张牌将造成击杀，令其生命值为 1。"
   },
   "stsjorbsmod:ColorSpray": {
     "NAME": "七彩喷射",
@@ -156,7 +156,7 @@
   },
   "stsjorbsmod:Cyclone": {
     "NAME": "飓风",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害X次。 NL 你每击杀一名敌人，获得 [E] 。"
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害X次。 NL 这张牌每击杀一名敌人，获得 [E] 。"
   },
   "stsjorbsmod:Damnation": {
     "NAME": "天谴",
@@ -200,15 +200,15 @@
   },
   "stsjorbsmod:DrainLife": {
     "NAME": "生命汲取",
-    "DESCRIPTION": "造成 X 点伤害。 NL 获得等同于所造成伤害的最大生命。 NL stsjorbsmod:竭力 。",
-    "UPGRADE_DESCRIPTION": "造成 X+1 点伤害。 NL 获得等同于所造成伤害的最大生命。 NL stsjorbsmod:竭力 。",
+    "DESCRIPTION": "造成 X 点伤害。 NL 获得所造成伤害值的最大生命。 NL stsjorbsmod:竭力 。",
+    "UPGRADE_DESCRIPTION": "造成 X+1 点伤害。 NL 获得所造成伤害值的最大生命。 NL stsjorbsmod:竭力 。",
     "EXTENDED_DESCRIPTION": [
       " NL （造成 !D! 点伤害。）"
     ]
   },
   "stsjorbsmod:Ectoplasm_Cull": {
     "NAME": "灵体外质",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 你每有一层 stsjorbsmod:舱单 ，获得 !stsjorbsmod:MetaMagic! 金币。 NL 消耗 。",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 你每有一层 stsjorbsmod:舱单 ， NL 获得 !stsjorbsmod:MetaMagic! 金币。 NL 消耗 。",
     "EXTENDED_DESCRIPTION": [
       " NL （获得 !M! 金币。）"
     ]
@@ -224,8 +224,8 @@
   },
   "stsjorbsmod:Exhale": {
     "NAME": "发散",
-    "DESCRIPTION": "stsjorbsmod:飞逝 。 NL 获得 !M! 层 无实体 。 NL 在下一回合开始时，失去 !stsjorbsmod:UrMagic! 点 力量 。",
-    "UPGRADE_DESCRIPTION": "获得 !M! 层 无实体 。 NL 在下一回合开始时，失去 !stsjorbsmod:UrMagic! 点 力量 。 NL 消耗 。"
+    "DESCRIPTION": "stsjorbsmod:飞逝 。 NL 获得 !M! 层 无实体 。 NL 在下一回合开始时， NL 失去 !stsjorbsmod:UrMagic! 点 力量 。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 无实体 。 NL 在下一回合开始时， NL 失去 !stsjorbsmod:UrMagic! 点 力量 。 NL 消耗 。"
   },
   "stsjorbsmod:Equinox": {
     "NAME": "阴阳相半",
@@ -247,6 +247,10 @@
     "NAME": "风暴之眼",
     "DESCRIPTION": "使当前记忆变得 stsjorbsmod:清晰 ，然后随机回忆起一个未变得 stsjorbsmod:清晰 的记忆。 NL 获得 !B! 点 格挡 。"
   },
+  "stsjorbsmod:FalseBlessings": {
+    "NAME": "不实祝福",
+    "DESCRIPTION": "stsjorbsmod:竭力 ：在所有空药水栏位中获得随机药水。"
+  },
   "stsjorbsmod:FaerieFire": {
     "NAME": "精灵之火",
     "DESCRIPTION": "stsjorbsmod:德 ：给予所有敌人 !M! 层 虚弱 。 NL stsjorbsmod:罪 ：给予所有敌人 !M! 层 易伤 。 NL 消耗 。"
@@ -255,7 +259,7 @@
     "NAME": "恐惧",
     "DESCRIPTION": "目标非首领敌人将在 !M! 回合后逃跑。若本场战斗因此结束，不获得奖励，但 清晰 记忆将保留至下一场战斗。",
     "EXTENDED_DESCRIPTION": [
-      "Boss们无所畏惧！"
+      "首领们无所畏惧！"
     ]
   },
   "stsjorbsmod:Feast": {
@@ -340,8 +344,8 @@
   },
   "stsjorbsmod:GatheringEvil": {
     "NAME": "汇聚恶念",
-    "DESCRIPTION": "你本场战斗中每打出过一张 诅咒 牌，获得 !stsjorbsmod:MetaMagic! 点 力量 以及 !stsjorbsmod:UrMagic! 层 易伤 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "你本场战斗中每打出过一张 诅咒 牌，获得 !stsjorbsmod:MetaMagic! 点 力量 以及 !stsjorbsmod:UrMagic! 层 易伤 。 NL 消耗 。 NL 当你洗牌时， stsjorbsmod:发掘 之。",
+    "DESCRIPTION": "本场战斗中每打出过1张 诅咒 牌，获得 !stsjorbsmod:MetaMagic! 点 力量 与 !stsjorbsmod:UrMagic! 层 易伤 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "本场战斗中每打出过1张 诅咒 牌，获得 !stsjorbsmod:MetaMagic! 点 力量 与 !stsjorbsmod:UrMagic! 层 易伤 。 NL 消耗 。 NL 当你洗牌时， stsjorbsmod:发掘 之。",
     "EXTENDED_DESCRIPTION": [
       " NL （你已打出 !M! 张 诅咒 牌。）",
       " NL （你已打出 !M! 张 诅咒 牌。）"
@@ -548,7 +552,7 @@
   },
   "stsjorbsmod:Phantasm": {
     "NAME": "幽灵",
-    "DESCRIPTION": "每当你获得 无实体 ， 对所有敌人造成 !M! 点伤害。"
+    "DESCRIPTION": "每当你获得 无实体 时， 对所有敌人造成 !M! 点伤害。"
   },
   "stsjorbsmod:PollutedStrike": {
     "NAME": "不洁打击",
@@ -661,7 +665,7 @@
   },
   "stsjorbsmod:Siphon": {
     "NAME": "虹吸",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 若造成击杀, 回复 !M! 点生命。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果这张牌杀死了敌人，回复 !M! 点生命。"
   },
   "stsjorbsmod:SiphonEnergy": {
     "NAME": "吸取能量",
