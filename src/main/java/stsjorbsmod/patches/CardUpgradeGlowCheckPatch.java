@@ -17,7 +17,11 @@ public class CardUpgradeGlowCheckPatch {
         @SpirePostfixPatch
         public static void patch(AbstractCard __this)
         {
-            if (AbstractDungeon.player != null && AbstractDungeon.player.hand != null && AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+            if (AbstractDungeon.player != null &&
+                AbstractDungeon.player.hand != null &&
+                AbstractDungeon.getCurrRoom() != null &&
+                AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT)
+            {
                 AbstractDungeon.player.hand.glowCheck();
             }
         }
