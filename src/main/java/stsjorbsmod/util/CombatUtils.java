@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import com.megacrit.cardcrawl.random.Random;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,5 +36,11 @@ public class CombatUtils {
             return null;
         }
         return candidates.get(rng.random(0, candidates.size() - 1));
+    }
+
+    public static boolean isInCombat() {
+        return (AbstractDungeon.currMapNode != null &&
+                AbstractDungeon.getCurrRoom() != null &&
+                AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT);
     }
 }
