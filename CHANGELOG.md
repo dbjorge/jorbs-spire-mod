@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Fixed rare crash when upgrading cards outside of combat soon after loading game (thanks modargo)
+
 ## [v1.8.1] - 2020-04-07
 
 * Fixed bug where non-CULL characters would receive 1 manifest for entering event rooms (thanks puffalo for reporting)
