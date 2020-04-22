@@ -12,8 +12,7 @@ import static stsjorbsmod.characters.Cull.Enums.CULL;
 public class DeckOfTrialsSaveData implements CustomSavable<String> {
     @Override
     public String onSave() {
-        String str = String.join(",", DeckOfTrials.deck.group.stream().map(c -> c.cardID).collect(Collectors.toList()));
-        return str;
+        return String.join(",", DeckOfTrials.deck.group.stream().map(c -> c.cardID).collect(Collectors.toList()));
     }
 
     @Override
