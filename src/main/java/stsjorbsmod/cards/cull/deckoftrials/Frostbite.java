@@ -9,7 +9,6 @@ import stsjorbsmod.actions.DamageWithOnKillEffectAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 
-import static stsjorbsmod.JorbsMod.JorbsCardTags.DECK_OF_TRIALS;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
 
 public class Frostbite extends CustomJorbsModCard {
@@ -28,7 +27,6 @@ public class Frostbite extends CustomJorbsModCard {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         tags.add(PERSISTENT_POSITIVE_EFFECT);
-        tags.add(DECK_OF_TRIALS);
     }
 
     @Override
