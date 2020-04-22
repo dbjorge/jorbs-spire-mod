@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.cull.deckoftrials.DeckOfTrials;
-import stsjorbsmod.patches.AbstractPlayerClassPatch;
 
 import java.util.ArrayList;
 
