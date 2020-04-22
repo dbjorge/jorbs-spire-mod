@@ -22,7 +22,7 @@ public class BookOfTrialsRelic extends CustomJorbsModRelic implements AtStartOfA
     @Override
     public void atStartOfAct() {
         AbstractDungeon.player.getRelic(BookOfTrialsRelic.ID).flash();
-        ArrayList<AbstractCard> cards = AbstractPlayerClassPatch.deckOfTrials.get(AbstractDungeon.player).drawCards(2);
+        ArrayList<AbstractCard> cards = DeckOfTrials.drawCards(2);
         for (AbstractCard card : cards) {
             AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(card, (float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F));
         }

@@ -16,7 +16,7 @@ public class NeowEventPatch {
     public static class NeowEvent_ctor {
         @SpirePrefixPatch
         public static void Prefix(NeowEvent __this, boolean isDone) {
-            AbstractPlayerClassPatch.deckOfTrials.get(AbstractDungeon.player).reset();
+            DeckOfTrials.reset();
         }
     }
 
