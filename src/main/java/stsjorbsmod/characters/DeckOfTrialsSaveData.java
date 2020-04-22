@@ -17,6 +17,10 @@ public class DeckOfTrialsSaveData implements CustomSavable<String> {
 
     @Override
     public void onLoad(String deckOfTrials) {
-        Arrays.asList(deckOfTrials.split(",")).forEach(c -> DeckOfTrials.deck.addToTop(CardLibrary.getCard(CULL, c)));
+        Arrays.asList(deckOfTrials.split(",")).forEach(c -> {
+            if (c.length() > 0) {
+                DeckOfTrials.deck.addToTop(CardLibrary.getCard(CULL, c));
+            }
+        });
     }
 }
