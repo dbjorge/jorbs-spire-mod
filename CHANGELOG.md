@@ -4,6 +4,7 @@
 
 ### CULL updates
 
+* Added the Book of Trials (thanks wang429)
 * Coffee Dripper now prevents Thirsting at campfires
 * Remove Calipers from CULL's relic pool
 * Added voiceovers for elites/bosses/death/start (thanks Ray Chase)
