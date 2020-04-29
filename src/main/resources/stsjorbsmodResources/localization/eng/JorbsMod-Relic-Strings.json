@@ -30,6 +30,13 @@
       "At the start of each combat, remember stsjorbsmod:Patience. NL At the end of each combat, heal #b1 HP per stsjorbsmod:Clarity."
     ]
   },
+  "stsjorbsmod:MetronomeRelic": {
+    "NAME": "Metronome",
+    "FLAVOR": "Tick Tock...Tick Tock",
+    "DESCRIPTIONS": [
+      "At the start of every 5th turn, reduce stsjorbsmod:Manifest by 1."
+    ]
+  },
   "stsjorbsmod:MindGlassRelic": {
     "NAME": "Mind Glass",
     "FLAVOR": "Press e to e.",
