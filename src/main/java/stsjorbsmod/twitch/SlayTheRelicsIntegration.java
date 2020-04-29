@@ -13,7 +13,8 @@ public class SlayTheRelicsIntegration {
 
     // =============== API for SlayTheRelics for displaying tooltips on Twitch =================
     //
-    // -------> See <INSERT FUTURE LINK TO THE DOCS> for the documentation of this API <--------
+    // For API documentation, see:
+    // https://slaytherelics.xyz/docs/#custom-tooltips-api-for-mods
     //
     // These two properties are read by another mod that sends their contents over to a Twitch extension called
     // SlayTheRelics and they are displayed alongside other tooltips on stream

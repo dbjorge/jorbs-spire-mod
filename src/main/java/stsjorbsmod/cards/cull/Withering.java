@@ -2,6 +2,10 @@ package stsjorbsmod.cards.cull;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardRarity;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -17,10 +21,10 @@ import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 public class Withering extends CustomJorbsModCard implements OnDrawCardSubscriber {
     public static final String ID = JorbsMod.makeID(Withering.class);
 
-    private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.BASIC;
-    private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
-    private static final AbstractCard.CardType TYPE = CardType.CURSE;
-    public static final AbstractCard.CardColor COLOR = CardColor.CURSE;
+    private static final CardRarity RARITY = CardRarity.BASIC;
+    private static final CardTarget TARGET = CardTarget.SELF;
+    private static final CardType TYPE = CardType.CURSE;
+    public static final CardColor COLOR = CardColor.CURSE;
 
     private static final int COST = 1;
     private static final int INTANGIBLE = 1;

@@ -3,7 +3,7 @@
   "title": "Jorbs's Wanderer Trilogy",
   "description": "",
   "visibility": "public",
-  "changeNote": "v1.8.1\n\n[*] Fixed bug where non-CULL characters would receive 1 manifest for entering event rooms (thanks puffalo for reporting)",
+  "changeNote": "v1.8.2\n\n[*] Fixed rare crash when upgrading cards outside of combat soon after loading game (thanks modargo)",
   "tags": [
     "Character",
     "Expansion"

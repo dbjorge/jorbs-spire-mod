@@ -4,15 +4,23 @@
 
 ### CULL updates
 
+* Added the Book of Trials (thanks wang429)
+* Added Metronome relic (thanks PanicPoint)
 * Coffee Dripper now prevents Thirsting at campfires
 * Remove Calipers from CULL's relic pool
 * Added voiceovers for elites/bosses/death/start (thanks Ray Chase)
 * New art for Ritual (thanks Lila for art and Neablis for helping merge)
 * New art for Thirsting campfire option (thanks ChDaVinci)
+* New art for Withering (thanks ChDaVinci for art and Neablis for helping merge)
+* New art for Decoy (thanks EscMargot for art and Neablis for helping merge)
 
 ### New CULL cards
 
 * False Blessing (thanks PanicPoint)
+
+## [v1.8.2] - 2020-04-18
+
+* Fixed rare crash when upgrading cards outside of combat soon after loading game (thanks modargo)
 
 ## [v1.8.1] - 2020-04-07
 
