@@ -208,7 +208,7 @@
   },
   "stsjorbsmod:Ectoplasm_Cull": {
     "NAME": "灵体外质",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 你每有一层 stsjorbsmod:舱单 ， NL 获得 !stsjorbsmod:MetaMagic! 金币。 NL 消耗 。",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 你每有一层 stsjorbsmod:无形 ， NL 获得 !stsjorbsmod:MetaMagic! 金币。 NL 消耗 。",
     "EXTENDED_DESCRIPTION": [
       " NL （获得 !M! 金币。）"
     ]
@@ -313,8 +313,8 @@
   },
   "stsjorbsmod:FranticMind": {
     "NAME": "癫狂",
-    "DESCRIPTION": "你每有一层 stsjorbsmod:舱单 ，丢弃一张牌，然后抽等量的牌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "你每有一层 stsjorbsmod:舱单 ，丢弃一张牌，然后抽等量的牌。 NL 消耗 。",
+    "DESCRIPTION": "你每有一层 stsjorbsmod:无形 ，丢弃一张牌，然后抽等量的牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "你每有一层 stsjorbsmod:无形 ，丢弃一张牌，然后抽等量的牌。 NL 消耗 。",
     "EXTENDED_DESCRIPTION": [
       " NL （丢弃 !M! 张牌。）",
       " NL （丢弃 !M! 张牌。）"
@@ -486,7 +486,7 @@
   },
   "stsjorbsmod:Miracle_Cull": {
     "NAME": "奇迹",
-    "DESCRIPTION": "保留 。 NL 获得 !M! 点 [E] 。 NL 增加 !stsjorbsmod:MetaMagic! 层 stsjorbsmod:舱单 。 NL 消耗 。"
+    "DESCRIPTION": "保留 。 NL 获得 !M! 点 [E] 。 NL 增加 !stsjorbsmod:MetaMagic! 层 stsjorbsmod:无形 。 NL 消耗 。"
   },
   "stsjorbsmod:Mirror": {
     "NAME": "镜",
@@ -657,7 +657,7 @@
   },
   "stsjorbsmod:Sentinel_Cull": {
     "NAME": "哨卫",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 降低 !M! 层 stsjorbsmod:舱单 。 NL 消耗 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 降低 !M! 层 stsjorbsmod:无形 。 NL 消耗 。"
   },
   "stsjorbsmod:Shake": {
     "NAME": "动摇",
