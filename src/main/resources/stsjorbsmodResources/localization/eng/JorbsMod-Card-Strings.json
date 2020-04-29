@@ -168,6 +168,10 @@
     "DESCRIPTION": "stsjorbsmod:Entombed. stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume whenever an enemy dies. NL Deal !D! damage. NL Remember stsjorbsmod:Wrath.",
     "UPGRADE_DESCRIPTION": "stsjorbsmod:Entombed. stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume whenever an enemy dies. NL Deal !D! damage. NL Gain stsjorbsmod:Clarity of stsjorbsmod:Wrath."
   },
+  "stsjorbsmod:Demonic_Coup": {
+    "NAME": "Demonic Coup",
+    "DESCRIPTION": "Gain !M! Ritual. NL stsjorbsmod:Exert."
+  },
   "stsjorbsmod:Defend_Wanderer": {
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block."
