@@ -11,6 +11,7 @@ import stsjorbsmod.actions.DamageWithOnKillEffectAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.patches.EphemeralField;
+import stsjorbsmod.patches.SelfExertField;
 import stsjorbsmod.powers.FindWeaknessPower;
 
 import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
@@ -32,6 +33,7 @@ public class DemoicCoup extends CustomJorbsModCard {
 
         magicNumber = baseMetaMagicNumber = RITUAL_AMOUNT;
         EphemeralField.ephemeral.set(this, true);
+        SelfExertField.selfExert.set(this, true);
     }
 
     @Override
