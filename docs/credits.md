@@ -48,8 +48,10 @@
 ### Artists
 
 * Bakuhaku
+* ChDaVinci
 * Crocketeer
 * DietTonicWater
+* EscMargot
 * Forceful Storm
 * GinFizzes
 * Jac2012
