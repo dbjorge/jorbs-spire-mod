@@ -11,6 +11,7 @@ public class DeckOfTrials {
     public static void reset() {
         deck.group.clear();
         deck.addToTop(new Frostbite());
+        deck.addToTop(new DemonicCoup());
         deck.shuffle();
     }
 
