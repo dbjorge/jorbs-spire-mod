@@ -13,7 +13,6 @@
 * New art for Thirsting campfire option (thanks ChDaVinci)
 * New art for Withering (thanks ChDaVinci for art and Neablis for helping merge)
 * New art for Decoy (thanks EscMargot for art and Neablis for helping merge)
-* Added Demonic Coup card and placeholder art (thanks LankSSBM)
 
 ### New CULL cards
 
