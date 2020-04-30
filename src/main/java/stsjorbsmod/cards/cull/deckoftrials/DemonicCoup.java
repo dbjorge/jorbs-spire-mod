@@ -20,7 +20,7 @@ public class DemonicCoup extends CustomJorbsModCard {
 
     private static final int COST = 3;
     private static final int RITUAL_AMOUNT = 2;
-    private static final int UPGRADE_RITUAL_AMOUNT = 3;
+    private static final int UPGRADE_RITUAL_AMOUNT = 1;
 
     public DemonicCoup() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
