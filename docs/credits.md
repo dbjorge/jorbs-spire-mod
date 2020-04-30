@@ -28,6 +28,7 @@
 
 * avolny ([GitHub](https://github.com/avolny))
 * evan_tor ([GitHub](https://github.com/evantor))
+* LankSSBM ([GitHub](https://github.com/acourrau))
 * Lucerna ([GitHub](https://github.com/Jacob-Laverty))
 * mderb4 ([GitHub](https://github.com/mderb4))
 * mdiehr ([GitHub](https://github.com/mdiehr))

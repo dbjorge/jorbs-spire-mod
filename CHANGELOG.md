@@ -13,10 +13,12 @@
 * New art for Thirsting campfire option (thanks ChDaVinci)
 * New art for Withering (thanks ChDaVinci for art and Neablis for helping merge)
 * New art for Decoy (thanks EscMargot for art and Neablis for helping merge)
+* Added Demonic Coup card and placeholder art (thanks LankSSBM)
 
 ### New CULL cards
 
 * False Blessing (thanks PanicPoint)
+* Demonic Coup (thanks LankSSBM)
 
 ## [v1.8.2] - 2020-04-18
 
