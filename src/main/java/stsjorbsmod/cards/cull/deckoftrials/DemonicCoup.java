@@ -25,7 +25,7 @@ public class DemonicCoup extends CustomJorbsModCard {
     public DemonicCoup() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
 
-        magicNumber = baseMetaMagicNumber = RITUAL_AMOUNT;
+        magicNumber = baseMagicNumber = RITUAL_AMOUNT;
         EphemeralField.ephemeral.set(this, true);
         SelfExertField.selfExert.set(this, true);
     }
