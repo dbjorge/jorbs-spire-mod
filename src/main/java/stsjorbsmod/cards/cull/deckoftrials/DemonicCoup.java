@@ -1,23 +1,17 @@
 package stsjorbsmod.cards.cull.deckoftrials;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.RitualPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.ConsumeCardAction;
-import stsjorbsmod.actions.DamageWithOnKillEffectAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.patches.EphemeralField;
 import stsjorbsmod.patches.SelfExertField;
-import stsjorbsmod.powers.FindWeaknessPower;
 
-import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
-
-public class DemoicCoup extends CustomJorbsModCard {
-    public static final String ID = JorbsMod.makeID(DemoicCoup.class);
+public class DemonicCoup extends CustomJorbsModCard {
+    public static final String ID = JorbsMod.makeID(DemonicCoup.class);
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -28,7 +22,7 @@ public class DemoicCoup extends CustomJorbsModCard {
     private static final int RITUAL_AMOUNT = 2;
     private static final int UPGRADE_RITUAL_AMOUNT = 3;
 
-    public DemoicCoup() {
+    public DemonicCoup() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
 
         magicNumber = baseMetaMagicNumber = RITUAL_AMOUNT;
