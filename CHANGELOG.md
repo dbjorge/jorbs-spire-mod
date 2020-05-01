@@ -17,6 +17,7 @@
 ### New CULL cards
 
 * False Blessing (thanks PanicPoint)
+* Demonic Coup (thanks LankSSBM)
 
 ## [v1.8.2] - 2020-04-18
 
