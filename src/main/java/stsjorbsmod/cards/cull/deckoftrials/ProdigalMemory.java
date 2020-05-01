@@ -2,7 +2,9 @@ package stsjorbsmod.cards.cull.deckoftrials;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
+import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
@@ -29,12 +31,19 @@ public class ProdigalMemory extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
-        addToBot(new DrawCardAction(DRAW));
-        p.decreaseMaxHealth(magicNumber);
         if (this.dontTriggerOnUseCard) {
             SelfExertField.selfExert.set(this, true);
-            addToBot(new ExhaustSpecificCardAction(this, null));
+            addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
         }
+        else {
+            addToBot(new DrawCardAction(DRAW));
+            p.decreaseMaxHealth(magicNumber);
+        }
+    }
+
+    public void triggerOnEndOfTurnForPlayingCard() {
+        this.dontTriggerOnUseCard = true;
+        AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(this, true));
     }
 
     @Override
