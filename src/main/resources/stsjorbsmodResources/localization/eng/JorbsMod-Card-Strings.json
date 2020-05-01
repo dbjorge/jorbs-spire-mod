@@ -659,6 +659,10 @@
     "NAME": "Shake",
     "DESCRIPTION": "If enemy is Vulnerable, draw !M! cards. NL Apply !stsjorbsmod:UrMagic! Vulnerable. NL Exhaust."
   },
+  "stsjorbsmod:SilverStrike": {
+    "NAME": "Silver Strike",
+    "DESCRIPTION": "Deal !D! damage. NL stsjorbsmod:Exert."
+  },
   "stsjorbsmod:Siphon": {
     "NAME": "Siphon",
     "DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, heal !M! HP."
