@@ -2,18 +2,12 @@ package stsjorbsmod.cards.cull.deckoftrials;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.ConsumeCardAction;
-import stsjorbsmod.actions.DamageWithOnKillEffectAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.patches.SelfExertField;
-
-import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
 
 public class TickingCurse extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(TickingCurse.class);
