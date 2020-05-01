@@ -26,6 +26,7 @@ public class SilverStrike extends CustomJorbsModCard {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         SelfExertField.selfExert.set(this, true);
+        this.tags.add(CardTags.STRIKE);
     }
 
     @Override
