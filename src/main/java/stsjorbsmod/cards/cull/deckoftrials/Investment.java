@@ -1,13 +1,14 @@
 package stsjorbsmod.cards.cull.deckoftrials;
 
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.defect.IncreaseMiscAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
+import stsjorbsmod.patches.EphemeralField;
+import stsjorbsmod.patches.SelfExertField;
 
 public class Investment extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Investment.class);
@@ -25,29 +26,29 @@ public class Investment extends CustomJorbsModCard {
     public Investment() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = GOLD_PER_DRAW;
+
         this.misc = 0;
+
+        EphemeralField.ephemeral.set(this, true);
+        SelfExertField.selfExert.set(this, true);
+    }
+
+    public void triggerWhenDrawn() {
+        this.addToBot(new IncreaseMiscAction(this.uuid, this.misc, 1));
+        this.rawDescription = cardStrings.DESCRIPTION;
+        this.rawDescription = this.rawDescription + cardStrings.EXTENDED_DESCRIPTION[0] + (this.misc + 1);
+        if ((this.misc + 1) == 1) {
+            this.rawDescription = this.rawDescription + cardStrings.EXTENDED_DESCRIPTION[1];
+        } else {
+            this.rawDescription = this.rawDescription + cardStrings.EXTENDED_DESCRIPTION[2];
+        }
+
+        this.initializeDescription();
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
-        addToBot(new DrawCardAction(this.misc));
-        addToBot(new GainEnergyAction(this.urMagicNumber));
-        if (this.misc > 0) {
-            this.addToBot(new IncreaseMiscAction(this.uuid, this.misc, -this.magicNumber));
-        }
-    }
-
-    public void applyPowers() {
-        this.baseMetaMagicNumber = this.misc;
-        super.applyPowers();
-        this.initializeDescription();
-    }
-
-    @Override
-    public void applyLoadedMiscValue(int misc) {
-        this.baseMetaMagicNumber = this.misc;
-        super.applyLoadedMiscValue(misc);
-        this.initializeDescription();
+        AbstractDungeon.player.gainGold(this.misc * this.magicNumber);
     }
 
     @Override
