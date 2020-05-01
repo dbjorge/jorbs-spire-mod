@@ -18,6 +18,7 @@
 
 * False Blessing (thanks PanicPoint)
 * Demonic Coup (thanks LankSSBM)
+* Ticking Curse (thanks LankSSBM)
 
 ## [v1.8.2] - 2020-04-18
 

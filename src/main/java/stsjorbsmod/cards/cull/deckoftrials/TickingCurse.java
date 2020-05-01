@@ -59,4 +59,20 @@ public class TickingCurse extends CustomJorbsModCard {
             upgradeDescription();
         }
     }
+
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        // save original damage so we can calculate secondary damage number (magic number holds it)
+        int origBaseDamage = this.baseDamage;
+        this.baseDamage = this.magicNumber = this.baseMagicNumber;
+
+        // calculate attack damage for secondary attack damage (magicNumber)
+        super.calculateCardDamage(mo);
+        int secondaryDamage = this.damage;
+        this.magicNumber = secondaryDamage;
+
+        // reset and recalculate the primary attack damage
+        this.baseDamage = origBaseDamage;
+        super.calculateCardDamage(mo);
+    }
 }
