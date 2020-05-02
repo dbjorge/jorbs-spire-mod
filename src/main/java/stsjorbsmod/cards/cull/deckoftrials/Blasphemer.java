@@ -15,16 +15,17 @@ public class Blasphemer extends CustomJorbsModCard {
 
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
-    private static final CardType TYPE = CardType.POWER;
+    private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Cull.Enums.CULL_CARD_COLOR;
 
-    private static final int COST = 3;
+    private static final int COST = -2;
     private static final int SMITE_AMOUNT = 5;
     private static final int UPGRADE_SMITE_AMOUNT = 1;
 
     public Blasphemer() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         this.exhaust = true;
+        this.cardsToPreview = new Smite();
         magicNumber = baseMagicNumber = SMITE_AMOUNT;
     }
 
@@ -44,5 +45,9 @@ public class Blasphemer extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+    }
+
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        return false;
     }
 }
