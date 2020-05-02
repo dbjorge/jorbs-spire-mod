@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Bug fixes
+
+* Fixed issue where certain character-themed colors would occasionally be transparent (thanks kiooeht for reporting)
+
 ### CULL updates
 
 * Added the Book of Trials (thanks wang429)
