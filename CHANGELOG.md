@@ -15,7 +15,7 @@
 * New art for Decoy (thanks EscMargot for art and Neablis for helping merge)
 
 ### New CULL cards
-
+* Blasphemer (thanks nic3245)
 * False Blessing (thanks PanicPoint)
 * Demonic Coup (thanks LankSSBM)
 
