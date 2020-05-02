@@ -12,6 +12,7 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.patches.SelfExertField;
+import stsjorbsmod.powers.ShrapnelBloomPower;
 
 public class ShrapnelBloom extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(ShrapnelBloom.class);
@@ -37,7 +38,7 @@ public class ShrapnelBloom extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
         // needs own power.
-        this.addToBot(new ApplyPowerAction(p, p, new DuplicationPower(p, magicNumber), 1));
+        this.addToBot(new ApplyPowerAction(p, p, new ShrapnelBloomPower(p, magicNumber), 1));
     }
 
     @Override

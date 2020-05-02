@@ -241,6 +241,19 @@
       "Reduce healing by %1$s%%."
     ]
   },
+  "stsjorbsmod:ShrapnelBloomPower": {
+    "NAME": "Shrapnel Bloom",
+    "DESCRIPTIONS": [
+      "Your next non-legendary card is played twice this turn, then exerts.",
+      "Your next #b",
+      " non-legendary cards are played twice this turn, then exerted."
+    ],
+    "UPGRADED_DESCRIPTIONS": [
+      "Your next non-legendary card is played three times this turn, then exerts.",
+      "Your next #b",
+      " non-legendary cards are played three times this turn, then exerted."
+    ]
+  },
   "stsjorbsmod:SnappedPower": {
     "NAME": "Snapped",
     "DESCRIPTIONS": [
