@@ -1,13 +1,8 @@
 package stsjorbsmod.cards.cull.deckoftrials;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.defect.IncreaseMiscAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DuplicationPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
@@ -37,7 +32,6 @@ public class ShrapnelBloom extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
-        // needs own power.
         this.addToBot(new ApplyPowerAction(p, p, new ShrapnelBloomPower(p, 1, magicNumber), 1));
     }
 
