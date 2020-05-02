@@ -661,8 +661,7 @@
   },
   "stsjorbsmod:ShrapnelBloom": {
     "NAME": "Shrapnel Bloom",
-    "DESCRIPTION": "stsjorbsmod:Exert. NL The next non-Legendary card you play is played twice then exerts.",
-    "UPGRADE_DESCRIPTION": "stsjorbsmod:Exert. NL The next non-Legendary card you play is played three times then exerts."
+    "DESCRIPTION": "stsjorbsmod:Exert. NL This turn, the next non-Legendary card you play is played !M! times then exerts."
   },
   "stsjorbsmod:Siphon": {
     "NAME": "Siphon",

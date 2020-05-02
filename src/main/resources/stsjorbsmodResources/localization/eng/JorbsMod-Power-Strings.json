@@ -244,14 +244,9 @@
   "stsjorbsmod:ShrapnelBloomPower": {
     "NAME": "Shrapnel Bloom",
     "DESCRIPTIONS": [
-      "Your next non-legendary card is played twice this turn, then exerts.",
-      "Your next #b",
-      " non-legendary cards are played twice this turn, then exerted."
-    ],
-    "UPGRADED_DESCRIPTIONS": [
-      "Your next non-legendary card is played three times this turn, then exerts.",
-      "Your next #b",
-      " non-legendary cards are played three times this turn, then exerted."
+      "This turn, your next",
+      " non-legendary card is played %1d times, then #yexerts.",
+      " %2d non-legendary cards are played #g%1d times, then #yexerted."
     ]
   },
   "stsjorbsmod:SnappedPower": {
