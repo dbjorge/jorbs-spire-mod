@@ -659,6 +659,11 @@
     "NAME": "Shake",
     "DESCRIPTION": "If enemy is Vulnerable, draw !M! cards. NL Apply !stsjorbsmod:UrMagic! Vulnerable. NL Exhaust."
   },
+  "stsjorbsmod:ShrapnelBloom": {
+    "NAME": "Shrapnel Bloom",
+    "DESCRIPTION": "stsjorbsmod:Exert. NL The next non-Legendary card you play is played twice then exerts.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Exert. NL The next non-Legendary card you play is played three times then exerts."
+  },
   "stsjorbsmod:Siphon": {
     "NAME": "Siphon",
     "DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, heal !M! HP."
