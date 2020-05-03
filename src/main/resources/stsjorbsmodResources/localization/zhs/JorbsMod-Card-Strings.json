@@ -59,6 +59,14 @@
     "NAME": "漆黑触手",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 本回合内，你对其它敌人造成的所有伤害都改为对这位敌人造成。"
   },
+  "stsjorbsmod:BlackTentacles_Cull": {
+    "NAME": "漆黑触手",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 本回合内，你对其它敌人造成的所有伤害都改为对这位敌人造成。"
+  },
+  "stsjorbsmod:Blasphemer": {
+    "NAME": "渎神之人",
+    "DESCRIPTION": "当你抽到这张牌时，在你的手牌中加入 !M! 张 *惩恶 。"
+  },
   "stsjorbsmod:BookOfTongues": {
     "NAME": "多舌之书",
     "DESCRIPTION": "在你的回合开始时，将 !M! 张 stsjorbsmod:魔法原料 放入你的手牌。",
@@ -167,6 +175,10 @@
     "NAME": "垂死挣扎",
     "DESCRIPTION": "stsjorbsmod:深藏 。 stsjorbsmod:飞逝 。 NL 当有一名敌人死亡， stsjorbsmod:发掘 之。 NL 造成 !D! 点伤害。 NL 回忆起 stsjorbsmod:暴怒 。",
     "UPGRADE_DESCRIPTION": "stsjorbsmod:深藏 。 stsjorbsmod:飞逝 。 NL 当有一名敌人死亡， stsjorbsmod:发掘 之。 NL 造成 !D! 点伤害。 NL 使 stsjorbsmod:暴怒 的记忆变得 stsjorbsmod:清晰 。"
+  },
+  "stsjorbsmod:DemonicCoup": {
+    "NAME": "恶魔伎俩",
+    "DESCRIPTION": "stsjorbsmod:飞逝 。 NL 获得 !M! 层 仪式 。 NL stsjorbsmod:竭力 。"
   },
   "stsjorbsmod:Defend_Wanderer": {
     "NAME": "防御",
@@ -412,6 +424,15 @@
     "NAME": "内省",
     "DESCRIPTION": "在回合结束时，你失去 !stsjorbsmod:UrMagic! 点生命，对所有敌人造成 !M! 点伤害。 NL 你每有一份 stsjorbsmod:清晰 记忆，额外造成 !stsjorbsmod:MetaMagic! 点伤害。"
   },
+  "stsjorbsmod:Investment": {
+    "NAME": "精打细算",
+    "DESCRIPTION": "stsjorbsmod:飞逝 。打出时，这张牌每被抽到过一次，获得 !M! 金币。 NL stsjorbsmod:竭力 。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （已抽到过 ",
+      " 次。）",
+      " 次。）"
+    ]
+  },
   "stsjorbsmod:IvoryTower": {
     "NAME": "象牙塔",
     "DESCRIPTION": "抽 !M! 张牌。 NL 消耗你手牌中所有的 诅咒 牌与 状态牌 。 NL 消耗 。",
@@ -586,6 +607,10 @@
     "NAME": "拖延",
     "DESCRIPTION": " 不能被打出 。 NL 在每场战斗开始时，这张牌会出现在你的弃牌堆中。"
   },
+  "stsjorbsmod:ProdigalMemory": {
+    "NAME": "挥霍无度",
+    "DESCRIPTION": "抽3张牌并失去 !M! 点最大生命。 NL 若你未打出该牌， stsjorbsmod:竭力 。"
+  },
   "stsjorbsmod:PurgeMind": {
     "NAME": "净化思维",
     "DESCRIPTION": "消耗 所有使你“回忆”的牌。你每 消耗 过一张这样的牌，造成 !D! 点伤害。 NL stsjorbsmod:爆发 。 消耗 。",
@@ -662,6 +687,14 @@
   "stsjorbsmod:Shake": {
     "NAME": "动摇",
     "DESCRIPTION": "若某个敌人具有 易伤 ，抽 !M! 张牌。 NL 给予 !stsjorbsmod:UrMagic! 层 易伤 。 NL 消耗 。"
+  },
+  "stsjorbsmod:SilverStrike": {
+    "NAME": "真银打击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL stsjorbsmod:竭力 。"
+  },
+  "stsjorbsmod:ShrapnelBloom": {
+    "NAME": "暴雨梨花",
+    "DESCRIPTION": "stsjorbsmod:竭力 。 NL 在这个回合，你打出的下一张非传奇牌会打出 !M! 次，然后力竭。"
   },
   "stsjorbsmod:Siphon": {
     "NAME": "虹吸",
@@ -752,6 +785,10 @@
     "NAME": "时间涡流",
     "DESCRIPTION": "stsjorbsmod:飞逝 。 NL 将所有的正负面效果向前推进 !M! 回合。",
     "UPGRADE_DESCRIPTION": "stsjorbsmod:飞逝 。NL 将所有的正负面效果向前推进 !M! 回合。"
+  },
+  "stsjorbsmod:TickingCurse": {
+    "NAME": "滴答魔咒",
+    "DESCRIPTION": "虚无 。 NL 对所有敌人造成 !D! 点伤害。 stsjorbsmod:竭力 。 NL 当这张牌被 消耗 时，对所有敌人造成 !M! 点伤害。"
   },
   "stsjorbsmod:TinyHut": {
     "NAME": "小屋",
