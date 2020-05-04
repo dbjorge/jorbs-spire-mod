@@ -15,7 +15,7 @@
   "stsjorbsmod:GhostPoisonPotion": {
     "NAME": "幽鬼药水",
     "DESCRIPTIONS": [
-      "每有一个敌人，获得 #b%1$s 层 #y舱单，然后获得本场战斗的胜利。 NL 对精英与首领敌人无效。"
+      "每有一个敌人，获得 #b%1$s 层 #y无形 ，然后获得本场战斗的胜利。 NL 对精英与首领敌人无效。"
     ]
   },
   "stsjorbsmod:LiquidClarity": {
