@@ -2,6 +2,7 @@ package stsjorbsmod.cards.cull.deckoftrials;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
@@ -33,15 +34,11 @@ public class TickingCurse extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAllEnemiesAction(p, DAMAGE, this.damageType, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageType, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }
 
     public void triggerOnExhaust() {
-        if (this.upgraded) {
-            this.addToBot(new DamageAllEnemiesAction(null, EXHAUST_DAMAGE + UPGRADE_EXHAUST_DAMAGE, this.damageType, AbstractGameAction.AttackEffect.FIRE));
-        } else {
-            this.addToBot(new DamageAllEnemiesAction(null, EXHAUST_DAMAGE, this.damageType, AbstractGameAction.AttackEffect.FIRE));
-        }
+        this.addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(magicNumber, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
     }
 
     @Override
@@ -52,44 +49,5 @@ public class TickingCurse extends CustomJorbsModCard {
             upgradeMagicNumber(UPGRADE_EXHAUST_DAMAGE);
             upgradeDescription();
         }
-    }
-
-    @Override
-    public void calculateCardDamage(AbstractMonster mo) {
-        // save original damage so we can calculate secondary damage number (magic number holds it)
-        int origBaseDamage = this.baseDamage;
-        this.baseDamage = this.baseMagicNumber;
-
-        // calculate attack damage for secondary attack damage (magicNumber)
-        super.calculateCardDamage(mo);
-        int secondaryDamage = this.damage;
-        boolean isSecondaryDamageModified = isDamageModified;
-
-        // reset and recalculate the primary attack damage
-        this.baseDamage = origBaseDamage;
-        super.calculateCardDamage(mo);
-
-        // set magic numbers again as they get reset from second calculateCardDamage() call
-        this.magicNumber = secondaryDamage;
-        this.isMagicNumberModified = isSecondaryDamageModified;
-    }
-
-    @Override
-    public void applyPowers() {
-        int origBaseDamage = this.baseDamage;
-        this.baseDamage = this.baseMagicNumber;
-
-        // calculate powers for secondary attack damage (magicNumber)
-        super.applyPowers();
-        int secondaryDamage = this.damage;
-        boolean isSecondaryDamageModified = isDamageModified;
-
-        // reset and recalculate the primary powers
-        this.baseDamage = origBaseDamage;
-        super.applyPowers();
-
-        // set magic numbers again as they get reset from second calculateCardDamage() call
-        this.magicNumber = secondaryDamage;
-        this.isMagicNumberModified = isSecondaryDamageModified;
     }
 }
