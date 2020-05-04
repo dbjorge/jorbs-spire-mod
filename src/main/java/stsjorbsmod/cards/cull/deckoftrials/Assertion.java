@@ -1,19 +1,21 @@
 package stsjorbsmod.cards.cull.deckoftrials;
 
 import basemod.BaseMod;
-import basemod.abstracts.CustomSavable;
-import basemod.abstracts.CustomSavableRaw;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.characters.SkillsPlayedThisActSaveData;
 import stsjorbsmod.patches.SelfExertField;
+
+import java.util.ArrayList;
 
 import static stsjorbsmod.JorbsMod.MOD_ID;
 

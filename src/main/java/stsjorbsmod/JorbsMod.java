@@ -54,7 +54,8 @@ public class JorbsMod implements
         PostInitializeSubscriber,
         OnPowersModifiedSubscriber,
         StartActSubscriber,
-        StartGameSubscriber {
+        StartGameSubscriber,
+        OnCardUseSubscriber{
     public static final String MOD_ID = "stsjorbsmod";
 
     public static final Logger logger = LogManager.getLogger(JorbsMod.class.getName());
@@ -452,6 +453,16 @@ public class JorbsMod implements
             if (c instanceof CustomJorbsModCard) {
                 ((CustomJorbsModCard)c).atStartOfGame();
             }
+        }
+    }
+
+    @Override
+    public void receiveCardUsed(AbstractCard c) {
+        SkillsPlayedThisActSaveData sp =
+                (SkillsPlayedThisActSaveData)BaseMod.getSaveFields().get(MOD_ID + ":SkillsPlayedThisAct");
+
+        if (c.type == AbstractCard.CardType.SKILL) {
+            sp.skillsPlayed++;
         }
     }
 }
