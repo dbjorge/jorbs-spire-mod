@@ -60,9 +60,11 @@ public class Assertion extends CustomJorbsModCard {
         if (sp.skillsPlayed == 1) {
             this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[0];
         } else {
-            this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
+            this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[1];
         }
         this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[2];
+
+        this.initializeDescription();
     }
 
     @Override
