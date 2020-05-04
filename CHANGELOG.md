@@ -22,6 +22,7 @@
 
 * False Blessing (thanks PanicPoint)
 * Demonic Coup (thanks LankSSBM)
+
 * Silver Strike (thanks LankSSBM)
 * Ticking Curse (thanks LankSSBM)
 
