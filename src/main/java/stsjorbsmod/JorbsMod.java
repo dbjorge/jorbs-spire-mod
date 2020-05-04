@@ -439,6 +439,9 @@ public class JorbsMod implements
             }
             ExertedField.exerted.set(c, false);
         }
+        SkillsPlayedThisActSaveData sp =
+                (SkillsPlayedThisActSaveData)BaseMod.getSaveFields().get(MOD_ID + ":SkillsPlayedThisAct");
+        sp.skillsPlayed = 0;
     }
 
     @Override
