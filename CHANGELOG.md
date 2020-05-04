@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Bug fixes
+
+* Fixed issue where certain character-themed colors would occasionally be transparent (thanks kiooeht for reporting)
+
 ### CULL updates
 
 * Added the Book of Trials (thanks wang429)
@@ -19,6 +23,7 @@
 * False Blessing (thanks PanicPoint)
 * Demonic Coup (thanks LankSSBM)
 * Ticking Curse (thanks LankSSBM)
+* Silver Strike (thanks LankSSBM)
 
 ## [v1.8.2] - 2020-04-18
 
