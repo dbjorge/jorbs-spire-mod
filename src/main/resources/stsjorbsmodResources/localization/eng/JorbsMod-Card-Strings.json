@@ -53,7 +53,12 @@
   },
   "stsjorbsmod:Assertion": {
     "NAME": "Assertion",
-    "DESCRIPTION": "Deal !D! damage for each skill played this act (max !M! damage). NL stsjorbsmod:Exert."
+    "DESCRIPTION": "Deal !D! damage for each skill played this act (max !M! damage). NL (",
+    "EXTENDED_DESCRIPTION": [
+      " skill played this act.)",
+      " skills played this act.)",
+      " NL stsjorbsmod:Exert."
+    ]
   },
   "stsjorbsmod:Banish": {
     "NAME": "Banish",

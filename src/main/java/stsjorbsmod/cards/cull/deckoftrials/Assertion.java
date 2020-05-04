@@ -50,6 +50,22 @@ public class Assertion extends CustomJorbsModCard {
     }
 
     @Override
+    public void applyPowers() {
+        super.applyPowers();
+        SkillsPlayedThisActSaveData sp =
+                (SkillsPlayedThisActSaveData)BaseMod.getSaveFields().get(MOD_ID + ":SkillsPlayedThisAct");
+
+        this.rawDescription = cardStrings.DESCRIPTION;
+        this.rawDescription += sp.skillsPlayed;
+        if (sp.skillsPlayed == 1) {
+            this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[0];
+        } else {
+            this.rawDescription = cardStrings.EXTENDED_DESCRIPTION[1];
+        }
+        this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[2];
+    }
+
+    @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
