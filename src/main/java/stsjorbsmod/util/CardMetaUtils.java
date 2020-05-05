@@ -11,7 +11,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.ConsumerGameAction;
 import stsjorbsmod.cards.DowngradeableCard;
+import stsjorbsmod.patches.ExertedField;
 import stsjorbsmod.patches.LegendaryPatch;
+import stsjorbsmod.patches.SelfExertField;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -38,6 +40,19 @@ public class CardMetaUtils {
                 // we somehow tried to downgrade a card we added into the deck afterward.
                 JorbsMod.logger.info("Card to downgrade is not in the deck: " + card.cardID);
             }
+        }
+    }
+
+    public static void enactExert(AbstractCard card) {
+        if (SelfExertField.selfExert.get(card)) {
+            AbstractCard masterCard = StSLib.getMasterDeckEquivalent(card);
+
+            // I'm setting both masterdeck and combatdeck instances of the card to exerted,
+            // in case we want to show text on exerted cards, or want to prevent exerted cards from being returned from Exhaust.
+            if (masterCard != null) {
+                ExertedField.exerted.set(masterCard, true);
+            }
+            ExertedField.exerted.set(card, true);
         }
     }
 
