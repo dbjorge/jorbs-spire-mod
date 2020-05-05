@@ -4,17 +4,20 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.DecreaseMaxHpAction;
-import stsjorbsmod.actions.PileToHandAction;
+import stsjorbsmod.actions.RepressedMemoryAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
-import stsjorbsmod.cards.cull.SpiritShield_Cull;
 import stsjorbsmod.characters.Cull;
+import stsjorbsmod.patches.ExertedField;
+import stsjorbsmod.patches.SelfExertField;
 import stsjorbsmod.powers.RepressedMemoryPower;
+
+import java.util.Iterator;
 
 public class RepressedMemory extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(RepressedMemory.class);
@@ -51,11 +54,15 @@ public class RepressedMemory extends CustomJorbsModCard {
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addToBot(new DrawCardAction(this.magicNumber));
         addToBot(new GainEnergyAction(this.urMagicNumber));
-        addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new RepressedMemoryPower(abstractPlayer, abstractPlayer.hand, this)));
+        addToBot(new RepressedMemoryAction(this));
+        //line below would use power instead
+        addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new RepressedMemoryPower(abstractPlayer, this)));
+        JorbsMod.logger.info("Exerted? " + ExertedField.exerted.get(this));
+        //JorbsMod.logger.info("SelfExerted? " + SelfExertField.selfExert.get(this));
     }
 
     @Override
     public void onMoveToDiscardImpl() {
-        this.addToTop(new DecreaseMaxHpAction(AbstractDungeon.player, AbstractDungeon.player, this.metaMagicNumber, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+        this.addToBot(new DecreaseMaxHpAction(AbstractDungeon.player, AbstractDungeon.player, this.metaMagicNumber, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
     }
 }

@@ -241,6 +241,12 @@
       "Reduce healing by %1$s%%."
     ]
   },
+  "stsjorbsmod:RepressedMemoryPower": {
+    "NAME": "Repressed Memory",
+    "DESCRIPTIONS": [
+      "Exert Repressed Memory at the end of the fight"
+    ]
+  },
   "stsjorbsmod:SnappedPower": {
     "NAME": "Snapped",
     "DESCRIPTIONS": [
