@@ -12,6 +12,7 @@ public class DeckOfTrials {
         deck.group.clear();
         deck.addToTop(new Frostbite());
         deck.addToTop(new DemonicCoup());
+        deck.addToTop(new MirroredTechnique());
         deck.shuffle();
     }
 
