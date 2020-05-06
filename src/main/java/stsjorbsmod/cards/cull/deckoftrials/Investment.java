@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.defect.IncreaseMiscAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.RainingGoldEffect;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
@@ -48,6 +49,7 @@ public class Investment extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
+        AbstractDungeon.effectList.add(new RainingGoldEffect(this.misc * this.magicNumber * 2, true));
         AbstractDungeon.player.gainGold(this.misc * this.magicNumber);
     }
 
