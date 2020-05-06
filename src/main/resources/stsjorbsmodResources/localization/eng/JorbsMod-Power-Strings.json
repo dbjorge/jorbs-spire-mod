@@ -169,6 +169,12 @@
       "When you next gain #yClarity, deal #b%1$s damage to ALL enemies."
     ]
   },
+  "stsjorbsmod:MirroredTechniquePower": {
+    "NAME": "Mirrored Technique",
+    "DESCRIPTIONS": [
+      "Play all attacks an additional time for each time you are being attacked."
+    ]
+  },
   "stsjorbsmod:MirrorImagePower": {
     "NAME": "Mirror Image",
     "DESCRIPTIONS": [

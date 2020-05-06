@@ -5,10 +5,13 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -20,7 +23,7 @@ import stsjorbsmod.util.ReflectionUtils;
 
 import java.lang.reflect.Field;
 
-public class MirroredTechniquePower extends CustomJorbsModPower implements OnCardUseSubscriber {
+public class MirroredTechniquePower extends CustomJorbsModPower {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(MirroredTechniquePower.class);
     public static final String POWER_ID = STATIC.ID;
 
@@ -38,6 +41,33 @@ public class MirroredTechniquePower extends CustomJorbsModPower implements OnCar
     @Override
     public AbstractPower makeCopy() {
         return new MirroredTechniquePower(owner, amount);
+    }
+
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        int multiUse = getIncomingAttackCount();
+        if (card.type == AbstractCard.CardType.ATTACK && multiUse > 0 && card.purgeOnUse == false) {
+            this.flash();
+            AbstractMonster m = null;
+            if (action.target != null) {
+                m = (AbstractMonster) action.target;
+            }
+
+            for (int i = 0; i < multiUse; i++) {
+                AbstractCard tmp = card.makeSameInstanceOf();
+                AbstractDungeon.player.limbo.addToBottom(tmp);
+                tmp.current_x = card.current_x;
+                tmp.current_y = card.current_y;
+                tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
+                tmp.target_y = (float) Settings.HEIGHT / 2.0F;
+                if (m != null) {
+                    tmp.calculateCardDamage(m);
+                }
+
+                tmp.purgeOnUse = true;
+                AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, card.energyOnUse, true, true), true);
+            }
+
+        }
     }
 
     public static int getIncomingAttackCount() {
@@ -70,10 +100,5 @@ public class MirroredTechniquePower extends CustomJorbsModPower implements OnCar
 
     public static boolean isAttacking(AbstractMonster m) {
         return m.intent == AbstractMonster.Intent.ATTACK || m.intent == AbstractMonster.Intent.ATTACK_BUFF || m.intent == AbstractMonster.Intent.ATTACK_DEBUFF || m.intent == AbstractMonster.Intent.ATTACK_DEFEND;
-    }
-
-    @Override
-    public void receiveCardUsed(AbstractCard abstractCard) {
-
     }
 }
