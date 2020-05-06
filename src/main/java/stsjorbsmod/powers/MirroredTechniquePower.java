@@ -44,6 +44,8 @@ public class MirroredTechniquePower extends CustomJorbsModPower {
     }
 
     public void onUseCard(AbstractCard card, UseCardAction action) {
+        // Perhaps instead of onUseCard(...) I could use atDamageGive or onAttack
+
         int multiUse = getIncomingAttackCount();
         if (card.type == AbstractCard.CardType.ATTACK && multiUse > 0 && card.purgeOnUse == false) {
             this.flash();
