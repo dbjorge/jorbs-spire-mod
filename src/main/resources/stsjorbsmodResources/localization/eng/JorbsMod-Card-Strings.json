@@ -567,6 +567,10 @@
       " NL (You have !M! Curses.)"
     ]
   },
+  "stsjorbsmod:Possession": {
+    "NAME": "Possession",
+    "DESCRIPTION": "Possess target, dealing it's max hp in damage !M! times to another random target at the end of your turn. NL stsjorbsmod:Exert"
+  },
   "stsjorbsmod:Poultergeist": {
     "NAME": "Poultergeist",
     "DESCRIPTION": "Deal !D! damage."

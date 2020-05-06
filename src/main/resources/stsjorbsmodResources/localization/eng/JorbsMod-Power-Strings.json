@@ -216,6 +216,13 @@
       "The next card you play this turn is played an additional #b%1$s times."
     ]
   },
+  "stsjorbsmod:PossessionPower": {
+    "NAME": "Possessed",
+    "DESCRIPTIONS": [
+      "Deals it max hp in damage #b%1$s time to another random target at the end of your turn.",
+      "Deals it max hp in damage #b%1$s times to another random target at the end of your turn."
+    ]
+  },
   "stsjorbsmod:PrestidigitationPower": {
     "NAME": "Prestidigitation",
     "DESCRIPTIONS": [
