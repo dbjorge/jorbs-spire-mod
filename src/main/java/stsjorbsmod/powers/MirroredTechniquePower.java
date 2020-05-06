@@ -1,25 +1,13 @@
 package stsjorbsmod.powers;
 
-import basemod.interfaces.OnCardUseSubscriber;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.sun.corba.se.spi.copyobject.ReflectiveCopyException;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import stsjorbsmod.JorbsMod;
-import stsjorbsmod.util.ReflectionUtils;
 
 import java.lang.reflect.Field;
 
@@ -28,12 +16,14 @@ public class MirroredTechniquePower extends CustomJorbsModPower {
     public static final String POWER_ID = STATIC.ID;
 
     private static Field multiIntentField;
+    private static int extraPlays;
 
     public MirroredTechniquePower(final AbstractCreature owner, final int extraPlays) {
         super(STATIC);
 
         this.owner = owner;
         this.isTurnBased = false;
+        this.extraPlays = extraPlays;
 
         updateDescription();
     }
@@ -54,7 +44,7 @@ public class MirroredTechniquePower extends CustomJorbsModPower {
                 m = (AbstractMonster) action.target;
             }
 
-            for (int i = 0; i < multiUse; i++) {
+            for (int i = 0; i < multiUse + extraPlays; i++) {
                 AbstractCard tmp = card.makeSameInstanceOf();
                 AbstractDungeon.player.limbo.addToBottom(tmp);
                 tmp.current_x = card.current_x;
@@ -102,5 +92,14 @@ public class MirroredTechniquePower extends CustomJorbsModPower {
 
     public static boolean isAttacking(AbstractMonster m) {
         return m.intent == AbstractMonster.Intent.ATTACK || m.intent == AbstractMonster.Intent.ATTACK_BUFF || m.intent == AbstractMonster.Intent.ATTACK_DEBUFF || m.intent == AbstractMonster.Intent.ATTACK_DEFEND;
+    }
+
+    public void updateDescription() {
+        if (this.extraPlays == 0) {
+            this.description = DESCRIPTIONS[0];
+        }
+        else {
+            this.description = String.format(DESCRIPTIONS[1], extraPlays);
+        }
     }
 }

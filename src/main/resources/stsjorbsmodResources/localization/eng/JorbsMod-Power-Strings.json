@@ -172,7 +172,8 @@
   "stsjorbsmod:MirroredTechniquePower": {
     "NAME": "Mirrored Technique",
     "DESCRIPTIONS": [
-      "Play all attacks an additional time for each time you are being attacked."
+      "Play all attacks an additional time for each time you are being attacked.",
+      "Play all attacks an additional time for each time you are being attacked + %1$d."
     ]
   },
   "stsjorbsmod:MirrorImagePower": {

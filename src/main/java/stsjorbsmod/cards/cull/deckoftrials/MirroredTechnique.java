@@ -40,7 +40,7 @@ public class MirroredTechnique extends CustomJorbsModCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_EXTRA_PLAYS);
+            upgradeMagicNumber(UPGRADE_EXTRA_PLAYS);
             upgradeDescription();
         }
     }

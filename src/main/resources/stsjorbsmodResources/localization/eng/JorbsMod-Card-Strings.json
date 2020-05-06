@@ -495,7 +495,7 @@
   "stsjorbsmod:MirroredTechnique": {
     "NAME": "Mirrored Technique",
     "DESCRIPTION": "This combat, play all attacks an additional time for each time you are being attacked. NL stsjorbsmod:Exert.",
-    "UPGRADE_DESCRIPTION": "This combat, play all attacks an additional time for each time you are being attacked + 1. NL stsjorbsmod:Exert."
+    "UPGRADE_DESCRIPTION": "This combat, play all attacks an additional time for each time you are being attacked + !M!. NL stsjorbsmod:Exert."
   },
   "stsjorbsmod:MirrorImage": {
     "NAME": "Mirror Image",
