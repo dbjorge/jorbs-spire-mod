@@ -25,10 +25,10 @@
             If you're using a non-steam-based install, override these during mvn build using -D parameters.
         -->
         <SlayTheSpire.mod_folder>${steamappsPath}/common/SlayTheSpire/mods</SlayTheSpire.mod_folder>
-        <SlayTheSpire.jar>${basedir}/../../lib/desktop-1.0.jar</SlayTheSpire.jar>
-        <ModTheSpire.jar>${basedir}/../../lib/ModTheSpire.jar</ModTheSpire.jar>
-        <BaseMod.jar>${basedir}/../../lib/BaseMod.jar</BaseMod.jar>
-        <StSLib.jar>${basedir}/../../lib/StSLib.jar</StSLib.jar>
+        <SlayTheSpire.jar>${steamappsPath}/common/SlayTheSpire/desktop-1.0.jar</SlayTheSpire.jar>
+        <ModTheSpire.jar>${steamappsPath}/workshop/content/646570/1605060445/ModTheSpire.jar</ModTheSpire.jar>
+        <BaseMod.jar>${steamappsPath}/workshop/content/646570/1605833019/BaseMod.jar</BaseMod.jar>
+        <StSLib.jar>${steamappsPath}/workshop/content/646570/1609158507/StSLib.jar</StSLib.jar>
     </properties>
 
     <profiles>
