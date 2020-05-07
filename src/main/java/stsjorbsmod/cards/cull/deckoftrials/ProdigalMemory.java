@@ -44,6 +44,7 @@ public class ProdigalMemory extends CustomJorbsModCard {
         }
     }
 
+    @Override
     public void triggerOnEndOfTurnForPlayingCard() {
         this.dontTriggerOnUseCard = true;
         AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(this, true));
