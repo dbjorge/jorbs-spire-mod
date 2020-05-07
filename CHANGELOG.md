@@ -23,6 +23,7 @@
 * False Blessing (thanks PanicPoint)
 * Black Tentacles (thanks LankSSBM for porting from Wanderer)
 * Demonic Coup (thanks LankSSBM)
+* Prodigal Memory (thanks LankSSBM)
 * Silver Strike (thanks LankSSBM)
 * Ticking Curse (thanks LankSSBM)
 

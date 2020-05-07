@@ -590,6 +590,10 @@
     "NAME": "Procrastination",
     "DESCRIPTION": "Unplayable. NL Starts each combat in your discard pile."
   },
+  "stsjorbsmod:ProdigalMemory": {
+    "NAME": "Prodigal Memory",
+    "DESCRIPTION": "Draw !stsjorbsmod:UrMagic! cards and lose !M! max HP. NL If this card is in your hand at the end of your turn, stsjorbsmod:Exert."
+  },
   "stsjorbsmod:PurgeMind": {
     "NAME": "Purge Mind",
     "DESCRIPTION": "Exhaust ALL cards which \"remember\". Then, deal !D! damage once per such card in your Exhaust pile. NL stsjorbsmod:Snap. Exhaust.",
