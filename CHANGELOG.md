@@ -24,6 +24,7 @@
 * Black Tentacles (thanks LankSSBM for porting from Wanderer)
 * Demonic Coup (thanks LankSSBM)
 * Silver Strike (thanks LankSSBM)
+* Ticking Curse (thanks LankSSBM)
 
 ## [v1.8.2] - 2020-04-18
 

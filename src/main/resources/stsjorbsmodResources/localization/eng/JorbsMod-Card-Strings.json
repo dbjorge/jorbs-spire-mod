@@ -753,6 +753,10 @@
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance ALL buffs and debuffs !M! turn through time.",
     "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance ALL buffs and debuffs !M! turns through time."
   },
+  "stsjorbsmod:TickingCurse": {
+    "NAME": "Ticking Curse",
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage to all enemies. stsjorbsmod:Exert. NL When Exhausted, deal !M! damage to ALL enemies."
+  },
   "stsjorbsmod:TinyHut": {
     "NAME": "Tiny Hut",
     "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Gain stsjorbsmod:Clarity of current memory.",
