@@ -17,7 +17,7 @@ import stsjorbsmod.patches.SelfExertField;
 
 import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 
-public class ShrapnelBloomPower extends CustomJorbsModPower implements OnDamageToRedirectSubscriber {
+public class ShrapnelBloomPower extends CustomJorbsModPower {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(ShrapnelBloomPower.class);
     public static final String POWER_ID = STATIC.ID;
     private int numPlays;
@@ -32,6 +32,7 @@ public class ShrapnelBloomPower extends CustomJorbsModPower implements OnDamageT
         updateDescription();
     }
 
+    @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (!card.purgeOnUse && this.amount > 0 && !card.hasTag(LEGENDARY)) {
             this.flash();
@@ -70,10 +71,12 @@ public class ShrapnelBloomPower extends CustomJorbsModPower implements OnDamageT
 
     }
 
+    @Override
     public void atEndOfRound() {
         this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
     }
 
+    @Override
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];
         if (this.amount == 1) {
@@ -85,9 +88,4 @@ public class ShrapnelBloomPower extends CustomJorbsModPower implements OnDamageT
 
     @Override
     public AbstractPower makeCopy() { return new ShrapnelBloomPower(owner, amount, numPlays); }
-
-    @Override
-    public boolean onDamageToRedirect(AbstractPlayer player, DamageInfo info, AbstractGameAction.AttackEffect effect) {
-        return false;
-    }
 }
