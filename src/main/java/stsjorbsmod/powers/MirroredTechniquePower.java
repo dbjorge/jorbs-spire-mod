@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import stsjorbsmod.util.CardMetaUtils;
 
 import java.lang.reflect.Field;
 
@@ -33,32 +34,16 @@ public class MirroredTechniquePower extends CustomJorbsModPower {
         return new MirroredTechniquePower(owner, amount);
     }
 
+    @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        // Perhaps instead of onUseCard(...) I could use atDamageGive or onAttack
-
         int multiUse = getIncomingAttackCount();
         if (card.type == AbstractCard.CardType.ATTACK && multiUse > 0 && card.purgeOnUse == false) {
             this.flash();
-            AbstractMonster m = null;
-            if (action.target != null) {
-                m = (AbstractMonster) action.target;
+            AbstractMonster m = (AbstractMonster)action.target;
+
+            for (int i = 0; i < multiUse + extraPlays; ++i) {
+                CardMetaUtils.playCardAdditionalTime(card, m);
             }
-
-            for (int i = 0; i < multiUse + extraPlays; i++) {
-                AbstractCard tmp = card.makeSameInstanceOf();
-                AbstractDungeon.player.limbo.addToBottom(tmp);
-                tmp.current_x = card.current_x;
-                tmp.current_y = card.current_y;
-                tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
-                tmp.target_y = (float) Settings.HEIGHT / 2.0F;
-                if (m != null) {
-                    tmp.calculateCardDamage(m);
-                }
-
-                tmp.purgeOnUse = true;
-                AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, card.energyOnUse, true, true), true);
-            }
-
         }
     }
 
@@ -94,6 +79,7 @@ public class MirroredTechniquePower extends CustomJorbsModPower {
         return m.intent == AbstractMonster.Intent.ATTACK || m.intent == AbstractMonster.Intent.ATTACK_BUFF || m.intent == AbstractMonster.Intent.ATTACK_DEBUFF || m.intent == AbstractMonster.Intent.ATTACK_DEFEND;
     }
 
+    @Override
     public void updateDescription() {
         if (this.extraPlays == 0) {
             this.description = DESCRIPTIONS[0];
