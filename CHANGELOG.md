@@ -21,6 +21,7 @@
 ### New CULL cards
 
 * False Blessing (thanks PanicPoint)
+* Black Tentacles (thanks LankSSBM for porting from Wanderer)
 * Demonic Coup (thanks LankSSBM)
 * Silver Strike (thanks LankSSBM)
 
