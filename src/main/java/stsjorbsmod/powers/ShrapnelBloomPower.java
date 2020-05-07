@@ -14,20 +14,19 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.patches.SelfExertField;
+import stsjorbsmod.util.CardMetaUtils;
 
 import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 
 public class ShrapnelBloomPower extends CustomJorbsModPower {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(ShrapnelBloomPower.class);
     public static final String POWER_ID = STATIC.ID;
-    private int numPlays;
 
-    public ShrapnelBloomPower(final AbstractCreature owner, final int amount, int numPlays) {
+    public ShrapnelBloomPower(final AbstractCreature owner, final int additionalPlays) {
         super(STATIC);
 
         this.owner = owner;
-        this.amount = amount;
-        this.numPlays = numPlays;
+        this.amount = additionalPlays;
 
         updateDescription();
     }
@@ -40,29 +39,15 @@ public class ShrapnelBloomPower extends CustomJorbsModPower {
             action.exhaustCard = true; // this is what corruption does
             SelfExertField.selfExert.set(card, true);
 
-            AbstractMonster m = null;
-            if (action.target != null) {
-                m = (AbstractMonster)action.target;
-            }
+            AbstractMonster m = (AbstractMonster)action.target;
 
-            // play numPlays - 1, because one is the "real" card
-            for (int i = 0; i < numPlays - 1; i++) {
-                AbstractCard tmp = card.makeSameInstanceOf();
-                AbstractDungeon.player.limbo.addToBottom(tmp);
-                tmp.current_x = card.current_x;
-                tmp.current_y = card.current_y;
-                tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
-                tmp.target_y = (float) Settings.HEIGHT / 2.0F;
-                if (m != null) {
-                    tmp.calculateCardDamage(m);
-                }
-                tmp.purgeOnUse = true;
-                AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, card.energyOnUse, true, true), true);
+            for (int i = 0; i < amount; ++i) {
+                CardMetaUtils.playCardAdditionalTime(card, m);
             }
 
             --this.amount;
             if (this.amount == 0) {
-                this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+                addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
             }
             else {
                 updateDescription();
@@ -72,20 +57,21 @@ public class ShrapnelBloomPower extends CustomJorbsModPower {
     }
 
     @Override
-    public void atEndOfRound() {
-        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
-    }
-
-    @Override
-    public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
-        if (this.amount == 1) {
-            this.description += String.format(DESCRIPTIONS[1], numPlays);
-        } else {
-            this.description += String.format(DESCRIPTIONS[2], this.amount, numPlays);
+    public void atEndOfTurn(boolean isPlayer) {
+        if (isPlayer) {
+            addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         }
     }
 
     @Override
-    public AbstractPower makeCopy() { return new ShrapnelBloomPower(owner, amount, numPlays); }
+    public void updateDescription() {
+        if (this.amount == 1) {
+            this.description = String.format(DESCRIPTIONS[0], amount);
+        } else {
+            this.description = String.format(DESCRIPTIONS[1], amount);
+        }
+    }
+
+    @Override
+    public AbstractPower makeCopy() { return new ShrapnelBloomPower(owner, amount); }
 }

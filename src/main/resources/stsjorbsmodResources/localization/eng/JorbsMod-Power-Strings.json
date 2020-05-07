@@ -244,9 +244,8 @@
   "stsjorbsmod:ShrapnelBloomPower": {
     "NAME": "Shrapnel Bloom",
     "DESCRIPTIONS": [
-      "This turn, your next",
-      " non-legendary card is played %1d times, then #yexerts.",
-      " %2d non-legendary cards are played #g%1d times, then #yexerted."
+      "This turn, your next non-legendary card is played %1d additional time, then #yexerts.",
+      "This turn, your next non-legendary card is played %1d additional times, then #yexerts."
     ]
   },
   "stsjorbsmod:SnappedPower": {

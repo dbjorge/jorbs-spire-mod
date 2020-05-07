@@ -18,21 +18,21 @@ public class ShrapnelBloom extends CustomJorbsModCard {
     public static final CardColor COLOR = Cull.Enums.CULL_CARD_COLOR;
 
     private static final int COST = 1;
-    private static final int PLAY_TIMES = 2;
+    private static final int ADDITIONAL_PLAYS = 1;
     private static final int UPGRADE_EXTRA_PLAYS = 1;
 
 
     public ShrapnelBloom() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
 
-        magicNumber = baseMagicNumber = PLAY_TIMES;
+        magicNumber = baseMagicNumber = ADDITIONAL_PLAYS;
 
         SelfExertField.selfExert.set(this, true);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
-        this.addToBot(new ApplyPowerAction(p, p, new ShrapnelBloomPower(p, 1, magicNumber), 1));
+        this.addToBot(new ApplyPowerAction(p, p, new ShrapnelBloomPower(p, magicNumber), magicNumber));
     }
 
     @Override
