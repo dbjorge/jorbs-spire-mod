@@ -2,6 +2,7 @@ package stsjorbsmod.powers;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -13,52 +14,50 @@ public class PossessionPower extends CustomJorbsModPower{
     public static final String POWER_ID = STATIC.ID;
     private final AbstractMonster target;
 
-    public PossessionPower(AbstractMonster target, int amount) {
+    public PossessionPower(AbstractMonster owner, int amount) {
         super(STATIC);
-
         this.type = PowerType.DEBUFF;
-        this.target = target;
+        this.owner = owner;
         this.amount = amount;
+        this.target = owner;
+        this.isTurnBased = true;
+
+        updateDescription();
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer) {
+    public void atStartOfTurn() {
         AbstractMonster m = this.target;
-        JorbsMod.logger.info("m and this.target: " + m);
-        int count = 0;
-        if (AbstractDungeon.getMonsters() != null) {
-            for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
-                count += 1;
-            }
+        JorbsMod.logger.info("m and this.owner: " + m);
+
+        while (m == this.target) {
+            m = AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster) null, true, AbstractDungeon.cardRandomRng);
         }
-        JorbsMod.logger.info(count);
-        if (count != 1) {
-            JorbsMod.logger.info("more than 1");
+        JorbsMod.logger.info("monster chosen: " + m);
+        addToBot(new DamageAction(m, new DamageInfo(this.owner, this.owner.maxHealth), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+        JorbsMod.logger.info("Did damage");
+        if (this.amount == 2) {
+            m = this.target;
+            JorbsMod.logger.info("m and this.owner: " + m);
+
             while (m == this.target) {
                 m = AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster) null, true, AbstractDungeon.cardRandomRng);
             }
-            JorbsMod.logger.info("monster chosen: " + m);
-            addToBot(new DamageAction(m, new DamageInfo(this.target, this.target.maxHealth), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-            JorbsMod.logger.info("Did damage");
-            if (this.amount == 2) {
-                JorbsMod.logger.info("Did damage2");
-                addToBot(new DamageAction(m, new DamageInfo(this.target, this.target.maxHealth), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-            }
+            JorbsMod.logger.info("Did damage2");
+            addToBot(new DamageAction(m, new DamageInfo(this.owner, this.owner.maxHealth), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         }
-        else {
-
-        }
+        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
     }
 
     @Override
     public void updateDescription() {
-        description = String.format(this.amount == 1 ? DESCRIPTIONS[0] : DESCRIPTIONS[1]);
+        description = this.amount == 1 ? DESCRIPTIONS[0] : String.format(DESCRIPTIONS[1], this.amount);
     }
 
     @Override
     public AbstractPower makeCopy() {
         return null;
-                //new PossessionPower(target, amount);
+                //new PossessionPower(owner, amount);
     }
 
 }

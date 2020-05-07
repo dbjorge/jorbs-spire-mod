@@ -2,7 +2,9 @@ package stsjorbsmod.cards.cull.deckoftrials;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
@@ -29,8 +31,23 @@ public class Possession extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(m, p, new PossessionPower(m, this.magicNumber)));
-        JorbsMod.logger.info("Applied Power");
+        int count = 0;
+        if (AbstractDungeon.getMonsters() != null) {
+            for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+                if (!monster.isDead && !monster.isDying) {
+                    count += 1;
+                }
+            }
+        }
+        JorbsMod.logger.info(count);
+        if (count != 1) {
+            JorbsMod.logger.info("more than 1");
+            addToBot(new ApplyPowerAction(m, p, new PossessionPower(m, this.magicNumber)));
+            JorbsMod.logger.info("Applied Power");
+        }
+        else {
+            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, "Only one enemy!", true));
+        }
     }
 
     @Override
