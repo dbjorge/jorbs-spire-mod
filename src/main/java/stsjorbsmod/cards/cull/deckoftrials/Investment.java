@@ -27,30 +27,37 @@ public class Investment extends CustomJorbsModCard {
     public Investment() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = GOLD_PER_DRAW;
-
         this.misc = 0;
+        this.baseMetaMagicNumber = 0;
+        this.metaMagicNumber = this.baseMetaMagicNumber;
 
         EphemeralField.ephemeral.set(this, true);
         SelfExertField.selfExert.set(this, true);
     }
 
+    @Override
     public void triggerWhenDrawn() {
-        this.addToBot(new IncreaseMiscAction(this.uuid, this.misc, 1));
-        this.rawDescription = cardStrings.DESCRIPTION;
-        this.rawDescription = this.rawDescription + cardStrings.EXTENDED_DESCRIPTION[0] + (this.misc + 1);
-        if ((this.misc + 1) == 1) {
-            this.rawDescription = this.rawDescription + cardStrings.EXTENDED_DESCRIPTION[1];
-        } else {
-            this.rawDescription = this.rawDescription + cardStrings.EXTENDED_DESCRIPTION[2];
-        }
+        this.addToBot(new IncreaseMiscAction(this.uuid, this.misc, this.magicNumber));
+    }
 
+    @Override
+    public void applyPowers() {
+        this.baseMetaMagicNumber = this.misc;
+        super.applyPowers();
+        this.initializeDescription();
+    }
+
+    @Override
+    public void applyLoadedMiscValue(int misc) {
+        this.baseMetaMagicNumber = this.misc;
+        super.applyLoadedMiscValue(misc);
         this.initializeDescription();
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
-        AbstractDungeon.effectList.add(new RainingGoldEffect(this.misc * this.magicNumber * 2, true));
-        AbstractDungeon.player.gainGold(this.misc * this.magicNumber);
+        AbstractDungeon.effectList.add(new RainingGoldEffect(this.metaMagicNumber * 2, true));
+        AbstractDungeon.player.gainGold(this.metaMagicNumber);
     }
 
     @Override
