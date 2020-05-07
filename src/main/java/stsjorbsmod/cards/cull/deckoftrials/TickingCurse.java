@@ -37,6 +37,7 @@ public class TickingCurse extends CustomJorbsModCard {
         this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageType, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }
 
+    @Override
     public void triggerOnExhaust() {
         this.addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(magicNumber, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
     }
