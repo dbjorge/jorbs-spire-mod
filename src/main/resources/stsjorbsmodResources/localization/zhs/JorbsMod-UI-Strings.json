@@ -50,8 +50,8 @@
   },
   "stsjorbsmod:IncreaseManifestAction": {
     "TEXT": [
-      "舱单 +%1$s",
-      "舱单 %1$s"
+      "无形 +%1$s",
+      "无形 %1$s"
     ]
   },
   "stsjorbsmod:MagicMirrorPatch": {

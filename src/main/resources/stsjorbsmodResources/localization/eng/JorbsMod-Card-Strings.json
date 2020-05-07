@@ -59,6 +59,10 @@
     "NAME": "Black Tentacles",
     "DESCRIPTION": "Deal !D! damage. NL This turn, all damage you deal to other enemies is dealt to this enemy instead."
   },
+  "stsjorbsmod:BlackTentacles_Cull": {
+    "NAME": "Black Tentacles",
+    "DESCRIPTION": "Deal !D! damage. NL This turn, all damage you deal to other enemies is dealt to this enemy instead."
+  },
   "stsjorbsmod:BookOfTongues": {
     "NAME": "Book of Tongues",
     "DESCRIPTION": "At the start of each turn, put !M! stsjorbsmod:Material\u00a0Component into your hand.",
@@ -586,6 +590,10 @@
     "NAME": "Procrastination",
     "DESCRIPTION": "Unplayable. NL Starts each combat in your discard pile."
   },
+  "stsjorbsmod:ProdigalMemory": {
+    "NAME": "Prodigal Memory",
+    "DESCRIPTION": "Draw !stsjorbsmod:UrMagic! cards and lose !M! max HP. NL If this card is in your hand at the end of your turn, stsjorbsmod:Exert."
+  },
   "stsjorbsmod:PurgeMind": {
     "NAME": "Purge Mind",
     "DESCRIPTION": "Exhaust ALL cards which \"remember\". Then, deal !D! damage once per such card in your Exhaust pile. NL stsjorbsmod:Snap. Exhaust.",
@@ -662,6 +670,10 @@
   "stsjorbsmod:ShrapnelBloom": {
     "NAME": "Shrapnel Bloom",
     "DESCRIPTION": "stsjorbsmod:Exert. NL This turn, the next non-Legendary card you play is played !M! times then exerts."
+  },
+  "stsjorbsmod:SilverStrike": {
+    "NAME": "Silver Strike",
+    "DESCRIPTION": "Deal !D! damage. NL stsjorbsmod:Exert."
   },
   "stsjorbsmod:Siphon": {
     "NAME": "Siphon",
@@ -748,6 +760,10 @@
     "NAME": "Time Eddy",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance ALL buffs and debuffs !M! turn through time.",
     "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance ALL buffs and debuffs !M! turns through time."
+  },
+  "stsjorbsmod:TickingCurse": {
+    "NAME": "Ticking Curse",
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage to all enemies. stsjorbsmod:Exert. NL When Exhausted, deal !M! damage to ALL enemies."
   },
   "stsjorbsmod:TinyHut": {
     "NAME": "Tiny Hut",

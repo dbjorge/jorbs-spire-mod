@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Bug fixes
+
+* Fixed issue where certain character-themed colors would occasionally be transparent (thanks kiooeht for reporting)
+
 ### CULL updates
 
 * Added the Book of Trials (thanks wang429)
@@ -17,7 +21,11 @@
 ### New CULL cards
 
 * False Blessing (thanks PanicPoint)
+* Black Tentacles (thanks LankSSBM for porting from Wanderer)
 * Demonic Coup (thanks LankSSBM)
+* Prodigal Memory (thanks LankSSBM)
+* Silver Strike (thanks LankSSBM)
+* Ticking Curse (thanks LankSSBM)
 * Shrapnel Bloom (thanks LankSSBM)
 
 ## [v1.8.2] - 2020-04-18
