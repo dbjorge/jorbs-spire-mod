@@ -22,13 +22,14 @@ public class ProdigalMemory extends CustomJorbsModCard {
     public static final CardColor COLOR = Cull.Enums.CULL_CARD_COLOR;
 
     private static final int COST = 0;
-    private static final int DRAW = 3; // Hard coded in localization strings too.
+    private static final int DRAW = 3;
     private static final int MAX_HP_LOSS = 2;
     private static final int UPGRADE_MAX_HP_LOSS = -1;
 
     public ProdigalMemory() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseMagicNumber = magicNumber = MAX_HP_LOSS;
+        urMagicNumber = baseUrMagicNumber = DRAW;
     }
 
     @Override
@@ -39,8 +40,7 @@ public class ProdigalMemory extends CustomJorbsModCard {
         }
         else {
             addToBot(new DrawCardAction(DRAW));
-            AbstractDungeon.actionManager.addToBottom(
-                    new DecreaseMaxHpAction(p, p, magicNumber, AbstractGameAction.AttackEffect.POISON));
+            addToBot(new DecreaseMaxHpAction(p, p, magicNumber, AbstractGameAction.AttackEffect.POISON));
         }
     }
 

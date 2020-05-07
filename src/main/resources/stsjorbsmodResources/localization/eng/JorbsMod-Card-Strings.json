@@ -588,7 +588,7 @@
   },
   "stsjorbsmod:ProdigalMemory": {
     "NAME": "Prodigal Memory",
-    "DESCRIPTION": "Draw 3 cards and lose !M! max HP. NL stsjorbsmod:Exert if not played."
+    "DESCRIPTION": "Draw !stsjorbsmod:UrMagic! cards and lose !M! max HP. NL stsjorbsmod:Exert if not played."
   },
   "stsjorbsmod:PurgeMind": {
     "NAME": "Purge Mind",
