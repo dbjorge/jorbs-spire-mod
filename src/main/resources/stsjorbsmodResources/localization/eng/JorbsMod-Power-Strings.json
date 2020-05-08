@@ -229,6 +229,12 @@
       "Whenever you apply #yBurning, apply that much #yBurning #b%1$s extra times."
     ]
   },
+  "stsjorbsmod:ReapAndSowPower": {
+    "NAME": "Reap and Sow",
+    "DESCRIPTIONS": [
+      "At the start of the next combat, attack ALL enemies for #b%1d damage."
+    ]
+  },
   "stsjorbsmod:RediscoveryPower": {
     "NAME": "Rediscovery",
     "DESCRIPTIONS": [

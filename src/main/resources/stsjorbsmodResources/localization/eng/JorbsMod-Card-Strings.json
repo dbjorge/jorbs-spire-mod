@@ -617,6 +617,10 @@
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak !stsjorbsmod:MetaMagic! times."
   },
+  "stsjorbsmod:ReapAndSow": {
+    "NAME": "Reap and Sow",
+    "DESCRIPTION": "Deal !D! damage, if this kills an enemy, deal the leftover damage to ALL enemies at the start of the next combat."
+  },
   "stsjorbsmod:Rebuke": {
     "NAME": "Rebuke",
     "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Deal damage to ALL enemies equal to !D! times your Intangible. NL Exhaust.",
