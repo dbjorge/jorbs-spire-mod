@@ -10,7 +10,10 @@ import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
@@ -22,11 +25,7 @@ import org.apache.logging.log4j.Logger;
 import org.clapper.util.classutil.RegexClassFilter;
 import stsjorbsmod.cards.CardSaveData;
 import stsjorbsmod.cards.CustomJorbsModCard;
-import stsjorbsmod.cards.cull.Withering;
-import stsjorbsmod.characters.Cull;
-import stsjorbsmod.characters.DeckOfTrialsSaveData;
-import stsjorbsmod.characters.ManifestSaveData;
-import stsjorbsmod.characters.Wanderer;
+import stsjorbsmod.characters.*;
 import stsjorbsmod.console.*;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
@@ -57,7 +56,8 @@ public class JorbsMod implements
         PostInitializeSubscriber,
         OnPowersModifiedSubscriber,
         StartActSubscriber,
-        StartGameSubscriber {
+        StartGameSubscriber,
+        OnStartBattleSubscriber {
     public static final String MOD_ID = "stsjorbsmod";
 
     public static final Logger logger = LogManager.getLogger(JorbsMod.class.getName());
@@ -181,6 +181,7 @@ public class JorbsMod implements
         BaseMod.addSaveField(MOD_ID + ":CardSaveData", new CardSaveData());
         BaseMod.addSaveField(MOD_ID + ":ManifestSaveData", new ManifestSaveData());
         BaseMod.addSaveField(MOD_ID + ":DeckOfTrialsSaveData", new DeckOfTrialsSaveData());
+        BaseMod.addSaveField(MOD_ID + ":ReapAndSowSaveData", new ReapAndSowSaveData());
         logger.info("Done adding save fields");
     }
 
@@ -454,6 +455,16 @@ public class JorbsMod implements
             if (c instanceof CustomJorbsModCard) {
                 ((CustomJorbsModCard)c).atStartOfGame();
             }
+        }
+    }
+
+    @Override
+    public void receiveOnBattleStart(AbstractRoom abstractRoom) {
+        if (ReapAndSowSaveData.reapAndSowDamage != 0) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(ReapAndSowSaveData.reapAndSowDamage, true),
+                            DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+            ReapAndSowSaveData.reapAndSowDamage = 0;
         }
     }
 }

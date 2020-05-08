@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import stsjorbsmod.characters.ReapAndSowSaveData;
 
 
 public class ReapAndSowPower extends CustomJorbsModPower {
@@ -34,6 +35,6 @@ public class ReapAndSowPower extends CustomJorbsModPower {
     @Override
     public void onVictory() {
         super.onVictory();
-        // Save value of this.amount;
+        ReapAndSowSaveData.reapAndSowDamage = this.amount;
     }
 }
