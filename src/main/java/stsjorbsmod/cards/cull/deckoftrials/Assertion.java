@@ -30,52 +30,47 @@ public class Assertion extends CustomJorbsModCard {
 
     public Assertion() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = DAMAGE;
-        magicNumber = baseMagicNumber = MAX_DAMAGE;
-        metaMagicNumber = baseMetaMagicNumber = DAMAGE_PER_SKILL;
+        urMagicNumber = baseUrMagicNumber = DAMAGE_PER_SKILL;
+        metaMagicNumber = baseMetaMagicNumber = MAX_DAMAGE;
+        damage = baseDamage = DAMAGE;
+        magicNumber = baseMagicNumber = SkillsPlayedThisActSaveData.skillsPlayed;
+
         SelfExertField.selfExert.set(this, true);
 
         this.rawDescription = cardStrings.DESCRIPTION;
-        this.rawDescription += metaMagicNumber + cardStrings.EXTENDED_DESCRIPTION[0];
         initializeDescription();
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
     }
 
     @Override
     public void applyPowers() {
         super.applyPowers();
-        SkillsPlayedThisActSaveData sp =
-                (SkillsPlayedThisActSaveData)BaseMod.getSaveFields().get(MOD_ID + ":SkillsPlayedThisAct");
+        baseMagicNumber = magicNumber = SkillsPlayedThisActSaveData.skillsPlayed;
 
         this.rawDescription = cardStrings.DESCRIPTION;
-        this.rawDescription += metaMagicNumber + cardStrings.EXTENDED_DESCRIPTION[0];
-        if (sp.skillsPlayed == 1) {
-            this.rawDescription += sp.skillsPlayed + cardStrings.EXTENDED_DESCRIPTION[1];
+        if (magicNumber == 1) {
+            this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[0];
         } else {
-            this.rawDescription += sp.skillsPlayed + cardStrings.EXTENDED_DESCRIPTION[2];
+            this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[1];
         }
-        this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[3];
 
         this.initializeDescription();
     }
 
     @Override
     protected int calculateBonusBaseDamage() {
-        SkillsPlayedThisActSaveData sp =
-                (SkillsPlayedThisActSaveData)BaseMod.getSaveFields().get(MOD_ID + ":SkillsPlayedThisAct");
-
-        return Math.min(magicNumber, sp.skillsPlayed * metaMagicNumber);
+        return Math.min(metaMagicNumber, magicNumber * urMagicNumber);
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_MAX_DAMAGE_AMOUNT);
+            upgradeMetaMagicNumber(UPGRADE_MAX_DAMAGE_AMOUNT);
             upgradeDescription();
         }
     }

@@ -439,9 +439,7 @@ public class JorbsMod implements
             }
             ExertedField.exerted.set(c, false);
         }
-        SkillsPlayedThisActSaveData sp =
-                (SkillsPlayedThisActSaveData)BaseMod.getSaveFields().get(MOD_ID + ":SkillsPlayedThisAct");
-        sp.skillsPlayed = 0;
+        SkillsPlayedThisActSaveData.skillsPlayed = 0;
     }
 
     @Override
@@ -461,11 +459,8 @@ public class JorbsMod implements
 
     @Override
     public void receiveCardUsed(AbstractCard c) {
-        SkillsPlayedThisActSaveData sp =
-                (SkillsPlayedThisActSaveData)BaseMod.getSaveFields().get(MOD_ID + ":SkillsPlayedThisAct");
-
         if (c.type == AbstractCard.CardType.SKILL) {
-            sp.skillsPlayed++;
+            SkillsPlayedThisActSaveData.skillsPlayed++;
         }
     }
 }
