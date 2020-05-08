@@ -36,7 +36,9 @@ public class ReapAndSow extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         overkill = getOverKill(m);
-        addToBot(new ApplyPowerAction(p, p, new ReapAndSowPower(p, overkill)));
+        if (overkill > 0 && m.hasPower("Minion")) {
+            addToBot(new ApplyPowerAction(p, p, new ReapAndSowPower(p, overkill)));
+        }
         addToBot(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
     }
 
