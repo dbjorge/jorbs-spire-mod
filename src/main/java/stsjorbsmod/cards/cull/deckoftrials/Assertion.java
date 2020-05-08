@@ -51,12 +51,7 @@ public class Assertion extends CustomJorbsModCard {
         super.applyPowers();
         baseMagicNumber = magicNumber = SkillsPlayedThisActSaveData.skillsPlayed;
 
-        this.rawDescription = cardStrings.DESCRIPTION;
-        if (magicNumber == 1) {
-            this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[0];
-        } else {
-            this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[1];
-        }
+        getRawDynamicDescriptionSuffix();
 
         this.initializeDescription();
     }
@@ -64,6 +59,11 @@ public class Assertion extends CustomJorbsModCard {
     @Override
     protected int calculateBonusBaseDamage() {
         return Math.min(metaMagicNumber, magicNumber * urMagicNumber);
+    }
+
+    @Override
+    public String getRawDynamicDescriptionSuffix() {
+        return magicNumber == 1 ? EXTENDED_DESCRIPTION[0] : EXTENDED_DESCRIPTION[1];
     }
 
     @Override
