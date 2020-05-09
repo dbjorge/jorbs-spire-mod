@@ -1,9 +1,6 @@
 package stsjorbsmod.cards.cull;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -20,18 +17,17 @@ import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 public class CoupDeGrace extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(CoupDeGrace.class);
 
-    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.ENEMY;
-    private static final CardType TYPE = CardType.ATTACK;
+    private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Cull.Enums.CULL_CARD_COLOR;
 
     private static final int COST = CustomJorbsModCard.COST_X;
-    private static final int EXTRA_TARGET_INTANGIBLE = 0;
-    private static final int UPGRADE_EXTRA_TARGET_INTANGIBLE = 1;
+    private static final int BASE_EXTRA_PLAYS = 0;
 
     public CoupDeGrace() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = EXTRA_TARGET_INTANGIBLE;
+        magicNumber = baseMagicNumber = BASE_EXTRA_PLAYS;
         tags.add(LEGENDARY);
     }
 
@@ -41,9 +37,11 @@ public class CoupDeGrace extends CustomJorbsModCard {
             AbstractDungeon.player.getRelic(ChemicalX.ID).flash();
         }
 
-        for (int i = 0; i < magicNumber; ++i) {
-            addToBot(new ApplyPowerAction(m, m, new IntangiblePower(m, magicNumber)));
-            addToBot(new ApplyPowerAction(m, m, new CoupDeGracePower(m, magicNumber)));
+//        addToBot(new ApplyPowerAction(m, m, new IntangiblePower(m, magicNumber)));
+        addToBot(new ApplyPowerAction(m, m, new CoupDeGracePower(m, magicNumber)));
+
+        if (!this.freeToPlayOnce) {
+            p.energy.use(EnergyPanel.totalCount);
         }
     }
 
@@ -69,7 +67,6 @@ public class CoupDeGrace extends CustomJorbsModCard {
     public void upgrade() {
         if(!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_EXTRA_TARGET_INTANGIBLE);
             upgradeDescription();
         }
     }
