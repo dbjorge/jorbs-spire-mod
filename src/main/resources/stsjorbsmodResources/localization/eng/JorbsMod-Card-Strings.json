@@ -651,6 +651,10 @@
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Lose a random stsjorbsmod:Clarity. NL When this is initially added to your hand, add !M! additional copy.",
     "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Lose a random stsjorbsmod:Clarity. NL When this is initially added to your hand, add !M! additional copies."
   },
+  "stsjorbsmod:Sacrifice": {
+    "NAME": "Sacrifice",
+    "DESCRIPTION": "Gain !M! [E] when drawn. NL Ethereal. NL Pay max HP instead of [E] to play cards this turn. NL stsjorbsmod:Exert."
+  },
   "stsjorbsmod:SchoolsOfMagic": {
     "NAME": "Schools of Magic",
     "DESCRIPTION": "Draw !M! cards. NL If you have no duplicate cards in hand, gain stsjorbsmod:Clarity; otherwise, Exhaust 1 of each duplicate."
