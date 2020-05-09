@@ -14,6 +14,7 @@ public class DeckOfTrials {
         deck.addToTop(new DemonicCoup());
         deck.addToTop(new ProdigalMemory());
         deck.addToTop(new TickingCurse());
+        deck.addToTop(new Sacrifice());
         deck.shuffle();
     }
 
