@@ -153,6 +153,11 @@
     "NAME": "Counterspell",
     "DESCRIPTION": "Gain !B! Block. NL Gain !M! Artifact if enemy intends to apply a negative effect. NL Exhaust."
   },
+  "stsjorbsmod:CoupDeGrace": {
+    "NAME": "Coup de Grâce",
+    "DESCRIPTION": "Target gains X intangible. After X turns they lose HP equal to double damage prevented.",
+    "UPGRADE_DESCRIPTION": "Target gains X+1 intangible. After X+1 turns they lose HP equal to double damage prevented."
+  },
   "stsjorbsmod:CULLCard": {
     "NAME": "CULL",
     "DESCRIPTION": "Deal !D! damage twice. NL Exhaust.",

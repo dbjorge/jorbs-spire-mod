@@ -9,6 +9,8 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.relics.ChemicalX;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
@@ -35,14 +37,31 @@ public class CoupDeGrace extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if (AbstractDungeon.player.hasRelic(ChemicalX.ID)) {
+            AbstractDungeon.player.getRelic(ChemicalX.ID).flash();
+        }
+
         for (int i = 0; i < magicNumber; ++i) {
             addToBot(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.FIRE));
         }
     }
 
     @Override
-    public String getRawDynamicDescriptionSuffix() {
-        return magicNumber == 1 ? EXTENDED_DESCRIPTION[0] : EXTENDED_DESCRIPTION[1];
+    protected int calculateBonusMagicNumber() {
+        int effect = EnergyPanel.totalCount;
+        if (this.energyOnUse != -1) {
+            effect = this.energyOnUse;
+        }
+
+        if (AbstractDungeon.player.hasRelic(ChemicalX.ID)) {
+            effect += 2;
+        }
+
+        if (this.upgraded) {
+            effect += 1;
+        }
+
+        return effect;
     }
 
     @Override
