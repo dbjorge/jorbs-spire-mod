@@ -12,6 +12,7 @@ public class ClarifyPatch {
     public static final String ClarifyPatchName = ClarifyPatch.class.getName();
 
     @SpirePatch(clz = DrawPileViewScreen.class, method = "open")
+    @SpirePatch(clz = DrawPileViewScreen.class, method = "render")
     public static class AbstractRoomPatch {
         public static ExprEditor Instrument() {
             final int[] counter = {0};
