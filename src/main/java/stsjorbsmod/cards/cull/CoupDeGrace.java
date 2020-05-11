@@ -18,12 +18,14 @@ public class CoupDeGrace extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(CoupDeGrace.class);
 
     private static final CardRarity RARITY = CardRarity.BASIC;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Cull.Enums.CULL_CARD_COLOR;
 
     private static final int COST = CustomJorbsModCard.COST_X;
     private static final int BASE_EXTRA_PLAYS = 0;
+
+    private boolean targetingEnemy = false;
 
     public CoupDeGrace() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
@@ -38,10 +40,48 @@ public class CoupDeGrace extends CustomJorbsModCard {
         }
 
 //        addToBot(new ApplyPowerAction(m, m, new IntangiblePower(m, magicNumber)));
-        addToBot(new ApplyPowerAction(m, m, new CoupDeGracePower(m, magicNumber)));
+        if (targetingEnemy && m != null) {
+            addToBot(new ApplyPowerAction(m, m, new CoupDeGracePower(m, magicNumber)));
+        }
+        else if (!targetingEnemy) {
+            addToBot(new ApplyPowerAction(p, p, new CoupDeGracePower(p, magicNumber)));
+        }
 
         if (!this.freeToPlayOnce) {
             p.energy.use(EnergyPanel.totalCount);
+        }
+    }
+
+    @Override
+    public void update() {
+        super.update();
+        AbstractPlayer p = AbstractDungeon.player;
+
+        if (p.isDraggingCard && p.hoveredCard.equals(this)) {
+            AbstractMonster hoveredEnemy = null;
+            for (AbstractMonster enemy : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                if (enemy.hb.hovered && !enemy.isDead && !enemy.halfDead) {
+                    hoveredEnemy = enemy;
+                }
+            }
+            if (hoveredEnemy != null) {
+                if(!this.targetingEnemy) {
+                    this.targetingEnemy = true;
+                    p.inSingleTargetMode = true;
+                    this.target = CardTarget.ENEMY;
+                    this.target_x = hoveredEnemy.hb.cX - this.hb.width * 1.0F - hoveredEnemy.hb_w * 1.0F;
+                    this.target_y = hoveredEnemy.hb.cY;
+                    this.applyPowers();
+                }
+            }
+            else {
+                if(this.targetingEnemy) {
+                    this.targetingEnemy = false;
+                    p.inSingleTargetMode = false;
+                    this.target = CardTarget.SELF;
+                    this.applyPowers();
+                }
+            }
         }
     }
 
