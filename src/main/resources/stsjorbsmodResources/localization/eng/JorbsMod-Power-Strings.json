@@ -49,8 +49,8 @@
   "stsjorbsmod:CoupDeGracePower": {
     "NAME": "Coup de Grâce",
     "DESCRIPTIONS": [
-      "After #b%1d turn, target loses HP equal to double damage prevented. (Deals #b%2d damage.)",
-      "After #b%1d turns, target loses HP equal to double damage prevented. (Deals #b%2d damage.)"
+      "After #b%1d turn, target loses HP equal to double damage prevented by intangible. (Deals #g%2d damage.)",
+      "After #b%1d turns, target loses HP equal to double damage prevented by intangible. (Deals #g%2d damage.)"
     ]
   },
   "stsjorbsmod:DamnationPower": {
