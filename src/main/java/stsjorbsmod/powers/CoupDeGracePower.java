@@ -24,6 +24,11 @@ public class CoupDeGracePower extends CustomJorbsModPower {
         updateDescription();
     }
 
+    public static void increaseBaseOutputDamage(int incomingDamage, int currentBlock) {
+        if (incomingDamage > currentBlock)
+            outputDamage += (incomingDamage - currentBlock - 1) * 2;
+    }
+
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         super.atEndOfTurn(isPlayer);
@@ -37,11 +42,6 @@ public class CoupDeGracePower extends CustomJorbsModPower {
 
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
-        if (damageAmount > 0) {
-            outputDamage += (damageAmount - 1) * 2;
-            damageAmount = 1;
-        }
-
         updateDescription();
 
         return damageAmount;

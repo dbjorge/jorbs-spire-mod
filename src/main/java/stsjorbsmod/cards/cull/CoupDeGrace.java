@@ -2,8 +2,10 @@ package stsjorbsmod.cards.cull;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import com.megacrit.cardcrawl.powers.IntangiblePower;
 import com.megacrit.cardcrawl.relics.ChemicalX;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
@@ -39,11 +41,12 @@ public class CoupDeGrace extends CustomJorbsModCard {
             AbstractDungeon.player.getRelic(ChemicalX.ID).flash();
         }
 
-//        addToBot(new ApplyPowerAction(m, m, new IntangiblePower(m, magicNumber)));
         if (targetingEnemy && m != null) {
+            addToBot(new ApplyPowerAction(m, m, new IntangiblePlayerPower(m, magicNumber)));
             addToBot(new ApplyPowerAction(m, m, new CoupDeGracePower(m, magicNumber)));
         }
         else if (!targetingEnemy) {
+            addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(m, magicNumber)));
             addToBot(new ApplyPowerAction(p, p, new CoupDeGracePower(p, magicNumber)));
         }
 
@@ -58,8 +61,8 @@ public class CoupDeGrace extends CustomJorbsModCard {
         AbstractPlayer p = AbstractDungeon.player;
 
         if (p.isDraggingCard && p.hoveredCard.equals(this)) {
-            AbstractMonster hoveredEnemy = null;
-            for (AbstractMonster enemy : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            AbstractCreature hoveredEnemy = null;
+            for (AbstractCreature enemy : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 if (enemy.hb.hovered && !enemy.isDead && !enemy.halfDead) {
                     hoveredEnemy = enemy;
                 }
