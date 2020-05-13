@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -31,15 +32,14 @@ public class CoupDeGracePower extends CustomJorbsModPower {
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer) {
-        super.atEndOfTurn(isPlayer);
+    public void atEndOfRound() {
         this.amount--;
         if (this.amount == 0) {
             addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
 
             DamageInfo damageInfo = new DamageInfo(AbstractDungeon.player, outputDamage, DamageInfo.DamageType.THORNS);
             TrueDamagePatch.TrueDamageInfoField.isTrueDamage.set(damageInfo, true);
-            addToBot(new DamageAction(this.owner, damageInfo, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+            addToBot(new DamageAction(this.owner, damageInfo, AbstractGameAction.AttackEffect.SMASH));
 
             outputDamage = 0;
         }
@@ -56,8 +56,8 @@ public class CoupDeGracePower extends CustomJorbsModPower {
     @Override
     public void updateDescription() {
         this.description = (amount == 1 ?
-                String.format(DESCRIPTIONS[0], amount, outputDamage)
-                : String.format(DESCRIPTIONS[1], amount, outputDamage));
+                String.format(DESCRIPTIONS[(owner instanceof AbstractPlayer ? 2 : 0) + 0], amount, outputDamage)
+                : String.format(DESCRIPTIONS[(owner instanceof AbstractPlayer ? 2 : 0) + 1], amount, outputDamage));
     }
 
     @Override
