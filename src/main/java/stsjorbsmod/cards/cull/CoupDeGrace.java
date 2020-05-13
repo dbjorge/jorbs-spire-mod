@@ -46,7 +46,7 @@ public class CoupDeGrace extends CustomJorbsModCard {
             addToBot(new ApplyPowerAction(m, m, new CoupDeGracePower(m, magicNumber)));
         }
         else if (!targetingEnemy) {
-            addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(m, magicNumber)));
+            addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, magicNumber)));
             addToBot(new ApplyPowerAction(p, p, new CoupDeGracePower(p, magicNumber)));
         }
 
