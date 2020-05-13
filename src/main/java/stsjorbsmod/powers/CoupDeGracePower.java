@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import stsjorbsmod.patches.TrueDamagePatch;
 
 public class CoupDeGracePower extends CustomJorbsModPower {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(CoupDeGracePower.class);
@@ -35,7 +36,12 @@ public class CoupDeGracePower extends CustomJorbsModPower {
         this.amount--;
         if (this.amount == 0) {
             addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
-            addToBot(new DamageAction(this.owner, new DamageInfo(this.owner, outputDamage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+
+            DamageInfo damageInfo = new DamageInfo(AbstractDungeon.player, outputDamage, DamageInfo.DamageType.THORNS);
+            TrueDamagePatch.TrueDamageInfoField.isTrueDamage.set(damageInfo, true);
+            addToBot(new DamageAction(this.owner, damageInfo, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+
+            outputDamage = 0;
         }
         updateDescription();
     }
