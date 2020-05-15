@@ -182,6 +182,12 @@
       "You cannot remember other memories until you have #yClarity of your current memory."
     ]
   },
+  "stsjorbsmod:OldBookPower": {
+    "NAME": "Old Book",
+    "DESCRIPTIONS": [
+      "When you die, instead destroy Old Book."
+    ]
+  },
   "stsjorbsmod:OverkillPower": {
     "NAME": "Overkill",
     "DESCRIPTIONS": [

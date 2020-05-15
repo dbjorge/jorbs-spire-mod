@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
+import stsjorbsmod.powers.OldBookPower;
 
 import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 
@@ -24,6 +25,8 @@ public class OldBook extends CustomJorbsModCard {
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Cull.Enums.CULL_CARD_COLOR;
+
+    private AbstractPlayer p = AbstractDungeon.player;
 
     private static final int COST = COST_UNPLAYABLE;
     private static final int HEAL_PERCENT = 0;
@@ -37,51 +40,32 @@ public class OldBook extends CustomJorbsModCard {
         tags.add(LEGENDARY);
     }
 
-    private int countCursesInGroup(CardGroup group) {
-        return (int) group.group.stream().filter(c -> c.type.equals(CardType.CURSE)).count();
-    }
-
-    private void exhaustCursesInGroup(CardGroup group) {
-        for (AbstractCard c : group.group) {
-            if (c.type.equals(CardType.CURSE)) {
-                AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c, group));
-            }
-        }
-    }
-
-    @Override
-    public int calculateBonusMagicNumber() {
-        AbstractPlayer p = AbstractDungeon.player;
-        return countCursesInGroup(p.hand) +
-                countCursesInGroup(p.drawPile) +
-                countCursesInGroup(p.discardPile);
-    }
-
-    @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
-
-        exhaustCursesInGroup(p.hand);
-        exhaustCursesInGroup(p.drawPile);
-        exhaustCursesInGroup(p.discardPile);
-
-        for (int i = 0; i < magicNumber; ++i) {
-            addToBot(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.FIRE));
-        }
-    }
-
     @Override
     public void triggerWhenDrawn() {
-            addToTop(new ApplyPowerAction();
+            addToTop(new ApplyPowerAction(p, p, new OldBookPower(AbstractDungeon.player, this)));
     }
 
     @Override
     public void triggerOnExhaust() {
-        addToBot(new RemoveSpecificPowerAction());
+        addToBot(new RemoveSpecificPowerAction(p, p, OldBookPower.POWER_ID));
     }
 
     @Override
     public void triggerOnManualDiscard() {
-        addToBot(new RemoveSpecificPowerAction());
+        addToBot(new RemoveSpecificPowerAction(p, p, OldBookPower.POWER_ID));
+    }
+
+    @Override
+    public void onMoveToDiscardImpl() {
+        addToBot(new RemoveSpecificPowerAction(p, p, OldBookPower.POWER_ID));
+        super.onMoveToDiscardImpl();
+    }
+
+    @Override
+    public boolean canUse(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) { return false; }
+
+    @Override
+    public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
     }
 
     @Override
