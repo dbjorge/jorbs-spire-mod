@@ -1,11 +1,12 @@
 package stsjorbsmod.powers;
 
+import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.ExertAction;
 import stsjorbsmod.patches.ExertedField;
+import stsjorbsmod.patches.SelfExertField;
 
 public class RepressedMemoryPower extends CustomJorbsModPower {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(RepressedMemoryPower.class);
@@ -23,8 +24,18 @@ public class RepressedMemoryPower extends CustomJorbsModPower {
 
     @Override
     public void onVictory() {
-        addToBot(new ExertAction(this.card));
-        JorbsMod.logger.info("Did ExertAction on " + this.card + "Exerted? " + ExertedField.exerted.get(this.card));
+        JorbsMod.logger.info("inside winning conditional");
+        AbstractCard masterCard;
+        masterCard = StSLib.getMasterDeckEquivalent(this.card);
+        JorbsMod.logger.info("Master Card: " + masterCard);
+        // I'm setting both masterdeck and combatdeck instances of the card to exerted,
+        // in case we want to show text on exerted cards, or want to prevent exerted cards from being returned from Exhaust.
+        if (masterCard != null) {
+            SelfExertField.selfExert.set(masterCard, true);
+            ExertedField.exerted.set(masterCard, true);
+        }
+        SelfExertField.selfExert.set(this.card, true);
+        ExertedField.exerted.set(this.card, true);
     }
 
     @Override

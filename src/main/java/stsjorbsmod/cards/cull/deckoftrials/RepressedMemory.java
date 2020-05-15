@@ -7,17 +7,13 @@ import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.DecreaseMaxHpAction;
-import stsjorbsmod.actions.RepressedMemoryAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.patches.ExertedField;
 import stsjorbsmod.patches.SelfExertField;
 import stsjorbsmod.powers.RepressedMemoryPower;
-
-import java.util.Iterator;
 
 public class RepressedMemory extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(RepressedMemory.class);
@@ -54,11 +50,9 @@ public class RepressedMemory extends CustomJorbsModCard {
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addToBot(new DrawCardAction(this.magicNumber));
         addToBot(new GainEnergyAction(this.urMagicNumber));
-        addToBot(new RepressedMemoryAction(this));
-        //line below would use power instead
-        addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new RepressedMemoryPower(abstractPlayer, this)));
-        JorbsMod.logger.info("Exerted? " + ExertedField.exerted.get(this));
-        //JorbsMod.logger.info("SelfExerted? " + SelfExertField.selfExert.get(this));
+        if (!SelfExertField.selfExert.get(this) || !ExertedField.exerted.get(this)) {
+            addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new RepressedMemoryPower(abstractPlayer, this)));
+        }
     }
 
     @Override
