@@ -631,7 +631,7 @@
   },
   "stsjorbsmod:RepressedMemory": {
     "NAME": "Repressed Memory",
-    "DESCRIPTION": "Lose !stsjorbsmod:MetaMagic! max hp when discarded NL If played: Draw !M! cards. Gain !stsjorbsmod:UrMagic! [E]. Exert at end of fight."
+    "DESCRIPTION": "Lose !stsjorbsmod:MetaMagic! max hp when discarded NL If played: Draw !M! cards. Gain !stsjorbsmod:UrMagic! [E]. stsjorbsmod:Exert at end of fight."
   },
   "stsjorbsmod:Rest": {
     "NAME": "Rest",
