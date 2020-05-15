@@ -55,12 +55,6 @@ public class OldBook extends CustomJorbsModCard {
         addToBot(new RemoveSpecificPowerAction(p, p, OldBookPower.POWER_ID));
     }
 
-//    @Override
-//    public void onMoveToDiscardImpl() {
-//        addToBot(new RemoveSpecificPowerAction(p, p, OldBookPower.POWER_ID));
-//        super.onMoveToDiscardImpl();
-//    }
-
     @Override
     public boolean canUse(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) { return false; }
 
