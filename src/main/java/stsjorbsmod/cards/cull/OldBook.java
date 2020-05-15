@@ -1,17 +1,14 @@
 package stsjorbsmod.cards.cull;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.cards.OnEntombedSubscriber;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.patches.EntombedField;
-import stsjorbsmod.powers.EntombedGrimDirgePower;
 import stsjorbsmod.powers.OldBookPower;
 
 import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
