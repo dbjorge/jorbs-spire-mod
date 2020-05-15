@@ -45,6 +45,14 @@ public class OldBookPower extends CustomJorbsModPower {
     }
 
     @Override
+    public void updateDescription() {
+        if (card.upgraded)
+            description = String.format(DESCRIPTIONS[1], card.magicNumber);
+        else
+            description = DESCRIPTIONS[0];
+    }
+
+    @Override
     public void atEndOfRound() {
         addToBot(new RemoveSpecificPowerAction(owner, owner, POWER_ID));
         super.atEndOfRound();
