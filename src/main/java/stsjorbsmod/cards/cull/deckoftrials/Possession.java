@@ -1,5 +1,6 @@
 package stsjorbsmod.cards.cull.deckoftrials;
 
+import com.evacipated.cardcrawl.mod.stslib.powers.StunMonsterPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -39,15 +40,13 @@ public class Possession extends CustomJorbsModCard {
                 }
             }
         }
-        JorbsMod.logger.info(count);
         if (count != 1) {
-            JorbsMod.logger.info("more than 1");
             addToBot(new ApplyPowerAction(m, p, new PossessionPower(m, this.magicNumber)));
-            JorbsMod.logger.info("Applied Power");
         }
         else {
             AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, "Only one enemy!", true));
         }
+        addToBot(new ApplyPowerAction(m, p, new StunMonsterPower(m, 1)));
     }
 
     @Override
