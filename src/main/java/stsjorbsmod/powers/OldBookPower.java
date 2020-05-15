@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import stsjorbsmod.actions.ExhumeCardsAction;
 import stsjorbsmod.util.CardMetaUtils;
 
 public class OldBookPower extends CustomJorbsModPower {
@@ -28,6 +29,8 @@ public class OldBookPower extends CustomJorbsModPower {
         if (damageAmount >= owner.currentHealth) {
             info.output = damageAmount = 0;
             addToBot(new RemoveSpecificPowerAction(owner, owner, POWER_ID));
+            addToBot(new ExhumeCardsAction(card));
+
             if (card.upgraded) {
                 float percent = (float)card.magicNumber / 100.0F;
                 int healAmt = (int)((float)owner.maxHealth * percent);
@@ -37,7 +40,7 @@ public class OldBookPower extends CustomJorbsModPower {
 
                 owner.heal(healAmt, true);
             }
-            CardMetaUtils.destroyCardPermanently(card);
+//            CardMetaUtils.destroyCardPermanently(card);
         }
 
         updateDescription();
@@ -50,12 +53,6 @@ public class OldBookPower extends CustomJorbsModPower {
             description = String.format(DESCRIPTIONS[1], card.magicNumber);
         else
             description = DESCRIPTIONS[0];
-    }
-
-    @Override
-    public void atEndOfRound() {
-        addToBot(new RemoveSpecificPowerAction(owner, owner, POWER_ID));
-        super.atEndOfRound();
     }
 
     @Override

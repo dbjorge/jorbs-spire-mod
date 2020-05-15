@@ -518,8 +518,8 @@
   },
   "stsjorbsmod:OldBook": {
     "NAME": "Old Book",
-    "DESCRIPTION": "Unplayable. NL When you die, instead stsjorbsmod:Destroy this.",
-    "UPGRADE_DESCRIPTION": "Unplayable. NL When you die, instead stsjorbsmod:Destroy this and heal !M! percent of your Max HP."
+    "DESCRIPTION": "stsjorbsmod:Entombed (Die). NL. Unplayable. NL When you die, instead stsjorbsmod:Destroy this.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Entombed (Die). NL. Unplayable. NL When you die, instead stsjorbsmod:Destroy this and heal !M! percent of your Max HP."
   },
   "stsjorbsmod:OldPocket": {
     "NAME": "Old Pocket",

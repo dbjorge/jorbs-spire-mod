@@ -185,8 +185,8 @@
   "stsjorbsmod:OldBookPower": {
     "NAME": "Old Book",
     "DESCRIPTIONS": [
-      "When you die, instead destroy Old Book.",
-      "When you die, instead destroy Old Book and heal #g%1d percent of your max HP."
+      "When you die, instead exhume Old Book.",
+      "When you die, instead exhume Old Book and heal #g%1d percent of your max HP."
     ]
   },
   "stsjorbsmod:OverkillPower": {

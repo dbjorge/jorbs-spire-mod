@@ -5,14 +5,18 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
+import stsjorbsmod.cards.OnEntombedSubscriber;
 import stsjorbsmod.characters.Cull;
+import stsjorbsmod.patches.EntombedField;
+import stsjorbsmod.powers.EntombedGrimDirgePower;
 import stsjorbsmod.powers.OldBookPower;
 
 import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 
-public class OldBook extends CustomJorbsModCard {
+public class OldBook extends CustomJorbsModCard implements OnEntombedSubscriber {
     public static final String ID = JorbsMod.makeID(OldBook.class);
 
     private static final CardRarity RARITY = CardRarity.RARE;
@@ -28,6 +32,7 @@ public class OldBook extends CustomJorbsModCard {
 
     public OldBook() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
+        EntombedField.entombed.set(this, true);
 
         magicNumber = baseMagicNumber = HEAL_PERCENT;
 
@@ -35,18 +40,8 @@ public class OldBook extends CustomJorbsModCard {
     }
 
     @Override
-    public void triggerWhenDrawn() {
-            addToTop(new ApplyPowerAction(p, p, new OldBookPower(AbstractDungeon.player, this)));
-    }
-
-    @Override
-    public void triggerOnExhaust() {
-        addToBot(new RemoveSpecificPowerAction(p, p, OldBookPower.POWER_ID));
-    }
-
-    @Override
-    public void triggerOnManualDiscard() {
-        addToBot(new RemoveSpecificPowerAction(p, p, OldBookPower.POWER_ID));
+    public void onCardEntombed() {
+        addToTop(new ApplyPowerAction(p, p, new OldBookPower(AbstractDungeon.player, this)));
     }
 
     @Override
