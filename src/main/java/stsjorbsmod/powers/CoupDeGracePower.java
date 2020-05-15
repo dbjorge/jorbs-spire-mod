@@ -35,11 +35,11 @@ public class CoupDeGracePower extends CustomJorbsModPower {
     public void atEndOfRound() {
         this.amount--;
         if (this.amount == 0) {
-            addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
-
             DamageInfo damageInfo = new DamageInfo(AbstractDungeon.player, outputDamage, DamageInfo.DamageType.THORNS);
             TrueDamagePatch.TrueDamageInfoField.isTrueDamage.set(damageInfo, true);
             addToBot(new DamageAction(this.owner, damageInfo, AbstractGameAction.AttackEffect.SMASH));
+
+            addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
 
             outputDamage = 0;
         }

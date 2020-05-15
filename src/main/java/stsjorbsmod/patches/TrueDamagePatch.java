@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.beyond.Nemesis;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -17,6 +18,7 @@ import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
 import javassist.expr.MethodCall;
+import stsjorbsmod.powers.CoupDeGracePower;
 
 public class TrueDamagePatch {
     public static final String TrueDamagePatchName = TrueDamagePatch.class.getName();
@@ -27,6 +29,8 @@ public class TrueDamagePatch {
     public static boolean isTrueDamage(AbstractCard card) {
         return TrueDamageCardField.isTrueDamage.get(card);
     }
+
+    public static boolean playerHasCoupDeGrace() { return AbstractDungeon.player.hasPower(CoupDeGracePower.POWER_ID); }
 
     @SpirePatch(
             clz = DamageInfo.class,
@@ -81,26 +85,26 @@ public class TrueDamagePatch {
         public static ExprEditor Instrument() {
             return new ExprEditor() {
                 @Override
-                public void edit(FieldAccess fa) throws CannotCompileException {
-                    if (fa.getFieldName().equals("damageAmount") && fa.isWriter())
+                public void edit(MethodCall mc) throws CannotCompileException {
+                    String cls = mc.getClassName();
+                    String method = mc.getMethodName();
+
+                    if (method.equals("hasPower")) {
+                        mc.replace(String.format("{ $_ = $proceed($$) || !%1$s.playerHasCoupDeGrace() }", TrueDamagePatchName));
+                    }
+
+                    if (method.equals("decrementBlock")) {
+                        mc.replace(String.format("{ if (!%1$s.isTrueDamage($1)) { $_ = $proceed($$); } }", TrueDamagePatchName));
+                    }
+
+                    // clamp the onAttackToChangeDamage, onAttackedToChangeDamage, and onAttacked calls
+                    if ((cls.equals(AbstractPower.class.getName()) || cls.equals(AbstractRelic.class.getName())) &&
+                            (method.equals("onAttackToChangeDamage") || method.equals("onAttackedToChangeDamage") || method.equals("onAttacked")))
                     {
-                        fa.replace(String.format("{ if (!%1$s.isTrueDamage($0)) { $_ = $proceed($$); } }", TrueDamagePatchName));
+                        mc.replace(String.format("{ $_ = %1$s.updateDamage($1, $2, $proceed($$)); }", TrueDamagePatchName));
+                        return;
                     }
                 }
-
-//                @Override
-//                public void edit(MethodCall mc) throws CannotCompileException {
-//                    String cls = mc.getClassName();
-//                    String method = mc.getMethodName();
-//
-//                    // clamp the onAttackToChangeDamage, onAttackedToChangeDamage, and onAttacked calls
-//                    if ((cls.equals(AbstractPower.class.getName()) || cls.equals(AbstractRelic.class.getName())) &&
-//                            (method.equals("onAttackToChangeDamage") || method.equals("onAttackedToChangeDamage") || method.equals("onAttacked")))
-//                    {
-//                        mc.replace(String.format("{ $_ = %1$s.updateDamage($1, $2, $proceed($$)); }", TrueDamagePatchName));
-//                        return;
-//                    }
-//                }
             };
         }
     }
