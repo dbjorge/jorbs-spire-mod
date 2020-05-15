@@ -73,7 +73,7 @@
   },
   "stsjorbsmod:Blasphemer": {
     "NAME": "渎神之人",
-    "DESCRIPTION": "当你抽到这张牌时，在你的手牌中加入 !M! 张 *惩恶 。"
+    "DESCRIPTION": " 不能被打出 。 NL 当你抽到这张牌时，在你的手牌中加入 !M! 张 *惩恶 ，然后 消耗 。"
   },
   "stsjorbsmod:BookOfTongues": {
     "NAME": "多舌之书",
@@ -551,6 +551,11 @@
     "NAME": "橡木叶",
     "DESCRIPTION": "获得 !M! 点 敏捷 。"
   },
+  "stsjorbsmod:OldBook": {
+    "NAME": "旧书",
+    "DESCRIPTION": " 不能被打出 。 NL 当你要被杀死时，免死并 stsjorbsmod:摧毁 这张牌。",
+    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 当你要被杀死时，免死并 stsjorbsmod:摧毁 这张牌，然后回复最大生命值的 !M! %。"
+  },
   "stsjorbsmod:OldPocket": {
     "NAME": "旧钱包",
     "DESCRIPTION": "获得 !M! 金币 。 NL 回忆起 stsjorbsmod:慷慨 。 NL 消耗 。",
@@ -608,7 +613,7 @@
   },
   "stsjorbsmod:Possession": {
     "NAME": "囊中之物",
-    "DESCRIPTION": "Possess target, dealing it's max hp in damage !M! times to another random target at the end of your turn. NL stsjorbsmod:Exert"
+    "DESCRIPTION": "支配目标，在你的回合结束时，对一随机目标造成被支配者最大生命值的伤害 !M! 次。 NL stsjorbsmod:竭力 。"
   },
   "stsjorbsmod:Poultergeist": {
     "NAME": "吵闹鬼",
