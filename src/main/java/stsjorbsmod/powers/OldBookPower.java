@@ -45,6 +45,12 @@ public class OldBookPower extends CustomJorbsModPower {
     }
 
     @Override
+    public void atEndOfRound() {
+        addToBot(new RemoveSpecificPowerAction(owner, owner, POWER_ID));
+        super.atEndOfRound();
+    }
+
+    @Override
     public AbstractPower makeCopy() {
         return new OldBookPower(owner, card);
     }
