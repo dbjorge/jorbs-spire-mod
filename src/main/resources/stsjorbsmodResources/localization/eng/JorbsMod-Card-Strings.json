@@ -516,6 +516,11 @@
     "NAME": "Oak Leaf",
     "DESCRIPTION": "Gain !M! Dexterity."
   },
+  "stsjorbsmod:OldBook": {
+    "NAME": "Old Book",
+    "DESCRIPTION": "Unplayable. NL When you die, instead stsjorbsmod:Destroy this.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL When you die, instead stsjorbsmod:Destroy this and heal !M!% of your Max HP."
+  },
   "stsjorbsmod:OldPocket": {
     "NAME": "Old Pocket",
     "DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Exhaust.",
