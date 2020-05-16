@@ -18,7 +18,7 @@ public class CoupDeGracePatch {
     public static class AbstractMonster_damage {
         @SpirePrefixPatch
         public static void patch(AbstractMonster __this, DamageInfo info) {
-            if (shouldCalculatePreventedDamage(__this)) {
+            if (shouldCalculatePreventedDamage(__this) && !TrueDamagePatch.TrueDamageInfoField.isTrueDamage.get(info)) {
                 CoupDeGracePower.increaseBaseOutputDamage(info.output, __this.currentBlock);
             }
         }
@@ -31,7 +31,7 @@ public class CoupDeGracePatch {
     public static class AbstractPlayer_damage {
         @SpirePrefixPatch
         public static void patch(AbstractPlayer __this, DamageInfo info) {
-            if (shouldCalculatePreventedDamage(__this)) {
+            if (shouldCalculatePreventedDamage(__this) && !TrueDamagePatch.TrueDamageInfoField.isTrueDamage.get(info)) {
                 CoupDeGracePower.increaseBaseOutputDamage(info.output, __this.currentBlock);
             }
         }
