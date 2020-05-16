@@ -248,6 +248,13 @@
       "Reduce healing by %1$s%%."
     ]
   },
+  "stsjorbsmod:ShrapnelBloomPower": {
+    "NAME": "Shrapnel Bloom",
+    "DESCRIPTIONS": [
+      "This turn, your next non-Legendary card is played %1d additional time, then #yExerts.",
+      "This turn, your next non-Legendary card is played %1d additional times, then #yExerts."
+    ]
+  },
   "stsjorbsmod:SnappedPower": {
     "NAME": "Snapped",
     "DESCRIPTIONS": [
