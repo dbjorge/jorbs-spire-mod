@@ -13,6 +13,9 @@ public class DeckOfTrials {
         deck.addToTop(new Frostbite());
         deck.addToTop(new DemonicCoup());
         deck.addToTop(new Blasphemer());
+        deck.addToTop(new Investment());
+        deck.addToTop(new ProdigalMemory());
+        deck.addToTop(new TickingCurse());
         deck.shuffle();
     }
 

@@ -247,6 +247,14 @@
       "受到的治疗量降低 %1$s%% 。"
     ]
   },
+  "stsjorbsmod:ShrapnelBloomPower": {
+    "NAME": "暴雨梨花",
+    "DESCRIPTIONS": [
+      "这个回合内，你打出的下",
+      " 张非传奇牌会打出 %1d 次，然后 #y力竭 。",
+      " %2d 张非传奇牌会打出 #g%1d 次，然后 #y力竭 。"
+    ]
+  },
   "stsjorbsmod:SnappedPower": {
     "NAME": "爆发",
     "DESCRIPTIONS": [
