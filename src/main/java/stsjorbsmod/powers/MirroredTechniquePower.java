@@ -14,7 +14,7 @@ public class MirroredTechniquePower extends CustomJorbsModPower {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(MirroredTechniquePower.class);
     public static final String POWER_ID = STATIC.ID;
 
-    private static int extraPlays;
+    public int extraPlays;
 
     public MirroredTechniquePower(final AbstractCreature owner, final int extraPlays) {
         super(STATIC);
@@ -22,9 +22,15 @@ public class MirroredTechniquePower extends CustomJorbsModPower {
         this.owner = owner;
         this.amount = -1;
         this.isTurnBased = false;
-        this.extraPlays = Math.max(this.extraPlays, extraPlays);
+        this.extraPlays = extraPlays;
 
         updateDescription();
+    }
+
+    @Override
+    public void stackPower(AbstractPower otherPower) {
+        MirroredTechniquePower other = (MirroredTechniquePower) otherPower;
+        this.extraPlays = Math.max(this.extraPlays, other.extraPlays);
     }
 
     @Override
