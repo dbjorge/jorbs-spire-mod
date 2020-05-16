@@ -17,6 +17,7 @@ public class DeckOfTrials {
         deck.addToTop(new ProdigalMemory());
         deck.addToTop(new TickingCurse());
         deck.addToTop(new ShrapnelBloom());
+        deck.addToTop(new Assertion());
         deck.shuffle();
     }
 
