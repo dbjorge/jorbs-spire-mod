@@ -26,6 +26,7 @@
 * Prodigal Memory (thanks LankSSBM)
 * Silver Strike (thanks LankSSBM)
 * Ticking Curse (thanks LankSSBM)
+* Assertion (thanks LankSSBM)
 * Investment (thanks LankSSBM)
 
 ## [v1.8.2] - 2020-04-18

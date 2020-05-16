@@ -51,6 +51,14 @@
     "NAME": "Arcane Weapon",
     "DESCRIPTION": "At the end of each turn, deal !D! stsjorbsmod:Attack\u00a0Damage to a random enemy."
   },
+  "stsjorbsmod:Assertion": {
+    "NAME": "Assertion",
+    "DESCRIPTION": "Deal damage equal to !stsjorbsmod:UrMagic! times the number of skills played this act, up to !stsjorbsmod:MetaMagic! damage. ",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage, !M! skill played.)",
+      " NL (Deals !D! damage, !M! skills played.)"
+    ]
+  },
   "stsjorbsmod:Banish": {
     "NAME": "Banish",
     "DESCRIPTION": "Enemy takes no action and no damage for !M! turns. Exhaust."
