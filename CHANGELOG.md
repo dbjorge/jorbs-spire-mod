@@ -26,6 +26,7 @@
 * Prodigal Memory (thanks LankSSBM)
 * Silver Strike (thanks LankSSBM)
 * Ticking Curse (thanks LankSSBM)
+* Shrapnel Bloom (thanks LankSSBM)
 * Assertion (thanks LankSSBM)
 * Investment (thanks LankSSBM)
 

@@ -683,6 +683,11 @@
     "NAME": "Shake",
     "DESCRIPTION": "If enemy is Vulnerable, draw !M! cards. NL Apply !stsjorbsmod:UrMagic! Vulnerable. NL Exhaust."
   },
+  "stsjorbsmod:ShrapnelBloom": {
+    "NAME": "Shrapnel Bloom",
+    "DESCRIPTION": "stsjorbsmod:Exert. NL This turn, the next non-Legendary card you play is played !M! additional time, then stsjorbsmod:Exerts.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Exert. NL This turn, the next non-Legendary card you play is played !M! additional times, then stsjorbsmod:Exerts."
+  },
   "stsjorbsmod:SilverStrike": {
     "NAME": "Silver Strike",
     "DESCRIPTION": "Deal !D! damage. NL stsjorbsmod:Exert."
