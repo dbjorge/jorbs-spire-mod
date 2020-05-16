@@ -512,6 +512,11 @@
     "NAME": "Mirror",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Until your next turn, take no damage and reflect attack damage enemies deal to you."
   },
+  "stsjorbsmod:MirroredTechnique": {
+    "NAME": "Mirrored Technique",
+    "DESCRIPTION": "This combat, play all attacks an additional time for each time you are being attacked. NL stsjorbsmod:Exert.",
+    "UPGRADE_DESCRIPTION": "This combat, play all attacks an additional time for each time you are being attacked + !M!. NL stsjorbsmod:Exert."
+  },
   "stsjorbsmod:MirrorImage": {
     "NAME": "Mirror Image",
     "DESCRIPTION": "Remember stsjorbsmod:Kindness. NL Summon an Intangible Mirror Image with !M! HP. NL Exhaust."

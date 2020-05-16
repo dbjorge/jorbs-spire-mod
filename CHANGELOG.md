@@ -29,6 +29,7 @@
 * Shrapnel Bloom (thanks LankSSBM)
 * Assertion (thanks LankSSBM)
 * Investment (thanks LankSSBM)
+* Mirrored Technique (thanks LankSSBM)
 
 ## [v1.8.2] - 2020-04-18
 
