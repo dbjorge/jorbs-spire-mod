@@ -2,36 +2,34 @@ package stsjorbsmod.powers;
 
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.util.CardMetaUtils;
-
-import java.lang.reflect.Field;
+import stsjorbsmod.util.IntentUtils;
+import stsjorbsmod.util.ReflectionUtils;
 
 public class MirroredTechniquePower extends CustomJorbsModPower {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(MirroredTechniquePower.class);
     public static final String POWER_ID = STATIC.ID;
 
-    private static Field multiIntentField;
     private static int extraPlays;
 
     public MirroredTechniquePower(final AbstractCreature owner, final int extraPlays) {
         super(STATIC);
 
         this.owner = owner;
+        this.amount = -1;
         this.isTurnBased = false;
-        this.extraPlays = extraPlays;
+        this.extraPlays = Math.max(this.extraPlays, extraPlays);
 
         updateDescription();
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new MirroredTechniquePower(owner, amount);
+        return new MirroredTechniquePower(owner, extraPlays);
     }
 
     @Override
@@ -50,22 +48,16 @@ public class MirroredTechniquePower extends CustomJorbsModPower {
     public static int getIncomingAttackCount() {
         int totalCount = 0;
 
-        // Some way to turn this into a call to ReflectionUtils.getPrivateField(...)
-        if(multiIntentField == null) {
-            try {
-                multiIntentField = AbstractMonster.class.getDeclaredField("intentMultiAmt");
-                multiIntentField.setAccessible(true);
-            } catch (NoSuchFieldException e) { }
-        }
-
         if(AbstractDungeon.getMonsters() != null) {
             for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
-                if (!m.isDeadOrEscaped() && isAttacking(m)) {
+                if (!m.isDeadOrEscaped() && IntentUtils.isAttackIntent(m.intent)) {
+
                     int multiAmt = 0;
-                    try {
-                        multiAmt = (int) multiIntentField.get(m);
+                    if (ReflectionUtils.getPrivateField(m, AbstractMonster.class, "isMultiDmg")) {
+                        multiAmt = ReflectionUtils.getPrivateField(m, AbstractMonster.class, "intentMultiAmt");
                     }
-                    catch (IllegalAccessException ignored) {
+                    else {
+                        multiAmt = 1;
                     }
                     totalCount += multiAmt;
                 }
@@ -73,10 +65,6 @@ public class MirroredTechniquePower extends CustomJorbsModPower {
         }
 
         return totalCount;
-    }
-
-    public static boolean isAttacking(AbstractMonster m) {
-        return m.intent == AbstractMonster.Intent.ATTACK || m.intent == AbstractMonster.Intent.ATTACK_BUFF || m.intent == AbstractMonster.Intent.ATTACK_DEBUFF || m.intent == AbstractMonster.Intent.ATTACK_DEFEND;
     }
 
     @Override

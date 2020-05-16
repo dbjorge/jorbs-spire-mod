@@ -1,18 +1,13 @@
 package stsjorbsmod.cards.cull.deckoftrials;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.RitualPower;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.ConsumeCardAction;
-import stsjorbsmod.actions.DamageWithOnKillEffectAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
+import stsjorbsmod.patches.SelfExertField;
 import stsjorbsmod.powers.MirroredTechniquePower;
-
-import static stsjorbsmod.JorbsMod.JorbsCardTags.PERSISTENT_POSITIVE_EFFECT;
 
 public class MirroredTechnique extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(MirroredTechnique.class);
@@ -29,6 +24,7 @@ public class MirroredTechnique extends CustomJorbsModCard {
     public MirroredTechnique() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = EXTRA_PLAYS;
+        SelfExertField.selfExert.set(this, true);
     }
 
     @Override
