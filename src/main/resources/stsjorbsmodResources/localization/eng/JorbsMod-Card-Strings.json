@@ -416,6 +416,10 @@
     "NAME": "Introspection",
     "DESCRIPTION": "At the end of each turn, lose !stsjorbsmod:UrMagic! HP and deal !M! damage to ALL enemies. Deal !stsjorbsmod:MetaMagic! additional damage per stsjorbsmod:Clarity."
   },
+  "stsjorbsmod:Investment": {
+    "NAME": "Investment",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !stsjorbsmod:MetaMagic! gold. NL stsjorbsmod:Exert. NL When you draw this card, permanently increase it's gold by !M!. "
+  },
   "stsjorbsmod:IvoryTower": {
     "NAME": "Ivory Tower",
     "DESCRIPTION": "Draw !M! cards. NL Exhaust all Curse and Status cards in your hand. NL Exhaust.",
