@@ -1,6 +1,5 @@
 package stsjorbsmod.cards.cull.deckoftrials;
 
-import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -11,8 +10,6 @@ import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.characters.SkillsPlayedThisActSaveData;
 import stsjorbsmod.patches.SelfExertField;
-
-import static stsjorbsmod.JorbsMod.MOD_ID;
 
 public class Assertion extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(Assertion.class);
@@ -36,9 +33,6 @@ public class Assertion extends CustomJorbsModCard {
         magicNumber = baseMagicNumber = SkillsPlayedThisActSaveData.skillsPlayed;
 
         SelfExertField.selfExert.set(this, true);
-
-        this.rawDescription = cardStrings.DESCRIPTION;
-        initializeDescription();
     }
 
     @Override
@@ -47,18 +41,14 @@ public class Assertion extends CustomJorbsModCard {
     }
 
     @Override
-    public void applyPowers() {
-        super.applyPowers();
-        baseMagicNumber = magicNumber = SkillsPlayedThisActSaveData.skillsPlayed;
-
-        getRawDynamicDescriptionSuffix();
-
-        this.initializeDescription();
+    protected int calculateBonusBaseDamage() {
+        // Don't use magicNumber; it's not recalculated until *after* this is called
+        return Math.min(metaMagicNumber, SkillsPlayedThisActSaveData.skillsPlayed * urMagicNumber);
     }
 
     @Override
-    protected int calculateBonusBaseDamage() {
-        return Math.min(metaMagicNumber, magicNumber * urMagicNumber);
+    protected int calculateBonusMagicNumber() {
+        return SkillsPlayedThisActSaveData.skillsPlayed;
     }
 
     @Override
