@@ -29,7 +29,6 @@ public class TrueDamagePatch {
     public static boolean isTrueDamage(AbstractCard card) {
         return TrueDamageCardField.isTrueDamage.get(card);
     }
-    public static boolean playerHasCoupDeGracePower() { return AbstractDungeon.player.hasPower(CoupDeGracePower.POWER_ID); }
 
     @SpirePatch(
             clz = DamageInfo.class,
@@ -89,11 +88,7 @@ public class TrueDamagePatch {
                     String method = mc.getMethodName();
 
                     if (method.equals("hasPower")) {
-                        mc.replace(String.format("{ $_ = $proceed($$) || !%1$s.playerHasCoupDeGracePower(); }", TrueDamagePatchName));
-                    }
-
-                    if (method.equals("decrementBlock")) {
-                        mc.replace(String.format("{ if (!%1$s.isTrueDamage($1)) { $_ = $proceed($$); } }", TrueDamagePatchName));
+                        mc.replace(String.format("{ $_ = $proceed($$) && !%1$s.isTrueDamage(info); }", TrueDamagePatchName));
                     }
 
                     // clamp the onAttackToChangeDamage, onAttackedToChangeDamage, and onAttacked calls
