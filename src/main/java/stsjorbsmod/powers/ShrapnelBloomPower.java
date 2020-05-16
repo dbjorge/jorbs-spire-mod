@@ -45,13 +45,7 @@ public class ShrapnelBloomPower extends CustomJorbsModPower {
                 CardMetaUtils.playCardAdditionalTime(card, m);
             }
 
-            --this.amount;
-            if (this.amount == 0) {
-                addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
-            }
-            else {
-                updateDescription();
-            }
+            addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         }
 
     }
