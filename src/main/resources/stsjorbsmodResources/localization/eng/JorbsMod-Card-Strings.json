@@ -71,6 +71,10 @@
     "NAME": "Black Tentacles",
     "DESCRIPTION": "Deal !D! damage. NL This turn, all damage you deal to other enemies is dealt to this enemy instead."
   },
+  "stsjorbsmod:Blasphemer": {
+    "NAME": "Blasphemer",
+    "DESCRIPTION": "Unplayable. NL When you draw this card, add !M! *Smites to your hand and Exhaust."
+  },
   "stsjorbsmod:BookOfTongues": {
     "NAME": "Book of Tongues",
     "DESCRIPTION": "At the start of each turn, put !M! stsjorbsmod:Material\u00a0Component into your hand.",
@@ -423,6 +427,10 @@
   "stsjorbsmod:Introspection": {
     "NAME": "Introspection",
     "DESCRIPTION": "At the end of each turn, lose !stsjorbsmod:UrMagic! HP and deal !M! damage to ALL enemies. Deal !stsjorbsmod:MetaMagic! additional damage per stsjorbsmod:Clarity."
+  },
+  "stsjorbsmod:Investment": {
+    "NAME": "Investment",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !stsjorbsmod:MetaMagic! gold. NL stsjorbsmod:Exert. NL When you draw this card, permanently increase its gold by !M!. "
   },
   "stsjorbsmod:IvoryTower": {
     "NAME": "Ivory Tower",
