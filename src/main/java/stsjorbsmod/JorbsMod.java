@@ -1,6 +1,7 @@
 package stsjorbsmod;
 
 import basemod.BaseMod;
+import basemod.abstracts.CustomSavable;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -57,6 +58,7 @@ public class JorbsMod implements
         OnPowersModifiedSubscriber,
         StartActSubscriber,
         StartGameSubscriber,
+        OnCardUseSubscriber{
         OnStartBattleSubscriber {
     public static final String MOD_ID = "stsjorbsmod";
 
@@ -181,6 +183,7 @@ public class JorbsMod implements
         BaseMod.addSaveField(MOD_ID + ":CardSaveData", new CardSaveData());
         BaseMod.addSaveField(MOD_ID + ":ManifestSaveData", new ManifestSaveData());
         BaseMod.addSaveField(MOD_ID + ":DeckOfTrialsSaveData", new DeckOfTrialsSaveData());
+        BaseMod.addSaveField(MOD_ID + ":SkillsPlayedThisAct", new SkillsPlayedThisActSaveData());
         BaseMod.addSaveField(MOD_ID + ":ReapAndSowSaveData", new ReapAndSowSaveData());
         logger.info("Done adding save fields");
     }
@@ -441,6 +444,7 @@ public class JorbsMod implements
             }
             ExertedField.exerted.set(c, false);
         }
+        SkillsPlayedThisActSaveData.skillsPlayed = 0;
     }
 
     @Override
@@ -455,6 +459,13 @@ public class JorbsMod implements
             if (c instanceof CustomJorbsModCard) {
                 ((CustomJorbsModCard)c).atStartOfGame();
             }
+        }
+    }
+
+    @Override
+    public void receiveCardUsed(AbstractCard c) {
+        if (c.type == AbstractCard.CardType.SKILL) {
+            SkillsPlayedThisActSaveData.skillsPlayed++;
         }
     }
 

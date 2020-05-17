@@ -51,6 +51,14 @@
     "NAME": "Arcane Weapon",
     "DESCRIPTION": "At the end of each turn, deal !D! stsjorbsmod:Attack\u00a0Damage to a random enemy."
   },
+  "stsjorbsmod:Assertion": {
+    "NAME": "Assertion",
+    "DESCRIPTION": "Deal damage equal to !stsjorbsmod:UrMagic! times the number of skills played this act, up to !stsjorbsmod:MetaMagic! damage.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage, !M! skill played.)",
+      " NL (Deals !D! damage, !M! skills played.)"
+    ]
+  },
   "stsjorbsmod:Banish": {
     "NAME": "Banish",
     "DESCRIPTION": "Enemy takes no action and no damage for !M! turns. Exhaust."
@@ -62,6 +70,10 @@
   "stsjorbsmod:BlackTentacles_Cull": {
     "NAME": "Black Tentacles",
     "DESCRIPTION": "Deal !D! damage. NL This turn, all damage you deal to other enemies is dealt to this enemy instead."
+  },
+  "stsjorbsmod:Blasphemer": {
+    "NAME": "Blasphemer",
+    "DESCRIPTION": "Unplayable. NL When you draw this card, add !M! *Smites to your hand and Exhaust."
   },
   "stsjorbsmod:BookOfTongues": {
     "NAME": "Book of Tongues",
@@ -416,6 +428,10 @@
     "NAME": "Introspection",
     "DESCRIPTION": "At the end of each turn, lose !stsjorbsmod:UrMagic! HP and deal !M! damage to ALL enemies. Deal !stsjorbsmod:MetaMagic! additional damage per stsjorbsmod:Clarity."
   },
+  "stsjorbsmod:Investment": {
+    "NAME": "Investment",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !stsjorbsmod:MetaMagic! gold. NL stsjorbsmod:Exert. NL When you draw this card, permanently increase its gold by !M!. "
+  },
   "stsjorbsmod:IvoryTower": {
     "NAME": "Ivory Tower",
     "DESCRIPTION": "Draw !M! cards. NL Exhaust all Curse and Status cards in your hand. NL Exhaust.",
@@ -495,6 +511,11 @@
   "stsjorbsmod:Mirror": {
     "NAME": "Mirror",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Until your next turn, take no damage and reflect attack damage enemies deal to you."
+  },
+  "stsjorbsmod:MirroredTechnique": {
+    "NAME": "Mirrored Technique",
+    "DESCRIPTION": "This combat, play all attacks an additional time for each time you are being attacked. NL stsjorbsmod:Exert.",
+    "UPGRADE_DESCRIPTION": "This combat, play all attacks an additional time for each time you are being attacked + !M!. NL stsjorbsmod:Exert."
   },
   "stsjorbsmod:MirrorImage": {
     "NAME": "Mirror Image",
@@ -670,6 +691,11 @@
   "stsjorbsmod:Shake": {
     "NAME": "Shake",
     "DESCRIPTION": "If enemy is Vulnerable, draw !M! cards. NL Apply !stsjorbsmod:UrMagic! Vulnerable. NL Exhaust."
+  },
+  "stsjorbsmod:ShrapnelBloom": {
+    "NAME": "Shrapnel Bloom",
+    "DESCRIPTION": "stsjorbsmod:Exert. NL This turn, the next non-Legendary card you play is played !M! additional time, then stsjorbsmod:Exerts.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Exert. NL This turn, the next non-Legendary card you play is played !M! additional times, then stsjorbsmod:Exerts."
   },
   "stsjorbsmod:SilverStrike": {
     "NAME": "Silver Strike",

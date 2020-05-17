@@ -19,13 +19,17 @@
 * New art for Decoy (thanks EscMargot for art and Neablis for helping merge)
 
 ### New CULL cards
-
+* Blasphemer (thanks nic3245)
 * False Blessing (thanks PanicPoint)
 * Black Tentacles (thanks LankSSBM for porting from Wanderer)
 * Demonic Coup (thanks LankSSBM)
 * Prodigal Memory (thanks LankSSBM)
 * Silver Strike (thanks LankSSBM)
 * Ticking Curse (thanks LankSSBM)
+* Shrapnel Bloom (thanks LankSSBM)
+* Assertion (thanks LankSSBM)
+* Investment (thanks LankSSBM)
+* Mirrored Technique (thanks LankSSBM)
 * Reap and Sow (thanks LankSSBM)
 
 ## [v1.8.2] - 2020-04-18
