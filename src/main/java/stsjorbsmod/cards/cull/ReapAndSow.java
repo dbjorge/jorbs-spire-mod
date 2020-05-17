@@ -27,27 +27,23 @@ public class ReapAndSow extends CustomJorbsModCard {
     private static final int DAMAGE = 25;
     private static final int UPGRADE_DAMAGE = 8;
 
-    private int overkill = 0;
-
     public ReapAndSow() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
-        magicNumber = baseMagicNumber = 0;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        overkill = getOverKill(m);
-
-        Runnable onKillEffect = () -> addToBot(new ApplyPowerAction(p, p, new ReapAndSowPower(p, overkill)));
+        Runnable onKillEffect = () -> addToBot(new ApplyPowerAction(p, p, new ReapAndSowPower(p, getOverKill(m))));
 
         addToBot(new DamageWithOnKillEffectAction(m, new DamageInfo(p, damage, damageTypeForTurn), onKillEffect, false));
     }
 
     private int getOverKill(AbstractMonster mo) {
         super.calculateCardDamage(mo);
+        int overkill = 0;
         if (this.damage > mo.currentHealth) {
-            this.overkill = this.damage - mo.currentHealth;
+            overkill = this.damage - mo.currentHealth;
         }
         return overkill;
     }
