@@ -239,7 +239,7 @@
   "stsjorbsmod:ReapAndSowPower": {
     "NAME": "Reap and Sow",
     "DESCRIPTIONS": [
-      "At the start of the next combat, attack ALL enemies for #b%1d damage."
+      "At the start of the next combat, deal #b%1d damage to ALL enemies."
     ]
   },
   "stsjorbsmod:RediscoveryPower": {

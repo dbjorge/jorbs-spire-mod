@@ -640,7 +640,7 @@
   },
   "stsjorbsmod:ReapAndSow": {
     "NAME": "Reap and Sow",
-    "DESCRIPTION": "Deal !D! damage, if Fatal, deal the leftover damage to ALL enemies at the start of the next combat."
+    "DESCRIPTION": "Deal !D! damage. If Fatal, deal the leftover damage to ALL enemies at the start of the next combat."
   },
   "stsjorbsmod:Rebuke": {
     "NAME": "Rebuke",

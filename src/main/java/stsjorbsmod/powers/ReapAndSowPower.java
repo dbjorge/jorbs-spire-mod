@@ -9,12 +9,20 @@ public class ReapAndSowPower extends CustomJorbsModPower {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(ReapAndSowPower.class);
     public static final String POWER_ID = STATIC.ID;
 
+    private static int reapAndSowDamage;
+
     public ReapAndSowPower(AbstractCreature owner, int amount) {
         super(STATIC);
         this.owner = owner;
         this.type = PowerType.BUFF;
-        this.amount = ReapAndSowSaveData.reapAndSowDamage = amount;
+        this.amount = reapAndSowDamage = amount;
         updateDescription();
+    }
+
+    @Override
+    public void onVictory() {
+        ReapAndSowSaveData.reapAndSowDamage = this.reapAndSowDamage;
+        super.onVictory();
     }
 
     @Override

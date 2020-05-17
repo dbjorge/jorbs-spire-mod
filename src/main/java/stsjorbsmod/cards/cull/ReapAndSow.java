@@ -3,10 +3,12 @@ package stsjorbsmod.cards.cull;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.DamageWithOnKillEffectAction;
 import stsjorbsmod.actions.IncreaseManifestAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
@@ -36,10 +38,10 @@ public class ReapAndSow extends CustomJorbsModCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         overkill = getOverKill(m);
-        if (overkill > 0 && m.hasPower("Minion")) {
-            addToBot(new ApplyPowerAction(p, p, new ReapAndSowPower(p, overkill)));
-        }
-        addToBot(new DamageAction(m, new DamageInfo(p, damage), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+
+        Runnable onKillEffect = () -> addToBot(new ApplyPowerAction(p, p, new ReapAndSowPower(p, overkill)));
+
+        addToBot(new DamageWithOnKillEffectAction(m, new DamageInfo(p, damage, damageTypeForTurn), onKillEffect, false));
     }
 
     private int getOverKill(AbstractMonster mo) {

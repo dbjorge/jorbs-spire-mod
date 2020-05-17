@@ -58,7 +58,7 @@ public class JorbsMod implements
         OnPowersModifiedSubscriber,
         StartActSubscriber,
         StartGameSubscriber,
-        OnCardUseSubscriber{
+        OnCardUseSubscriber,
         OnStartBattleSubscriber {
     public static final String MOD_ID = "stsjorbsmod";
 
@@ -473,7 +473,7 @@ public class JorbsMod implements
     public void receiveOnBattleStart(AbstractRoom abstractRoom) {
         if (ReapAndSowSaveData.reapAndSowDamage != 0) {
             AbstractDungeon.actionManager.addToBottom(
-                    new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(ReapAndSowSaveData.reapAndSowDamage, true),
+                    new DamageAllEnemiesAction(AbstractDungeon.player, DamageInfo.createDamageMatrix(ReapAndSowSaveData.reapAndSowDamage, true),
                             DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
             ReapAndSowSaveData.reapAndSowDamage = 0;
         }
