@@ -46,6 +46,12 @@
       "当你回忆起新的 #y耐心之外 的记忆时或在你的回合结束时爆发，对所有敌人造成 #b%1$s 点伤害，然后失去所有线圈。"
     ]
   },
+  "stsjorbsmod:ClarifyPower": {
+    "NAME": "澄澈",
+    "DESCRIPTIONS": [
+      "你抽牌堆中的卡牌现在将按顺序展示。"
+    ]
+  },
   "stsjorbsmod:DamnationPower": {
     "NAME": "天谴",
     "DESCRIPTIONS": [
@@ -175,6 +181,13 @@
       "你下一次获得 #y清晰 记忆时，对所有敌人造成 #b%1$s 点伤害。"
     ]
   },
+  "stsjorbsmod:MirroredTechniquePower": {
+    "NAME": "镜影妙计",
+    "DESCRIPTIONS": [
+      "你打出的所有攻击牌会额外打出受到攻击数次。",
+      "你打出的所有攻击牌会额外打出受到攻击数+ %1$d 次。"
+    ]
+  },
   "stsjorbsmod:MirrorImagePower": {
     "NAME": "镜像",
     "DESCRIPTIONS": [
@@ -235,6 +248,12 @@
       "每当你给予敌人 #y灼烧 时，再给予 #b%1$s 次等量的 #y灼烧 。"
     ]
   },
+  "stsjorbsmod:ReapAndSowPower": {
+    "NAME": "种瓜得瓜",
+    "DESCRIPTIONS": [
+      "在下一场战斗开始时，对所有敌人造成 #b%1d 点伤害。"
+    ]
+  },
   "stsjorbsmod:RediscoveryPower": {
     "NAME": "重拾",
     "DESCRIPTIONS": [
@@ -250,15 +269,21 @@
   "stsjorbsmod:ShrapnelBloomPower": {
     "NAME": "暴雨梨花",
     "DESCRIPTIONS": [
-      "这个回合内，你打出的下",
-      " 张非传奇牌会打出 %1d 次，然后 #y力竭 。",
-      " %2d 张非传奇牌会打出 #g%1d 次，然后 #y力竭 。"
+      "本回合内，你打出的下一张非传奇牌会额外打出 %1d 次，然后 #y力竭 。",
+      "本回合内，你打出的下一张非传奇牌会额外打出 %1d 次，然后 #y力竭 。"
     ]
   },
   "stsjorbsmod:SnappedPower": {
     "NAME": "爆发",
     "DESCRIPTIONS": [
       "你无法再回忆或获得清晰记忆。"
+    ]
+  },
+  "stsjorbsmod:SacrificePower": {
+    "NAME": "蹈锋饮血",
+    "DESCRIPTIONS": [
+      "#b%1d 回合内，你的牌不再消耗 [E] ，改为消耗最大生命值。",
+      "#b%1d 回合内，你的牌不再消耗 [E] ，改为消耗最大生命值。"
     ]
   },
   "stsjorbsmod:SpiritShieldPower": {
