@@ -12,6 +12,9 @@ import stsjorbsmod.actions.DamageWithOnKillEffectAction;
 import stsjorbsmod.actions.IncreaseManifestAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
+import stsjorbsmod.patches.LastOverkillDamageField;
+import stsjorbsmod.patches.LastOverkillDamagePatch;
+import stsjorbsmod.patches.SelfExertField;
 import stsjorbsmod.powers.OverkillPower;
 import stsjorbsmod.powers.ReapAndSowPower;
 
@@ -34,20 +37,20 @@ public class ReapAndSow extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Runnable onKillEffect = () -> addToBot(new ApplyPowerAction(p, p, new ReapAndSowPower(p, getOverKill(m))));
+        Runnable onKillEffect = () -> addToBot(new ApplyPowerAction(p, p, new ReapAndSowPower(p, LastOverkillDamageField.lastOverkillDamage.get(m))));
 
         addToBot(new DamageWithOnKillEffectAction(m, new DamageInfo(p, damage, damageTypeForTurn), onKillEffect, false));
     }
 
-    private int getOverKill(AbstractMonster mo) {
-        super.calculateCardDamage(mo);
-        int overkill = 0;
-        if (this.damage > mo.currentHealth) {
-            overkill = this.damage - mo.currentHealth;
-        }
-        return overkill;
-    }
-
+//    private int getOverKill(AbstractMonster mo) {
+//        super.calculateCardDamage(mo);
+//        int overkill = 0;
+//        if (this.damage > mo.currentHealth) {
+//            overkill = this.damage - mo.currentHealth;
+//        }
+//        return overkill;
+//    }
+//
     @Override
     public void upgrade() {
         if (!upgraded) {

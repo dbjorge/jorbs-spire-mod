@@ -11,7 +11,7 @@ public class ReapAndSowPower extends CustomJorbsModPower {
 
     private static int reapAndSowDamage;
 
-    public ReapAndSowPower(AbstractCreature owner, int amount) {
+    public ReapAndSowPower(AbstractCreature owner, Integer amount) {
         super(STATIC);
         this.owner = owner;
         this.type = PowerType.BUFF;
