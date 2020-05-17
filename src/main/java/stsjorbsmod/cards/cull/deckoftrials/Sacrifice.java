@@ -32,7 +32,7 @@ public class Sacrifice extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
-        addToBot(new ApplyPowerAction(p, p, new SacrificePower(p, magicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new SacrificePower(p, 1)));
     }
 
     @Override

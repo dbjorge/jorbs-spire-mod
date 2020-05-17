@@ -23,24 +23,6 @@ public class SacrificePower extends CustomJorbsModPower {
     }
 
     @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        super.onUseCard(card, action);
-
-        int hpCost = 0;
-        if (card.costForTurn != -1) {
-            hpCost = card.costForTurn;
-            card.freeToPlayOnce = true;
-        }
-        else {
-            hpCost = AbstractDungeon.player.energy.energy;
-            addToBot(new GainEnergyAction(hpCost)); // Makes X cost cards "free"
-        }
-
-
-        addToBot(new DecreaseMaxHpAction(AbstractDungeon.player, AbstractDungeon.player, hpCost, AbstractGameAction.AttackEffect.POISON));
-    }
-
-    @Override
     public void atEndOfTurn(boolean isPlayer) {
         super.atEndOfTurn(isPlayer);
         --this.amount;
