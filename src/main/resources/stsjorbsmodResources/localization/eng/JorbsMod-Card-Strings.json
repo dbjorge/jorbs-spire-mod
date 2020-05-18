@@ -134,8 +134,8 @@
   },
   "stsjorbsmod:Clarify": {
     "NAME": "Clarify",
-    "DESCRIPTION": "Retain. While this is in your hand, Retain !M! extra card. NL stsjorbsmod:Exert. NL Gain Frozen Eye Effect.",
-    "UPGRADE_DESCRIPTION": "Retain. While this is in your hand, Retain !M! extra cards. NL stsjorbsmod:Exert. NL Gain Frozen Eye Effect."
+    "DESCRIPTION": "Retain: While this is in your hand, Retain !M! extra card. NL stsjorbsmod:Exert: Your draw pile is shown in order.",
+    "UPGRADE_DESCRIPTION": "Retain: While this is in your hand, Retain !M! extra cards. NL stsjorbsmod:Exert: Your draw pile is shown in order."
   },
   "stsjorbsmod:Cleanse": {
     "NAME": "Cleanse",

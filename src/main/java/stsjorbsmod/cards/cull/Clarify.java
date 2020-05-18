@@ -1,12 +1,11 @@
 package stsjorbsmod.cards.cull;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.RetainCardPower;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.RetainCardsPolitelyAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.patches.SelfExertField;
@@ -24,9 +23,6 @@ public class Clarify extends CustomJorbsModCard {
     private static final int CARDS_RETAINED = 1;
     private static final int UPGRADE_PLUS_CARDS_RETAINED = 1;
 
-    private boolean retainApplied = false;
-
-
     public Clarify() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         selfRetain = true;
@@ -35,45 +31,13 @@ public class Clarify extends CustomJorbsModCard {
     }
 
     @Override
-    public void triggerWhenDrawn() {
-        if (!retainApplied) {
-            AbstractPlayer p = AbstractDungeon.player;
-            addToTop(new ApplyPowerAction(p, p, new RetainCardPower(p, this.magicNumber), this.magicNumber));
-            retainApplied = true;
-        }
-    }
-
-    @Override
-    public void onRetained() {
-        if (!retainApplied) {
-            AbstractPlayer p = AbstractDungeon.player;
-            addToTop(new ApplyPowerAction(p, p, new RetainCardPower(p, this.magicNumber), this.magicNumber));
-            retainApplied = true;
-        }
-    }
-
-    private void removeExtraRetain() {
-        if (retainApplied) {
-            AbstractPlayer p = AbstractDungeon.player;
-            addToBot(new ReducePowerAction(p, p, RetainCardPower.POWER_ID, magicNumber));
-            retainApplied = false;
-        }
-    }
-
-    @Override
-    public void triggerOnExhaust() {
-        removeExtraRetain();
-    }
-
-    @Override
-    public void triggerOnManualDiscard() {
-        removeExtraRetain();
-    }
-
-    @Override
     public void use(AbstractPlayer p, AbstractMonster abstractMonster) {
-        removeExtraRetain();
         addToBot(new ApplyPowerAction(p, p, new ClarifyPower(p)));
+    }
+
+    @Override
+    public void triggerOnEndOfTurnForPlayingCard() {
+        addToBot(new RetainCardsPolitelyAction(AbstractDungeon.player, magicNumber));
     }
 
     @Override
