@@ -51,6 +51,14 @@
     "NAME": "诡异武器",
     "DESCRIPTION": "在你的回合结束时，对一名随机敌人造成 !D! 点 stsjorbsmod:攻击伤害 。"
   },
+  "stsjorbsmod:Assertion": {
+    "NAME": "妄下断言",
+    "DESCRIPTION": "造成你本幕打出技能牌数 !stsjorbsmod:UrMagic! 倍的伤害，伤害至多为 !stsjorbsmod:MetaMagic! 点。 ",
+    "EXTENDED_DESCRIPTION": [
+      " NL （造成 !D! 点伤害，已打出 !M! 张技能牌。）",
+      " NL （造成 !D! 点伤害，已打出 !M! 张技能牌。）"
+    ]
+  },
   "stsjorbsmod:Banish": {
     "NAME": "放逐",
     "DESCRIPTION": "!M! 回合内，敌人无法执行任何行动也不会受到任何伤害。 NL 消耗 。"
@@ -65,7 +73,7 @@
   },
   "stsjorbsmod:Blasphemer": {
     "NAME": "渎神之人",
-    "DESCRIPTION": "当你抽到这张牌时，在你的手牌中加入 !M! 张 *惩恶 。"
+    "DESCRIPTION": " 不能被打出 。 NL 当你抽到这张牌时，在你的手牌中加入 !M! 张 *惩恶 ，然后 消耗 。"
   },
   "stsjorbsmod:BookOfTongues": {
     "NAME": "多舌之书",
@@ -123,6 +131,11 @@
   "stsjorbsmod:ChillTouch": {
     "NAME": "冻寒之触",
     "DESCRIPTION": "对一名敌人造成 !D! 点伤害。 NL 它无法再获得治疗。"
+  },
+  "stsjorbsmod:Clarify": {
+    "NAME": "澄澈",
+    "DESCRIPTION": "保留 。 当这张牌在你手中时，额外 保留 !M! 张牌。 NL stsjorbsmod:力竭 。 NL 获得冻结之眼效果。",
+    "UPGRADE_DESCRIPTION": "保留 。 当这张牌在你手中时，额外 保留 !M! 张牌。 NL stsjorbsmod:力竭 。 NL 获得冻结之眼效果。"
   },
   "stsjorbsmod:Cleanse": {
     "NAME": "净化",
@@ -342,7 +355,7 @@
     "DESCRIPTION": "造成 !D! 点伤害。 NL 回忆起 stsjorbsmod:勤奋 。 NL 当你 stsjorbsmod:爆发 时，这张牌的 NL 基础伤害永久提高 !M! 点。"
   },
   "stsjorbsmod:Frostbite": {
-    "NAME": "冻伤",
+    "NAME": "刺骨寒风",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 若击杀敌人，将这张牌 stsjorbsmod:耗费 。"
   },
   "stsjorbsmod:Frustration": {
@@ -513,6 +526,11 @@
     "NAME": "镜",
     "DESCRIPTION": "stsjorbsmod:飞逝 。 NL 在你下一回合开始前，你不会受到任何伤害，并将敌人对你造成的攻击伤害反弹。"
   },
+  "stsjorbsmod:MirroredTechnique": {
+    "NAME": "镜影妙计",
+    "DESCRIPTION": "本场战斗中，你打出的所有攻击牌会额外打出受到攻击数次。 NL stsjorbsmod:竭力 。",
+    "UPGRADE_DESCRIPTION": "本场战斗中，你打出的所有攻击牌会额外打出受到攻击数+ !M! 次。 NL stsjorbsmod:竭力 。"
+  },
   "stsjorbsmod:MirrorImage": {
     "NAME": "镜像",
     "DESCRIPTION": "回忆起 stsjorbsmod:宽容 。 NL 召唤一个 无实体 的 NL 具有 !M! 点生命的镜像。 NL 消耗 。"
@@ -532,6 +550,11 @@
   "stsjorbsmod:OakLeaf": {
     "NAME": "橡木叶",
     "DESCRIPTION": "获得 !M! 点 敏捷 。"
+  },
+  "stsjorbsmod:OldBook": {
+    "NAME": "旧书",
+    "DESCRIPTION": " 不能被打出 。 NL 当你要被杀死时，免死并 stsjorbsmod:摧毁 这张牌。",
+    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 当你要被杀死时，免死并 stsjorbsmod:摧毁 这张牌，然后回复最大生命值的 !M! %。"
   },
   "stsjorbsmod:OldPocket": {
     "NAME": "旧钱包",
@@ -588,6 +611,10 @@
     "DESCRIPTION": "将你当前手牌中所有牌转化为 诅咒 牌（他们仍然可以被打出）。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "将你当前手牌中所有牌转化为 诅咒 牌（他们仍然可以被打出）。"
   },
+  "stsjorbsmod:Possession": {
+    "NAME": "囊中之物",
+    "DESCRIPTION": "支配目标，在你的回合结束时，对一随机目标造成被支配者最大生命值的伤害 !M! 次。 NL stsjorbsmod:竭力 。"
+  },
   "stsjorbsmod:Poultergeist": {
     "NAME": "吵闹鬼",
     "DESCRIPTION": "造成 !D! 点伤害。"
@@ -609,7 +636,7 @@
   },
   "stsjorbsmod:ProdigalMemory": {
     "NAME": "挥霍无度",
-    "DESCRIPTION": "抽3张牌并失去 !M! 点最大生命。 NL 若你未打出该牌， stsjorbsmod:竭力 。"
+    "DESCRIPTION": "抽 !stsjorbsmod:UrMagic! 张牌并失去 !M! 点最大生命。 NL 如果这张牌在回合结束时仍然在你的手中， stsjorbsmod:竭力 。"
   },
   "stsjorbsmod:PurgeMind": {
     "NAME": "净化思维",
@@ -634,6 +661,10 @@
     "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 虚弱 !stsjorbsmod:MetaMagic! 次。"
   },
+  "stsjorbsmod:ReapAndSow": {
+    "NAME": "种瓜得瓜",
+    "DESCRIPTION": "造成 !D! 点伤害， 斩杀 时，在下一场战斗开始时对所有敌人造成剩余伤害值的伤害。"
+  },
   "stsjorbsmod:Rebuke": {
     "NAME": "斥责",
     "DESCRIPTION": "获得 !stsjorbsmod:UrMagic! 层 无实体 。 NL 对所有敌人造成你 无实体 层数 !D! 倍的伤害。 NL 消耗 。",
@@ -654,6 +685,10 @@
     "NAME": "不愿遗忘",
     "DESCRIPTION": "在你当前记忆变得 stsjorbsmod:清晰 之前，你无法 NL 遗忘你当前记忆。 NL 抽 !M! 张牌。 NL 本回合内不能再抽牌。"
   },
+  "stsjorbsmod:RepressedMemory": {
+    "NAME": "心事重重",
+    "DESCRIPTION": "当你丢弃这张牌时，失去 !stsjorbsmod:MetaMagic! 点最大生命。 NL 若你打出这张牌：抽 !M! 张牌。 获得 !stsjorbsmod:UrMagic! 点 [E] 。 战斗结束时力竭。"
+  },
   "stsjorbsmod:Rest": {
     "NAME": "休憩",
     "DESCRIPTION": "回忆起 stsjorbsmod:贞洁 。 NL 获得 !B! 点 格挡 。 NL 结束你的回合。"
@@ -667,6 +702,11 @@
     "NAME": "腐败",
     "DESCRIPTION": "stsjorbsmod:飞逝 。 NL 随机失去一份 stsjorbsmod:清晰 记忆。 NL 若这张牌第一次加入你的手牌中，加入 !M! 张它的复制品。",
     "UPGRADE_DESCRIPTION": "stsjorbsmod:飞逝 。 NL 随机失去一份 stsjorbsmod:清晰 记忆。 NL 若这张牌第一次加入你的手牌中，加入 !M! 张它的复制品。"
+  },
+  "stsjorbsmod:Sacrifice": {
+    "NAME": "蹈锋饮血",
+    "DESCRIPTION": "当你抽到这张牌时，获得 [E] 。 NL 虚无 。 NL 本回合内，你的牌不再消耗 [E] ，改为消耗最大生命值。 NL stsjorbsmod:竭力 。",
+    "UPGRADE_DESCRIPTION": "当你抽到这张牌时，获得 [E] [E] 。 NL 虚无 。 NL 本回合内，你的牌不再消耗 [E] ，改为消耗最大生命值。 NL stsjorbsmod:竭力 。"
   },
   "stsjorbsmod:SchoolsOfMagic": {
     "NAME": "魔法学派",
@@ -688,13 +728,14 @@
     "NAME": "动摇",
     "DESCRIPTION": "若某个敌人具有 易伤 ，抽 !M! 张牌。 NL 给予 !stsjorbsmod:UrMagic! 层 易伤 。 NL 消耗 。"
   },
+  "stsjorbsmod:ShrapnelBloom": {
+    "NAME": "暴雨梨花",
+    "DESCRIPTION": "stsjorbsmod:竭力 。 NL 本回合内，你打出的下一张非传奇牌会额外打出 !M! 次，然后力竭。",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:竭力 。 NL 本回合内，你打出的下一张非传奇牌会额外打出 !M! 次，然后力竭。"
+  },
   "stsjorbsmod:SilverStrike": {
     "NAME": "真银打击",
     "DESCRIPTION": "造成 !D! 点伤害。 NL stsjorbsmod:竭力 。"
-  },
-  "stsjorbsmod:ShrapnelBloom": {
-    "NAME": "暴雨梨花",
-    "DESCRIPTION": "stsjorbsmod:竭力 。 NL 在这个回合，你打出的下一张非传奇牌会打出 !M! 次，然后力竭。"
   },
   "stsjorbsmod:Siphon": {
     "NAME": "虹吸",
