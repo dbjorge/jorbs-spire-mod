@@ -569,7 +569,7 @@
   },
   "stsjorbsmod:Possession": {
     "NAME": "Possession",
-    "DESCRIPTION": "Possess target, dealing it's max hp in damage !M! times to another random target at the end of your turn. NL stsjorbsmod:Exert"
+    "DESCRIPTION": "Apply !M! stsjorbsmod:Possessed. NL stsjorbsmod:Exert."
   },
   "stsjorbsmod:Poultergeist": {
     "NAME": "Poultergeist",

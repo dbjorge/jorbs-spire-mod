@@ -115,6 +115,10 @@
     "DESCRIPTION": "Gain 1 #yCoil each time you play a card. When you remember a new memory, deal 1 damage to ALL enemies for each #yCoil and lose all #yCoil."
   },
   {
+    "NAMES": ["possessed"],
+    "DESCRIPTION": "#yPossessed creatures will spend their next turn attacking random allies a number of times equal to their #yPossessed stacks with damage equal to their max HP."
+  },
+  {
     "NAMES": ["pride"],
     "DESCRIPTION": "At the end of combat, #yupgrade a card in your deck. Until forgotten, lose #b2 Dexterity."
   },

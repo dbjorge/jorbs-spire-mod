@@ -32,21 +32,7 @@ public class Possession extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int count = 0;
-        if (AbstractDungeon.getMonsters() != null) {
-            for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
-                if (!monster.isDead && !monster.isDying) {
-                    count += 1;
-                }
-            }
-        }
-        if (count != 1) {
-            addToBot(new ApplyPowerAction(m, p, new PossessionPower(m, this.magicNumber)));
-        }
-        else {
-            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, "Only one enemy!", true));
-        }
-        addToBot(new ApplyPowerAction(m, p, new StunMonsterPower(m, 1)));
+        addToBot(new ApplyPowerAction(m, p, new PossessionPower(m, this.magicNumber, p)));
     }
 
     @Override

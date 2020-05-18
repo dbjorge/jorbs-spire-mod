@@ -219,8 +219,8 @@
   "stsjorbsmod:PossessionPower": {
     "NAME": "Possessed",
     "DESCRIPTIONS": [
-      "Deals its max hp in damage to another random target at the end of your turn.",
-      "Deals its max hp in damage #b%1$s times to another random target at the end of your turn."
+      "This creature will spend its next turn attacking random allies. It will attack 1 time, dealing damage equal to its max HP.",
+      "This creature will spend its next turn attacking random allies. It will attack #b%1$s times, dealing damage equal to its max HP."
     ]
   },
   "stsjorbsmod:PrestidigitationPower": {
