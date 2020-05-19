@@ -539,8 +539,8 @@
   },
   "stsjorbsmod:OldBook": {
     "NAME": "Old Book",
-    "DESCRIPTION": "stsjorbsmod:Entombed (Die). NL. Unplayable. NL stsjorbsmod:Destroy this.",
-    "UPGRADE_DESCRIPTION": "stsjorbsmod:Entombed (Die). NL Unplayable. NL stsjorbsmod:Destroy this and heal !M! percent of your Max HP."
+    "DESCRIPTION": "stsjorbsmod:Entombed. NL stsjorbsmod:Exhume when you would die; instead stsjorbsmod:Destroy this card. NL Unplayable",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Entombed. NL stsjorbsmod:Exhume when you would die; instead stsjorbsmod:Destroy this card and heal !M! percent of your Max HP. NL Unplayable."
   },
   "stsjorbsmod:OldPocket": {
     "NAME": "Old Pocket",
