@@ -42,7 +42,6 @@ public class OldBookPower extends CustomJorbsModPower {
                 owner.heal(healAmt, true);
             }
 
-            AbstractDungeon.player.masterDeck.removeCard(card);
             CardMetaUtils.destroyCardPermanently(card);
         }
 
