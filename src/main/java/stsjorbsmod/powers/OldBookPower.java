@@ -3,6 +3,7 @@ package stsjorbsmod.powers;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import static stsjorbsmod.patches.EnumsPatch.SPECIAL;
 
 public class OldBookPower extends CustomJorbsModPower {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(OldBookPower.class);
@@ -10,12 +11,14 @@ public class OldBookPower extends CustomJorbsModPower {
 
     private AbstractCard card;
 
-    public OldBookPower(final AbstractCreature owner, AbstractCard card) {
+    public OldBookPower(final AbstractCreature owner, AbstractCard card, int amount) {
         super(STATIC);
 
         this.isTurnBased = false;
         this.card = card;
         this.owner = owner;
+        this.amount = amount;
+        this.type = SPECIAL;
 
         updateDescription();
     }
@@ -34,6 +37,6 @@ public class OldBookPower extends CustomJorbsModPower {
 
     @Override
     public AbstractPower makeCopy() {
-        return new OldBookPower(owner, card);
+        return new OldBookPower(owner, card, amount);
     }
 }

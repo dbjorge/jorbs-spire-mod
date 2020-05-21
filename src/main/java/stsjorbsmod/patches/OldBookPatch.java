@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.relics.MarkOfTheBloom;
 import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
+import stsjorbsmod.cards.cull.OldBook;
 import stsjorbsmod.powers.OldBookPower;
 import stsjorbsmod.util.CardMetaUtils;
 
@@ -44,8 +45,12 @@ public class OldBookPatch {
             }
         }
 
+        OldBookPower po = (OldBookPower)p.getPower(OldBookPower.POWER_ID);
+        po.reducePower(1);
+        if (po.amount <= 0)
+            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, po));
+
         CardMetaUtils.destroyCardPermanently(c);
-        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, OldBookPower.POWER_ID));
 
         return true;
     }

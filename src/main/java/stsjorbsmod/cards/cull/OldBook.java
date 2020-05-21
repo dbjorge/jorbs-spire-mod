@@ -38,7 +38,7 @@ public class OldBook extends CustomJorbsModCard implements OnEntombedSubscriber 
 
     @Override
     public void onCardEntombed() {
-        addToTop(new ApplyPowerAction(p, p, new OldBookPower(AbstractDungeon.player, this)));
+        addToTop(new ApplyPowerAction(p, p, new OldBookPower(AbstractDungeon.player, this, 1)));
     }
 
     @Override
