@@ -1,11 +1,13 @@
 package stsjorbsmod.cards.cull;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
+import stsjorbsmod.cards.OnCardExhumedSubscriber;
 import stsjorbsmod.cards.OnEntombedSubscriber;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.patches.EntombedField;
@@ -13,7 +15,7 @@ import stsjorbsmod.powers.OldBookPower;
 
 import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 
-public class OldBook extends CustomJorbsModCard implements OnEntombedSubscriber {
+public class OldBook extends CustomJorbsModCard implements OnCardExhumedSubscriber, OnEntombedSubscriber {
     public static final String ID = JorbsMod.makeID(OldBook.class);
 
     private static final CardRarity RARITY = CardRarity.RARE;
@@ -46,6 +48,11 @@ public class OldBook extends CustomJorbsModCard implements OnEntombedSubscriber 
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+    }
+
+    @Override
+    public void onCardExhumed() {
+        addToBot(new ReducePowerAction(p, p, OldBookPower.POWER_ID, 1));
     }
 
     @Override
