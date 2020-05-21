@@ -20,30 +20,6 @@ public class OldBookPower extends CustomJorbsModPower {
         updateDescription();
     }
 
-//    @Override
-//    public int onAttacked(DamageInfo info, int damageAmount) {
-//        if (damageAmount >= owner.currentHealth) {
-//            info.output = damageAmount = 0;
-//            addToBot(new ExhumeCardsAction(card));
-//            addToBot(new RemoveSpecificPowerAction(owner, owner, POWER_ID));
-//
-//            if (card.upgraded) {
-//                float percent = (float)card.magicNumber / 100.0F;
-//                int healAmt = (int)((float)owner.maxHealth * percent);
-//                if (healAmt < 1) {
-//                    healAmt = 1;
-//                }
-//
-//                owner.heal(healAmt, true);
-//            }
-//
-//            CardMetaUtils.destroyCardPermanently(card);
-//        }
-//
-//        updateDescription();
-//        return super.onAttacked(info, damageAmount);
-//    }
-
     public AbstractCard getCard() {
         return card;
     }
