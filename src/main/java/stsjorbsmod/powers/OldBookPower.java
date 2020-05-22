@@ -12,6 +12,9 @@ public class OldBookPower extends CustomJorbsModPower {
     public static final String UPGRADED = "__UPGRADED";
     public static final String NORMAL = "__NORMAL";
 
+    private static final String NAME = "Old Book";
+    private static final String UPGRADED_NAME = "Old Book+";
+
     private AbstractCard card;
 
     public OldBookPower(final AbstractCreature owner, AbstractCard card, int amount) {
@@ -34,10 +37,11 @@ public class OldBookPower extends CustomJorbsModPower {
     @Override
     public void updateDescription() {
         if (card.upgraded) {
-            name = "Old Book+";
+            name = UPGRADED_NAME;
             description = String.format(DESCRIPTIONS[1], card.magicNumber);
         }
         else {
+            name = NAME;
             description = DESCRIPTIONS[0];
         }
     }
