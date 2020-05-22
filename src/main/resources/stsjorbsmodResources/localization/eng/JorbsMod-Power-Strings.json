@@ -193,7 +193,7 @@
     "NAME": "Old Book",
     "DESCRIPTIONS": [
       "When you would die, instead #yDestroy Old Book.",
-      "When you would die, instead #yDestroy Old Book and heal #g%1d percent of your max HP."
+      "When you would die, instead #yDestroy Old Book+ and heal #g%1d percent of your max HP."
     ]
   },
   "stsjorbsmod:OverkillPower": {

@@ -9,11 +9,15 @@ public class OldBookPower extends CustomJorbsModPower {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(OldBookPower.class);
     public static final String POWER_ID = STATIC.ID;
 
+    public static final String UPGRADED = "__UPGRADED";
+    public static final String NORMAL = "__NORMAL";
+
     private AbstractCard card;
 
     public OldBookPower(final AbstractCreature owner, AbstractCard card, int amount) {
         super(STATIC);
 
+        ID = POWER_ID + (card.upgraded ? UPGRADED : NORMAL);
         this.isTurnBased = false;
         this.card = card;
         this.owner = owner;
@@ -29,10 +33,13 @@ public class OldBookPower extends CustomJorbsModPower {
 
     @Override
     public void updateDescription() {
-        if (card.upgraded)
+        if (card.upgraded) {
+            name = "Old Book+";
             description = String.format(DESCRIPTIONS[1], card.magicNumber);
-        else
+        }
+        else {
             description = DESCRIPTIONS[0];
+        }
     }
 
     @Override

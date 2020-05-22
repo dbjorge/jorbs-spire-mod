@@ -22,14 +22,21 @@ public class OldBookPatch {
     public static boolean triggerOldBook(AbstractPlayer p, int damageAmount) {
         if (damageAmount < p.currentHealth)
             return false;
-        if (!p.hasPower(OldBookPower.POWER_ID))
+        if (!p.hasPower(OldBookPower.POWER_ID + OldBookPower.UPGRADED) &&
+            !p.hasPower(OldBookPower.POWER_ID + OldBookPower.NORMAL))
             return false;
         if (p.hasPotion(FairyPotion.POTION_ID))
             return false;
         if (p.hasRelic(LizardTail.ID) && ((LizardTail) p.getRelic(LizardTail.ID)).counter == -1)
             return false;
 
-        AbstractCard c = ((OldBookPower) p.getPower(OldBookPower.POWER_ID)).getCard();
+        OldBookPower po = null;
+        if (p.hasPower(OldBookPower.POWER_ID + OldBookPower.NORMAL))
+            po = (OldBookPower)p.getPower(OldBookPower.POWER_ID + OldBookPower.NORMAL);
+        else
+            po = (OldBookPower)p.getPower(OldBookPower.POWER_ID + OldBookPower.UPGRADED);
+
+        AbstractCard c = po.getCard();
         if (c.upgraded) {
             if (!p.hasRelic(MarkOfTheBloom.ID)) {
                 float percent = (float) c.magicNumber / 100.0F;
@@ -45,7 +52,6 @@ public class OldBookPatch {
             }
         }
 
-        OldBookPower po = (OldBookPower)p.getPower(OldBookPower.POWER_ID);
         po.reducePower(1);
         if (po.amount <= 0)
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, po));
