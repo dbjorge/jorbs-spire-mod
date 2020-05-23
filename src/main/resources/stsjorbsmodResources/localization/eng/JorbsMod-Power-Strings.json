@@ -178,6 +178,13 @@
       "When you next gain #yClarity, deal #b%1$s damage to ALL enemies."
     ]
   },
+  "stsjorbsmod:MirroredTechniquePower": {
+    "NAME": "Mirrored Technique",
+    "DESCRIPTIONS": [
+      "Play all attacks an additional time for each time you are being attacked.",
+      "Play all attacks an additional time for each time you are being attacked + %1$d."
+    ]
+  },
   "stsjorbsmod:MirrorImagePower": {
     "NAME": "Mirror Image",
     "DESCRIPTIONS": [
@@ -248,6 +255,13 @@
     "NAME": "Cannot heal",
     "DESCRIPTIONS": [
       "Reduce healing by %1$s%%."
+    ]
+  },
+  "stsjorbsmod:ShrapnelBloomPower": {
+    "NAME": "Shrapnel Bloom",
+    "DESCRIPTIONS": [
+      "This turn, your next non-Legendary card is played %1d additional time, then #yExerts.",
+      "This turn, your next non-Legendary card is played %1d additional times, then #yExerts."
     ]
   },
   "stsjorbsmod:SnappedPower": {
