@@ -26,9 +26,16 @@ public class CoupDeGracePower extends CustomJorbsModPower {
         updateDescription();
     }
 
-    public static void increaseBaseOutputDamage(int incomingDamage, int currentBlock) {
+    public void increaseBaseOutputDamage(int incomingDamage, int currentBlock) {
+        // Currently Withering is only applied to Player and not Mobs.
+        // This will possibly need adjusting depending how that gets implemented.
+        int damageThroughIntangible = 1;
+        if (this.owner.hasPower(WitheringPower.POWER_ID)) {
+            AbstractPower po = (WitheringPower)owner.getPower((WitheringPower.POWER_ID));
+            damageThroughIntangible += po.amount;
+        }
         if (incomingDamage > currentBlock)
-            outputDamage += (incomingDamage - currentBlock - 1) * 2;
+            outputDamage += Math.max((incomingDamage - currentBlock - damageThroughIntangible), 0) * 2;
     }
 
     @Override

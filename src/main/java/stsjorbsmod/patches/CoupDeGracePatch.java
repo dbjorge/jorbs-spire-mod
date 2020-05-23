@@ -19,7 +19,8 @@ public class CoupDeGracePatch {
         @SpirePrefixPatch
         public static void patch(AbstractMonster __this, DamageInfo info) {
             if (shouldCalculatePreventedDamage(__this) && !TrueDamagePatch.TrueDamageInfoField.isTrueDamage.get(info)) {
-                CoupDeGracePower.increaseBaseOutputDamage(info.output, __this.currentBlock);
+                CoupDeGracePower po = (CoupDeGracePower)__this.getPower(CoupDeGracePower.POWER_ID);
+                po.increaseBaseOutputDamage(info.output, __this.currentBlock);
             }
         }
     }
@@ -32,7 +33,8 @@ public class CoupDeGracePatch {
         @SpirePrefixPatch
         public static void patch(AbstractPlayer __this, DamageInfo info) {
             if (shouldCalculatePreventedDamage(__this) && !TrueDamagePatch.TrueDamageInfoField.isTrueDamage.get(info)) {
-                CoupDeGracePower.increaseBaseOutputDamage(info.output, __this.currentBlock);
+                CoupDeGracePower po = (CoupDeGracePower)__this.getPower(CoupDeGracePower.POWER_ID);
+                po.increaseBaseOutputDamage(info.output, __this.currentBlock);
             }
         }
     }
