@@ -33,7 +33,9 @@ public class WitheringPatch {
         @SpireInsertPatch(locator = Locator.class, localvars = {"damageAmount"})
         public static void patch(AbstractPlayer __instance, DamageInfo info, @ByRef int[] damageAmount) {
             AbstractPower maybeWithering = __instance.getPower(WitheringPower.POWER_ID);
-            if (__instance.hasPower(IntangiblePlayerPower.POWER_ID) && maybeWithering != null)
+            if (__instance.hasPower(IntangiblePlayerPower.POWER_ID)
+                && maybeWithering != null
+                && !TrueDamagePatch.TrueDamageInfoField.isTrueDamage.get(info))
             {
                 damageAmount[0] = Math.min(maybeWithering.amount + 1, info.output);
             }
