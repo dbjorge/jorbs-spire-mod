@@ -17,6 +17,7 @@
 * New art for Thirsting campfire option (thanks ChDaVinci)
 * New art for Withering (thanks ChDaVinci for art and Neablis for helping merge)
 * New art for Decoy (thanks EscMargot for art and Neablis for helping merge)
+* New art for Coda (thanks Christina Oran for art and Neablis for helping merge)
 
 ### New CULL cards
 * Blasphemer (thanks nic3245)
@@ -30,6 +31,12 @@
 * Assertion (thanks LankSSBM)
 * Investment (thanks LankSSBM)
 * Mirrored Technique (thanks LankSSBM)
+
+### Wanderer Updates
+* New art for Frantic Search (thanks Chevy for art and Neablis for helping merge)
+* New art for Refuse to Forget (thanks Chevy for art and Neablis for helping merge)
+* New art for Animate Objects (thanks Chevy for art and Neablis for helping merge)
+* New art for Index (thanks lobbien for art and Neablis for helping merge)
 
 ## [v1.8.2] - 2020-04-18
 
