@@ -37,6 +37,7 @@
 * New art for Refuse to Forget (thanks Chevy for art and Neablis for helping merge)
 * New art for Animate Objects (thanks Chevy for art and Neablis for helping merge)
 * New art for Index (thanks lobbien for art and Neablis for helping merge)
+* New art for Toll the Dead (thanks Chevy for art and Neablis for helping merge)
 
 ## [v1.8.2] - 2020-04-18
 
