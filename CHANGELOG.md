@@ -5,6 +5,7 @@
 ### Bug fixes
 
 * Fixed issue where certain character-themed colors would occasionally be transparent (thanks kiooeht for reporting)
+* Fixed issue where using the Thirst campfire option for CULL would not reduce card damage (thanks wang429)
 
 ### CULL updates
 
