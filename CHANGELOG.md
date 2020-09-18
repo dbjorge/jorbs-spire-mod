@@ -6,6 +6,10 @@
 
 * Fixed issue where certain character-themed colors would occasionally be transparent (thanks kiooeht for reporting)
 
+### Updates
+
+* Integration with Googly Eyes mod (thanks wang429)
+
 ### CULL updates
 
 * Added the Book of Trials (thanks wang429)
