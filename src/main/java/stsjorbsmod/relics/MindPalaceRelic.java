@@ -4,7 +4,6 @@ import basemod.abstracts.CustomSavable;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import stsjorbsmod.JorbsMod;
-import stsjorbsmod.actions.GainSpecificClarityAction;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.memories.OnModifyMemoriesSubscriber;
 
