@@ -2,6 +2,8 @@ package stsjorbsmod.relics;
 
 import basemod.BaseMod;
 import basemod.interfaces.PostUpdateSubscriber;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -12,20 +14,28 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.memories.OnModifyMemoriesSubscriber;
 import stsjorbsmod.powers.MindGlassPower;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import static stsjorbsmod.characters.Wanderer.Enums.WANDERER_CARD_COLOR;
 
 /**
- * When gaining a unique clarity, deals 5 damage to all enemies.
- * When gain the tenth clarity in a combat, deal 500 damage to all enemies.
+ * When gaining a unique clarity, deals 3 damage to all enemies.
+ * When gaining the tenth clarity in a combat, deal 100 damage to all enemies.
  */
-public class MindGlassRelic extends CustomJorbsModRelic implements OnModifyMemoriesSubscriber, PostUpdateSubscriber {
+public class MindGlassRelic extends CustomJorbsModRelic implements OnModifyMemoriesSubscriber, PostUpdateSubscriber, RelicStatsModSupportIntf {
     public static final String ID = JorbsMod.makeID(MindGlassRelic.class);
 
     private static final int ONE_CLARITY_DAMAGE = 3;
     private static final int TEN_CLARITY_DAMAGE = 100;
+    private static final String STAT_DAMAGE_DEALT = "Damage Dealt: ";
+    private static final String STAT_TEN_CLARITIES = "Times Ten Clarities Gained: ";
+
+    private HashMap<String, Integer> stats = new HashMap<>();
 
     public MindGlassRelic() {
         super(ID, WANDERER_CARD_COLOR, RelicTier.UNCOMMON, LandingSound.CLINK);
+        resetStats();
     }
 
     @Override
@@ -54,10 +64,12 @@ public class MindGlassRelic extends CustomJorbsModRelic implements OnModifyMemor
                             1,
                             true));
         }
+        int[] damageMatrix = DamageInfo.createDamageMatrix(ONE_CLARITY_DAMAGE, true);
+        updateStats(damageMatrix, false);
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAllEnemiesAction(
                         null,
-                        DamageInfo.createDamageMatrix(ONE_CLARITY_DAMAGE, true),
+                        damageMatrix,
                         DamageInfo.DamageType.NORMAL,
                         // TODO: More impactful and relevant FX. See FlashAtkImgEffect.loadImage() and
                         //  FlashAtkImgEffect.playSound() for usage of AttackEffect in base game.
@@ -71,6 +83,15 @@ public class MindGlassRelic extends CustomJorbsModRelic implements OnModifyMemor
         BaseMod.unsubscribe(this);
     }
 
+    public void updateStats(int[] damageMatrix, boolean isTenClarities) {
+        for (int damage : damageMatrix) {
+            stats.merge(STAT_DAMAGE_DEALT, damage, Math::addExact);
+        }
+        if (isTenClarities) {
+            stats.merge(STAT_TEN_CLARITIES, 1, Math::addExact);
+        }
+    }
+
     /**
      * After every game update, if this instance of the relic was subscribed to the post relic, check if it should pulse
      */
@@ -79,5 +100,54 @@ public class MindGlassRelic extends CustomJorbsModRelic implements OnModifyMemor
         if (this.counter == 9 && !pulse && flashTimer == 0) {
             this.beginLongPulse();
         }
+    }
+
+    @Override
+    public String getStatsDescription() {
+        return new StringBuilder(STAT_DAMAGE_DEALT)
+                .append(stats.get(STAT_DAMAGE_DEALT))
+                .append(" NL ")
+                .append(STAT_TEN_CLARITIES)
+                .append(stats.get(STAT_TEN_CLARITIES))
+                .toString();
+    }
+
+    @Override
+    public String getExtendedStatsDescription(int totalCombats, int totalTurns) {
+        float damageDealt = stats.get(STAT_DAMAGE_DEALT);
+        float tenClarities = stats.get(STAT_TEN_CLARITIES);
+        return new StringBuilder(STAT_DAMAGE_DEALT)
+                .append((int) damageDealt)
+                .append(STAT_PER_TURN)
+                .append(damageDealt / totalTurns)
+                .append(STAT_PER_COMBAT)
+                .append(damageDealt / totalCombats)
+                .append(STAT_TEN_CLARITIES)
+                .append((int) tenClarities)
+                .append(STAT_PER_TURN)
+                .append(tenClarities / totalTurns)
+                .append(STAT_PER_COMBAT)
+                .append(tenClarities / totalCombats)
+                .toString();
+    }
+
+    @Override
+    public void resetStats() {
+        stats.put(STAT_DAMAGE_DEALT, 0);
+    }
+
+    @Override
+    public Object getStatsToSave() {
+        ArrayList<Integer> statsToSave = new ArrayList<>();
+        statsToSave.add(stats.get(STAT_DAMAGE_DEALT));
+        statsToSave.add(stats.get(STAT_TEN_CLARITIES));
+        return statsToSave;
+    }
+
+    @Override
+    public void setStatsOnLoad(JsonElement jsonElement) {
+        JsonArray jsonArray = jsonElement.getAsJsonArray();
+        stats.put(STAT_DAMAGE_DEALT, jsonArray.get(0).getAsInt());
+        stats.put(STAT_TEN_CLARITIES, jsonArray.get(0).getAsInt());
     }
 }

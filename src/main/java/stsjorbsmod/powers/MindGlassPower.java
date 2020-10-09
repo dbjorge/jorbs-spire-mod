@@ -4,10 +4,12 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import stsjorbsmod.memories.OnModifyMemoriesSubscriber;
+import stsjorbsmod.relics.MindGlassRelic;
 
 public class MindGlassPower extends CustomJorbsModPower implements OnModifyMemoriesSubscriber {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(MindGlassPower.class);
@@ -26,10 +28,14 @@ public class MindGlassPower extends CustomJorbsModPower implements OnModifyMemor
 
     @Override
     public void onGainClarity(String id) {
+        int[] damageMatrix = DamageInfo.createDamageMatrix(damage, true);
+        if (owner.isPlayer && owner instanceof AbstractPlayer && ((AbstractPlayer) owner).hasRelic(MindGlassRelic.ID)) {
+            ((MindGlassRelic) ((AbstractPlayer) owner).getRelic(MindGlassRelic.ID)).updateStats(damageMatrix, true);
+        }
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAllEnemiesAction(
                         null,
-                        DamageInfo.createDamageMatrix(damage, true),
+                        damageMatrix,
                         DamageInfo.DamageType.NORMAL,
                         // TODO: More impactful and relevant FX. See FlashAtkImgEffect.loadImage() and
                         //  FlashAtkImgEffect.playSound() for usage of AttackEffect in base game.
