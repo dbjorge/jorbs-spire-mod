@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -12,6 +13,7 @@ import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import stsjorbsmod.powers.BurningPower;
+import stsjorbsmod.relics.AlchemistsFireRelic;
 import stsjorbsmod.util.BurningUtils;
 
 /**
@@ -53,6 +55,9 @@ public class BurningLoseHpAction extends AbstractGameAction {
                 AbstractPower p = this.target.getPower(BurningPower.POWER_ID);
                 if (p != null) {
                     p.amount = BurningUtils.calculateNextBurningAmount(source, p.amount);
+                    if(source != null && source.isPlayer && ((AbstractPlayer) source).hasRelic(AlchemistsFireRelic.ID)) {
+                        ((AlchemistsFireRelic) ((AbstractPlayer) source).getRelic(AlchemistsFireRelic.ID)).updateStats(p.amount);
+                    }
 
                     p.updateDescription();
                 }
