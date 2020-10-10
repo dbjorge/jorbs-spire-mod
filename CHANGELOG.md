@@ -6,6 +6,11 @@
 
 * Fixed issue where certain character-themed colors would occasionally be transparent (thanks kiooeht for reporting)
 
+### General updates
+
+* Integration with Relic Stats Mod by ForgottenArbiter/Quincunx (thanks wang429)
+  * https://steamcommunity.com/sharedfiles/filedetails/?id=2118491069
+
 ### CULL updates
 
 * Added the Book of Trials (thanks wang429)
