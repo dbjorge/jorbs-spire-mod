@@ -25,9 +25,9 @@ public class AlchemistsFireRelic extends CustomJorbsModRelic implements Clickabl
     public static final String[] ON_CLICK = CardCrawlGame.languagePack.getUIString(makeID("AlchemistsFireOnClick")).TEXT;
 
     public static final int BURNING_FALLOFF_RATE = 10;
-    private static final String STAT_BURNING_KEPT = "Burning Kept: ";
 
-    HashMap<String, Integer> stats = new HashMap<>();
+    private final String STAT_BURNING_KEPT = DESCRIPTIONS[1];
+    private HashMap<String, Integer> stats = new HashMap<>();
 
     public AlchemistsFireRelic() {
         super(ID, WANDERER_CARD_COLOR, RelicTier.UNCOMMON, LandingSound.MAGICAL);
@@ -53,18 +53,24 @@ public class AlchemistsFireRelic extends CustomJorbsModRelic implements Clickabl
     }
 
     @Override
+    public AbstractRelic makeCopy() {
+        AlchemistsFireRelic copy = (AlchemistsFireRelic) super.makeCopy();
+        copy.stats = stats;
+        return copy;
+    }
+
+    @Override
     public String getStatsDescription() {
-        return STAT_BURNING_KEPT + stats.get(STAT_BURNING_KEPT);
+        return String.format(STAT_BURNING_KEPT, stats.get(STAT_BURNING_KEPT));
     }
 
     @Override
     public String getExtendedStatsDescription(int totalCombats, int totalTurns) {
         float burningKept = (float) stats.get(STAT_BURNING_KEPT);
-        return new StringBuilder(getStatsDescription())
-                .append(STAT_PER_TURN)
-                .append(burningKept / totalTurns)
-                .append(STAT_PER_COMBAT)
-                .append(burningKept / totalCombats)
+        return new StringBuilder()
+                .append(getStatsDescription())
+                .append(String.format(STAT_PER_TURN, STATS_FORMAT.format(burningKept / Math.max(totalTurns, 1))))
+                .append(String.format(STAT_PER_COMBAT, STATS_FORMAT.format(burningKept / Math.max(totalCombats, 1))))
                 .toString();
     }
 

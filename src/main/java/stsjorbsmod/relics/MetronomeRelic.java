@@ -3,6 +3,7 @@ package stsjorbsmod.relics;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.IncreaseManifestAction;
 
@@ -14,8 +15,7 @@ import static stsjorbsmod.characters.Cull.Enums.CULL_CARD_COLOR;
 public class MetronomeRelic extends CustomJorbsModRelic implements RelicStatsModSupportIntf {
     public static final String ID = JorbsMod.makeID(MetronomeRelic.class);
 
-    private static final String STAT_MANIFEST_REDUCED = "Manifest Reduced: ";
-
+    private final String STAT_MANIFEST_REDUCED = DESCRIPTIONS[1];
     private HashMap<String, Integer> stats = new HashMap<>();
 
     public MetronomeRelic() {
@@ -38,18 +38,24 @@ public class MetronomeRelic extends CustomJorbsModRelic implements RelicStatsMod
     }
 
     @Override
+    public AbstractRelic makeCopy() {
+        MetronomeRelic copy = (MetronomeRelic) super.makeCopy();
+        copy.stats = stats;
+        return copy;
+    }
+
+    @Override
     public String getStatsDescription() {
-        return STAT_MANIFEST_REDUCED + stats.get(STAT_MANIFEST_REDUCED);
+        return String.format(STAT_MANIFEST_REDUCED, stats.get(STAT_MANIFEST_REDUCED));
     }
 
     @Override
     public String getExtendedStatsDescription(int totalCombats, int totalTurns) {
         float manifestReduced = (float) stats.get(STAT_MANIFEST_REDUCED);
-        return new StringBuilder(getStatsDescription())
-                .append(STAT_PER_TURN)
-                .append(manifestReduced / totalTurns)
-                .append(STAT_PER_COMBAT)
-                .append(manifestReduced / totalCombats)
+        return new StringBuilder()
+                .append(getStatsDescription())
+                .append(String.format(STAT_PER_TURN, STATS_FORMAT.format(manifestReduced / Math.max(totalTurns, 1))))
+                .append(String.format(STAT_PER_COMBAT, STATS_FORMAT.format(manifestReduced / Math.max(totalCombats, 1))))
                 .toString();
     }
 

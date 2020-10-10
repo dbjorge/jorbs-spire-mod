@@ -22,8 +22,8 @@ public class GrimoireRelic extends CustomJorbsModRelic implements RelicStatsModS
     public static final String ID = JorbsMod.makeID(GrimoireRelic.class);
 
     private static final int HEAL_PER_CLARITY = 1;
-    private static final String STAT_AMOUNT_HEALED = "Amount Healed: ";
 
+    private final String STAT_AMOUNT_HEALED = DESCRIPTIONS[1];
     private HashMap<String, Integer> stats = new HashMap<>();
 
     public GrimoireRelic() {
@@ -55,18 +55,24 @@ public class GrimoireRelic extends CustomJorbsModRelic implements RelicStatsModS
     }
 
     @Override
+    public AbstractRelic makeCopy() {
+        GrimoireRelic copy = (GrimoireRelic) super.makeCopy();
+        copy.stats = stats;
+        return copy;
+    }
+
+    @Override
     public String getStatsDescription() {
-        return STAT_AMOUNT_HEALED + stats.get(STAT_AMOUNT_HEALED);
+        return String.format(STAT_AMOUNT_HEALED, stats.get(STAT_AMOUNT_HEALED));
     }
 
     @Override
     public String getExtendedStatsDescription(int totalCombats, int totalTurns) {
         float amountHealed = (float) stats.get(STAT_AMOUNT_HEALED);
-        return new StringBuilder(getStatsDescription())
-                .append(STAT_PER_TURN)
-                .append(amountHealed / totalTurns)
-                .append(STAT_PER_COMBAT)
-                .append(amountHealed / totalCombats)
+        return new StringBuilder()
+                .append(getStatsDescription())
+                .append(String.format(STAT_PER_TURN, STATS_FORMAT.format(amountHealed / Math.max(totalTurns, 1))))
+                .append(String.format(STAT_PER_COMBAT, STATS_FORMAT.format(amountHealed / Math.max(totalCombats, 1))))
                 .toString();
     }
 

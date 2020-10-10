@@ -87,6 +87,12 @@
       "Voiceover Subtitles"
     ]
   },
+  "stsjorbsmod:RelicStatsModSupportIntf": {
+    "TEXT": [
+      " NL Per turn: #b%1$s",
+      " NL Per combat: #b%1$s"
+    ]
+  },
   "stsjorbsmod:SnapCounter": {
     "TEXT": [
       "Fragile Mind",

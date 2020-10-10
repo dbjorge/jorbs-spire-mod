@@ -3,7 +3,8 @@
     "NAME": "Alchemist's Fire",
     "FLAVOR": "Forca Messi! Forca Messi! Messi Animal!",
     "DESCRIPTIONS": [
-      "Reduces stsjorbsmod:Burning falloff rate to 10% per turn."
+      "Reduces stsjorbsmod:Burning falloff rate to #b10% per turn.",
+      "Burning Saved: #b%1$s"
     ]
   },
   "stsjorbsmod:BookOfTrialsRelic": {
@@ -27,21 +28,25 @@
     "NAME": "Grimoire",
     "FLAVOR": "Is this... familiar?",
     "DESCRIPTIONS": [
-      "At the start of each combat, remember stsjorbsmod:Patience. NL At the end of each combat, heal #b1 HP per stsjorbsmod:Clarity."
+      "At the start of each combat, remember stsjorbsmod:Patience. NL At the end of each combat, heal #b1 HP per stsjorbsmod:Clarity.",
+      "Amount Healed: #b%1$s"
     ]
   },
   "stsjorbsmod:MetronomeRelic": {
     "NAME": "Metronome",
     "FLAVOR": "Tick Tock...Tick Tock",
     "DESCRIPTIONS": [
-      "At the start of every 5th turn, reduce stsjorbsmod:Manifest by 1."
+      "At the start of every #b5th turn, reduce stsjorbsmod:Manifest by #b1.",
+      "Manifest Reduced: #b%1$s"
     ]
   },
   "stsjorbsmod:MindGlassRelic": {
     "NAME": "Mind Glass",
     "FLAVOR": "Press e to e.",
     "DESCRIPTIONS": [
-      "Gaining stsjorbsmod:Clarity deals 3 damage to all enemies. NL Gaining 10 stsjorbsmod:Clarity in the same fight deals 100 damage to all enemies."
+      "Gaining stsjorbsmod:Clarity deals #b3 damage to all enemies. NL Gaining #b10 stsjorbsmod:Clarity in the same fight deals #b100 damage to all enemies.",
+      "Damage Dealt: #b%1$s",
+      " NL Times Gained Ten Clarities: #b%1$s"
     ]
   },
   "stsjorbsmod:MindPalaceRelic": {
