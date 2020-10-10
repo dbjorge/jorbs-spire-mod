@@ -2,6 +2,7 @@ package stsjorbsmod.relics;
 
 import basemod.BaseMod;
 import basemod.interfaces.PostUpdateSubscriber;
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -30,8 +31,6 @@ public class MindGlassRelic extends CustomJorbsModRelic implements OnModifyMemor
     private static final int TEN_CLARITY_DAMAGE = 100;
     private static final String STAT_DAMAGE_DEALT = "Damage Dealt: ";
     private static final String STAT_TEN_CLARITIES = "Times Ten Clarities Gained: ";
-
-    private HashMap<String, Integer> stats = new HashMap<>();
 
     public MindGlassRelic() {
         super(ID, WANDERER_CARD_COLOR, RelicTier.UNCOMMON, LandingSound.CLINK);
@@ -122,6 +121,7 @@ public class MindGlassRelic extends CustomJorbsModRelic implements OnModifyMemor
                 .append(damageDealt / totalTurns)
                 .append(STAT_PER_COMBAT)
                 .append(damageDealt / totalCombats)
+                .append(" NL ")
                 .append(STAT_TEN_CLARITIES)
                 .append((int) tenClarities)
                 .append(STAT_PER_TURN)
@@ -137,17 +137,23 @@ public class MindGlassRelic extends CustomJorbsModRelic implements OnModifyMemor
     }
 
     @Override
-    public Object getStatsToSave() {
+    public JsonElement onSaveStats() {
+        // An array makes more sense if you want to store more than one stat
+        Gson gson = new Gson();
         ArrayList<Integer> statsToSave = new ArrayList<>();
         statsToSave.add(stats.get(STAT_DAMAGE_DEALT));
         statsToSave.add(stats.get(STAT_TEN_CLARITIES));
-        return statsToSave;
+        return gson.toJsonTree(statsToSave);
     }
 
     @Override
-    public void setStatsOnLoad(JsonElement jsonElement) {
-        JsonArray jsonArray = jsonElement.getAsJsonArray();
-        stats.put(STAT_DAMAGE_DEALT, jsonArray.get(0).getAsInt());
-        stats.put(STAT_TEN_CLARITIES, jsonArray.get(0).getAsInt());
+    public void onLoadStats(JsonElement jsonElement) {
+        if (jsonElement != null) {
+            JsonArray jsonArray = jsonElement.getAsJsonArray();
+            stats.put(STAT_DAMAGE_DEALT, jsonArray.get(0).getAsInt());
+            stats.put(STAT_TEN_CLARITIES, jsonArray.get(0).getAsInt());
+        } else {
+            resetStats();
+        }
     }
 }

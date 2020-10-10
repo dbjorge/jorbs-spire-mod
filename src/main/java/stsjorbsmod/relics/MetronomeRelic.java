@@ -1,5 +1,6 @@
 package stsjorbsmod.relics;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import stsjorbsmod.JorbsMod;
@@ -58,15 +59,21 @@ public class MetronomeRelic extends CustomJorbsModRelic implements RelicStatsMod
     }
 
     @Override
-    public Object getStatsToSave() {
+    public JsonElement onSaveStats() {
+        // An array makes more sense if you want to store more than one stat
+        Gson gson = new Gson();
         ArrayList<Integer> statsToSave = new ArrayList<>();
         statsToSave.add(stats.get(STAT_MANIFEST_REDUCED));
-        return statsToSave;
+        return gson.toJsonTree(statsToSave);
     }
 
     @Override
-    public void setStatsOnLoad(JsonElement jsonElement) {
-        JsonArray jsonArray = jsonElement.getAsJsonArray();
-        stats.put(STAT_MANIFEST_REDUCED, jsonArray.get(0).getAsInt());
+    public void onLoadStats(JsonElement jsonElement) {
+        if (jsonElement != null) {
+            JsonArray jsonArray = jsonElement.getAsJsonArray();
+            stats.put(STAT_MANIFEST_REDUCED, jsonArray.get(0).getAsInt());
+        } else {
+            resetStats();
+        }
     }
 }

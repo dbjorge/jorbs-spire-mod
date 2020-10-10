@@ -1,5 +1,6 @@
 package stsjorbsmod.relics;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
@@ -54,13 +55,6 @@ public class GrimoireRelic extends CustomJorbsModRelic implements RelicStatsModS
     }
 
     @Override
-    public AbstractRelic makeCopy() {
-        GrimoireRelic copy = new GrimoireRelic();
-        copy.stats = this.stats;
-        return copy;
-    }
-
-    @Override
     public String getStatsDescription() {
         return STAT_AMOUNT_HEALED + stats.get(STAT_AMOUNT_HEALED);
     }
@@ -82,15 +76,21 @@ public class GrimoireRelic extends CustomJorbsModRelic implements RelicStatsModS
     }
 
     @Override
-    public Object getStatsToSave() {
+    public JsonElement onSaveStats() {
+        // An array makes more sense if you want to store more than one stat
+        Gson gson = new Gson();
         ArrayList<Integer> statsToSave = new ArrayList<>();
         statsToSave.add(stats.get(STAT_AMOUNT_HEALED));
-        return statsToSave;
+        return gson.toJsonTree(statsToSave);
     }
 
     @Override
-    public void setStatsOnLoad(JsonElement jsonElement) {
-        JsonArray jsonArray = jsonElement.getAsJsonArray();
-        stats.put(STAT_AMOUNT_HEALED, jsonArray.get(0).getAsInt());
+    public void onLoadStats(JsonElement jsonElement) {
+        if (jsonElement != null) {
+            JsonArray jsonArray = jsonElement.getAsJsonArray();
+            stats.put(STAT_AMOUNT_HEALED, jsonArray.get(0).getAsInt());
+        } else {
+            resetStats();
+        }
     }
 }

@@ -1,6 +1,5 @@
 package stsjorbsmod.relics;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
@@ -28,27 +27,14 @@ interface RelicStatsModSupportIntf {
      */
     void resetStats();
 
-    Object getStatsToSave();
+    JsonElement onSaveStats();
 
-    default JsonElement onSaveStats() {
-        // An array makes more sense if you want to store more than one stat
-        Gson gson = new Gson();
-        return gson.toJsonTree(getStatsToSave());
-    }
-
-    void setStatsOnLoad(JsonElement jsonElement);
-
-    default void onLoadStats(JsonElement jsonElement) {
-        if (jsonElement != null) {
-            setStatsOnLoad(jsonElement);
-        } else {
-            resetStats();
-        }
-    }
+    void onLoadStats(JsonElement jsonElement);
 
     /**
      * Relic Stats will always query the stats from the instance passed to BaseMod.addRelic()
      * Therefore, need to make sure all copies share the same stats by copying the stats.
+     * This has been written to be handled in CustomJorbsModRelic
      */
     AbstractRelic makeCopy();
 }
