@@ -6,7 +6,7 @@
 
 * Fixed issue where certain character-themed colors would occasionally be transparent (thanks kiooeht for reporting)
 
-### General updates
+### Updates
 
 * Integration with Relic Stats Mod by ForgottenArbiter/Quincunx (thanks wang429)
   * https://steamcommunity.com/sharedfiles/filedetails/?id=2118491069
