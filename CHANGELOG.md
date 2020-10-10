@@ -8,7 +8,8 @@
 
 ### Updates
 
-* Integration with Googly Eyes mod (thanks wang429)
+* Integration with Googly Eyes mod by twanvl (thanks wang429)
+  * https://steamcommunity.com/sharedfiles/filedetails/?id=1615430126
 
 ### CULL updates
 
