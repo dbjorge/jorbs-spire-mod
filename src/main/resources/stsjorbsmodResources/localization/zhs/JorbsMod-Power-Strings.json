@@ -52,6 +52,15 @@
       "你抽牌堆中的卡牌现在将按顺序展示。"
     ]
   },
+  "stsjorbsmod:CoupDeGracePower": {
+    "NAME": "慈悲一击",
+    "DESCRIPTIONS": [
+      " #b%1d 回合后，目标失去被 无实体 防止伤害量两倍的生命。（造成 #g%2d 点伤害。）",
+      " #b%1d 回合后，目标失去被 无实体 防止伤害量两倍的生命。（造成 #g%2d 点伤害。）",
+      " #b%1d 回合后，你失去被 无实体 防止伤害量两倍的生命。（造成 #g%2d 点伤害。）",
+      " #b%1d 回合后，你失去被 无实体 防止伤害量两倍的生命。（造成 #g%2d 点伤害。）"
+    ]
+  },
   "stsjorbsmod:DamnationPower": {
     "NAME": "天谴",
     "DESCRIPTIONS": [
@@ -201,6 +210,13 @@
       "在你当前记忆变得 #y清晰 之前，你无法遗忘你当前记忆。"
     ]
   },
+  "stsjorbsmod:OldBookPower": {
+    "NAME": "旧书",
+    "DESCRIPTIONS": [
+      "当你将死时，免死并 #y摧毁 旧书。",
+      "当你将死时，免死并 #y摧毁 旧书+ ，然后回复最大生命值的 #g%1d %。"
+    ]
+  },
   "stsjorbsmod:OverkillPower": {
     "NAME": "赶尽杀绝",
     "DESCRIPTIONS": [
@@ -233,6 +249,13 @@
     "DESCRIPTIONS": [
       "本回合内，你打出的下一张牌会被额外打出 1 次。",
       "本回合内，你打出的下一张牌会被额外打出  #b%1$s  次。"
+    ]
+  },
+  "stsjorbsmod:PossessionPower": {
+    "NAME": "囊中之物",
+    "DESCRIPTIONS": [
+      "在你回合结束时，对另一随机目标造成其最大生命值的伤害。",
+      "在你回合结束时，对另一随机目标造成其最大生命值得伤害 #b%1$s 次。"
     ]
   },
   "stsjorbsmod:PrestidigitationPower": {
@@ -269,8 +292,8 @@
   "stsjorbsmod:ShrapnelBloomPower": {
     "NAME": "暴雨梨花",
     "DESCRIPTIONS": [
-      "本回合内，你打出的下一张非传奇牌会额外打出 %1d 次，然后 #y力竭 。",
-      "本回合内，你打出的下一张非传奇牌会额外打出 %1d 次，然后 #y力竭 。"
+      "本回合内，你打出的下一张非传奇牌会额外打出 %1d 次，然后陷入 #y力竭 。",
+      "本回合内，你打出的下一张非传奇牌会额外打出 %1d 次，然后陷入 #y力竭 。"
     ]
   },
   "stsjorbsmod:SnappedPower": {
