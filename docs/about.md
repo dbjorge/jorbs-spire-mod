@@ -101,7 +101,7 @@ The Wanderer has access to 14 different memories. Each memory can provide a buff
 * **Passive**: While the Wanderer has Envy, all cards that target an enemy will also apply 1 vulnerable to that enemy.
 
 #### Greed
-* **Passive**: While the Wanderer has Greed, he will gain 20 gold for every non-minion enemy he kills.
+* **Passive**: While the Wanderer has Greed, he will gain 10 gold for every non-minion enemy he kills.
 
 #### Wrath
 * **Passive**: While the Wanderer has Wrath, his last attack played will gain 1 damage permanently any time a non-minion enemy dies.

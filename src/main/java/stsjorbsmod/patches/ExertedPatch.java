@@ -42,7 +42,9 @@ public class ExertedPatch {
         public static void patch(AbstractPlayer __this) {
             for (AbstractCard c : __this.masterDeck.group) {
                 if (isExerted(c)) {
-                    __this.exhaustPile.addToTop(c.makeSameInstanceOf());
+                    AbstractCard card = c.makeSameInstanceOf();
+                    __this.exhaustPile.addToTop(card);
+                    ExertedField.exertedAtStartOfCombat.set(card, true);
                 }
             }
         }
