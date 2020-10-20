@@ -17,12 +17,13 @@ public class SacrificeEnergyPatch {
         private static AbstractPlayer p = AbstractDungeon.player;
 
         @SpirePrefixPatch
-        public static void Insert(EnergyManager __this, int e) {
+        public static SpireReturn Insert(EnergyManager __this, int e) {
             if (p != null && p.hasPower(SacrificePower.POWER_ID)) {
                 AbstractDungeon.actionManager.addToBottom(
                         new DecreaseMaxHpAction(p, p, e, AbstractGameAction.AttackEffect.POISON));
-                SpireReturn.Return(null);
+                return SpireReturn.Return(null);
             }
+            return SpireReturn.Continue();
         }
     }
 }

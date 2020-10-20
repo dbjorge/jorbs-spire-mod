@@ -687,8 +687,8 @@
   },
   "stsjorbsmod:Sacrifice": {
     "NAME": "Sacrifice",
-    "DESCRIPTION": "Gain [E] when drawn. NL Ethereal. NL This turn, pay Max HP instead of [E] to play cards. NL stsjorbsmod:Exert.",
-    "UPGRADE_DESCRIPTION": "Gain [E] [E] when drawn. NL Ethereal. NL This turn, pay Max HP instead of [E] to play cards. NL stsjorbsmod:Exert."
+    "DESCRIPTION": "Gain [E] when drawn. NL Ethereal. NL This turn, pay Max HP instead of [E]. NL stsjorbsmod:Exert.",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E] when drawn. NL Ethereal. NL This turn, pay Max HP instead of [E]. NL stsjorbsmod:Exert."
   },
   "stsjorbsmod:SchoolsOfMagic": {
     "NAME": "Schools of Magic",
