@@ -9,6 +9,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
         method = SpirePatch.CLASS
 )
 public class ExertedField {
-    @SuppressWarnings("unchecked")
-    public static SpireField<Boolean> exerted = new SpireField(() -> false);
+    public static SpireField<Boolean> exerted = new SpireField<>(() -> false);
+    public static SpireField<Boolean> exertedAtStartOfCombat = new SpireField<>(() -> false);
 }
