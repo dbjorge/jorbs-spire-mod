@@ -132,6 +132,11 @@
     "NAME": "Chill Touch",
     "DESCRIPTION": "Deal !D! damage to an enemy. NL It can no longer heal."
   },
+  "stsjorbsmod:Clarify": {
+    "NAME": "Clarify",
+    "DESCRIPTION": "Retain: While this is in your hand, Retain !M! extra card. NL stsjorbsmod:Exert: Your draw pile is shown in order.",
+    "UPGRADE_DESCRIPTION": "Retain: While this is in your hand, Retain !M! extra cards. NL stsjorbsmod:Exert: Your draw pile is shown in order."
+  },
   "stsjorbsmod:Cleanse": {
     "NAME": "Cleanse",
     "DESCRIPTION": "Discard all Curses from your draw pile. NL Heal !stsjorbsmod:UrMagic! HP for each Curse discarded. NL Exhaust.",

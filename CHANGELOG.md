@@ -31,6 +31,7 @@
 * Assertion (thanks LankSSBM)
 * Investment (thanks LankSSBM)
 * Mirrored Technique (thanks LankSSBM)
+* Clarify (thanks LankSSBM)
 * Focused Rage (thanks wang429)
 
 ### Wanderer Updates
