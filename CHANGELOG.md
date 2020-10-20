@@ -31,6 +31,7 @@
 * Assertion (thanks LankSSBM)
 * Investment (thanks LankSSBM)
 * Mirrored Technique (thanks LankSSBM)
+* Focused Rage (thanks wang429)
 
 ### Wanderer Updates
 * New art for Frantic Search (thanks Chevy for art and Neablis for helping merge)

@@ -319,6 +319,14 @@
     "NAME": "Flame Ward",
     "DESCRIPTION": "The next time you are attacked, apply !M! stsjorbsmod:Burning to ALL enemies and gain !B! Block. Exhaust."
   },
+  "stsjorbsmod:FocusedRage": {
+    "NAME": "Focused Rage",
+    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Strength for each card stsjorbsmod:Exerted this combat. NL stsjorbsmod:Exert.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Applies !M! Strength.)",
+      "Nothing exerted this combat!"
+    ]
+  },
   "stsjorbsmod:ForbiddenGrimoire": {
     "NAME": "The Grimoire",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until you stsjorbsmod:Snap OR start turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL stsjorbsmod:Exhume after playing this then !M! other cards."
