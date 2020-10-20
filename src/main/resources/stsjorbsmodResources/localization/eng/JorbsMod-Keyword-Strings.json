@@ -83,7 +83,7 @@
   },
   {
     "NAMES": ["greed"],
-    "DESCRIPTION": "Whenever you kill a non-minion enemy, gain #b20 gold."
+    "DESCRIPTION": "Whenever you kill a non-minion enemy, gain #b10 gold."
   },
   {
     "NAMES": ["humility"],
