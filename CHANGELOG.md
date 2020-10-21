@@ -33,6 +33,7 @@
 * Mirrored Technique (thanks LankSSBM)
 * Clarify (thanks LankSSBM)
 * Focused Rage (thanks wang429)
+* Reap and Sow (thanks LankSSBM)
 
 ### Wanderer Updates
 * New art for Frantic Search (thanks Chevy for art and Neablis for helping merge)
