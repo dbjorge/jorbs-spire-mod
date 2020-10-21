@@ -11,7 +11,10 @@ import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
@@ -55,7 +58,8 @@ public class JorbsMod implements
         OnPowersModifiedSubscriber,
         StartActSubscriber,
         StartGameSubscriber,
-        OnCardUseSubscriber{
+        OnCardUseSubscriber,
+        OnStartBattleSubscriber {
     public static final String MOD_ID = "stsjorbsmod";
 
     public static final Logger logger = LogManager.getLogger(JorbsMod.class.getName());
@@ -180,6 +184,7 @@ public class JorbsMod implements
         BaseMod.addSaveField(MOD_ID + ":ManifestSaveData", new ManifestSaveData());
         BaseMod.addSaveField(MOD_ID + ":DeckOfTrialsSaveData", new DeckOfTrialsSaveData());
         BaseMod.addSaveField(MOD_ID + ":SkillsPlayedThisAct", new SkillsPlayedThisActSaveData());
+        BaseMod.addSaveField(MOD_ID + ":ReapAndSowSaveData", new ReapAndSowSaveData());
         logger.info("Done adding save fields");
     }
 
@@ -461,6 +466,16 @@ public class JorbsMod implements
     public void receiveCardUsed(AbstractCard c) {
         if (c.type == AbstractCard.CardType.SKILL) {
             SkillsPlayedThisActSaveData.skillsPlayed++;
+        }
+    }
+
+    @Override
+    public void receiveOnBattleStart(AbstractRoom abstractRoom) {
+        if (ReapAndSowSaveData.reapAndSowDamage != 0) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new DamageAllEnemiesAction(AbstractDungeon.player, DamageInfo.createDamageMatrix(ReapAndSowSaveData.reapAndSowDamage, true),
+                            DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+            ReapAndSowSaveData.reapAndSowDamage = 0;
         }
     }
 }

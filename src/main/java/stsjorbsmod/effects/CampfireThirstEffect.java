@@ -60,6 +60,7 @@ public class CampfireThirstEffect extends AbstractGameEffect {
                 int maxHPIncreaseAmount = wrathStacks * this.maxHPPerWrathStack;
 
                 WrathField.wrathEffectCount.set(c, 0);
+                WrathField.updateCardDamage(c, -wrathStacks);
                 AbstractDungeon.player.heal(healAmount);
                 AbstractDungeon.player.increaseMaxHp(maxHPIncreaseAmount, true);
                 AbstractDungeon.effectsQueue.add(new ShowCardBrieflyEffect(c.makeStatEquivalentCopy()));

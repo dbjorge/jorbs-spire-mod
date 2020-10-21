@@ -5,6 +5,7 @@
 ### Bug fixes
 
 * Fixed issue where certain character-themed colors would occasionally be transparent (thanks kiooeht for reporting)
+* Fixed issue where using the Thirst campfire option for CULL would not reduce card damage (thanks wang429)
 
 ### CULL updates
 
@@ -31,6 +32,9 @@
 * Assertion (thanks LankSSBM)
 * Investment (thanks LankSSBM)
 * Mirrored Technique (thanks LankSSBM)
+* Clarify (thanks LankSSBM)
+* Focused Rage (thanks wang429)
+* Reap and Sow (thanks LankSSBM)
 
 ### Wanderer Updates
 * New art for Frantic Search (thanks Chevy for art and Neablis for helping merge)
