@@ -132,6 +132,11 @@
     "NAME": "Chill Touch",
     "DESCRIPTION": "Deal !D! damage to an enemy. NL It can no longer heal."
   },
+  "stsjorbsmod:Clarify": {
+    "NAME": "Clarify",
+    "DESCRIPTION": "Retain: While this is in your hand, Retain !M! extra card. NL stsjorbsmod:Exert: Your draw pile is shown in order.",
+    "UPGRADE_DESCRIPTION": "Retain: While this is in your hand, Retain !M! extra cards. NL stsjorbsmod:Exert: Your draw pile is shown in order."
+  },
   "stsjorbsmod:Cleanse": {
     "NAME": "Cleanse",
     "DESCRIPTION": "Discard all Curses from your draw pile. NL Heal !stsjorbsmod:UrMagic! HP for each Curse discarded. NL Exhaust.",
@@ -318,6 +323,14 @@
   "stsjorbsmod:FlameWard": {
     "NAME": "Flame Ward",
     "DESCRIPTION": "The next time you are attacked, apply !M! stsjorbsmod:Burning to ALL enemies and gain !B! Block. Exhaust."
+  },
+  "stsjorbsmod:FocusedRage": {
+    "NAME": "Focused Rage",
+    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Strength for each card stsjorbsmod:Exerted this combat. NL stsjorbsmod:Exert.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Applies !M! Strength.)",
+      "Nothing exerted this combat!"
+    ]
   },
   "stsjorbsmod:ForbiddenGrimoire": {
     "NAME": "The Grimoire",
@@ -642,6 +655,10 @@
     "NAME": "Ray of Frost",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak !stsjorbsmod:MetaMagic! times."
+  },
+  "stsjorbsmod:ReapAndSow": {
+    "NAME": "Reap and Sow",
+    "DESCRIPTION": "Deal !D! damage. If Fatal, deal the leftover damage to ALL enemies at the start of the next combat."
   },
   "stsjorbsmod:Rebuke": {
     "NAME": "Rebuke",

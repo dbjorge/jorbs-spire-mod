@@ -46,6 +46,12 @@
       "Whenever you remember a new, #ynon-Patience memory or end your turn while #ySnapped, deal #b%1$s damage to ALL enemies and lose all Coil."
     ]
   },
+  "stsjorbsmod:ClarifyPower": {
+    "NAME": "Clarify",
+    "DESCRIPTIONS": [
+      "Your draw pile is shown in order."
+    ]
+  },
   "stsjorbsmod:DamnationPower": {
     "NAME": "Damnation",
     "DESCRIPTIONS": [
@@ -241,6 +247,12 @@
     "DESCRIPTIONS": [
       "Whenever you apply #yBurning, apply that much #yBurning #b%1$s extra time.",
       "Whenever you apply #yBurning, apply that much #yBurning #b%1$s extra times."
+    ]
+  },
+  "stsjorbsmod:ReapAndSowPower": {
+    "NAME": "Reap and Sow",
+    "DESCRIPTIONS": [
+      "At the start of the next combat, deal #b%1d damage to ALL enemies."
     ]
   },
   "stsjorbsmod:RediscoveryPower": {
