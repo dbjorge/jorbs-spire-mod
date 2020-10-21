@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.patches.VoiceoverMasterPatch;
+import stsjorbsmod.util.CombatUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -131,7 +132,7 @@ public class VoiceoverMaster {
     }
 
     private static VoiceoverInfo getSfxByCurrentBattle() {
-        if (AbstractDungeon.getCurrRoom() == null || AbstractDungeon.getCurrRoom().monsters == null) {
+        if (!CombatUtils.isInCombat() || AbstractDungeon.getCurrRoom().monsters == null) {
             return null;
         }
         String encounterKey = VoiceoverMasterPatch.MonsterGroup_class.encounterKeyField.get(AbstractDungeon.getCurrRoom().monsters);

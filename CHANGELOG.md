@@ -2,15 +2,50 @@
 
 ## [Unreleased]
 
+### Bug fixes
+
+* Fixed issue where certain character-themed colors would occasionally be transparent (thanks kiooeht for reporting)
+* Fixed issue where using the Thirst campfire option for CULL would not reduce card damage (thanks wang429)
+
 ### CULL updates
 
+* Added the Book of Trials (thanks wang429)
+* Added Metronome relic (thanks PanicPoint)
 * Coffee Dripper now prevents Thirsting at campfires
 * Remove Calipers from CULL's relic pool
 * Added voiceovers for elites/bosses/death/start (thanks Ray Chase)
+* New art for Ritual (thanks Lila for art and Neablis for helping merge)
+* New art for Thirsting campfire option (thanks ChDaVinci)
+* New art for Withering (thanks ChDaVinci for art and Neablis for helping merge)
+* New art for Decoy (thanks EscMargot for art and Neablis for helping merge)
+* New art for Coda (thanks Christina Oran for art and Neablis for helping merge)
 
 ### New CULL cards
-
+* Blasphemer (thanks nic3245)
 * False Blessing (thanks PanicPoint)
+* Black Tentacles (thanks LankSSBM for porting from Wanderer)
+* Demonic Coup (thanks LankSSBM)
+* Prodigal Memory (thanks LankSSBM)
+* Silver Strike (thanks LankSSBM)
+* Ticking Curse (thanks LankSSBM)
+* Shrapnel Bloom (thanks LankSSBM)
+* Assertion (thanks LankSSBM)
+* Investment (thanks LankSSBM)
+* Mirrored Technique (thanks LankSSBM)
+* Clarify (thanks LankSSBM)
+* Focused Rage (thanks wang429)
+* Reap and Sow (thanks LankSSBM)
+
+### Wanderer Updates
+* New art for Frantic Search (thanks Chevy for art and Neablis for helping merge)
+* New art for Refuse to Forget (thanks Chevy for art and Neablis for helping merge)
+* New art for Animate Objects (thanks Chevy for art and Neablis for helping merge)
+* New art for Index (thanks lobbien for art and Neablis for helping merge)
+* New art for Toll the Dead (thanks Chevy for art and Neablis for helping merge)
+
+## [v1.8.2] - 2020-04-18
+
+* Fixed rare crash when upgrading cards outside of combat soon after loading game (thanks modargo)
 
 ## [v1.8.1] - 2020-04-07
 

@@ -9,12 +9,11 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import stsjorbsmod.memories.AbstractMemory;
 import stsjorbsmod.memories.MemoryManager;
 import stsjorbsmod.powers.OnModifyGoldSubscriber;
+import stsjorbsmod.util.CombatUtils;
 
 public class OnModifyGoldPatch {
     private static void notifyModifyGold(AbstractPlayer player) {
-        if (AbstractDungeon.currMapNode != null &&
-            AbstractDungeon.getCurrRoom() != null &&
-            AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT)
+        if (CombatUtils.isInCombat())
         {
             for (AbstractPower p : player.powers) {
                 if (p instanceof OnModifyGoldSubscriber) {

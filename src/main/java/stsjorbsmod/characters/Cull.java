@@ -18,7 +18,6 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.relics.SpiritPoop;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.screens.DeathScreen;
 import org.apache.logging.log4j.LogManager;
@@ -30,6 +29,7 @@ import stsjorbsmod.actions.RememberSpecificMemoryAction;
 import stsjorbsmod.audio.VoiceoverMaster;
 import stsjorbsmod.cards.cull.*;
 import stsjorbsmod.memories.WrathMemory;
+import stsjorbsmod.relics.BookOfTrialsRelic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,13 +80,13 @@ public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber 
         public static void registerColorWithBaseMod() {
             BaseMod.addColor(
                     Enums.CULL_CARD_COLOR,
-                    CHARACTER_COLOR,
-                    CHARACTER_COLOR,
-                    CHARACTER_COLOR,
-                    CHARACTER_COLOR,
-                    CHARACTER_COLOR,
-                    CHARACTER_COLOR,
-                    CHARACTER_COLOR,
+                    CHARACTER_COLOR.cpy(),
+                    CHARACTER_COLOR.cpy(),
+                    CHARACTER_COLOR.cpy(),
+                    CHARACTER_COLOR.cpy(),
+                    CHARACTER_COLOR.cpy(),
+                    CHARACTER_COLOR.cpy(),
+                    CHARACTER_COLOR.cpy(),
                     CARD_BG_ATTACK_TEXTURE,
                     CARD_BG_SKILL_TEXTURE,
                     CARD_BG_POWER_TEXTURE,
@@ -270,7 +270,7 @@ public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber 
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
 
-        retVal.add(SpiritPoop.ID);
+        retVal.add(BookOfTrialsRelic.ID);
 
         return retVal;
     }
@@ -304,7 +304,7 @@ public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber 
     // Should return a color object to be used to color the trail of moving cards
     @Override
     public Color getCardTrailColor() {
-        return ColorInfo.CHARACTER_COLOR;
+        return ColorInfo.CHARACTER_COLOR.cpy();
     }
 
     // Should return a BitmapFont object that you can use to customize how your
@@ -341,14 +341,14 @@ public class Cull extends CustomPlayer implements OnAfterPlayerHpLossSubscriber 
     // Should return a Color object to be used to color the miniature card images in run history.
     @Override
     public Color getCardRenderColor() {
-        return ColorInfo.CHARACTER_COLOR;
+        return ColorInfo.CHARACTER_COLOR.cpy();
     }
 
     // Should return a Color object to be used as screen tint effect when your
     // character attacks the heart.
     @Override
     public Color getSlashAttackColor() {
-        return ColorInfo.CHARACTER_COLOR;
+        return ColorInfo.CHARACTER_COLOR.cpy();
     }
 
     // Should return a string containing what text is shown when your character is

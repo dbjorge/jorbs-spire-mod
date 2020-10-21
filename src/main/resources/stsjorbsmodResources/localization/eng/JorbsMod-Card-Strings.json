@@ -51,6 +51,14 @@
     "NAME": "Arcane Weapon",
     "DESCRIPTION": "At the end of each turn, deal !D! stsjorbsmod:Attack\u00a0Damage to a random enemy."
   },
+  "stsjorbsmod:Assertion": {
+    "NAME": "Assertion",
+    "DESCRIPTION": "Deal damage equal to !stsjorbsmod:UrMagic! times the number of skills played this act, up to !stsjorbsmod:MetaMagic! damage.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage, !M! skill played.)",
+      " NL (Deals !D! damage, !M! skills played.)"
+    ]
+  },
   "stsjorbsmod:Banish": {
     "NAME": "Banish",
     "DESCRIPTION": "Enemy takes no action and no damage for !M! turns. Exhaust."
@@ -58,6 +66,14 @@
   "stsjorbsmod:BlackTentacles": {
     "NAME": "Black Tentacles",
     "DESCRIPTION": "Deal !D! damage. NL This turn, all damage you deal to other enemies is dealt to this enemy instead."
+  },
+  "stsjorbsmod:BlackTentacles_Cull": {
+    "NAME": "Black Tentacles",
+    "DESCRIPTION": "Deal !D! damage. NL This turn, all damage you deal to other enemies is dealt to this enemy instead."
+  },
+  "stsjorbsmod:Blasphemer": {
+    "NAME": "Blasphemer",
+    "DESCRIPTION": "Unplayable. NL When you draw this card, add !M! *Smites to your hand and Exhaust."
   },
   "stsjorbsmod:BookOfTongues": {
     "NAME": "Book of Tongues",
@@ -116,6 +132,11 @@
     "NAME": "Chill Touch",
     "DESCRIPTION": "Deal !D! damage to an enemy. NL It can no longer heal."
   },
+  "stsjorbsmod:Clarify": {
+    "NAME": "Clarify",
+    "DESCRIPTION": "Retain: While this is in your hand, Retain !M! extra card. NL stsjorbsmod:Exert: Your draw pile is shown in order.",
+    "UPGRADE_DESCRIPTION": "Retain: While this is in your hand, Retain !M! extra cards. NL stsjorbsmod:Exert: Your draw pile is shown in order."
+  },
   "stsjorbsmod:Cleanse": {
     "NAME": "Cleanse",
     "DESCRIPTION": "Discard all Curses from your draw pile. NL Heal !stsjorbsmod:UrMagic! HP for each Curse discarded. NL Exhaust.",
@@ -167,6 +188,10 @@
     "NAME": "Death Throes",
     "DESCRIPTION": "stsjorbsmod:Entombed. stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume whenever an enemy dies. NL Deal !D! damage. NL Remember stsjorbsmod:Wrath.",
     "UPGRADE_DESCRIPTION": "stsjorbsmod:Entombed. stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume whenever an enemy dies. NL Deal !D! damage. NL Gain stsjorbsmod:Clarity of stsjorbsmod:Wrath."
+  },
+  "stsjorbsmod:DemonicCoup": {
+    "NAME": "Demonic Coup",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !M! Ritual. NL stsjorbsmod:Exert."
   },
   "stsjorbsmod:Defend_Wanderer": {
     "NAME": "Defend",
@@ -299,6 +324,14 @@
     "NAME": "Flame Ward",
     "DESCRIPTION": "The next time you are attacked, apply !M! stsjorbsmod:Burning to ALL enemies and gain !B! Block. Exhaust."
   },
+  "stsjorbsmod:FocusedRage": {
+    "NAME": "Focused Rage",
+    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Strength for each card stsjorbsmod:Exerted this combat. NL stsjorbsmod:Exert.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Applies !M! Strength.)",
+      "Nothing exerted this combat!"
+    ]
+  },
   "stsjorbsmod:ForbiddenGrimoire": {
     "NAME": "The Grimoire",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL stsjorbsmod:Entombed until you stsjorbsmod:Snap OR start turn 7. NL Choose 1 of 3 stsjorbsmod:Material\u00a0Components. NL stsjorbsmod:Exhume after playing this then !M! other cards."
@@ -408,6 +441,10 @@
     "NAME": "Introspection",
     "DESCRIPTION": "At the end of each turn, lose !stsjorbsmod:UrMagic! HP and deal !M! damage to ALL enemies. Deal !stsjorbsmod:MetaMagic! additional damage per stsjorbsmod:Clarity."
   },
+  "stsjorbsmod:Investment": {
+    "NAME": "Investment",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !stsjorbsmod:MetaMagic! gold. NL stsjorbsmod:Exert. NL When you draw this card, permanently increase its gold by !M!. "
+  },
   "stsjorbsmod:IvoryTower": {
     "NAME": "Ivory Tower",
     "DESCRIPTION": "Draw !M! cards. NL Exhaust all Curse and Status cards in your hand. NL Exhaust.",
@@ -487,6 +524,11 @@
   "stsjorbsmod:Mirror": {
     "NAME": "Mirror",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Until your next turn, take no damage and reflect attack damage enemies deal to you."
+  },
+  "stsjorbsmod:MirroredTechnique": {
+    "NAME": "Mirrored Technique",
+    "DESCRIPTION": "This combat, play all attacks an additional time for each time you are being attacked. NL stsjorbsmod:Exert.",
+    "UPGRADE_DESCRIPTION": "This combat, play all attacks an additional time for each time you are being attacked + !M!. NL stsjorbsmod:Exert."
   },
   "stsjorbsmod:MirrorImage": {
     "NAME": "Mirror Image",
@@ -582,6 +624,10 @@
     "NAME": "Procrastination",
     "DESCRIPTION": "Unplayable. NL Starts each combat in your discard pile."
   },
+  "stsjorbsmod:ProdigalMemory": {
+    "NAME": "Prodigal Memory",
+    "DESCRIPTION": "Draw !stsjorbsmod:UrMagic! cards and lose !M! max HP. NL If this card is in your hand at the end of your turn, stsjorbsmod:Exert."
+  },
   "stsjorbsmod:PurgeMind": {
     "NAME": "Purge Mind",
     "DESCRIPTION": "Exhaust ALL cards which \"remember\". Then, deal !D! damage once per such card in your Exhaust pile. NL stsjorbsmod:Snap. Exhaust.",
@@ -604,6 +650,10 @@
     "NAME": "Ray of Frost",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak !stsjorbsmod:MetaMagic! times."
+  },
+  "stsjorbsmod:ReapAndSow": {
+    "NAME": "Reap and Sow",
+    "DESCRIPTION": "Deal !D! damage. If Fatal, deal the leftover damage to ALL enemies at the start of the next combat."
   },
   "stsjorbsmod:Rebuke": {
     "NAME": "Rebuke",
@@ -654,6 +704,15 @@
   "stsjorbsmod:Shake": {
     "NAME": "Shake",
     "DESCRIPTION": "If enemy is Vulnerable, draw !M! cards. NL Apply !stsjorbsmod:UrMagic! Vulnerable. NL Exhaust."
+  },
+  "stsjorbsmod:ShrapnelBloom": {
+    "NAME": "Shrapnel Bloom",
+    "DESCRIPTION": "stsjorbsmod:Exert. NL This turn, the next non-Legendary card you play is played !M! additional time, then stsjorbsmod:Exerts.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Exert. NL This turn, the next non-Legendary card you play is played !M! additional times, then stsjorbsmod:Exerts."
+  },
+  "stsjorbsmod:SilverStrike": {
+    "NAME": "Silver Strike",
+    "DESCRIPTION": "Deal !D! damage. NL stsjorbsmod:Exert."
   },
   "stsjorbsmod:Siphon": {
     "NAME": "Siphon",
@@ -740,6 +799,10 @@
     "NAME": "Time Eddy",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance ALL buffs and debuffs !M! turn through time.",
     "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Advance ALL buffs and debuffs !M! turns through time."
+  },
+  "stsjorbsmod:TickingCurse": {
+    "NAME": "Ticking Curse",
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage to all enemies. stsjorbsmod:Exert. NL When Exhausted, deal !M! damage to ALL enemies."
   },
   "stsjorbsmod:TinyHut": {
     "NAME": "Tiny Hut",

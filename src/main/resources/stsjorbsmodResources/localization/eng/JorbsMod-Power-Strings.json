@@ -46,6 +46,12 @@
       "Whenever you remember a new, #ynon-Patience memory or end your turn while #ySnapped, deal #b%1$s damage to ALL enemies and lose all Coil."
     ]
   },
+  "stsjorbsmod:ClarifyPower": {
+    "NAME": "Clarify",
+    "DESCRIPTIONS": [
+      "Your draw pile is shown in order."
+    ]
+  },
   "stsjorbsmod:DamnationPower": {
     "NAME": "Damnation",
     "DESCRIPTIONS": [
@@ -169,6 +175,13 @@
       "When you next gain #yClarity, deal #b%1$s damage to ALL enemies."
     ]
   },
+  "stsjorbsmod:MirroredTechniquePower": {
+    "NAME": "Mirrored Technique",
+    "DESCRIPTIONS": [
+      "Play all attacks an additional time for each time you are being attacked.",
+      "Play all attacks an additional time for each time you are being attacked + %1$d."
+    ]
+  },
   "stsjorbsmod:MirrorImagePower": {
     "NAME": "Mirror Image",
     "DESCRIPTIONS": [
@@ -229,6 +242,12 @@
       "Whenever you apply #yBurning, apply that much #yBurning #b%1$s extra times."
     ]
   },
+  "stsjorbsmod:ReapAndSowPower": {
+    "NAME": "Reap and Sow",
+    "DESCRIPTIONS": [
+      "At the start of the next combat, deal #b%1d damage to ALL enemies."
+    ]
+  },
   "stsjorbsmod:RediscoveryPower": {
     "NAME": "Rediscovery",
     "DESCRIPTIONS": [
@@ -239,6 +258,13 @@
     "NAME": "Cannot heal",
     "DESCRIPTIONS": [
       "Reduce healing by %1$s%%."
+    ]
+  },
+  "stsjorbsmod:ShrapnelBloomPower": {
+    "NAME": "Shrapnel Bloom",
+    "DESCRIPTIONS": [
+      "This turn, your next non-Legendary card is played %1d additional time, then #yExerts.",
+      "This turn, your next non-Legendary card is played %1d additional times, then #yExerts."
     ]
   },
   "stsjorbsmod:SnappedPower": {

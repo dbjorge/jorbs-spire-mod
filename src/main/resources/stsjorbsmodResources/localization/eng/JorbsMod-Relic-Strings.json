@@ -6,6 +6,13 @@
       "Reduces stsjorbsmod:Burning falloff rate to 10% per turn."
     ]
   },
+  "stsjorbsmod:BookOfTrialsRelic": {
+    "NAME": "Book of Trials",
+    "FLAVOR": "Like tongues, but not at all.",
+    "DESCRIPTIONS": [
+      "Add #b2 cards from the stsjorbsmod:Deck\u00a0of\u00a0Trials to your deck at the start of each act."
+    ]
+  },
   "stsjorbsmod:BottledMemoryRelic": {
     "NAME": "Bottled Memory",
     "FLAVOR": "My brain is broken",
@@ -21,6 +28,13 @@
     "FLAVOR": "Is this... familiar?",
     "DESCRIPTIONS": [
       "At the start of each combat, remember stsjorbsmod:Patience. NL At the end of each combat, heal #b1 HP per stsjorbsmod:Clarity."
+    ]
+  },
+  "stsjorbsmod:MetronomeRelic": {
+    "NAME": "Metronome",
+    "FLAVOR": "Tick Tock...Tick Tock",
+    "DESCRIPTIONS": [
+      "At the start of every 5th turn, reduce stsjorbsmod:Manifest by 1."
     ]
   },
   "stsjorbsmod:MindGlassRelic": {
