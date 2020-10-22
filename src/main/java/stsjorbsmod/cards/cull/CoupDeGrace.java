@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import com.megacrit.cardcrawl.relics.ChemicalX;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.CoupDeGraceAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.powers.CoupDeGracePower;
@@ -36,22 +37,7 @@ public class CoupDeGrace extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (AbstractDungeon.player.hasRelic(ChemicalX.ID)) {
-            AbstractDungeon.player.getRelic(ChemicalX.ID).flash();
-        }
-
-        if (targetingEnemy && m != null) {
-            addToBot(new ApplyPowerAction(m, m, new IntangiblePlayerPower(m, magicNumber)));
-            addToBot(new ApplyPowerAction(m, m, new CoupDeGracePower(m, magicNumber)));
-        }
-        else if (!targetingEnemy) {
-            addToBot(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, magicNumber)));
-            addToBot(new ApplyPowerAction(p, p, new CoupDeGracePower(p, magicNumber)));
-        }
-
-        if (!this.freeToPlayOnce) {
-            p.energy.use(EnergyPanel.totalCount);
-        }
+        addToBot(new CoupDeGraceAction(p, m, this.upgraded, this.freeToPlayOnce, this.energyOnUse, targetingEnemy));
     }
 
     @Override
@@ -87,23 +73,23 @@ public class CoupDeGrace extends CustomJorbsModCard {
         }
     }
 
-    @Override
-    protected int calculateBonusMagicNumber() {
-        int effect = EnergyPanel.totalCount;
-        if (this.energyOnUse != -1) {
-            effect = this.energyOnUse;
-        }
-
-        if (AbstractDungeon.player.hasRelic(ChemicalX.ID)) {
-            effect += 2;
-        }
-
-        if (this.upgraded) {
-            effect += 1;
-        }
-
-        return effect;
-    }
+//    @Override
+//    protected int calculateBonusMagicNumber() {
+//        int effect = EnergyPanel.totalCount;
+//        if (this.energyOnUse != -1) {
+//            effect = this.energyOnUse;
+//        }
+//
+//        if (AbstractDungeon.player.hasRelic(ChemicalX.ID)) {
+//            effect += 2;
+//        }
+//
+//        if (this.upgraded) {
+//            effect += 1;
+//        }
+//
+//        return effect;
+//    }
 
     @Override
     public void upgrade() {

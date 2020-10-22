@@ -53,8 +53,8 @@ public class CoupDeGracePatch {
         }
     }
 
-    public static boolean shouldCalculatePreventedDamage(AbstractCreature m) {
-        return (m.hasPower("IntangiblePlayer") && m.hasPower(CoupDeGracePower.POWER_ID) && m.currentBlock <= 0);
+    public static boolean shouldCalculatePreventedDamage(AbstractCreature c) {
+        return (c.hasPower("IntangiblePlayer") && c.hasPower(CoupDeGracePower.POWER_ID) && c.currentBlock <= 0);
     }
 }
 
