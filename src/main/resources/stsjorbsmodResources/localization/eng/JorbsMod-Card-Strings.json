@@ -172,8 +172,8 @@
   },
   "stsjorbsmod:CoupDeGrace": {
     "NAME": "Coup de Grâce",
-    "DESCRIPTION": "stsjorbsmod:Indiscriminate. NL Target gains X intangible. After X turns they lose HP equal to double damage prevented.",
-    "UPGRADE_DESCRIPTION": "Target gains X+1 intangible. After X+1 turns they lose HP equal to double damage prevented."
+    "DESCRIPTION": "stsjorbsmod:Indiscriminate. NL Target gains X intangible. After X turns receive stsjorbsmod:True\u00a0Damage equal to double damage prevented.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Indiscriminate. NL Target gains X+1 intangible. After X+1 receive stsjorbsmod:True\u00a0Damage equal to double damage prevented."
   },
   "stsjorbsmod:CULLCard": {
     "NAME": "CULL",
@@ -858,7 +858,7 @@
   },
   "stsjorbsmod:TrueStrike": {
     "NAME": "True Strike",
-    "DESCRIPTION": "Deal !D! damage. NL This damage cannot be prevented or reduced."
+    "DESCRIPTION": "Deal !D! stsjorbsmod:True\u00a0Damage."
   },
   "stsjorbsmod:UnseenServant": {
     "NAME": "Unseen Servant",

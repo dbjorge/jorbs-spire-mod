@@ -143,6 +143,10 @@
     "DESCRIPTION": "While you remember or have clarity of Temperance, gain 1 #yStrength for every #yClarity you have."
   },
   {
+    "NAMES": ["true\u00a0damage"],
+    "DESCRIPTION": "This damage cannot be prevented or reduced."
+  },
+  {
     "NAMES": ["virtue"],
     "DESCRIPTION": "A memory of #yCharity, #yChastity, #yDiligence, #yHumility, #yKindness, #yPatience, or #yTemperance."
   },
