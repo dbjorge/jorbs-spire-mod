@@ -90,6 +90,10 @@
     "DESCRIPTION": "Each time remembered, gain #b2 #yThorns. Until forgotten, gain #b2 additional #yThorns."
   },
   {
+    "NAMES": ["indiscriminate"],
+    "DESCRIPTION": "Indiscriminate cards can target enemies or the player."
+  },
+  {
     "NAMES": ["kindness"],
     "DESCRIPTION": "Until forgotten, ALL enemies lose #b3 #yStrength."
   },

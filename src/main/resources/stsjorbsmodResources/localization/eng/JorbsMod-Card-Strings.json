@@ -172,7 +172,7 @@
   },
   "stsjorbsmod:CoupDeGrace": {
     "NAME": "Coup de Grâce",
-    "DESCRIPTION": "Target gains X intangible. After X turns they lose HP equal to double damage prevented.",
+    "DESCRIPTION": "stsjorbsmod:Indiscriminate. NL Target gains X intangible. After X turns they lose HP equal to double damage prevented.",
     "UPGRADE_DESCRIPTION": "Target gains X+1 intangible. After X+1 turns they lose HP equal to double damage prevented."
   },
   "stsjorbsmod:CULLCard": {
