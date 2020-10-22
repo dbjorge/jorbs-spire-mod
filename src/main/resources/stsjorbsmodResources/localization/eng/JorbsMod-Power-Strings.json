@@ -204,6 +204,13 @@
       "You cannot remember other memories until you have #yClarity of your current memory."
     ]
   },
+  "stsjorbsmod:OldBookPower": {
+    "NAME": "Old Book",
+    "DESCRIPTIONS": [
+      "When you would die, instead #rDestroy #yOld\u00a0Book.",
+      "When you would die, instead #rDestroy #yOld\u00a0Book+ and heal #b%1d%% of your max HP."
+    ]
+  },
   "stsjorbsmod:OverkillPower": {
     "NAME": "Overkill",
     "DESCRIPTIONS": [
@@ -280,6 +287,13 @@
     "NAME": "Snapped",
     "DESCRIPTIONS": [
       "You cannot remember any memories or clarities."
+    ]
+  },
+  "stsjorbsmod:SacrificePower": {
+    "NAME": "Sacrifice",
+    "DESCRIPTIONS": [
+      "Pay Max HP instead of [E] for #b%1d turn.",
+      "Pay Max HP instead of [E] for #b%1d turns."
     ]
   },
   "stsjorbsmod:SpiritShieldPower": {

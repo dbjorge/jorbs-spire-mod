@@ -19,6 +19,7 @@ public class DeckOfTrials {
         deck.addToTop(new ShrapnelBloom());
         deck.addToTop(new Assertion());
         deck.addToTop(new MirroredTechnique());
+        deck.addToTop(new Sacrifice());
         deck.shuffle();
     }
 
