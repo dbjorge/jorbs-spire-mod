@@ -280,6 +280,13 @@
       "You cannot remember any memories or clarities."
     ]
   },
+  "stsjorbsmod:SacrificePower": {
+    "NAME": "Sacrifice",
+    "DESCRIPTIONS": [
+      "Pay Max HP instead of [E] for #b%1d turn.",
+      "Pay Max HP instead of [E] for #b%1d turns."
+    ]
+  },
   "stsjorbsmod:SpiritShieldPower": {
     "NAME": "Spirit Shield",
     "DESCRIPTIONS": [
