@@ -7,10 +7,17 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.beyond.Nemesis;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
+import com.megacrit.cardcrawl.powers.IntangiblePower;
+import javassist.CannotCompileException;
+import javassist.expr.ExprEditor;
+import javassist.expr.FieldAccess;
 import stsjorbsmod.powers.CoupDeGracePower;
 
 public class CoupDeGracePatch {
+    public static final String CoupDeGracePatchName = CoupDeGracePatch.class.getName();
+
     @SpirePatch(
             clz = AbstractMonster.class,
             method = "damage"
@@ -39,6 +46,23 @@ public class CoupDeGracePatch {
         }
     }
 
+    @SpirePatch(clz = Nemesis.class, method = "damage") // Nemesis has a special damage() that sets damage to 1 based on the non-player "Intangible" power
+    public static class Nemesis_damage {
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                @Override
+                public void edit(FieldAccess fa) throws CannotCompileException {
+                    // suppress the initial Intangible effect on info.output
+                    if (fa.getClassName().equals(DamageInfo.class.getName()) &&
+                            fa.getFieldName().equals("output") &&
+                            fa.isWriter()) {
+                        fa.replace(String.format("{ if (%1$s.shouldCalculatePreventedDamage(this)) { %2$s.increaseNemesisPreventedDamage(this, $0); $_ = $proceed($$); } }", CoupDeGracePatchName, CoupDeGracePatchName));
+                    }
+                }
+            };
+        }
+    }
+
     @SpirePatch(
             clz = IntangiblePlayerPower.class,
             method = "atDamageFinalReceive"
@@ -47,15 +71,32 @@ public class CoupDeGracePatch {
         @SpirePrefixPatch
         public static SpireReturn patch(IntangiblePlayerPower __this, float damage, DamageInfo.DamageType type) {
             if (!shouldCalculatePreventedDamage(__this.owner)) {
-                SpireReturn.Continue();
+                return SpireReturn.Continue();
+            }
+            return SpireReturn.Return(damage);
+        }
+    }
+
+    @SpirePatch(
+            clz = IntangiblePower.class,
+            method = "atDamageFinalReceive"
+    )
+    public static class IntangiblePower_atDamageFinalReceive {
+        @SpirePrefixPatch
+        public static SpireReturn patch(IntangiblePower __this, float damage, DamageInfo.DamageType type) {
+            if (!shouldCalculatePreventedDamage(__this.owner)) {
+                return SpireReturn.Continue();
             }
             return SpireReturn.Return(damage);
         }
     }
 
     public static boolean shouldCalculatePreventedDamage(AbstractCreature c) {
-        return (c.hasPower("IntangiblePlayer") && c.hasPower(CoupDeGracePower.POWER_ID) && c.currentBlock <= 0);
+        return ((c.hasPower(IntangiblePlayerPower.POWER_ID) || c.hasPower(IntangiblePower.POWER_ID)) && c.hasPower(CoupDeGracePower.POWER_ID) && c.currentBlock <= 0);
+    }
+
+    public static void increaseNemesisPreventedDamage(Nemesis __this, DamageInfo info) {
+        CoupDeGracePower po = (CoupDeGracePower)__this.getPower(CoupDeGracePower.POWER_ID);
+        po.increaseBaseOutputDamage(info.output, __this.currentBlock);
     }
 }
-
-

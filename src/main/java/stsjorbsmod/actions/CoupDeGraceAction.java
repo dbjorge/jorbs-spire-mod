@@ -5,7 +5,9 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.beyond.Nemesis;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
+import com.megacrit.cardcrawl.powers.IntangiblePower;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import stsjorbsmod.powers.CoupDeGracePower;
 
@@ -45,9 +47,11 @@ public class CoupDeGraceAction extends AbstractGameAction {
 
         if (effect > 0) {
             if (targetingEnemy && m != null) {
-                this.addToBot(new ApplyPowerAction(this.m, this.m, new IntangiblePlayerPower(this.m, effect)));
+                if (!m.id.equalsIgnoreCase(Nemesis.ID))
+                    this.addToBot(new ApplyPowerAction(this.m, this.m, new IntangiblePlayerPower(this.m, effect)));
+                else
+                    this.addToBot(new ApplyPowerAction(this.m, this.m, new IntangiblePower(this.m, effect)));
                 this.addToBot(new ApplyPowerAction(this.m, this.m, new CoupDeGracePower(this.m, effect)));
-//              addToBot(new ApplyPowerAction(p, p, new CoupDeGracePower(p, magicNumber)));
             }
             else if (!targetingEnemy){
                 this.addToBot(new ApplyPowerAction(this.p, this.p, new IntangiblePlayerPower(this.p, effect), effect));

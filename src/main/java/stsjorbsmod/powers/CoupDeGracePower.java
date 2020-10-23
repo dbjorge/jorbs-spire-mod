@@ -14,10 +14,13 @@ public class CoupDeGracePower extends CustomJorbsModPower {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(CoupDeGracePower.class);
     public static final String POWER_ID = STATIC.ID;
 
-    private static int outputDamage = 0;
+    private int outputDamage;
 
     public CoupDeGracePower(final AbstractCreature owner, final int turnsUntilDamage) {
         super(STATIC);
+
+        if (!owner.hasPower(POWER_ID))
+            outputDamage = 0;
 
         this.owner = owner;
         this.isTurnBased = true;
