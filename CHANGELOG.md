@@ -28,6 +28,7 @@
 * Prodigal Memory (thanks LankSSBM)
 * Silver Strike (thanks LankSSBM)
 * Ticking Curse (thanks LankSSBM)
+* Sacrifice (thanks LankSSBM)
 * Shrapnel Bloom (thanks LankSSBM)
 * Assertion (thanks LankSSBM)
 * Investment (thanks LankSSBM)
@@ -35,6 +36,7 @@
 * Clarify (thanks LankSSBM)
 * Focused Rage (thanks wang429)
 * Reap and Sow (thanks LankSSBM)
+* Old Book (thanks LankSSBM)
 
 ### Wanderer Updates
 * New art for Frantic Search (thanks Chevy for art and Neablis for helping merge)
@@ -42,6 +44,7 @@
 * New art for Animate Objects (thanks Chevy for art and Neablis for helping merge)
 * New art for Index (thanks lobbien for art and Neablis for helping merge)
 * New art for Toll the Dead (thanks Chevy for art and Neablis for helping merge)
+* New art for Inferno (thanks Chevy for art and Neablis for helping merge)
 
 ## [v1.8.2] - 2020-04-18
 

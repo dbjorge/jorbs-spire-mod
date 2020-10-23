@@ -550,6 +550,11 @@
     "NAME": "Oak Leaf",
     "DESCRIPTION": "Gain !M! Dexterity."
   },
+  "stsjorbsmod:OldBook": {
+    "NAME": "Old Book",
+    "DESCRIPTION": "stsjorbsmod:Entombed. NL stsjorbsmod:Exhume when you would die; instead stsjorbsmod:Destroy this card. NL Unplayable",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Entombed. NL stsjorbsmod:Exhume when you would die; instead stsjorbsmod:Destroy this card and heal !M! percent of your Max HP. NL Unplayable."
+  },
   "stsjorbsmod:OldPocket": {
     "NAME": "Old Pocket",
     "DESCRIPTION": "Gain !M! gold. NL Remember stsjorbsmod:Charity. NL Exhaust.",
@@ -688,6 +693,11 @@
     "NAME": "Rot",
     "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Lose a random stsjorbsmod:Clarity. NL When this is initially added to your hand, add !M! additional copy.",
     "UPGRADE_DESCRIPTION": "stsjorbsmod:Ephemeral. NL Lose a random stsjorbsmod:Clarity. NL When this is initially added to your hand, add !M! additional copies."
+  },
+  "stsjorbsmod:Sacrifice": {
+    "NAME": "Sacrifice",
+    "DESCRIPTION": "Gain [E] when drawn. NL Ethereal. NL This turn, pay Max HP instead of [E]. NL stsjorbsmod:Exert.",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E] when drawn. NL Ethereal. NL This turn, pay Max HP instead of [E]. NL stsjorbsmod:Exert."
   },
   "stsjorbsmod:SchoolsOfMagic": {
     "NAME": "Schools of Magic",
