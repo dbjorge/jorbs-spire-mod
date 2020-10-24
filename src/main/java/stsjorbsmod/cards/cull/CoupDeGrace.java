@@ -73,24 +73,6 @@ public class CoupDeGrace extends CustomJorbsModCard {
         }
     }
 
-//    @Override
-//    protected int calculateBonusMagicNumber() {
-//        int effect = EnergyPanel.totalCount;
-//        if (this.energyOnUse != -1) {
-//            effect = this.energyOnUse;
-//        }
-//
-//        if (AbstractDungeon.player.hasRelic(ChemicalX.ID)) {
-//            effect += 2;
-//        }
-//
-//        if (this.upgraded) {
-//            effect += 1;
-//        }
-//
-//        return effect;
-//    }
-
     @Override
     public void upgrade() {
         if(!upgraded) {
