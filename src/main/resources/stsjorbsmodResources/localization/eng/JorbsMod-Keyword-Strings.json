@@ -58,7 +58,7 @@
     "DESCRIPTION": "This card starts each combat in your Exhaust pile. It will be Exhumed from your Exhaust pile into your hand each time its Exhume condition is met."
   },
   {
-    "NAMES": ["exert"],
+    "NAMES": ["exert", "exerts"],
     "DESCRIPTION": "Exhaust this card when played. It will be #yEntombed until the start of next Act."
   },
   {
@@ -83,7 +83,7 @@
   },
   {
     "NAMES": ["greed"],
-    "DESCRIPTION": "Whenever you kill a non-minion enemy, gain #b20 gold."
+    "DESCRIPTION": "Whenever you kill a non-minion enemy, gain #b10 gold."
   },
   {
     "NAMES": ["humility"],

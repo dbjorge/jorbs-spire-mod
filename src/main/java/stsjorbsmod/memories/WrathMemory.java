@@ -3,7 +3,6 @@ package stsjorbsmod.memories;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
-import com.megacrit.cardcrawl.cards.colorless.RitualDagger;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -25,10 +24,6 @@ public class WrathMemory extends AbstractMemory {
         return c.type == CardType.ATTACK && c.baseDamage >= 0;
     }
 
-    public static boolean usesMiscToTrackPermanentBaseDamage(AbstractCard c) {
-        return c instanceof RitualDagger;
-    }
-
     public static void reapplyToLoadedCard(AbstractCard card, int effectCount) {
         if (!isUpgradeCandidate(card) && (effectCount > 0)) {
             JorbsMod.logger.error("Wrath effect count modified for an ineligible card");
@@ -37,7 +32,7 @@ public class WrathMemory extends AbstractMemory {
 
         WrathField.wrathEffectCount.set(card, effectCount);
 
-        if (!usesMiscToTrackPermanentBaseDamage(card)) {
+        if (!WrathField.usesMiscToTrackPermanentBaseDamage(card)) {
             card.baseDamage += DAMAGE_INCREASE_PER_KILL * effectCount;
         }
     }
@@ -86,24 +81,19 @@ public class WrathMemory extends AbstractMemory {
         AbstractCard cardToShowForVfx = card;
         AbstractCard masterCard = StSLib.getMasterDeckEquivalent(card);
         if (masterCard != null) {
-            masterCard.baseDamage += DAMAGE_INCREASE_PER_KILL;
-            if (usesMiscToTrackPermanentBaseDamage(masterCard)) {
-                masterCard.misc += DAMAGE_INCREASE_PER_KILL;
-            }
+            WrathField.updateCardDamage(masterCard, DAMAGE_INCREASE_PER_KILL);
             WrathField.wrathEffectCount.set(masterCard, WrathField.wrathEffectCount.get(masterCard) + 1);
             masterCard.superFlash();
             cardToShowForVfx = masterCard;
         }
 
         for (AbstractCard instance : GetAllInBattleInstances.get(card.uuid)) {
-            instance.baseDamage += DAMAGE_INCREASE_PER_KILL;
-            if (usesMiscToTrackPermanentBaseDamage(instance)) {
-                instance.misc += DAMAGE_INCREASE_PER_KILL;
-            }
+            WrathField.updateCardDamage(instance, DAMAGE_INCREASE_PER_KILL);
             WrathField.wrathEffectCount.set(instance, WrathField.wrathEffectCount.get(instance) + 1);
             instance.applyPowers();
         }
 
         EffectUtils.addWrathCardUpgradeEffect(cardToShowForVfx);
     }
+
 }
