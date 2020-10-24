@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import stsjorbsmod.JorbsMod;
 import stsjorbsmod.util.CombatUtils;
 
 public class PossessionPower extends CustomJorbsModPower{
@@ -41,8 +40,8 @@ public class PossessionPower extends CustomJorbsModPower{
                 }
             }
             if (count != 1) {
-                    AbstractMonster m = CombatUtils.getRandomAliveMonster(AbstractDungeon.getMonsters(), candidate -> candidate != this.owner, AbstractDungeon.cardRandomRng);
-                    addToBot(new DamageAction(m, new DamageInfo(this.owner, this.owner.maxHealth), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                AbstractMonster m = CombatUtils.getRandomAliveMonster(AbstractDungeon.getMonsters(), candidate -> candidate != this.owner, AbstractDungeon.cardRandomRng);
+                addToBot(new DamageAction(m, new DamageInfo(this.owner, this.owner.maxHealth), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
             }
         }
         this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
