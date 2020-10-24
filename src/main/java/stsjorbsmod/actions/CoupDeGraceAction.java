@@ -47,15 +47,15 @@ public class CoupDeGraceAction extends AbstractGameAction {
 
         if (effect > 0) {
             if (targetingEnemy && m != null) {
+                this.addToBot(new ApplyPowerAction(this.m, this.m, new CoupDeGracePower(this.m, effect)));
                 if (!m.id.equalsIgnoreCase(Nemesis.ID))
                     this.addToBot(new ApplyPowerAction(this.m, this.m, new IntangiblePlayerPower(this.m, effect)));
                 else
                     this.addToBot(new ApplyPowerAction(this.m, this.m, new IntangiblePower(this.m, effect)));
-                this.addToBot(new ApplyPowerAction(this.m, this.m, new CoupDeGracePower(this.m, effect)));
             }
             else if (!targetingEnemy){
-                this.addToBot(new ApplyPowerAction(this.p, this.p, new IntangiblePlayerPower(this.p, effect), effect));
                 this.addToBot(new ApplyPowerAction(this.p, this.p, new CoupDeGracePower(this.p, effect), effect));
+                this.addToBot(new ApplyPowerAction(this.p, this.p, new IntangiblePlayerPower(this.p, effect), effect));
             }
 
             if (!this.freeToPlayOnce) {

@@ -55,10 +55,10 @@
   "stsjorbsmod:CoupDeGracePower": {
     "NAME": "Coup de Grâce",
     "DESCRIPTIONS": [
-      "After #b%1d turn, target receives #yTrue\u00a0Damage equal to double damage prevented by intangible. (Deals #g%2d True Damage.)",
-      "After #b%1d turns, target receives #yTrue\u00a0Damage equal to double damage prevented by intangible. (Deals #g%2d True Damage.)",
-      "After #b%1d turn, you receive #yTrue\u00a0Damage equal to double damage prevented by intangible. (Deals #r%2d True Damage.)",
-      "After #b%1d turns, you receive #yTrue\u00a0Damage equal to double damage prevented by intangible. (Deals #r%2d True Damage.)"
+      "After #b%1d turn, target receives #yTrue\u00a0Damage equal to double the damage prevented by intangible. (Deals #g%2d True Damage.)",
+      "After #b%1d turns, target receives #yTrue\u00a0Damage equal to double the damage prevented by intangible. (Deals #g%2d True Damage.)",
+      "After #b%1d turn, you receive #yTrue\u00a0Damage equal to double damage the prevented by intangible. (Deals #r%2d True Damage.)",
+      "After #b%1d turns, you receive #yTrue\u00a0Damage equal to double damage the prevented by intangible. (Deals #r%2d True Damage.)"
     ]
   },
   "stsjorbsmod:DamnationPower": {
