@@ -26,8 +26,7 @@ public class CoupDeGracePatch {
         @SpirePrefixPatch
         public static void patch(AbstractMonster __this, DamageInfo info) {
             if (shouldCalculatePreventedDamage(__this) && !TrueDamagePatch.TrueDamageInfoField.isTrueDamage.get(info)) {
-                CoupDeGracePower po = (CoupDeGracePower)__this.getPower(CoupDeGracePower.POWER_ID);
-                po.increaseBaseOutputDamage(info.output, __this.currentBlock);
+                increasePreventedDamage(__this, info);
             }
         }
     }
@@ -40,13 +39,15 @@ public class CoupDeGracePatch {
         @SpirePrefixPatch
         public static void patch(AbstractPlayer __this, DamageInfo info) {
             if (shouldCalculatePreventedDamage(__this) && !TrueDamagePatch.TrueDamageInfoField.isTrueDamage.get(info)) {
-                CoupDeGracePower po = (CoupDeGracePower)__this.getPower(CoupDeGracePower.POWER_ID);
-                po.increaseBaseOutputDamage(info.output, __this.currentBlock);
+                increasePreventedDamage(__this, info);
             }
         }
     }
 
-    @SpirePatch(clz = Nemesis.class, method = "damage") // Nemesis has a special damage() that sets damage to 1 based on the non-player "Intangible" power
+    @SpirePatch(
+            clz = Nemesis.class,
+            method = "damage" // Nemesis has a special damage() that sets damage to 1 based on the non-player "Intangible" power
+    )
     public static class Nemesis_damage {
         public static ExprEditor Instrument() {
             return new ExprEditor() {
@@ -56,7 +57,7 @@ public class CoupDeGracePatch {
                     if (fa.getClassName().equals(DamageInfo.class.getName()) &&
                             fa.getFieldName().equals("output") &&
                             fa.isWriter()) {
-                        fa.replace(String.format("{ if (%1$s.shouldCalculatePreventedDamage(this)) { %2$s.increaseNemesisPreventedDamage(this, $0); $_ = $proceed($$); } }", CoupDeGracePatchName, CoupDeGracePatchName));
+                        fa.replace(String.format("{ if (%1$s.shouldCalculatePreventedDamage(this)) { %2$s.increasePreventedDamage(this, $0); $_ = $proceed($$); } }", CoupDeGracePatchName, CoupDeGracePatchName));
                     }
                 }
             };
@@ -95,8 +96,8 @@ public class CoupDeGracePatch {
         return ((c.hasPower(IntangiblePlayerPower.POWER_ID) || c.hasPower(IntangiblePower.POWER_ID)) && c.hasPower(CoupDeGracePower.POWER_ID) && c.currentBlock <= 0);
     }
 
-    public static void increaseNemesisPreventedDamage(Nemesis __this, DamageInfo info) {
-        CoupDeGracePower po = (CoupDeGracePower)__this.getPower(CoupDeGracePower.POWER_ID);
-        po.increaseBaseOutputDamage(info.output, __this.currentBlock);
+    public static void increasePreventedDamage(AbstractCreature c, DamageInfo info) {
+        CoupDeGracePower po = (CoupDeGracePower)c.getPower(CoupDeGracePower.POWER_ID);
+        po.increaseBaseOutputDamage(info.output, c.currentBlock);
     }
 }
