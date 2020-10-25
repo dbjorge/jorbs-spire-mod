@@ -14,6 +14,7 @@ import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
 import stsjorbsmod.powers.CoupDeGracePower;
+import stsjorbsmod.powers.WitheringPower;
 
 public class CoupDeGracePatch {
     public static final String CoupDeGracePatchName = CoupDeGracePatch.class.getName();
@@ -42,7 +43,7 @@ public class CoupDeGracePatch {
                 public void edit(FieldAccess fa) throws CannotCompileException {
                     if (fa.getFieldName().equals("intentDmg") &&
                             fa.isWriter()) {
-                        fa.replace(String.format("{ if (%1$s.shouldCalculatePreventedDamage(target)) { this.intentDmg = 1; }  else { $_ = $proceed($$); } }", CoupDeGracePatchName));
+                        fa.replace(String.format("{ if (%1$s.shouldCalculatePreventedDamage(target)) { this.intentDmg = %1$s.getIntangibleDamageAmount(target, dmg); }  else { $_ = $proceed($$); } }", CoupDeGracePatchName));
                     }
                 }
             };
@@ -117,5 +118,15 @@ public class CoupDeGracePatch {
     public static void increasePreventedDamage(AbstractCreature c, DamageInfo info) {
         CoupDeGracePower po = (CoupDeGracePower)c.getPower(CoupDeGracePower.POWER_ID);
         po.increaseBaseOutputDamage(info.output, c.currentBlock);
+    }
+
+    public static int getIntangibleDamageAmount(AbstractCreature c, int dmg) {
+        if (dmg <= 0)
+            return 0;
+        else if (c.hasPower(WitheringPower.POWER_ID))
+            return Math.min(dmg, 1 + c.getPower(WitheringPower.POWER_ID).amount);
+        else {
+            return 1;
+        }
     }
 }
