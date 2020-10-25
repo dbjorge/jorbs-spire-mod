@@ -32,6 +32,24 @@ public class CoupDeGracePatch {
     }
 
     @SpirePatch(
+            clz = AbstractMonster.class,
+            method = "calculateDamage"
+    )
+    public static class AbstractMonster_calculateDamage {
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                @Override
+                public void edit(FieldAccess fa) throws CannotCompileException {
+                    if (fa.getFieldName().equals("intentDmg") &&
+                            fa.isWriter()) {
+                        fa.replace(String.format("{ if (%1$s.shouldCalculatePreventedDamage(target)) { this.intentDmg = 1; }  else { $_ = $proceed($$); } }", CoupDeGracePatchName));
+                    }
+                }
+            };
+        }
+    }
+
+    @SpirePatch(
             clz = AbstractPlayer.class,
             method = "damage"
     )
@@ -57,7 +75,7 @@ public class CoupDeGracePatch {
                     if (fa.getClassName().equals(DamageInfo.class.getName()) &&
                             fa.getFieldName().equals("output") &&
                             fa.isWriter()) {
-                        fa.replace(String.format("{ if (%1$s.shouldCalculatePreventedDamage(this)) { %2$s.increasePreventedDamage(this, $0); $_ = $proceed($$); } }", CoupDeGracePatchName, CoupDeGracePatchName));
+                        fa.replace(String.format("{ if (%1$s.shouldCalculatePreventedDamage(this)) { %1$s.increasePreventedDamage(this, $0); $_ = $proceed($$); } }", CoupDeGracePatchName));
                     }
                 }
             };
