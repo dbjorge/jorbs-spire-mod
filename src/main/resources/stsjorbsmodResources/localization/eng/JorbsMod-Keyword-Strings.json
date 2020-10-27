@@ -90,6 +90,10 @@
     "DESCRIPTION": "Each time remembered, gain #b2 #yThorns. Until forgotten, gain #b2 additional #yThorns."
   },
   {
+    "NAMES": ["indiscriminate"],
+    "DESCRIPTION": "Indiscriminate cards can target enemies or the player."
+  },
+  {
     "NAMES": ["kindness"],
     "DESCRIPTION": "Until forgotten, ALL enemies lose #b3 #yStrength."
   },
@@ -137,6 +141,10 @@
   {
     "NAMES": ["temperance"],
     "DESCRIPTION": "While you remember or have clarity of Temperance, gain 1 #yStrength for every #yClarity you have."
+  },
+  {
+    "NAMES": ["true\u00a0damage"],
+    "DESCRIPTION": "This damage cannot be prevented or reduced."
   },
   {
     "NAMES": ["virtue"],
