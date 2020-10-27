@@ -4,6 +4,7 @@
 
 ### Bug fixes
 
+* Fixed crash when transitioning from an event room to a monster room (thanks wbfw109 for reporting)
 * Fixed issue where certain character-themed colors would occasionally be transparent (thanks kiooeht for reporting)
 * Fixed issue where using the Thirst campfire option for CULL would not reduce card damage (thanks wang429)
 
