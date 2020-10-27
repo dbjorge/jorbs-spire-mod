@@ -54,7 +54,10 @@ public class PossessionPower extends CustomJorbsModPower{
 
     @Override
     public void updateDescription() {
-        description = amount == 1 ? DESCRIPTIONS[0] : String.format(DESCRIPTIONS[1], amount);
+        if (amount == 1)
+            description = String.format(DESCRIPTIONS[0], owner.maxHealth);
+        else
+            description = String.format(DESCRIPTIONS[1], owner.maxHealth, amount);
     }
 
 

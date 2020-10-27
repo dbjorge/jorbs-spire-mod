@@ -120,7 +120,7 @@
   },
   {
     "NAMES": ["possessed"],
-    "DESCRIPTION": "#yPossessed creatures will spend their next turn attacking random allies a number of times equal to their #yPossessed stacks with damage equal to their max HP."
+    "DESCRIPTION": "#yPossessed creatures will deal damage equal to it's max HP to a random ally for each #yPossessed stack."
   },
   {
     "NAMES": ["pride"],
