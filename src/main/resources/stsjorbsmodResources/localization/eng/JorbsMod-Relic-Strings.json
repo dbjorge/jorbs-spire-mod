@@ -50,5 +50,12 @@
     "DESCRIPTIONS": [
       "Start each combat with stsjorbsmod:Clarity of the memory you ended the last combat remembering, if any."
     ]
+  },
+  "stsjorbsmod:WarpedGlassRelic": {
+    "NAME": "Warped Glass",
+    "FLAVOR": "Press e to... e?",
+    "DESCRIPTIONS": [
+      "Deal #b3 damage to ALL enemies when you stsjorbsmod:Exert a card."
+    ]
   }
 }

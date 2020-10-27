@@ -40,16 +40,25 @@
       "#yUnplayable #rCurse cards can now be played. Whenever you do, lose #b%3$s HP and deal #b%1$s damage to a random enemy for each Curse played this combat ( #b%2$s #rCurses played)."
     ]
   },
+  "stsjorbsmod:ClarifyPower": {
+    "NAME": "Clarify",
+    "DESCRIPTIONS": [
+      "Your draw pile is shown in order."
+    ]
+  },
   "stsjorbsmod:CoilPower": {
     "NAME": "Coil",
     "DESCRIPTIONS": [
       "Whenever you remember a new, #ynon-Patience memory or end your turn while #ySnapped, deal #b%1$s damage to ALL enemies and lose all Coil."
     ]
   },
-  "stsjorbsmod:ClarifyPower": {
-    "NAME": "Clarify",
+  "stsjorbsmod:CoupDeGracePower": {
+    "NAME": "Coup de Grâce",
     "DESCRIPTIONS": [
-      "Your draw pile is shown in order."
+      "After #b%1d turn, target receives #yTrue\u00a0Damage equal to double the damage prevented by intangible. (Deals #g%2d True Damage.)",
+      "After #b%1d turns, target receives #yTrue\u00a0Damage equal to double the damage prevented by intangible. (Deals #g%2d True Damage.)",
+      "After #b%1d turn, you receive #yTrue\u00a0Damage equal to double damage the prevented by intangible. (Deals #r%2d True Damage.)",
+      "After #b%1d turns, you receive #yTrue\u00a0Damage equal to double damage the prevented by intangible. (Deals #r%2d True Damage.)"
     ]
   },
   "stsjorbsmod:DamnationPower": {

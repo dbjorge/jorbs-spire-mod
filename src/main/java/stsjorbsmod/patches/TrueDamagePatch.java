@@ -6,6 +6,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.beyond.Nemesis;
@@ -72,6 +73,31 @@ public class TrueDamagePatch {
                 return SpireReturn.Return(damageAmount);
             }
             return SpireReturn.Continue();
+        }
+    }
+
+    @SpirePatch(clz = AbstractPlayer.class, method = "damage")
+    public static class AbstractPlayer_damage {
+        public static ExprEditor Instrument() {
+            return new ExprEditor() {
+                @Override
+                public void edit(MethodCall mc) throws CannotCompileException {
+                    String cls = mc.getClassName();
+                    String method = mc.getMethodName();
+
+                    if (method.equals("hasPower")) {
+                        mc.replace(String.format("{ $_ = $proceed($$) && !%1$s.isTrueDamage(info); }", TrueDamagePatchName));
+                    }
+
+                    // clamp the onAttackToChangeDamage, onAttackedToChangeDamage, and onAttacked calls
+                    if ((cls.equals(AbstractPower.class.getName()) || cls.equals(AbstractRelic.class.getName())) &&
+                            (method.equals("onAttackToChangeDamage") || method.equals("onAttackedToChangeDamage") || method.equals("onAttacked")))
+                    {
+                        mc.replace(String.format("{ $_ = %1$s.updateDamage($1, $2, $proceed($$)); }", TrueDamagePatchName));
+                        return;
+                    }
+                }
+            };
         }
     }
 
