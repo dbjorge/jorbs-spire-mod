@@ -170,6 +170,11 @@
     "NAME": "Counterspell",
     "DESCRIPTION": "Gain !B! Block. NL Gain !M! Artifact if enemy intends to apply a negative effect. NL Exhaust."
   },
+  "stsjorbsmod:CoupDeGrace": {
+    "NAME": "Coup de Grâce",
+    "DESCRIPTION": "stsjorbsmod:Indiscriminate. NL Gain X Intangible. NL After X turns deal stsjorbsmod:True\u00a0Damage equal to double the damage prevented.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Indiscriminate. NL Gain X+1 Intangible. NL After X+1 turns deal stsjorbsmod:True\u00a0Damage equal to double the damage prevented."
+  },
   "stsjorbsmod:CULLCard": {
     "NAME": "CULL",
     "DESCRIPTION": "Deal !D! damage twice. NL Exhaust.",
@@ -857,7 +862,7 @@
   },
   "stsjorbsmod:TrueStrike": {
     "NAME": "True Strike",
-    "DESCRIPTION": "Deal !D! damage. NL This damage cannot be prevented or reduced."
+    "DESCRIPTION": "Deal !D! stsjorbsmod:True\u00a0Damage."
   },
   "stsjorbsmod:UnseenServant": {
     "NAME": "Unseen Servant",

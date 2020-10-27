@@ -88,14 +88,16 @@ public class VoiceoverMaster {
     }
 
     public static void playForCurrentBattle() {
-        VoiceoverInfo sfx = getSfxByCurrentBattle();
+        if (isInBattle()) {
+            VoiceoverInfo sfx = getSfxByCurrentBattle();
 
-        // The heart fight's music starts with a music change involving a big loud trumpet note,
-        // it's less jarring for that particular music to be dampened immediately
-        boolean isHeartFight = AbstractDungeon.getMonsters().getMonster(CorruptHeart.ID) != null;
-        float dampeningDuration = isHeartFight ? 0.0F : 0.5F;
+            // The heart fight's music starts with a music change involving a big loud trumpet note,
+            // it's less jarring for that particular music to be dampened immediately
+            boolean isHeartFight = AbstractDungeon.getMonsters().getMonster(CorruptHeart.ID) != null;
+            float dampeningDuration = isHeartFight ? 0.0F : 0.5F;
 
-        playSfx(sfx, 0.0F, dampeningDuration);
+            playSfx(sfx, 0.0F, dampeningDuration);
+        }
     }
 
     private static void playSfx(VoiceoverInfo sfx, float startingDelay, float dampeningDuration) {
@@ -131,10 +133,11 @@ public class VoiceoverMaster {
         return candidates.get(index);
     }
 
+    private static boolean isInBattle() {
+        return CombatUtils.isInCombat() && AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().monsters != null;
+    }
+
     private static VoiceoverInfo getSfxByCurrentBattle() {
-        if (!CombatUtils.isInCombat() || AbstractDungeon.getCurrRoom().monsters == null) {
-            return null;
-        }
         String encounterKey = VoiceoverMasterPatch.MonsterGroup_class.encounterKeyField.get(AbstractDungeon.getCurrRoom().monsters);
         if (encounterKey == null) {
             return null;

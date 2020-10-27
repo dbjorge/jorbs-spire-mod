@@ -4,13 +4,20 @@
 
 ### Bug fixes
 
+* Fixed crash when transitioning from an event room to a monster room (thanks wbfw109 for reporting)
 * Fixed issue where certain character-themed colors would occasionally be transparent (thanks kiooeht for reporting)
 * Fixed issue where using the Thirst campfire option for CULL would not reduce card damage (thanks wang429)
+
+### Updates
+
+* Integration with Googly Eyes mod by twanvl (thanks wang429)
+  * https://steamcommunity.com/sharedfiles/filedetails/?id=1615430126
 
 ### CULL updates
 
 * Added the Book of Trials (thanks wang429)
 * Added Metronome relic (thanks PanicPoint)
+* Added Warped Glass relic (thank wang429)
 * Coffee Dripper now prevents Thirsting at campfires
 * Remove Calipers from CULL's relic pool
 * Added voiceovers for elites/bosses/death/start (thanks Ray Chase)
