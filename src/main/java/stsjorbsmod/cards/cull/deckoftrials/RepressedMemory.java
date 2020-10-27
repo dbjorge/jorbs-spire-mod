@@ -58,38 +58,16 @@ public class RepressedMemory extends CustomJorbsModCard {
     }
 
     @Override
-    public void onMoveToDiscardImpl() {
-        //if (Arrays.asList(AbstractDungeon.player.hand.group).contains(this)) {        !!This was my attempt to fix the bug but apparently they are in discarded before this function occurs.
-            this.addToBot(new DecreaseMaxHpAction(AbstractDungeon.player, AbstractDungeon.player, this.metaMagicNumber, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-        //}
-    }
-
-    /*
-    !!Other things that would make up OnMoveToDiscardImpl(), but the end of turn one is hard to implement w/runic pyramid and retain
-    @Override
     public void triggerOnManualDiscard() {
         this.addToBot(new DecreaseMaxHpAction(AbstractDungeon.player, AbstractDungeon.player, this.metaMagicNumber, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
     }
 
     @Override
-    public void triggerOnScry() {
-        this.addToBot(new DecreaseMaxHpAction(AbstractDungeon.player, AbstractDungeon.player, this.metaMagicNumber, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-    }
-
-    @Override
     public void triggerOnEndOfPlayerTurn() {
-        if (Arrays.asList(AbstractDungeon.player.hand.group).contains(this)) {
+        if (AbstractDungeon.player.hand.group.contains(this)) {
             if (!AbstractDungeon.player.hasRelic(RunicPyramid.ID)) {
                 this.addToBot(new DecreaseMaxHpAction(AbstractDungeon.player, AbstractDungeon.player, this.metaMagicNumber, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
             }
         }
     }
-     */
-
-    @Override
-    public void atStartOfAct() {
-        SelfExertField.selfExert.set(this, false);
-        ExertedField.exerted.set(this, false);
-    }
-
 }

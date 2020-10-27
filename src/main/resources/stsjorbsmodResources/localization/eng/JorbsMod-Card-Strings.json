@@ -386,7 +386,7 @@
   },
   "stsjorbsmod:Godsbane": {
     "NAME": "Godsbane",
-    "DESCRIPTION": "Deal !M! % of target's max HP.",
+    "DESCRIPTION": "Deal !M! % of target's Max HP.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
@@ -631,7 +631,7 @@
   },
   "stsjorbsmod:ProdigalMemory": {
     "NAME": "Prodigal Memory",
-    "DESCRIPTION": "Draw !stsjorbsmod:UrMagic! cards and lose !M! max HP. NL If this card is in your hand at the end of your turn, stsjorbsmod:Exert."
+    "DESCRIPTION": "Draw !stsjorbsmod:UrMagic! cards and lose !M! Max HP. NL If this card is in your hand at the end of your turn, stsjorbsmod:Exert."
   },
   "stsjorbsmod:PurgeMind": {
     "NAME": "Purge Mind",
@@ -682,7 +682,8 @@
   },
   "stsjorbsmod:RepressedMemory": {
     "NAME": "Repressed Memory",
-    "DESCRIPTION": "Lose !stsjorbsmod:MetaMagic! max hp when discarded NL If played: Draw !M! cards. Gain !stsjorbsmod:UrMagic! [E]. stsjorbsmod:Exert at end of fight."
+    "DESCRIPTION": "Draw !M! cards. Gain !stsjorbsmod:UrMagic! [E]. NL stsjorbsmod:Exert at end of fight. NL Lose !stsjorbsmod:MetaMagic! Max HP when this card is discarded.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. Gain !stsjorbsmod:UrMagic! [E]. NL stsjorbsmod:Exert at end of fight."
   },
   "stsjorbsmod:Rest": {
     "NAME": "Rest",
