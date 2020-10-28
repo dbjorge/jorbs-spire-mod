@@ -1,6 +1,7 @@
 package stsjorbsmod.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.AnimateSlowAttackAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -25,6 +26,7 @@ public class DamageRandomAliveEnemyAction extends AbstractGameAction {
         if (AbstractDungeon.getMonsters() != null) {
             this.target = AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)this.source, true, AbstractDungeon.cardRandomRng);
             addToTop(new DamageAction(target, new DamageInfo(this.source, this.source.maxHealth), AttackEffect.BLUNT_HEAVY));
+            addToTop(new AnimateSlowAttackAction(this.source));
             if (Settings.FAST_MODE) {
                 addToTop(new WaitAction(0.1F));
             } else {
