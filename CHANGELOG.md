@@ -17,7 +17,8 @@
 
 * Added the Book of Trials (thanks wang429)
 * Added Metronome relic (thanks PanicPoint)
-* Added Warped Glass relic (thank wang429)
+* Added Warped Glass relic (thanks wang429)
+* Added Shadow relic (thanks Nafen)
 * Coffee Dripper now prevents Thirsting at campfires
 * Remove Calipers from CULL's relic pool
 * Added voiceovers for elites/bosses/death/start (thanks Ray Chase)
