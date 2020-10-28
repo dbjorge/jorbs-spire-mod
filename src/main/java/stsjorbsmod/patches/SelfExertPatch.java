@@ -6,6 +6,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import stsjorbsmod.relics.ShadowRelic;
 import stsjorbsmod.relics.WarpedGlassRelic;
 import stsjorbsmod.util.ReflectionUtils;
 
@@ -32,6 +33,9 @@ public class SelfExertPatch {
             ExertedField.exerted.set(targetCard, true);
             if (AbstractDungeon.player.hasRelic(WarpedGlassRelic.ID)) {
                 AbstractDungeon.player.getRelic(WarpedGlassRelic.ID).onTrigger();
+            }
+            if (AbstractDungeon.player.hasRelic(ShadowRelic.ID)) {
+                AbstractDungeon.player.getRelic(ShadowRelic.ID).onTrigger();
             }
         }
     }

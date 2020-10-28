@@ -57,5 +57,12 @@
     "DESCRIPTIONS": [
       "Deal #b3 damage to ALL enemies when you stsjorbsmod:Exert a card."
     ]
+  },
+  "stsjorbsmod:ShadowRelic": {
+    "NAME": "Shadow",
+    "FLAVOR": "A shade of a different CULLor.",
+    "DESCRIPTIONS": [
+      "The first time you stsjorbsmod:Exert a card each combat, gain #b1 Intangible."
+    ]
   }
 }
