@@ -19,8 +19,8 @@ import static stsjorbsmod.characters.Cull.Enums.CULL_CARD_COLOR;
 public class ShadowRelic extends CustomJorbsModRelic {
     public static final String ID = JorbsMod.makeID(ShadowRelic.class);
 
-    private static final int TURNS = 1;
-    private static boolean usedThisCombat = false;
+    private static final int INTANGIBLE_STACKS = 1;
+    private boolean usedThisCombat = false;
 
     public ShadowRelic() {
         super(ID, CULL_CARD_COLOR, RelicTier.RARE, LandingSound.FLAT);
@@ -40,7 +40,7 @@ public class ShadowRelic extends CustomJorbsModRelic {
             pulse = false;
             addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             AbstractCreature p = AbstractDungeon.player;
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p,new IntangiblePlayerPower(p, TURNS)));
+            addToBot(new ApplyPowerAction(p, p,new IntangiblePlayerPower(p, TURNS)));
             usedThisCombat = true;
             grayscale = true;
         }
