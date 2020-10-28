@@ -120,7 +120,7 @@
   },
   {
     "NAMES": ["possessed"],
-    "DESCRIPTION": "#yPossessed creatures will deal damage equal to it's max HP to a random ally for each #yPossessed stack."
+    "DESCRIPTION": "#yPossessed creatures will deal damage equal to its Max HP to a random ally for each #yPossessed stack."
   },
   {
     "NAMES": ["pride"],
