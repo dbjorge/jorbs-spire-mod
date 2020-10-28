@@ -9,8 +9,13 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import stsjorbsmod.actions.DamageRandomAliveEnemyAction;
 import stsjorbsmod.util.CombatUtils;
+
+import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class PossessionPower extends CustomJorbsModPower{
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(PossessionPower.class);
@@ -31,18 +36,7 @@ public class PossessionPower extends CustomJorbsModPower{
     @Override
     public void atStartOfTurn() {
         for (int i = 0; i < this.amount; i++) {
-            int count = 0;
-            if (AbstractDungeon.getMonsters() != null) {
-                for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
-                    if (!monster.isDead && !monster.isDying) {
-                        count += 1;
-                    }
-                }
-            }
-            if (count != 1) {
-                AbstractMonster m = CombatUtils.getRandomAliveMonster(AbstractDungeon.getMonsters(), candidate -> candidate != this.owner, AbstractDungeon.cardRandomRng);
-                addToBot(new DamageAction(m, new DamageInfo(this.owner, this.owner.maxHealth), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-            }
+            addToBot(new DamageRandomAliveEnemyAction(this.owner, new DamageInfo(this.owner, this.owner.maxHealth)));
         }
         this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
     }
@@ -55,7 +49,7 @@ public class PossessionPower extends CustomJorbsModPower{
     @Override
     public void updateDescription() {
         if (amount == 1)
-            description = String.format(DESCRIPTIONS[0], owner.maxHealth);
+            description = String.format(DESCRIPTIONS[0], owner.maxHealth, amount);
         else
             description = String.format(DESCRIPTIONS[1], owner.maxHealth, amount);
     }

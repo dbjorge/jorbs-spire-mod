@@ -248,8 +248,8 @@
   "stsjorbsmod:PossessionPower": {
     "NAME": "Possessed",
     "DESCRIPTIONS": [
-      "This turn instead of attacking, this creature will attack a random ally for #b%1$s damage.",
-      "This turn instead of attacking, this creature will deal #b%1$s damage to a random ally #b%2$s times."
+      "This turn, this creature will deal #b%1$s damage to random allies #b%2$s time.",
+      "This turn, this creature will deal #b%1$s damage to random allies #b%2$s times."
     ]
   },
   "stsjorbsmod:PrestidigitationPower": {
