@@ -25,12 +25,14 @@ public class DamageRandomAliveEnemyAction extends AbstractGameAction {
     public void update() {
         if (AbstractDungeon.getMonsters() != null) {
             this.target = AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)this.source, true, AbstractDungeon.cardRandomRng);
-            addToTop(new DamageAction(target, new DamageInfo(this.source, this.source.maxHealth), AttackEffect.BLUNT_HEAVY));
-            addToTop(new AnimateSlowAttackAction(this.source));
-            if (Settings.FAST_MODE) {
-                addToTop(new WaitAction(0.1F));
-            } else {
-                addToTop(new WaitAction(0.3F));
+            if (target != null) {
+                addToTop(new DamageAction(target, new DamageInfo(this.source, this.source.maxHealth), AttackEffect.BLUNT_HEAVY));
+                addToTop(new AnimateSlowAttackAction(this.source));
+                if (Settings.FAST_MODE) {
+                    addToTop(new WaitAction(0.1F));
+                } else {
+                    addToTop(new WaitAction(0.3F));
+                }
             }
         }
         this.isDone = true;
