@@ -44,6 +44,7 @@
 * Focused Rage (thanks wang429)
 * Reap and Sow (thanks LankSSBM)
 * Old Book (thanks LankSSBM)
+* Repressed Memory (thanks nic3245)
 
 ### Wanderer Updates
 * New art for Frantic Search (thanks Chevy for art and Neablis for helping merge)
