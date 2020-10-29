@@ -40,16 +40,25 @@
       "可以打出原本 #y不能被打出 的 #r诅咒 牌。当你这么做时，对某一随机敌人，你本场战斗中每打出过一张 诅咒 牌则对其造成 #b%1$s 点伤害，然后失去 #b%3$s 点生命（你已打出 #b%2$s 张 #r诅咒 牌）。"
     ]
   },
+  "stsjorbsmod:ClarifyPower": {
+    "NAME": "澄澈",
+    "DESCRIPTIONS": [
+      "你抽牌堆中的卡牌现在将按顺序展示。"
+    ]
+  },
   "stsjorbsmod:CoilPower": {
     "NAME": "线圈",
     "DESCRIPTIONS": [
       "当你回忆起新的 #y耐心之外 的记忆时或在你的回合结束时爆发，对所有敌人造成 #b%1$s 点伤害，然后失去所有线圈。"
     ]
   },
-  "stsjorbsmod:ClarifyPower": {
-    "NAME": "澄澈",
+  "stsjorbsmod:CoupDeGracePower": {
+    "NAME": "慈悲一击",
     "DESCRIPTIONS": [
-      "你抽牌堆中的卡牌现在将按顺序展示。"
+      " #b%1d 回合后，目标受到被 无实体 防止伤害量两倍的 #y真实伤害 。（造成 #g%2d 点真实伤害。）",
+      " #b%1d 回合后，目标受到被 无实体 防止伤害量两倍的 #y真实伤害 。（造成 #g%2d 点真实伤害。）",
+      " #b%1d 回合后，你受到被 无实体 防止伤害量两倍的 #y真实伤害 。（造成 #g%2d 点真实伤害。）",
+      " #b%1d 回合后，你受到被 无实体 防止伤害量两倍的 #y真实伤害 。（造成 #g%2d 点真实伤害。）"
     ]
   },
   "stsjorbsmod:DamnationPower": {
@@ -201,6 +210,13 @@
       "在你当前记忆变得 #y清晰 之前，你无法遗忘你当前记忆。"
     ]
   },
+  "stsjorbsmod:OldBookPower": {
+    "NAME": "旧书",
+    "DESCRIPTIONS": [
+      "当你将死时，免死并 #r摧毁 旧书。",
+      "当你将死时，免死并 #r摧毁 旧书+ ，然后回复最大生命值的 #b%1d%% 。"
+    ]
+  },
   "stsjorbsmod:OverkillPower": {
     "NAME": "赶尽杀绝",
     "DESCRIPTIONS": [
@@ -233,6 +249,13 @@
     "DESCRIPTIONS": [
       "本回合内，你打出的下一张牌会被额外打出 1 次。",
       "本回合内，你打出的下一张牌会被额外打出  #b%1$s  次。"
+    ]
+  },
+  "stsjorbsmod:PossessionPower": {
+    "NAME": "被支配",
+    "DESCRIPTIONS": [
+      "本回合内，这个生物将对随机友方造成 #b%1$s 点伤害 #b%2$s 次.",
+      "本回合内，这个生物将对随机友方造成 #b%1$s 点伤害 #b%2$s 次."
     ]
   },
   "stsjorbsmod:PrestidigitationPower": {
@@ -269,8 +292,14 @@
   "stsjorbsmod:ShrapnelBloomPower": {
     "NAME": "暴雨梨花",
     "DESCRIPTIONS": [
-      "本回合内，你打出的下一张非传奇牌会额外打出 %1d 次，然后 #y力竭 。",
-      "本回合内，你打出的下一张非传奇牌会额外打出 %1d 次，然后 #y力竭 。"
+      "本回合内，你打出的下一张非传奇牌会额外打出 %1d 次，然后因 #y竭力 而被消耗。",
+      "本回合内，你打出的下一张非传奇牌会额外打出 %1d 次，然后因 #y竭力 而被消耗。"
+    ]
+  },
+  "stsjorbsmod:RepressedMemoryPower": {
+    "NAME": "心事重重",
+    "DESCRIPTIONS": [
+      "战斗结束时， 因 竭力 而消耗心事重重。"
     ]
   },
   "stsjorbsmod:SnappedPower": {
