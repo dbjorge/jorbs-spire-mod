@@ -615,6 +615,10 @@
       " NL (You have !M! Curses.)"
     ]
   },
+  "stsjorbsmod:Possession": {
+    "NAME": "Possession",
+    "DESCRIPTION": "Apply !M! stsjorbsmod:Possessed. NL stsjorbsmod:Exert."
+  },
   "stsjorbsmod:Poultergeist": {
     "NAME": "Poultergeist",
     "DESCRIPTION": "Deal !D! damage."

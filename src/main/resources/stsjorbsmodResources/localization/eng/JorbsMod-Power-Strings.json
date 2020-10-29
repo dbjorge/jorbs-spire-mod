@@ -245,6 +245,13 @@
       "The next card you play this turn is played an additional #b%1$s times."
     ]
   },
+  "stsjorbsmod:PossessionPower": {
+    "NAME": "Possessed",
+    "DESCRIPTIONS": [
+      "This turn, this creature will deal #b%1$s damage to random allies #b%2$s time.",
+      "This turn, this creature will deal #b%1$s damage to random allies #b%2$s times."
+    ]
+  },
   "stsjorbsmod:PrestidigitationPower": {
     "NAME": "Prestidigitation",
     "DESCRIPTIONS": [
