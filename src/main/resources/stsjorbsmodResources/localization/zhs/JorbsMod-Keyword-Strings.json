@@ -108,7 +108,8 @@
   {
     "NAMES": [
       "竭力",
-      "exert"
+      "exert",
+      "exerts"
     ],
     "DESCRIPTION": "当你打出这张牌时，将其 消耗 。 在下一幕开始前它将被 #y深藏 。"
   },
@@ -164,6 +165,13 @@
   },
   {
     "NAMES": [
+      "一视同仁",
+      "indiscriminate"
+    ],
+    "DESCRIPTION": "具有一视同仁的牌既可以指定敌方为目标，也可以指定玩家为目标。"
+  },
+  {
+    "NAMES": [
       "宽容",
       "kindness"
     ],
@@ -208,6 +216,13 @@
   },
   {
     "NAMES": [
+      "被支配",
+      "possessed"
+    ],
+    "DESCRIPTION": "#y被支配 的生物每有一层 #y被支配 ，他将对随机友方造成一次等同于其最大生命值的伤害。"
+  },
+  {
+    "NAMES": [
       "傲慢",
       "pride"
     ],
@@ -248,6 +263,13 @@
       "temperance"
     ],
     "DESCRIPTION": "在你记得节制期间或若你具有其清晰记忆，你每有一份 #y清晰 记忆，获得一点 #y力量 。"
+  },
+  {
+    "NAMES": [
+      "真实伤害",
+      "true damage"
+    ],
+    "DESCRIPTION": "该伤害不可被防止或减少。"
   },
   {
     "NAMES": [

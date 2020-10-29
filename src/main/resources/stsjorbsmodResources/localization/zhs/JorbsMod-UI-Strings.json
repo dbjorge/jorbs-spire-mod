@@ -86,6 +86,12 @@
       "旁白字幕"
     ]
   },
+  "stsjorbsmod:RelicStatsModSupportIntf": {
+    "TEXT": [
+      " NL 每回合： #b%1$s",
+      " NL 每场战斗： #b%1$s"
+    ]
+  },
   "stsjorbsmod:SnapCounter": {
     "TEXT": [
       "精神衰弱",
