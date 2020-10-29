@@ -286,7 +286,7 @@
   "stsjorbsmod:RepressedMemoryPower": {
     "NAME": "Repressed Memory",
     "DESCRIPTIONS": [
-      "Exert Repressed Memory at the end of the fight"
+      "Exert Repressed Memory at the end of the combat."
     ]
   },
   "stsjorbsmod:SnappedPower": {

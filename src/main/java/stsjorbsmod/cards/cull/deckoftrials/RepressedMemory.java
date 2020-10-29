@@ -53,20 +53,19 @@ public class RepressedMemory extends CustomJorbsModCard {
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addToBot(new DrawCardAction(this.magicNumber));
         addToBot(new GainEnergyAction(this.urMagicNumber));
-        if (!SelfExertField.selfExert.get(this) || !ExertedField.exerted.get(this)) {
-            addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new RepressedMemoryPower(abstractPlayer, this)));
-        }
+        addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new RepressedMemoryPower(abstractPlayer, this)));
     }
 
     @Override
     public void triggerOnManualDiscard() {
-        this.addToBot(new DecreaseMaxHpAction(AbstractDungeon.player, AbstractDungeon.player, this.metaMagicNumber, AbstractGameAction.AttackEffect.POISON));
+        if (!upgraded)
+            this.addToBot(new DecreaseMaxHpAction(AbstractDungeon.player, AbstractDungeon.player, this.metaMagicNumber, AbstractGameAction.AttackEffect.POISON));
     }
 
     @Override
     public void triggerOnEndOfPlayerTurn() {
         if (AbstractDungeon.player.hand.group.contains(this)) {
-            if (!AbstractDungeon.player.hasRelic(RunicPyramid.ID)) {
+            if (!AbstractDungeon.player.hasRelic(RunicPyramid.ID) && !upgraded) {
                 addToBot(new DecreaseMaxHpAction(AbstractDungeon.player, AbstractDungeon.player, this.metaMagicNumber, AbstractGameAction.AttackEffect.POISON));
             }
         }

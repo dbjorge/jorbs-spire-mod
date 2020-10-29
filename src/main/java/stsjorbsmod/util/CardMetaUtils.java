@@ -43,19 +43,6 @@ public class CardMetaUtils {
         }
     }
 
-    public static void enactExert(AbstractCard card) {
-        if (SelfExertField.selfExert.get(card)) {
-            AbstractCard masterCard = StSLib.getMasterDeckEquivalent(card);
-
-            // I'm setting both masterdeck and combatdeck instances of the card to exerted,
-            // in case we want to show text on exerted cards, or want to prevent exerted cards from being returned from Exhaust.
-            if (masterCard != null) {
-                ExertedField.exerted.set(masterCard, true);
-            }
-            ExertedField.exerted.set(card, true);
-        }
-    }
-
     public static void destroyCardPermanently(AbstractCard card) {
         card.purgeOnUse = true; // handles destroying the copy that's in the middle of being played
         AbstractDungeon.player.discardPile.group.removeIf(abstractCard -> abstractCard.uuid.equals(card.uuid));

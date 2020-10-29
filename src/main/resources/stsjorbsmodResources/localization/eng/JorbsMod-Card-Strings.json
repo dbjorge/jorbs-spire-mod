@@ -687,8 +687,8 @@
   },
   "stsjorbsmod:RepressedMemory": {
     "NAME": "Repressed Memory",
-    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! [E]. NL Draw !M! cards. NL stsjorbsmod:Exert at end of fight. NL Lose !stsjorbsmod:MetaMagic! Max HP when this card is discarded.",
-    "UPGRADE_DESCRIPTION": "Gain !stsjorbsmod:UrMagic! [E]. NL Draw !M! cards. NL stsjorbsmod:Exert at end of fight."
+    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! [E]. NL Draw !M! cards. NL stsjorbsmod:Exert at end of combat. NL Lose !stsjorbsmod:MetaMagic! Max HP when this card is discarded.",
+    "UPGRADE_DESCRIPTION": "Gain !stsjorbsmod:UrMagic! [E]. NL Draw !M! cards. NL stsjorbsmod:Exert at end of combat."
   },
   "stsjorbsmod:Rest": {
     "NAME": "Rest",

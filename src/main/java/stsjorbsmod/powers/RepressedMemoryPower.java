@@ -8,17 +8,18 @@ import stsjorbsmod.JorbsMod;
 import stsjorbsmod.patches.ExertedField;
 import stsjorbsmod.patches.SelfExertField;
 
+import static stsjorbsmod.patches.EnumsPatch.SPECIAL;
+
 public class RepressedMemoryPower extends CustomJorbsModPower {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(RepressedMemoryPower.class);
     public static final String POWER_ID = STATIC.ID;
-    //private final CardGroup originalPile;
     private AbstractCard card;
 
     public RepressedMemoryPower(AbstractPlayer owner,  AbstractCard card) {
         super(STATIC);
+        this.ID = POWER_ID + card.uuid;
         this.owner = owner;
-        this.type = PowerType.DEBUFF;
-        //this.originalPile = originalPile;
+        this.type = SPECIAL;
         this.card = card;
     }
 
