@@ -40,7 +40,7 @@ public class ShadowRelic extends CustomJorbsModRelic {
             pulse = false;
             addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             AbstractCreature p = AbstractDungeon.player;
-            addToBot(new ApplyPowerAction(p, p,new IntangiblePlayerPower(p, TURNS)));
+            addToBot(new ApplyPowerAction(p, p,new IntangiblePlayerPower(p, INTANGIBLE_STACKS)));
             usedThisCombat = true;
             grayscale = true;
         }
