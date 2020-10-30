@@ -689,6 +689,11 @@
     "NAME": "Refuse to Forget",
     "DESCRIPTION": "You cannot forget your current memory until you have stsjorbsmod:Clarity of it. NL Draw !M! cards. NL You cannot draw more cards this turn."
   },
+  "stsjorbsmod:RepressedMemory": {
+    "NAME": "Repressed Memory",
+    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! [E]. NL Draw !M! cards. NL stsjorbsmod:Exert at end of combat. NL Lose !stsjorbsmod:MetaMagic! Max HP when this card is discarded from your hand or at end of turn.",
+    "UPGRADE_DESCRIPTION": "Gain !stsjorbsmod:UrMagic! [E]. NL Draw !M! cards. NL stsjorbsmod:Exert at end of combat."
+  },
   "stsjorbsmod:Rest": {
     "NAME": "Rest",
     "DESCRIPTION": "Remember stsjorbsmod:Chastity. NL Gain !B! Block. NL End your turn."
