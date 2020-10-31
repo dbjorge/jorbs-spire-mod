@@ -11,7 +11,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.ConsumerGameAction;
 import stsjorbsmod.cards.DowngradeableCard;
+import stsjorbsmod.patches.ExertedField;
 import stsjorbsmod.patches.LegendaryPatch;
+import stsjorbsmod.patches.SelfExertField;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
