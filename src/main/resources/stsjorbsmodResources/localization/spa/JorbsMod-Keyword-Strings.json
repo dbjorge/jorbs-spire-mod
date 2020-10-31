@@ -59,6 +59,13 @@
   },
   {
     "NAMES": [
+      "mazo\u00a0de\u00a0pruebas",
+      "deck\u00a0of\u00a0trials"
+    ],
+    "DESCRIPTION": "Un mazo secudario con cartas de efectos poderosos."
+  },
+  {
+    "NAMES": [
       "destruir",
       "destroy"
     ],
@@ -96,7 +103,10 @@
   {
     "NAMES": [
       "expirar",
-      "exert"
+      "expiras",
+      "expira",
+      "exert",
+      "exerts"
     ],
     "DESCRIPTION": "Agota esta carta al ser jugada. Será #yEnterrada hasta el comienzo del próximo Acto."
   },
@@ -152,6 +162,13 @@
   },
   {
     "NAMES": [
+      "indiscriminado",
+      "indiscriminate"
+    ],
+    "DESCRIPTION": "Cartas #yindiscriminados pueden apuntar tu mismo o enemigos."
+  },
+  {
+    "NAMES": [
       "amabilidad",
       "kindness"
     ],
@@ -194,6 +211,13 @@
       "patience"
     ],
     "DESCRIPTION": "Gana 1 #yRollo cada vez que juegas una carta. Cuando recuerdas una nueva memoria, haz 1 daño a TODOS los enemigos por cada #yRollo y pierde todo el #yRollo."
+  },
+  {
+    "NAMES": [
+      "poseído",
+      "possessed"
+    ],
+    "DESCRIPTION": "Enemigos #yposeídos hará daño igual a la Max PV a aliados aleatorios por cada pila."
   },
   {
     "NAMES": [
@@ -240,6 +264,13 @@
       "temperance"
     ],
     "DESCRIPTION": "Cuando recuerdas o tienes claridad de Templanza, gana 1 #yFuerza por cada #yClaridad que tienes."
+  },
+  {
+    "NAMES": [
+      "daño\u00a0verdadero",
+      "true\u00a0damage"
+    ],
+    "DESCRIPTION": "Esta daño no puede prevenirse ni reducirse."
   },
   {
     "NAMES": [

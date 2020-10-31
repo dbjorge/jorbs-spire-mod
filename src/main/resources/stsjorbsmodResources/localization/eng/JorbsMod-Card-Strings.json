@@ -172,8 +172,8 @@
   },
   "stsjorbsmod:CoupDeGrace": {
     "NAME": "Coup de Grâce",
-    "DESCRIPTION": "stsjorbsmod:Indiscriminate. NL Gain X Intangible. NL After X turns deal stsjorbsmod:True\u00a0Damage equal to double the damage prevented.",
-    "UPGRADE_DESCRIPTION": "stsjorbsmod:Indiscriminate. NL Gain X+1 Intangible. NL After X+1 turns deal stsjorbsmod:True\u00a0Damage equal to double the damage prevented."
+    "DESCRIPTION": "stsjorbsmod:Indiscriminate. NL Gain X Intangible. NL Después de X turnos haz stsjorbsmod:True\u00a0Damage equal to double the damage prevented.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Indiscriminate. NL Gain X+1 Intangible. NL Después de X+1 turnos haz stsjorbsmod:True\u00a0Damage equal to double the damage prevented."
   },
   "stsjorbsmod:CULLCard": {
     "NAME": "CULL",

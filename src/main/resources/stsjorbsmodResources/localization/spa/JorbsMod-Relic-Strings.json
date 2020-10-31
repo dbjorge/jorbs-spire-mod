@@ -6,6 +6,13 @@
       "Reduce la pérdida del stsjorbsmod:Quemado a 10% por turno."
     ]
   },
+  "stsjorbsmod:BookOfTrialsRelic": {
+    "NAME": "Libro de pruebas",
+    "FLAVOR": "Como lenguas, pero no realmente.",
+    "DESCRIPTIONS": [
+      "Agrega #b2 cartas del stsjorbsmod:Mazo\u00a0de\u00a0Pruebas a tu mazo al principio de cada acto."
+    ]
+  },
   "stsjorbsmod:BottledMemoryRelic": {
     "NAME": "Memoria Embotellada",
     "FLAVOR": "Mi cerebro está roto",
@@ -23,6 +30,13 @@
       "Al comenzar cada combate, recuerda stsjorbsmod:Paciencia. NL Al finalizar cada combate, cura #b1 PV por cada stsjorbsmod:Claridad."
     ]
   },
+  "stsjorbsmod:MetronomeRelic": {
+    "NAME": "Metrónomo",
+    "FLAVOR": "TIC TAC...TIC TAC",
+    "DESCRIPTIONS": [
+      "Al principio de cada quinto turno, reducir stsjorbsmod:Manifiesto en uno."
+    ]
+  },
   "stsjorbsmod:MindGlassRelic": {
     "NAME": "Mente de cristal",
     "FLAVOR": "Presiona e a e.",
@@ -35,6 +49,13 @@
     "FLAVOR": "Es esto una fortaleza o una prisión?",
     "DESCRIPTIONS": [
       "Empieza cada combate con stsjorbsmod:Claridad de la memoria con que terminaste tu pasada pelea recordando."
+    ]
+  },
+  "stsjorbsmod:WarpedGlassRelic": {
+    "NAME": "Cristal Combado",
+    "FLAVOR": "Pulse \"E\" para... \"E\"?",
+    "DESCRIPTIONS": [
+      "Hace #b3 de daño a TODOS los enemigos cuando stsjorbsmod:Expiras una carta."
     ]
   }
 }

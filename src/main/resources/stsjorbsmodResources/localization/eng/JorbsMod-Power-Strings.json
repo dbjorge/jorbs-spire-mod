@@ -103,13 +103,6 @@
       "Exhumes in #b%3$s turn."
     ]
   },
-  "stsjorbsmod:MirrorPower": {
-    "NAME": "Mirror",
-    "DESCRIPTIONS": [
-      "For #b%1$s turn, take no damage and reflect attack damage enemies deal to you.",
-      "For #b%1$s turns, take no damage and reflect attack damage enemies deal to you."
-    ]
-  },
   "stsjorbsmod:ExhumeAtStartOfTurnPower": {
     "NAME": "Exhume",
     "DESCRIPTIONS": [
@@ -185,7 +178,7 @@
     ]
   },
   "stsjorbsmod:MirroredTechniquePower": {
-    "NAME": "Mirrored Technique",
+    "NAME": "Técnica Espejada",
     "DESCRIPTIONS": [
       "Play all attacks an additional time for each time you are being attacked.",
       "Play all attacks an additional time for each time you are being attacked + %1$d."
@@ -196,6 +189,13 @@
     "DESCRIPTIONS": [
       "A Mirror Image stands ready to intercept %1$s attack for you.",
       "A Mirror Image stands ready to intercept %1$s attacks for you."
+    ]
+  },
+  "stsjorbsmod:MirrorPower": {
+    "NAME": "Mirror",
+    "DESCRIPTIONS": [
+      "For #b%1$s turn, take no damage and reflect attack damage enemies deal to you.",
+      "For #b%1$s turns, take no damage and reflect attack damage enemies deal to you."
     ]
   },
   "stsjorbsmod:MustClarifyBeforeRememberingNewMemoriesPower": {
@@ -283,6 +283,13 @@
       "Reduce healing by %1$s%%."
     ]
   },
+  "stsjorbsmod:SacrificePower": {
+    "NAME": "Sacrifice",
+    "DESCRIPTIONS": [
+      "Pay Max HP instead of [E] for #b%1d turn.",
+      "Pay Max HP instead of [E] for #b%1d turns."
+    ]
+  },
   "stsjorbsmod:ShrapnelBloomPower": {
     "NAME": "Shrapnel Bloom",
     "DESCRIPTIONS": [
@@ -294,13 +301,6 @@
     "NAME": "Snapped",
     "DESCRIPTIONS": [
       "You cannot remember any memories or clarities."
-    ]
-  },
-  "stsjorbsmod:SacrificePower": {
-    "NAME": "Sacrifice",
-    "DESCRIPTIONS": [
-      "Pay Max HP instead of [E] for #b%1d turn.",
-      "Pay Max HP instead of [E] for #b%1d turns."
     ]
   },
   "stsjorbsmod:SpiritShieldPower": {

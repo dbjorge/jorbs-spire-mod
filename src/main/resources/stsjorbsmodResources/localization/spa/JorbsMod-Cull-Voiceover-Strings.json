@@ -1,0 +1,117 @@
+{
+  "stsjorbsmod:cull:voiceover:3_Sentries": {
+    "TEXT": [
+      "Tres por el precio de uno."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Automaton": {
+    "TEXT": [
+      "Lamento que no fuera más comestible."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Awakened_One": {
+    "TEXT": [
+      "Ah, déjame ayudarte con esa daga."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Book_of_Stabbing": {
+    "TEXT": [
+      "Un libro como de mi propio corazón."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Champ": {
+    "TEXT": [
+      "Haz tu ruido, lata."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Collector": {
+    "TEXT": [
+      "Es MI mantel donde perteneces."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:death": {
+    "TEXT": [
+      "Viven. Por el momento."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:death_victory": {
+    "TEXT": [
+      "¿Me siento satisfecho?"
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Donu_and_Deca": {
+    "TEXT": [
+      "El de la derecha parece sabroso."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Giant_Head": {
+    "TEXT": [
+      "Lástima que esté hecha de piedra."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Gremlin_Leader": {
+    "TEXT": [
+      "Aperitivos y... Sí, el plato principal."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Gremlin_Nob": {
+    "TEXT": [
+      "Sangre por sangre."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Hexaghost": {
+    "TEXT": [
+      "Gira y gira. Hasta que no lo haga."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Lagavulin": {
+    "TEXT": [
+      "Rompe la cáscara, comeré bien."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Nemesis": {
+    "TEXT": [
+      "Quédate quieto, cobarde etéreo."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:new_run": {
+    "TEXT": [
+      "El sacrificio comienza."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Reptomancer": {
+    "TEXT": [
+      "Tantos picos para una comida tan pequeña."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Shield_and_Spear": {
+    "TEXT": [
+      "Vamos a matarlos rápidamente."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Slavers": {
+    "TEXT": [
+      "Creen que tienen el control."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Slime_Boss": {
+    "TEXT": [
+      "No ensucies mi hoja, limo."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:The_Guardian": {
+    "TEXT": [
+      "Sangra erizo glorificado."
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:The_Heart": {
+    "TEXT": [
+      "La ~delicadeza~ ~más pura.~"
+    ]
+  },
+  "stsjorbsmod:cull:voiceover:Time_Eater": {
+    "TEXT": [
+      "Nuestra cita ha llegado."
+    ]
+  }
+}
