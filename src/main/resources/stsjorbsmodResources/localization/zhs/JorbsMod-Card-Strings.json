@@ -695,7 +695,7 @@
   },
   "stsjorbsmod:RepressedMemory": {
     "NAME": "心事重重",
-    "DESCRIPTION": "获得 !stsjorbsmod:UrMagic! 点 [E] 。 NL 抽 !M! 张牌。 NL 战斗结束时 stsjorbsmod:竭力 。 NL 当你丢弃这张牌时，失去 !stsjorbsmod:MetaMagic! 点最大生命。",
+    "DESCRIPTION": "获得 !stsjorbsmod:UrMagic! 点 [E] 。 NL 抽 !M! 张牌。 NL 战斗结束时 stsjorbsmod:竭力 。 NL 当你从手中丢弃或回合结束自动丢弃这张牌时，失去 !stsjorbsmod:MetaMagic! 点最大生命。",
     "UPGRADE_DESCRIPTION": "获得 !stsjorbsmod:UrMagic! 点 [E] 。 NL 抽 !M! 张牌。 NL 战斗结束时 stsjorbsmod:竭力 。"
   },
   "stsjorbsmod:Rest": {
