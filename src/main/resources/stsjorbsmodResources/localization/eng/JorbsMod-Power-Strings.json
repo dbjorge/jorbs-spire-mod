@@ -283,6 +283,12 @@
       "Reduce healing by %1$s%%."
     ]
   },
+  "stsjorbsmod:RepressedMemoryPower": {
+    "NAME": "Repressed Memory",
+    "DESCRIPTIONS": [
+      "#yExert Repressed Memory at the end of the combat."
+    ]
+  },
   "stsjorbsmod:SacrificePower": {
     "NAME": "Sacrifice",
     "DESCRIPTIONS": [
@@ -295,12 +301,6 @@
     "DESCRIPTIONS": [
       "This turn, your next non-Legendary card is played %1d additional time, then #yExerts.",
       "This turn, your next non-Legendary card is played %1d additional times, then #yExerts."
-    ]
-  },
-  "stsjorbsmod:RepressedMemoryPower": {
-    "NAME": "Repressed Memory",
-    "DESCRIPTIONS": [
-      "Exert Repressed Memory at the end of the combat."
     ]
   },
   "stsjorbsmod:SnappedPower": {

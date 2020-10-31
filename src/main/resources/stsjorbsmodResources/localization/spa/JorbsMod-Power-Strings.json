@@ -283,6 +283,12 @@
       "Reduce curación por %1$s%%."
     ]
   },
+  "stsjorbsmod:RepressedMemoryPower": {
+    "NAME": "Memoria Reprimida",
+    "DESCRIPTIONS": [
+      "#yExpira Memoria Reprimida al final de combate."
+    ]
+  },
   "stsjorbsmod:SacrificePower": {
     "NAME": "Sacrificar",
     "DESCRIPTIONS": [
