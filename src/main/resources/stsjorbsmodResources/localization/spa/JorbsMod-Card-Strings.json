@@ -172,8 +172,8 @@
   },
   "stsjorbsmod:CoupDeGrace": {
     "NAME": "Golpe de Gracia",
-    "DESCRIPTION": "stsjorbsmod:Indiscriminado. NL Gana X Intangible. NL After X turns deal stsjorbsmod:Daño\u00a0Verdadero igual a double el daño prevenido.",
-    "UPGRADE_DESCRIPTION": "stsjorbsmod:Indiscriminado. NL Gana X+1 Intangible. NL After X+1 turns deal stsjorbsmod:Daño\u00a0Verdadero igual a double el daño prevenido."
+    "DESCRIPTION": "stsjorbsmod:Indiscriminado. NL Gana X Intangible. NL Después de X turnos deal stsjorbsmod:Daño\u00a0Verdadero igual a double el daño prevenido.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Indiscriminado. NL Gana X+1 Intangible. NL Después de X+1 turnos deal stsjorbsmod:Daño\u00a0Verdadero igual a double el daño prevenido."
   },
   "stsjorbsmod:CULLCard": {
     "NAME": "Guadaña",
@@ -688,6 +688,11 @@
   "stsjorbsmod:RefuseToForget": {
     "NAME": "Negarse a Olvidar",
     "DESCRIPTION": "No puedes olvidar tu memoria actual hasta que no ganes stsjorbsmod:Claridad de esta. NL Roba !M! cartas. NL No puedes robar más cartas este turno."
+  },
+  "stsjorbsmod:RepressedMemory": {
+    "NAME": "Memoria Reprimida",
+    "DESCRIPTION": "Gana !stsjorbsmod:UrMagic! [E]. NL Roba !M! cartas. NL stsjorbsmod:Expirar al final del combate. NL Pierde !stsjorbsmod:MetaMagic! Max PV cuando esta carta es descartada de tu mano o al final de turno.",
+    "UPGRADE_DESCRIPTION": "Gana !stsjorbsmod:UrMagic! [E]. NL Roba !M! cartas. NL stsjorbsmod:Expirar al final del combate."
   },
   "stsjorbsmod:Rest": {
     "NAME": "Descanso",

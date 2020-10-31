@@ -51,6 +51,13 @@
       "Empieza cada combate con stsjorbsmod:Claridad de la memoria con que terminaste tu pasada pelea recordando."
     ]
   },
+  "stsjorbsmod:ShadowRelic": {
+    "NAME": "Sombra",
+    "FLAVOR": "Una sombra de otra COSA.",
+    "DESCRIPTIONS": [
+      "La primera vez que stsjorbsmod:Expira una carta cada combate, gana #b1 Intangible."
+    ]
+  },
   "stsjorbsmod:WarpedGlassRelic": {
     "NAME": "Cristal Combado",
     "FLAVOR": "Pulse \"E\" para... \"E\"?",
