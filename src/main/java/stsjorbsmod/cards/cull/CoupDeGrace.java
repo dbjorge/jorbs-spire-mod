@@ -45,7 +45,7 @@ public class CoupDeGrace extends CustomJorbsModCard {
         super.update();
         AbstractPlayer p = AbstractDungeon.player;
 
-        if (p.isDraggingCard && p.hoveredCard.equals(this)) {
+        if (p != null && p.isDraggingCard && this.equals(p.hoveredCard)) {
             AbstractCreature hoveredEnemy = null;
             for (AbstractCreature enemy : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 if (enemy.hb.hovered && !enemy.isDead && !enemy.halfDead) {
