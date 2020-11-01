@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+Special thanks this to LankSSBM and wang429 for handling most of this release's code review and project management!
+ 
 ### Bug fixes
 
 * Fixed crash when transitioning from an event room to a monster room (thanks wbfw109 for reporting)
