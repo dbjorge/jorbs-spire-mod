@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [v1.9.1] - 2020-11-01
+
 ### Bug fixes
 
 * Fix crash when viewing CULL cards in Compendium
