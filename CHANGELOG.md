@@ -4,13 +4,11 @@
 
 ### Bug fixes
 
-### Updates
+* Fix crash when viewing CULL cards in Compendium
 
 ### CULL updates
 
 * New art for Paralysis (thanks Fr33ly)
-
-### New CULL cards
 
 ### Wanderer Updates
 
