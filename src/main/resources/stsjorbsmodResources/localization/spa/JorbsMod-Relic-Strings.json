@@ -7,10 +7,10 @@
     ]
   },
   "stsjorbsmod:BookOfTrialsRelic": {
-    "NAME": "Libro de pruebas",
-    "FLAVOR": "Como lenguas, pero no realmente.",
+    "NAME": "Libro de Pruebas",
+    "FLAVOR": "Parasido a lenguas, pero de mentiras.",
     "DESCRIPTIONS": [
-      "Agrega #b2 cartas del stsjorbsmod:Mazo\u00a0de\u00a0Pruebas a tu mazo al principio de cada acto."
+      "Agrega #b2 cartas del stsjorbsmod:Mazo\u00a0de\u00a0Pruebas a tu mazo al principio de cada Acto."
     ]
   },
   "stsjorbsmod:BottledMemoryRelic": {
@@ -34,7 +34,7 @@
     "NAME": "Metrónomo",
     "FLAVOR": "TIC TAC...TIC TAC",
     "DESCRIPTIONS": [
-      "Al principio de cada quinto turno, reducir stsjorbsmod:Manifiesto en uno."
+      "Al principio de cada quinto turno, reduce stsjorbsmod:Manifiesto por uno."
     ]
   },
   "stsjorbsmod:MindGlassRelic": {
@@ -55,12 +55,12 @@
     "NAME": "Sombra",
     "FLAVOR": "Una sombra de otra COSA.",
     "DESCRIPTIONS": [
-      "La primera vez que stsjorbsmod:Expira una carta cada combate, gana #b1 Intangible."
+      "La primera vez que stsjorbsmod:Expira una carta en cada combate, gana #b1 Intangible."
     ]
   },
   "stsjorbsmod:WarpedGlassRelic": {
-    "NAME": "Cristal Combado",
-    "FLAVOR": "Pulse \"E\" para... \"E\"?",
+    "NAME": "Cristal Pervertido",
+    "FLAVOR": "Pulse \"F\" para... \"F\"?",
     "DESCRIPTIONS": [
       "Hace #b3 de daño a TODOS los enemigos cuando stsjorbsmod:Expiras una carta."
     ]

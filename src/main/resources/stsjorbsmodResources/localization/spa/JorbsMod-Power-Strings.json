@@ -43,7 +43,7 @@
   "stsjorbsmod:ClarifyPower": {
     "NAME": "Claridad",
     "DESCRIPTIONS": [
-      "Las cartas de tu pila de extracción aparecen en el orden en el que salen."
+      "Las cartas de tu pila de extracción aparecen en el orden en que salen."
     ]
   },
   "stsjorbsmod:CoilPower": {
@@ -55,10 +55,10 @@
   "stsjorbsmod:CoupDeGracePower": {
     "NAME": "Golpe de Gracia",
     "DESCRIPTIONS": [
-      "Después de #b%1d turno, el enemigo recibe #yDaño\u00a0Verdadero igual a double el daño prevenido por intangible. (Hace #g%2d de Daño Verdadero.)",
-      "Después de #b%1d turnos, el enemigo recibe #yDaño\u00a0Verdadero igual a double el daño prevenido por intangible. (Hace #g%2d de Daño Verdadero.)",
-      "Después de #b%1d turno, tu recibes #yDaño\u00a0Verdadero igual a double el daño prevenido por intangible. (Hace #r%2d Daño Verdadero.)",
-      "Después de #b%1d turnos, tu recibes #yDaño\u00a0Verdadero igual a double el daño prevenido por intangible. (Hace #r%2d Daño Verdadero.)"
+      "Después de #b%1d turno, el enemigo recibe #yDaño\u00a0Real equivamente al double del daño prevenido por intangible. (Hace #g%2d de Daño Real.)",
+      "Después de #b%1d turnos, el enemigo recibe #yDaño\u00a0Real equivamente al double del daño prevenido por intangible. (Hace #g%2d de Daño Real.)",
+      "Después de #b%1d turno, tu recibes #yDaño\u00a0Real equivamente al double del daño prevenido por intangible. (Hace #r%2d Daño Real.)",
+      "Después de #b%1d turnos, tu recibes #yDaño\u00a0Real equivamente al double del daño prevenido por intangible. (Hace #r%2d Daño Real.)"
     ]
   },
   "stsjorbsmod:DamnationPower": {
@@ -178,10 +178,10 @@
     ]
   },
   "stsjorbsmod:MirroredTechniquePower": {
-    "NAME": "Técnica Espejada",
+    "NAME": "Técnica Reflejada",
     "DESCRIPTIONS": [
-      "Juegas todos los ataques un vez adicional por cada vez que estes siendo atacado.",
-      "Juegas todos los ataques un vez adicional por cada vez que estes siendo atacado + %1$d."
+      "Juegas todos los ataques una vez adicional por cada vez que estes siendo atacado.",
+      "Juegas todos los ataques una vez adicional por cada vez que estes siendo atacado + %1$d."
     ]
   },
   "stsjorbsmod:MirrorImagePower": {
@@ -207,8 +207,8 @@
   "stsjorbsmod:OldBookPower": {
     "NAME": "Libro Viejo",
     "DESCRIPTIONS": [
-      "Cuando morirías, en lugar de esto #rDestruir #yLibro\u00a0Viejo.",
-      "Cuando morirías, en lugar de esto #rDestruir #yLibro\u00a0Viejo+ y recupera #b%1d%% de tu Max PV."
+      "Cuando morirías, en lugar de eso #rDestruir #yLibro\u00a0Viejo.",
+      "Cuando morirías, en lugar de eso #rDestruir #yLibro\u00a0Viejo+ y recupera #b%1d%% de tu PV Máximo."
     ]
   },
   "stsjorbsmod:OverkillPower": {
@@ -248,8 +248,8 @@
   "stsjorbsmod:PossessionPower": {
     "NAME": "Poseído",
     "DESCRIPTIONS": [
-      "En esta turno, esta enemigo infligirá #b%1$s de daño a aliados aleatorios #b%2$s vez.",
-      "En esta turno, esta enemigo infligirá #b%1$s de daño a aliados aleatorios #b%2$s veces."
+      "En este turno, el enemigo hace #b%1$s de daño a aliados al azar #b%2$s vez.",
+      "En este turno, el enemigo hace #b%1$s de daño a aliados al azar #b%2$s veces."
     ]
   },
   "stsjorbsmod:PrestidigitationPower": {
@@ -286,21 +286,21 @@
   "stsjorbsmod:RepressedMemoryPower": {
     "NAME": "Memoria Reprimida",
     "DESCRIPTIONS": [
-      "#yExpira Memoria Reprimida al final de combate."
+      "#yExpira Memoria Reprimida al final del combate."
     ]
   },
   "stsjorbsmod:SacrificePower": {
     "NAME": "Sacrificar",
     "DESCRIPTIONS": [
-      "Paga Max PV en ves de [E] por #b%1d turno.",
-      "Paga Max PV en ves de [E] por #b%1d turnos."
+      "Paga PV Máximo en ves de [E] por #b%1d turno.",
+      "Paga PV Máximo en ves de [E] por #b%1d turnos."
     ]
   },
   "stsjorbsmod:ShrapnelBloomPower": {
     "NAME": "Flor de Metralla",
     "DESCRIPTIONS": [
-      "Esta turno, el próximo no-Legendario carta se juega %1d vez additional, entonces lo #yExpira.",
-      "Esta turno, el próximo no-Legendario carta se juega %1d veces additional, entonces lo #yExpira."
+      "Este turno, la próxima carta no-Legendario se juega %1d vez adicional, después lo #yExpira.",
+      "Este turno, la próxima carta no-Legendario se juega %1d veces adicionales, después lo #yExpira."
     ]
   },
   "stsjorbsmod:SnappedPower": {

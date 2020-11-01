@@ -55,14 +55,14 @@
       "consume",
       "consumed"
     ],
-    "DESCRIPTION": "Cartas consumidas son removidas permanentemente de tu mazo. Obtiene una recompenza basado en la rareza de la carta: NL #yBásica: Cura por #b5. NL #yComún: #b+3 Max PV. NL #yPoco #yComún: #b+3 Max PV y recupera todos tus PV. NL #yRara or #yLegendaria: #b+5 Max PV y recupera todos tus PV. NL #yMaldición: #b-1 Max PV."
+    "DESCRIPTION": "Cartas consumidas son removidas permanentemente de tu mazo. Obtiene una recompenza basado en la rareza de la carta: NL #yBásica: Cura por #b5. NL #yComún: #b+3 PV Máximo. NL #yPoco #yComún: #b+3 PV Máximo y recupera todos tus PV. NL #yRara or #yLegendaria: #b+5 PV Máximo y recupera todos tus PV. NL #yMaldición: #b-1 PV Máximo."
   },
   {
     "NAMES": [
       "mazo\u00a0de\u00a0pruebas",
       "deck\u00a0of\u00a0trials"
     ],
-    "DESCRIPTION": "Un mazo secudario con cartas de efectos poderosos."
+    "DESCRIPTION": "Un mazo secudario con cartas de efectos relativamente poderosos."
   },
   {
     "NAMES": [
@@ -144,7 +144,7 @@
       "gula",
       "gluttony"
     ],
-    "DESCRIPTION": "Cuando asesinas a un enemigo no-esbirro, sube tu Max PV por #b2. Al principio de tu turno, descarta 1 carta."
+    "DESCRIPTION": "Cuando asesinas a un enemigo no-esbirro, sube tu PV Máximo por #b2. Al principio de tu turno, descarta 1 carta."
   },
   {
     "NAMES": [
@@ -165,7 +165,7 @@
       "indiscriminado",
       "indiscriminate"
     ],
-    "DESCRIPTION": "Cartas #yindiscriminados pueden apuntar tu mismo o enemigos."
+    "DESCRIPTION": "Cartas #yindiscriminadas pueden elejir como blanco a ti mismo o a los enemigos."
   },
   {
     "NAMES": [
@@ -217,7 +217,7 @@
       "poseído",
       "possessed"
     ],
-    "DESCRIPTION": "Enemigos #yposeídos hará daño igual a la Max PV a aliados aleatorios por cada pila."
+    "DESCRIPTION": "Enemigos #yposeídos hará daño equivalente a la PV Máximo a un aliado al azar por cada pila."
   },
   {
     "NAMES": [
@@ -267,7 +267,7 @@
   },
   {
     "NAMES": [
-      "daño\u00a0verdadero",
+      "daño\u00a0real",
       "true\u00a0damage"
     ],
     "DESCRIPTION": "Esta daño no puede prevenirse ni reducirse."
