@@ -12,6 +12,8 @@
 
 * Integration with Googly Eyes mod by twanvl (thanks wang429)
   * https://steamcommunity.com/sharedfiles/filedetails/?id=1615430126
+* Spanish translation updates (thanks LankSSBM)
+* Simplified Chinese translation updates (thanks yanang007)
 
 ### CULL updates
 
@@ -29,6 +31,7 @@
 * New art for Coda (thanks Christina Oran for art and Neablis for helping merge)
 
 ### New CULL cards
+
 * Blasphemer (thanks nic3245)
 * False Blessing (thanks PanicPoint)
 * Black Tentacles (thanks LankSSBM for porting from Wanderer)
@@ -49,6 +52,7 @@
 * Repressed Memory (thanks nic3245)
 
 ### Wanderer Updates
+
 * New art for Frantic Search (thanks Chevy for art and Neablis for helping merge)
 * New art for Refuse to Forget (thanks Chevy for art and Neablis for helping merge)
 * New art for Animate Objects (thanks Chevy for art and Neablis for helping merge)
