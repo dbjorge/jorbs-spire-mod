@@ -91,7 +91,7 @@
   },
   {
     "NAMES": ["indiscriminate"],
-    "DESCRIPTION": "Indiscriminate cards can target enemies or the player."
+    "DESCRIPTION": "#yIndiscriminate cards can target enemies or the player."
   },
   {
     "NAMES": ["kindness"],
