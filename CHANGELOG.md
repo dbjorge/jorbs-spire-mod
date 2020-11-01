@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-Special thanks this to LankSSBM and wang429 for handling most of this release's code review and project management!
+Special thanks to LankSSBM and wang429 for handling most of this release's code review and project management!
  
 ### Bug fixes
 
