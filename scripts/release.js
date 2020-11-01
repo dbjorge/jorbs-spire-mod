@@ -91,7 +91,7 @@ const steamChangeNoteContent = `v${version}\n\n` + unreleasedChangelogContent
     .replace(/^### (.*)$/mg, (s, text) => `[h3]${text}[/h3]`)
     .replace(/^\* /mg, '[*] ')
     .replace(/\n\n\[\*\]/mg, (s) => '\n[list]\n\[*\]')
-    .replace(/(\[\*\][^\n]*)(\n\n|$)/mg, (s, line) => `${line}\n[/list]\n`)
+    .replace(/(\[\*\][^\n]*)(\n\n|$)/g, (s, line) => `${line}\n[/list]\n`)
     .replace(/\[(.*)\]\((.*)\)/g, (s, label, url) => `[url=${url}]${label}[/url]`)
     .replace(/\*\*\*(.*)\*\*\*/g, (s, text) => `[b][i]${text}[/i][/b]`)
     .replace(/\*\*(.*)\*\*/g, (s, text) => `[b]${text}[/b]`)
