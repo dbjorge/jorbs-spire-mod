@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [v1.9.0] - 2020-10-31
+
 Special thanks to LankSSBM and wang429 for handling most of this release's code review and project management!
  
 ### Bug fixes
