@@ -8,11 +8,13 @@
 
 ### CULL updates
 
-* New art for Paralysis (thanks Fr33ly for artwork)
+* New art for Paralysis (thanks Fr33ly)
 
 ### New CULL cards
 
 ### Wanderer Updates
+
+* New art for Siphon Energy (thanks Fr33ly)
 
 ## [v1.9.0] - 2020-10-31
 
