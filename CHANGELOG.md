@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Bug fixes
+
+* Fix incorrect floor number increment for Cull on chest/boss fire/boss floors
+
 ## [v1.9.1] - 2020-11-01
 
 ### Bug fixes
