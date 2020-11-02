@@ -52,7 +52,7 @@ public class BurningLoseHpAction extends AbstractGameAction {
 
                 AbstractPower p = this.target.getPower(BurningPower.POWER_ID);
                 if (p != null) {
-                    p.amount = BurningUtils.calculateNextBurningAmount(source, p.amount);
+                    p.amount = BurningUtils.calculateNextBurningAmount(source, p.amount, false);
 
                     p.updateDescription();
                 }

@@ -16,7 +16,7 @@ import static stsjorbsmod.characters.Cull.Enums.CULL_CARD_COLOR;
  * The first time you exert a card each combat, gain 1 Intangible.
  * TODO: relic stats mod support
  */
-public class ShadowRelic extends CustomJorbsModRelic {
+public class ShadowRelic extends CustomJorbsModIntStatsRelic {
     public static final String ID = JorbsMod.makeID(ShadowRelic.class);
 
     private static final int INTANGIBLE_STACKS = 1;
@@ -43,6 +43,7 @@ public class ShadowRelic extends CustomJorbsModRelic {
             addToBot(new ApplyPowerAction(p, p,new IntangiblePlayerPower(p, INTANGIBLE_STACKS)));
             usedThisCombat = true;
             grayscale = true;
+            addStats(1);
         }
     }
 
