@@ -43,8 +43,12 @@ public abstract class CustomJorbsModIntStatsRelic extends CustomJorbsModRelic {
     }
 
     public void resetStats() {
-        stats = new ArrayList<>();
-        stats.add(0);
+        if (stats == null) {
+            stats = new ArrayList<>();
+            stats.add(0);
+        } else {
+            stats.set(0, 0);
+        }
     }
 
     public void addStats(int amount) {
@@ -60,7 +64,6 @@ public abstract class CustomJorbsModIntStatsRelic extends CustomJorbsModRelic {
     public void onLoadStats(JsonElement jsonElement) {
         if (jsonElement != null) {
             JsonArray jsonArray = jsonElement.getAsJsonArray();
-            resetStats();
             stats.set(0, jsonArray.get(0).getAsInt());
         } else {
             resetStats();

@@ -55,7 +55,4 @@ public class ShadowRelic extends CustomJorbsModIntStatsRelic {
         this.pulse = false;
     }
 
-    public AbstractRelic makeCopy() {
-        return new ShadowRelic();
-    }
 }

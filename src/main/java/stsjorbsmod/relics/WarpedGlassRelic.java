@@ -34,7 +34,4 @@ public class WarpedGlassRelic extends CustomJorbsModIntStatsRelic {
         addToBot(postAction);
     }
 
-    public AbstractRelic makeCopy() {
-        return new WarpedGlassRelic();
-    }
 }

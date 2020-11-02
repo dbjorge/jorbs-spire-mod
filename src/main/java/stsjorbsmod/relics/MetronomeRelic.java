@@ -22,7 +22,7 @@ public class MetronomeRelic extends CustomJorbsModIntStatsRelic {
         if (this.counter == 5){
             this.counter = 0;
             flash();
-            addToBot(new IncreaseManifestAction(-1));
+            addToBot(new IncreaseManifestAction(-1, true));
         }
     }
 
