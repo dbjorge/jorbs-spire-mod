@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+### Bug fixes
+
+* Fixed issue with not being able to play cards with Sacrifice if you had 0 energy (thanks LankSSBM)
+* Fixed Assertion card text (thanks LankSSBM)
+
+### CULL updates
+
+### Wanderer Updates
+
 ## [v1.9.1] - 2020-11-01
 
 ### Bug fixes
