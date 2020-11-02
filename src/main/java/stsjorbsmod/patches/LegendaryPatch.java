@@ -175,12 +175,22 @@ public class LegendaryPatch {
         }
     }
 
-    // Card pools get reinitialized when loading saves and when moving between floors; this handles both
+    // Card pools get reinitialized when loading saves and when moving between acts; this handles both
     // Note that this *cannot* use BaseMod.receivePostDungeonInitialize (it's patched in prior to initializeCardPools)
     @SpirePatch(clz = AbstractDungeon.class, method = "initializeCardPools")
     public static class AbstractDungeon_initializeCardPools {
         @SpirePostfixPatch
         public static void patch(AbstractDungeon __this) {
+            LegendaryPatch.removeObtainedLegendaryCardsFromPools();
+        }
+    }
+
+    /*  This handles removing legendary cards from the pool when they are added
+        to the starter deck at the beginning of a run, since it bypasses Soul.obtain() */
+    @SpirePatch(clz = AbstractPlayer.class, method = "initializeStarterDeck")
+    public static class AbstractPlayer_initializeStarterDeck {
+        @SpirePostfixPatch
+        public static void patch(AbstractPlayer __this) {
             LegendaryPatch.removeObtainedLegendaryCardsFromPools();
         }
     }
