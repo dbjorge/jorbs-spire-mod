@@ -186,8 +186,8 @@
   },
   "stsjorbsmod:Damnation": {
     "NAME": "Perdición",
-    "DESCRIPTION": "Roba !M! cartas. NL Transforma de forma permanente la siguiente carta jugada este combate.",
-    "UPGRADE_DESCRIPTION": "Roba !M! cartas. NL Transforma de forma permanente la siguiente carta jugada este combate, luego mejórala."
+    "DESCRIPTION": "Roba !M! cartas. NL Transforma de forma permanente la próxima carta no-Legendario jugada este combate.",
+    "UPGRADE_DESCRIPTION": "Roba !M! cartas. NL Transforma de forma permanente la próxima carta no-Legendario jugada este combate, después mejórala."
   },
   "stsjorbsmod:DeathThroes": {
     "NAME": "Muerte Agónica",
