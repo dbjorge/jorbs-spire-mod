@@ -9,8 +9,13 @@ import com.megacrit.cardcrawl.saveAndContinue.SaveFile;
 import com.megacrit.cardcrawl.screens.stats.StatsScreen;
 import javassist.CtBehavior;
 import stsjorbsmod.characters.Cull;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 public class ManifestPatch {
+
+    public static final Logger logger = LogManager.getLogger(LegendaryPatch.class.getName());
+
     @SpirePatch(clz = AbstractPlayer.class, method = SpirePatch.CLASS)
     public static class PlayerManifestField {
         public static SpireField<Integer> manifestField = new SpireField<>(() -> 0);
@@ -66,7 +71,15 @@ public class ManifestPatch {
         @SpireInsertPatch(locator = IncrementFloorClimbedLocator.class)
         public static void updateFloorNumPatch(AbstractDungeon __this, SaveFile saveFile) {
             if (AbstractDungeon.player != null) {
-                __this.floorNum += PlayerManifestField.manifestField.get(AbstractDungeon.player);
+                logger.info("Current Floor: " + __this.getCurrMapNode().y );
+                logger.info("Next Floor: " + __this.nextRoom.y );
+                logger.info("Current Floor Count: " + __this.floorNum );
+                
+                //On moving the first floor CurrMapNode is -1 and the game increments floor number by one as expected, so do nothing
+                if(__this.getCurrMapNode().y >= 0){
+                //Otherwise increment floor count by the difference between Current y level and next y level -1 to account for the game's increment by 1
+                __this.floorNum += __this.nextRoom.y-__this.getCurrMapNode().y-1;
+                }
 
                 boolean nextRoomIsEvent = __this.nextRoom != null && __this.nextRoom.room instanceof EventRoom;
                 int startingManifest = (nextRoomIsEvent && AbstractDungeon.player instanceof Cull) ? 1 : 0;
