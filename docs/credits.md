@@ -41,6 +41,7 @@
 * Sanity Dance ([GitHub](https://github.com/sanity-dance))
 * Skyl3lazer ([GitHub](https://github.com/Skyl3lazer))
 * wchargin ([GitHub](https://github.com/wchargin))
+* Coogrr ([GitHub](https://github.com/Coogrr))
 
 ### Lead Artists
 

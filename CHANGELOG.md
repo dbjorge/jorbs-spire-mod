@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Bug fixes
+
+* Fixed issue where starter deck legendary cards would still be in card pools in act 1
+
 ## [v1.9.1] - 2020-11-01
 
 ### Bug fixes
