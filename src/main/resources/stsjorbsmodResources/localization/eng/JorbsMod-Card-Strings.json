@@ -53,7 +53,7 @@
   },
   "stsjorbsmod:Assertion": {
     "NAME": "Assertion",
-    "DESCRIPTION": "Deal damage equal to !stsjorbsmod:UrMagic! times the number of skills played this act, up to !stsjorbsmod:MetaMagic! damage.",
+    "DESCRIPTION": "stsjorbsmod:Exert. NL Deal damage equal to !stsjorbsmod:UrMagic! times the number of skills played this act, up to !stsjorbsmod:MetaMagic! damage.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage, !M! skill played.)",
       " NL (Deals !D! damage, !M! skills played.)"
@@ -186,8 +186,8 @@
   },
   "stsjorbsmod:Damnation": {
     "NAME": "Damnation",
-    "DESCRIPTION": "Draw !M! cards. NL Permanently Transform the next card played this combat.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Permanently Transform the next card played this combat, then upgrade it."
+    "DESCRIPTION": "Draw !M! cards. NL Permanently Transform the next non-Legendary card played this combat. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Permanently Transform the next non-Legendary card played this combat, then upgrade it. NL Exhaust."
   },
   "stsjorbsmod:DeathThroes": {
     "NAME": "Death Throes",

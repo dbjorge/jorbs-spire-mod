@@ -64,8 +64,8 @@
   "stsjorbsmod:DamnationPower": {
     "NAME": "Damnation",
     "DESCRIPTIONS": [
-      "Permanently #yTransform the next card played this combat.",
-      "Permanently #yTransform the next card played this combat, then #yUpgrade it."
+      "Permanently #yTransform the next non-Legendary card played this combat.",
+      "Permanently #yTransform the next non-Legendary card played this combat, then #yUpgrade it."
     ]
   },
   "stsjorbsmod:DoubleCheckPower": {
