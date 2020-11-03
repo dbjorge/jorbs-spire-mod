@@ -6,7 +6,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.ArrayList;
 
-// Adapted from Relic Stats' PreAoeDamageAction
+// Adapted from Relic Stats' PreAoeDamageAction (https://github.com/ForgottenArbiter/StsRelicStats)
+
 public class PreAoeDamageStatsAction extends AbstractGameAction {
 
     private ArrayList<AbstractMonster> affectedMonsters;

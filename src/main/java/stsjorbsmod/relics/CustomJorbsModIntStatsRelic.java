@@ -12,6 +12,8 @@ import java.util.*;
 
 import static stsjorbsmod.JorbsMod.makeID;
 
+// A relic that has stats described by a single integer
+
 public abstract class CustomJorbsModIntStatsRelic extends CustomJorbsModRelic implements HasRelicStats {
 
     protected ArrayList<Integer> stats;

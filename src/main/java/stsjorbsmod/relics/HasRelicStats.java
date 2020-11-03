@@ -2,6 +2,9 @@ package stsjorbsmod.relics;
 
 import com.google.gson.JsonElement;
 
+// To add Relic Stats integration to a relic, implement this interface
+// See https://github.com/ForgottenArbiter/StsRelicStats/wiki/Add-stats-to-your-relics
+
 public interface HasRelicStats {
 
     // The string which is displayed in the stats window (uses Default StS formatting, like NL for a line break)
@@ -16,7 +19,7 @@ public interface HasRelicStats {
     // Returns a JSON object to save the relic's stats
     JsonElement onSaveStats();
 
-    // Loads teh stats from the object returned by onSaveStats()
+    // Loads the stats from the object returned by onSaveStats()
     void onLoadStats(JsonElement jsonElement);
 
 }

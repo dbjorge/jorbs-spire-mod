@@ -6,7 +6,8 @@ import stsjorbsmod.relics.CustomJorbsModIntStatsRelic;
 
 import java.util.ArrayList;
 
-// Adapted from Relic Stats' AoeDamageFollowupAction
+// Adapted from Relic Stats' AoeDamageFollowupAction (https://github.com/ForgottenArbiter/StsRelicStats)
+
 public class PostAoeDamageStatsAction extends AbstractGameAction {
 
     private PreAoeDamageStatsAction preAction;
