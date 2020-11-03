@@ -27,6 +27,7 @@
 ### Developers
 
 * avolny ([GitHub](https://github.com/avolny))
+* Coogrr ([GitHub](https://github.com/Coogrr))
 * evan_tor ([GitHub](https://github.com/evantor))
 * LankSSBM ([GitHub](https://github.com/acourrau))
 * Lucerna ([GitHub](https://github.com/Jacob-Laverty))
@@ -41,7 +42,6 @@
 * Sanity Dance ([GitHub](https://github.com/sanity-dance))
 * Skyl3lazer ([GitHub](https://github.com/Skyl3lazer))
 * wchargin ([GitHub](https://github.com/wchargin))
-* Coogrr ([GitHub](https://github.com/Coogrr))
 
 ### Lead Artists
 
