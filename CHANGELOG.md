@@ -5,6 +5,12 @@
 ### Bug fixes
 
 * Fix incorrect floor number increment for Cull on chest/boss fire/boss floors (by Coogrr)
+* Fixed issue with not being able to play cards with Sacrifice if you had 0 energy (thanks LankSSBM)
+* Fixed Assertion card text (thanks LankSSBM)
+
+### CULL updates
+
+### Wanderer Updates
 
 ## [v1.9.1] - 2020-11-01
 
