@@ -4,7 +4,7 @@
 
 ### Bug fixes
 
-* Fix incorrect floor number increment for Cull on chest/boss fire/boss floors
+* Fix incorrect floor number increment for Cull on chest/boss fire/boss floors (by Coogrr)
 
 ## [v1.9.1] - 2020-11-01
 
