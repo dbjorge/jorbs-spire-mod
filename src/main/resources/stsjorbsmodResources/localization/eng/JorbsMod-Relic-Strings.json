@@ -51,6 +51,13 @@
       "Start each combat with stsjorbsmod:Clarity of the memory you ended the last combat remembering, if any."
     ]
   },
+  "stsjorbsmod:ShadowRelic": {
+    "NAME": "Shadow",
+    "FLAVOR": "A shade of a different CULLor.",
+    "DESCRIPTIONS": [
+      "The first time you stsjorbsmod:Exert a card each combat, gain #b1 Intangible."
+    ]
+  },
   "stsjorbsmod:WarpedGlassRelic": {
     "NAME": "Warped Glass",
     "FLAVOR": "Press e to... e?",

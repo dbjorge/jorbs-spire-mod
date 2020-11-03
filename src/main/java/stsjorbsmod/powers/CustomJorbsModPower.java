@@ -55,5 +55,6 @@ public abstract class CustomJorbsModPower extends AbstractPower implements Clone
     }
 
     public void atStartOfTurnPreLoseBlock() { }
+
 }
 

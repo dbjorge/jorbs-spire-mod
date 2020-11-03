@@ -12,6 +12,7 @@ public class DeckOfTrials {
         deck.group.clear();
         deck.addToTop(new Frostbite());
         deck.addToTop(new DemonicCoup());
+        deck.addToTop(new RepressedMemory());
         deck.addToTop(new Blasphemer());
         deck.addToTop(new Investment());
         deck.addToTop(new ProdigalMemory());
@@ -20,6 +21,7 @@ public class DeckOfTrials {
         deck.addToTop(new Assertion());
         deck.addToTop(new MirroredTechnique());
         deck.addToTop(new Sacrifice());
+        deck.addToTop(new Possession());
         deck.shuffle();
     }
 

@@ -35,11 +35,13 @@
 * mevestatney ([GitHub](https://github.com/stevematney))
 * mikeynap ([GitHub](https://github.com/mikeynap))
 * modargo ([GitHub](https://github.com/modargo))
+* Nafen ([GitHub](https://https://github.com/NafenX))
 * nic3245 ([GitHub](https://github.com/nl364))
 * PanicPoint ([Github](https://github.com/Panic-Point))
 * Sanity Dance ([GitHub](https://github.com/sanity-dance))
 * Skyl3lazer ([GitHub](https://github.com/Skyl3lazer))
 * wchargin ([GitHub](https://github.com/wchargin))
+* Coogrr ([GitHub](https://github.com/Coogrr))
 
 ### Lead Artists
 

@@ -12,6 +12,8 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import stsjorbsmod.util.CardMetaUtils;
 
+import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
+
 public class DamnationPower extends CustomJorbsModPower implements NonStackablePower {
     public static final StaticPowerInfo STATIC = StaticPowerInfo.Load(DamnationPower.class);
     public static final String POWER_ID = STATIC.ID;
@@ -28,6 +30,9 @@ public class DamnationPower extends CustomJorbsModPower implements NonStackableP
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
+        if (card.hasTag(LEGENDARY)) {
+            return;
+        }
         if (!card.purgeOnUse && StSLib.getMasterDeckEquivalent(card) != null) {
             CardMetaUtils.destroyCardPermanently(card);
             AbstractDungeon.transformCard(card, isAutoUpgrade, AbstractDungeon.miscRng);

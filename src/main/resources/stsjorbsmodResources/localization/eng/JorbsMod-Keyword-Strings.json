@@ -91,7 +91,7 @@
   },
   {
     "NAMES": ["indiscriminate"],
-    "DESCRIPTION": "Indiscriminate cards can target enemies or the player."
+    "DESCRIPTION": "#yIndiscriminate cards can target enemies or the player."
   },
   {
     "NAMES": ["kindness"],
@@ -117,6 +117,10 @@
   {
     "NAMES": ["patience"],
     "DESCRIPTION": "Gain 1 #yCoil each time you play a card. When you remember a new memory, deal 1 damage to ALL enemies for each #yCoil and lose all #yCoil."
+  },
+  {
+    "NAMES": ["possessed"],
+    "DESCRIPTION": "#yPossessed creatures will deal damage equal to its Max HP to a random ally for each #yPossessed stack."
   },
   {
     "NAMES": ["pride"],

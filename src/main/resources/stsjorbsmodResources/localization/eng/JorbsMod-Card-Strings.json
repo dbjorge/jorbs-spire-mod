@@ -53,7 +53,7 @@
   },
   "stsjorbsmod:Assertion": {
     "NAME": "Assertion",
-    "DESCRIPTION": "Deal damage equal to !stsjorbsmod:UrMagic! times the number of skills played this act, up to !stsjorbsmod:MetaMagic! damage.",
+    "DESCRIPTION": "stsjorbsmod:Exert. NL Deal damage equal to !stsjorbsmod:UrMagic! times the number of skills played this act, up to !stsjorbsmod:MetaMagic! damage.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage, !M! skill played.)",
       " NL (Deals !D! damage, !M! skills played.)"
@@ -186,8 +186,8 @@
   },
   "stsjorbsmod:Damnation": {
     "NAME": "Damnation",
-    "DESCRIPTION": "Draw !M! cards. NL Permanently Transform the next card played this combat.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Permanently Transform the next card played this combat, then upgrade it."
+    "DESCRIPTION": "Draw !M! cards. NL Permanently Transform the next non-Legendary card played this combat. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Permanently Transform the next non-Legendary card played this combat, then upgrade it. NL Exhaust."
   },
   "stsjorbsmod:DeathThroes": {
     "NAME": "Death Throes",
@@ -391,7 +391,7 @@
   },
   "stsjorbsmod:Godsbane": {
     "NAME": "Godsbane",
-    "DESCRIPTION": "Deal !M! % of target's max HP.",
+    "DESCRIPTION": "Deal !M! % of target's Max HP.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
@@ -615,6 +615,10 @@
       " NL (You have !M! Curses.)"
     ]
   },
+  "stsjorbsmod:Possession": {
+    "NAME": "Possession",
+    "DESCRIPTION": "Apply !M! stsjorbsmod:Possessed. NL stsjorbsmod:Exert."
+  },
   "stsjorbsmod:Poultergeist": {
     "NAME": "Poultergeist",
     "DESCRIPTION": "Deal !D! damage."
@@ -636,7 +640,7 @@
   },
   "stsjorbsmod:ProdigalMemory": {
     "NAME": "Prodigal Memory",
-    "DESCRIPTION": "Draw !stsjorbsmod:UrMagic! cards and lose !M! max HP. NL If this card is in your hand at the end of your turn, stsjorbsmod:Exert."
+    "DESCRIPTION": "Draw !stsjorbsmod:UrMagic! cards and lose !M! Max HP. NL If this card is in your hand at the end of your turn, stsjorbsmod:Exert."
   },
   "stsjorbsmod:PurgeMind": {
     "NAME": "Purge Mind",
@@ -684,6 +688,11 @@
   "stsjorbsmod:RefuseToForget": {
     "NAME": "Refuse to Forget",
     "DESCRIPTION": "You cannot forget your current memory until you have stsjorbsmod:Clarity of it. NL Draw !M! cards. NL You cannot draw more cards this turn."
+  },
+  "stsjorbsmod:RepressedMemory": {
+    "NAME": "Repressed Memory",
+    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! [E]. NL Draw !M! cards. NL stsjorbsmod:Exert at end of combat. NL Lose !stsjorbsmod:MetaMagic! Max HP when this card is discarded from your hand or at end of turn.",
+    "UPGRADE_DESCRIPTION": "Gain !stsjorbsmod:UrMagic! [E]. NL Draw !M! cards. NL stsjorbsmod:Exert at end of combat."
   },
   "stsjorbsmod:Rest": {
     "NAME": "Rest",

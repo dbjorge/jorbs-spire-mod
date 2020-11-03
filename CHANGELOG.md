@@ -4,6 +4,34 @@
 
 ### Bug fixes
 
+* Fixed issue where starter deck legendary cards would still be in card pools in act 1 (by Coogrr)
+* Fixed issue with not being able to play cards with Sacrifice if you had 0 energy (thanks LankSSBM)
+* Fixed Assertion card text (thanks LankSSBM)
+
+### CULL updates
+
+### Wanderer Updates
+
+## [v1.9.1] - 2020-11-01
+
+### Bug fixes
+
+* Fix crash when viewing CULL cards in Compendium
+
+### CULL updates
+
+* New art for Paralysis (thanks Fr33ly)
+
+### Wanderer Updates
+
+* New art for Siphon Energy (thanks Fr33ly)
+
+## [v1.9.0] - 2020-10-31
+
+Special thanks to LankSSBM and wang429 for handling most of this release's code review and project management!
+ 
+### Bug fixes
+
 * Fixed crash when transitioning from an event room to a monster room (thanks wbfw109 for reporting)
 * Fixed issue where certain character-themed colors would occasionally be transparent (thanks kiooeht for reporting)
 * Fixed issue where using the Thirst campfire option for CULL would not reduce card damage (thanks wang429)
@@ -12,12 +40,15 @@
 
 * Integration with Googly Eyes mod by twanvl (thanks wang429)
   * https://steamcommunity.com/sharedfiles/filedetails/?id=1615430126
+* Spanish translation updates (thanks LankSSBM)
+* Simplified Chinese translation updates (thanks yanang007)
 
 ### CULL updates
 
 * Added the Book of Trials (thanks wang429)
 * Added Metronome relic (thanks PanicPoint)
-* Added Warped Glass relic (thank wang429)
+* Added Warped Glass relic (thanks wang429)
+* Added Shadow relic (thanks Nafen)
 * Coffee Dripper now prevents Thirsting at campfires
 * Remove Calipers from CULL's relic pool
 * Added voiceovers for elites/bosses/death/start (thanks Ray Chase)
@@ -28,6 +59,7 @@
 * New art for Coda (thanks Christina Oran for art and Neablis for helping merge)
 
 ### New CULL cards
+
 * Blasphemer (thanks nic3245)
 * False Blessing (thanks PanicPoint)
 * Black Tentacles (thanks LankSSBM for porting from Wanderer)
@@ -44,8 +76,11 @@
 * Focused Rage (thanks wang429)
 * Reap and Sow (thanks LankSSBM)
 * Old Book (thanks LankSSBM)
+* Possession (thanks nic3245)
+* Repressed Memory (thanks nic3245)
 
 ### Wanderer Updates
+
 * New art for Frantic Search (thanks Chevy for art and Neablis for helping merge)
 * New art for Refuse to Forget (thanks Chevy for art and Neablis for helping merge)
 * New art for Animate Objects (thanks Chevy for art and Neablis for helping merge)

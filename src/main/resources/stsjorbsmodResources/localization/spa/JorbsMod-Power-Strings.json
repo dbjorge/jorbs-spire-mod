@@ -40,10 +40,25 @@
       "Cartas #yInjugables de #rMaldición ahora pueden jugarse. Cuando lo hagas, pierde #b%3$s PV y haz #b%1$s de daño a un enemigo aleatorio por cada Maldición jugada este combate ( #b%2$s #rMalidiciónes jugadas)."
     ]
   },
+  "stsjorbsmod:ClarifyPower": {
+    "NAME": "Claridad",
+    "DESCRIPTIONS": [
+      "Las cartas de tu pila de extracción aparecen en el orden en que salen."
+    ]
+  },
   "stsjorbsmod:CoilPower": {
     "NAME": "Rollo",
     "DESCRIPTIONS": [
       "Cuando recuerdas nuevas memorias o terminas tu turno quebrado, Rollo se consume y hace daño a TODOS los enemigos."
+    ]
+  },
+  "stsjorbsmod:CoupDeGracePower": {
+    "NAME": "Golpe de Gracia",
+    "DESCRIPTIONS": [
+      "Después de #b%1d turno, el enemigo recibe #yDaño\u00a0Real equivamente al double del daño prevenido por intangible. (Hace #g%2d de Daño Real.)",
+      "Después de #b%1d turnos, el enemigo recibe #yDaño\u00a0Real equivamente al double del daño prevenido por intangible. (Hace #g%2d de Daño Real.)",
+      "Después de #b%1d turno, tu recibes #yDaño\u00a0Real equivamente al double del daño prevenido por intangible. (Hace #r%2d Daño Real.)",
+      "Después de #b%1d turnos, tu recibes #yDaño\u00a0Real equivamente al double del daño prevenido por intangible. (Hace #r%2d Daño Real.)"
     ]
   },
   "stsjorbsmod:DamnationPower": {
@@ -86,13 +101,6 @@
       "%1$s será Desenterrado en el #b%2$srd turno. NL ",
       "Desentierra en #b%3$s turnos.",
       "Desentierra en #b%3$s turno."
-    ]
-  },
-  "stsjorbsmod:MirrorPower": {
-    "NAME": "Espejo",
-    "DESCRIPTIONS": [
-      "Por #b%1$s turno, no recibes daño y reflejas ese daño de ataque al enemigo que te lo inflijió.",
-      "Por #b%1$s turnos, no recibes daño y reflejas ese daño de ataque al enemigo que te lo inflijió."
     ]
   },
   "stsjorbsmod:ExhumeAtStartOfTurnPower": {
@@ -169,6 +177,13 @@
       "La próxima vez que ganes #yClaridad, haz #b%1$s de daño a TODOS los enemigos."
     ]
   },
+  "stsjorbsmod:MirroredTechniquePower": {
+    "NAME": "Técnica Reflejada",
+    "DESCRIPTIONS": [
+      "Juegas todos los ataques una vez adicional por cada vez que estes siendo atacado.",
+      "Juegas todos los ataques una vez adicional por cada vez que estes siendo atacado + %1$d."
+    ]
+  },
   "stsjorbsmod:MirrorImagePower": {
     "NAME": "Reflejo de Espejo",
     "DESCRIPTIONS": [
@@ -176,10 +191,24 @@
       "Un Reflejo de Espejo que interceptará %1$s ataques por vos."
     ]
   },
+  "stsjorbsmod:MirrorPower": {
+    "NAME": "Espejo",
+    "DESCRIPTIONS": [
+      "Por #b%1$s turno, no recibes daño y reflejas ese daño de ataque al enemigo que te lo inflijió.",
+      "Por #b%1$s turnos, no recibes daño y reflejas ese daño de ataque al enemigo que te lo inflijió."
+    ]
+  },
   "stsjorbsmod:MustClarifyBeforeRememberingNewMemoriesPower": {
     "NAME": "Negarse a Olvidar",
     "DESCRIPTIONS": [
       "No puedes recordar otras memorias hasta que tengas #yClaridad the tu memoria actual."
+    ]
+  },
+  "stsjorbsmod:OldBookPower": {
+    "NAME": "Libro Viejo",
+    "DESCRIPTIONS": [
+      "Cuando morirías, en lugar de eso #rDestruir #yLibro\u00a0Viejo.",
+      "Cuando morirías, en lugar de eso #rDestruir #yLibro\u00a0Viejo+ y recupera #b%1d%% de tu PV Máximo."
     ]
   },
   "stsjorbsmod:OverkillPower": {
@@ -216,6 +245,13 @@
       "La próxima carta que juegues este turno se jugara #b%1$s veces más."
     ]
   },
+  "stsjorbsmod:PossessionPower": {
+    "NAME": "Poseído",
+    "DESCRIPTIONS": [
+      "En este turno, el enemigo hace #b%1$s de daño a aliados al azar #b%2$s vez.",
+      "En este turno, el enemigo hace #b%1$s de daño a aliados al azar #b%2$s veces."
+    ]
+  },
   "stsjorbsmod:PrestidigitationPower": {
     "NAME": "Prestidigitación",
     "DESCRIPTIONS": [
@@ -229,6 +265,12 @@
       "Cuando aplicas #yQuemado, aplica esa cantidad de #yQuemado #b%1$s veces más."
     ]
   },
+  "stsjorbsmod:ReapAndSowPower": {
+    "NAME": "Cosechar y Sembrar",
+    "DESCRIPTIONS": [
+      "Al principo del próximo combate, haz #b%1d de daño a TODOS los enemigos."
+    ]
+  },
   "stsjorbsmod:RediscoveryPower": {
     "NAME": "Redescubrimiento",
     "DESCRIPTIONS": [
@@ -239,6 +281,26 @@
     "NAME": "Sin cura",
     "DESCRIPTIONS": [
       "Reduce curación por %1$s%%."
+    ]
+  },
+  "stsjorbsmod:RepressedMemoryPower": {
+    "NAME": "Memoria Reprimida",
+    "DESCRIPTIONS": [
+      "#yExpira Memoria Reprimida al final del combate."
+    ]
+  },
+  "stsjorbsmod:SacrificePower": {
+    "NAME": "Sacrificar",
+    "DESCRIPTIONS": [
+      "Paga PV Máximo en ves de [E] por #b%1d turno.",
+      "Paga PV Máximo en ves de [E] por #b%1d turnos."
+    ]
+  },
+  "stsjorbsmod:ShrapnelBloomPower": {
+    "NAME": "Flor de Metralla",
+    "DESCRIPTIONS": [
+      "Este turno, la próxima carta no-Legendario se juega %1d vez adicional, después lo #yExpira.",
+      "Este turno, la próxima carta no-Legendario se juega %1d veces adicionales, después lo #yExpira."
     ]
   },
   "stsjorbsmod:SnappedPower": {

@@ -8,6 +8,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import stsjorbsmod.relics.OnExertSubscriber;
+import stsjorbsmod.relics.ShadowRelic;
+import stsjorbsmod.relics.WarpedGlassRelic;
 import stsjorbsmod.util.ReflectionUtils;
 
 import static stsjorbsmod.patches.ExertedPatch.isExerted;
@@ -35,6 +37,9 @@ public class SelfExertPatch {
                 if (relic instanceof OnExertSubscriber) {
                     ((OnExertSubscriber) relic).onExert();
                 }
+            }
+            if (AbstractDungeon.player.hasRelic(ShadowRelic.ID)) {
+                AbstractDungeon.player.getRelic(ShadowRelic.ID).onTrigger();
             }
         }
     }

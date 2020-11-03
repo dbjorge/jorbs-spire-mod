@@ -134,8 +134,8 @@
   },
   "stsjorbsmod:Clarify": {
     "NAME": "澄澈",
-    "DESCRIPTION": "保留 。 当这张牌在你手中时，额外 保留 !M! 张牌。 NL stsjorbsmod:力竭 。 NL 获得冻结之眼效果。",
-    "UPGRADE_DESCRIPTION": "保留 。 当这张牌在你手中时，额外 保留 !M! 张牌。 NL stsjorbsmod:力竭 。 NL 获得冻结之眼效果。"
+    "DESCRIPTION": "保留 ：当这张牌在你手中时，额外 保留 !M! 张牌。 NL stsjorbsmod:竭力 ：你抽牌堆中的卡牌现在将按顺序展示。",
+    "UPGRADE_DESCRIPTION": "保留 ：当这张牌在你手中时，额外 保留 !M! 张牌。 NL stsjorbsmod:竭力 ：你抽牌堆中的卡牌现在将按顺序展示。"
   },
   "stsjorbsmod:Cleanse": {
     "NAME": "净化",
@@ -169,6 +169,11 @@
   "stsjorbsmod:Counterspell": {
     "NAME": "反制咒语",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL 如果一名敌人意图给你施加一个负面效果， NL 获得 !M! 层 人工制品 。 NL 消耗 。"
+  },
+  "stsjorbsmod:CoupDeGrace": {
+    "NAME": "慈悲一击",
+    "DESCRIPTION": "stsjorbsmod:一视同仁 。 NL 获得 X 层 无实体 。 X 回合后，受到被防止伤害量两倍的 stsjorbsmod:真实伤害 。",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:一视同仁 。 NL 获得 X+1 层 无实体 。 X+1 回合后，受到被防止伤害量两倍的 stsjorbsmod:真实伤害 。"
   },
   "stsjorbsmod:CULLCard": {
     "NAME": "弱肉强食",
@@ -324,6 +329,14 @@
     "NAME": "烈焰庇护",
     "DESCRIPTION": "你下一次被攻击时， NL 给予所有敌人 !M! 层 stsjorbsmod:灼烧 并获得 !B! 点 格挡 。 NL 消耗 。"
   },
+  "stsjorbsmod:FocusedRage": {
+    "NAME": "怒不可遏",
+    "DESCRIPTION": "本场战斗中，你每有一张牌陷入 stsjorbsmod:力竭 ，获得 !stsjorbsmod:UrMagic! 点 力量 。 NL stsjorbsmod:竭力 。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （施加 !M! 点 力量 。）",
+      "你本场战斗中没有牌陷入力竭！"
+    ]
+  },
   "stsjorbsmod:ForbiddenGrimoire": {
     "NAME": "魔导书",
     "DESCRIPTION": "stsjorbsmod:飞逝 。在 stsjorbsmod:爆发 或第7回合开始前， stsjorbsmod:深藏 。 NL 从3张 stsjorbsmod:魔法原料 中选择一张加入手牌。 NL 在打出这张牌后，你每打出 !M! 张牌， stsjorbsmod:发掘 之。"
@@ -439,12 +452,7 @@
   },
   "stsjorbsmod:Investment": {
     "NAME": "精打细算",
-    "DESCRIPTION": "stsjorbsmod:飞逝 。打出时，这张牌每被抽到过一次，获得 !M! 金币。 NL stsjorbsmod:竭力 。",
-    "EXTENDED_DESCRIPTION": [
-      " NL （已抽到过 ",
-      " 次。）",
-      " 次。）"
-    ]
+    "DESCRIPTION": "stsjorbsmod:飞逝 。 NL 获得 !stsjorbsmod:MetaMagic! 金币。 NL stsjorbsmod:竭力 。 NL 你每抽到一次这张牌，永久提高 !M! 金币获得量。"
   },
   "stsjorbsmod:IvoryTower": {
     "NAME": "象牙塔",
@@ -553,8 +561,8 @@
   },
   "stsjorbsmod:OldBook": {
     "NAME": "旧书",
-    "DESCRIPTION": " 不能被打出 。 NL 当你要被杀死时，免死并 stsjorbsmod:摧毁 这张牌。",
-    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 当你要被杀死时，免死并 stsjorbsmod:摧毁 这张牌，然后回复最大生命值的 !M! %。"
+    "DESCRIPTION": "stsjorbsmod:深藏 。 当你将死时， stsjorbsmod:发掘 之；免死并 stsjorbsmod:摧毁 这张牌。 不能被打出 。",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:深藏 。 当你将死时， stsjorbsmod:发掘 之；免死并 stsjorbsmod:摧毁 这张牌，然后回复最大生命值的 !M! %。 不能被打出 。"
   },
   "stsjorbsmod:OldPocket": {
     "NAME": "旧钱包",
@@ -613,7 +621,7 @@
   },
   "stsjorbsmod:Possession": {
     "NAME": "囊中之物",
-    "DESCRIPTION": "支配目标，在你的回合结束时，对一随机目标造成被支配者最大生命值的伤害 !M! 次。 NL stsjorbsmod:竭力 。"
+    "DESCRIPTION": "给予目标 !M! 层 stsjorbsmod:被支配 。 NL stsjorbsmod:竭力 。"
   },
   "stsjorbsmod:Poultergeist": {
     "NAME": "吵闹鬼",
@@ -687,7 +695,8 @@
   },
   "stsjorbsmod:RepressedMemory": {
     "NAME": "心事重重",
-    "DESCRIPTION": "当你丢弃这张牌时，失去 !stsjorbsmod:MetaMagic! 点最大生命。 NL 若你打出这张牌：抽 !M! 张牌。 获得 !stsjorbsmod:UrMagic! 点 [E] 。 战斗结束时力竭。"
+    "DESCRIPTION": "获得 !stsjorbsmod:UrMagic! 点 [E] 。 NL 抽 !M! 张牌。 NL 战斗结束时 stsjorbsmod:竭力 。 NL 当你从手中丢弃或回合结束自动丢弃这张牌时，失去 !stsjorbsmod:MetaMagic! 点最大生命。",
+    "UPGRADE_DESCRIPTION": "获得 !stsjorbsmod:UrMagic! 点 [E] 。 NL 抽 !M! 张牌。 NL 战斗结束时 stsjorbsmod:竭力 。"
   },
   "stsjorbsmod:Rest": {
     "NAME": "休憩",
@@ -730,8 +739,8 @@
   },
   "stsjorbsmod:ShrapnelBloom": {
     "NAME": "暴雨梨花",
-    "DESCRIPTION": "stsjorbsmod:竭力 。 NL 本回合内，你打出的下一张非传奇牌会额外打出 !M! 次，然后力竭。",
-    "UPGRADE_DESCRIPTION": "stsjorbsmod:竭力 。 NL 本回合内，你打出的下一张非传奇牌会额外打出 !M! 次，然后力竭。"
+    "DESCRIPTION": "stsjorbsmod:竭力 。 NL 本回合内，你打出的下一张非传奇牌会额外打出 !M! 次，然后因 stsjorbsmod:竭力 而被消耗。",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:竭力 。 NL 本回合内，你打出的下一张非传奇牌会额外打出 !M! 次，然后因 stsjorbsmod:竭力 而被消耗。"
   },
   "stsjorbsmod:SilverStrike": {
     "NAME": "真银打击",
@@ -870,7 +879,7 @@
   },
   "stsjorbsmod:TrueStrike": {
     "NAME": "真实打击",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 这份伤害无法被防止或减少。"
+    "DESCRIPTION": "造成 !D! 点 stsjorbsmod:真实伤害 。"
   },
   "stsjorbsmod:UnseenServant": {
     "NAME": "无形仆从",
