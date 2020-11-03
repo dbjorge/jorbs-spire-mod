@@ -98,7 +98,7 @@
     "DESCRIPTION": "Until forgotten, ALL enemies lose #b3 #yStrength."
   },
   {
-    "NAMES": ["legendary"],
+    "NAMES": ["legendary", "non-legendary"],
     "DESCRIPTION": "Legendary cards cannot be duplicated, removed, or transformed. Legendary cards you already have a copy of will not appear as rewards."
   },
   {
