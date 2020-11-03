@@ -75,11 +75,8 @@ public class ManifestPatch {
                 logger.info("Next Floor: " + __this.nextRoom.y );
                 logger.info("Current Floor Count: " + __this.floorNum );
                 
-                //On moving the first floor CurrMapNode is -1 and the game increments floor number by one as expected, so do nothing
-                if(__this.getCurrMapNode().y >= 0){
                 //Otherwise increment floor count by the difference between Current y level and next y level -1 to account for the game's increment by 1
                 __this.floorNum += __this.nextRoom.y-__this.getCurrMapNode().y-1;
-                }
 
                 boolean nextRoomIsEvent = __this.nextRoom != null && __this.nextRoom.room instanceof EventRoom;
                 int startingManifest = (nextRoomIsEvent && AbstractDungeon.player instanceof Cull) ? 1 : 0;
