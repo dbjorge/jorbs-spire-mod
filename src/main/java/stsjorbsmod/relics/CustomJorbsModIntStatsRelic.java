@@ -12,7 +12,7 @@ import java.util.*;
 
 import static stsjorbsmod.JorbsMod.makeID;
 
-public abstract class CustomJorbsModIntStatsRelic extends CustomJorbsModRelic {
+public abstract class CustomJorbsModIntStatsRelic extends CustomJorbsModRelic implements HasRelicStats {
 
     protected ArrayList<Integer> stats;
     private static String[] PER_STRINGS = CardCrawlGame.languagePack.getUIString(makeID("RelicStats")).TEXT;
@@ -57,7 +57,6 @@ public abstract class CustomJorbsModIntStatsRelic extends CustomJorbsModRelic {
 
     public JsonElement onSaveStats() {
         Gson gson = new Gson();
-        ArrayList<Integer> statsToSave = new ArrayList<>();
         return gson.toJsonTree(stats);
     }
 

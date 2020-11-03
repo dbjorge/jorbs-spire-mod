@@ -11,7 +11,8 @@
     "NAME": "Libro de Pruebas",
     "FLAVOR": "Parasido a lenguas, pero de mentiras.",
     "DESCRIPTIONS": [
-      "Agrega #b2 cartas del stsjorbsmod:Mazo\u00a0de\u00a0Pruebas a tu mazo al principio de cada Acto."
+      "Agrega #b2 cartas del stsjorbsmod:Mazo\u00a0de\u00a0Pruebas a tu mazo al principio de cada Acto.",
+      "Cards added: "
     ]
   },
   "stsjorbsmod:BottledMemoryRelic": {

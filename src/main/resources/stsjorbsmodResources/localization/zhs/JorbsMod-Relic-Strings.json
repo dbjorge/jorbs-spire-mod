@@ -12,7 +12,8 @@
     "NAME": "试炼之书",
     "FLAVOR": "乍一看像多舌之书，但其实完全不是一回事。",
     "DESCRIPTIONS": [
-      "在每一幕开始时，从 stsjorbsmod:试炼之牌 中抽取 #b2 张加入你的牌组。"
+      "在每一幕开始时，从 stsjorbsmod:试炼之牌 中抽取 #b2 张加入你的牌组。",
+      "卡牌生成： "
     ]
   },
   "stsjorbsmod:BottledBurdenRelic": {
