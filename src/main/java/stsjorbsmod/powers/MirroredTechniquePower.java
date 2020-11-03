@@ -59,7 +59,7 @@ public class MirroredTechniquePower extends CustomJorbsModPower {
                 if (!m.isDeadOrEscaped() && IntentUtils.isAttackIntent(m.intent)) {
 
                     int multiAmt = 0;
-                    if (ReflectionUtils.getPrivateField(m, AbstractMonster.class, "isMultiDmg")) {
+                    if (ReflectionUtils.getPrivateField(m, AbstractMonster.class, "isMultiDmg").equals(true)) {
                         multiAmt = ReflectionUtils.getPrivateField(m, AbstractMonster.class, "intentMultiAmt");
                     }
                     else {
