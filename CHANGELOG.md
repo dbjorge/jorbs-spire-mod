@@ -2,7 +2,8 @@
 
 ## [Unreleased]
 
-* Add stats for Wanderer and Cull relics when using the Relic Stats mod
+* Integration with the Relic Stats mod (thanks ForgottenArbiter)
+  * https://steamcommunity.com/sharedfiles/filedetails/?id=2118491069
 
 ## [v1.9.1] - 2020-11-01
 
