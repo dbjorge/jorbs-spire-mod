@@ -11,6 +11,8 @@
 
 ### CULL updates
 
+* New art for Double (thanks Newigeg)
+
 ### Wanderer Updates
 
 ## [v1.9.1] - 2020-11-01
