@@ -128,5 +128,11 @@
     "TEXT": [
       "消耗"
     ]
+  },
+  "stsjorbsmod:RelicStats": {
+    "TEXT": [
+      " NL 每回合： ",
+      " NL 每场战斗： "
+    ]
   }
 }

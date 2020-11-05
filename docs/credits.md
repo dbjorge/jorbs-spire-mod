@@ -42,6 +42,7 @@
 * Sanity Dance ([GitHub](https://github.com/sanity-dance))
 * Skyl3lazer ([GitHub](https://github.com/Skyl3lazer))
 * wchargin ([GitHub](https://github.com/wchargin))
+* ForgottenArbiter ([GitHub](https://github.com/ForgottenArbiter))
 
 ### Lead Artists
 

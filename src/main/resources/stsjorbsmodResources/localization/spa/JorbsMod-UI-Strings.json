@@ -123,5 +123,11 @@
     "TEXT": [
       "Agota"
     ]
+  },
+  "stsjorbsmod:RelicStats": {
+    "TEXT": [
+      " NL Per turn: ",
+      " NL Per combat: "
+    ]
   }
 }

@@ -123,5 +123,11 @@
     "TEXT": [
       "Exhaust"
     ]
+  },
+  "stsjorbsmod:RelicStats": {
+    "TEXT": [
+      " NL Per turn: ",
+      " NL Per combat: "
+    ]
   }
 }

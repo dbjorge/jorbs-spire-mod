@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### Updates
+
+* Integration with the Relic Stats mod (thanks ForgottenArbiter)
+  * https://steamcommunity.com/sharedfiles/filedetails/?id=2118491069
+
 ### Bug fixes
 
 * Fix incorrect floor number increment for Cull on chest/boss fire/boss floors (by Coogrr)

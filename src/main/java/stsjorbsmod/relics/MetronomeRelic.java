@@ -1,11 +1,12 @@
 package stsjorbsmod.relics;
 
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.IncreaseManifestAction;
 
 import static stsjorbsmod.characters.Cull.Enums.CULL_CARD_COLOR;
 
-public class MetronomeRelic extends CustomJorbsModRelic {
+public class MetronomeRelic extends CustomJorbsModIntStatsRelic {
     public static final String ID = JorbsMod.makeID(MetronomeRelic.class);
 
     public MetronomeRelic() {
@@ -21,7 +22,8 @@ public class MetronomeRelic extends CustomJorbsModRelic {
         if (this.counter == 5){
             this.counter = 0;
             flash();
-            addToBot(new IncreaseManifestAction(-1));
+            addToBot(new IncreaseManifestAction(-1, true));
         }
     }
+
 }

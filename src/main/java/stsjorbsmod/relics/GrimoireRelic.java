@@ -11,7 +11,7 @@ import stsjorbsmod.memories.PatienceMemory;
 import static stsjorbsmod.characters.Wanderer.Enums.WANDERER_CARD_COLOR;
 
 // Start each fight remembering Patience. At the end of each fight, gain 1hp per Clarity.
-public class GrimoireRelic extends CustomJorbsModRelic {
+public class GrimoireRelic extends CustomJorbsModIntStatsRelic {
     public static final String ID = JorbsMod.makeID(GrimoireRelic.class);
 
     private static final int HEAL_PER_CLARITY = 1;
@@ -37,7 +37,9 @@ public class GrimoireRelic extends CustomJorbsModRelic {
         AbstractPlayer p = AbstractDungeon.player;
 
         if (p.currentHealth > 0) {
+            int previousHealth = p.currentHealth;
             p.heal(MemoryManager.forPlayer(p).countCurrentClarities() * HEAL_PER_CLARITY);
+            addStats(p.currentHealth - previousHealth);
         }
     }
 }

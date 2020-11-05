@@ -4,14 +4,16 @@
     "FLAVOR": "Forca Messi! Forca Messi! Messi Animal! （加油梅西！加油梅西！爆发吧梅西！）",
     "DESCRIPTIONS": [
       "stsjorbsmod:灼烧 层数每回合减少的比例降低为10%。",
-      "保留下的灼烧伤害： #b%1$s"
+      "保留下的灼烧伤害： #b%1$s",
+      "Burning retained: "
     ]
   },
   "stsjorbsmod:BookOfTrialsRelic": {
     "NAME": "试炼之书",
     "FLAVOR": "乍一看像多舌之书，但其实完全不是一回事。",
     "DESCRIPTIONS": [
-      "在每一幕开始时，从 stsjorbsmod:试炼之牌 中抽取 #b2 张加入你的牌组。"
+      "在每一幕开始时，从 stsjorbsmod:试炼之牌 中抽取 #b2 张加入你的牌组。",
+      "卡牌生成： "
     ]
   },
   "stsjorbsmod:BottledBurdenRelic": {
@@ -39,7 +41,8 @@
     "FLAVOR": "我是不是... 见过它？",
     "DESCRIPTIONS": [
       "在每场战斗开始时，回忆起 stsjorbsmod:耐心 。 NL 在每场战斗结束时，你每有一份 stsjorbsmod:清晰 记忆，回复 #b1 点生命。",
-      "治疗的生命量： #b%1$s"
+      "治疗的生命量： #b%1$s",
+      "回血： "
     ]
   },
   "stsjorbsmod:MindGlassRelic": {
@@ -48,7 +51,8 @@
     "DESCRIPTIONS": [
       "当你的记忆变得 stsjorbsmod:清晰 时，对所有敌人造成 3 点伤害。 NL 若你单场战斗内对所有敌人造成总计100点伤害，获得10份 stsjorbsmod:清晰 记忆。",
       "造成的伤害量： #b%1$s",
-      " NL 获得十份清晰记忆的次数： #b%1$s"
+      " NL 获得十份清晰记忆的次数： #b%1$s",
+      "造成伤害： "
     ]
   },
   "stsjorbsmod:MetronomeRelic": {
@@ -56,7 +60,8 @@
     "FLAVOR": "滴答…滴答",
     "DESCRIPTIONS": [
       "每5个回合，在该回合开始时，你的 stsjorbsmod:无形 层数减少1。",
-      "减少的无形层数： #b%1$s"
+      "减少的无形层数： #b%1$s",
+      "Manifest reduced: "
     ]
   },
   "stsjorbsmod:MindPalaceRelic": {
@@ -70,14 +75,16 @@
     "NAME": "暗影",
     "FLAVOR": "那这又是另一个故事了。",
     "DESCRIPTIONS": [
-      "你在每场战斗中第一次 stsjorbsmod:竭力 使用一张牌时，获得 #b1 层 无实体 。"
+      "你在每场战斗中第一次 stsjorbsmod:竭力 使用一张牌时，获得 #b1 层 无实体 。",
+      "Intangible gained: "
     ]
   },
   "stsjorbsmod:WarpedGlassRelic": {
     "NAME": "扭曲明镜",
     "FLAVOR": "按下e来……按下e？",
     "DESCRIPTIONS": [
-      "当你 stsjorbsmod:竭力 使用一张牌时，对所有敌人造成 #b3 点伤害。"
+      "当你 stsjorbsmod:竭力 使用一张牌时，对所有敌人造成 #b3 点伤害。",
+      "造成伤害： "
     ]
   }
 }
