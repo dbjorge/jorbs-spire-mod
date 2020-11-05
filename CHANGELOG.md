@@ -2,8 +2,23 @@
 
 ## [Unreleased]
 
+### Updates
+
 * Integration with the Relic Stats mod (thanks ForgottenArbiter)
   * https://steamcommunity.com/sharedfiles/filedetails/?id=2118491069
+
+### Bug fixes
+
+* Fix incorrect floor number increment for Cull on chest/boss fire/boss floors (by Coogrr)
+* Fixed issue where starter deck legendary cards would still be in card pools in act 1 (by Coogrr)
+* Fixed issue with not being able to play cards with Sacrifice if you had 0 energy (thanks LankSSBM)
+* Fixed Assertion card text (thanks LankSSBM)
+
+### CULL updates
+
+* New art for Double (thanks Newigeg)
+
+### Wanderer Updates
 
 ## [v1.9.1] - 2020-11-01
 

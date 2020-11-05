@@ -27,6 +27,7 @@
 ### Developers
 
 * avolny ([GitHub](https://github.com/avolny))
+* Coogrr ([GitHub](https://github.com/Coogrr))
 * evan_tor ([GitHub](https://github.com/evantor))
 * LankSSBM ([GitHub](https://github.com/acourrau))
 * Lucerna ([GitHub](https://github.com/Jacob-Laverty))

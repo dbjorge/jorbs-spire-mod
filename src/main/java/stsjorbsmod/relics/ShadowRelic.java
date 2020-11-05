@@ -1,7 +1,6 @@
 package stsjorbsmod.relics;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -14,9 +13,8 @@ import static stsjorbsmod.characters.Cull.Enums.CULL_CARD_COLOR;
 
 /**
  * The first time you exert a card each combat, gain 1 Intangible.
- * TODO: relic stats mod support
  */
-public class ShadowRelic extends CustomJorbsModIntStatsRelic {
+public class ShadowRelic extends CustomJorbsModIntStatsRelic implements OnExertSubscriber {
     public static final String ID = JorbsMod.makeID(ShadowRelic.class);
 
     private static final int INTANGIBLE_STACKS = 1;
@@ -34,7 +32,7 @@ public class ShadowRelic extends CustomJorbsModIntStatsRelic {
     }
 
     @Override
-    public void onTrigger() {
+    public void onExert() {
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && !usedThisCombat) {
             flash();
             pulse = false;

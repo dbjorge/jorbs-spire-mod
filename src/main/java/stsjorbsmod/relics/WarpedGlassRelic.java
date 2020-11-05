@@ -13,9 +13,8 @@ import static stsjorbsmod.characters.Cull.Enums.CULL_CARD_COLOR;
 
 /**
  * When a card exerts, deals 3 damage to all enemies.
- * TODO: relic stats mod support
  */
-public class WarpedGlassRelic extends CustomJorbsModIntStatsRelic {
+public class WarpedGlassRelic extends CustomJorbsModIntStatsRelic implements OnExertSubscriber {
     public static final String ID = JorbsMod.makeID(WarpedGlassRelic.class);
 
     public static final int DAMAGE = 3;
@@ -25,7 +24,7 @@ public class WarpedGlassRelic extends CustomJorbsModIntStatsRelic {
     }
 
     @Override
-    public void onTrigger() {
+    public void onExert() {
         flash();
         PreAoeDamageStatsAction preAction = new PreAoeDamageStatsAction();
         PostAoeDamageStatsAction postAction = new PostAoeDamageStatsAction(this, preAction);

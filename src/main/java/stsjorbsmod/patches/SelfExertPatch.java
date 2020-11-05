@@ -6,8 +6,8 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import stsjorbsmod.relics.ShadowRelic;
-import stsjorbsmod.relics.WarpedGlassRelic;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
+import stsjorbsmod.relics.OnExertSubscriber;
 import stsjorbsmod.util.ReflectionUtils;
 
 import static stsjorbsmod.patches.ExertedPatch.isExerted;
@@ -31,11 +31,10 @@ public class SelfExertPatch {
                 ExertedField.exerted.set(masterCard, true);
             }
             ExertedField.exerted.set(targetCard, true);
-            if (AbstractDungeon.player.hasRelic(WarpedGlassRelic.ID)) {
-                AbstractDungeon.player.getRelic(WarpedGlassRelic.ID).onTrigger();
-            }
-            if (AbstractDungeon.player.hasRelic(ShadowRelic.ID)) {
-                AbstractDungeon.player.getRelic(ShadowRelic.ID).onTrigger();
+            for (AbstractRelic relic : AbstractDungeon.player.relics) {
+                if (relic instanceof OnExertSubscriber) {
+                    ((OnExertSubscriber) relic).onExert();
+                }
             }
         }
     }
