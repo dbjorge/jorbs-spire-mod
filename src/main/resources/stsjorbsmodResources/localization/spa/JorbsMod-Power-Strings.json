@@ -64,8 +64,8 @@
   "stsjorbsmod:DamnationPower": {
     "NAME": "Condenación",
     "DESCRIPTIONS": [
-      "Permanentemente #yTransforma la próxima carta no- [REMOVE_SPACE]#yLegendario jugada este combate.",
-      "Permanentemente #yTransforma la próxima carta no- [REMOVE_SPACE]#yLegendario jugada este combate, después la #yMejora."
+      "Permanentemente #yTransforma la próxima carta #yno-Legendaria jugada este combate.",
+      "Permanentemente #yTransforma la próxima carta #yno-Legendaria jugada este combate, después la #yMejora."
     ]
   },
   "stsjorbsmod:DoubleCheckPower": {
@@ -299,8 +299,8 @@
   "stsjorbsmod:ShrapnelBloomPower": {
     "NAME": "Flor de Metralla",
     "DESCRIPTIONS": [
-      "Este turno, la próxima carta no- [REMOVE_SPACE]#yLegendario se juega #b%1d vez adicional, después la #yExpira.",
-      "Este turno, la próxima carta no- [REMOVE_SPACE]#yLegendario se juega #b%1d veces adicionales, después la #yExpira."
+      "Este turno, la próxima carta #yno-Legendaria se juega #b%1d vez adicional, después la #yExpira.",
+      "Este turno, la próxima carta #yno-Legendaria se juega #b%1d veces adicionales, después la #yExpira."
     ]
   },
   "stsjorbsmod:SnappedPower": {
