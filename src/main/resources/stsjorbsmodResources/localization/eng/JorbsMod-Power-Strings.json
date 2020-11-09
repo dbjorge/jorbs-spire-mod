@@ -64,8 +64,8 @@
   "stsjorbsmod:DamnationPower": {
     "NAME": "Damnation",
     "DESCRIPTIONS": [
-      "Permanently #yTransform the next non-Legendary card played this combat.",
-      "Permanently #yTransform the next non-Legendary card played this combat, then #yUpgrade it."
+      "Permanently #yTransform the next #ynon-Legendary card played this combat.",
+      "Permanently #yTransform the next #ynon-Legendary card played this combat, then #yUpgrade it."
     ]
   },
   "stsjorbsmod:DoubleCheckPower": {
@@ -299,8 +299,8 @@
   "stsjorbsmod:ShrapnelBloomPower": {
     "NAME": "Shrapnel Bloom",
     "DESCRIPTIONS": [
-      "This turn, your next non-Legendary card is played %1d additional time, then #yExerts.",
-      "This turn, your next non-Legendary card is played %1d additional times, then #yExerts."
+      "This turn, your next #ynon-Legendary card is played %1d additional time, then #yExerts.",
+      "This turn, your next #ynon-Legendary card is played %1d additional times, then #yExerts."
     ]
   },
   "stsjorbsmod:SnappedPower": {
