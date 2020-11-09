@@ -19,8 +19,8 @@ public class Blasphemer extends CustomJorbsModCard {
     public static final CardColor COLOR = Cull.Enums.CULL_CARD_COLOR;
 
     private static final int COST = COST_UNPLAYABLE;
-    private static final int SMITE_AMOUNT = 5;
-    private static final int UPGRADE_SMITE_AMOUNT = 1;
+    private static final int SMITE_AMOUNT = 4;
+    private static final int UPGRADE_SMITE_AMOUNT = 2;
 
     public Blasphemer() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
