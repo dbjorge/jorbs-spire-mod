@@ -19,7 +19,7 @@ import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 public class CoupDeGrace extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(CoupDeGrace.class);
 
-    private static final CardRarity RARITY = CardRarity.BASIC;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Cull.Enums.CULL_CARD_COLOR;
