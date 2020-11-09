@@ -2,27 +2,20 @@ package stsjorbsmod.relics;
 
 import basemod.abstracts.CustomBottleRelic;
 import basemod.abstracts.CustomSavable;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.PowerTip;
-import com.megacrit.cardcrawl.localization.LocalizedStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import stsjorbsmod.cards.wanderer.ForbiddenGrimoire;
+import stsjorbsmod.actions.ExhumeCardsAction;
 import stsjorbsmod.patches.EntombedField;
+import stsjorbsmod.patches.SelfExertField;
 import stsjorbsmod.patches.SelfExhumeFields;
-import stsjorbsmod.powers.EntombedGrimoirePower;
 import stsjorbsmod.util.CardUtils;
-import stsjorbsmod.powers.ExhumeOnTurnXPower;
 
+import java.util.Iterator;
 import java.util.function.Predicate;
 
-import static stsjorbsmod.JorbsMod.JorbsCardTags.HAS_EXERT;
 import static stsjorbsmod.JorbsMod.makeID;
 import static stsjorbsmod.characters.Cull.Enums.CULL_CARD_COLOR;
 import static stsjorbsmod.patches.BottledBurdenPatch.AbstractCardMemoryFields.inBottledBurden;
@@ -60,7 +53,6 @@ public class BottledBurdenRelic extends CustomJorbsModRelic implements CustomBot
                 inBottledBurden.set(card, true);
                 AbstractCard cardInDeck = AbstractDungeon.player.masterDeck.getSpecificCard(this.card);
                 EntombedField.entombed.set(cardInDeck, true);
-                SelfExhumeFields.selfExhumeOnTurnX.set(cardInDeck, true);
                 setDescriptionAfterLoading();
             }
         }
@@ -70,7 +62,7 @@ public class BottledBurdenRelic extends CustomJorbsModRelic implements CustomBot
     public void onEquip() {
         // follow same behavior as base game bottle relics.
         CardGroup nonExertCards = CardUtils.getCardsForBottling(AbstractDungeon.player.masterDeck.getPurgeableCards());
-        nonExertCards.group.removeIf(c -> c.hasTag(HAS_EXERT));
+        nonExertCards.group.removeIf(c -> SelfExertField.selfExert.get(c));
         if (nonExertCards.size() > 0) {
             this.cardSelected = false;
             if (AbstractDungeon.isScreenUp) {
@@ -80,7 +72,7 @@ public class BottledBurdenRelic extends CustomJorbsModRelic implements CustomBot
             }
 
             AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.INCOMPLETE;
-            AbstractDungeon.gridSelectScreen.open(nonExertCards, 1, this.DESCRIPTIONS[1] + this.name + LocalizedStrings.PERIOD, false, false, false, false);
+            AbstractDungeon.gridSelectScreen.open(nonExertCards, 1, String.format(DESCRIPTIONS[1], name), false, false, false, false);
         }
     }
     @Override
@@ -102,35 +94,56 @@ public class BottledBurdenRelic extends CustomJorbsModRelic implements CustomBot
             inBottledBurden.set(card, true);
             AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
-            this.description = this.DESCRIPTIONS[2] + FontHelper.colorString(this.card.name, "y") + this.DESCRIPTIONS[3];
+            this.description = String.format(DESCRIPTIONS[2], EXHUME_TURN, card.name);
             this.tips.clear();
             this.tips.add(new PowerTip(this.name, this.description));
             this.initializeTips();
 
             AbstractCard cardInDeck = AbstractDungeon.player.masterDeck.getSpecificCard(this.card);
             EntombedField.entombed.set(cardInDeck, true);
-            SelfExhumeFields.selfExhumeOnTurnX.set(cardInDeck, true);
         }
     }
 
     public void setDescriptionAfterLoading() {
-        this.description = this.DESCRIPTIONS[2] + FontHelper.colorString(this.card.name, "y") + this.DESCRIPTIONS[3];
+        this.description = String.format(DESCRIPTIONS[2], EXHUME_TURN,  card.name);
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
         this.initializeTips();
     }
-
     @Override
     public void atBattleStart() {
-        AbstractPower exhumeOnTurnXPower = new ExhumeOnTurnXPower(AbstractDungeon.player, AbstractDungeon.player.masterDeck.getSpecificCard(this.card), EXHUME_TURN);
-        //addToTop(new ExhaustSpecificCardAction(this.card, AbstractDungeon.player.drawPile));
-        addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, exhumeOnTurnXPower));
+        this.counter = 0;
     }
 
+    @Override
+    public void atTurnStart() {
+        if (!this.grayscale) {
+            ++this.counter;
+        }
+
+        if (this.counter == 3 && cardSelected) {
+            this.flash();
+            addToBot(new ExhumeCardsAction(card));
+            this.counter = -1;
+            this.grayscale = true;
+        }
+    }
+
+    @Override
+    public boolean canSpawn() {
+        Iterator playerCards = AbstractDungeon.player.masterDeck.group.iterator();
+
+        while (playerCards.hasNext()) {
+            if (!SelfExertField.selfExert.get(playerCards.next()))
+                return true;
+        }
+
+        return false;
+    }
 
     @Override
     public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0];
+        return String.format(DESCRIPTIONS[0], EXHUME_TURN);
     }
 
     public AbstractCard getCard() {

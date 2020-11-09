@@ -100,9 +100,6 @@ public class JorbsMod implements
         // Use on a card that remembers a memory, which is mechanic specific to the Wanderer character.
         @SpireEnum(name = "REMEMBER_MEMORY")
         public static AbstractCard.CardTags REMEMBER_MEMORY;
-
-        // Use on a card which Exerts the Culler
-        public static AbstractCard.CardTags HAS_EXERT;
     }
 
     // =============== INPUT TEXTURE LOCATION =================

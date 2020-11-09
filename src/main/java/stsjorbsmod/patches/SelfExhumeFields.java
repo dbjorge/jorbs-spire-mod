@@ -13,5 +13,4 @@ public class SelfExhumeFields {
     public static SpireField<Boolean> selfExhumeOnSnap = new SpireField(() -> false);
     @SuppressWarnings("unchecked")
     public static SpireField<Boolean> selfExhumeOnKill = new SpireField(() -> false);
-    public static SpireField<Boolean> selfExhumeOnTurnX = new SpireField(() -> false);
 }

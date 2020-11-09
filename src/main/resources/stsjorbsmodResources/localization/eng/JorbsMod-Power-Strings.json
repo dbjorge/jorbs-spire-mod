@@ -108,12 +108,13 @@
     "DESCRIPTIONS": [
       "At the start of your next turn, you will Exhume some cards."
     ]
-  },"stsjorbsmod:ExhumeOnTurnXPower": {
-  "NAME": "Exhume",
-  "DESCRIPTIONS": [
-    "At the start of turn 3, you will Exhume a card."
-  ]
-},
+  },
+  "stsjorbsmod:ExhumeOnTurnXPower": {
+    "NAME": "Exhume",
+    "DESCRIPTIONS": [
+      "At the start of turn #b%1s, #yExhume a #b%2s."
+    ]
+  },
   "stsjorbsmod:FearPower": {
     "NAME": "Afraid",
     "DESCRIPTIONS": [
