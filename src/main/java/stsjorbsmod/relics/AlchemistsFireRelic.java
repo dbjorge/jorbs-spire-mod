@@ -15,7 +15,7 @@ import static stsjorbsmod.characters.Wanderer.Enums.WANDERER_CARD_COLOR;
 /**
  * Reduces Burning's falloff rate to 10%
  */
-public class AlchemistsFireRelic extends CustomJorbsModRelic implements ClickableRelic {
+public class AlchemistsFireRelic extends CustomJorbsModIntStatsRelic implements ClickableRelic {
     public static final String ID = JorbsMod.makeID(AlchemistsFireRelic.class);
 
     public static final String[] ON_CLICK = CardCrawlGame.languagePack.getUIString(makeID("AlchemistsFireOnClick")).TEXT;
@@ -30,11 +30,6 @@ public class AlchemistsFireRelic extends CustomJorbsModRelic implements Clickabl
     @Override
     public void atBattleStart() {
         this.flash();
-    }
-
-    @Override
-    public AbstractRelic makeCopy() {
-        return new AlchemistsFireRelic();
     }
 
     @Override

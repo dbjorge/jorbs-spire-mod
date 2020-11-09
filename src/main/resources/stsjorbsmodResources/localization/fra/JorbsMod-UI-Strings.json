@@ -42,5 +42,11 @@
     "TEXT": [
       "L'ennemi ne compte pas attaquer"
     ]
+  },
+  "stsjorbsmod:RelicStats": {
+    "TEXT": [
+      " NL Per turn: ",
+      " NL Per combat: "
+    ]
   }
 }

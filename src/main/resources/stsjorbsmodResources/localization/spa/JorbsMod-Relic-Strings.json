@@ -1,0 +1,75 @@
+{
+  "stsjorbsmod:AlchemistsFireRelic": {
+    "NAME": "Fuego de Químico",
+    "FLAVOR": "Forca Messi! Forca Messi! Messi Animal!",
+    "DESCRIPTIONS": [
+      "Reduce la pérdida del stsjorbsmod:Quemado a 10% por turno.",
+      "Burning retained: "
+    ]
+  },
+  "stsjorbsmod:BookOfTrialsRelic": {
+    "NAME": "Libro de Pruebas",
+    "FLAVOR": "Parasido a lenguas, pero de mentiras.",
+    "DESCRIPTIONS": [
+      "Agrega #b2 cartas del stsjorbsmod:Mazo\u00a0de\u00a0Pruebas a tu mazo al principio de cada Acto.",
+      "Cards added: "
+    ]
+  },
+  "stsjorbsmod:BottledMemoryRelic": {
+    "NAME": "Memoria Embotellada",
+    "FLAVOR": "Mi cerebro está roto",
+    "DESCRIPTIONS": [
+      "Cuando se agarra, elige una carta que #yRecuerda. Empieza cada combate con esta carta en tu mano.",
+      "Elige una carta para ",
+      "Empieza cada combate con ",
+      " en tu mano."
+    ]
+  },
+  "stsjorbsmod:GrimoireRelic": {
+    "NAME": "Grimorio",
+    "FLAVOR": "Es esto... algo familiar?",
+    "DESCRIPTIONS": [
+      "Al comenzar cada combate, recuerda stsjorbsmod:Paciencia. NL Al finalizar cada combate, cura #b1 PV por cada stsjorbsmod:Claridad.",
+      "HP healed: "
+    ]
+  },
+  "stsjorbsmod:MetronomeRelic": {
+    "NAME": "Metrónomo",
+    "FLAVOR": "TIC TAC...TIC TAC",
+    "DESCRIPTIONS": [
+      "Al principio de cada quinto turno, reduce stsjorbsmod:Manifiesto por uno.",
+      "Manifest reduced: "
+    ]
+  },
+  "stsjorbsmod:MindGlassRelic": {
+    "NAME": "Mente de cristal",
+    "FLAVOR": "Presiona e a e.",
+    "DESCRIPTIONS": [
+      "Ganar stsjorbsmod:Claridad hace 3 de daño a TODOS los enemigos. NL Ganar 10 stsjorbsmod:Claridad en la misma pelea hace 100 de daño a TODOS los enemigos.",
+      "Damage dealt: "
+    ]
+  },
+  "stsjorbsmod:MindPalaceRelic": {
+    "NAME": "Palacio mental",
+    "FLAVOR": "Es esto una fortaleza o una prisión?",
+    "DESCRIPTIONS": [
+      "Empieza cada combate con stsjorbsmod:Claridad de la memoria con que terminaste tu pasada pelea recordando."
+    ]
+  },
+  "stsjorbsmod:ShadowRelic": {
+    "NAME": "Sombra",
+    "FLAVOR": "Una sombra de otra COSA.",
+    "DESCRIPTIONS": [
+      "La primera vez que stsjorbsmod:Expira una carta en cada combate, gana #b1 Intangible.",
+      "Intangible gained: "
+    ]
+  },
+  "stsjorbsmod:WarpedGlassRelic": {
+    "NAME": "Cristal Pervertido",
+    "FLAVOR": "Pulse \"F\" para... \"F\"?",
+    "DESCRIPTIONS": [
+      "Hace #b3 de daño a TODOS los enemigos cuando stsjorbsmod:Expiras una carta.",
+      "Damage dealt: "
+    ]
+  }
+}

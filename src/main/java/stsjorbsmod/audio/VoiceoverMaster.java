@@ -16,11 +16,15 @@ import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.patches.VoiceoverMasterPatch;
+import stsjorbsmod.util.CombatUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static com.megacrit.cardcrawl.helpers.MonsterHelper.LAGAVULIN_ENC;
+import static com.megacrit.cardcrawl.helpers.MonsterHelper.LAGAVULIN_EVENT_ENC;
 
 public class VoiceoverMaster {
     private static final class VoiceoverInfo {
@@ -84,14 +88,16 @@ public class VoiceoverMaster {
     }
 
     public static void playForCurrentBattle() {
-        VoiceoverInfo sfx = getSfxByCurrentBattle();
+        if (isInBattle()) {
+            VoiceoverInfo sfx = getSfxByCurrentBattle();
 
-        // The heart fight's music starts with a music change involving a big loud trumpet note,
-        // it's less jarring for that particular music to be dampened immediately
-        boolean isHeartFight = AbstractDungeon.getMonsters().getMonster(CorruptHeart.ID) != null;
-        float dampeningDuration = isHeartFight ? 0.0F : 0.5F;
+            // The heart fight's music starts with a music change involving a big loud trumpet note,
+            // it's less jarring for that particular music to be dampened immediately
+            boolean isHeartFight = AbstractDungeon.getMonsters().getMonster(CorruptHeart.ID) != null;
+            float dampeningDuration = isHeartFight ? 0.0F : 0.5F;
 
-        playSfx(sfx, 0.0F, dampeningDuration);
+            playSfx(sfx, 0.0F, dampeningDuration);
+        }
     }
 
     private static void playSfx(VoiceoverInfo sfx, float startingDelay, float dampeningDuration) {
@@ -127,13 +133,18 @@ public class VoiceoverMaster {
         return candidates.get(index);
     }
 
+    private static boolean isInBattle() {
+        return CombatUtils.isInCombat() && AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().monsters != null;
+    }
+
     private static VoiceoverInfo getSfxByCurrentBattle() {
-        if (AbstractDungeon.getCurrRoom() == null || AbstractDungeon.getCurrRoom().monsters == null) {
-            return null;
-        }
         String encounterKey = VoiceoverMasterPatch.MonsterGroup_class.encounterKeyField.get(AbstractDungeon.getCurrRoom().monsters);
         if (encounterKey == null) {
             return null;
+        }
+
+        if (encounterKey.equals(LAGAVULIN_EVENT_ENC)) {
+            encounterKey = LAGAVULIN_ENC;
         }
 
         return getSfxByKey(encounterKey);

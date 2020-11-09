@@ -1,0 +1,137 @@
+{
+  "stsjorbsmod:wanderer:voiceover:3_Sentries": {
+    "TEXT": [
+      "混乱，迷失，欺骗。"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Automaton": {
+    "TEXT": [
+      "我不是把这玩意的最后一台都拆了吗？ 几年前……吧……?"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Awakened_One": {
+    "TEXT": [
+      "我已经没有耐心等待神的回应了。"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Book_of_Stabbing": {
+    "TEXT": [
+      "这是……一本书？没错……我找到了一本书……"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Champ": {
+    "TEXT": [
+      "荣誉？财富？你所谓的胜利毫无意义。"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Collector": {
+    "TEXT": [
+      "如此广博的知识。要是我们能交流一下该多好……"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:death_1": {
+    "TEXT": [
+      "好……累……"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:death_2": {
+    "TEXT": [
+      "休息一下……"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:death_victory": {
+    "TEXT": [
+      "结束了吗？"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Donu_and_Deca": {
+    "TEXT": [
+      "即使最完美的形态也会有缺陷。"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Giant_Head": {
+    "TEXT": [
+      "也许我能看看它的内在……"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Gremlin_Leader": {
+    "TEXT": [
+      "啊，又有伙伴了。"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Gremlin_Nob": {
+    "TEXT": [
+      "这愤怒如此空虚。"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Hexaghost_1": {
+    "TEXT": [
+      "我会为你带来安宁的，古老的神。"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Hexaghost_2": {
+    "TEXT": [
+      "六份被诅咒的灵魂，在邪恶的烈焰中熔铸。"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Lagavulin": {
+    "TEXT": [
+      "我的老伙计……但是不行，我们现在不能休息。"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Nemesis_1": {
+    "TEXT": [
+      "热与汽。火与烟。"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Nemesis_2": {
+    "TEXT": [
+      "你其实根本就不在那，对吧……"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:new_run": {
+    "TEXT": [
+      "等等……这是什么地方？"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Reptomancer": {
+    "TEXT": [
+      "哈，你想跟我斗法？"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Shield_and_Spear_1": {
+    "TEXT": [
+      "来自魔法，归于魔法。"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Shield_and_Spear_2": {
+    "TEXT": [
+      "捏造之物终将消亡。"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Slavers": {
+    "TEXT": [
+      "暴力是最肤浅的答案。"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Slime_Boss": {
+    "TEXT": [
+      "多么完美的样品！实验时间到……"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:The_Guardian": {
+    "TEXT": [
+      "你可曾对我们无尽的舞蹈感到厌倦？"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:The_Heart": {
+    "TEXT": [
+      "终于啊。求你了，让他成为最后一次吧。"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Time_Eater": {
+    "TEXT": [
+      "搅动时间之河……这也太棒了……"
+    ]
+  }
+}

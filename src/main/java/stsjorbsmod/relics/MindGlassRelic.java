@@ -9,6 +9,8 @@ import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import stsjorbsmod.JorbsMod;
+import stsjorbsmod.actions.PostAoeDamageStatsAction;
+import stsjorbsmod.actions.PreAoeDamageStatsAction;
 import stsjorbsmod.memories.OnModifyMemoriesSubscriber;
 import stsjorbsmod.powers.MindGlassPower;
 
@@ -18,7 +20,7 @@ import static stsjorbsmod.characters.Wanderer.Enums.WANDERER_CARD_COLOR;
  * When gaining a unique clarity, deals 5 damage to all enemies.
  * When gain the tenth clarity in a combat, deal 500 damage to all enemies.
  */
-public class MindGlassRelic extends CustomJorbsModRelic implements OnModifyMemoriesSubscriber, PostUpdateSubscriber {
+public class MindGlassRelic extends CustomJorbsModIntStatsRelic implements OnModifyMemoriesSubscriber, PostUpdateSubscriber {
     public static final String ID = JorbsMod.makeID(MindGlassRelic.class);
 
     private static final int ONE_CLARITY_DAMAGE = 3;
@@ -45,8 +47,8 @@ public class MindGlassRelic extends CustomJorbsModRelic implements OnModifyMemor
         if (this.counter == 10) {
             this.stopPulse();
         } else if (this.counter == 9) {
-            AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-            AbstractDungeon.actionManager.addToBottom(
+            addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+            addToBot(
                     new ApplyPowerAction(
                             AbstractDungeon.player,
                             AbstractDungeon.player,
@@ -54,7 +56,10 @@ public class MindGlassRelic extends CustomJorbsModRelic implements OnModifyMemor
                             1,
                             true));
         }
-        AbstractDungeon.actionManager.addToBottom(
+        PreAoeDamageStatsAction preAction = new PreAoeDamageStatsAction();
+        PostAoeDamageStatsAction postAction = new PostAoeDamageStatsAction(this, preAction);
+        addToBot(preAction);
+        addToBot(
                 new DamageAllEnemiesAction(
                         null,
                         DamageInfo.createDamageMatrix(ONE_CLARITY_DAMAGE, true),
@@ -62,6 +67,7 @@ public class MindGlassRelic extends CustomJorbsModRelic implements OnModifyMemor
                         // TODO: More impactful and relevant FX. See FlashAtkImgEffect.loadImage() and
                         //  FlashAtkImgEffect.playSound() for usage of AttackEffect in base game.
                         AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        addToBot(postAction);
     }
 
     @Override

@@ -15,11 +15,11 @@ public class TinyCardColorPatch {
         @SpirePrefixPatch
         public static SpireReturn<Color> Prefix(TinyCard __this, AbstractCard card) {
             if (card.color == Wanderer.Enums.WANDERER_CARD_COLOR) {
-                return SpireReturn.Return(Wanderer.ColorInfo.CHARACTER_COLOR);
+                return SpireReturn.Return(Wanderer.ColorInfo.CHARACTER_COLOR.cpy());
             } else if (card.color == Cull.Enums.CULL_CARD_COLOR) {
-                return SpireReturn.Return(Cull.ColorInfo.CHARACTER_COLOR);
+                return SpireReturn.Return(Cull.ColorInfo.CHARACTER_COLOR.cpy());
             } /* TODO: uncomment me: else if (card.color == Explorer.Enums.EXPLORER_CARD_COLOR) {
-                return SpireReturn.Return(Explorer.ColorInfo.CHARACTER_COLOR);
+                return SpireReturn.Return(Explorer.ColorInfo.CHARACTER_COLOR.cpy());
             } */ else {
                 return SpireReturn.Continue();
             }

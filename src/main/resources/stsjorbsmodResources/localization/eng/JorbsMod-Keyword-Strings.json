@@ -9,6 +9,11 @@
     "DESCRIPTION": "Burning creatures take damage at the start of their turn and cannot be healed. Burning damage will hit #yBlock. Each turn, Burning is reduced by a third."
   },
   {
+    "PROPER_NAME": "Card Type",
+    "NAMES": ["card\u00a0type", "card\u00a0types"],
+    "DESCRIPTION": "Card Types are Attack, Skill, Power, Curse, Status, etc."
+  },
+  {
     "NAMES": ["charity"],
     "DESCRIPTION": "Until forgotten, gain 1 #yStrength for every 100 gold you have."
   },
@@ -27,6 +32,10 @@
   {
     "NAMES": ["consume", "consumed"],
     "DESCRIPTION": "Consumed cards are permanently removed from your deck. Gain a reward based on the card's rarity: NL #yStarter: Heal for #b5. NL #yCommon: #b+3 Max HP. NL #yUncommon: #b+3 Max HP and heal fully. NL #yRare or #yLegendary: #b+5 Max HP and heal fully. NL #yCurse: #b-1 Max HP."
+  },
+  {
+    "NAMES": ["deck\u00a0of\u00a0trials"],
+    "DESCRIPTION": "A side deck of unique cards with relatively powerful effects."
   },
   {
     "NAMES": ["destroy"],
@@ -49,6 +58,14 @@
     "DESCRIPTION": "This card starts each combat in your Exhaust pile. It will be Exhumed from your Exhaust pile into your hand each time its Exhume condition is met."
   },
   {
+    "NAMES": ["exert", "exerts"],
+    "DESCRIPTION": "Exhaust this card when played. It will be #yEntombed until the start of next Act."
+  },
+  {
+    "NAMES": ["exerted"],
+    "DESCRIPTION": "This card starts each combat in your Exhaust pile, until the start of next Act."
+  },
+  {
     "NAMES": ["envy"],
     "DESCRIPTION": "When you remember Envy, gain #b1 #yVulnerable. Whenever you target an enemy with a card, apply #b1 #yVulnerable to that enemy."
   },
@@ -66,11 +83,15 @@
   },
   {
     "NAMES": ["greed"],
-    "DESCRIPTION": "Whenever you kill a non-minion enemy, gain #b20 gold."
+    "DESCRIPTION": "Whenever you kill a non-minion enemy, gain #b10 gold."
   },
   {
     "NAMES": ["humility"],
     "DESCRIPTION": "Each time remembered, gain #b2 #yThorns. Until forgotten, gain #b2 additional #yThorns."
+  },
+  {
+    "NAMES": ["indiscriminate"],
+    "DESCRIPTION": "#yIndiscriminate cards can target enemies or the player."
   },
   {
     "NAMES": ["kindness"],
@@ -86,7 +107,7 @@
   },
   {
     "NAMES": ["manifest"],
-    "DESCRIPTION": "For each turn spent in combat, gain #b1 #yManifest. When choosing your path, skip a floor for each #yManifest. Resets to #b0 when entering a floor."
+    "DESCRIPTION": "The CULL gains #b1 #yManifest at the start of each event and the end of each turn. When choosing your path, #yManifest is spent to skip floors."
   },
   {
     "PROPER_NAME": "Material Component",
@@ -96,6 +117,10 @@
   {
     "NAMES": ["patience"],
     "DESCRIPTION": "Gain 1 #yCoil each time you play a card. When you remember a new memory, deal 1 damage to ALL enemies for each #yCoil and lose all #yCoil."
+  },
+  {
+    "NAMES": ["possessed"],
+    "DESCRIPTION": "#yPossessed creatures will deal damage equal to its Max HP to a random ally for each #yPossessed stack."
   },
   {
     "NAMES": ["pride"],
@@ -120,6 +145,10 @@
   {
     "NAMES": ["temperance"],
     "DESCRIPTION": "While you remember or have clarity of Temperance, gain 1 #yStrength for every #yClarity you have."
+  },
+  {
+    "NAMES": ["true\u00a0damage"],
+    "DESCRIPTION": "This damage cannot be prevented or reduced."
   },
   {
     "NAMES": ["virtue"],

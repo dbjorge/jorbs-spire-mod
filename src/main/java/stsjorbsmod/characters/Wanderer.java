@@ -88,13 +88,13 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
         public static void registerColorWithBaseMod() {
             BaseMod.addColor(
                     Enums.WANDERER_CARD_COLOR,
-                    CHARACTER_COLOR,
-                    CHARACTER_COLOR,
-                    CHARACTER_COLOR,
-                    CHARACTER_COLOR,
-                    CHARACTER_COLOR,
-                    CHARACTER_COLOR,
-                    CHARACTER_COLOR,
+                    CHARACTER_COLOR.cpy(),
+                    CHARACTER_COLOR.cpy(),
+                    CHARACTER_COLOR.cpy(),
+                    CHARACTER_COLOR.cpy(),
+                    CHARACTER_COLOR.cpy(),
+                    CHARACTER_COLOR.cpy(),
+                    CHARACTER_COLOR.cpy(),
                     CARD_BG_ATTACK_TEXTURE,
                     CARD_BG_SKILL_TEXTURE,
                     CARD_BG_POWER_TEXTURE,
@@ -133,7 +133,6 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
             registerVoiceOver("Gremlin Nob");
             registerVoiceOver("Hexaghost", "Hexaghost_1");
             registerVoiceOver("Hexaghost", "Hexaghost_2");
-            registerVoiceOver("Lagavulin Event", "Lagavulin");
             registerVoiceOver("Lagavulin");
             registerVoiceOver("Nemesis", "Nemesis_1");
             registerVoiceOver("Nemesis", "Nemesis_2");
@@ -339,7 +338,7 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
     // Should return a color object to be used to color the trail of moving cards
     @Override
     public Color getCardTrailColor() {
-        return ColorInfo.CHARACTER_COLOR;
+        return ColorInfo.CHARACTER_COLOR.cpy();
     }
 
     // Should return a BitmapFont object that you can use to customize how your
@@ -376,14 +375,14 @@ public class Wanderer extends CustomPlayer implements OnResetPlayerSubscriber {
     // Should return a Color object to be used to color the miniature card images in run history.
     @Override
     public Color getCardRenderColor() {
-        return ColorInfo.CHARACTER_COLOR;
+        return ColorInfo.CHARACTER_COLOR.cpy();
     }
 
     // Should return a Color object to be used as screen tint effect when your
     // character attacks the heart.
     @Override
     public Color getSlashAttackColor() {
-        return ColorInfo.CHARACTER_COLOR;
+        return ColorInfo.CHARACTER_COLOR.cpy();
     }
 
     // Should return an AttackEffect array of any size greater than 0. These effects

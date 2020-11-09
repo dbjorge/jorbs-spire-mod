@@ -1,0 +1,9 @@
+{
+  "name": "jorbs-spire-mod-scripts",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "json-diff": "^0.5.4"
+  }
+}

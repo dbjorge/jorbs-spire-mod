@@ -1,0 +1,914 @@
+{
+  "stsjorbsmod:Abjure": {
+    "NAME": "Abjurar",
+    "DESCRIPTION": "Pon Escudo Espiritual en tu mano desde la pila de robado, descarte o agotado.",
+    "UPGRADE_DESCRIPTION": "Retiene. NL Pon Escudo Espiritual en tu mano desde la pila de robado, descarte o agotado."
+  },
+  "stsjorbsmod:Accumulation": {
+    "NAME": "Acumulación",
+    "DESCRIPTION": "Roba !M! cartas. NL Robas 1 carta adicional por cada Acumulación en tu pila de descarte."
+  },
+  "stsjorbsmod:Aid": {
+    "NAME": "Curita",
+    "DESCRIPTION": "Cura un enemigo por !M! PV. NL Recuerda stsjorbsmod:Amabilidad. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Cura un enemigo por !M! PV. NL Recuerda stsjorbsmod:Amabilidad. NL Gana stsjorbsmod:Claridad de esta memoria. NL Agota."
+  },
+  "stsjorbsmod:Amnesia": {
+    "NAME": "Amnesia",
+    "DESCRIPTION": "Injugable. NL Al final del turno, pierde 1 ventaja aleatoria.",
+    "EXTENDED_DESCRIPTION": [
+      "~...~",
+      "Deje el horno prendido?",
+      "@Cava@"
+    ]
+  },
+  "stsjorbsmod:AnimateObjects": {
+    "NAME": "Objetos Animados",
+    "DESCRIPTION": "stsjorbsmod:Efímera. NL Gana Espinas igual al número de cartas no-agotadas que no empezaron el combate en tu mazo.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Gana !M! Espinas.)"
+    ]
+  },
+  "stsjorbsmod:Anxiety": {
+    "NAME": "Ansiedad",
+    "DESCRIPTION": "Roba !stsjorbsmod:MetaMagic! cartas y gana [E]. NL Reduce de forma permanete el número de cartas robadas en !M!. NL Agota."
+  },
+  "stsjorbsmod:Apparate": {
+    "NAME": "Aparición",
+    "DESCRIPTION": "Gana !stsjorbsmod:UrMagic! Vulnerable. NL Haz !D! de daño y aplica !M! Vulnerable a TODOS los enemigos."
+  },
+  "stsjorbsmod:Apparition_Cull": {
+    "NAME": "Apariencia",
+    "DESCRIPTION": "Etérea. NL Gana !M! Intangible. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Gana !M! Intangible. NL Agota."
+  },
+  "stsjorbsmod:ArcaneForm": {
+    "NAME": "Forma Arcana",
+    "DESCRIPTION": "Etérea. NL Gana stsjorbsmod:Claridad de stsjorbsmod:Paciencia, stsjorbsmod:Lujuria, stsjorbsmod:Amabilidad, y stsjorbsmod:Castidad.",
+    "UPGRADE_DESCRIPTION": "Gana stsjorbsmod:Claridad de stsjorbsmod:Paciencia, stsjorbsmod:Lujuria, stsjorbsmod:Amabilidad, y stsjorbsmod:Castidad."
+  },
+  "stsjorbsmod:ArcaneWeapon": {
+    "NAME": "Arma Arcana",
+    "DESCRIPTION": "Al final de cada turno, haz !D! de daño a un enemigo aleatorio."
+  },
+  "stsjorbsmod:Assertion": {
+    "NAME": "Afirmación",
+    "DESCRIPTION": "Haz daño equivalente a !stsjorbsmod:UrMagic! por cada habilidad jugada este acto, hasta !stsjorbsmod:MetaMagic! daño.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Hace !D! daño, !M! habilidad jugada.)",
+      " NL (Hace !D! daño, !M! habilidades jugada.)"
+    ]
+  },
+  "stsjorbsmod:Banish": {
+    "NAME": "Ahuyentar",
+    "DESCRIPTION": "El enemigo no actúa y no recibe daño por !M! turnos. Agota."
+  },
+  "stsjorbsmod:BlackTentacles": {
+    "NAME": "Tentáculos Negros",
+    "DESCRIPTION": "Haz !D! de daño. NL Este turno, todo el daño que provocas lo recibe este enemigo."
+  },
+  "stsjorbsmod:BlackTentacles_Cull": {
+    "NAME": "Tentáculos Negros",
+    "DESCRIPTION": "Haz !D! de daño. NL Este turno, todo el daño que provocas lo recibe este enemigo."
+  },
+  "stsjorbsmod:Blasphemer": {
+    "NAME": "Blásfemo",
+    "DESCRIPTION": "Injugable. NL Cuando robes esta carta, añade !M! *Aplastar a tu mano y Agota."
+  },
+  "stsjorbsmod:BookOfTongues": {
+    "NAME": "Libro de Lenguas",
+    "DESCRIPTION": "Al principio de cada turno, pon !M! stsjorbsmod:Componente\u00a0Material en tu mano.",
+    "UPGRADE_DESCRIPTION": "Innata. NL Al principio de cada turno, pon !M! stsjorbsmod:Componente\u00a0Material en tu mano."
+  },
+  "stsjorbsmod:Brambles": {
+    "NAME": "Zarzas",
+    "DESCRIPTION": "Haz daño igual al número de stsjorbsmod:Componentes\u00a0Materiales jugados este combate.",
+    "UPGRADE_DESCRIPTION": "Haz daño igual a NL !stsjorbsmod:BaseDamage! + el número de stsjorbsmod:Componente\u00a0Material jugados este combate.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Hace !D! de daño.)"
+    ]
+  },
+  "stsjorbsmod:Brooding": {
+    "NAME": "Melancolía",
+    "DESCRIPTION": "Roba !M! cartas. NL Agrega una maldición aleatoria a tu pila de descarte."
+  },
+  "stsjorbsmod:BurningFlask": {
+    "NAME": "Frasco en Llamas",
+    "DESCRIPTION": "Aplica !M! de stsjorbsmod:Quemado."
+  },
+  "stsjorbsmod:Catharsis": {
+    "NAME": "Catarsis",
+    "DESCRIPTION": "Cartas Injugables de Maldición ahora pueden jugarse. NL Cuado lo hagas, haz !M! de daño a un enemigo aleatorio por cada Maldición jugada este combate y pierde 1 PV."
+  },
+  "stsjorbsmod:ChainLightning": {
+    "NAME": "Rayos en Cadena",
+    "DESCRIPTION": "Haz !D! de daño. NL Encadena a TODOS los enmigos, ganando !M! de daño por cadena."
+  },
+  "stsjorbsmod:Chamomile": {
+    "NAME": "Manzanilla",
+    "DESCRIPTION": "stsjorbsmod:Efímera. NL Remueve tu Frágil y Débil.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Efímera. NL Remueve tu Frágil, Vulnerable y Débil."
+  },
+  "stsjorbsmod:Channel": {
+    "NAME": "Canal",
+    "DESCRIPTION": "Gana !B! de Bloqueo. NL Gana !M! de [E] el próximo turno.",
+    "UPGRADE_DESCRIPTION": "Gana !B! de Bloqueo. NL Gana !M! de [E] el próximo turno. NL Pon una carta de la pila de descarte en el tope de tu pila de robado."
+  },
+  "stsjorbsmod:Channeling": {
+    "NAME": "Canalizar",
+    "DESCRIPTION": "Juega la carta del tope de tu pila de robado por cada ataque entrante. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Juega la carta del tope de tu pila de robado por cada ataque entrante.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Juega !M! carta.)",
+      " NL (Juega !M! cartas.)"
+    ]
+  },
+  "stsjorbsmod:ChatteringStrike": {
+    "NAME": "Golpe Parlante",
+    "DESCRIPTION": "Haz !D! de daño. NL Juega esta carta !M! vez más.",
+    "UPGRADE_DESCRIPTION": "Haz !D! de daño. NL Juega esta carta !M! veces más."
+  },
+  "stsjorbsmod:ChillTouch": {
+    "NAME": "Toque Gélido",
+    "DESCRIPTION": "Haz !D! de daño a un enemigo. NL Ya no puede curarse."
+  },
+  "stsjorbsmod:Clarify": {
+    "NAME": "Claridad",
+    "DESCRIPTION": "Retiene: Cuando tienes esta carta esta en tu mano, Retiene !M! carta adicional. NL stsjorbsmod:Expirar: Las cartas de tu pila de extracción aparecen en el orden en que salen.",
+    "UPGRADE_DESCRIPTION": "Retiene: Cuando tienes esta carta esta en tu mano, Retiene !M! cartas adicionales. NL stsjorbsmod:Expirar: Las cartas de tu pila de extracción aparecen en el orden en que salen."
+  },
+  "stsjorbsmod:Cleanse": {
+    "NAME": "Limpiar",
+    "DESCRIPTION": "Descartar todas las Maldiciones de tu pila de robado. NL Cura !stsjorbsmod:UrMagic! PV por cada Maldición descartada. NL Agota.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Tienes !M! Maldición.)",
+      " NL (Tienes !M! Maldiciones.)"
+    ]
+  },
+  "stsjorbsmod:Coda": {
+    "NAME" : "Coda",
+    "DESCRIPTION": "Haz !D! de daño. NL Si esto matase a un enemigo, lo deja a 1 PV."
+  },
+  "stsjorbsmod:ColorSpray": {
+    "NAME": "Rocío Colorido",
+    "DESCRIPTION": "Haz !D! de daño a TODOS los enemigos y aplica un perjuicio aleatorio a cada uno. NL Recuerda stsjorbsmod:Envidia."
+  },
+  "stsjorbsmod:Commune": {
+    "NAME" : "Comuna",
+    "DESCRIPTION": "Adivina !M!."
+  },
+  "stsjorbsmod:Concentrate": {
+    "NAME": "Concentrarse",
+    "DESCRIPTION": "Descarta !M! cartas. NL Gana [E] [E]."
+  },
+  "stsjorbsmod:CorrodingBarrier": {
+    "NAME": "Barrera Corrosiva",
+    "DESCRIPTION": "Gana !B! de Bloqueo. Reduce el Bloqueo de esta carta, durante este combate, en !M! cada vez que es robada.",
+    "UPGRADE_DESCRIPTION": "Gana !B! de Bloqueo."
+  },
+  "stsjorbsmod:Counterspell": {
+    "NAME": "Contrahechizo",
+    "DESCRIPTION": "Gana !B! de Bloqueo. NL Gana !M! Artefacto si el enemigo intenta aplicar un efecto negativo. NL Agota."
+  },
+  "stsjorbsmod:CoupDeGrace": {
+    "NAME": "Golpe de Gracia",
+    "DESCRIPTION": "stsjorbsmod:Indiscriminado. NL Gana X Intangible. NL Después de X turnos hace stsjorbsmod:Daño\u00a0Real equivalente al double del daño prevenido.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Indiscriminado. NL Gana X+1 Intangible. NL Después de X+1 turnos hace stsjorbsmod:Daño\u00a0Real equivalente al double del daño prevenido."
+  },
+  "stsjorbsmod:CULLCard": {
+    "NAME": "Guadaña",
+    "DESCRIPTION": "Haz !D! de daño dos veces. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Haz !D! de daño dos veces. NL stsjorbsmod:Ira es aplicada dos veces. NL Agota."
+  },
+  "stsjorbsmod:Cyclone": {
+    "NAME": "Ciclón",
+    "DESCRIPTION": "Haz !D! de daño a TODOS los enemigos X veces. NL Gana [E] por cada enemigo asesinado."
+  },
+  "stsjorbsmod:Damnation": {
+    "NAME": "Perdición",
+    "DESCRIPTION": "Roba !M! cartas. NL Transforma de forma permanente la siguiente carta jugada este combate.",
+    "UPGRADE_DESCRIPTION": "Roba !M! cartas. NL Transforma de forma permanente la siguiente carta jugada este combate, luego mejórala."
+  },
+  "stsjorbsmod:DeathThroes": {
+    "NAME": "Muerte Agónica",
+    "DESCRIPTION": "stsjorbsmod:Enterrada. stsjorbsmod:Efímera. NL stsjorbsmod:Desenterrar cuando un enemigo muere. NL Haz !D! de daño. NL Recuerda stsjorbsmod:Ira.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Enterrada. stsjorbsmod:Efímera. NL stsjorbsmod:Desenterrar cuando un enemigo muere. NL Haz !D! de daño. NL Gana stsjorbsmod:Claridad de stsjorbsmod:Ira."
+  },
+  "stsjorbsmod:DemonicCoup": {
+    "NAME": "Golpe Diabólica",
+    "DESCRIPTION": "stsjorbsmod:Efímera. NL Gana !M! Ritual. NL stsjorbsmod:Expirar."
+  },
+  "stsjorbsmod:Defend_Wanderer": {
+    "NAME": "Defender",
+    "DESCRIPTION": "Gana !B! de Bloqueo."
+  },
+  "stsjorbsmod:Determination": {
+    "NAME": "Determinación",
+    "DESCRIPTION": "Recuerda stsjorbsmod:Orgullo. NL Al final de este turno, stsjorbsmod:Quebrar. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Recuerda stsjorbsmod:Orgullo. NL Agota."
+  },
+  "stsjorbsmod:Discordance": {
+    "NAME": "Discordancia",
+    "DESCRIPTION": "Haz daño igual al número de Tipos de Carta en tu mano !M! veces.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Haz !D! de daño)"
+    ]
+  },
+  "stsjorbsmod:DisguiseSelf": {
+    "NAME": "Disfrazarse",
+    "DESCRIPTION": "Gana !B! de Bloqueo. NL Gana !B! de Bloqueo el próximo turno."
+  },
+  "stsjorbsmod:Double": {
+    "NAME": "Doble",
+    "DESCRIPTION": "Este turno, la siguiente carta que Agota se juega dos veces.",
+    "UPGRADE_DESCRIPTION": "Este turno, las siguientes !M! cartas que Agotan se juegan dos veces."
+  },
+  "stsjorbsmod:DoubleCheck": {
+    "NAME": "Doble-check",
+    "DESCRIPTION": "Gana !B! de Bloqueo. NL Recuerda stsjorbsmod:Diligencia.",
+    "UPGRADE_DESCRIPTION": "Gana !B! de Bloqueo. NL Recuerda stsjorbsmod:Diligencia. NL Al principio de tu próximo turno, si recuerdas stsjorbsmod:Diligencia gana stsjorbsmod:Claridad."
+  },
+  "stsjorbsmod:DrainLife": {
+    "NAME": "Drenar Vida",
+    "DESCRIPTION": "Haz X de daño. NL Gana PV Máximo igual al daño echo. NL stsjorbsmod:Expirar.",
+    "UPGRADE_DESCRIPTION": "Haz X+1 de daño. NL Gana PV Máximo igual al daño echo. NL stsjorbsmod:Expirar.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Hace !D! de daño.)"
+    ]
+  },
+  "stsjorbsmod:Ectoplasm_Cull": {
+    "NAME": "Ectoplasma",
+    "DESCRIPTION": "Haz !D! de daño. NL Gana !stsjorbsmod:MetaMagic! de oro por cada stsjorbsmod:Manifiesto. NL Agota.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Ganas !M! de oro.)"
+    ]
+  },
+  "stsjorbsmod:EnergyBulb": {
+    "NAME": "Bombilla de energía",
+    "DESCRIPTION": "stsjorbsmod:Efímera. NL Gana !M! de [E]."
+  },
+  "stsjorbsmod:Entangle": {
+    "NAME": "Enrredado",
+    "DESCRIPTION": "Aplica stsjorbsmod:Lentitud a TODOS los enemigos. NL Añade !M! stsjorbsmod:red a tu mano.",
+    "UPGRADE_DESCRIPTION": "Aplica stsjorbsmod:Lentitud a TODOS los enemigos. NL Añade !M! stsjorbsmod:redes a tu mano."
+  },
+  "stsjorbsmod:Equinox": {
+    "NAME": "Equinoccio",
+    "DESCRIPTION": "Haz daño igual al número del piso actual. NL El costo de esta carta es igual al número del Acto actual. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Haz daño igual al número del piso actual. NL El costo de esta carta es igual al número del Acto actual - !M!. NL Agota.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Hace !D! de daño.)"
+    ]
+  },
+  "stsjorbsmod:Exhale": {
+    "NAME": "Exhalar",
+    "DESCRIPTION": "stsjorbsmod:Efímera. NL Gana !M! Intangible. NL Al comienzo del próximo turno, pierde !stsjorbsmod:UrMagic! de Fuerza.",
+    "UPGRADE_DESCRIPTION": "Gana !M! Intangible. NL Al comienzo del próximo turno, pierde !stsjorbsmod:UrMagic! de Fuerza."
+  },
+  "stsjorbsmod:Expose": {
+    "NAME": "Exponer",
+    "DESCRIPTION": "Haz !D! de daño. NL Si esto no termina el combate, pierde !M! PV."
+  },
+  "stsjorbsmod:Eye": {
+    "NAME": "Ojo",
+    "DESCRIPTION": "stsjorbsmod:Efímera. NL Aplica !M! Vulnerable."
+  },
+  "stsjorbsmod:EyeOfTheStorm": {
+    "NAME": "Ojo de la Tormenta",
+    "DESCRIPTION": "Gana stsjorbsmod:Claridad de la memoria actual, luego recuerda una memoria aleatoria de la que no tengas stsjorbsmod:Claridad. NL Gana !B! de Bloqueo."
+  },
+  "stsjorbsmod:FalseBlessings": {
+    "NAME": "Bendiciones Falsas",
+    "DESCRIPTION": "stsjorbsmod:Expirar: Llena la Bolsa de Pociónes con pociones al azar."
+  },
+  "stsjorbsmod:FaerieFire": {
+    "NAME": "Fuego de Hadas",
+    "DESCRIPTION": "stsjorbsmod:Virtud: Aplica !M! de Débil a TODOS los enemigos. NL stsjorbsmod:Pecado: Aplica !M! Vulnerable a TODOS los enemigos. NL Agota."
+  },
+  "stsjorbsmod:Fear": {
+    "NAME": "Teme",
+    "DESCRIPTION": "El enemigo no-jefe seleccionado se escapará en !M! turnos. Si esto finaliza el combate, no ganas recompenzas pero mantienes las Claridades para el siguiente combate.",
+    "EXTENDED_DESCRIPTION": [
+      "Los Jefes no Temen!"
+    ]
+  },
+  "stsjorbsmod:Feast": {
+    "NAME": "Festín",
+    "DESCRIPTION": "Recuerda stsjorbsmod:Gula. NL Roba !M! cartas. NL Agota."
+  },
+  "stsjorbsmod:Feint": {
+    "NAME": "Fintar",
+    "DESCRIPTION": "Haz !D! de daño. NL Roba !M! cartas. NL Descarta !stsjorbsmod:MetaMagic! carta."
+  },
+  "stsjorbsmod:FindFamiliar": {
+    "NAME": "Parece Familiar",
+    "DESCRIPTION": "Al principio de cada turno, gana stsjorbsmod:Claridad de la memoria actual.",
+    "UPGRADE_DESCRIPTION": "Innata. NL Al principio de cada turno, gana stsjorbsmod:Claridad de la memoria actual."
+  },
+  "stsjorbsmod:FindWeakness": {
+    "NAME": "Hallar Debilidades",
+    "DESCRIPTION": "Adivina !M! la primera vez que ataques a un enemigo cada turno."
+  },
+  "stsjorbsmod:Fireball": {
+    "NAME": "Bola de Fuego",
+    "DESCRIPTION": "Recuerda stsjorbsmod:Lujuria. NL Haz !D! de daño a TODOS los enemigos.",
+    "UPGRADE_DESCRIPTION": "Recuerda stsjorbsmod:Lujuria. NL Haz !D! de daño a TODOS los enemigos. NL Aplica !M! de stsjorbsmod:Quemado a TODOS los enemigos."
+  },
+  "stsjorbsmod:Firebolt": {
+    "NAME": "Tornillo de Fuego",
+    "DESCRIPTION": "Haz !D! de daño. NL Aplica stsjorbsmod:Quemado igual a !stsjorbsmod:MetaMagic! veces el número de stsjorbsmod:Claridades que tienes.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Aplica !M! de Quemado.)"
+    ]
+  },
+  "stsjorbsmod:Flame": {
+    "NAME": "Llama",
+    "DESCRIPTION": "Aplica !M! de stsjorbsmod:Quemado. NL Aplica !stsjorbsmod:UrMagic! Vulnerable."
+  },
+  "stsjorbsmod:FlameWard": {
+    "NAME": "Pared de Llamas",
+    "DESCRIPTION": "La próxima vez que seas atacado, aplica !M! de stsjorbsmod:Quemado a TODOS los enemigos y gana !B! de Bloqueo. Agota."
+  },
+  "stsjorbsmod:FocusedRage": {
+    "NAME": "Furia Enfocada",
+    "DESCRIPTION": "Gana !stsjorbsmod:UrMagic! Fuerza por cada carta stsjorbsmod:Expirada en este combate. NL stsjorbsmod:Expirar.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Aplica !M! Fuerza.)",
+      "Nada expiró duranté este combate!"
+    ]
+  },
+  "stsjorbsmod:ForbiddenGrimoire": {
+    "NAME": "El Grimorio",
+    "DESCRIPTION": "stsjorbsmod:Efímera. NL stsjorbsmod:Enterrada hasta stsjorbsmod:Quebrar o empiece el turno 7. NL Elige 1 de 3 stsjorbsmod:Componentes\u00a0Materiales. NL stsjorbsmod:Desenterrar después de jugar !M! cartas."
+  },
+  "stsjorbsmod:ForcedPresence": {
+    "NAME": "Presencia Forzada",
+    "DESCRIPTION": "Pierde !M! Intangible. Si lo haces, gana !stsjorbsmod:UrMagic! de [E]. NL Agota."
+  },
+  "stsjorbsmod:FracturedMind": {
+    "NAME": "Mente Partida",
+    "DESCRIPTION": "stsjorbsmod:Pecado: Haz !D! de daño. NL stsjorbsmod:Virtud: Gana !B! de Bloqueo. NL stsjorbsmod:Quebrado: Haz Ambos."
+  },
+  "stsjorbsmod:FranticMind": {
+    "NAME": "Mente Frenética",
+    "DESCRIPTION": "Descarta una carta por cada stsjorbsmod:Manifiesto, luego roba esa cantidad de cartas. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Descarta una carta por cada stsjorbsmod:Manifiesto, luego roba esa cantidad de cartas.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Descarta !M! carta.)",
+      " NL (Descarta !M! cartas.)"
+    ]
+  },
+  "stsjorbsmod:FranticSearch": {
+    "NAME": "Búsqueda Frenética",
+    "DESCRIPTION": "Pon !M! stsjorbsmod:Componente\u00a0Material en tu mano por cada enemigo. NL Gana stsjorbsmod:Claridad. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Innata. NL Pon !M! stsjorbsmod:Componente\u00a0Material en tu mano por cada enemigo. NL Gana stsjorbsmod:Claridad. NL Agota."
+  },
+  "stsjorbsmod:FreshAdventure": {
+    "NAME": "Nueva Aventura",
+    "DESCRIPTION": "Haz !D! de daño. NL Recuerda stsjorbsmod:Diligencia. NL Esta carta gana !M! de daño de forma permanente al stsjorbsmod:Quebrar."
+  },
+  "stsjorbsmod:Frostbite": {
+    "NAME": "Congelado",
+    "DESCRIPTION": "Haz !D! de daño. NL Si esto asesina a un enemigo, stsjorbsmod:Consumir esta carta."
+  },
+  "stsjorbsmod:Frustration": {
+    "NAME": "Frustración",
+    "DESCRIPTION": "Retener: Haz !M! de daño a TODOS los enemigos. NL stsjorbsmod:Expirar: Haz !D! de daño a TODOS los enemigos."
+  },
+  "stsjorbsmod:GatherPower": {
+    "NAME": "Acumular Poder",
+    "DESCRIPTION": "Roba !M! carta. NL Este turno, tu siguiente ataque es jugado !stsjorbsmod:MetaMagic! vez más.",
+    "UPGRADE_DESCRIPTION": "Roba !M! carta. NL Este turno, tu siguiente ataque es jugado !stsjorbsmod:MetaMagic! veces más."
+  },
+  "stsjorbsmod:GatheringEvil": {
+    "NAME": "Acumular Maldad",
+    "DESCRIPTION": "Gana !stsjorbsmod:MetaMagic! de Fuerza y !stsjorbsmod:UrMagic! Vulnerable por cada Maldicíon jugada este combate. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Gana !stsjorbsmod:MetaMagic! de Fuerza y !stsjorbsmod:UrMagic! Vulnerable por cada Maldicíon jugada este combate. NL Agota. NL Desenterrar cuando rebarajas tu pila de descarte.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Haz jugado !M! Maldición.)",
+      " NL (Haz jugado !M! Maldiciones.)"
+    ]
+  },
+  "stsjorbsmod:Godsbane": {
+    "NAME": "Godsbane",
+    "DESCRIPTION": "Haz !M! % del PV Máximo del enemigo apuntado.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Hace !D! de daño.)"
+    ]
+  },
+  "stsjorbsmod:Goosebumps": {
+    "NAME": "Piel de Gallina",
+    "DESCRIPTION": "Haz !D! de daño !M! veces."
+  },
+  "stsjorbsmod:GrimDirge": {
+    "NAME": "Canto Fúnebre",
+    "DESCRIPTION": "stsjorbsmod:Enterrada. NL stsjorbsmod:Efímera. NL stsjorbsmod:Desenterrar en el turno !M!. NL Haz !D! de daño."
+  },
+  "stsjorbsmod:Haunt": {
+    "NAME": "Perseguir",
+    "DESCRIPTION": "stsjorbsmod:Efímera. NL Gana !stsjorbsmod:UrMagic! Intangible. NL Roba !M! carta menos el próximo turno.",
+    "UPGRADE_DESCRIPTION": "Gana !stsjorbsmod:UrMagic! Intangible. NL Roba !M! carta menos el próximo turno. NL Agota."
+  },
+  "stsjorbsmod:HedgeWizard": {
+    "NAME": "Mago Defensor",
+    "DESCRIPTION": "Gana !B! de Bloqueo. NL Recuerda stsjorbsmod:Humildad."
+  },
+  "stsjorbsmod:Hibernate": {
+    "NAME": "Hibernar",
+    "DESCRIPTION": "Gana !B! de Bloqueo. NL Recuerda stsjorbsmod:Pereza."
+  },
+  "stsjorbsmod:HoldMonster": {
+    "NAME": "Controla-Monstruos",
+    "DESCRIPTION": "Recuerda stsjorbsmod:Amabilidad. NL El enemigo pierde !M! de Fuerza hasta el próximo turno. NL Agota."
+  },
+  "stsjorbsmod:Hurt": {
+    "NAME": "Dolor",
+    "DESCRIPTION": "Haz !D! de daño. NL Pierde PV igual al numero de stsjorbsmod:Claridades que tienes.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Pierde !M! PV.)"
+    ]
+  },
+  "stsjorbsmod:Index": {
+    "NAME": "Índice",
+    "DESCRIPTION": "Roba !M! cartas, luego pon !stsjorbsmod:MetaMagic! cartas de tu mano al tope de tu pila de extracción en orden aleatorio.",
+    "UPGRADE_DESCRIPTION": "Roba !M! cartas, luego pon !stsjorbsmod:MetaMagic! cartas de tu mano al tope de tu pila de extracción."
+  },
+  "stsjorbsmod:Inferno": {
+    "NAME": "Infierno",
+    "DESCRIPTION": "Recuerda stsjorbsmod:Lujuria. NL Duplica el stsjorbsmod:Quemado de un enemigo. NL Agota. stsjorbsmod:Desenterrar al stsjorbsmod:Quebrar.",
+    "UPGRADE_DESCRIPTION": "Recuerda stsjorbsmod:Lujuria. NL Triplica el stsjorbsmod:Quemado de un enemigo. NL Agota. stsjorbsmod:Desenterrar al stsjorbsmod:Quebrar."
+  },
+  "stsjorbsmod:Intervention": {
+    "NAME": "Intervención",
+    "DESCRIPTION": "Haz !D! de daño. NL Añade de forma permanente Dilación a tu mazo. NL stsjorbsmod:Expirar."
+  },
+  "stsjorbsmod:Introspection": {
+    "NAME": "Introspeción",
+    "DESCRIPTION": "Al final de cada turno, pierde !stsjorbsmod:UrMagic! PV y haz !M! de daño a TODOS los enemigos. Haz !stsjorbsmod:MetaMagic! de daño adicional por cada stsjorbsmod:Claridad."
+  },
+  "stsjorbsmod:Investment": {
+    "NAME": "Inversión",
+    "DESCRIPTION": "stsjorbsmod:Efímera. NL Gana !stsjorbsmod:MetaMagic! de Oro. NL stsjorbsmod:Expirar. NL Cuando robes esta carta, se incrementa permanentemente el Oro por !M!. "
+  },
+  "stsjorbsmod:IvoryTower": {
+    "NAME": "Torre de Marfil",
+    "DESCRIPTION": "Roba !M! cartas. NL Agota todas la cartas Maldición y Estado en tu mano. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Roba !M! cartas. NL Agota todas la cartas Maldición y Estado en tu mano."
+  },
+  "stsjorbsmod:LocateObject": {
+    "NAME": "Localizar Objeto",
+    "DESCRIPTION": "Recuerda stsjorbsmod:Codicia. NL Roba !M! cartas. NL Agota."
+  },
+  "stsjorbsmod:LooseLeaf": {
+    "NAME": "Hoja Suelta",
+    "DESCRIPTION": "stsjorbsmod:Efímera. NL Roba !M! carta.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Efímera. NL Roba !M! cartas."
+  },
+  "stsjorbsmod:LoseGrip": {
+    "NAME": "Perder Agarre",
+    "DESCRIPTION": "Gana !B! de Bloqueo. NL Agota. stsjorbsmod:Desenterrar al stsjorbsmod:Quebrar."
+  },
+  "stsjorbsmod:MageArmor": {
+    "NAME": "Armadura de Mago",
+    "DESCRIPTION": "Injugable. NL Retiene. NL Cuando fueras a perder PV, pierde !M! PV menos y descarta eesta carta.",
+    "EXTENDED_DESCRIPTION": [
+      "No puedo jugar esta carta.",
+      "Armadura de Mago"
+    ]
+  },
+  "stsjorbsmod:MagicMirror": {
+    "NAME": "Espejo Mágico",
+    "DESCRIPTION": "Cuando un enemigo aplica un perjuicio hacia ti, aplica ese perjuicio a TODOS los enemigos.",
+    "UPGRADE_DESCRIPTION": "Innata. NL Cuando un enemigo aplica un perjuicio hacia ti, aplica ese perjuicio a TODOS los enemigos."
+  },
+  "stsjorbsmod:MagicMissiles": {
+    "NAME": "Misiles Mágicos",
+    "DESCRIPTION": "Haz !D! de daño. NL Hace !D! de daño una vez por cada stsjorbsmod:Claridad que tienes.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Golpeará !M! vez.)",
+      " NL (Golpeará !M! veces.)"
+    ]
+  },
+  "stsjorbsmod:Mania": {
+    "NAME": "Manía",
+    "DESCRIPTION": "Haz daño igual al número de cartas únicas en tu mano. Si todas son únicas, gana !stsjorbsmod:MetaMagic! de [E] y roba !stsjorbsmod:UrMagic! carta.",
+    "UPGRADE_DESCRIPTION": "Haz daño igual a !stsjorbsmod:BaseDamage! + el número de cartas únicas en tu mano. Si todas son únicas, gana !stsjorbsmod:MetaMagic! de [E] y roba !stsjorbsmod:UrMagic! carta.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Hace !D! de daño.)"
+    ]
+  },
+  "stsjorbsmod:Materialize": {
+    "NAME": "Materializar",
+    "DESCRIPTION": "Gana !B! de Bloqueo. NL Elige 1 de 3 stsjorbsmod:Componentes\u00a0Materiales."
+  },
+  "stsjorbsmod:Melt": {
+    "NAME": "Derretir",
+    "DESCRIPTION": "Aplica stsjorbsmod:Quemado igual al Bloqueo del enemigo. NL Haz !D! de daño."
+  },
+  "stsjorbsmod:Mending": {
+    "NAME": "Arreglo",
+    "DESCRIPTION": "Cura PV igual al número de stsjorbsmod:Claridades que tienes. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Cura PV igual a dos veces el número de stsjorbsmod:Claridades que tienes. NL Agota.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Cura !M! PV.)"
+    ]
+  },
+  "stsjorbsmod:Message": {
+    "NAME": "Mensaje",
+    "DESCRIPTION": "Pon !M! carta de tu pila de descarte en tu mano. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Pon !M! cartas de tu pila de descarte en tu mano. NL Agota."
+  },
+  "stsjorbsmod:Mindworm": {
+    "NAME": "Gusano Mental",
+    "DESCRIPTION": "Haz !D! de daño. NL Hace !M! de daño adicional si estás stsjorbsmod:Quebrado. NL Añade una copia de esta carta en tu pila de descarte."
+  },
+  "stsjorbsmod:Miracle_Cull": {
+    "NAME": "Milagro",
+    "DESCRIPTION": "Retiene. NL Gana !M! de [E] . NL Añade !stsjorbsmod:MetaMagic! stsjorbsmod:Manifiesto. NL Agota"
+  },
+  "stsjorbsmod:Mirror": {
+    "NAME": "Espejo",
+    "DESCRIPTION": "stsjorbsmod:Efímera. NL Hasta el próximo turno, no recibes daño y reflejas ese daño al enemigo atacante."
+  },
+  "stsjorbsmod:MirroredTechnique": {
+    "NAME": "Técnica Reflejada",
+    "DESCRIPTION": "Esta combate, juega todos los ataques una vez adicional por cada vez que estes siendo atacado. NL stsjorbsmod:Expirar.",
+    "UPGRADE_DESCRIPTION": "Esta combate, juega todos los ataques una vez adicional por cada vez que estes siendo atacado + !M!. NL stsjorbsmod:Expirar."
+  },
+  "stsjorbsmod:MirrorImage": {
+    "NAME": "Imagen Reflejada",
+    "DESCRIPTION": "Recuerda stsjorbsmod:Amabilidad. NL Invoca una Imagen Reflejada con Intangible y !M! PV. NL Agota."
+  },
+  "stsjorbsmod:MistyStep": {
+    "NAME": "Paso Brumoso",
+    "DESCRIPTION": "Gana Bloqueo igual a !stsjorbsmod:MetaMagic! por cada stsjorbsmod:Claridad. NL Roba !M! carta.",
+    "UPGRADE_DESCRIPTION": "Gana Bloqueo igual a !stsjorbsmod:MetaMagic! por cada stsjorbsmod:Claridad más !stsjorbsmod:BaseBlock!. NL Roba !M! carta.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Gana !B! de Bloqueo.)"
+    ]
+  },
+  "stsjorbsmod:Moss": {
+    "NAME": "Musgo",
+    "DESCRIPTION": "Retiene. NL Gana !M! de Destreza hasta el final del turno. NL Agota."
+  },
+  "stsjorbsmod:OakLeaf": {
+    "NAME": "Hoja de Roble",
+    "DESCRIPTION": "Gana !M! de Destreza."
+  },
+  "stsjorbsmod:OldBook": {
+    "NAME": "Libro Viejo",
+    "DESCRIPTION": "stsjorbsmod:Enterrada. NL stsjorbsmod:Desenterrar cuando morirías; en lugar de eso stsjorbsmod:Destruir esta carta. NL Injugable.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Enterrada. NL stsjorbsmod:Desenterrar cuando morirías; en lugar de eso stsjorbsmod:Destruir esta carta y recupera !M! por ciento de tu PV Máximo. NL Injugable."
+  },
+  "stsjorbsmod:OldPocket": {
+    "NAME": "Bolsillo Viejo",
+    "DESCRIPTION": "Gana !M! de oro. NL Recuerda stsjorbsmod:Caridad. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Gana !M! de oro. NL Recuerda stsjorbsmod:Caridad. NL Gana stsjorbsmod:Claridad de la memoria actual. NL Agota."
+  },
+  "stsjorbsmod:Overkill": {
+    "NAME": "Exagerado",
+    "DESCRIPTION": "Cuando asesinas a un enemigo, haz todo el daño restante a TODOS los enemigos.",
+    "UPGRADE_DESCRIPTION": "Cuando asesinas a un enemigo, haz todo el daño restante + !M! a TODOS los enemigos."
+  },
+  "stsjorbsmod:Panic": {
+    "NAME": "Pánico",
+    "DESCRIPTION": "stsjorbsmod:Efímera. NL Gana !M! Intangible. NL Pierde !stsjorbsmod:UrMagic! PV Máximo."
+  },
+  "stsjorbsmod:Paralysis": {
+    "NAME": "Paralísis",
+    "DESCRIPTION": "Retener. NL Gana !M! Intangible. NL Cuando es Retenido, reduce su costo en 1 este combate. NL Agota."
+  },
+  "stsjorbsmod:PartingBlow": {
+    "NAME": "Golpe de despedida",
+    "DESCRIPTION": "Haz daño igual a NL !M! menos tu PV Máximo.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Hace !D! de daño.)"
+    ]
+  },
+  "stsjorbsmod:ParryingBlow": {
+    "NAME": "Golpe Defensivo",
+    "DESCRIPTION": "Recuerda stsjorbsmod:Paciencia. NL Haz !D! de daño. NL Roba !M! carta."
+  },
+  "stsjorbsmod:Pathos": {
+    "NAME": "Pathos",
+    "DESCRIPTION": "Las cartas en tu mano cuestan 0 este turno. NL Añade una Maldición a tu pila de descarte por cada carta jugada."
+  },
+  "stsjorbsmod:Patron": {
+    "NAME": "Patrono",
+    "DESCRIPTION": "stsjorbsmod:Efímera. NL stsjorbsmod:Enterrada hasta stsjorbsmod:Quebrar. NL Haz !D! de daño. NL stsjorbsmod:Destruir.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Efímera. NL stsjorbsmod:Enterrada hasta stsjorbsmod:Quebrar. NL Haz !D! de daño. NL stsjorbsmod:Degradar."
+  },
+  "stsjorbsmod:Phantasm": {
+    "NAME": "Fantasma",
+    "DESCRIPTION": "Cuando ganas Intangible, haz !M! de daño a TODOS los enemigos."
+  },
+  "stsjorbsmod:Pollute": {
+    "NAME": "Contaminar",
+    "DESCRIPTION": "Convierte todas las cartas en tu mano en Maldiciones (pueden ser jugadas). NL Agota.",
+    "UPGRADE_DESCRIPTION": "Convierte todas las cartas en tu mano en Maldiciones (pueden ser jugadas)."
+  },
+  "stsjorbsmod:PollutedStrike": {
+    "NAME": "Golpe Contaminante",
+    "DESCRIPTION": "Haz !D! de Daño de Ataque una vez por cada Maldición en tu mano.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Tienes !M! Maldicíon.)",
+      " NL (Tienes !M! Maldiciones.)"
+    ]
+  },
+  "stsjorbsmod:Possession": {
+    "NAME": "Posesión",
+    "DESCRIPTION": "Aplica !M! stsjorbsmod:Poseído. NL stsjorbsmod:Expirar."
+  },
+  "stsjorbsmod:Poultergeist": {
+    "NAME": "Duende",
+    "DESCRIPTION": "Haz !D! de daño."
+  },
+  "stsjorbsmod:Prepare": {
+    "NAME": "Preparar",
+    "DESCRIPTION": "Gana Bloqueo igual a tu stsjorbsmod:Rollo. NL Gana !stsjorbsmod:MetaMagic! stsjorbsmod:Rollo.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Tienes !M! Rollo.)"
+    ]
+  },
+  "stsjorbsmod:Prestidigitation": {
+    "NAME": "Prestidigitación",
+    "DESCRIPTION": "Al comienzo de cada turno, aplica !M! de Débil o !M! Vulnerable a un enemigo aleatorio."
+  },
+  "stsjorbsmod:Procrastination": {
+    "NAME": "Dilación",
+    "DESCRIPTION": "Injugable. NL Empieza cada combate en tu pila de descarte."
+  },
+  "stsjorbsmod:ProdigalMemory": {
+    "NAME": "Memoria Pródiga",
+    "DESCRIPTION": "Roba !stsjorbsmod:UrMagic! cartas y pierde !M! PV Máximo. NL Si tienes esta carta en tu mano al final de tu turno, stsjorbsmod:Expirar."
+  },
+  "stsjorbsmod:PurgeMind": {
+    "NAME": "Purgar la Mente",
+    "DESCRIPTION": "Agota TODAS las cartas que \"recuerdan\". Luego, haz !D! de daño una vez por cada carta en tu pila de agotados. NL stsjorbsmod:Quebrar. Agota.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Golpeará !M! vez.)",
+      " NL (Golpeará !M! veces.)"
+    ]
+  },
+  "stsjorbsmod:Pyromancy": {
+    "NAME": "Piromancia",
+    "DESCRIPTION": "Etérea. NL Cuando aplicas stsjorbsmod:Quemado, aplica esa cantidad stsjorbsmod:Quemado otra vez.",
+    "UPGRADE_DESCRIPTION": "Cuando aplicas stsjorbsmod:Quemado, aplica esa cantidad stsjorbsmod:Quemado otra vez."
+  },
+  "stsjorbsmod:Quicksilver": {
+    "NAME": "Azogue",
+    "DESCRIPTION": "stsjorbsmod:Efímera. NL Avanza las reliquias !stsjorbsmod:MetaMagic! turno. NL Este turno, tu siguiente carta es jugada !M! vez más.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Efímera. NL Avanza las reliquias !stsjorbsmod:MetaMagic! turno. NL Este turno, tu siguiente carta es jugada !M! veces más."
+  },
+  "stsjorbsmod:RayOfFrost": {
+    "NAME": "Rayo of Escarcha",
+    "DESCRIPTION": "Haz !D! de daño. NL Aplica !M! de Débil.",
+    "UPGRADE_DESCRIPTION": "Haz !D! de daño. NL Aplica !M! de Débil !stsjorbsmod:MetaMagic! veces."
+  },
+  "stsjorbsmod:ReapAndSow": {
+    "NAME": "Cosechar y Sembrar",
+    "DESCRIPTION": "Haz !D! de daño. Si es Fatal, hace el daño adicional a TODOS los enemigos al principo del próximo combate."
+  },
+  "stsjorbsmod:Rebuke": {
+    "NAME": "Reprimenda",
+    "DESCRIPTION": "Gana !stsjorbsmod:UrMagic! Intangible. NL Haz daño a TODOS los enmigos igual a !D! veces tu Intangible. NL Agota.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Haz !M! de daño.)"
+    ]
+  },
+  "stsjorbsmod:Rebuttal": {
+    "NAME": "Refutación",
+    "DESCRIPTION": "Retener: Gana !stsjorbsmod:UrMagic! de Espinas cuando está en tu mano. NL stsjorbsmod:Expirar: Gana !M! de Espinas."
+  },
+  "stsjorbsmod:Rediscovery": {
+    "NAME": "Redescubrimiento",
+    "DESCRIPTION": "Cuando ganas stsjorbsmod:Claridad de una nueva memoria, gana 1 de [E].",
+    "UPGRADE_DESCRIPTION": "Innata. NL Cuando ganas stsjorbsmod:Claridad de una nueva memoria, gana 1 de [E]."
+  },
+  "stsjorbsmod:RefuseToForget": {
+    "NAME": "Negarse a Olvidar",
+    "DESCRIPTION": "No puedes olvidar tu memoria actual hasta que no ganes stsjorbsmod:Claridad de esta. NL Roba !M! cartas. NL No puedes robar más cartas este turno."
+  },
+  "stsjorbsmod:RepressedMemory": {
+    "NAME": "Memoria Reprimida",
+    "DESCRIPTION": "Gana !stsjorbsmod:UrMagic! [E]. NL Roba !M! cartas. NL stsjorbsmod:Expira al final del combate. NL Pierde !stsjorbsmod:MetaMagic! PV Máximo cuando descartes esta carta de tu mano o al final de tu turno.",
+    "UPGRADE_DESCRIPTION": "Gana !stsjorbsmod:UrMagic! [E]. NL Roba !M! cartas. NL stsjorbsmod:Expira al final del combate."
+  },
+  "stsjorbsmod:Rest": {
+    "NAME": "Descanso",
+    "DESCRIPTION": "Recuerda stsjorbsmod:Castidad. NL Gana !B! de Bloqueo. NL Finaliza tu turno."
+  },
+  "stsjorbsmod:Ritual": {
+    "NAME": "Ritual",
+    "DESCRIPTION": "Gana !stsjorbsmod:UrMagic! Intangible. NL Retiene !M! carta hasta el próximo turno. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Gana !stsjorbsmod:UrMagic! Intangible. NL Retiene !M! cartas hasta el próximo turno. NL Agota."
+  },
+  "stsjorbsmod:Rot": {
+    "NAME": "Corrupción",
+    "DESCRIPTION": "stsjorbsmod:Efímera. NL Pierde una stsjorbsmod:Claridad aleatoria. NL Cuando esta carta llega a tu mano, agrega !M! copia adicional.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Efímera. NL Pierde una stsjorbsmod:Claridad aleatoria. NL Cuando esta carta llega a tu mano, agrega !M! copias adicionales."
+  },
+  "stsjorbsmod:Sacrifice": {
+    "NAME": "Sacrificar",
+    "DESCRIPTION": "Gana [E] cuando robes esta carta. NL Etérea. NL Este turno, paga PV Máximo en ves de [E]. NL stsjorbsmod:Expirar.",
+    "UPGRADE_DESCRIPTION": "Gana [E] [E] cuando robes esta carta. NL Etérea. NL Este turno, paga PV Máximo en ves de [E]. NL stsjorbsmod:Expirar."
+  },
+  "stsjorbsmod:SchoolsOfMagic": {
+    "NAME": "Escuelas de Magia",
+    "DESCRIPTION": "Roba !M! cartas. NL Si no tienes cartas duplicadas en tu mano, gana stsjorbsmod:Claridad; si no, Agota 1 de cada duplicada."
+  },
+  "stsjorbsmod:ScorchingRay": {
+    "NAME": "Rayo Abrasador",
+    "DESCRIPTION": "Recuerda stsjorbsmod:Lujuria. NL Aplica !stsjorbsmod:MetaMagic! de stsjorbsmod:Quemado !M! veces. Este stsjorbsmod:Quemado es afectado por Fuerza."
+  },
+  "stsjorbsmod:Sentinel_Cull": {
+    "NAME": "Centinela",
+    "DESCRIPTION": "Haz !D! de daño. NL Baja tu stsjorbsmod:Manifiesto en !M!. NL Agota."
+  },
+  "stsjorbsmod:Shake": {
+    "NAME": "Sacudida",
+    "DESCRIPTION": "Si un enemigo está Vulnerable, roba !M! cartas. NL Aplica !stsjorbsmod:UrMagic! Vulnerable. NL Agota."
+  },
+  "stsjorbsmod:ShrapnelBloom": {
+    "NAME": "Flor de Metralla",
+    "DESCRIPTION": "stsjorbsmod:Expirar. NL Este turno, la próxima carta no-Legendario que juegas se juega !M! vez adicional, después lo stsjorbsmod:Expira.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Expirar. NL Este turno, la próxima carta no-Legendario que juegas se juega !M! veces adicionales, después lo stsjorbsmod:Expira."
+  },
+  "stsjorbsmod:SilverStrike": {
+    "NAME": "Golpe de Plata",
+    "DESCRIPTION": "Haz !D! daño. NL stsjorbsmod:Expirar."
+  },
+  "stsjorbsmod:Siphon": {
+    "NAME": "Sifón",
+    "DESCRIPTION": "Haz !D! de daño. NL Si asesinas un enemigo, cura !M! PV."
+  },
+  "stsjorbsmod:SiphonEnergy": {
+    "NAME": "Energía de Sifón",
+    "DESCRIPTION": "Roba !stsjorbsmod:MetaMagic! cartas. NL Gana [E] por cada stsjorbsmod:Claridad. NL (Gana !M! [E] ) NL Agota."
+  },
+  "stsjorbsmod:SmithingStrike": {
+    "NAME": "Golpe Herrero",
+    "DESCRIPTION": "Recuerda stsjorbsmod:Ira. NL Haz !D! de daño."
+  },
+  "stsjorbsmod:SnakeOil": {
+    "NAME": "Aceite de Serpiente",
+    "DESCRIPTION": "Retiene. NL Recordar stsjorbsmod:Paciencia. NL Haz daño a TODOS los enemigos igual a la cantidad de stsjorbsmod:Rollo que tienes. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Retiene. NL Recordar stsjorbsmod:Paciencia. NL Haz daño a TODOS los enemigos igual a dos veces la cantidad de stsjorbsmod:Rollo que tienes. NL Agota.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Haz !D! de daño.)"
+    ]
+  },
+  "stsjorbsmod:SpiritShield_Cull": {
+    "NAME": "Escudo Espiritual",
+    "DESCRIPTION": "Reduce todo el daño recibido en !M! hasta el próximo turno."
+  },
+  "stsjorbsmod:Stalwart": {
+    "NAME": "Lealtad",
+    "DESCRIPTION": "Recuerda stsjorbsmod:Templanza. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Recuerda stsjorbsmod:Templanza. NL Gana stsjorbsmod:Claridad de la memoria actual. NL Agota."
+  },
+  "stsjorbsmod:Steel": {
+    "NAME": "Acero",
+    "DESCRIPTION": "stsjorbsmod:Efímera. NL Mejora !M! carta en tu mano hasta el final del combate.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Efímera. NL Mejora !M! cartas en tu mano hasta el final del combate."
+  },
+  "stsjorbsmod:Stone": {
+    "NAME": "Piedra",
+    "DESCRIPTION": "Retiene. NL Aplica stsjorbsmod:Lentitud a un enemigo. NL Si ya esta stsjorbsmod:Ralentizado, dobla su cantidad de stsjorbsmod:Lentitud. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Retiene. NL Aplica stsjorbsmod:Lentitud a un enemigo. NL Si ya esta stsjorbsmod:Ralentizado, triplica su cantidad de stsjorbsmod:Lentitud. NL Agota."
+  },
+  "stsjorbsmod:StrangePendant": {
+    "NAME": "Pendiente Extraño",
+    "DESCRIPTION": "Reduce el primer daño recibido cada turno en !M!."
+  },
+  "stsjorbsmod:Strife": {
+    "NAME": "Contienda",
+    "DESCRIPTION": "Añade !stsjorbsmod:UrMagic! Maldición aleatoria a tu pila de descarte. NL Gana !stsjorbsmod:MetaMagic! de Fuerza por cada Maldición en tu pila de descarte. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Añade !stsjorbsmod:UrMagic! Maldiciónes aleatorias a tu pila de descarte. NL Gana !stsjorbsmod:MetaMagic! de Fuerza por cada Maldición en tu pila de descarte. NL Agota.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Gana !M! de Fuerza.)"
+    ]
+  },
+  "stsjorbsmod:Strike_Cull": {
+    "NAME": "Golpear",
+    "DESCRIPTION": "Haz !D! de daño."
+  },
+  "stsjorbsmod:Strike_Wanderer": {
+    "NAME": "Golpear",
+    "DESCRIPTION": "Haz !D! de daño."
+  },
+  "stsjorbsmod:Sulfur": {
+    "NAME": "Sulfuro",
+    "DESCRIPTION": "stsjorbsmod:Efímera. NL Aplica !M! de stsjorbsmod:Quemado."
+  },
+  "stsjorbsmod:Summoning": {
+    "NAME": "Invocar",
+    "DESCRIPTION": "Agota !M! carta de tu pila de descarte. stsjorbsmod:Desenterrar al principio del próximo turno.",
+    "UPGRADE_DESCRIPTION": "Agota !M! cartas de tu pila de descarte. stsjorbsmod:Desenterrar al principio del próximo turno."
+  },
+  "stsjorbsmod:Taunt": {
+    "NAME": "Burlar",
+    "DESCRIPTION": "Gana !stsjorbsmod:UrMagic! Intangible. NL Aplica 3 Vulnerable a TODOS los enemigos. NL Agota."
+  },
+  "stsjorbsmod:ThirstingSword": {
+    "NAME": "Espada Sedienta",
+    "DESCRIPTION": "Aplica !M! de stsjorbsmod:Quemado y recupera PV igual al numero de stsjorbsmod:Quemado de tu objetivo. NL Pierde !stsjorbsmod:MetaMagic! PV Máximo. NL Haz !D! de daño. NL Agota."
+  },
+  "stsjorbsmod:Thorns": {
+    "NAME": "Espinas",
+    "DESCRIPTION": "Recuerda stsjorbsmod:Humildad. NL Si un enemigo intenta atacar, gana stsjorbsmod:Claridad de la actual memoria. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Recuerda stsjorbsmod:Humildad. NL Gana stsjorbsmod:Claridad de la actual memoria. NL Agota."
+  },
+  "stsjorbsmod:TimeEddy": {
+    "NAME": "Tiempo Eddy",
+    "DESCRIPTION": "stsjorbsmod:Efímera. NL Avanza TODAS las ventajas y perjuicios !M! turno.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Efímera. NL Avanza TODAS las ventajas y perjuicios !M! turnos."
+  },
+  "stsjorbsmod:TickingCurse": {
+    "NAME": "Maldición Tictac",
+    "DESCRIPTION": "Etérea. NL Haz !D! de daño a TODOS los enemigos. stsjorbsmod:Expirar. NL Cuado Agotada, haz !M! de daño a TODOS los enemigos."
+  },
+  "stsjorbsmod:TinyHut": {
+    "NAME": "Pequeña Choza",
+    "DESCRIPTION": "Recuerda stsjorbsmod:Amabilidad. NL Gana stsjorbsmod:Claridad de la memoria actual.",
+    "UPGRADE_DESCRIPTION": "Innata. NL Recuerda stsjorbsmod:Amabilidad. NL Gana stsjorbsmod:Claridad de la memoria actual."
+  },
+  "stsjorbsmod:Toil": {
+    "NAME": "Esfuerzo",
+    "DESCRIPTION": "Haz !D! de daño. NL Si esto mata al enemigo, mejora de forma permante una carta aleatoria. NL Agota."
+  },
+  "stsjorbsmod:Toll": {
+    "NAME": "Peaje",
+    "DESCRIPTION": "Haz daño igual a !M! veces la suma de los números de tus contadores de reliquias.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Haz !D! de daño)"
+    ]
+  },
+  "stsjorbsmod:TollTheDead": {
+    "NAME": "Peaje de Muertos",
+    "DESCRIPTION": "Haz !D! de daño. NL Si el objetivo ya fue dañado este turno, haz !D! de daño otra vez."
+  },
+  "stsjorbsmod:Tragedy": {
+    "NAME": "Tragedia",
+    "DESCRIPTION": "Agota TODAS las Maldiciones. NL Haz !D! de daño por cada Maldición agotada. NL Agota.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Agota !M! Maldición.)",
+      " NL (Agota !M! Maldiciones.)"
+    ]
+  },
+  "stsjorbsmod:Trauma": {
+    "NAME": "Trauma",
+    "DESCRIPTION": "stsjorbsmod:Quebrar. NL Haz !D! de daño a TODOS los enemigos. NL Baraja esta carta en tu pila de robado."
+  },
+  "stsjorbsmod:Trouble": {
+    "NAME": "Problematico",
+    "DESCRIPTION": "Cuando robas una Maldición, roba !M! carta.",
+    "UPGRADE_DESCRIPTION": "Cuando robas una Maldición, roba !M! cartas."
+  },
+  "stsjorbsmod:TrueStrike": {
+    "NAME": "Golpe Real",
+    "DESCRIPTION": "Haz !D! de stsjorbsmod:Daño\u00a0Real."
+  },
+  "stsjorbsmod:UnseenServant": {
+    "NAME": "Sirviente Invisible",
+    "DESCRIPTION": "Recuerda stsjorbsmod:Pereza. NL Pon !M! cartas de tu pila de descarte al tope de tu pila de robado. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Recuerda stsjorbsmod:Pereza. NL Pon !M! cartas de tu pila de descarte al tope de tu pila de robado. NL Roba !stsjorbsmod:MetaMagic! carta. NL Agota."
+  },
+  "stsjorbsmod:Wail": {
+    "NAME": "Lamento",
+    "DESCRIPTION": "Aplicar !stsjorbsmod:UrMagic! Vulnerable. NL Roba !M! carta. NL Agota"
+  },
+  "stsjorbsmod:WastingForm": {
+    "NAME": "Forma de Desecho",
+    "DESCRIPTION": "Añade !stsjorbsmod:MetaMagic! Maldiciones aleatorias a tu pila de descarte. NL Cuando robas una Maldición, haz !M! de daño a TODOS los enemigos."
+  },
+  "stsjorbsmod:WastingStrike": {
+    "NAME": "Golpe de Desecho",
+    "DESCRIPTION": "Haz !D! de daño. NL Hace !M! de daño adicional cor cada carta en tu pila de agotadas."
+  },
+  "stsjorbsmod:WanderingMind": {
+    "NAME": "Mente Deambulante",
+    "DESCRIPTION": "Roba !M! cartas. NL Recuerda una memoria aleatoria de la que no tienes stsjorbsmod:Claridad."
+  },
+  "stsjorbsmod:Web": {
+    "NAME": "Telaraña",
+    "DESCRIPTION": "Retiene. NL Aplicar !M! Débil. NL Agota."
+  },
+  "stsjorbsmod:WeightOfMemory": {
+    "NAME": "Peso de la Memoria",
+    "DESCRIPTION": "Haz !D! de daño. NL Hace !M! de daño adicional por TODAS las cartas que \"recuerdan\"."
+  },
+  "stsjorbsmod:Will": {
+    "NAME": "Voluntad",
+    "DESCRIPTION": "Gana !B! de Bloqueo. NL stsjorbsmod:Enterrar una carta aleatoria de tu mano hasta que quiebras; cuesta 0 hasta ser jugada.",
+    "UPGRADE_DESCRIPTION": "Gana !B! de Bloqueo. NL stsjorbsmod:Enterrar una carta de tu mano hasta que quiebras; cuesta 0 hasta ser jugada."
+  },
+  "stsjorbsmod:Withdraw": {
+    "NAME": "Retirada",
+    "DESCRIPTION": "Gana !M! Artefacto. NL Gana !B! de Bloqueo. NL Agota."
+  },
+  "stsjorbsmod:Withering": {
+    "NAME": "Marchitamiento",
+    "DESCRIPTION": "Gana !M! Intangible. NL Cada vez que es robada, Intangible reduce el daño en !stsjorbsmod:MetaMagic! menos este combate."
+  }
+}

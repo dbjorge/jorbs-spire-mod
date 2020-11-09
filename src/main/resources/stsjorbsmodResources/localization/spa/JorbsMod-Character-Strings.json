@@ -1,0 +1,24 @@
+{
+  "stsjorbsmod:CullCharacter": {
+    "NAMES": [
+      "La COSA",
+      "la COSA"
+    ],
+    "TEXT": [
+      "Un maligno espíritu enviado a darse un festín NL con los habitantes de la torre.",
+      "NL Tú MUERDE el corazón.",
+      "Navegando una calle oscura, te topas con muchas figuras encapuchadas en el medio de un oscuro ritual. Cuando te acercas, se dan vuelta al unísono. El más alto de ellos revela sus grandes colmillos y extiende su palida mano hacia a ti. NL ~\"dig~ DIG ~dig DIG ~DIG~ DIG~\"~"
+    ]
+  },
+  "stsjorbsmod:WandererCharacter": {
+    "NAMES": [
+      "El Deambulante",
+      "el Deambulante"
+    ],
+    "TEXT": [
+      "Un mago con una gran pérdida de memoria NL debido a las constantes resurreciones de la torre.",
+      "NL Tú TOCA el corazón.",
+      "Navegando una calle oscura, te topas con muchas figuras encapuchadas en el medio de un oscuro ritual. Cuando te acercas, se dan vuelta al unísono. El más alto de ellos revela sus grandes colmillos y extiende su palida mano hacia a ti. NL ~\"dig~ DIG ~dig DIG ~DIG~ DIG~\"~"
+    ]
+  }
+}

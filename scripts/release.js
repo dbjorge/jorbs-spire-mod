@@ -2,7 +2,7 @@
 //
 // Prerequisites:
 //   * Have the Steam client installed and logged into the jorbsmods account
-//   * Have hub installed and auth'd as an account that can push GitHub releases
+//   * Have the GitHub CLI installed and auth'd as an account that can push GitHub releases
 //   * Have a clean "git status" (no files staged or modified)
 //   * Have the "master" branch checked out
 //
@@ -24,6 +24,7 @@
 
 const child_process = require('child_process');
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
 const process = require('process');
 const readline = require('readline');
@@ -52,7 +53,7 @@ if (!fs.existsSync(javaPath)) {
 if (!fs.existsSync(modUploaderPath)) {
   console.log(`Cannot find ${modUploaderPath}; is STEAMAPPS_PATH set and Slay the Spire installed?`)
 }
-child_process.execSync('hub release -L 1'); // this verifies both that hub is installed and auth'd
+child_process.execSync('gh release list --limit 1'); // this verifies that GitHub CLI is installed
 
 console.log('Verifying git status is clean...');
 const status = child_process.execSync('git status --porcelain');
@@ -90,7 +91,7 @@ const steamChangeNoteContent = `v${version}\n\n` + unreleasedChangelogContent
     .replace(/^### (.*)$/mg, (s, text) => `[h3]${text}[/h3]`)
     .replace(/^\* /mg, '[*] ')
     .replace(/\n\n\[\*\]/mg, (s) => '\n[list]\n\[*\]')
-    .replace(/(\[\*\][^\n]*)\n\n/mg, (s, line) => `${line}\n[/list]\n`)
+    .replace(/(\[\*\][^\n]*)(\n\n|$)/g, (s, line) => `${line}\n[/list]\n`)
     .replace(/\[(.*)\]\((.*)\)/g, (s, label, url) => `[url=${url}]${label}[/url]`)
     .replace(/\*\*\*(.*)\*\*\*/g, (s, text) => `[b][i]${text}[/i][/b]`)
     .replace(/\*\*(.*)\*\*/g, (s, text) => `[b]${text}[/b]`)
@@ -113,8 +114,10 @@ try {
 }
 
 console.log('Generating alternate formats of release notes...')
-const hubReleaseInput = `v${version}\n\n${unreleasedChangelogContent}`;
-logNote('GITHUB', hubReleaseInput);
+const githubReleaseChangelogPath = path.join(os.tmpdir(), 'jorbsmod-github-changelog.md');
+const githubReleaseChangelogContent = `v${version}\n\n${unreleasedChangelogContent}`;
+fs.writeFileSync(githubReleaseChangelogPath, githubReleaseChangelogContent);
+logNote('GITHUB', githubReleaseChangelogContent);
 const suggestedDiscordPost = `**Released v${version}**, available at https://mod.jorbs.tv/steam\n\n${unreleasedChangelogContent}`;
 logNote('DISCORD', suggestedDiscordPost);
 
@@ -152,7 +155,7 @@ function promptToContinue() {
     child_process.execSync(`"${javaPath}" -jar "${modUploaderPath}" upload -w "${steamWorkspacePath}"`, {stdio: 'inherit'});
 
     console.log(`Uploading new version as a GitHub release...`);
-    child_process.execSync(`hub release create --attach "${jarPath}#JorbsMod.jar" --file - v${version}`, {input: hubReleaseInput});
+    child_process.execSync(`gh release create v${version} "${jarPath}#JorbsMod.jar" --notes-file "${githubReleaseChangelogPath}"`);
 
     console.log('Done! Suggested Discord post:\n');
     // Repeating so it'll be below the fold of "uploading..." spam

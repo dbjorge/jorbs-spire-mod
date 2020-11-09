@@ -26,14 +26,23 @@
 
 ### Developers
 
+* avolny ([GitHub](https://github.com/avolny))
+* Coogrr ([GitHub](https://github.com/Coogrr))
 * evan_tor ([GitHub](https://github.com/evantor))
+* LankSSBM ([GitHub](https://github.com/acourrau))
 * Lucerna ([GitHub](https://github.com/Jacob-Laverty))
 * mderb4 ([GitHub](https://github.com/mderb4))
 * mdiehr ([GitHub](https://github.com/mdiehr))
 * mevestatney ([GitHub](https://github.com/stevematney))
 * mikeynap ([GitHub](https://github.com/mikeynap))
+* modargo ([GitHub](https://github.com/modargo))
+* Nafen ([GitHub](https://https://github.com/NafenX))
+* nic3245 ([GitHub](https://github.com/nl364))
+* PanicPoint ([Github](https://github.com/Panic-Point))
 * Sanity Dance ([GitHub](https://github.com/sanity-dance))
 * Skyl3lazer ([GitHub](https://github.com/Skyl3lazer))
+* wchargin ([GitHub](https://github.com/wchargin))
+* ForgottenArbiter ([GitHub](https://github.com/ForgottenArbiter))
 
 ### Lead Artists
 
@@ -44,12 +53,15 @@
 ### Artists
 
 * Bakuhaku
+* ChDaVinci
 * Crocketeer
 * DietTonicWater
+* EscMargot
 * Forceful Storm
 * GinFizzes
 * Jac2012
 * JoeKage
+* Lila
 * lobbien
 * LouisLeGros
 * mziggles
@@ -68,7 +80,9 @@
 
 ### Localization
 
+* ChDaVinci (Spanish)
 * GDami (French) ([GitHub](https://github.com/GDami))
+* yanang007 (Chinese (Simplified)) ([GitHub](https://github.com/yanang007))
 
 ### Trailer Videographer
 
@@ -114,7 +128,9 @@
 * myop
 * mziggles
 * NoWaitSuperKamiGuru
+* PanicPoint
 * passerbyninja
+* puffalo
 * Rabbit
 * Ray661
 * Renko

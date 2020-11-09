@@ -2,6 +2,184 @@
 
 ## [Unreleased]
 
+### Updates
+
+* Integration with the Relic Stats mod (thanks ForgottenArbiter)
+  * https://steamcommunity.com/sharedfiles/filedetails/?id=2118491069
+
+### Bug fixes
+
+* Fix incorrect floor number increment for Cull on chest/boss fire/boss floors (by Coogrr)
+* Fixed issue where starter deck legendary cards would still be in card pools in act 1 (by Coogrr)
+* Fixed issue with not being able to play cards with Sacrifice if you had 0 energy (thanks LankSSBM)
+* Fixed Assertion card text (thanks LankSSBM)
+
+### CULL updates
+
+* New art for Double (thanks Newigeg)
+
+### Wanderer Updates
+
+## [v1.9.1] - 2020-11-01
+
+### Bug fixes
+
+* Fix crash when viewing CULL cards in Compendium
+
+### CULL updates
+
+* New art for Paralysis (thanks Fr33ly)
+
+### Wanderer Updates
+
+* New art for Siphon Energy (thanks Fr33ly)
+
+## [v1.9.0] - 2020-10-31
+
+Special thanks to LankSSBM and wang429 for handling most of this release's code review and project management!
+ 
+### Bug fixes
+
+* Fixed crash when transitioning from an event room to a monster room (thanks wbfw109 for reporting)
+* Fixed issue where certain character-themed colors would occasionally be transparent (thanks kiooeht for reporting)
+* Fixed issue where using the Thirst campfire option for CULL would not reduce card damage (thanks wang429)
+
+### Updates
+
+* Integration with Googly Eyes mod by twanvl (thanks wang429)
+  * https://steamcommunity.com/sharedfiles/filedetails/?id=1615430126
+* Spanish translation updates (thanks LankSSBM)
+* Simplified Chinese translation updates (thanks yanang007)
+
+### CULL updates
+
+* Added the Book of Trials (thanks wang429)
+* Added Metronome relic (thanks PanicPoint)
+* Added Warped Glass relic (thanks wang429)
+* Added Shadow relic (thanks Nafen)
+* Coffee Dripper now prevents Thirsting at campfires
+* Remove Calipers from CULL's relic pool
+* Added voiceovers for elites/bosses/death/start (thanks Ray Chase)
+* New art for Ritual (thanks Lila for art and Neablis for helping merge)
+* New art for Thirsting campfire option (thanks ChDaVinci)
+* New art for Withering (thanks ChDaVinci for art and Neablis for helping merge)
+* New art for Decoy (thanks EscMargot for art and Neablis for helping merge)
+* New art for Coda (thanks Christina Oran for art and Neablis for helping merge)
+
+### New CULL cards
+
+* Blasphemer (thanks nic3245)
+* False Blessing (thanks PanicPoint)
+* Black Tentacles (thanks LankSSBM for porting from Wanderer)
+* Demonic Coup (thanks LankSSBM)
+* Prodigal Memory (thanks LankSSBM)
+* Silver Strike (thanks LankSSBM)
+* Ticking Curse (thanks LankSSBM)
+* Sacrifice (thanks LankSSBM)
+* Shrapnel Bloom (thanks LankSSBM)
+* Assertion (thanks LankSSBM)
+* Investment (thanks LankSSBM)
+* Mirrored Technique (thanks LankSSBM)
+* Clarify (thanks LankSSBM)
+* Focused Rage (thanks wang429)
+* Reap and Sow (thanks LankSSBM)
+* Old Book (thanks LankSSBM)
+* Possession (thanks nic3245)
+* Repressed Memory (thanks nic3245)
+
+### Wanderer Updates
+
+* New art for Frantic Search (thanks Chevy for art and Neablis for helping merge)
+* New art for Refuse to Forget (thanks Chevy for art and Neablis for helping merge)
+* New art for Animate Objects (thanks Chevy for art and Neablis for helping merge)
+* New art for Index (thanks lobbien for art and Neablis for helping merge)
+* New art for Toll the Dead (thanks Chevy for art and Neablis for helping merge)
+* New art for Inferno (thanks Chevy for art and Neablis for helping merge)
+
+## [v1.8.2] - 2020-04-18
+
+* Fixed rare crash when upgrading cards outside of combat soon after loading game (thanks modargo)
+
+## [v1.8.1] - 2020-04-07
+
+* Fixed bug where non-CULL characters would receive 1 manifest for entering event rooms (thanks puffalo for reporting)
+
+## [v1.8.0] - 2020-04-06
+
+### New translations
+
+* Chinese (Simplified) (thanks yanang007)
+* Spanish (thanks ChDaVinci)
+
+### Updates
+
+* Integration with the Slay the Relics Twitch extension (thanks avolny)
+
+### CULL mechanics
+
+* The CULL can no long Rest at campfires; instead, it Thirsts, consuming Wrath from an attack to heal (thanks Lucerna)
+* The CULL can no longer gain Block; instead, the block amount is dealt as damage to a random enemy (thanks Lucerna)
+* The CULL can no longer gain Dexterity; instead, it gains the Dexterity amount as Strength (thanks Lucerna)
+* Event rooms now cost 1 Manifest to enter
+* Added a Top Panel icon to track Manifest and explain CULL mechanics
+
+### CULL balance/design changes
+
+* Starting HP changed to 70
+* Tungsten Rod removed from CULL relic pool.
+* CULL (the card): Changed to "Deal 12 damage twice. Exhaust."
+* CULL (the card): Upgrade changed to "wrath applies twice"
+* Haunt: Changed to "Ephemeral(Exhaust). Gain 1 intangible and draw 1 fewer card next turn."
+* Abjure: text changed to represent that you will have exactly 1 Spirit Shield.
+* Miracle: added Exhaust
+* Siphon: changed damage, heal amount, upgrade heal amount and rarity. Removed from the starting loadout, since it is now a common.
+* Ectoplasm: changed gold gained from 10 to 5.
+* Wail: added Exhaust. Changed rarity from basic to uncommon, and removed from the starting loadout.
+* Apparate: changed upgrade damage increase from 3 to 4. Changed rarity from basic to uncommon, and removed from the starting loadout.
+* Toil: changed to work only on non-minion enemies, using the Fatal keyword.
+* Wasting Essence: Renamed to Wasting Form. Changed damage per curse drawn and upgrade damage increase.
+* Strife: only counts curses in discard pile. Upgrade adds 2 curses instead of 2 strength per curse. Added Exhaust.
+* Drain Life: now exerts instead of exhausting
+* Intervention: exerts instead of exhausting, gives Procrastination instead of Regret
+(thanks Cartopol for most!)
+
+### Removed CULL cards
+
+* Seance
+* Inhale
+* Splinter Soul
+* Waking Dream
+
+### New CULL cards
+
+* Strike (thanks Cartopol)
+* Paralysis (thanks Cartopol)
+* Accumulation (thanks Cartopol)
+* Grim Dirge (thanks Cartopol)
+* Find Weakness (thanks Cartopol)
+* Gathering Evil (thanks Cartopol)
+* Exhale (thanks Cartopol)
+* Frantic Mind (thanks Cartopol)
+* Wasting Strike (thanks Cartopol)
+* Polluted Strike (thanks Cartopol)
+* Cleanse (thanks Cartopol)
+* Anxiety (thanks Cartopol)
+* Feint (thanks PanicPoint)
+* Goosebumps (thanks PanicPoint)
+* Melt (thanks PanicPoint (code) and Lila (art))
+* Godsbane (thanks PanicPoint)
+* Pollute (thanks Cartopol)
+* Summoning (thanks Cartopol)
+* Toll (thanks PanicPoint)
+* Concentrate (thanks Skyl3lazer)
+* Frustration (thanks Cartopol)
+* Discordance (thanks Skyl3lazer)
+* Equinox (thanks Cartopol)
+* Procrastination (thanks Cartopol)
+* Overkill (thanks PanicPoint)
+* Rebuttal (thanks Cartopol)
+* Withering (thanks lobbien)
+
 ## [v1.7.0] - 2020-03-15
 
 ### Balance changes
