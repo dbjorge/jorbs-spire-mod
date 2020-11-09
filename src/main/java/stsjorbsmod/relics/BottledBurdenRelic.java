@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.localization.LocalizedStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import stsjorbsmod.actions.ExhumeCardsAction;
 import stsjorbsmod.patches.EntombedField;
@@ -72,7 +73,7 @@ public class BottledBurdenRelic extends CustomJorbsModRelic implements CustomBot
             }
 
             AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.INCOMPLETE;
-            AbstractDungeon.gridSelectScreen.open(nonExertCards, 1, String.format(DESCRIPTIONS[1], name), false, false, false, false);
+            AbstractDungeon.gridSelectScreen.open(nonExertCards, 1, DESCRIPTIONS[1] + this.name + LocalizedStrings.PERIOD, false, false, false, false);
         }
     }
     @Override

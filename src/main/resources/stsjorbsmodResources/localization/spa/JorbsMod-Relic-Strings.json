@@ -15,6 +15,15 @@
       "Cards added: "
     ]
   },
+  "stsjorbsmod:BottledBurdenRelic": {
+    "NAME": "Carga Embotellada",
+    "FLAVOR": "Siempre llevaré esto conmigo.",
+    "DESCRIPTIONS": [
+      "Cuando se agarra, elige una carta que no #yExpria. Empieza cada combate con esta carta #yEnterrada. La #yDesenterra en el turno %1$s.",
+      "Elige una carta para ",
+      "Al comienzo del tercero #b%1$s [REMOVE_SPACE], Desenterra #y%2$s [REMOVE_SPACE]."
+    ]
+  },
   "stsjorbsmod:BottledMemoryRelic": {
     "NAME": "Memoria Embotellada",
     "FLAVOR": "Mi cerebro está roto",
