@@ -760,7 +760,8 @@
   },
   "stsjorbsmod:SpiritShield_Cull": {
     "NAME": "Escudo Espiritual",
-    "DESCRIPTION": "Reduce todo el daño recibido en !M! hasta el próximo turno."
+    "DESCRIPTION": "Reduce todo el daño recibido en !M! hasta el próximo turno. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Reduce todo el daño recibido en !M! hasta el próximo turno."
   },
   "stsjorbsmod:Stalwart": {
     "NAME": "Lealtad",
