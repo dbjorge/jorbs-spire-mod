@@ -17,6 +17,7 @@
 ### CULL updates
 
 * New art for Double (thanks Newigeg)
+* New art for Exhale (thanks Zyalin)
 
 ### Wanderer Updates
 
