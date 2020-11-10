@@ -19,6 +19,10 @@
 * New art for Double (thanks Newigeg)
 * New art for Exhale (thanks Zyalin)
 
+### CULL balance/design changes
+
+* Blasphemer: Smites added when drawn 5->4
+
 ### Wanderer Updates
 
 ## [v1.9.1] - 2020-11-01
