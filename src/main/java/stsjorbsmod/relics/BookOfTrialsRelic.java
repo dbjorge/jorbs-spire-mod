@@ -19,7 +19,7 @@ import static stsjorbsmod.characters.Cull.Enums.CULL_CARD_COLOR;
 
 public class BookOfTrialsRelic extends CustomJorbsModRelic implements AtStartOfActRelicSubscriber, HasRelicStats {
     public static final String ID = JorbsMod.makeID(BookOfTrialsRelic.class);
-    private static ArrayList<String> statsCards;  // Relic Stats needs these to be static
+    public static ArrayList<String> statsCards;  // Relic Stats needs these to be static
     private static String savedText;
 
     public BookOfTrialsRelic() {
@@ -29,13 +29,15 @@ public class BookOfTrialsRelic extends CustomJorbsModRelic implements AtStartOfA
 
     @Override
     public void atStartOfAct() {
-        AbstractDungeon.player.getRelic(BookOfTrialsRelic.ID).flash();
-        ArrayList<AbstractCard> cards = DeckOfTrials.drawCards(2);
-        for (AbstractCard card : cards) {
-            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(card, (float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F));
-            statsCards.add(card.cardID);
+        if (AbstractDungeon.actNum >= 2) {
+            AbstractDungeon.player.getRelic(BookOfTrialsRelic.ID).flash();
+            ArrayList<AbstractCard> cards = DeckOfTrials.drawCards(2);
+            for (AbstractCard card : cards) {
+                AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(card, (float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F));
+                statsCards.add(card.cardID);
+            }
+            updateStatsDescription();
         }
-        updateStatsDescription();
     }
 
     @Override
