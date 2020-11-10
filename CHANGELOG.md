@@ -21,7 +21,7 @@
 
 ### CULL balance/design changes
 
-* Blasphemer: Smites added when drawn 5->4
+* Blasphemer: Smites added when drawn 5->4, Blasphemer+ now adds 4 upgraded Smites.
 
 ### Wanderer Updates
 
