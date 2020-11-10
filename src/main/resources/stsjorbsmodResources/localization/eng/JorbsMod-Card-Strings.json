@@ -73,7 +73,8 @@
   },
   "stsjorbsmod:Blasphemer": {
     "NAME": "Blasphemer",
-    "DESCRIPTION": "Unplayable. NL When you draw this card, add !M! *Smites to your hand and Exhaust."
+    "DESCRIPTION": "Unplayable. NL When you draw this card, add !M! *Smites to your hand and Exhaust.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL When you draw this card, add !M! Upgraded *Smites to your hand and Exhaust."
   },
   "stsjorbsmod:BookOfTongues": {
     "NAME": "Book of Tongues",
