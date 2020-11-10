@@ -19,6 +19,10 @@
 * New art for Double (thanks Newigeg)
 * New art for Exhale (thanks Zyalin)
 
+### CULL balance/design changes
+
+* Spirit Shield: Cost 1->0, Exhausts. Spirit Shield+ removes Exhaust.
+
 ### Wanderer Updates
 
 ## [v1.9.1] - 2020-11-01

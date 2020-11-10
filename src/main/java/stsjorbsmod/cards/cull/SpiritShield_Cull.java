@@ -18,15 +18,15 @@ public class SpiritShield_Cull extends CustomJorbsModCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = Cull.Enums.CULL_CARD_COLOR;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
     private static final int DAMAGE_REDUCTION = 1;
     private static final int NUMBER_OF_TURNS = 1;
-    private static final int UPGRADED_COST = 0;
 
     public SpiritShield_Cull() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = DAMAGE_REDUCTION;
         urMagicNumber = baseUrMagicNumber = NUMBER_OF_TURNS;
+        exhaust = true;
 
         tags.add(LEGENDARY);
     }
@@ -39,8 +39,8 @@ public class SpiritShield_Cull extends CustomJorbsModCard {
     @Override
     public void upgrade() {
         if (!upgraded) {
+            exhaust = false;
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
             upgradeDescription();
         }
     }
