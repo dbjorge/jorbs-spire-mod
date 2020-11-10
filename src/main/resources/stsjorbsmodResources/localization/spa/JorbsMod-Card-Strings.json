@@ -73,7 +73,8 @@
   },
   "stsjorbsmod:Blasphemer": {
     "NAME": "Blásfemo",
-    "DESCRIPTION": "Injugable. NL Cuando robes esta carta, añade !M! *Aplastar a tu mano y Agota."
+    "DESCRIPTION": "Injugable. NL Cuando robes esta carta, añade !M! *Aplastar a tu mano y Agota.",
+    "UPGRADE_DESCRIPTION": "Injugable. NL Cuando robes esta carta, añade !M! *Aplastar Mejorada a tu mano y Agota."
   },
   "stsjorbsmod:BookOfTongues": {
     "NAME": "Libro de Lenguas",
