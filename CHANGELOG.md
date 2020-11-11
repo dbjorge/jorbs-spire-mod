@@ -24,6 +24,7 @@
 * Blasphemer: Smites added when drawn 5->4, Blasphemer+ now adds 4 upgraded Smites.
 * Spirit Shield: Cost 1->0, Exhausts. Spirit Shield+ removes Exhaust.
 * Book of Trials now adds cards before Neow's Blessing options are presented.
+* Investment: Now only appears in act 1.
 
 ### Wanderer Updates
 
