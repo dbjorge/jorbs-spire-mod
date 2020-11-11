@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.cull.deckoftrials.DeckOfTrials;
+import stsjorbsmod.cards.cull.deckoftrials.Investment;
 
 import java.util.ArrayList;
 
@@ -30,13 +31,18 @@ public class BookOfTrialsRelic extends CustomJorbsModRelic implements AtStartOfA
     @Override
     public void atStartOfAct() {
         if (AbstractDungeon.actNum >= 2) {
-            AbstractDungeon.player.getRelic(BookOfTrialsRelic.ID).flash();
-            ArrayList<AbstractCard> cards = DeckOfTrials.drawCards(2);
-            for (AbstractCard card : cards) {
-                AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(card, (float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F));
-                statsCards.add(card.cardID);
-            }
+            DeckOfTrials.deck.group.removeIf(c -> c.cardID.equals(Investment.ID));
+            addDeckOfTrialsCards();
             updateStatsDescription();
+        }
+    }
+
+    public static void addDeckOfTrialsCards() {
+        AbstractDungeon.player.getRelic(BookOfTrialsRelic.ID).flash();
+        ArrayList<AbstractCard> cards = DeckOfTrials.drawCards(2);
+        for (AbstractCard card : cards) {
+            AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(card, (float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F));
+            statsCards.add(card.cardID);
         }
     }
 
