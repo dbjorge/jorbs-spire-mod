@@ -73,7 +73,8 @@
   },
   "stsjorbsmod:Blasphemer": {
     "NAME": "Blasphemer",
-    "DESCRIPTION": "Unplayable. NL When you draw this card, add !M! *Smites to your hand and Exhaust."
+    "DESCRIPTION": "Unplayable. NL When you draw this card, add !M! *Smites to your hand and Exhaust.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL When you draw this card, add !M! Upgraded *Smites to your hand and Exhaust."
   },
   "stsjorbsmod:BookOfTongues": {
     "NAME": "Book of Tongues",
@@ -760,7 +761,8 @@
   },
   "stsjorbsmod:SpiritShield_Cull": {
     "NAME": "Spirit Shield",
-    "DESCRIPTION": "Reduce all damage taken by !M! until next turn."
+    "DESCRIPTION": "Reduce all damage taken by !M! until next turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Reduce all damage taken by !M! until next turn."
   },
   "stsjorbsmod:Stalwart": {
     "NAME": "Stalwart",

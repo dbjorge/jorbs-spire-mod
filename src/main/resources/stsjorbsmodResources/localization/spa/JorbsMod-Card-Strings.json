@@ -73,7 +73,8 @@
   },
   "stsjorbsmod:Blasphemer": {
     "NAME": "Blásfemo",
-    "DESCRIPTION": "Injugable. NL Cuando robes esta carta, añade !M! *Aplastar a tu mano y Agota."
+    "DESCRIPTION": "Injugable. NL Cuando robes esta carta, añade !M! *Aplastar a tu mano y Agota.",
+    "UPGRADE_DESCRIPTION": "Injugable. NL Cuando robes esta carta, añade !M! *Aplastar Mejorada a tu mano y Agota."
   },
   "stsjorbsmod:BookOfTongues": {
     "NAME": "Libro de Lenguas",
@@ -186,8 +187,8 @@
   },
   "stsjorbsmod:Damnation": {
     "NAME": "Perdición",
-    "DESCRIPTION": "Roba !M! cartas. NL Transforma de forma permanente la siguiente carta jugada este combate.",
-    "UPGRADE_DESCRIPTION": "Roba !M! cartas. NL Transforma de forma permanente la siguiente carta jugada este combate, luego mejórala."
+    "DESCRIPTION": "Roba !M! cartas. NL Transforma de forma permanente la próxima carta no-Legendaria jugada este combate.",
+    "UPGRADE_DESCRIPTION": "Roba !M! cartas. NL Transforma de forma permanente la próxima carta no-Legendaria jugada este combate, después la Mejora."
   },
   "stsjorbsmod:DeathThroes": {
     "NAME": "Muerte Agónica",
@@ -731,8 +732,8 @@
   },
   "stsjorbsmod:ShrapnelBloom": {
     "NAME": "Flor de Metralla",
-    "DESCRIPTION": "stsjorbsmod:Expirar. NL Este turno, la próxima carta no-Legendario que juegas se juega !M! vez adicional, después lo stsjorbsmod:Expira.",
-    "UPGRADE_DESCRIPTION": "stsjorbsmod:Expirar. NL Este turno, la próxima carta no-Legendario que juegas se juega !M! veces adicionales, después lo stsjorbsmod:Expira."
+    "DESCRIPTION": "stsjorbsmod:Expirar. NL Este turno, la próxima carta no-Legendaria que juegas se juega !M! vez adicional, después la stsjorbsmod:Expira.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Expirar. NL Este turno, la próxima carta no-Legendaria que juegas se juega !M! veces adicionales, después la stsjorbsmod:Expira."
   },
   "stsjorbsmod:SilverStrike": {
     "NAME": "Golpe de Plata",
@@ -760,7 +761,8 @@
   },
   "stsjorbsmod:SpiritShield_Cull": {
     "NAME": "Escudo Espiritual",
-    "DESCRIPTION": "Reduce todo el daño recibido en !M! hasta el próximo turno."
+    "DESCRIPTION": "Reduce todo el daño recibido en !M! hasta el próximo turno. NL Agota.",
+    "UPGRADE_DESCRIPTION": "Reduce todo el daño recibido en !M! hasta el próximo turno."
   },
   "stsjorbsmod:Stalwart": {
     "NAME": "Lealtad",
