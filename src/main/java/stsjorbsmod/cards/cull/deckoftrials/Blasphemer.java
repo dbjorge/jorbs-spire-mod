@@ -2,6 +2,7 @@ package stsjorbsmod.cards.cull.deckoftrials;
 
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.tempCards.Smite;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -19,8 +20,7 @@ public class Blasphemer extends CustomJorbsModCard {
     public static final CardColor COLOR = Cull.Enums.CULL_CARD_COLOR;
 
     private static final int COST = COST_UNPLAYABLE;
-    private static final int SMITE_AMOUNT = 5;
-    private static final int UPGRADE_SMITE_AMOUNT = 1;
+    private static final int SMITE_AMOUNT = 4;
 
     public Blasphemer() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
@@ -31,7 +31,13 @@ public class Blasphemer extends CustomJorbsModCard {
 
     @Override
     public void triggerWhenDrawn() {
-        this.addToBot(new MakeTempCardInHandAction(new Smite(), this.magicNumber));
+        if (upgraded) {
+            AbstractCard s = new Smite();
+            s.upgrade();
+            this.addToBot(new MakeTempCardInHandAction(s, this.magicNumber));
+        }
+        else
+            this.addToBot(new MakeTempCardInHandAction(new Smite(), this.magicNumber));
         this.addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
     }
 
@@ -39,7 +45,7 @@ public class Blasphemer extends CustomJorbsModCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_SMITE_AMOUNT);
+            this.cardsToPreview.upgrade();
             this.upgradeDescription();
         }
     }

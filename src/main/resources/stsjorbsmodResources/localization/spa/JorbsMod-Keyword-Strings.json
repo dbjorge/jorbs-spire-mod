@@ -177,6 +177,7 @@
   {
     "NAMES": [
       "legendaria",
+      "no-legendaria",
       "legendary"
     ],
     "DESCRIPTION": "Cartas legendarias no pueden ser duplicadas, removidas, o transformadas. Cartas legendarias que ya tienes no apareceran como recompenza."
