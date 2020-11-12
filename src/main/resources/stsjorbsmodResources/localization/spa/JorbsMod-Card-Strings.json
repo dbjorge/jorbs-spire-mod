@@ -741,7 +741,7 @@
   },
   "stsjorbsmod:Siphon": {
     "NAME": "Sifón",
-    "DESCRIPTION": "Haz !D! de daño. NL Si asesinas un enemigo, cura !M! PV."
+    "DESCRIPTION": "Haz !D! de daño. NL Si asesinas un enemigo, cura !M! PV y gana !stsjorbsmod:MetaMagic! PV Máximo."
   },
   "stsjorbsmod:SiphonEnergy": {
     "NAME": "Energía de Sifón",
