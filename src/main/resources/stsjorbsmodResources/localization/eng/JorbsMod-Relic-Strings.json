@@ -20,8 +20,8 @@
     "FLAVOR": "I carry this with me, always",
     "DESCRIPTIONS": [
       "Upon pickup, choose a card that does not #yExert. Start each combat with that card #yEntombed [REMOVE_SPACE]. #yExhume it on turn %1$s.",
-      "Choose a card for ",
-      "At the start of turn #b%1$s [REMOVE_SPACE], Exhume #y%2$s [REMOVE_SPACE]."
+      "Choose a card for %1$s.",
+      "At the start of turn #b%1$s, Exhume #y%2$s."
     ]
   },
   "stsjorbsmod:BottledMemoryRelic": {
@@ -29,7 +29,7 @@
     "FLAVOR": "My brain is broken",
     "DESCRIPTIONS": [
       "Upon pickup, choose a card that #yRemembers. Start each combat with this card in your hand.",
-      "Choose a card for ",
+      "Choose a card for %1$s.",
       "Start each combat with ",
       " in your hand."
     ]

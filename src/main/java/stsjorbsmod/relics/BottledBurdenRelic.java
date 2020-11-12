@@ -73,7 +73,7 @@ public class BottledBurdenRelic extends CustomJorbsModRelic implements CustomBot
             }
 
             AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.INCOMPLETE;
-            AbstractDungeon.gridSelectScreen.open(nonExertCards, 1, DESCRIPTIONS[1] + this.name + LocalizedStrings.PERIOD, false, false, false, false);
+            AbstractDungeon.gridSelectScreen.open(nonExertCards, 1, String.format(DESCRIPTIONS[1], this.name), false, false, false, false);
         }
     }
     @Override
@@ -95,10 +95,8 @@ public class BottledBurdenRelic extends CustomJorbsModRelic implements CustomBot
             inBottledBurden.set(card, true);
             AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
-            this.description = String.format(DESCRIPTIONS[2], EXHUME_TURN, card.name);
-            this.tips.clear();
-            this.tips.add(new PowerTip(this.name, this.description));
-            this.initializeTips();
+
+            setDescriptionAfterLoading();
 
             AbstractCard cardInDeck = AbstractDungeon.player.masterDeck.getSpecificCard(this.card);
             EntombedField.entombed.set(cardInDeck, true);
@@ -111,6 +109,7 @@ public class BottledBurdenRelic extends CustomJorbsModRelic implements CustomBot
         this.tips.add(new PowerTip(this.name, this.description));
         this.initializeTips();
     }
+
     @Override
     public void atBattleStart() {
         this.counter = 0;
@@ -132,13 +131,10 @@ public class BottledBurdenRelic extends CustomJorbsModRelic implements CustomBot
 
     @Override
     public boolean canSpawn() {
-        Iterator playerCards = AbstractDungeon.player.masterDeck.group.iterator();
-
-        while (playerCards.hasNext()) {
-            if (!SelfExertField.selfExert.get(playerCards.next()))
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+            if (!SelfExertField.selfExert.get(c))
                 return true;
         }
-
         return false;
     }
 

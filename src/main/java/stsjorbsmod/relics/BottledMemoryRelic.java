@@ -70,7 +70,7 @@ public class BottledMemoryRelic extends CustomJorbsModRelic implements CustomBot
             }
 
             AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.INCOMPLETE;
-            AbstractDungeon.gridSelectScreen.open(rememberCards, 1, this.DESCRIPTIONS[1] + this.name + LocalizedStrings.PERIOD, false, false, false, false);
+            AbstractDungeon.gridSelectScreen.open(rememberCards, 1, String.format(DESCRIPTIONS[1], this.name), false, false, false, false);
         }
     }
 
