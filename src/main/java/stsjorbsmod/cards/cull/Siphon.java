@@ -24,7 +24,6 @@ public class Siphon extends CustomJorbsModCard {
     private static final int UPGRADE_PLUS_HEAL_ON_FATAL = 1;
     private static final int MAX_HP_ON_FATAL = 1;
 
-
     public Siphon() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
@@ -35,8 +34,10 @@ public class Siphon extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Runnable onKillEffect = () -> addToBot(new IncreaseMaxHpByFlatAmountActionAndHealAction(p, p, magicNumber, metaMagicNumber, true));
-        this.addToBot(new DamageWithOnKillEffectAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), onKillEffect, true));
+        Runnable onKillEffect = () -> addToBot(
+                new IncreaseMaxHpByFlatAmountActionAndHealAction(p, p, magicNumber, metaMagicNumber, true));
+        this.addToBot(new DamageWithOnKillEffectAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
+                onKillEffect, true));
     }
 
     @Override

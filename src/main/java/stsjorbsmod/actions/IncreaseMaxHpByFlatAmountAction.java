@@ -18,7 +18,7 @@ public class IncreaseMaxHpByFlatAmountAction extends AbstractGameAction {
       this.startDuration = Settings.ACTION_DUR_XFAST;
     } else {
       this.startDuration = Settings.ACTION_DUR_FAST;
-    } 
+    }
     this.duration = this.startDuration;
     this.showEffect = showEffect;
     this.increase = increase;
@@ -26,10 +26,10 @@ public class IncreaseMaxHpByFlatAmountAction extends AbstractGameAction {
     this.target = target;
     ActionShouldPersistPostCombatField.shouldPersistPostCombat.set(this, true);
   }
-  
+
   public void update() {
-    if (this.duration == this.startDuration){
-      this.target.increaseMaxHp(increase, this.showEffect); 
+    if (this.duration == this.startDuration) {
+      this.target.increaseMaxHp(increase, this.showEffect);
     }
     tickDuration();
   }
