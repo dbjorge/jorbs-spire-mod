@@ -23,6 +23,7 @@
 
 * Blasphemer: Smites added when drawn 5->4, Blasphemer+ now adds 4 upgraded Smites.
 * Spirit Shield: Cost 1->0, Exhausts. Spirit Shield+ removes Exhaust.
+* Siphon: Now adds 1 Max HP when it kills an enemy in addition to healing 4
 
 ### Wanderer Updates
 

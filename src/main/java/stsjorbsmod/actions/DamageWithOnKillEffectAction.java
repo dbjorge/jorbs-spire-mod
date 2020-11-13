@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.powers.MinionPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 
 public class DamageWithOnKillEffectAction extends AbstractGameAction {
+    
     private DamageInfo info;
     private Runnable onKillCallback;
     private boolean worksOnMinions;

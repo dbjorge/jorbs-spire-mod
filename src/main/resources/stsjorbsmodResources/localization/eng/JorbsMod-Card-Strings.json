@@ -741,7 +741,7 @@
   },
   "stsjorbsmod:Siphon": {
     "NAME": "Siphon",
-    "DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, heal !M! HP."
+    "DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, heal !M! HP and gain !stsjorbsmod:MetaMagic! Max HP."
   },
   "stsjorbsmod:SiphonEnergy": {
     "NAME": "Siphon Energy",
