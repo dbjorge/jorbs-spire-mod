@@ -15,12 +15,21 @@
       "Cards added: "
     ]
   },
+  "stsjorbsmod:BottledBurdenRelic": {
+    "NAME": "Bottled Burden",
+    "FLAVOR": "I carry this with me, always",
+    "DESCRIPTIONS": [
+      "Upon pickup, choose a card that does not #yExert. Start each combat with that card #yEntombed [REMOVE_SPACE]. #yExhume it on turn %1$s.",
+      "Choose a card for %1$s.",
+      "At the start of turn #b%1$s, Exhume #y%2$s."
+    ]
+  },
   "stsjorbsmod:BottledMemoryRelic": {
     "NAME": "Bottled Memory",
     "FLAVOR": "My brain is broken",
     "DESCRIPTIONS": [
       "Upon pickup, choose a card that #yRemembers. Start each combat with this card in your hand.",
-      "Choose a card for ",
+      "Choose a card for %1$s.",
       "Start each combat with ",
       " in your hand."
     ]

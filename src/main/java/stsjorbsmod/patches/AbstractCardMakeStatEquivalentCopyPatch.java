@@ -35,7 +35,7 @@ public class AbstractCardMakeStatEquivalentCopyPatch {
             card.isMetaMagicNumberModified = source.isMetaMagicNumberModified;
             card.upgradedMetaMagicNumber = source.upgradedMetaMagicNumber;
         }
-        
+
         return __result;
     }
 }
