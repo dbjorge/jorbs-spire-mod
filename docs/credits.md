@@ -29,6 +29,7 @@
 * avolny ([GitHub](https://github.com/avolny))
 * Coogrr ([GitHub](https://github.com/Coogrr))
 * evan_tor ([GitHub](https://github.com/evantor))
+* ForgottenArbiter ([GitHub](https://github.com/ForgottenArbiter))
 * LankSSBM ([GitHub](https://github.com/acourrau))
 * Lucerna ([GitHub](https://github.com/Jacob-Laverty))
 * mderb4 ([GitHub](https://github.com/mderb4))
@@ -42,7 +43,6 @@
 * Sanity Dance ([GitHub](https://github.com/sanity-dance))
 * Skyl3lazer ([GitHub](https://github.com/Skyl3lazer))
 * wchargin ([GitHub](https://github.com/wchargin))
-* ForgottenArbiter ([GitHub](https://github.com/ForgottenArbiter))
 
 ### Lead Artists
 

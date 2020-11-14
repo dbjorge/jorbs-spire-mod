@@ -25,6 +25,7 @@
 * Spirit Shield: Cost 1->0, Exhausts. Spirit Shield+ removes Exhaust.
 * Book of Trials now adds cards before Neow's Blessing options are presented.
 * Investment: Now only appears in act 1.
+* Siphon: Now adds 1 Max HP when it kills an enemy in addition to healing 4
 
 ### Wanderer Updates
 

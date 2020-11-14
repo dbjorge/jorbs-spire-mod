@@ -116,12 +116,6 @@
       "在你的下一回合开始时，你将会发掘一些牌。"
     ]
   },
-  "stsjorbsmod:ExhumeOnTurnXPower": {
-    "NAME": "发掘",
-    "DESCRIPTIONS": [
-      "在第3回合开始时，你将会发掘一些牌。"
-    ]
-  },
   "stsjorbsmod:FearPower": {
     "NAME": "恐惧",
     "DESCRIPTIONS": [
