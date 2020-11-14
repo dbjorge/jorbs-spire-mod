@@ -20,7 +20,7 @@ import static stsjorbsmod.characters.Cull.Enums.CULL_CARD_COLOR;
 
 public class BookOfTrialsRelic extends CustomJorbsModRelic implements AtStartOfActRelicSubscriber, HasRelicStats {
     public static final String ID = JorbsMod.makeID(BookOfTrialsRelic.class);
-    public static ArrayList<String> statsCards;  // Relic Stats needs these to be static
+    private static ArrayList<String> statsCards;  // Relic Stats needs these to be static
     private static String savedText;
 
     public BookOfTrialsRelic() {

@@ -2,22 +2,16 @@ package stsjorbsmod.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.neow.NeowEvent;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
 import javassist.expr.MethodCall;
 import stsjorbsmod.cards.cull.deckoftrials.DeckOfTrials;
-import stsjorbsmod.characters.Cull;
 import stsjorbsmod.relics.AtStartOfActRelicSubscriber;
 import stsjorbsmod.relics.BookOfTrialsRelic;
-
-import java.util.ArrayList;
 
 import static stsjorbsmod.relics.BookOfTrialsRelic.addDeckOfTrialsCards;
 
@@ -43,14 +37,7 @@ public class NeowEventPatch {
                                 AtStartOfActRelicSubscriber.class.getName()));
                     }
                 }
-            };
-        }
-    }
 
-    @SpirePatch(clz = NeowEvent.class, method = "buttonEffect")
-    public static class NeowEvent_Cull_AddCards {
-        public static ExprEditor Instrument() {
-            return new ExprEditor() {
                 public void edit(MethodCall methodCall) throws CannotCompileException {
                     if (methodCall.getClassName().equals(NeowEvent.class.getName()) &&
                             (methodCall.getMethodName().equals("blessing") || methodCall.getMethodName().equals("miniBlessing"))) {
