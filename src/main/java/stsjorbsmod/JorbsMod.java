@@ -24,6 +24,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.clapper.util.classutil.RegexClassFilter;
+import stsjorbsmod.actions.SowAction;
 import stsjorbsmod.cards.CardSaveData;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.*;
@@ -471,11 +472,16 @@ public class JorbsMod implements
 
     @Override
     public void receiveOnBattleStart(AbstractRoom abstractRoom) {
-        if (ReapAndSowSaveData.reapAndSowDamage != 0) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DamageAllEnemiesAction(AbstractDungeon.player, DamageInfo.createDamageMatrix(ReapAndSowSaveData.reapAndSowDamage, true),
-                            DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-            ReapAndSowSaveData.reapAndSowDamage = 0;
+        int sowDamage = 0;
+
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+            if (c instanceof stsjorbsmod.cards.cull.ReapAndSow) {
+                sowDamage += c.misc;
+            }
         }
+
+        if (sowDamage > 0) {
+            AbstractDungeon.actionManager.addToBottom(new SowAction(sowDamage));
+       }
     }
 }
