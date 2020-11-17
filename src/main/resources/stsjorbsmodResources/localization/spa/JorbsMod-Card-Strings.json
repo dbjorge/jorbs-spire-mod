@@ -197,7 +197,7 @@
   },
   "stsjorbsmod:DemonicCoup": {
     "NAME": "Golpe Diabólica",
-    "DESCRIPTION": "stsjorbsmod:Efímera. NL Gana !M! Ritual. NL stsjorbsmod:Expirar."
+    "DESCRIPTION": "Retiene. NL Al Retener esta carta, Gana !stsjorbsmod:MetaMagic! Ritual. NL Gana !M! Ritual stsjorbsmod:Expirar."
   },
   "stsjorbsmod:Defend_Wanderer": {
     "NAME": "Defender",
@@ -374,7 +374,7 @@
   },
   "stsjorbsmod:Frustration": {
     "NAME": "Frustración",
-    "DESCRIPTION": "Retener: Haz !M! de daño a TODOS los enemigos. NL stsjorbsmod:Expirar: Haz !D! de daño a TODOS los enemigos."
+    "DESCRIPTION": "Retiene: Haz !M! de daño a TODOS los enemigos. NL stsjorbsmod:Expirar: Haz !D! de daño a TODOS los enemigos."
   },
   "stsjorbsmod:GatherPower": {
     "NAME": "Acumular Poder",
@@ -577,7 +577,7 @@
   },
   "stsjorbsmod:Paralysis": {
     "NAME": "Paralísis",
-    "DESCRIPTION": "Retener. NL Gana !M! Intangible. NL Cuando es Retenido, reduce su costo en 1 este combate. NL Agota."
+    "DESCRIPTION": "Retiene. NL Gana !M! Intangible. NL Al Retener esta carta, reduce su costo en 1 este combate. NL Agota."
   },
   "stsjorbsmod:PartingBlow": {
     "NAME": "Golpe de despedida",
@@ -679,7 +679,7 @@
   },
   "stsjorbsmod:Rebuttal": {
     "NAME": "Refutación",
-    "DESCRIPTION": "Retener: Gana !stsjorbsmod:UrMagic! de Espinas cuando está en tu mano. NL stsjorbsmod:Expirar: Gana !M! de Espinas."
+    "DESCRIPTION": "Retiene: Gana !stsjorbsmod:UrMagic! de Espinas cuando está en tu mano. NL stsjorbsmod:Expirar: Gana !M! de Espinas."
   },
   "stsjorbsmod:Rediscovery": {
     "NAME": "Redescubrimiento",
