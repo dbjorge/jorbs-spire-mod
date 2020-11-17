@@ -34,7 +34,7 @@ public class DemonicCoup extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new RitualPower(p, RITUAL_AMOUNT, true)));
+        addToBot(new ApplyPowerAction(p, p, new RitualPower(p, magicNumber, true)));
     }
 
     @Override
