@@ -332,10 +332,9 @@
   },
   "stsjorbsmod:FocusedRage": {
     "NAME": "Focused Rage",
-    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Strength for each card stsjorbsmod:Exerted this combat. NL stsjorbsmod:Exert.",
+    "DESCRIPTION": "stsjorbsmod:Exert. NL Gain !stsjorbsmod:UrMagic! Strength for each card stsjorbsmod:Exerted this combat.",
     "EXTENDED_DESCRIPTION": [
-      " NL (Applies !M! Strength.)",
-      "Nothing exerted this combat!"
+      " NL (Applies !M! Strength.)"
     ]
   },
   "stsjorbsmod:ForbiddenGrimoire": {
