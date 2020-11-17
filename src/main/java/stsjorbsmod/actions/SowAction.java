@@ -19,8 +19,20 @@ public class SowAction extends AbstractGameAction {
     }
 
     public void update() {
-        AbstractCard card = new ReapAndSow();
-        ShowCardBrieflyEffect showCardBrieflyEffect = new ShowCardBrieflyEffect(card);
+        AbstractCard card = null;
+
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+            if (c instanceof stsjorbsmod.cards.cull.ReapAndSow) {
+                card = c.makeStatEquivalentCopy();
+                c.misc = 0;
+            }
+        }
+
+        ShowCardBrieflyEffect showCardBrieflyEffect;
+        if (card != null)
+            showCardBrieflyEffect = new ShowCardBrieflyEffect(card);
+        else
+            showCardBrieflyEffect = new ShowCardBrieflyEffect(new ReapAndSow());
         float duration = Settings.FAST_MODE ? Settings.ACTION_DUR_XLONG : showCardBrieflyEffect.startingDuration;
         showCardBrieflyEffect.duration = showCardBrieflyEffect.startingDuration = duration;
         AbstractDungeon.topLevelEffects.add(showCardBrieflyEffect);
@@ -28,11 +40,6 @@ public class SowAction extends AbstractGameAction {
         addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, DamageInfo.createDamageMatrix(this.sowDamage, true),
                 DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 
-        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-            if (c instanceof stsjorbsmod.cards.cull.ReapAndSow) {
-                c.misc = 0;
-            }
-        }
         this.isDone = true;
     }
 }
