@@ -27,6 +27,7 @@
 * Investment: Now only appears in act 1. (thanks LankSSBM)
 * Siphon: Now adds 1 Max HP when it kills an enemy in addition to healing 4 (thanks Coogrr)
 * Focused Rage: Now adds 2(3) Strength for exerting itself. (thanks wang429)
+* Demonic Coup: Replaced Ephemeral with Retain, added 1 Ritual on Retain and reduced cost to 1 (thanks Coogrr)
 
 ### Wanderer Updates
 
