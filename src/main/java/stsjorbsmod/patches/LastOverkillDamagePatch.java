@@ -1,13 +1,10 @@
 package stsjorbsmod.patches;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
-import stsjorbsmod.characters.Cull;
-import stsjorbsmod.characters.ReapAndSowSaveData;
 
 public class LastOverkillDamagePatch {
     public static final String LastOverkillDamagePatchName = LastOverkillDamagePatch.class.getName();

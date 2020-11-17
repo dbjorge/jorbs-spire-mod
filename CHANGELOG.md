@@ -27,6 +27,7 @@
 * Investment: Now only appears in act 1. (thanks LankSSBM)
 * Siphon: Now adds 1 Max HP when it kills an enemy in addition to healing 4 (thanks Coogrr)
 * Focused Rage: Now adds 2(3) Strength for exerting itself. (thanks wang429)
+* Reap and Sow: Now works correctly when damage ends the fight. (thanks LankSSBM)
 
 ### Wanderer Updates
 
