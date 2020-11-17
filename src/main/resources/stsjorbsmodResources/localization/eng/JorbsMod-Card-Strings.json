@@ -197,7 +197,7 @@
   },
   "stsjorbsmod:DemonicCoup": {
     "NAME": "Demonic Coup",
-    "DESCRIPTION": "Retain. NL When this card is Retained, gain !stsjorbsmod:MetaMagic! Ritual. NL Gain !M! Ritual. NL stsjorbsmod:Exert."
+    "DESCRIPTION": "Retain. NL Gain !M! Ritual. NL When this card is Retained, gain !stsjorbsmod:MetaMagic! Ritual. NL stsjorbsmod:Exert."
   },
   "stsjorbsmod:Defend_Wanderer": {
     "NAME": "Defend",
