@@ -19,11 +19,12 @@
 * New art for Double (thanks Newigeg)
 * New art for Exhale (thanks Zyalin)
 
-### CULL balance/design changes
+#### CULL balance/design changes
 
 * Blasphemer: Smites added when drawn 5->4, Blasphemer+ now adds 4 upgraded Smites.
 * Spirit Shield: Cost 1->0, Exhausts. Spirit Shield+ removes Exhaust.
 * Siphon: Now adds 1 Max HP when it kills an enemy in addition to healing 4
+* Focused Rage: Now adds 2(3) Strength for exerting itself. (thanks wang429)
 
 ### Wanderer Updates
 
