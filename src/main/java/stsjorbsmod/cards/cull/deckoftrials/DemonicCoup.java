@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.powers.RitualPower;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
-import stsjorbsmod.patches.EphemeralField;
 import stsjorbsmod.patches.SelfExertField;
 
 public class DemonicCoup extends CustomJorbsModCard {
