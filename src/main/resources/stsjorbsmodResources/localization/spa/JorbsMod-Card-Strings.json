@@ -197,7 +197,7 @@
   },
   "stsjorbsmod:DemonicCoup": {
     "NAME": "Golpe Diabólica",
-    "DESCRIPTION": "Retiene. NL Al Retener esta carta, Gana !stsjorbsmod:MetaMagic! Ritual. NL Gana !M! Ritual stsjorbsmod:Expirar."
+    "DESCRIPTION": "Retiene. NL Gana !M! Ritual. NL Al Retener esta carta, Gana !stsjorbsmod:MetaMagic! Ritual. NL stsjorbsmod:Expirar."
   },
   "stsjorbsmod:Defend_Wanderer": {
     "NAME": "Defender",
