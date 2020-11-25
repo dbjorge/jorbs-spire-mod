@@ -735,6 +735,15 @@
     "DESCRIPTION": "stsjorbsmod:Exert. NL This turn, the next non-Legendary card you play is played !M! additional time, then stsjorbsmod:Exerts.",
     "UPGRADE_DESCRIPTION": "stsjorbsmod:Exert. NL This turn, the next non-Legendary card you play is played !M! additional times, then stsjorbsmod:Exerts."
   },
+  "stsjorbsmod:ShriekingHat": {
+    "NAME": "Shrieking Hat",
+    "DESCRIPTION": "Unplayable. NL Retain. NL When you die, instead deal all damage taken while this was in your hand to all enemies. NL stsjorbsmod:Destroy.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL Retain. NL When you die, instead deal !M! + all damage taken while this was in your hand to all enemies. NL stsjorbsmod:Destroy.",
+    "EXTENDED_DESCRIPTION":  [
+      " NL (Deals !stsjorbsmod:BaseDamage! damage.)",
+      "I can't play this card."
+    ]
+  },
   "stsjorbsmod:SilverStrike": {
     "NAME": "Silver Strike",
     "DESCRIPTION": "Deal !D! damage. NL stsjorbsmod:Exert."

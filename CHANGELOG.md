@@ -19,6 +19,9 @@
 * New art for Double (thanks Newigeg)
 * New art for Exhale (thanks Zyalin)
 
+### CULL new cards
+* Shrieking Hat (thanks wang429)
+
 ### CULL balance/design changes
 
 * Blasphemer: Smites added when drawn 5->4, Blasphemer+ now adds 4 upgraded Smites.
