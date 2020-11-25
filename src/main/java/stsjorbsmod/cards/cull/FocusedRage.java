@@ -34,17 +34,12 @@ public class FocusedRage extends CustomJorbsModCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (magicNumber > 0) {
-            addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
-        }
-        else {
-            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, EXTENDED_DESCRIPTION[1], true));
-        }
+        addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
     }
 
     @Override
     protected int calculateBonusMagicNumber() {
-        int bonusMagicNumber = 0;
+        int bonusMagicNumber = urMagicNumber;
         for(AbstractCard c : AbstractDungeon.player.exhaustPile.group) {
             if (ExertedField.exerted.get(c) && !ExertedField.exertedAtStartOfCombat.get(c)) {
                 bonusMagicNumber += urMagicNumber;

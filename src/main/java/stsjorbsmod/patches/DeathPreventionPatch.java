@@ -33,7 +33,7 @@ public class DeathPreventionPatch {
             return false;
         if (p.hasPotion(FairyPotion.POTION_ID))
             return false;
-        if (p.hasRelic(LizardTail.ID) && ((LizardTail) p.getRelic(LizardTail.ID)).counter == -1)
+        if (p.hasRelic(LizardTail.ID) && p.getRelic(LizardTail.ID).counter == -1)
             return false;
 
         // requested that death preventing cards trigger in order of pickup.

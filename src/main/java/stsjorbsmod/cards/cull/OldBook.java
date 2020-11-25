@@ -67,7 +67,9 @@ public class OldBook extends CustomJorbsModCard implements OnCardExhumedSubscrib
     }
 
     @Override
-    public boolean canUse(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) { return false; }
+    public boolean canUse(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+        return false;
+    }
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
@@ -85,7 +87,7 @@ public class OldBook extends CustomJorbsModCard implements OnCardExhumedSubscrib
 
     @Override
     public void upgrade() {
-        if(!upgraded) {
+        if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_HEAL_PERCENT);
             upgradeDescription();

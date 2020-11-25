@@ -19,14 +19,19 @@
 * New art for Double (thanks Newigeg)
 * New art for Exhale (thanks Zyalin)
 
-### CULL new cards
+#### CULL new cards
 * Shrieking Hat (thanks wang429)
 
-### CULL balance/design changes
+#### CULL balance/design changes
 
-* Blasphemer: Smites added when drawn 5->4, Blasphemer+ now adds 4 upgraded Smites.
-* Spirit Shield: Cost 1->0, Exhausts. Spirit Shield+ removes Exhaust.
-* Siphon: Now adds 1 Max HP when it kills an enemy in addition to healing 4
+* Blasphemer: Smites added when drawn 5->4, Blasphemer+ now adds 4 upgraded Smites. (thanks LankSSBM)
+* Spirit Shield: Cost 1->0, Exhausts. Spirit Shield+ removes Exhaust. (thanks LankSSBM)
+* Book of Trials now adds cards before Neow's Blessing options are presented. (thanks LankSSBM)
+* Investment: Now only appears in act 1. (thanks LankSSBM)
+* Siphon: Now adds 1 Max HP when it kills an enemy in addition to healing 4 (thanks Coogrr)
+* Focused Rage: Now adds 2(3) Strength for exerting itself. (thanks wang429)
+* Demonic Coup: Replaced Ephemeral with Retain, added 1 Ritual on Retain and reduced cost to 1 (thanks Coogrr)
+* Reap and Sow: Now works correctly when damage ends the fight. (thanks LankSSBM)
 
 ### Wanderer Updates
 

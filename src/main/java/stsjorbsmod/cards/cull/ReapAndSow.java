@@ -1,15 +1,14 @@
 package stsjorbsmod.cards.cull;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import stsjorbsmod.JorbsMod;
 import stsjorbsmod.actions.DamageWithOnKillEffectAction;
+import stsjorbsmod.actions.ReapAction;
 import stsjorbsmod.cards.CustomJorbsModCard;
 import stsjorbsmod.characters.Cull;
 import stsjorbsmod.patches.LastOverkillDamageField;
-import stsjorbsmod.powers.ReapAndSowPower;
 
 public class ReapAndSow extends CustomJorbsModCard {
     public static final String ID = JorbsMod.makeID(ReapAndSow.class);
@@ -26,11 +25,12 @@ public class ReapAndSow extends CustomJorbsModCard {
     public ReapAndSow() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
+        magicNumber = baseMagicNumber = this.misc;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Runnable onKillEffect = () -> addToBot(new ApplyPowerAction(p, p, new ReapAndSowPower(p, LastOverkillDamageField.lastOverkillDamage.get(m))));
+        Runnable onKillEffect = () -> addToBot(new ReapAction(this, LastOverkillDamageField.lastOverkillDamage.get(m)));
 
         addToBot(new DamageWithOnKillEffectAction(m, new DamageInfo(p, damage, damageTypeForTurn), onKillEffect, false));
     }

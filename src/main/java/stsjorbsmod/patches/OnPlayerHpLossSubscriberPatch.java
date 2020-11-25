@@ -18,14 +18,12 @@ public class OnPlayerHpLossSubscriberPatch {
             clz = AbstractPlayer.class,
             method = "damage"
     )
-    public static class AbstractPlayer_damage
-    {
+    public static class AbstractPlayer_damage {
         @SpireInsertPatch(
                 locator = lastDamageTakenLocator.class,
                 localvars = {"damageAmount"}
         )
-        public static void patch(AbstractPlayer __this, DamageInfo info, @ByRef int[] damageAmount)
-        {
+        public static void patch(AbstractPlayer __this, DamageInfo info, @ByRef int[] damageAmount) {
             // We order the power first somewhat arbitrarily, because we want Strange Pendant to happen before Mage Armor
             for (AbstractPower power : __this.powers) {
                 if (power instanceof OnPlayerHpLossPowerSubscriber) {
