@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Bug fixes
+
+* Compatibility with Slay the Spire v2.2 (fixes crash in death screens) (thanks A Cake Wearing A Hat and Celicath for reporting!)
+
 ## [v1.9.1] - 2020-11-01
 
 ### Bug fixes

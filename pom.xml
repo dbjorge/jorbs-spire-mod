@@ -11,8 +11,8 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <SlayTheSpire.version>01-27-2020</SlayTheSpire.version>
-        <ModTheSpire.version>3.15.0</ModTheSpire.version>
+        <SlayTheSpire.version>11-29-2020</SlayTheSpire.version>
+        <ModTheSpire.version>3.18.0</ModTheSpire.version>
 
         <!--
             You need to set a STEAMAPPS_PATH environment variable to enable Maven to find the dependencies.
