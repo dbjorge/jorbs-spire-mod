@@ -3,7 +3,7 @@
   "title": "Jorbs's Wanderer Trilogy",
   "description": "",
   "visibility": "public",
-  "changeNote": "v1.9.1\n\n[h3]Bug fixes[/h3]\n[list]\n[*] Fix crash when viewing CULL cards in Compendium\n[/list]\n[h3]CULL updates[/h3]\n[list]\n[*] New art for Paralysis (thanks Fr33ly)\n[/list]\n[h3]Wanderer Updates[/h3]\n[list]\n[*] New art for Siphon Energy (thanks Fr33ly)\n[/list]\n",
+  "changeNote": "v1.9.2\n\n[h3]Bug fixes[/h3]\n[list]\n[*] Compatibility with Slay the Spire v2.2 (fixes crash in death screens) (thanks A Cake Wearing A Hat and Celicath for reporting!)\n[/list]\n",
   "tags": [
     "Character",
     "Expansion"
