@@ -168,7 +168,7 @@
       "一视同仁",
       "indiscriminate"
     ],
-    "DESCRIPTION": "具有一视同仁的牌既可以指定敌方为目标，也可以指定玩家为目标。"
+    "DESCRIPTION": "具有 #y一视同仁 的牌既可以指定敌方为目标，也可以指定玩家为目标。"
   },
   {
     "NAMES": [
@@ -180,7 +180,9 @@
   {
     "NAMES": [
       "传奇",
-      "legendary"
+      "非传奇",
+      "legendary",
+      "non-legendary"
     ],
     "DESCRIPTION": "传奇卡无法被复制、移除或变化。 NL 你已有的传奇卡不会出现在卡牌奖励中。"
   },
