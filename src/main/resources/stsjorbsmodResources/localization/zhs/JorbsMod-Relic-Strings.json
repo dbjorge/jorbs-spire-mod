@@ -4,8 +4,7 @@
     "FLAVOR": "Forca Messi! Forca Messi! Messi Animal! （加油梅西！加油梅西！爆发吧梅西！）",
     "DESCRIPTIONS": [
       "stsjorbsmod:灼烧 层数每回合减少的比例降低为10%。",
-      "保留下的灼烧伤害： #b%1$s",
-      "Burning retained: "
+      "保留下的灼烧伤害： "
     ]
   },
   "stsjorbsmod:BookOfTrialsRelic": {
@@ -13,17 +12,16 @@
     "FLAVOR": "乍一看像多舌之书，但其实完全不是一回事。",
     "DESCRIPTIONS": [
       "在每一幕开始时，从 stsjorbsmod:试炼之牌 中抽取 #b2 张加入你的牌组。",
-      "卡牌生成： "
+      "生成的卡牌数： "
     ]
   },
   "stsjorbsmod:BottledBurdenRelic": {
     "NAME": "瓶装负担",
     "FLAVOR": "我总是随身带着它，从始至终",
     "DESCRIPTIONS": [
-      "拾起时，选择一张不需要“ #y竭力 ”的牌。在你每场战斗开始时，将其 #y深藏 。在第3回合 #y发掘 之。",
-      "选择一张牌 ",
-      "在第3回合开始时 ",
-      " 将被发掘。"
+      "拾起时，选择一张不需要“ #y竭力 ”的牌。在你每场战斗开始时，将其 #y深藏 [REMOVE_SPACE] 。在第 %1$s 回合 #y发掘 之。",
+      "为 %1$s 选择一张牌。",
+      "在第 #b%1$s 回合开始时发掘 #y%2$s 。"
     ]
   },
   "stsjorbsmod:BottledMemoryRelic": {
@@ -31,7 +29,7 @@
     "FLAVOR": "我的脑子不那么灵光了",
     "DESCRIPTIONS": [
       "拾起时，选择一张 使你“回忆”的牌。在每场战斗开始时，这张牌会出现在手牌中。",
-      "选择一张牌 ",
+      "为 %1$s 选择一张牌。",
       "在每场战斗开始时，将 ",
       " 放入你的手牌。"
     ]
@@ -41,18 +39,15 @@
     "FLAVOR": "我是不是... 见过它？",
     "DESCRIPTIONS": [
       "在每场战斗开始时，回忆起 stsjorbsmod:耐心 。 NL 在每场战斗结束时，你每有一份 stsjorbsmod:清晰 记忆，回复 #b1 点生命。",
-      "治疗的生命量： #b%1$s",
-      "回血： "
+      "治疗的生命量： "
     ]
   },
   "stsjorbsmod:MindGlassRelic": {
     "NAME": "澄心明镜",
     "FLAVOR": "按下e来按下e。",
     "DESCRIPTIONS": [
-      "当你的记忆变得 stsjorbsmod:清晰 时，对所有敌人造成 3 点伤害。 NL 若你单场战斗内对所有敌人造成总计100点伤害，获得10份 stsjorbsmod:清晰 记忆。",
-      "造成的伤害量： #b%1$s",
-      " NL 获得十份清晰记忆的次数： #b%1$s",
-      "造成伤害： "
+      "当你的记忆变得 stsjorbsmod:清晰 时，对所有敌人造成 3 点伤害。 NL 若你在单场战斗中获得10份 stsjorbsmod:清晰 记忆，对所有敌人造成100点伤害。",
+      "造成的伤害量： "
     ]
   },
   "stsjorbsmod:MetronomeRelic": {
@@ -60,8 +55,7 @@
     "FLAVOR": "滴答…滴答",
     "DESCRIPTIONS": [
       "每5个回合，在该回合开始时，你的 stsjorbsmod:无形 层数减少1。",
-      "减少的无形层数： #b%1$s",
-      "Manifest reduced: "
+      "减少的无形层数： "
     ]
   },
   "stsjorbsmod:MindPalaceRelic": {
@@ -76,7 +70,7 @@
     "FLAVOR": "那这又是另一个故事了。",
     "DESCRIPTIONS": [
       "你在每场战斗中第一次 stsjorbsmod:竭力 使用一张牌时，获得 #b1 层 无实体 。",
-      "Intangible gained: "
+      "获得的 无实体 层数： "
     ]
   },
   "stsjorbsmod:WarpedGlassRelic": {
@@ -84,7 +78,7 @@
     "FLAVOR": "按下e来……按下e？",
     "DESCRIPTIONS": [
       "当你 stsjorbsmod:竭力 使用一张牌时，对所有敌人造成 #b3 点伤害。",
-      "造成伤害： "
+      "造成伤害量： "
     ]
   }
 }
