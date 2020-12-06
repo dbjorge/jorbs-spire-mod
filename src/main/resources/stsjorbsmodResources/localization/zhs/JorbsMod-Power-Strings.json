@@ -64,8 +64,8 @@
   "stsjorbsmod:DamnationPower": {
     "NAME": "天谴",
     "DESCRIPTIONS": [
-      "永久 #y变化 本场战斗中打出的下一张牌。",
-      "永久 #y变化 本场战斗中打出的下一张牌,然后将其 #y升级 。"
+      "永久 #y变化 本场战斗中打出的下一张 #y非传奇 牌。",
+      "永久 #y变化 本场战斗中打出的下一张 #y非传奇 牌,然后将其 #y升级 。"
     ]
   },
   "stsjorbsmod:DoubleCheckPower": {
@@ -114,6 +114,12 @@
     "NAME": "发掘",
     "DESCRIPTIONS": [
       "在你的下一回合开始时，你将会发掘一些牌。"
+    ]
+  },
+  "stsjorbsmod:ExhumeOnTurnXPower": {
+    "NAME": "发掘",
+    "DESCRIPTIONS": [
+      "在第3回合开始时，你将会发掘一些牌。"
     ]
   },
   "stsjorbsmod:FearPower": {
@@ -286,14 +292,14 @@
   "stsjorbsmod:ShrapnelBloomPower": {
     "NAME": "暴雨梨花",
     "DESCRIPTIONS": [
-      "本回合内，你打出的下一张非传奇牌会额外打出 %1d 次，然后因 #y竭力 而被消耗。",
-      "本回合内，你打出的下一张非传奇牌会额外打出 %1d 次，然后因 #y竭力 而被消耗。"
+      "本回合内，你打出的下一张 #y非传奇 牌会额外打出 %1d 次，然后因 #y竭力 而被消耗。",
+      "本回合内，你打出的下一张 #y非传奇 牌会额外打出 %1d 次，然后因 #y竭力 而被消耗。"
     ]
   },
   "stsjorbsmod:RepressedMemoryPower": {
     "NAME": "心事重重",
     "DESCRIPTIONS": [
-      "战斗结束时， 因 竭力 而消耗心事重重。"
+      "战斗结束时， 因 #y竭力 而消耗心事重重。"
     ]
   },
   "stsjorbsmod:SnappedPower": {

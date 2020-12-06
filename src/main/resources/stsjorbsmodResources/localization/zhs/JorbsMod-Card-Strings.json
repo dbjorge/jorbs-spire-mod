@@ -53,7 +53,7 @@
   },
   "stsjorbsmod:Assertion": {
     "NAME": "妄下断言",
-    "DESCRIPTION": "造成你本幕打出技能牌数 !stsjorbsmod:UrMagic! 倍的伤害，伤害至多为 !stsjorbsmod:MetaMagic! 点。 ",
+    "DESCRIPTION": " stsjorbsmod:竭力 。 NL 造成你本幕打出技能牌数 !stsjorbsmod:UrMagic! 倍的伤害，伤害至多为 !stsjorbsmod:MetaMagic! 点。 ",
     "EXTENDED_DESCRIPTION": [
       " NL （造成 !D! 点伤害，已打出 !M! 张技能牌。）",
       " NL （造成 !D! 点伤害，已打出 !M! 张技能牌。）"
@@ -73,7 +73,8 @@
   },
   "stsjorbsmod:Blasphemer": {
     "NAME": "渎神之人",
-    "DESCRIPTION": " 不能被打出 。 NL 当你抽到这张牌时，在你的手牌中加入 !M! 张 *惩恶 ，然后 消耗 。"
+    "DESCRIPTION": " 不能被打出 。 NL 当你抽到这张牌时，在你的手牌中加入 !M! 张 *惩恶 ，然后 消耗 。",
+    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 当你抽到这张牌时，在你的手牌中加入 !M! 张升级过的 *惩恶 ，然后 消耗 。"
   },
   "stsjorbsmod:BookOfTongues": {
     "NAME": "多舌之书",
@@ -186,8 +187,8 @@
   },
   "stsjorbsmod:Damnation": {
     "NAME": "天谴",
-    "DESCRIPTION": "抽 !M! 张牌。 NL 永久 变化 本场战斗中打出的下一张牌。",
-    "UPGRADE_DESCRIPTION": "抽 !M! 张牌。 NL 永久 变化 本场战斗中打出的下一张牌，然后将其 升级 。"
+    "DESCRIPTION": "抽 !M! 张牌。 NL 永久 变化 本场战斗中打出的下一张 非传奇 牌 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "抽 !M! 张牌。 NL 永久 变化 本场战斗中打出的下一张 非传奇 牌，然后将其 升级 。 NL 消耗 。"
   },
   "stsjorbsmod:DeathThroes": {
     "NAME": "垂死挣扎",
@@ -196,7 +197,7 @@
   },
   "stsjorbsmod:DemonicCoup": {
     "NAME": "恶魔伎俩",
-    "DESCRIPTION": "stsjorbsmod:飞逝 。 NL 获得 !M! 层 仪式 。 NL stsjorbsmod:竭力 。"
+    "DESCRIPTION": "保留 。 NL 获得 !M! 层 仪式 。 NL 每当这张牌被 保留 时，获得 !stsjorbsmod:MetaMagic! 层 仪式 。 NL stsjorbsmod:竭力 。"
   },
   "stsjorbsmod:Defend_Wanderer": {
     "NAME": "防御",
@@ -331,10 +332,9 @@
   },
   "stsjorbsmod:FocusedRage": {
     "NAME": "怒不可遏",
-    "DESCRIPTION": "本场战斗中，你每有一张牌陷入 stsjorbsmod:力竭 ，获得 !stsjorbsmod:UrMagic! 点 力量 。 NL stsjorbsmod:竭力 。",
+    "DESCRIPTION": "stsjorbsmod:竭力 。 NL 本场战斗中，你每有一张牌陷入 stsjorbsmod:力竭 ，获得 !stsjorbsmod:UrMagic! 点 力量 。",
     "EXTENDED_DESCRIPTION": [
-      " NL （施加 !M! 点 力量 。）",
-      "你本场战斗中没有牌陷入力竭！"
+      " NL （施加 !M! 点 力量 。）"
     ]
   },
   "stsjorbsmod:ForbiddenGrimoire": {
@@ -553,7 +553,7 @@
   },
   "stsjorbsmod:Moss": {
     "NAME": "青苔",
-    "DESCRIPTION": "保留。 NL 在回合结束前，获得 !M! 点 敏捷 。 NL 消耗 。"
+    "DESCRIPTION": "保留 。 NL 在回合结束前，获得 !M! 点 敏捷 。 NL 消耗 。"
   },
   "stsjorbsmod:OakLeaf": {
     "NAME": "橡木叶",
@@ -695,7 +695,7 @@
   },
   "stsjorbsmod:RepressedMemory": {
     "NAME": "心事重重",
-    "DESCRIPTION": "获得 !stsjorbsmod:UrMagic! 点 [E] 。 NL 抽 !M! 张牌。 NL 战斗结束时 stsjorbsmod:竭力 。 NL 当你从手中丢弃或回合结束自动丢弃这张牌时，失去 !stsjorbsmod:MetaMagic! 点最大生命。",
+    "DESCRIPTION": "获得 !stsjorbsmod:UrMagic! 点 [E] 。 NL 抽 !M! 张牌。 NL 战斗结束时 stsjorbsmod:竭力 。 NL 当你从手中丢弃或回合末自动丢弃这张牌时，失去 !stsjorbsmod:MetaMagic! 点最大生命。",
     "UPGRADE_DESCRIPTION": "获得 !stsjorbsmod:UrMagic! 点 [E] 。 NL 抽 !M! 张牌。 NL 战斗结束时 stsjorbsmod:竭力 。"
   },
   "stsjorbsmod:Rest": {
@@ -727,7 +727,7 @@
   },
   "stsjorbsmod:Seance": {
     "NAME": "降神会 DEPRECATED",
-    "DESCRIPTION": "stsjorbsmod:发掘 一张牌。 NL 它获得 虚无 。 NL 消耗。"
+    "DESCRIPTION": "stsjorbsmod:发掘 一张牌。 NL 它获得 虚无 。 NL 消耗 。"
   },
   "stsjorbsmod:Sentinel_Cull": {
     "NAME": "哨卫",
@@ -742,13 +742,22 @@
     "DESCRIPTION": "stsjorbsmod:竭力 。 NL 本回合内，你打出的下一张非传奇牌会额外打出 !M! 次，然后因 stsjorbsmod:竭力 而被消耗。",
     "UPGRADE_DESCRIPTION": "stsjorbsmod:竭力 。 NL 本回合内，你打出的下一张非传奇牌会额外打出 !M! 次，然后因 stsjorbsmod:竭力 而被消耗。"
   },
+  "stsjorbsmod:ShriekingHat": {
+    "NAME": "尖叫帽",
+    "DESCRIPTION": "不能被打出 。 NL 保留 。 NL 当你死亡时，免死并对所有敌人造成将这张牌在你手牌期间你所受总伤害量的伤害。 NL stsjorbsmod:摧毁 。",
+    "UPGRADE_DESCRIPTION": "不能被打出 。 NL 保留 。 NL 当你死亡时，免死并对所有敌人造成将这张牌在你手牌期间你所受总伤害量+ !M! 的伤害。 NL stsjorbsmod:摧毁 。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （造成 !stsjorbsmod:BaseDamage! 点伤害。）",
+      "这张牌不能被打出。"
+    ]
+  },
   "stsjorbsmod:SilverStrike": {
     "NAME": "真银打击",
     "DESCRIPTION": "造成 !D! 点伤害。 NL stsjorbsmod:竭力 。"
   },
   "stsjorbsmod:Siphon": {
     "NAME": "虹吸",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果这张牌杀死了敌人，回复 !M! 点生命。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果这张牌杀死了敌人，回复 !M! 点生命并获得 !stsjorbsmod:MetaMagic! 点最大生命。"
   },
   "stsjorbsmod:SiphonEnergy": {
     "NAME": "吸取能量",
@@ -768,7 +777,8 @@
   },
   "stsjorbsmod:SpiritShield_Cull": {
     "NAME": "精魂护盾",
-    "DESCRIPTION": "在下一回合开始前，所有你受到的伤害将减少 !M! 点。"
+    "DESCRIPTION": "在下一回合开始前，所有你受到的伤害将减少 !M! 点。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "在下一回合开始前，所有你受到的伤害将减少 !M! 点。"
   },
   "stsjorbsmod:SplinterSoul": {
     "NAME": "灵魂破碎 DEPRECATED",

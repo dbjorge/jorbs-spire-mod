@@ -15,6 +15,8 @@ import com.megacrit.cardcrawl.helpers.MonsterHelper;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.neow.NeowEvent;
 import com.megacrit.cardcrawl.screens.DeathScreen;
+import com.megacrit.cardcrawl.screens.GameOverScreen;
+import com.megacrit.cardcrawl.screens.VictoryScreen;
 import javassist.CannotCompileException;
 import javassist.expr.ExprEditor;
 import javassist.expr.FieldAccess;
@@ -40,7 +42,7 @@ public class VoiceoverMasterPatch {
     public static class DeathScreen_ctor {
         @SpirePostfixPatch
         public static void Postfix(DeathScreen __this) {
-            VoiceoverMaster.playAfterDelay(__this.isVictory ? "death_victory" : "death", 2.0F);
+            VoiceoverMaster.playAfterDelay(DeathScreen.isVictory ? "death_victory" : "death", 2.0F);
         }
     }
 
