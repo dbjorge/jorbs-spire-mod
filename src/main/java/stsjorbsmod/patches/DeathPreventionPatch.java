@@ -38,6 +38,15 @@ public class DeathPreventionPatch {
 
         // requested that death preventing cards trigger in order of pickup.
         SortedSet<DeathPreventionCard> deathPreventionCards = new TreeSet<>(Comparator.comparingInt(DeathPreventionCard::getPriority));
+        for (AbstractCard c : p.masterDeck.group) {
+            if (c instanceof ShriekingHat || c instanceof OldBook) {
+                // n.b. for debugging: TreeSet.add (and the underlying TreeMap.put) impl only adds if there isn't
+                // already an object matching the comparator. As such if there's both a ShriekingHat and OldBook in the
+                // deck, only the first card found will be in deathPreventionCards set since priority for these cards
+                // added to the master deck will be 0.
+                deathPreventionCards.add((DeathPreventionCard) c);
+            }
+        }
         for (AbstractCard c : p.hand.group) {
             if (c instanceof ShriekingHat) {
                 deathPreventionCards.add((DeathPreventionCard) c);

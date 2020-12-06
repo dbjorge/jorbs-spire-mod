@@ -65,16 +65,6 @@ public class ShriekingHat extends CustomJorbsModCard implements DeathPreventionC
         priority = currentPriority.incrementAndGet();
     }
 
-    /**
-     * used in ShowCardAndObtainEffect::update. Appears to be the way cards are added to the deck.
-     * overloading the meaning of shrink() because lazy.
-     */
-    @Override
-    public void shrink() {
-        super.shrink();
-        priority = currentPriority.incrementAndGet();
-    }
-
     @Override
     public void wasHPLost(int damageAmount) {
         addToBot(new PermanentlyModifyDamageAction(uuid, damageAmount));

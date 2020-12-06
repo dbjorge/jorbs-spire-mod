@@ -51,16 +51,6 @@ public class OldBook extends CustomJorbsModCard implements OnCardExhumedSubscrib
         priority = currentPriority.incrementAndGet();
     }
 
-    /**
-     * used in FastCardObtainEffect::update (combat reward cards) and ShowCardAndObtainEffect::update (just about every other card acquisition method events/transforms/etc).
-     * overloading the meaning of shrink() because lazy.
-     */
-    @Override
-    public void shrink() {
-        super.shrink();
-        priority = currentPriority.incrementAndGet();
-    }
-
     @Override
     public void onCardEntombed() {
         addToTop(new ApplyPowerAction(p, p, new OldBookPower(AbstractDungeon.player, this, 1)));
