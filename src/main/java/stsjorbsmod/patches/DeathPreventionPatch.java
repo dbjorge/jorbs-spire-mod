@@ -27,23 +27,19 @@ public class DeathPreventionPatch {
     public static boolean triggerDeathPrevention(AbstractPlayer p, int damageAmount) {
         if (damageAmount < p.currentHealth)
             return false;
-        if (!p.hasPower(OldBookPower.POWER_ID + OldBookPower.UPGRADED) &&
-                !p.hasPower(OldBookPower.POWER_ID + OldBookPower.NORMAL) &&
-                p.hand.group.stream().noneMatch(c -> c instanceof ShriekingHat))
-            return false;
         if (p.hasPotion(FairyPotion.POTION_ID))
             return false;
         if (p.hasRelic(LizardTail.ID) && p.getRelic(LizardTail.ID).counter == -1)
+            return false;
+        if (!p.hasPower(OldBookPower.POWER_ID + OldBookPower.UPGRADED) &&
+                !p.hasPower(OldBookPower.POWER_ID + OldBookPower.NORMAL) &&
+                p.hand.group.stream().noneMatch(c -> c instanceof ShriekingHat))
             return false;
 
         // requested that death preventing cards trigger in order of pickup.
         SortedSet<DeathPreventionCard> deathPreventionCards = new TreeSet<>(Comparator.comparingInt(DeathPreventionCard::getPriority));
         for (AbstractCard c : p.masterDeck.group) {
             if (c instanceof ShriekingHat || c instanceof OldBook) {
-                // n.b. for debugging: TreeSet.add (and the underlying TreeMap.put) impl only adds if there isn't
-                // already an object matching the comparator. As such if there's both a ShriekingHat and OldBook in the
-                // deck, only the first card found will be in deathPreventionCards set since priority for these cards
-                // added to the master deck will be 0.
                 deathPreventionCards.add((DeathPreventionCard) c);
             }
         }
@@ -58,6 +54,10 @@ public class DeathPreventionPatch {
             }
         }
 
+        // n.b. for debugging: TreeSet.add (and the underlying TreeMap.put) impl only adds if there isn't
+        // already an object matching the comparator. As such if there's both a ShriekingHat and OldBook in the
+        // deck, only the first card found will be in deathPreventionCards set since priority for these cards
+        // added to the master deck will be 0.
         if (deathPreventionCards.isEmpty()) {
             return false;
         }
