@@ -16,6 +16,7 @@ import stsjorbsmod.characters.Cull;
 import stsjorbsmod.patches.EntombedField;
 import stsjorbsmod.powers.OldBookPower;
 
+import static com.megacrit.cardcrawl.cards.AbstractCard.CardTags.HEALING;
 import static stsjorbsmod.JorbsMod.JorbsCardTags.LEGENDARY;
 
 public class OldBook extends CustomJorbsModCard implements OnCardExhumedSubscriber, OnEntombedSubscriber, DeathPreventionCard, CustomSavable<Integer> {
@@ -40,6 +41,7 @@ public class OldBook extends CustomJorbsModCard implements OnCardExhumedSubscrib
         magicNumber = baseMagicNumber = HEAL_PERCENT;
 
         tags.add(LEGENDARY);
+        tags.add(HEALING);
     }
 
     /**
