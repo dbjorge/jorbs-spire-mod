@@ -39,6 +39,7 @@ public class OldBook extends CustomJorbsModCard implements OnCardExhumedSubscrib
         EntombedField.entombed.set(this, true);
 
         magicNumber = baseMagicNumber = HEAL_PERCENT;
+        exhaust = true;
 
         tags.add(LEGENDARY);
         tags.add(HEALING);
@@ -65,6 +66,7 @@ public class OldBook extends CustomJorbsModCard implements OnCardExhumedSubscrib
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+        onCardEntombed();
     }
 
     @Override
