@@ -7,9 +7,12 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import stsjorbsmod.actions.ConsumerGameAction;
 import stsjorbsmod.characters.Wanderer;
 import stsjorbsmod.patches.PlayerMemoryManagerPatch;
+import stsjorbsmod.powers.MindGlassPower;
 import stsjorbsmod.powers.SnappedPower;
+import stsjorbsmod.relics.MindGlassRelic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -105,6 +108,11 @@ public class MemoryManager {
         clarity.updateDescription();
         clarity.flash();
         notifyModifyMemories(subscriber -> subscriber.onGainClarity(id));
+        AbstractDungeon.actionManager.addToBottom(new ConsumerGameAction<>(i -> {
+            if (owner.hasPower(MindGlassPower.POWER_ID)) {
+                ((MindGlassPower) owner.getPower(MindGlassPower.POWER_ID)).onGainClarity(i);
+            }
+        }, id));
     }
 
     public void loseClarity(AbstractMemory clarity) {
