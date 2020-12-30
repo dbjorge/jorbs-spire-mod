@@ -830,7 +830,7 @@
   },
   "stsjorbsmod:Taunt": {
     "NAME": "讥讽",
-    "DESCRIPTION": "获得 !stsjorbsmod:UrMagic! 层 无实体 。 NL 给予所有敌人3层 易伤 。 NL 消耗 。"
+    "DESCRIPTION": "获得 !stsjorbsmod:UrMagic! 层 无实体 。 NL 给予所有敌人 !M! 层 易伤 。 NL 消耗 。"
   },
   "stsjorbsmod:ThirstingSword": {
     "NAME": "饥渴之剑",

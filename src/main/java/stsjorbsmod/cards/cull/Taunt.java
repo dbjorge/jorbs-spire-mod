@@ -23,7 +23,7 @@ public class Taunt extends CustomJorbsModCard {
     private static final int COST = 2;
     private static final int INTANGIBLE = 2;
     private static final int VULNERABLE = 3;
-    private static final int UPGRADE_PLUS_VULNERABLE = 5;
+    private static final int UPGRADE_PLUS_VULNERABLE = 2;
 
     public Taunt() {
         super(ID, COST, TYPE, COLOR, RARITY, TARGET);

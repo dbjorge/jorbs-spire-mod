@@ -810,7 +810,7 @@
   },
   "stsjorbsmod:Taunt": {
     "NAME": "Burlar",
-    "DESCRIPTION": "Gana !stsjorbsmod:UrMagic! Intangible. NL Aplica 3 Vulnerable a TODOS los enemigos. NL Agota."
+    "DESCRIPTION": "Gana !stsjorbsmod:UrMagic! Intangible. NL Aplica !M! Vulnerable a TODOS los enemigos. NL Agota."
   },
   "stsjorbsmod:ThirstingSword": {
     "NAME": "Espada Sedienta",
