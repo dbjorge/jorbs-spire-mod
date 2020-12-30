@@ -809,7 +809,7 @@
   },
   "stsjorbsmod:Taunt": {
     "NAME": "Taunt",
-    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Apply 3 Vulnerable to ALL enemies. NL Exhaust."
+    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Apply !M! Vulnerable to ALL enemies. NL Exhaust."
   },
   "stsjorbsmod:ThirstingSword": {
     "NAME": "Thirsting Sword",
