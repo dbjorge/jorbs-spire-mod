@@ -1,0 +1,68 @@
+{
+  "stsjorbsmod:AlchemistsFireRelic": {
+    "NAME": "Алхимическое пламя",
+    "FLAVOR": "Forca Messi! Forca Messi! Messi Animal!",
+    "DESCRIPTIONS": [
+      "В начале хода на врагах пропадает только #b10% stsjorbsmod:Горения. (вместо #b33%)"
+    ]
+  },
+  "stsjorbsmod:BookOfTrialsRelic": {
+    "NAME": "Book of Trials",
+    "FLAVOR": "Like tongues, but not at all.",
+    "DESCRIPTIONS": [
+      "Add #b2 cards from the stsjorbsmod:Deck\u00a0of\u00a0Trials to your deck at the start of each act."
+    ]
+  },
+  "stsjorbsmod:BottledMemoryRelic": {
+    "NAME": "Закупоренное воспоминание",
+    "FLAVOR": "Кажется, мой мозг сломался.",
+    "DESCRIPTIONS": [
+      "При получении, вы выберете карту, которая \"вспоминает\". Вы начинаете каждый бой с этой картой в руке.",
+      "Выберите карту, на которую подействует ",
+      "Вы начинаете каждый бой с картой ",
+      " в руке."
+    ]
+  },
+  "stsjorbsmod:GrimoireRelic": {
+    "NAME": "Гримуар",
+    "FLAVOR": "Я его... Уже видел?",
+    "DESCRIPTIONS": [
+      "Вы вспоминаете stsjorbsmod:Терпение в начале каждого боя. NL Восполняет #b1 ОЗ за каждую stsjorbsmod:Ясность в конце боя."
+    ]
+  },
+  "stsjorbsmod:MetronomeRelic": {
+    "NAME": "Metronome",
+    "FLAVOR": "Tick Tock...Tick Tock",
+    "DESCRIPTIONS": [
+      "At the start of every 5th turn, reduce stsjorbsmod:Manifest by 1."
+    ]
+  },
+  "stsjorbsmod:MindGlassRelic": {
+    "NAME": "Хрусталь сознания",
+    "FLAVOR": "Нажмите e, что бы e.",
+    "DESCRIPTIONS": [
+      "Наносит #b3 урона ВСЕМ врагам, когда вы получаете stsjorbsmod:Ясность. NL Наносит #b100 урона ВСЕМ врагам, когда вы получаете #b10 #yЯсностей в одном бою."
+    ]
+  },
+  "stsjorbsmod:MindPalaceRelic": {
+    "NAME": "Залы сознания",
+    "FLAVOR": "Это крепость или тюрьма?",
+    "DESCRIPTIONS": [
+      "Вы начинаете каждый бой с stsjorbsmod:Ясностью аспекта, который был активен в конце прошлого боя."
+    ]
+  },
+  "stsjorbsmod:ShadowRelic": {
+    "NAME": "Shadow",
+    "FLAVOR": "A shade of a different CULLor.",
+    "DESCRIPTIONS": [
+      "The first time you stsjorbsmod:Exert a card each combat, gain #b1 Intangible."
+    ]
+  },
+  "stsjorbsmod:WarpedGlassRelic": {
+    "NAME": "Warped Glass",
+    "FLAVOR": "Press e to... e?",
+    "DESCRIPTIONS": [
+      "Deal #b3 damage to ALL enemies when you stsjorbsmod:Exert a card."
+    ]
+  }
+}

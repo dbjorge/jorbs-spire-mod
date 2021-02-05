@@ -1,0 +1,356 @@
+{
+  "stsjorbsmod:ArcaneWeaponPower": {
+    "NAME": "Чудесный клеймор",
+    "DESCRIPTIONS": [
+      "В конце каждого вашего хода вы наносите %1$s%2$s #yУрона #yАтакой случ. врагу."
+    ]
+  },
+  "stsjorbsmod:BanishedPower": {
+    "NAME": "Изгнание",
+    "DESCRIPTIONS": [
+      "Не может получать урон или отриц. эффекты."
+    ]
+  },
+  "stsjorbsmod:BlackTentaclesPower": {
+    "NAME": "Тёмные щупальца",
+    "DESCRIPTIONS": [
+      "До конца хода этот враг принимает весь наносимый вами урон."
+    ]
+  },
+  "stsjorbsmod:BookOfTonguesPower": {
+    "NAME": "Лингомикон",
+    "DESCRIPTIONS": [
+      "Добавляет в руку #b%1$s случ. #yКомпонент в начале вашего хода.",
+      "Добавляет в руку #b%1$s случ. #yКомпонентов в начале вашего хода."
+    ]
+  },
+  "stsjorbsmod:BurningPower": {
+    "NAME": "Горение",
+    "DESCRIPTIONS": [
+      "Вы получите #b%1$s урона в начале вашего хода, после чего #yГорение уменьшится на #b%2$s. Вы не можете восстанавливать ОЗ.",
+      "Получит #b%1$s урона в начале своего хода, после чего #yГорение уменьшится на #b%2$s. Не может восстанавливать ОЗ.",
+      "Уменьшает восстановление ОЗ на %1$s%%.",
+      "Мммммм... Улитка..."
+    ]
+  },
+  "stsjorbsmod:CatharsisPower": {
+    "NAME": "Catharsis",
+    "DESCRIPTIONS": [
+      "#yUnplayable #rCurse cards can now be played. Whenever you do, lose #b%3$s HP and deal #b%1$s damage to a random enemy for each Curse played this combat ( #b%2$s #rCurse played).",
+      "#yUnplayable #rCurse cards can now be played. Whenever you do, lose #b%3$s HP and deal #b%1$s damage to a random enemy for each Curse played this combat ( #b%2$s #rCurses played)."
+    ]
+  },
+  "stsjorbsmod:ClarifyPower": {
+    "NAME": "Clarify",
+    "DESCRIPTIONS": [
+      "Your draw pile is shown in order."
+    ]
+  },
+  "stsjorbsmod:CoilPower": {
+    "NAME": "Дымка",
+    "DESCRIPTIONS": [
+      "Когда вы вспоминаете новый аспект, кроме #yТерпения или заканчиваете ваш ход в #yЗабвении, наносит #b%1$s урона ВСЕМ врагам и отнимает всю Дымку."
+    ]
+  },
+  "stsjorbsmod:CoupDeGracePower": {
+    "NAME": "Coup de Grâce",
+    "DESCRIPTIONS": [
+      "After #b%1d turn, target receives #yTrue\u00a0Damage equal to double the damage prevented by intangible. (Deals #g%2d True Damage.)",
+      "After #b%1d turns, target receives #yTrue\u00a0Damage equal to double the damage prevented by intangible. (Deals #g%2d True Damage.)",
+      "After #b%1d turn, you receive #yTrue\u00a0Damage equal to double damage the prevented by intangible. (Deals #r%2d True Damage.)",
+      "After #b%1d turns, you receive #yTrue\u00a0Damage equal to double damage the prevented by intangible. (Deals #r%2d True Damage.)"
+    ]
+  },
+  "stsjorbsmod:DamnationPower": {
+    "NAME": "Damnation",
+    "DESCRIPTIONS": [
+      "Permanently #yTransform the next card played this combat.",
+      "Permanently #yTransform the next card played this combat, then #yUpgrade it."
+    ]
+  },
+  "stsjorbsmod:DoubleCheckPower": {
+    "NAME": "Педантичность",
+    "DESCRIPTIONS": [
+      "Даёт #yЯсность аспекта #yУсердия в след. ходу, если он активен."
+    ]
+  },
+  "stsjorbsmod:DoubleExhaustPower": {
+    "NAME": "Double",
+    "DESCRIPTIONS": [
+      "This turn, your next card that #yExhausts is played twice.",
+      "This turn, your next %1$s cards that #yExhaust are played twice."
+    ]
+  },
+  "stsjorbsmod:EnergizedCustomPower": {
+    "NAME": "Энергичность",
+    "DESCRIPTIONS": [
+      "Даёт #b%1$s [E] в вашем след. ходу."
+    ]
+  },
+  "stsjorbsmod:EntombedGrimoirePower": {
+    "NAME": "Погребённый том",
+    "DESCRIPTIONS": [
+      "#yЭксгумирует %1$s в начале вашего #b%2$s хода, или когда вы перейдёте в #yЗабвение. NL ",
+      "#yЭксгумируется через #b%3$s хода.",
+      "#yЭксгумируется через #b%3$s ход."
+    ]
+  },
+  "stsjorbsmod:EntombedGrimDirgePower": {
+    "NAME": "Entombed Grim Dirge",
+    "DESCRIPTIONS": [
+      "%1$s will be Exhumed on the #b%2$srd turn. NL ",
+      "Exhumes in #b%3$s turns.",
+      "Exhumes in #b%3$s turn."
+    ]
+  },
+  "stsjorbsmod:ExhumeAtStartOfTurnPower": {
+    "NAME": "Exhume",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, you will Exhume some cards."
+    ]
+  },
+  "stsjorbsmod:FearPower": {
+    "NAME": "Фобия",
+    "DESCRIPTIONS": [
+      "Сбежит через #b%1$s ход. Если это завершит бой, сохраняет #yЯсности до начала след. боя.",
+      "Сбежит через #b%1$s хода. Если это завершит бой, сохраняет #yЯсности до начала след. боя."
+    ]
+  },
+  "stsjorbsmod:FindFamiliarPower": {
+    "NAME": "Спутник-фамильяр",
+    "DESCRIPTIONS": [
+      "Даёт #yЯсность активного аспекта в начале каждого вашего хода."
+    ]
+  },
+  "stsjorbsmod:FindWeaknessPower": {
+    "NAME": "Find Weakness",
+    "DESCRIPTIONS": [
+      "Scry #b%1$s the first time you attack an enemy each turn. NL You have not played an Attack this turn.",
+      "Scry #b%1$s the first time you attack an enemy each turn. NL You have played an Attack this turn."
+    ]
+  },
+  "stsjorbsmod:FlameWardPower": {
+    "NAME": "Огненный посох",
+    "DESCRIPTIONS": [
+      "В след. раз, когда вас атакуют, наложет #b%1$s #yГорения на ВСЕХ врагов и даст #b%2$s Защиты."
+    ]
+  },
+  "stsjorbsmod:ForbiddenGrimoireDelayedExhumePower": {
+    "NAME": "Отложенная эксгумация",
+    "DESCRIPTIONS": [
+      "%1$s #yЭксгумируется после того, как вы разыграете ещё #b%2$s карту.",
+      "%1$s #yЭксгумируется после того, как вы разыграете ещё #b%2$s карты."
+    ]
+  },
+  "stsjorbsmod:FragilePower": {
+    "NAME": "Ломкость",
+    "DESCRIPTIONS": [
+      "Перейдите в #yЗабвение в конце этого хода. NL Вы потеряете #b%2$s ОЗ и нанесёте #b%3$s урона ВСЕМ врагам.",
+      "Перейдите в #yЗабвение в конце вашего #b%1$s хода. NL Вы потеряете #b%2$s ОЗ и нанесёте #b%3$s урона ВСЕМ врагам."
+    ]
+  },
+  "stsjorbsmod:IntrospectionPower": {
+    "NAME": "Самоанализ",
+    "DESCRIPTIONS": [
+      "В конце каждого вашего хода отнимает #b",
+      " ОЗ и наносит #b",
+      " урона ВСЕМ врагам. Наносит #b",
+      " дополнительного урона за каждую активную #yЯсность."
+    ]
+  },
+  "stsjorbsmod:LoseStrengthNextTurnPower": {
+    "NAME": "Lose Strength Next Turn",
+    "DESCRIPTIONS": [
+      "At the start of next turn, lose #b%1$s Strength."
+    ]
+  },
+  "stsjorbsmod:MagicMirrorPower": {
+    "NAME": "Волшебное зеркало",
+    "DESCRIPTIONS": [
+      "Когда враг накладывает на вас отриц. эффект, накладывает этот отриц. эффект на ВСЕХ врагов.",
+      "Когда враг накладывает на вас отриц. эффект, накладывает этот отриц. эффект на ВСЕХ врагов #b%1$s раза."
+    ]
+  },
+  "stsjorbsmod:MindGlassPower": {
+    "NAME": "Хрусталь сознания",
+    "DESCRIPTIONS": [
+      "Нанесёт #b%1$s ВСЕМ врагам, в след. раз, когда вы получите #yЯсность."
+    ]
+  },
+  "stsjorbsmod:MirroredTechniquePower": {
+    "NAME": "Mirrored Technique",
+    "DESCRIPTIONS": [
+      "Play all attacks an additional time for each time you are being attacked.",
+      "Play all attacks an additional time for each time you are being attacked + %1$d."
+    ]
+  },
+  "stsjorbsmod:MirrorImagePower": {
+    "NAME": "Силуэт в отражении",
+    "DESCRIPTIONS": [
+      "Зеркальный Клон готов принять на себя #b%1$s атаку вместо вас.",
+      "Зеркальный Клон готов принять на себя #b%1$s атаки вместо вас."
+    ]
+  },
+  "stsjorbsmod:MirrorPower": {
+    "NAME": "Mirror",
+    "DESCRIPTIONS": [
+      "For #b%1$s turn, take no damage and reflect attack damage enemies deal to you.",
+      "For #b%1$s turns, take no damage and reflect attack damage enemies deal to you."
+    ]
+  },
+  "stsjorbsmod:MustClarifyBeforeRememberingNewMemoriesPower": {
+    "NAME": "Отвержение",
+    "DESCRIPTIONS": [
+      "Вы не можете вспоминать другие аспекты, пока не получите #yЯсность активного аспекта."
+    ]
+  },
+  "stsjorbsmod:OldBookPower": {
+    "NAME": "Old Book",
+    "DESCRIPTIONS": [
+      "When you would die, instead #rDestroy #yOld\u00a0Book.",
+      "When you would die, instead #rDestroy #yOld\u00a0Book+ and heal #b%1d%% of your max HP."
+    ]
+  },
+  "stsjorbsmod:OverkillPower": {
+    "NAME": "Overkill",
+    "DESCRIPTIONS": [
+      "Deal Overkill damage to all other enemies.",
+      "Deal Overkill damage + #b%1$s to all other enemies."
+    ]
+  },
+  "stsjorbsmod:PathosPower": {
+    "NAME": "Pathos",
+    "DESCRIPTIONS": [
+      "This turn, cards in your hand cost 0. Add a curse to your discard pile for each card played.",
+      "For #b%1$s turns, cards in your hand cost 0. Add a curse to your discard pile for each card played."
+    ]
+  },
+  "stsjorbsmod:PhantasmPower": {
+    "NAME": "Phantasm",
+    "DESCRIPTIONS": [
+      "Whenever you gain #yIntangible, deal #b%1$s damage to ALL enemies."
+    ]
+  },
+  "stsjorbsmod:PlayNextAttackThisTurnAdditionalTimesPower": {
+    "NAME": "Переполняющая мощь",
+    "DESCRIPTIONS": [
+      "В этом ходу след. атака разыгрывается дополнительный раз.",
+      "В этом ходу след. атака разыгрывается #b%1$s дополнительных раз."
+    ]
+  },
+  "stsjorbsmod:PlayNextCardThisTurnAdditionalTimesPower": {
+    "NAME": "Ртуть",
+    "DESCRIPTIONS": [
+      "В этом ходу след. карта разыгрывается дополнительный раз.",
+      "В этом ходу след. карта разыгрывается #b%1$s дополнительных раз."
+    ]
+  },
+  "stsjorbsmod:PossessionPower": {
+    "NAME": "Possessed",
+    "DESCRIPTIONS": [
+      "This turn, this creature will deal #b%1$s damage to random allies #b%2$s time.",
+      "This turn, this creature will deal #b%1$s damage to random allies #b%2$s times."
+    ]
+  },
+  "stsjorbsmod:PrestidigitationPower": {
+    "NAME": "Фокусы и трюки",
+    "DESCRIPTIONS": [
+      "Накладывает #b%1$s #yСлабости или #b%2$s #yУязвимости на случ. врага в начале каждого вашего хода."
+    ]
+  },
+  "stsjorbsmod:PyromancyPower": {
+    "NAME": "Пиромантия",
+    "DESCRIPTIONS": [
+      "Когда вы накладываете #yГорение, накладывает столько же #yГорения ещё #b%1$s раз.",
+      "Когда вы накладываете #yГорение, накладывает столько же #yГорения ещё #b%1$s раз."
+    ]
+  },
+  "stsjorbsmod:ReapAndSowPower": {
+    "NAME": "Reap and Sow",
+    "DESCRIPTIONS": [
+      "At the start of the next combat, deal #b%1d damage to ALL enemies."
+    ]
+  },
+  "stsjorbsmod:RediscoveryPower": {
+    "NAME": "Обретение",
+    "DESCRIPTIONS": [
+      "Даёт #b%1$s [E] , когда вы получаете #yЯсность."
+    ]
+  },
+  "stsjorbsmod:ReducedHealingPower": {
+    "NAME": "Cannot heal",
+    "DESCRIPTIONS": [
+      "Reduce healing by %1$s%%."
+    ]
+  },
+  "stsjorbsmod:RepressedMemoryPower": {
+    "NAME": "Repressed Memory",
+    "DESCRIPTIONS": [
+      "#yExert Repressed Memory at the end of the combat."
+    ]
+  },
+  "stsjorbsmod:SacrificePower": {
+    "NAME": "Sacrifice",
+    "DESCRIPTIONS": [
+      "Pay Max HP instead of [E] for #b%1d turn.",
+      "Pay Max HP instead of [E] for #b%1d turns."
+    ]
+  },
+  "stsjorbsmod:ShrapnelBloomPower": {
+    "NAME": "Shrapnel Bloom",
+    "DESCRIPTIONS": [
+      "This turn, your next non-Legendary card is played %1d additional time, then #yExerts.",
+      "This turn, your next non-Legendary card is played %1d additional times, then #yExerts."
+    ]
+  },
+  "stsjorbsmod:SnappedPower": {
+    "NAME": "В Забвении",
+    "DESCRIPTIONS": [
+      "Вы не можете получать аспекты и их #yЯсности до конца боя."
+    ]
+  },
+  "stsjorbsmod:SpiritShieldPower": {
+    "NAME": "Spirit Shield",
+    "DESCRIPTIONS": [
+      "Reduce all damage by #b%2$s for #b%1$s turn.",
+      "Reduce all damage by #b%2$s for #b%1$s turns."
+    ]
+  },
+  "stsjorbsmod:StrangePendantPower": {
+    "NAME": "Причудливый кулон",
+    "DESCRIPTIONS": [
+      "Понижает первое получение урона за каждый ход на #b%1$s."
+    ]
+  },
+  "stsjorbsmod:StrengthNextTurnPower": {
+    "NAME": "Сила в следующем ходу",
+    "DESCRIPTIONS": [
+      "Даёт #b%1$s #yСилы в начале след. хода."
+    ]
+  },
+  "stsjorbsmod:SummoningPower": {
+    "NAME": "Summoning",
+    "DESCRIPTIONS": [
+      "At the start of next turn, #yExhume %1$s."
+    ]
+  },
+  "stsjorbsmod:TroublePower": {
+    "NAME": "Trouble",
+    "DESCRIPTIONS": [
+      "Whenever you draw a Curse, draw #b%1$s card.",
+      "Whenever you draw a Curse, draw #b%1$s cards."
+    ]
+  },
+  "stsjorbsmod:WastingFormPower": {
+    "NAME": "Wasting Form",
+    "DESCRIPTIONS": [
+      "Whenever you draw a Curse, deal #b%1$s damage to ALL enemies."
+    ]
+  },
+  "stsjorbsmod:WitheringPower": {
+    "NAME": "Иссушение",
+    "DESCRIPTIONS": [
+      "#yНеосязаемость блокирует на #b%1$s меньше урона."
+    ]
+  }
+}

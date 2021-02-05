@@ -1,0 +1,28 @@
+{
+  "stsjorbsmod:DeckOfManyThingsEvent": {
+    "NAME": "Deck of Many Things",
+    "DESCRIPTIONS": [
+      "As you move through ~The~ ~City~ you come across a #pPurple #pMirror. NL You look at it, but you see no reflection.",
+      "You see no one but #g~You~ #g~wish~ #g~to~ #g~become~ #g~someone.~",
+      "#r@YOU@ #r@EXIST@ #r@AND@ #r@ARE@ #r@VALID!@",
+      "#yYou #yare #yat #ypeace #ywith #yyour #ypresence.",
+      "You have no hands."
+    ],
+    "OPTIONS": [
+      "[Inspiration] #gGain #ga #gRandom #gStarting #gRelic.",
+      "[Denial] #rLose #r",
+      " #rMax #rHP. #gRemove #ga #gCard #gfrom #gyour #gdeck.",
+      "[Acceptance] #gGain #gApotheosis.",
+      "[TOUCH THE MIRROR] TOUCH TOUCH TO#C# TOUCH TO UCH TOUCH #rTOUCH TOUCH",
+      "[Leave]",
+      "Select card to remove."
+    ]
+  },
+  "stsjorbsmod:SensoryStone": {
+    "DESCRIPTIONS": [
+      "#g~ШАГИ.~ NL NL Резкий #yраскат чьих-то шагов взрывается эхом от каменных стен. Вы оборачиваетесь, что бы осмотреться, но никого не находите взглядом. Всё больше и больше звуков присоединяются к общему гулу, сливаясь из #p~крещендо~ в #b@какофонию.@ NL NL Ваша голова ~тяжелеет~ и вы теряете сознание. NL NL Просыпаясь, вы обнаруживаете, что гул шагов пропал.",
+      "#b~ВСПОМНИ.~ NL NL Вам снится лицо. Оно похоже на ваше, но его ~очертания~ и ~контуры~ кажутся рызмытыми. NL NL Оно шепчет вам вам: #b~не~ #b~забывай.~ Оно кричит вам: #b~вспомни~ #bвспомни #p~вспомни~ #p@-помни@ #r~-мни~ #r@-мни.@ NL NL Вы вырезаете слово на коже своей руки, пока видение ещё не покинуло вас: #yВспомни. #yВСПОМНИ! NL NL Покидая пещеру, вы ощущаете глухую боль в предплечье, так, как будто бы его кто-то поцарапал...",
+      "#r~ПОГЛОЩАЕТ.~ NL NL Пещера... #rпоглощает вас. На мнгновение, вы останавливаетесь, чувствуя, что давление достаточно утихло, что бы вы могли идти вперёд. Ваш #r~голод~ отступает. Вы думаете о том, что могли бы вздремнуть тут... NL NL Но на это нет времени. NL NL Нужно двигаться дальше."
+    ]
+  }
+}

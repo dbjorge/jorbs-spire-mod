@@ -1,0 +1,127 @@
+{
+  "stsjorbsmod:AbstractMemory": {
+    "TEXT": [
+      "#gЯсность #gактивна NL ",
+      "#gАспект #gактивен NL ",
+      "#rАспект #rзабыт NL "
+    ]
+  },
+  "stsjorbsmod:AlchemistsFireOnClick": {
+    "TEXT": [
+      "GOLASO! GOL! GOL! GOL!"
+    ]
+  },
+  "stsjorbsmod:CallCalipers": {
+    "TEXT": [
+      "Мне не помешал бы Кронциркуль..."
+    ]
+  },
+  "stsjorbsmod:CardsToTopOfDeckAction": {
+    "TEXT": [
+      "Выберите карту, которую хотите положить на верх стопки добора.",
+      "Выберите %1$s карты, которые хотите положить на верх стопки добора.",
+      "положите на верх стопки добора."
+    ]
+  },
+  "stsjorbsmod:CounterspellAction": {
+    "TEXT": [
+      "Этот враг не планирует наложить отриц. эффект!"
+    ]
+  },
+  "stsjorbsmod:DecreaseMaxHpAction": {
+    "TEXT": [
+      "Макс. ОЗ -%1$s"
+    ]
+  },
+  "stsjorbsmod:DigEmote": {
+    "TEXT": [
+      "jorbsBird КОПАЙ! jorbsBird ЗА РЕЛИКВИЕЙ! jorbsBird КОПАЙ! jorbsBird"
+    ]
+  },
+  "stsjorbsmod:ExhumeAndMakeEtherealAction": {
+    "TEXT": [
+      "Эфирная. NL "
+    ]
+  },
+  "stsjorbsmod:IfEnemyIntendsToAttackAction": {
+    "TEXT": [
+      "Этот враг не планирует атаковать!"
+    ]
+  },
+  "stsjorbsmod:IncreaseManifestAction": {
+    "TEXT": [
+      "Manifest +%1$s",
+      "Manifest %1$s"
+
+    ]
+  },
+  "stsjorbsmod:MagicMirrorPatch": {
+    "TEXT": [
+      "В путах!"
+    ]
+  },
+  "stsjorbsmod:ManifestTopPanelItem": {
+    "TEXT": [
+      "Wasting Away",
+      "The CULL loses #b1 max HP each time it takes damage and at the end of each turn.",
+      "Disdain",
+      "The CULL cannot gain #yDexterity or #yBlock. Instead, it gains #yStrength or deals damage to a random enemy, respectively.",
+      "Wrathful",
+      "The CULL permanently remembers #yWrath."
+    ]
+  },
+  "stsjorbsmod:MemoryFtueTip": {
+    "TEXT": [
+      "Аспекты Воспоминаний",
+      "Странник использует мистические #yАспекты воспоминаний, для получения специальных эффектов. #yВспоминая новый, вы #yЗабываете активный аспект. Вы можете сохранять #yЯсности аспектов, что бы не терять их пассивный эффект после забывания."
+    ]
+  },
+  "stsjorbsmod:ModSettingsPanel": {
+    "TEXT": [
+      "Громкость диалогов",
+      "Разблокировать персонажа бета-версии: \"Отброс\" (требует перезапуск)",
+      "Обновить начальные подсказки",
+      "Начальные подсказки обновлены!",
+      "Разблокировать 20 возвышение для персонажей мода (может требовать перезапуск)",
+      "20 возвышение разблокиравано! (может требовать перезапуск)",
+      "Субтитры диалогов"
+    ]
+  },
+  "stsjorbsmod:SnapCounter": {
+    "TEXT": [
+      "Ломкий рассудок",
+      "Перейдите в #yЗабвение в конце вашего #b7 хода. (Сейчас #b%1$s ход)",
+      "В конце вашего хода перейдите в #yЗабвение."
+    ]
+  },
+  "stsjorbsmod:SnapFtueTip": {
+    "TEXT": [
+      "Забвение",
+      "В конце #b7 хода Странник переходит в #yЗабвение. NL #pОгоньки вокруг вас подсказывают номер хода. NL Когда вы переходите в #yЗабвение, забудьте все свои аспекты и их Ясности, теряя #b3 ОЗ и нанося #b6 урона ВСЕМ врагам, за каждую утраченную Ясность."
+    ]
+  },
+  "stsjorbsmod:SummoningAction": {
+    "TEXT": [
+      "Choose a Card to Exhume next turn.",
+      "Choose ",
+      " Cards to Exhume next turn."
+    ]
+  },
+  "stsjorbsmod:ThirstOption": {
+    "TEXT": [
+      "Thirst",
+      "Consume all Wrath from an attack. For each Wrath, heal 5 HP and gain 1 max HP.",
+      "Consume all Wrath from an attack. (No attacks have any Wrath.)"
+    ]
+  },
+  "stsjorbsmod:ThirstEffect": {
+    "TEXT": [
+      "Select a card to Thirst"
+    ]
+  },
+  "stsjorbsmod:WillAction": {
+    "TEXT": [
+      "Сжигается."
+    ]
+  }
+}
