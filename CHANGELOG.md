@@ -14,6 +14,7 @@
 * Fixed issue with not being able to play cards with Sacrifice if you had 0 energy (thanks LankSSBM)
 * Fixed Assertion card text (thanks LankSSBM)
 * Fixed Taunt+ upgrade text and amount of vulnerable applied 8->5 (thanks LankSSBM)
+* Fixed issue where Withering did not affect Nemesis (thanks wang429)
 
 ### CULL updates
 
