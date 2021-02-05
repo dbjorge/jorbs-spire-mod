@@ -1,0 +1,33 @@
+{
+  "stsjorbsmod:BurningPotion": {
+    "NAME": "Зелье горения",
+    "DESCRIPTIONS": [
+      "Накладывает #b%1$s #yГорения."
+    ]
+  },
+  "stsjorbsmod:DimensionDoorPotion": {
+    "NAME": "Свиток червоточины",
+    "DESCRIPTIONS": [
+      "В следующий раз, выбирая следующую комнату, что бы переместиться, проигнорируйте пути.",
+      "Прочесть"
+    ]
+  },
+  "stsjorbsmod:GhostPoisonPotion": {
+    "NAME": "Ghost Poison",
+    "DESCRIPTIONS": [
+      "Gain #b%1$s #yManifest for each enemy, then win the combat. NL Does not work on Boss and Elite enemies."
+    ]
+  },
+  "stsjorbsmod:LiquidClarity": {
+    "NAME": "Отвар ясности",
+    "DESCRIPTIONS": [
+      "Даёт #yЯсность активного аспекта."
+    ]
+  },
+  "stsjorbsmod:LiquidVirtue": {
+    "NAME": "Добродетель в склянке",
+    "DESCRIPTIONS": [
+      "Даёт #yЯсности #b%1$s случ. #yДобродетелей."
+    ]
+  }
+}

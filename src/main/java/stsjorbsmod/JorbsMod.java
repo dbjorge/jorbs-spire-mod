@@ -153,6 +153,7 @@ public class JorbsMod implements
                 // Settings.language == Settings.GameLanguage.FRA ? "fra" :
                 language == Settings.GameLanguage.SPA ? "spa" :
                 language == Settings.GameLanguage.ZHS ? "zhs" :
+                language == Settings.GameLanguage.RUS ? "rus" :
                 /* default: */ "eng";
 
         return MOD_ID + "Resources/localization/" + languageFolder + "/" + resourcePath;

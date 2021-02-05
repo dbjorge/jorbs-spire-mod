@@ -38,15 +38,16 @@ public class ColorSpray extends CustomJorbsModCard {
     }
 
     private AbstractPower generateRandomDebuff(AbstractPlayer p, AbstractMonster m) {
-        switch(AbstractDungeon.cardRandomRng.random(0, 4)) {
-            case 0: return new WeakPower(m, 2, false);
-            case 1: return new VulnerablePower(m, 2, false);
-            case 2: return new BurningPower(m, p, 4);
-            case 3: return new StrengthPower(m, -2);
-            case 4: return new BanishedPower(m, p, 1);
-
-            default: throw new RuntimeException("random debuff type out of range");
-        }
+        return new BanishedPower(m, p, 1);
+//        switch(AbstractDungeon.cardRandomRng.random(0, 4)) {
+//            case 0: return new WeakPower(m, 2, false);
+//            case 1: return new VulnerablePower(m, 2, false);
+//            case 2: return new BurningPower(m, p, 4);
+//            case 3: return new StrengthPower(m, -2);
+//            case 4: return new BanishedPower(m, p, 1);
+//
+//            default: throw new RuntimeException("random debuff type out of range");
+//        }
     }
 
     @Override

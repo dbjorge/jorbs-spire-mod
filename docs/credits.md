@@ -82,6 +82,7 @@
 
 * ChDaVinci (Spanish)
 * GDami (French) ([GitHub](https://github.com/GDami))
+* leshless (Russian) ([GitHub](https://github.com/leshless))
 * yanang007 (Chinese (Simplified)) ([GitHub](https://github.com/yanang007))
 
 ### Trailer Videographer

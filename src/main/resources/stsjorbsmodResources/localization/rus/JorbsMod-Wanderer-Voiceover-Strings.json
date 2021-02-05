@@ -1,0 +1,137 @@
+{
+  "stsjorbsmod:wanderer:voiceover:3_Sentries": {
+    "TEXT": [
+      "Смуты, утраты, ложь..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Automaton": {
+    "TEXT": [
+      "Разве я не разобрался с последними из них? Много лет назад..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Awakened_One": {
+    "TEXT": [
+      "Я не терплю ложных богов!"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Book_of_Stabbing": {
+    "TEXT": [
+      "Книга? Да, это книга..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Champ": {
+    "TEXT": [
+      "Слава? Богатство? Ради этого ты сражаешься!?"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Collector": {
+    "TEXT": [
+      "Впечатляющие способности. Если бы мы только были союзниками..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:death_1": {
+    "TEXT": [
+      "Так... Устал..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:death_2": {
+    "TEXT": [
+      "Наконец-то... Покой..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:death_victory": {
+    "TEXT": [
+      "Это конец?"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Donu_and_Deca": {
+    "TEXT": [
+      "Даже у совершенных форм жизни есть свои слабости..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Giant_Head": {
+    "TEXT": [
+      "Я могу заглянуть в твой разум..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Gremlin_Leader": {
+    "TEXT": [
+      "Снова с приспешниками?"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Gremlin_Nob": {
+    "TEXT": [
+      "Я ощущаю опустошающее чувство ярости..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Hexaghost_1": {
+    "TEXT": [
+      "Я дарую тебе покой, о древнейший."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Hexaghost_2": {
+    "TEXT": [
+      "Шесть проклятых душ, заключённых в демоническом пламени."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Lagavulin": {
+    "TEXT": [
+      "Мой старый друг... но у нас нет времени на отдых...."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Nemesis_1": {
+    "TEXT": [
+      "Пламя и жар, копоть и клубы дыма..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Nemesis_2": {
+    "TEXT": [
+      "Ты даже не здесь, не так ли?"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:new_run": {
+    "TEXT": [
+      "Что... что это за место?"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Reptomancer": {
+    "TEXT": [
+      "Ты хочешь поравняться мастерством?"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Shield_and_Spear_1": {
+    "TEXT": [
+      "Созданные магией. Падут от магии."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Shield_and_Spear_2": {
+    "TEXT": [
+      "В конце концов, вы падёте..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Slavers": {
+    "TEXT": [
+      "Только трус может встать на извилистую тропу жестокости!"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Slime_Boss": {
+    "TEXT": [
+      "Поразительный экземпляр! Время для эксперимента..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:The_Guardian": {
+    "TEXT": [
+      "Ты ещё не устал от нашего бесконечного танца?"
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:The_Heart": {
+    "TEXT": [
+      "Конец. Прошу, пусть это будет конец..."
+    ]
+  },
+  "stsjorbsmod:wanderer:voiceover:Time_Eater": {
+    "TEXT": [
+      "Искривляющий течение самого времени... Занимательно..."
+    ]
+  }
+}

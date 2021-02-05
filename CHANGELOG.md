@@ -33,6 +33,8 @@
 
 ### Wanderer Updates
 
+* Added Russian localization (thanks leshless)
+
 ## [v1.9.2] - 2020-12-02
 
 ### Bug fixes

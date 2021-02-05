@@ -1,0 +1,914 @@
+{
+  "stsjorbsmod:Abjure": {
+    "NAME": "Abjure",
+    "DESCRIPTION": "Put Spirit Shield into your hand from your draw pile, discard pile or exhaust pile.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Put Spirit Shield into your hand from your draw pile, discard pile or exhaust pile."
+  },
+  "stsjorbsmod:Accumulation": {
+    "NAME": "Accumulation",
+    "DESCRIPTION": "Draw !M! cards. NL Draws 1 additional card for each Accumulation in your discard pile."
+  },
+  "stsjorbsmod:Aid": {
+    "NAME": "Милость",
+    "DESCRIPTION": "Восстанавливает !M! ОЗ врагу. NL Вспоминает stsjorbsmod:Доброту. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Восстанавливает !M! ОЗ врагу. NL Вспоминает stsjorbsmod:Доброту. NL Даёт stsjorbsmod:Ясность активного аспекта. NL Сжигается."
+  },
+  "stsjorbsmod:Amnesia": {
+    "NAME": "Амнезия",
+    "DESCRIPTION": "Неиграбельная. NL Отнимает случ. полож. эффект в конце вашего хода.",
+    "EXTENDED_DESCRIPTION": [
+      "~...~",
+      "Кажется, я оставил плиту включённой?",
+      "@Копать!@"
+    ]
+  },
+  "stsjorbsmod:AnimateObjects": {
+    "NAME": "Ожившие орудия",
+    "DESCRIPTION": "stsjorbsmod:Эфемерная. NL Даёт Шипы, равные числу карт, которые не начинали бой в колоде и не находятся в стопке сожжённых карт.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Даёт !M! Шипов.)"
+    ]
+  },
+  "stsjorbsmod:Anxiety": {
+    "NAME": "Anxiety",
+    "DESCRIPTION": "Draw !stsjorbsmod:MetaMagic! cards and gain [E]. NL Permanently lower the number of cards drawn by !M!. NL Exhaust."
+  },
+  "stsjorbsmod:Apparate": {
+    "NAME": "Apparate",
+    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Vulnerable. NL Deal !D! damage and apply !M! Vulnerable to ALL enemies."
+  },
+  "stsjorbsmod:Apparition_Cull": {
+    "NAME": "Apparition",
+    "DESCRIPTION": "Ethereal. NL Gain !M! Intangible. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Intangible. NL Exhaust."
+  },
+  "stsjorbsmod:ArcaneForm": {
+    "NAME": "Облик волхва",
+    "DESCRIPTION": "Эфирная. NL Даёт stsjorbsmod:Ясности NL stsjorbsmod:Терпения, stsjorbsmod:Вожделения, stsjorbsmod:Доброты и stsjorbsmod:Мудрости.",
+    "UPGRADE_DESCRIPTION": "Даёт stsjorbsmod:Ясности NL stsjorbsmod:Терпения, stsjorbsmod:Вожделения, stsjorbsmod:Доброты и stsjorbsmod:Мудрости."
+  },
+  "stsjorbsmod:ArcaneWeapon": {
+    "NAME": "Чудесный клеймор",
+    "DESCRIPTION": "Вы наносите !D! stsjorbsmod:Урона\u00a0Атакой случ. врагу в конце каждого вашего хода."
+  },
+  "stsjorbsmod:Assertion": {
+    "NAME": "Assertion",
+    "DESCRIPTION": "Deal damage equal to !stsjorbsmod:UrMagic! times the number of skills played this act, up to !stsjorbsmod:MetaMagic! damage.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage, !M! skill played.)",
+      " NL (Deals !D! damage, !M! skills played.)"
+    ]
+  },
+  "stsjorbsmod:Banish": {
+    "NAME": "Изгнание",
+    "DESCRIPTION": "Выбранный враг не совершает действий и не может получать урон или отриц. эффекты в течении !M! ходов. Сжигается."
+  },
+  "stsjorbsmod:BlackTentacles": {
+    "NAME": "Тёмные щупальца",
+    "DESCRIPTION": "Наносит !D! урона. NL Этот враг принимает весь наносимый вами урон до конца хода."
+  },
+  "stsjorbsmod:BlackTentacles_Cull": {
+    "NAME": "Black Tentacles",
+    "DESCRIPTION": "Deal !D! damage. NL This turn, all damage you deal to other enemies is dealt to this enemy instead."
+  },
+  "stsjorbsmod:Blasphemer": {
+    "NAME": "Blasphemer",
+    "DESCRIPTION": "Unplayable. NL When you draw this card, add !M! *Smites to your hand and Exhaust."
+  },
+  "stsjorbsmod:BookOfTongues": {
+    "NAME": "Лингомикон",
+    "DESCRIPTION": "Добавляет в руку !M! случ. stsjorbsmod:Компонент в начале вашего хода.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Добавляет в руку !M! случ. stsjorbsmod:Компонент в начале вашего хода."
+  },
+  "stsjorbsmod:Brambles": {
+    "NAME": "Заросли ежевики",
+    "DESCRIPTION": "Наносит урон, равный числу stsjorbsmod:Компонентов, разыгранных в этом бою.",
+    "UPGRADE_DESCRIPTION": "Наносит урон, равный числу stsjorbsmod:Компонентов, разыгранных в этом бою + !stsjorbsmod:BaseDamage!.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Наносит !D! урона.)"
+    ]
+  },
+  "stsjorbsmod:Brooding": {
+    "NAME": "Brooding",
+    "DESCRIPTION": "Draw !M! cards. NL Add a random curse to your discard pile."
+  },
+  "stsjorbsmod:BurningFlask": {
+    "NAME": "Пылающая фляга",
+    "DESCRIPTION": "Накладывает !M! stsjorbsmod:Горения."
+  },
+  "stsjorbsmod:Catharsis": {
+    "NAME": "Catharsis",
+    "DESCRIPTION": "Unplayable Curse cards can now be played. NL Whenever you do, deal !M! damage to a random enemy for each Curse played this combat and lose 1 HP."
+  },
+  "stsjorbsmod:ChainLightning": {
+    "NAME": "Цепной импульс",
+    "DESCRIPTION": "Наносит !D! урона. NL Повторяет по ВСЕМ врагам, повышая урон на !M! за каждого."
+  },
+  "stsjorbsmod:Chamomile": {
+    "NAME": "Настой ромашки",
+    "DESCRIPTION": "stsjorbsmod:Эфемерная. NL Снимает с вас Хрупкость и Слабость.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Эфемерная. NL Снимает с вас Хрупкость, Уязвимость и Слабость."
+  },
+  "stsjorbsmod:Channel": {
+    "NAME": "Зарядить",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Даёт !M! [E] в вашем след. ходу.",
+    "UPGRADE_DESCRIPTION": "Даёт !B! Защиты. NL Даёт !M! [E] в вашем след. ходу. NL Вы кладёте выбранную карту из стопки сброса на верх стопки добора."
+  },
+  "stsjorbsmod:Channeling": {
+    "NAME": "Channeling",
+    "DESCRIPTION": "Play the top card of your draw pile for each incoming attack. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Play the top card of your draw pile for each incoming attack.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Play !M! card.)",
+      " NL (Play !M! cards.)"
+    ]
+  },
+  "stsjorbsmod:ChatteringStrike": {
+    "NAME": "Размашистый удар",
+    "DESCRIPTION": "Наносит !D! урона. NL Разыграйте эту карту ещё !M! раз.",
+    "UPGRADE_DESCRIPTION": "Наносит !D! урона. NL Разыграйте эту карту ещё !M! раза."
+  },
+  "stsjorbsmod:ChillTouch": {
+    "NAME": "Chill Touch",
+    "DESCRIPTION": "Deal !D! damage to an enemy. NL It can no longer heal."
+  },
+  "stsjorbsmod:Clarify": {
+    "NAME": "Clarify",
+    "DESCRIPTION": "Retain: While this is in your hand, Retain !M! extra card. NL stsjorbsmod:Exert: Your draw pile is shown in order.",
+    "UPGRADE_DESCRIPTION": "Retain: While this is in your hand, Retain !M! extra cards. NL stsjorbsmod:Exert: Your draw pile is shown in order."
+  },
+  "stsjorbsmod:Cleanse": {
+    "NAME": "Cleanse",
+    "DESCRIPTION": "Discard all Curses from your draw pile. NL Heal !stsjorbsmod:UrMagic! HP for each Curse discarded. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (You have !M! Curse.)",
+      " NL (You have !M! Curses.)"
+    ]
+  },
+  "stsjorbsmod:Coda": {
+    "NAME" : "Coda",
+    "DESCRIPTION": "Deal !D! damage. NL If this would kill an enemy, instead leave the enemy at 1 HP."
+  },
+  "stsjorbsmod:ColorSpray": {
+    "NAME": "Всплеск красок",
+    "DESCRIPTION": "Наносит !D! урона ВСЕМ врагам и накладывает случ. отриц. эффект на каждого. NL Вспоминает stsjorbsmod:Зависть."
+  },
+  "stsjorbsmod:Commune": {
+    "NAME" : "Commune",
+    "DESCRIPTION": "Scry !M!."
+  },
+  "stsjorbsmod:Concentrate": {
+    "NAME": "Concentrate",
+    "DESCRIPTION": "Discard !M! cards. NL Gain [E] [E]."
+  },
+  "stsjorbsmod:CorrodingBarrier": {
+    "NAME": "Покров коррозии",
+    "DESCRIPTION": "Даёт !B! Защиты. Понижает даваемую этой картой Защиту на !M!, каждый раз, когда берётся.",
+    "UPGRADE_DESCRIPTION": "Даёт !B! Защиты."
+  },
+  "stsjorbsmod:Counterspell": {
+    "NAME": "Контрзаклинание",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Даёт !M! Артефакта, если выбранный враг собирается наложить отриц. эффект. NL Сжигается."
+  },
+  "stsjorbsmod:CoupDeGrace": {
+    "NAME": "Coup de Grâce",
+    "DESCRIPTION": "stsjorbsmod:Indiscriminate. NL Gain X Intangible. NL After X turns deal stsjorbsmod:True\u00a0Damage equal to double the damage prevented.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Indiscriminate. NL Gain X+1 Intangible. NL After X+1 turns deal stsjorbsmod:True\u00a0Damage equal to double the damage prevented."
+  },
+  "stsjorbsmod:CULLCard": {
+    "NAME": "CULL",
+    "DESCRIPTION": "Deal !D! damage twice. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage twice. NL stsjorbsmod:Wrath is applied twice. NL Exhaust."
+  },
+  "stsjorbsmod:Cyclone": {
+    "NAME": "Cyclone",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies X times. NL Gain [E] for each enemy killed."
+  },
+  "stsjorbsmod:Damnation": {
+    "NAME": "Damnation",
+    "DESCRIPTION": "Draw !M! cards. NL Permanently Transform the next card played this combat.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL Permanently Transform the next card played this combat, then upgrade it."
+  },
+  "stsjorbsmod:DeathThroes": {
+    "NAME": "Смертные муки",
+    "DESCRIPTION": "stsjorbsmod:Погребённая. stsjorbsmod:Эфемерная. NL Наносит !D! урона. NL stsjorbsmod:Эксгумируется каждый раз, когда умирает враг. NL Вспоминает stsjorbsmod:Гнев.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Погребённая. stsjorbsmod:Эфемерная. NL Наносит !D! урона. NL stsjorbsmod:Эксгумируется каждый раз, когда умирает враг. NL Даёт stsjorbsmod:Ясность stsjorbsmod:Гнева."
+  },
+  "stsjorbsmod:DemonicCoup": {
+    "NAME": "Demonic Coup",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !M! Ritual. NL stsjorbsmod:Exert."
+  },
+  "stsjorbsmod:Defend_Wanderer": {
+    "NAME": "Оборона",
+    "DESCRIPTION": "Даёт !B! Защиты."
+  },
+  "stsjorbsmod:Determination": {
+    "NAME": "Решительность",
+    "DESCRIPTION": "Вспоминает stsjorbsmod:Гордыню. NL Перейдите в stsjorbsmod:Забвение в конце этого хода. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Вспоминает stsjorbsmod:Гордыню. NL Сжигается."
+  },
+  "stsjorbsmod:Discordance": {
+    "NAME": "Discordance",
+    "DESCRIPTION": "Deal damage equal to the number of stsjorbsmod:Card\u00a0Types in your hand times !M!.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage)"
+    ]
+  },
+  "stsjorbsmod:DisguiseSelf": {
+    "NAME": "Маскировка",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Даёт ещё !B! Защиты в начале вашего след. хода."
+  },
+  "stsjorbsmod:Double": {
+    "NAME": "Double",
+    "DESCRIPTION": "This turn, your next card that Exhausts is played twice.",
+    "UPGRADE_DESCRIPTION": "This turn, your next !M! cards that Exhaust are played twice."
+  },
+  "stsjorbsmod:DoubleCheck": {
+    "NAME": "Педантичность",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Вспоминает stsjorbsmod:Усердие.",
+    "UPGRADE_DESCRIPTION": "Даёт !B! Защиты. NL Вспоминает stsjorbsmod:Усердие. NL Даёт stsjorbsmod:Ясность аспекта stsjorbsmod:Усердия в след. ходу, если он активен."
+  },
+  "stsjorbsmod:DrainLife": {
+    "NAME": "Drain Life",
+    "DESCRIPTION": "Deal X damage. NL Gain Max HP equal to the damage dealt. NL stsjorbsmod:Exert.",
+    "UPGRADE_DESCRIPTION": "Deal X+1 damage. NL Gain Max HP equal to the damage dealt. NL stsjorbsmod:Exert.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
+  },
+  "stsjorbsmod:Ectoplasm_Cull": {
+    "NAME": "Ectoplasm",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !stsjorbsmod:MetaMagic! gold for each stsjorbsmod:Manifest. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Gains !M! gold.)"
+    ]
+  },
+  "stsjorbsmod:EnergyBulb": {
+    "NAME": "Сфера энергии",
+    "DESCRIPTION": "stsjorbsmod:Эфемерная. NL Даёт !M! [E]."
+  },
+  "stsjorbsmod:Entangle": {
+    "NAME": "Спутать узы",
+    "DESCRIPTION": "Накладывает stsjorbsmod:Замедление на ВСЕХ врагов. NL Добавляет !M! карту stsjorbsmod:Паутина в руку.",
+    "UPGRADE_DESCRIPTION": "Накладывает stsjorbsmod:Замедление на ВСЕХ врагов. NL Добавляет !M! карты stsjorbsmod:Паутина в руку."
+  },
+  "stsjorbsmod:Equinox": {
+    "NAME": "Equinox",
+    "DESCRIPTION": "Deal damage equal to the current Floor number. NL The cost of this card is equal to the current Act number. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to the current Floor number. NL The cost of this card is equal to the current Act number - !M!. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
+  },
+  "stsjorbsmod:Exhale": {
+    "NAME": "Exhale",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !M! Intangible. NL At the start of your next turn, lose !stsjorbsmod:UrMagic! Strength.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Intangible. NL At the start of your next turn, lose !stsjorbsmod:UrMagic! Strength. NL Exhaust."
+  },
+  "stsjorbsmod:Expose": {
+    "NAME": "Expose",
+    "DESCRIPTION": "Deal !D! damage. NL If this does not end the combat, lose !M! HP."
+  },
+  "stsjorbsmod:Eye": {
+    "NAME": "Глаз",
+    "DESCRIPTION": "stsjorbsmod:Эфемерная. NL Накладывает !M! Уязвимости."
+  },
+  "stsjorbsmod:EyeOfTheStorm": {
+    "NAME": "Око бури",
+    "DESCRIPTION": "Даёт stsjorbsmod:Ясность активного аспекта. NL Вспоминает случ. аспект. NL Даёт !B! Защиты."
+  },
+  "stsjorbsmod:FalseBlessings": {
+    "NAME": "False Blessings",
+    "DESCRIPTION": "stsjorbsmod:Exert: Fill your potion belt with random potions."
+  },
+  "stsjorbsmod:FaerieFire": {
+    "NAME": "Светоч",
+    "DESCRIPTION": "stsjorbsmod:Добродетель: Накладывает !M! Слабости на ВСЕХ врагов. NL stsjorbsmod:Грех: Накладывает !M! NL Уязвимости на ВСЕХ врагов. NL Сжигается."
+  },
+  "stsjorbsmod:Fear": {
+    "NAME": "Фобия",
+    "DESCRIPTION": "Выбранный враг сбежит через !M! хода. Если это завершает бой, сохраняет все активные stsjorbsmod:Ясности до начала след. боя. NL Не работает на боссов.",
+    "EXTENDED_DESCRIPTION": [
+      "Боссы бесстрашны!"
+    ]
+  },
+  "stsjorbsmod:Feast": {
+    "NAME": "Пиршество",
+    "DESCRIPTION": "Вспоминает stsjorbsmod:Чревоугодие. NL Вы берёте !M! карты. NL Сжигается."
+  },
+  "stsjorbsmod:Feint": {
+    "NAME": "Feint",
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! cards. NL Discard !stsjorbsmod:MetaMagic! card."
+  },
+  "stsjorbsmod:FindFamiliar": {
+    "NAME": "Спутник-фамильяр",
+    "DESCRIPTION": "Даёт stsjorbsmod:Ясность активного аспекта в начале каждого вашего хода.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Даёт stsjorbsmod:Ясность активного аспекта в начале каждого вашего хода."
+  },
+  "stsjorbsmod:FindWeakness": {
+    "NAME": "Find Weakness",
+    "DESCRIPTION": "Scry !M! the first time you attack an enemy each turn."
+  },
+  "stsjorbsmod:Fireball": {
+    "NAME": "Файербол",
+    "DESCRIPTION": "Вспоминает stsjorbsmod:Вожделение. NL Наносит !D! урона ВСЕМ врагам.",
+    "UPGRADE_DESCRIPTION": "Вспоминает stsjorbsmod:Вожделение. NL Наносит !D! урона ВСЕМ врагам. NL Накладывает !M! stsjorbsmod:Горения на ВСЕХ врагов."
+  },
+  "stsjorbsmod:Firebolt": {
+    "NAME": "Огненный снаряд",
+    "DESCRIPTION": "Наносит !D! урона. NL Накладывает по !stsjorbsmod:MetaMagic! stsjorbsmod:Горения за каждую активную stsjorbsmod:Ясность.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Накладывает !M! !stsjorbsmod:Горения.)"
+    ]
+  },
+  "stsjorbsmod:Flame": {
+    "NAME": "Flame",
+    "DESCRIPTION": "Apply !M! stsjorbsmod:Burning. NL Apply !stsjorbsmod:UrMagic! Vulnerable."
+  },
+  "stsjorbsmod:FlameWard": {
+    "NAME": "Огненный посох",
+    "DESCRIPTION": "В след. раз, когда вас атакуют, накладывает !M! stsjorbsmod:Горения на ВСЕХ врагов и даёт !B! Защиты."
+  },
+  "stsjorbsmod:FocusedRage": {
+    "NAME": "Focused Rage",
+    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Strength for each card stsjorbsmod:Exerted this combat. NL stsjorbsmod:Exert.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Applies !M! Strength.)",
+      "Nothing exerted this combat!"
+    ]
+  },
+  "stsjorbsmod:ForbiddenGrimoire": {
+    "NAME": "Гримуар",
+    "DESCRIPTION": "stsjorbsmod:Эфемерная. NL stsjorbsmod:Погребённая. NL Выберите 1 из 3 случ. stsjorbsmod:Компонентов и добавьте в руку. NL stsjorbsmod:Эксгумируется в начале 7 хода, при переходе в stsjorbsmod:Забвение, или когда вы разыгрываете ещё !M! карты после этой."
+  },
+  "stsjorbsmod:ForcedPresence": {
+    "NAME": "Forced Presence",
+    "DESCRIPTION": "Lose !M! Intangible. If you do, gain !stsjorbsmod:UrMagic! [E]. NL Exhaust."
+  },
+  "stsjorbsmod:FracturedMind": {
+    "NAME": "Расколотый разум",
+    "DESCRIPTION": "stsjorbsmod:Грех: Наносит !D! NL урона. NL stsjorbsmod:Добродетель: Даёт !B! Защиты. NL *В stsjorbsmod:Забвении: даёт Защиту и наносит урон."
+  },
+  "stsjorbsmod:FranticMind": {
+    "NAME": "Frantic Mind",
+    "DESCRIPTION": "Discard a card for each stsjorbsmod:Manifest, then draw that many cards. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Discard a card for each stsjorbsmod:Manifest, then draw that many cards.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Discard !M! card.)",
+      " NL (Discard !M! cards.)"
+    ]
+  },
+  "stsjorbsmod:FranticSearch": {
+    "NAME": "Неистовый поиск",
+    "DESCRIPTION": "Добавляет в руку по !M! stsjorbsmod:Компоненту за каждого врага в бою. Даёт stsjorbsmod:Ясность активного аспекта. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Добавляет в руку по !M! stsjorbsmod:Компоненту за каждого врага в бою. Даёт stsjorbsmod:Ясность активного аспекта. NL Сжигается."
+  },
+  "stsjorbsmod:FreshAdventure": {
+    "NAME": "Авантюра",
+    "DESCRIPTION": "Наносит !D! урона. NL Вспоминает stsjorbsmod:Усердие. NL Навсегда повышает свой урон на !M!, когда вы переходите в stsjorbsmod:Забвение."
+  },
+  "stsjorbsmod:Frostbite": {
+    "NAME": "Frostbite",
+    "DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, stsjorbsmod:Consume this."
+  },
+  "stsjorbsmod:Frustration": {
+    "NAME": "Frustration",
+    "DESCRIPTION": "Retain: Deal !M! damage to ALL enemies. NL stsjorbsmod:Exert: Deal !D! damage to ALL enemies."
+  },
+  "stsjorbsmod:GatherPower": {
+    "NAME": "Переполняющая мощь",
+    "DESCRIPTION": "Вы берёте !M! карту. NL В этом ходу след. атака разыгрывается !stsjorbsmod:MetaMagic! дополнительный раз.",
+    "UPGRADE_DESCRIPTION": "Вы берёте !M! карту. NL В этом ходу след. атака разыгрывается !stsjorbsmod:MetaMagic! дополнительных раза."
+  },
+  "stsjorbsmod:GatheringEvil": {
+    "NAME": "Gathering Evil",
+    "DESCRIPTION": "Gain !stsjorbsmod:MetaMagic! Strength and !stsjorbsmod:UrMagic! Vulnerable for each Curse played this combat. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !stsjorbsmod:MetaMagic! Strength and !stsjorbsmod:UrMagic! Vulnerable for each Curse played this combat. NL Exhaust. NL Exhume when you shuffle your draw pile.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (You have played !M! Curse.)",
+      " NL (You have played !M! Curses.)"
+    ]
+  },
+  "stsjorbsmod:Godsbane": {
+    "NAME": "Godsbane",
+    "DESCRIPTION": "Deal !M! % of target's Max HP.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
+  },
+  "stsjorbsmod:Goosebumps": {
+    "NAME": "Goosebumps",
+    "DESCRIPTION": "Deal !D! damage !M! times."
+  },
+  "stsjorbsmod:GrimDirge": {
+    "NAME": "Grim Dirge",
+    "DESCRIPTION": "stsjorbsmod:Entombed. NL stsjorbsmod:Ephemeral. NL stsjorbsmod:Exhume on turn !M!. NL Deal !D! damage."
+  },
+  "stsjorbsmod:Haunt": {
+    "NAME": "Haunt",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !stsjorbsmod:UrMagic! Intangible. NL Draw !M! fewer card next turn.",
+    "UPGRADE_DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Draw !M! fewer card next turn. NL Exhaust."
+  },
+  "stsjorbsmod:HedgeWizard": {
+    "NAME": "Живая изгородь",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Вспоминает stsjorbsmod:Смирение."
+  },
+  "stsjorbsmod:Hibernate": {
+    "NAME": "Спячка",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Вспоминает stsjorbsmod:Леность."
+  },
+  "stsjorbsmod:HoldMonster": {
+    "NAME": "Обуздать монстра",
+    "DESCRIPTION": "Вспоминает stsjorbsmod:Доброту. NL Враг теряет !M! Силы до конца своего хода. NL Сжигается."
+  },
+  "stsjorbsmod:Hurt": {
+    "NAME": "Потеря",
+    "DESCRIPTION": "Наносит !D! урона. NL Отнимает ОЗ, равные числу активных stsjorbsmod:Ясностей.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Отнимает !M! ОЗ.)"
+    ]
+  },
+  "stsjorbsmod:Index": {
+    "NAME": "Индекс",
+    "DESCRIPTION": "Вы берёте !M! карты. NL Вы замешиваете !stsjorbsmod:MetaMagic! карты из руки на верх стопки добора.",
+    "UPGRADE_DESCRIPTION": "Вы берёте !M! карты. NL Вы кладёте !stsjorbsmod:MetaMagic! карты из руки на верх стопки добора."
+  },
+  "stsjorbsmod:Inferno": {
+    "NAME": "В Полымя",
+    "DESCRIPTION": "Вспоминает stsjorbsmod:Вожделение. NL Удваивает наложенное на врага stsjorbsmod:Горение. NL Сжигается. NL stsjorbsmod:Эксгумируется, когда вы переходите в stsjorbsmod:Забвение.",
+    "UPGRADE_DESCRIPTION": "Вспоминает stsjorbsmod:Вожделение. NL Утраивает наложенное на врага stsjorbsmod:Горение. NL Сжигается. NL stsjorbsmod:Эксгумируется, когда вы переходите в stsjorbsmod:Забвение."
+  },
+  "stsjorbsmod:Intervention": {
+    "NAME": "Intervention",
+    "DESCRIPTION": "Deal !D! damage. NL Permanently add Procrastination to your deck. NL stsjorbsmod:Exert."
+  },
+  "stsjorbsmod:Introspection": {
+    "NAME": "Самоанализ",
+    "DESCRIPTION": "В начале каждого вашего хода отнимает !stsjorbsmod:UrMagic! ОЗ и наносит !M! урона ВСЕМ врагам. Наносимый урон повышается на !stsjorbsmod:MetaMagic! за каждую активную stsjorbsmod:Ясность."
+  },
+  "stsjorbsmod:Investment": {
+    "NAME": "Investment",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !stsjorbsmod:MetaMagic! gold. NL stsjorbsmod:Exert. NL When you draw this card, permanently increase its gold by !M!. "
+  },
+  "stsjorbsmod:IvoryTower": {
+    "NAME": "Башня слоновой кости",
+    "DESCRIPTION": "Вы берёте !M! карты. NL Сжигает все Статусы и Проклятия в руке. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Вы берёте !M! карты. NL Сжигает все Статусы и Проклятия в руке."
+  },
+  "stsjorbsmod:LocateObject": {
+    "NAME": "Прибрать к рукам",
+    "DESCRIPTION": "Вспоминает stsjorbsmod:Алчность. NL Вы берёте !M! карты. NL Сжигается."
+  },
+  "stsjorbsmod:LooseLeaf": {
+    "NAME": "Чистый лист",
+    "DESCRIPTION": "stsjorbsmod:Эфемерная. NL Вы берёте !M! карту.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Эфемерная. NL Вы берёте !M! карты."
+  },
+  "stsjorbsmod:LoseGrip": {
+    "NAME": "Ослабить хватку",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Сжигается. stsjorbsmod:Эксгумируется, когда вы переходите в stsjorbsmod:Забвение."
+  },
+  "stsjorbsmod:MageArmor": {
+    "NAME": "Доспех чародея",
+    "DESCRIPTION": "Неиграбельная. NL Оставляется. NL В следующий раз, когда вы теряете ОЗ, понижает потерю ОЗ на !M! и сбрасывается.",
+    "EXTENDED_DESCRIPTION": [
+      "Я не могу разыграть эту карту.",
+      "Доспех"
+    ]
+  },
+  "stsjorbsmod:MagicMirror": {
+    "NAME": "Волшебное зеркало",
+    "DESCRIPTION": "Когда враг накладывает на вас отриц. эффект, накладывает этот отриц. эффект на ВСЕХ врагов.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Когда враг накладывает на вас отриц. эффект, накладывает этот отриц. эффект на ВСЕХ врагов."
+  },
+  "stsjorbsmod:MagicMissiles": {
+    "NAME": "Магический залп",
+    "DESCRIPTION": "Наносит !D! урона. NL Наносит ещё по !D! урона за каждую активную stsjorbsmod:Ясность.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Наносит !D! урона !M! раз.)",
+      " NL (Наносит !D! урона !M! раз.)"
+    ]
+  },
+  "stsjorbsmod:Mania": {
+    "NAME": "Одержимость",
+    "DESCRIPTION": "Наносит урон, равный числу уникальных карт в руке. Если все они уникальны, вы получаете !stsjorbsmod:MetaMagic! [E] и берёте !stsjorbsmod:UrMagic! карту.",
+    "UPGRADE_DESCRIPTION": "Наносит урон, равный числу уникальных карт в руке + !stsjorbsmod:BaseDamage!. Если все они уникальны, вы получаете !stsjorbsmod:MetaMagic! [E] и берёте !stsjorbsmod:UrMagic! карту.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Наносит !D! урона.)"
+    ]
+  },
+  "stsjorbsmod:Materialize": {
+    "NAME": "Воплотить",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Выберите 1 из 3 случ. stsjorbsmod:Компонентов и добавьте в руку."
+  },
+  "stsjorbsmod:Melt": {
+    "NAME": "Melt",
+    "DESCRIPTION": "Apply stsjorbsmod:Burning equal to target's Block. NL Deal !D! damage."
+  },
+  "stsjorbsmod:Mending": {
+    "NAME": "Кройка",
+    "DESCRIPTION": "Восполняет ОЗ, равные числу активных stsjorbsmod:Ясностей. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Восполняет ОЗ, равные удвоенному числу активных stsjorbsmod:Ясностей. NL Сжигается.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Восполняет !M! ОЗ.)"
+    ]
+  },
+  "stsjorbsmod:Message": {
+    "NAME": "Послание",
+    "DESCRIPTION": "Вы кладёте !M! карту из стопки сброса в руку. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Вы кладёте !M! карты из стопки сброса в руку. NL Сжигается."
+  },
+  "stsjorbsmod:Mindworm": {
+    "NAME": "Пожиратель рассудка",
+    "DESCRIPTION": "Наносит !D! урона. NL *В stsjorbsmod:Забвении: наносит ещё !M! урона. NL Добавляет свою копию в стопку сброса."
+  },
+  "stsjorbsmod:Miracle_Cull": {
+    "NAME": "Miracle",
+    "DESCRIPTION": "Retain. NL Gain !M! [E] . NL Add !stsjorbsmod:MetaMagic! stsjorbsmod:Manifest. NL Exhaust."
+  },
+  "stsjorbsmod:Mirror": {
+    "NAME": "Mirror",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Until your next turn, take no damage and reflect attack damage enemies deal to you."
+  },
+  "stsjorbsmod:MirroredTechnique": {
+    "NAME": "Mirrored Technique",
+    "DESCRIPTION": "This combat, play all attacks an additional time for each time you are being attacked. NL stsjorbsmod:Exert.",
+    "UPGRADE_DESCRIPTION": "This combat, play all attacks an additional time for each time you are being attacked + !M!. NL stsjorbsmod:Exert."
+  },
+  "stsjorbsmod:MirrorImage": {
+    "NAME": "Силуэт в отражении",
+    "DESCRIPTION": "Вспоминает stsjorbsmod:Доброту. NL Призывает Зеркального Клона с !M! ОЗ. NL Сжигается."
+  },
+  "stsjorbsmod:MistyStep": {
+    "NAME": "Шаг в туман",
+    "DESCRIPTION": "Даёт !stsjorbsmod:MetaMagic! Защиты за каждую активную stsjorbsmod:Ясность. NL Вы берёте !M! карту.",
+    "UPGRADE_DESCRIPTION": "Даёт !stsjorbsmod:MetaMagic! Защиты за каждую активную stsjorbsmod:Ясность + !stsjorbsmod:BaseBlock!. NL Вы берёте !M! карту.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Даёт !B! Защиты.)"
+    ]
+  },
+  "stsjorbsmod:Moss": {
+    "NAME": "Мох",
+    "DESCRIPTION": "Оставляется. NL Даёт !M! Ловкости. NL Отнимает !M! Ловкости в конце вашего хода. NL Сжигается."
+  },
+  "stsjorbsmod:OakLeaf": {
+    "NAME": "Сень дуба",
+    "DESCRIPTION": "Даёт !M! Ловкости."
+  },
+  "stsjorbsmod:OldBook": {
+    "NAME": "Old Book",
+    "DESCRIPTION": "stsjorbsmod:Entombed. NL stsjorbsmod:Exhume when you would die; instead stsjorbsmod:Destroy this card. NL Unplayable",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Entombed. NL stsjorbsmod:Exhume when you would die; instead stsjorbsmod:Destroy this card and heal !M! percent of your Max HP. NL Unplayable."
+  },
+  "stsjorbsmod:OldPocket": {
+    "NAME": "Старый кошель",
+    "DESCRIPTION": "Даёт !M! *золота. NL Вспоминает stsjorbsmod:Благоволение. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Даёт !M! *золота. NL Вспоминает stsjorbsmod:Благоволение. NL Даёт stsjorbsmod:Ясность активного аспекта. NL Сжигается."
+  },
+  "stsjorbsmod:Overkill": {
+    "NAME": "Overkill",
+    "DESCRIPTION": "Whenever you kill an enemy, deal any overkill damage to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Whenever you kill an enemy, deal any overkill damage + !M! to ALL enemies."
+  },
+  "stsjorbsmod:Panic": {
+    "NAME": "Panic",
+    "DESCRIPTION": "stsjorbsmod:Ephemeral. NL Gain !M! Intangible. NL Lose !stsjorbsmod:UrMagic! Max HP."
+  },
+  "stsjorbsmod:Paralysis": {
+    "NAME": "Paralysis",
+    "DESCRIPTION": "Retain. NL Gain !M! Intangible. NL When Retained, lower its cost by 1 this combat. NL Exhaust."
+  },
+  "stsjorbsmod:PartingBlow": {
+    "NAME": "Parting Blow",
+    "DESCRIPTION": "Deal damage equal to NL !M! minus your Max HP.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
+  },
+  "stsjorbsmod:ParryingBlow": {
+    "NAME": "Отражающий взмах",
+    "DESCRIPTION": "Вспоминает stsjorbsmod:Терпение. NL Наносит !D! урона. NL Вы берёте !M! карту."
+  },
+  "stsjorbsmod:Pathos": {
+    "NAME": "Pathos",
+    "DESCRIPTION": "Cards in your hand cost 0 this turn. NL Add a curse to your discard pile for each card played."
+  },
+  "stsjorbsmod:Patron": {
+    "NAME": "Покровитель",
+    "DESCRIPTION": "stsjorbsmod:Эфемерная. stsjorbsmod:Погребённая. NL stsjorbsmod:Эксгумируется, когда вы переходите в stsjorbsmod:Забвение. NL Наносит !D! урона. NL stsjorbsmod:Уничтожается.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Эфемерная. stsjorbsmod:Погребённая. NL stsjorbsmod:Эксгумируется, когда вы переходите в stsjorbsmod:Забвение. NL Наносит !D! урона. NL stsjorbsmod:Ухудшается."
+  },
+  "stsjorbsmod:Phantasm": {
+    "NAME": "Phantasm",
+    "DESCRIPTION": "Whenever you gain Intangible, deal !M! damage to ALL enemies."
+  },
+  "stsjorbsmod:Pollute": {
+    "NAME": "Pollute",
+    "DESCRIPTION": "Turn all cards in your hand into Curses (they can still be played). NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Turn all cards in your hand into Curses (they can still be played)."
+  },
+  "stsjorbsmod:PollutedStrike": {
+    "NAME": "Polluted Strike",
+    "DESCRIPTION": "Deal !D! stsjorbsmod:Attack\u00a0Damage once for each Curse in your hand.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (You have !M! Curse.)",
+      " NL (You have !M! Curses.)"
+    ]
+  },
+  "stsjorbsmod:Possession": {
+    "NAME": "Possession",
+    "DESCRIPTION": "Apply !M! stsjorbsmod:Possessed. NL stsjorbsmod:Exert."
+  },
+  "stsjorbsmod:Poultergeist": {
+    "NAME": "Poultergeist",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "stsjorbsmod:Prepare": {
+    "NAME": "Проба пера",
+    "DESCRIPTION": "Даёт Защиту, равную вашей stsjorbsmod:Дымке. NL Даёт !stsjorbsmod:MetaMagic! stsjorbsmod:Дымки.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Даёт !M! Защиты.)"
+    ]
+  },
+  "stsjorbsmod:Prestidigitation": {
+    "NAME": "Фокусы и трюки",
+    "DESCRIPTION": "Накладывает NL !M! Слабости или NL !M! Уязвимости на случ. врага в начале каждого вашего хода."
+  },
+  "stsjorbsmod:Procrastination": {
+    "NAME": "Прокрастинация",
+    "DESCRIPTION": "Неиграбельная. NL Закопанная."
+  },
+  "stsjorbsmod:ProdigalMemory": {
+    "NAME": "Prodigal Memory",
+    "DESCRIPTION": "Draw !stsjorbsmod:UrMagic! cards and lose !M! Max HP. NL If this card is in your hand at the end of your turn, stsjorbsmod:Exert."
+  },
+  "stsjorbsmod:PurgeMind": {
+    "NAME": "Очищение сознания",
+    "DESCRIPTION": "Сжигает все карты, которые \"вспоминают\". Наносит по !D! урона за каждую карту в стопке сожжённых карт. NL Перейдите в stsjorbsmod:Забвение. NL Сжигается.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Нанесёт урон !M! раз.)",
+      " NL (Нанесёт урон !M! раз.)"
+    ]
+  },
+  "stsjorbsmod:Pyromancy": {
+    "NAME": "Пиромантия",
+    "DESCRIPTION": "Эфирная. NL Когда вы накладываете на врага stsjorbsmod:Горение, накладывает столько же stsjorbsmod:Горения ещё раз.",
+    "UPGRADE_DESCRIPTION": "Когда вы накладываете на врага stsjorbsmod:Горение, накладывает столько же stsjorbsmod:Горения ещё раз."
+  },
+  "stsjorbsmod:Quicksilver": {
+    "NAME": "Ртуть",
+    "DESCRIPTION": "stsjorbsmod:Эфемерная. NL Имитирует завершение !stsjorbsmod:MetaMagic! хода для всех реликвий. NL В этом ходу след. карта разыгрывается !M! дополнительный раз.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Эфемерная. NL Имитирует завершение !stsjorbsmod:MetaMagic! хода для всех реликвий. NL В этом ходу след. карта разыгрывается !M! дополнительных раза."
+  },
+  "stsjorbsmod:RayOfFrost": {
+    "NAME": "Леденящий луч",
+    "DESCRIPTION": "Наносит !D! урона. NL Накладывает !M! Слабости.",
+    "UPGRADE_DESCRIPTION": "Наносит !D! урона. NL Накладывает !M! Слабости !stsjorbsmod:MetaMagic! раза."
+  },
+  "stsjorbsmod:ReapAndSow": {
+    "NAME": "Reap and Sow",
+    "DESCRIPTION": "Deal !D! damage. If Fatal, deal the leftover damage to ALL enemies at the start of the next combat."
+  },
+  "stsjorbsmod:Rebuke": {
+    "NAME": "Rebuke",
+    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Deal damage to ALL enemies equal to !D! times your Intangible. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !M! damage.)"
+    ]
+  },
+  "stsjorbsmod:Rebuttal": {
+    "NAME": "Rebuttal",
+    "DESCRIPTION": "Retain: Gain !stsjorbsmod:UrMagic! Thorns while this is in your hand. NL stsjorbsmod:Exert: Gain !M! Thorns."
+  },
+  "stsjorbsmod:Rediscovery": {
+    "NAME": "Обретение",
+    "DESCRIPTION": "Даёт 1 [E] , когда вы получаете stsjorbsmod:Ясность.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Даёт 1 [E] , когда вы получаете stsjorbsmod:Ясность."
+  },
+  "stsjorbsmod:RefuseToForget": {
+    "NAME": "Отвергнуть провал",
+    "DESCRIPTION": "Вы не сможете забыть активный аспект, пока не получите его stsjorbsmod:Ясность. NL Вы берёте !M! карты. NL Вы не сможете добирать карты в этом ходу."
+  },
+  "stsjorbsmod:RepressedMemory": {
+    "NAME": "Repressed Memory",
+    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! [E]. NL Draw !M! cards. NL stsjorbsmod:Exert at end of combat. NL Lose !stsjorbsmod:MetaMagic! Max HP when this card is discarded from your hand or at end of turn.",
+    "UPGRADE_DESCRIPTION": "Gain !stsjorbsmod:UrMagic! [E]. NL Draw !M! cards. NL stsjorbsmod:Exert at end of combat."
+  },
+  "stsjorbsmod:Rest": {
+    "NAME": "Покой",
+    "DESCRIPTION": "Вспоминает stsjorbsmod:Мудрость. NL Даёт !B! Защиты. NL Завершает ваш ход."
+  },
+  "stsjorbsmod:Ritual": {
+    "NAME": "Ritual",
+    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Retain up to !M! card until next turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Retain up to !M! cards until next turn. NL Exhaust."
+  },
+  "stsjorbsmod:Rot": {
+    "NAME": "Гной",
+    "DESCRIPTION": "stsjorbsmod:Эфемерная. NL Отнимает случ. stsjorbsmod:Ясность. NL Когда добавляется в руку, добавляет ещё !M! свою копию.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Эфемерная. NL Отнимает случ. stsjorbsmod:Ясность. NL Когда добавляется в руку, добавляет ещё !M! свои копии."
+  },
+  "stsjorbsmod:Sacrifice": {
+    "NAME": "Sacrifice",
+    "DESCRIPTION": "Gain [E] when drawn. NL Ethereal. NL This turn, pay Max HP instead of [E]. NL stsjorbsmod:Exert.",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E] when drawn. NL Ethereal. NL This turn, pay Max HP instead of [E]. NL stsjorbsmod:Exert."
+  },
+  "stsjorbsmod:SchoolsOfMagic": {
+    "NAME": "Школы магии",
+    "DESCRIPTION": "Вы берёте !M! карты. NL Если все карты в руке уникальны, даёт stsjorbsmod:Ясность активного аспекта. Иначе, Сжигает 1 копию каждой неуникальной карты."
+  },
+  "stsjorbsmod:ScorchingRay": {
+    "NAME": "Опаляющий луч",
+    "DESCRIPTION": "Вспоминает stsjorbsmod:Вожделение. NL Накладывает !stsjorbsmod:MetaMagic! NL stsjorbsmod:Горения !M! раза. На накладываемое этой картой stsjorbsmod:Горение влияет Сила."
+  },
+  "stsjorbsmod:Sentinel_Cull": {
+    "NAME": "Sentinel",
+    "DESCRIPTION": "Deal !D! damage. NL Lower your stsjorbsmod:Manifest by !M!. NL Exhaust."
+  },
+  "stsjorbsmod:Shake": {
+    "NAME": "Shake",
+    "DESCRIPTION": "If enemy is Vulnerable, draw !M! cards. NL Apply !stsjorbsmod:UrMagic! Vulnerable. NL Exhaust."
+  },
+  "stsjorbsmod:ShrapnelBloom": {
+    "NAME": "Shrapnel Bloom",
+    "DESCRIPTION": "stsjorbsmod:Exert. NL This turn, the next non-Legendary card you play is played !M! additional time, then stsjorbsmod:Exerts.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Exert. NL This turn, the next non-Legendary card you play is played !M! additional times, then stsjorbsmod:Exerts."
+  },
+  "stsjorbsmod:SilverStrike": {
+    "NAME": "Silver Strike",
+    "DESCRIPTION": "Deal !D! damage. NL stsjorbsmod:Exert."
+  },
+  "stsjorbsmod:Siphon": {
+    "NAME": "Siphon",
+    "DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, heal !M! HP."
+  },
+  "stsjorbsmod:SiphonEnergy": {
+    "NAME": "Впитать ману",
+    "DESCRIPTION": "Вы берёте !stsjorbsmod:MetaMagic! карты. NL Даёт [E] за каждую активную stsjorbsmod:Ясность. NL (Даёт !M! [E] ) NL Сжигается."
+  },
+  "stsjorbsmod:SmithingStrike": {
+    "NAME": "Кующий удар",
+    "DESCRIPTION": "Вспоминает stsjorbsmod:Гнев. NL Наносит !D! урона."
+  },
+  "stsjorbsmod:SnakeOil": {
+    "NAME": "Ложное снадобье",
+    "DESCRIPTION": "Оставляется. NL Вспоминает stsjorbsmod:Терпение. NL Наносит урон, равный вашей stsjorbsmod:Дымке ВСЕМ врагам. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Оставляется. NL Вспоминает stsjorbsmod:Терпение. NL Наносит урон, равный вашей удвоенной stsjorbsmod:Дымке ВСЕМ врагам. NL Сжигается.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Наносит !D! урона.)"
+    ]
+  },
+  "stsjorbsmod:SpiritShield_Cull": {
+    "NAME": "Spirit Shield",
+    "DESCRIPTION": "Reduce all damage taken by !M! until next turn."
+  },
+  "stsjorbsmod:Stalwart": {
+    "NAME": "Нерушимая стойка",
+    "DESCRIPTION": "Вспоминает stsjorbsmod:Умеренность. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Вспоминает stsjorbsmod:Умеренность. NL Даёт stsjorbsmod:Ясность активного аспекта. NL Сжигается."
+  },
+  "stsjorbsmod:Steel": {
+    "NAME": "Сталь",
+    "DESCRIPTION": "stsjorbsmod:Эфемерная. NL Улучшает !M! карту в руке до конца боя.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Эфемерная. NL Улучшает !M! карты в руке до конца боя."
+  },
+  "stsjorbsmod:Stone": {
+    "NAME": "Валун",
+    "DESCRIPTION": "Оставляется. NL Накладывает stsjorbsmod:Замедление. NL Если враг уже stsjorbsmod:Замедлен, удваивает его stsjorbsmod:Замедление. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Оставляется. NL Накладывает stsjorbsmod:Замедление. NL Если враг уже stsjorbsmod:Замедлен, утраивает его stsjorbsmod:Замедление. NL Сжигается."
+  },
+  "stsjorbsmod:StrangePendant": {
+    "NAME": "Причудливый кулон",
+    "DESCRIPTION": "Понижает первое получение урона за каждый ход на !M!."
+  },
+  "stsjorbsmod:Strife": {
+    "NAME": "Strife",
+    "DESCRIPTION": "Add !stsjorbsmod:UrMagic! random Curse to your discard pile. NL Gain !stsjorbsmod:MetaMagic! Strength for each Curse in your discard pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add !stsjorbsmod:UrMagic! random Curses to your discard pile. NL Gain !stsjorbsmod:MetaMagic! Strength for each Curse in your discard pile. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Gains !M! Strength.)"
+    ]
+  },
+  "stsjorbsmod:Strike_Cull": {
+    "NAME": "Удар",
+    "DESCRIPTION": "Наносит !D! урона."
+  },
+  "stsjorbsmod:Strike_Wanderer": {
+    "NAME": "Удар",
+    "DESCRIPTION": "Наносит !D! урона."
+  },
+  "stsjorbsmod:Sulfur": {
+    "NAME": "Сера",
+    "DESCRIPTION": "stsjorbsmod:Эфемерная. NL Накладывает !M! stsjorbsmod:Горения."
+  },
+  "stsjorbsmod:Summoning": {
+    "NAME": "Summoning",
+    "DESCRIPTION": "Exhaust !M! card from your draw pile. stsjorbsmod:Exhume it at the start of of next turn.",
+    "UPGRADE_DESCRIPTION": "Exhaust !M! cards from your draw pile. stsjorbsmod:Exhume them at the start of of next turn."
+  },
+  "stsjorbsmod:Taunt": {
+    "NAME": "Taunt",
+    "DESCRIPTION": "Gain !stsjorbsmod:UrMagic! Intangible. NL Apply 3 Vulnerable to ALL enemies. NL Exhaust."
+  },
+  "stsjorbsmod:ThirstingSword": {
+    "NAME": "Жаждущий клинок",
+    "DESCRIPTION": "Накладывает !M! stsjorbsmod:Горения. Восполняет ОЗ, равные stsjorbsmod:Горению на враге. NL Отнимает !stsjorbsmod:MetaMagic! Макс. ОЗ. NL Наносит !D! урона. NL Сжигается."
+  },
+  "stsjorbsmod:Thorns": {
+    "NAME": "Колючки",
+    "DESCRIPTION": "Вспоминает stsjorbsmod:Смирение. NL Даёт stsjorbsmod:Ясность активного аспекта, если выбранный враг собирается атаковать. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Вспоминает stsjorbsmod:Смирение. NL Даёт stsjorbsmod:Ясность активного аспекта. NL Сжигается."
+  },
+  "stsjorbsmod:TimeEddy": {
+    "NAME": "Спираль времени",
+    "DESCRIPTION": "stsjorbsmod:Эфемерная. NL Имитирует завершение !M! хода для всех эффектов.",
+    "UPGRADE_DESCRIPTION": "stsjorbsmod:Эфемерная. NL Имитирует завершение !M! ходов для всех эффектов."
+  },
+  "stsjorbsmod:TickingCurse": {
+    "NAME": "Ticking Curse",
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage to all enemies. stsjorbsmod:Exert. NL When Exhausted, deal !M! damage to ALL enemies."
+  },
+  "stsjorbsmod:TinyHut": {
+    "NAME": "Карманное укрытие",
+    "DESCRIPTION": "Вспоминает stsjorbsmod:Доброту. NL Даёт stsjorbsmod:Ясность активного аспекта.",
+    "UPGRADE_DESCRIPTION": "Начальная. NL Вспоминает stsjorbsmod:Доброту. NL Даёт stsjorbsmod:Ясность активного аспекта."
+  },
+  "stsjorbsmod:Toil": {
+    "NAME": "Toil",
+    "DESCRIPTION": "Deal !D! damage. NL If Fatal, permanently upgrade a random card. NL Exhaust."
+  },
+  "stsjorbsmod:Toll": {
+    "NAME": "Toll",
+    "DESCRIPTION": "Deal damage equal to !M! times the sum of your relic counters.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage)"
+    ]
+  },
+  "stsjorbsmod:TollTheDead": {
+    "NAME": "Похоронный звон",
+    "DESCRIPTION": "Наносит !D! урона. NL Если враг уже получал урон в этом ходу, наносит ещё !D! урона."
+  },
+  "stsjorbsmod:Tragedy": {
+    "NAME": "Tragedy",
+    "DESCRIPTION": "Exhaust ALL Curses. NL Deal !D! damage for each Curse exhausted. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Exhausts !M! Curse.)",
+      " NL (Exhausts !M! Curses.)"
+    ]
+  },
+  "stsjorbsmod:Trauma": {
+    "NAME": "Контузия",
+    "DESCRIPTION": "Перейдите в stsjorbsmod:Забвение. NL Наносит !D! урона ВСЕМ врагам. NL Сбрасывается в стопку добора."
+  },
+  "stsjorbsmod:Trouble": {
+    "NAME": "Trouble",
+    "DESCRIPTION": "Whenever you draw a Curse, draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Whenever you draw a Curse, draw !M! cards."
+  },
+  "stsjorbsmod:TrueStrike": {
+    "NAME": "Истинный удар",
+    "DESCRIPTION": "Наносит !D! stsjorbsmod:Чистого\u00a0Урона."
+  },
+  "stsjorbsmod:UnseenServant": {
+    "NAME": "Невидимый слуга",
+    "DESCRIPTION": "Вспоминает stsjorbsmod:Леность. NL Вы кладёте !M! выбранные карты из стопки сброса на верх стопки добора. NL Сжигается.",
+    "UPGRADE_DESCRIPTION": "Вспоминает stsjorbsmod:Леность. NL Вы кладёте !M! выбранные карты из стопки сброса на верх стопки добора. NL Вы берёте !stsjorbsmod:MetaMagic! карту. NL Сжигается."
+  },
+  "stsjorbsmod:Wail": {
+    "NAME": "Wail",
+    "DESCRIPTION": "Apply !stsjorbsmod:UrMagic! Vulnerable. NL Draw !M! card. NL Exhaust."
+  },
+  "stsjorbsmod:WanderingMind": {
+    "NAME": "Блуждающий разум",
+    "DESCRIPTION": "Вы берёте !M! карты. NL Вспоминает случ. аспект."
+  },
+  "stsjorbsmod:WastingForm": {
+    "NAME": "Wasting Form",
+    "DESCRIPTION": "Add !stsjorbsmod:MetaMagic! random Curses to your discard pile. NL Whenever you draw a Curse, deal !M! damage to ALL enemies."
+  },
+  "stsjorbsmod:WastingStrike": {
+    "NAME": "Wasting Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for each card in your exhaust pile."
+  },
+  "stsjorbsmod:Web": {
+    "NAME": "Паутина",
+    "DESCRIPTION": "Оставляется. NL Накладывает !M! Слабости. NL Сжигается."
+  },
+  "stsjorbsmod:WeightOfMemory": {
+    "NAME": "Гнёт воспоминаний",
+    "DESCRIPTION": "Наносит !D! Урона. NL Наносимый этой картой урон повышается на !M! за каждую карту, которая \"вспоминает\"."
+  },
+  "stsjorbsmod:Will": {
+    "NAME": "Великая воля",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Сжигает случ. NL карту в руке. Она стоит 0, пока не разыграна и stsjorbsmod:Эксгумируется, когда вы переходите в stsjorbsmod:Забвение.",
+    "UPGRADE_DESCRIPTION": "Даёт !B! Защиты. NL Сжигает выбранную карту в руке. Она стоит 0, пока не разыграна и stsjorbsmod:Эксгумируется, когда вы переходите в stsjorbsmod:Забвение."
+  },
+  "stsjorbsmod:Withdraw": {
+    "NAME": "Залечь на дно",
+    "DESCRIPTION": "Даёт !B! Защиты. NL Даёт !M! Артефакта. NL Сжигается."
+  },
+  "stsjorbsmod:Withering": {
+    "NAME": "Иссушение",
+    "DESCRIPTION": "Даёт !M! Неосязаемости. NL Повышает ваш порог урона Неосязаемости на !stsjorbsmod:MetaMagic! в этом бою, каждый раз, когда берётся."
+  }
+}
